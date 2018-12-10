@@ -1,0 +1,21 @@
+PODS:
+  - DinoDNA (0.2.55)
+
+DEPENDENCIES:
+  - "DinoDNA (from `git@bitbucket.org:appsaurus/dinodna.git`)"
+
+EXTERNAL SOURCES:
+  DinoDNA:
+    :git: "git@bitbucket.org:appsaurus/dinodna.git"
+
+CHECKOUT OPTIONS:
+  DinoDNA:
+    :commit: 7cb7c903149d5214d8ed2cfc16d77a220e5b47a6
+    :git: "git@bitbucket.org:appsaurus/dinodna.git"
+
+SPEC CHECKSUMS:
+  DinoDNA: 0c2d2e62f36b8a86b28864639045db0e23cab49c
+
+PODFILE CHECKSUM: a37b94daf42fc45d301a37fc473fd4164ea0a74e
+
+COCOAPODS: 1.5.3

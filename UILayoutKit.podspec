@@ -24,7 +24,8 @@ Pod::Spec.new do |s|
   s.osx.source_files = 'Sources/{macOS,Shared}/**/*'
   s.watchos.source_files = 'Sources/{watchOS,Shared}/**/*'
 
-  # s.ios.frameworks = 'UIKit', 'Foundation'
+  s.dependency = 'DinoDNA'
+  s.ios.frameworks = 'UIKit', 'Foundation'
   # s.osx.frameworks = 'Cocoa', 'Foundation'
 
 end
