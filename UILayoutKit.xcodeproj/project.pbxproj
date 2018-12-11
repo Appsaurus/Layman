@@ -32,10 +32,6 @@
 		E4AF81BE21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
 		E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
 		E4AF81C021BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
-		E4AF81C221BF1BD3002D6E86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81C121BF1BD3002D6E86 /* Extensions.swift */; };
-		E4AF81C321BF1BD3002D6E86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81C121BF1BD3002D6E86 /* Extensions.swift */; };
-		E4AF81C421BF1BD3002D6E86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81C121BF1BD3002D6E86 /* Extensions.swift */; };
-		E4AF81C521BF1BD3002D6E86 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81C121BF1BD3002D6E86 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +83,6 @@
 		E4AF81B221BF162A002D6E86 /* ConstraintLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayout.swift; sourceTree = "<group>"; };
 		E4AF81B321BF162A002D6E86 /* AnchorLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorLayout.swift; sourceTree = "<group>"; };
 		E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutExtensions.swift; sourceTree = "<group>"; };
-		E4AF81C121BF1BD3002D6E86 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E4AF81C821BF20FC002D6E86 /* UILayoutKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = UILayoutKit.podspec; sourceTree = "<group>"; };
 		E4AF81C921BF20FC002D6E86 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E4AF81CA21BF20FC002D6E86 /* circle.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = circle.yml; sourceTree = "<group>"; };
@@ -293,7 +288,6 @@
 				E4AF81B321BF162A002D6E86 /* AnchorLayout.swift */,
 				E4AF81B221BF162A002D6E86 /* ConstraintLayout.swift */,
 				E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */,
-				E4AF81C121BF1BD3002D6E86 /* Extensions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -634,7 +628,6 @@
 				E4AF81B721BF162B002D6E86 /* ConstraintLayout.swift in Sources */,
 				E4AF81BB21BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 				E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
-				E4AF81C421BF1BD3002D6E86 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,7 +647,6 @@
 				E4AF81B821BF162B002D6E86 /* ConstraintLayout.swift in Sources */,
 				E4AF81BC21BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 				E4AF81C021BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
-				E4AF81C521BF1BD3002D6E86 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,7 +657,6 @@
 				E4AF81B521BF162B002D6E86 /* ConstraintLayout.swift in Sources */,
 				E4AF81B921BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 				E4AF81BD21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
-				E4AF81C221BF1BD3002D6E86 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,7 +676,6 @@
 				E4AF81B621BF162B002D6E86 /* ConstraintLayout.swift in Sources */,
 				E4AF81BA21BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 				E4AF81BE21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
-				E4AF81C321BF1BD3002D6E86 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
