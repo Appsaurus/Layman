@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "UILayoutKit"
   s.summary          = "A short description of UILayoutKit."
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.homepage         = "github.com/Strobocop/UILayoutKit"
   s.license          = 'MIT'
   s.author           = { "Brian Strobach" => "brian@appsaurus.io" }
