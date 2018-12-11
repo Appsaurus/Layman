@@ -72,25 +72,25 @@ extension NSLayoutConstraint.Attribute{
 //MARK: -Expand size of superview
 extension UIView{
     public func autoForceSuperviewToMatchContentSize(insetBy insets: UIEdgeInsets = .zero, priority: UILayoutPriority? = .required){
-		autoForceSuperviewToMatchContentWidth(insetBy: insets, priority: priority)
-		autoForceSuperviewToMatchContentHeight(insetBy: insets, priority: priority)
+        autoForceSuperviewToMatchContentWidth(insetBy: insets, priority: priority)
+        autoForceSuperviewToMatchContentHeight(insetBy: insets, priority: priority)
     }
-
-	public func autoForceSuperviewToMatchContentWidth(insetBy insets: UIEdgeInsets = .zero, priority: UILayoutPriority? = .required){
-		anchorLeftToSuperview(constant: insets.left)
-		anchorRightToSuperview(constant: -insets.right)
-		autoSizeWidth(to: 0.0, relatedBy: .greaterThanOrEqual, priority: priority)
-		autoEnforceContentSize()
-	}
-
-	public func autoForceSuperviewToMatchContentHeight(insetBy insets: UIEdgeInsets = .zero, priority: UILayoutPriority? = .required){
-		anchorTopToSuperview(constant: insets.top)
-		anchorBottomToSuperview(constant: -insets.bottom)
-		autoSizeHeight(to: 0.0, relatedBy: .greaterThanOrEqual, priority: priority)
-		autoEnforceContentSize()
-	}
-
-
+    
+    public func autoForceSuperviewToMatchContentWidth(insetBy insets: UIEdgeInsets = .zero, priority: UILayoutPriority? = .required){
+        anchorLeftToSuperview(constant: insets.left)
+        anchorRightToSuperview(constant: -insets.right)
+        autoSizeWidth(to: 0.0, relatedBy: .greaterThanOrEqual, priority: priority)
+        autoEnforceContentSize()
+    }
+    
+    public func autoForceSuperviewToMatchContentHeight(insetBy insets: UIEdgeInsets = .zero, priority: UILayoutPriority? = .required){
+        anchorTopToSuperview(constant: insets.top)
+        anchorBottomToSuperview(constant: -insets.bottom)
+        autoSizeHeight(to: 0.0, relatedBy: .greaterThanOrEqual, priority: priority)
+        autoEnforceContentSize()
+    }
+    
+    
 }
 // MARK: - Pin: Superview
 extension UIView {
@@ -148,7 +148,7 @@ extension UIView{
     
     @discardableResult
     public func autoPin(toMarginsOf item: LayoutItem, excludingMargins: [NSLayoutConstraint.Attribute] = [], withInsets insets: UIEdgeInsets = .zero, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = .required) -> ConstraintDictionary {
-		var attributes: [NSLayoutConstraint.Attribute] = .margins
+        var attributes: [NSLayoutConstraint.Attribute] = .margins
         attributes.removeObjects(excludingMargins)
         return autoPin(to: attributes, of: item, withInsets: insets, relatedBy: relatedBy, priority: priority)
         
@@ -161,7 +161,7 @@ extension UIView {
     
     @discardableResult
     public func autoPin(toEdgesOf item: LayoutItem, excludingEdges: [NSLayoutConstraint.Attribute] = [], withInsets insets: UIEdgeInsets = .zero, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = .required) -> ConstraintDictionary {
-		var attributes: [NSLayoutConstraint.Attribute] = .sides
+        var attributes: [NSLayoutConstraint.Attribute] = .sides
         attributes.removeObjects(excludingEdges)
         return autoPin(to: attributes, of: item, withInsets: insets, relatedBy: relatedBy, priority: priority)
         
@@ -486,58 +486,58 @@ extension UIView {
 //MARK - Other
 
 extension Collection where Element == NSLayoutConstraint.Attribute{
-	public static var sides: [NSLayoutConstraint.Attribute]{
-		return [.top, .bottom, .left, .right]
-	}
-
-	public static var topAndBottom: [NSLayoutConstraint.Attribute]{
-		return [.top, .bottom]
-	}
-
-
-	public static var leftAndRight: [NSLayoutConstraint.Attribute]{
-		return [.left, .right]
-	}
-
-
-	public static var topRight: [NSLayoutConstraint.Attribute]{
-		return [.top, .right]
-	}
-	public static var topLeft: [NSLayoutConstraint.Attribute]{
-		return [.top, .left]
-	}
-
-	//MARK: Margins
-	public static var margins: [NSLayoutConstraint.Attribute]{
-		return [.topMargin, .bottomMargin, .leftMargin, .rightMargin]
-	}
-	public static var leftAndRightMargins: [NSLayoutConstraint.Attribute]{
-		return [.leftMargin, .rightMargin]
-	}
-	public static var topAndBottomMargins: [NSLayoutConstraint.Attribute]{
-		return [.topMargin, .bottomMargin]
-	}
-
-	public static var bottomRight: [NSLayoutConstraint.Attribute]{
-		return [.bottom, .right]
-	}
-	public static var bottomLeft: [NSLayoutConstraint.Attribute]{
-		return [.bottom, .left]
-	}
-
-	public static var topRightMargins: [NSLayoutConstraint.Attribute]{
-		return [.topMargin, .rightMargin]
-	}
-	public static var topLeftMargins: [NSLayoutConstraint.Attribute]{
-		return [.topMargin, .leftMargin]
-	}
-
-	public static var bottomRightMargins: [NSLayoutConstraint.Attribute]{
-		return [.bottomMargin, .rightMargin]
-	}
-	public static var bottomLeftMargins: [NSLayoutConstraint.Attribute]{
-		return [.bottomMargin, .leftMargin]
-	}
+    public static var sides: [NSLayoutConstraint.Attribute]{
+        return [.top, .bottom, .left, .right]
+    }
+    
+    public static var topAndBottom: [NSLayoutConstraint.Attribute]{
+        return [.top, .bottom]
+    }
+    
+    
+    public static var leftAndRight: [NSLayoutConstraint.Attribute]{
+        return [.left, .right]
+    }
+    
+    
+    public static var topRight: [NSLayoutConstraint.Attribute]{
+        return [.top, .right]
+    }
+    public static var topLeft: [NSLayoutConstraint.Attribute]{
+        return [.top, .left]
+    }
+    
+    //MARK: Margins
+    public static var margins: [NSLayoutConstraint.Attribute]{
+        return [.topMargin, .bottomMargin, .leftMargin, .rightMargin]
+    }
+    public static var leftAndRightMargins: [NSLayoutConstraint.Attribute]{
+        return [.leftMargin, .rightMargin]
+    }
+    public static var topAndBottomMargins: [NSLayoutConstraint.Attribute]{
+        return [.topMargin, .bottomMargin]
+    }
+    
+    public static var bottomRight: [NSLayoutConstraint.Attribute]{
+        return [.bottom, .right]
+    }
+    public static var bottomLeft: [NSLayoutConstraint.Attribute]{
+        return [.bottom, .left]
+    }
+    
+    public static var topRightMargins: [NSLayoutConstraint.Attribute]{
+        return [.topMargin, .rightMargin]
+    }
+    public static var topLeftMargins: [NSLayoutConstraint.Attribute]{
+        return [.topMargin, .leftMargin]
+    }
+    
+    public static var bottomRightMargins: [NSLayoutConstraint.Attribute]{
+        return [.bottomMargin, .rightMargin]
+    }
+    public static var bottomLeftMargins: [NSLayoutConstraint.Attribute]{
+        return [.bottomMargin, .leftMargin]
+    }
 }
 
 extension UIEdgeInsets{
@@ -600,6 +600,46 @@ extension Array where Element: UIView{
         return constraintMap
     }
     
+    
+    
+    
+    @discardableResult
+    public func autoStackVertically(insetFromSuperview insets: UIEdgeInsets = .zero) -> ConstraintDictionaryMap{
+        return autoStackVertically(insetFromSuperview: insets, spacing: 0)
+    }
+    /// Autostacks an array of views vertically inside a common superview. Requires that all views share the same superview.
+    ///
+    /// - Returns: Constraints mapped to each view
+    @discardableResult
+    public func autoStackVertically(insetFromSuperview insets: UIEdgeInsets = .zero, spacing: CGFloat...) -> ConstraintDictionaryMap{
+        
+        assert(spacing.count == 0 || spacing.count == self.count - 1 || spacing.count == 1, "Invalid number of paramters for spacing")
+        var constraintMap: ConstraintDictionaryMap = [:]
+        guard let firstView = self.first else{
+            return constraintMap
+        }
+        
+        guard self[safe: 1] != nil else{//If only one view exists
+            constraintMap[firstView] = firstView.autoPinToSuperview(withInsets: insets)
+            return constraintMap
+        }
+        
+        
+        for (index, view) in self.enumerated() {
+            if index == 0{
+                constraintMap[view] = view.autoPinToSuperview(excludingEdges: [.bottom], withInsets: insets)
+            }
+            else{
+                constraintMap[view] = view.autoPinToSuperview(edges: .leftAndRight, withInsets: insets)
+                let space = spacing[safe: index - 1] ?? spacing[safe: 0] ?? 0
+                constraintMap[view]?[.top] = view.autoPin(edge: .top, toEdge: .bottom, of: self[index - 1], withOffset: space)
+                if index == self.lastIndex{
+                    constraintMap[view]?[.bottom] = view.autoPinToSuperview(edge: .bottom, withOffset: insets.bottom)
+                }
+            }
+        }
+        return constraintMap
+    }
     
     
     
@@ -697,14 +737,14 @@ extension UIView{
 
 
 extension UIView{
-	public func layoutDynamicHeight(forWidth width: CGFloat){
-		translatesAutoresizingMaskIntoConstraints = false
-		let widthConstraint = autoSizeWidth(to: width)
-		addConstraint(widthConstraint)
-		forceAutolayoutPass()
-		let height = systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
-		removeConstraint(widthConstraint)
-		frame = CGRect(x: 0, y: 0, width: width, height: height)
-		translatesAutoresizingMaskIntoConstraints = true
-	}
+    public func layoutDynamicHeight(forWidth width: CGFloat){
+        translatesAutoresizingMaskIntoConstraints = false
+        let widthConstraint = autoSizeWidth(to: width)
+        addConstraint(widthConstraint)
+        forceAutolayoutPass()
+        let height = systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
+        removeConstraint(widthConstraint)
+        frame = CGRect(x: 0, y: 0, width: width, height: height)
+        translatesAutoresizingMaskIntoConstraints = true
+    }
 }
