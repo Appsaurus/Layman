@@ -14,7 +14,6 @@ Pod::Spec.new do |s|
   s.swift_version = '4.2'
   s.requires_arc = true
 
-  s.dependency 'DinoDNA'
   s.dependency 'UIKitExtensions'
 
   s.ios.deployment_target = '9.0'

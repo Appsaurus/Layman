@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DinoDNA
 
 public typealias ConstraintDictionary = [NSLayoutConstraint.Attribute : NSLayoutConstraint]
 public typealias ConstraintDictionaryMap = [UIView : ConstraintDictionary]
@@ -149,7 +148,7 @@ extension UIView{
     @discardableResult
     public func autoPin(toMarginsOf item: LayoutItem, excludingMargins: [NSLayoutConstraint.Attribute] = [], withInsets insets: UIEdgeInsets = .zero, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = .required) -> ConstraintDictionary {
         var attributes: [NSLayoutConstraint.Attribute] = .margins
-        attributes.removeObjects(excludingMargins)
+        attributes.removeAll(where: {excludingMargins.contains($0)})
         return autoPin(to: attributes, of: item, withInsets: insets, relatedBy: relatedBy, priority: priority)
         
     }
@@ -162,7 +161,7 @@ extension UIView {
     @discardableResult
     public func autoPin(toEdgesOf item: LayoutItem, excludingEdges: [NSLayoutConstraint.Attribute] = [], withInsets insets: UIEdgeInsets = .zero, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = .required) -> ConstraintDictionary {
         var attributes: [NSLayoutConstraint.Attribute] = .sides
-        attributes.removeObjects(excludingEdges)
+        attributes.removeAll(where: {excludingEdges.contains($0)})
         return autoPin(to: attributes, of: item, withInsets: insets, relatedBy: relatedBy, priority: priority)
         
     }

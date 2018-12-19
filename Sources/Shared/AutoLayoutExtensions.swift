@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import DinoDNA
 import UIKitExtensions
 
 //Dynamic Height TableView Header //TODO: Fix bug where height breaks after rotation
