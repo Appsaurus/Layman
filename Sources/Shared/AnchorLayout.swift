@@ -156,42 +156,42 @@ extension UIView {
     }
     
     @discardableResult
-    public func topAnchor(equalTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func topAnchor(equalTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return topAnchor.constraint(equalTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func bottomAnchor(equalTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func bottomAnchor(equalTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return bottomAnchor.constraint(equalTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func leftAnchor(equalTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func leftAnchor(equalTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return leftAnchor.constraint(equalTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func rightAnchor(equalTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func rightAnchor(equalTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return rightAnchor.constraint(equalTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func leadingAnchor(equalTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func leadingAnchor(equalTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return leadingAnchor.constraint(equalTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func trailingAnchor(equalTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func trailingAnchor(equalTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return trailingAnchor.constraint(equalTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func heightAnchor(equalTo constant: CGFloat) -> NSLayoutConstraint {
+    public func heightAnchor(equalTo constant: CGFloat) -> Constraint {
         return heightAnchor.constraint(equalToConstant: constant).activated()
     }
     
     @discardableResult
-    public func widthAnchor(equalTo constant: CGFloat) -> NSLayoutConstraint {
+    public func widthAnchor(equalTo constant: CGFloat) -> Constraint {
         return widthAnchor.constraint(equalToConstant: constant).activated()
     }
     
@@ -199,83 +199,83 @@ extension UIView {
     
     //MARK: GreaterThan
     @discardableResult
-    public func topAnchor(greaterThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func topAnchor(greaterThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return topAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func bottomAnchor(greaterThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func bottomAnchor(greaterThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return bottomAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func leftAnchor(greaterThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func leftAnchor(greaterThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return leftAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func rightAnchor(greaterThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func rightAnchor(greaterThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return rightAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func leadingAnchor(greaterThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func leadingAnchor(greaterThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return leadingAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func trailingAnchor(greaterThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func trailingAnchor(greaterThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return trailingAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func heightAnchor(greaterThanOrEqualTo constant: CGFloat) -> NSLayoutConstraint {
+    public func heightAnchor(greaterThanOrEqualTo constant: CGFloat) -> Constraint {
         return heightAnchor.constraint(greaterThanOrEqualToConstant: constant).activated()
     }
     
     @discardableResult
-    public func widthAnchor(greaterThanOrEqualTo constant: CGFloat) -> NSLayoutConstraint {
+    public func widthAnchor(greaterThanOrEqualTo constant: CGFloat) -> Constraint {
         return widthAnchor.constraint(greaterThanOrEqualToConstant: constant).activated()
     }
     
     //MARK: LessThan
     @discardableResult
-    public func topAnchor(lessThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func topAnchor(lessThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return topAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func bottomAnchor(lessThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func bottomAnchor(lessThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return bottomAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func leftAnchor(lessThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func leftAnchor(lessThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return leftAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func rightAnchor(lessThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func rightAnchor(lessThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return rightAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func leadingAnchor(lessThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func leadingAnchor(lessThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return leadingAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func trailingAnchor(lessThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func trailingAnchor(lessThanOrEqualTo anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return trailingAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant).activated()
     }
     
     @discardableResult
-    public func heightAnchor(lessThanOrEqualTo constant: CGFloat) -> NSLayoutConstraint {
+    public func heightAnchor(lessThanOrEqualTo constant: CGFloat) -> Constraint {
         return heightAnchor.constraint(lessThanOrEqualToConstant: constant).activated()
     }
     
     @discardableResult
-    public func widthAnchor(lessThanOrEqualTo constant: CGFloat) -> NSLayoutConstraint {
+    public func widthAnchor(lessThanOrEqualTo constant: CGFloat) -> Constraint {
         return widthAnchor.constraint(lessThanOrEqualToConstant: constant).activated()
     }
     
@@ -343,9 +343,18 @@ extension UIView {
     
 }
 
-extension NSLayoutConstraint{
-    public func activated() -> NSLayoutConstraint{
-        self.isActive = true
+extension Constraint{
+
+    @discardableResult
+    public func install() -> Constraint{
+
+    }
+    public func activated(_ active: Bool = true) -> Constraint{
+        self.isActive = active
         return self
+    }
+
+    public func deactivated() -> Constraint{
+        return activated(false)
     }
 }
