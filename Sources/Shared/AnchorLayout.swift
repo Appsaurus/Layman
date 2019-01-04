@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Swiftest
 //public class AutoLayoutBuilder{
 //	public enum LayoutAttribute{
 //		case left
@@ -345,16 +345,34 @@ extension UIView {
 
 extension Constraint{
 
-    @discardableResult
-    public func install() -> Constraint{
-
+    public var items: [AnyObject?]{
+        return [firstItem, secondItem]
     }
-    public func activated(_ active: Bool = true) -> Constraint{
-        self.isActive = active
+
+    @discardableResult
+    public func activated(with configuration: LayoutConfiguration) -> Constraint{
+        return configured(with: configuration).activated()
+    }
+
+    @discardableResult
+    public func activated(with priority: Priority? = nil) -> Constraint{
+        self.priority =? priority
+        isActive = true
+
+        #if DEBUG
+            let views = items.filtered(as: UIView.self)
+            if views.count == 2{
+                guard let commonSuperview = views[0].nearestCommonSuperviewWith(other: views[1]) else{
+                    assertionFailure("Views that share constraints must share a common superview.")
+                    return constraint
+                }
+            }
+        #endif
         return self
     }
 
     public func deactivated() -> Constraint{
-        return activated(false)
+        isActive = false
+        return self
     }
 }

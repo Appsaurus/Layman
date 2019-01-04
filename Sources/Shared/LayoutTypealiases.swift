@@ -14,6 +14,23 @@ public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
 public typealias Priority = UILayoutPriority
 
+extension Priority: CGFloatConvertible, CGFloatInitializable {
+    public init(_ cgFloat: CGFloat) {
+        self.init(cgFloat.float)
+    }
+
+    public var cgFloat: CGFloat {
+        return rawValue.cgFloat
+    }
+}
+
+extension Priority: ExpressibleByIntegerLiteral{
+    public typealias IntegerLiteralType = Int
+    public init(integerLiteral value: Int) {
+        self.init(value.float)
+    }
+}
+
 public typealias ConstraintDictionary = [Attribute: Constraint]
 public typealias ConstraintDictionaryMap = [UIView: ConstraintDictionary]
 
@@ -62,4 +79,23 @@ public struct ConstraintGroup {
         return [top, leading, bottom, trailing]
     }
 
+}
+
+//MARK: UILayoutPriority shorthand sugar
+
+extension UILayoutPriority{
+    /// Shorthand syntax for UILayoutPriority.defaultHigh
+    public static var high: UILayoutPriority{
+        return .defaultHigh
+    }
+
+    /// Shorthand syntax for UILayoutPriority.defaultLow
+    public static var low: UILayoutPriority{
+        return .defaultLow
+    }
+
+    /// Shorthand syntax for UILayoutPriority.fittingSizeLevel
+    public static var fittingSize: UILayoutPriority{
+        return .fittingSizeLevel
+    }
 }

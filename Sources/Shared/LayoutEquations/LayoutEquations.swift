@@ -107,7 +107,7 @@ public struct LayoutRelationEquation<AT: AnchorType, LA: LayoutAnchor<AT>> {
                 return anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
             }
         }()
-        return constraint.configured(with: configuration)
+        return constraint.activated(with: configuration)
     }
 }
 
@@ -116,39 +116,4 @@ public struct AnchorPair<F: AnyObject, S: AnyObject>{
     public var second: LayoutAnchor<S>
 }
 
-//@discardableResult
-//public func == <AT: AnchorType, LA: LayoutAnchor<AT>>(lhs: LA, rhs: LA) -> NSLayoutConstraint {
-//    return LayoutRelationEquation<AT, LA>(anchor: lhs, relation: .equal, relatedAnchor: rhs)
-//        .constraint
-//        .activated()
-//}
 
-
-//@discardableResult public func == <D, LA>(lhs: LA, rhs: LayoutExpression<D>) -> NSLayoutConstraint where D: DimensionAnchor, LA: LayoutAnchor<D>{
-//    return LayoutRelationEquation(anchor: lhs,
-//                                  relation: .equal,
-//                                  relatedAnchor: rhs.anchor,
-//                                  configuration: rhs.configuration)
-//        .constraint
-//        .activated()
-//}
-
-@discardableResult public func == (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutExpression<DimensionAnchor>) -> NSLayoutConstraint{
-    return LayoutRelationEquation(anchor: lhs,
-                                  relation: .equal,
-                                  relatedAnchor: rhs.anchor,
-                                  configuration: rhs.configuration)
-        .constraint
-        .activated()
-}
-
-
-@discardableResult public func == (lhs: DimensionAnchor, rhs: DimensionAnchor) -> NSLayoutConstraint {
-    return LayoutRelationEquation(anchor: lhs, relation: .equal, relatedAnchor: rhs)
-        .constraint
-        .activated()
-}
-
-@discardableResult public func + (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutConstant) -> LayoutExpression<DimensionAnchor> {
-    return LayoutExpression<DimensionAnchor>(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
-}

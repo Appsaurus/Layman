@@ -1,6 +1,8 @@
 PODS:
   - DarkMagic (0.0.2)
-  - Swiftest (0.0.12)
+  - Swiftest (0.0.13)
+  - SwiftLint (0.29.2)
+  - SwiftTestUtils (0.1.2)
   - UIKitExtensions (0.0.10):
     - DarkMagic
     - Swiftest
@@ -8,13 +10,21 @@ PODS:
 DEPENDENCIES:
   - DarkMagic (from `https://github.com/Appsaurus/DarkMagic`)
   - Swiftest (from `https://github.com/Appsaurus/Swiftest`)
+  - SwiftLint
+  - SwiftTestUtils (from `https://github.com/appsaurus/SwiftTestUtils.git`)
   - UIKitExtensions (from `https://github.com/Appsaurus/UIKitExtensions`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftLint
 
 EXTERNAL SOURCES:
   DarkMagic:
     :git: https://github.com/Appsaurus/DarkMagic
   Swiftest:
     :git: https://github.com/Appsaurus/Swiftest
+  SwiftTestUtils:
+    :git: https://github.com/appsaurus/SwiftTestUtils.git
   UIKitExtensions:
     :git: https://github.com/Appsaurus/UIKitExtensions
 
@@ -23,17 +33,22 @@ CHECKOUT OPTIONS:
     :commit: 0dd7dbb31d16ef1afd4ccc75b1179a54296aaaed
     :git: https://github.com/Appsaurus/DarkMagic
   Swiftest:
-    :commit: 04f08cde027f74180457600caf53ab29be2ae8ea
+    :commit: 3f6c9f3168dcc89d6cb17479e4fcb677e7926e7d
     :git: https://github.com/Appsaurus/Swiftest
+  SwiftTestUtils:
+    :commit: ee2905865b92773dcbae076a4c585108ad13de90
+    :git: https://github.com/appsaurus/SwiftTestUtils.git
   UIKitExtensions:
     :commit: a45169c544a5ba9c9d2a11e21ff1a19ef9167d46
     :git: https://github.com/Appsaurus/UIKitExtensions
 
 SPEC CHECKSUMS:
   DarkMagic: b71093ea6606dd5737eca437e63aa8a30db213b5
-  Swiftest: 98d648aba22af5da50970a0e46b4593f63e911bf
+  Swiftest: c5f3ad14999edc7dda8b8870d7fb05fcb108986a
+  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
+  SwiftTestUtils: 72446afda6c7b362fc266f78a5ddb0516869e412
   UIKitExtensions: 9bdf623aa0fc87c40d0759ea63b1fb1409aa144a
 
-PODFILE CHECKSUM: bb56a7aadc249e9937882898dd769357a78213cb
+PODFILE CHECKSUM: 1d6d7fcf9fca8b1fce95cfcd50e0a7bf26dad328
 
 COCOAPODS: 1.5.3

@@ -4,6 +4,7 @@ class iOSTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
+    print("HACK TO MAKE PROPERLY INSTALL BUNDLE")
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
 

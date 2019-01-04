@@ -35,5 +35,7 @@ constraint = view1.heightAnchor == view2.heightAnchor + 300 ~ .defaultHigh
 XCTAssertEqual(constraint.constant, 300)
 
 XCTAssertEqual(constraint.priority, .defaultHigh)
-print(view1.constraints.count)
+print(parent.constraints.count)
+print(view1.constraints)
+print(view2.constraints.count)
 print("SUCCESS")
