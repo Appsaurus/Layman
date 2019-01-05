@@ -15,33 +15,33 @@ public protocol LayoutAnchorType {}
 extension LayoutAnchor: LayoutAnchorType {}
 
 public class LayoutExpression<A: AnchorType> {
-
+    
     public var anchor: LayoutAnchor<A>
     public var configuration: LayoutConfiguration
-
+    
     public init(anchor: LayoutAnchor<A>, configuration: LayoutConfiguration = .default) {
         self.anchor = anchor
         self.configuration = configuration
     }
-
+    
     @discardableResult
     public func configured(with configuration: LayoutConfiguration) -> Self{
         self.configuration = configuration
         return self
     }
-
+    
     @discardableResult
     public func with(constant: LayoutConstant) -> Self{
         configuration.constant = constant
         return self
     }
-
+    
     @discardableResult
     public func with(multiplier: LayoutMultiplier) -> Self{
         configuration.multiplier = multiplier
         return self
     }
-
+    
     @discardableResult
     public func with(priority: Priority) -> Self{
         configuration.priority = priority
@@ -49,20 +49,15 @@ public class LayoutExpression<A: AnchorType> {
     }
 }
 
-
-
-
-
-
 public struct LayoutDimensionEquation {
-
+    
     public var anchor: DimensionAnchor
     public var relation: Relation
     public var configuration: LayoutConfiguration
-
-
+    
+    
     public var constraint: Constraint{
-
+        
         let constraint: Constraint = {
             switch relation{
             case .lessThanOrEqual:
@@ -74,17 +69,17 @@ public struct LayoutDimensionEquation {
             }
         }()
         return constraint.configured(with: configuration)
-
+        
     }
 }
 
 public struct LayoutRelationEquation<AT: AnchorType, LA: LayoutAnchor<AT>> {
-
+    
     public var anchor: LA
     public var relation: Relation
     public var relatedAnchor: LA
     public var configuration: LayoutConfiguration
-
+    
     public init(anchor: LA,
                 relation: Relation,
                 relatedAnchor: LA,
@@ -94,8 +89,17 @@ public struct LayoutRelationEquation<AT: AnchorType, LA: LayoutAnchor<AT>> {
         self.relatedAnchor = relatedAnchor
         self.configuration = configuration
     }
-
-
+    
+    public init<LE>(anchor: LA,
+                    relation: Relation,
+                    relatedExpression: LE) where LE : LayoutExpression<LA> {
+        self.init(anchor: anchor,
+                  relation: relation,
+                  relatedAnchor: relatedExpression.anchor as! LA,
+                  configuration: relatedExpression.configuration)
+    }
+    
+    
     public var constraint: Constraint{
         let constraint: Constraint = {
             switch relation{

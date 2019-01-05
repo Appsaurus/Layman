@@ -1,32 +1,13 @@
 //
-//  LayoutEquationOperators.swift
+//  DimensionOperators.swift
 //  UILayoutKit
 //
-//  Created by Brian Strobach on 1/3/19.
+//  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-import UIKit
-
-precedencegroup PriorityPrecedence {
-    associativity: none
-    higherThan: ComparisonPrecedence
-    lowerThan: AdditionPrecedence
-}
-
-infix operator ~ : PriorityPrecedence
-
-@discardableResult
-public func ~ <A>(lhs: LayoutAnchor<A>, rhs: Priority) -> LayoutExpression<A> {
-    return LayoutExpression(anchor: lhs).with(priority: rhs)
-}
-
-@discardableResult
-public func ~ <A>(lhs: LayoutExpression<A>, rhs: Priority) -> LayoutExpression<A> {
-    return lhs.with(priority: rhs)
-}
-
-//MARK: DimensionAnchor ==
+//MARK: Equal
+//MARK: Anchor == Expression
 @discardableResult
 public func == (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutExpression<DimensionAnchor>) -> Constraint{
     return LayoutRelationEquation(anchor: lhs,
@@ -36,6 +17,7 @@ public func == (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutExpression<Dimens
 }
 
 
+//MARK: Anchor == Anchor
 @discardableResult
 public func == (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutAnchor<DimensionAnchor>) -> Constraint {
     return LayoutRelationEquation(anchor: lhs,
@@ -43,7 +25,8 @@ public func == (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutAnchor<DimensionA
                                   relatedAnchor: rhs).constraint
 }
 
-//MARK: DimensionAnchor <=
+//MARK: LessThanOrEqual
+//MARK: Anchor <= Expression
 @discardableResult
 public func <= (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutExpression<DimensionAnchor>) -> Constraint{
     return LayoutRelationEquation(anchor: lhs,
@@ -53,6 +36,7 @@ public func <= (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutExpression<Dimens
 }
 
 
+//MARK: Anchor <= Anchor
 @discardableResult
 public func <= (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutAnchor<DimensionAnchor>) -> Constraint {
     return LayoutRelationEquation(anchor: lhs,
@@ -60,7 +44,8 @@ public func <= (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutAnchor<DimensionA
                                   relatedAnchor: rhs).constraint
 }
 
-//MARK: DimensionAnchor >=
+//MARK: GreaterThanOrEqual
+//MARK: Anchor >= Expression
 @discardableResult
 public func >= (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutExpression<DimensionAnchor>) -> Constraint{
     return LayoutRelationEquation(anchor: lhs,
@@ -70,6 +55,7 @@ public func >= (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutExpression<Dimens
 }
 
 
+//MARK: Anchor >= Anchor
 @discardableResult
 public func >= (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutAnchor<DimensionAnchor>) -> Constraint {
     return LayoutRelationEquation(anchor: lhs,
@@ -77,8 +63,7 @@ public func >= (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutAnchor<DimensionA
                                   relatedAnchor: rhs).constraint
 }
 
-
-//MARK: DimensionAnchor Arithmetic
+//MARK: Constant Arithmetic
 @discardableResult
 public func + (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutConstant) -> LayoutExpression<DimensionAnchor> {
     return LayoutExpression<DimensionAnchor>(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
@@ -92,27 +77,4 @@ public func / (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutConstant) -> Layou
 @discardableResult
 public func * (lhs: LayoutAnchor<DimensionAnchor>, rhs: LayoutConstant) -> LayoutExpression<DimensionAnchor> {
     return LayoutExpression<DimensionAnchor>(anchor: lhs, configuration: LayoutConfiguration(multiplier: rhs))
-}
-
-
-//MARK: Priority Arithmetic
-
-public func == (lhs: Priority, rhs: Priority) -> Bool {
-    return lhs.rawValue == rhs.rawValue
-}
-
-public func + (lhs: Priority, rhs: LayoutConstant) -> Priority {
-    return Priority(rawValue: lhs.rawValue + rhs.float)
-}
-
-public func + (lhs: LayoutConstant, rhs: Priority) -> Priority {
-    return Priority(rawValue: lhs.float + rhs.rawValue)
-}
-
-public func - (lhs: Priority, rhs: LayoutConstant) -> Priority {
-    return Priority(rawValue: lhs.rawValue - rhs.float)
-}
-
-public func - (lhs: LayoutConstant, rhs: Priority) -> Priority {
-    return Priority(rawValue: lhs.float - rhs.rawValue)
 }
