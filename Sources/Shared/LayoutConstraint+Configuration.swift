@@ -37,7 +37,7 @@ public extension Constraint {
     }
 
     @discardableResult
-    public func with(priority: Priority) -> Self{
+    public func with(priority: LayoutPriority) -> Self{
         self.priority = priority
         return self
     }
@@ -52,9 +52,9 @@ public class LayoutConfiguration {
 
     public var constant: LayoutConstant
     public var multiplier: LayoutMultiplier
-    public var priority: Priority
+    public var priority: LayoutPriority
 
-    public init(constant: LayoutConstant = 0.0, multiplier: LayoutMultiplier = 1.0, priority: Priority = .required) {
+    public init(constant: LayoutConstant = 0.0, multiplier: LayoutMultiplier = 1.0, priority: LayoutPriority = .required) {
         self.constant = constant
         self.multiplier = multiplier
         self.priority = priority
@@ -69,7 +69,7 @@ public class LayoutConfiguration {
         self.multiplier = multiplier
         return self
     }
-    public func with(priority: Priority) -> LayoutConfiguration{
+    public func with(priority: LayoutPriority) -> LayoutConfiguration{
         self.priority = priority
         return self
     }

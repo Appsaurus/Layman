@@ -355,7 +355,7 @@ extension Constraint{
     }
 
     @discardableResult
-    public func activated(with priority: Priority? = nil) -> Constraint{
+    public func activated(with priority: LayoutPriority? = nil) -> Constraint{
         self.priority =? priority
         isActive = true
 

@@ -12,9 +12,11 @@ import Swiftest
 public typealias LayoutInset = UIEdgeInsets
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
-public typealias Priority = UILayoutPriority
+public typealias ConstraintPair = (first: Constraint, second: Constraint)
 
-extension Priority: CGFloatConvertible, CGFloatInitializable {
+public typealias LayoutPriority = UILayoutPriority
+
+extension LayoutPriority: CGFloatConvertible, CGFloatInitializable {
     public init(_ cgFloat: CGFloat) {
         self.init(cgFloat.float)
     }
@@ -24,39 +26,30 @@ extension Priority: CGFloatConvertible, CGFloatInitializable {
     }
 }
 
-extension Priority: ExpressibleByIntegerLiteral{
+extension LayoutPriority: ExpressibleByIntegerLiteral{
     public typealias IntegerLiteralType = Int
     public init(integerLiteral value: Int) {
         self.init(value.float)
     }
 }
 
-public typealias ConstraintDictionary = [Attribute: Constraint]
-public typealias ConstraintDictionaryMap = [UIView: ConstraintDictionary]
-
-
-
-public typealias LayoutRelationshipComparator<Value: Comparable> = (Value, Value) -> Bool
-
-public typealias Relation = Constraint.Relation
+//public typealias Relation = Constraint.Relation
 
 public typealias LayoutAnchor = NSLayoutAnchor
 public typealias AnchorType = AnyObject
 
 public typealias XAxisAnchor = NSLayoutXAxisAnchor
+public typealias XAxisAnchors = LayoutAnchors<XAxisAnchor, XAxisAnchor>
+
 public typealias YAxisAnchor = NSLayoutYAxisAnchor
-public typealias DimensionAnchor = NSLayoutDimension
+public typealias YAxisAnchors = LayoutAnchors<YAxisAnchor, YAxisAnchor>
+
+public typealias LayoutDimension = NSLayoutDimension
+public typealias LayoutDimensions = LayoutAnchors<LayoutDimension, LayoutDimension>
 
 public typealias LayoutMultiplier = CGFloat
 public typealias LayoutConstant = CGFloat
 
-
-// MARK: - Axis Group
-
-public struct ConstraintPair {
-    public var first: Constraint
-    public var second: Constraint
-}
 
 // MARK: - ConstraintGroup
 
