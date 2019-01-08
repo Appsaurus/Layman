@@ -6,18 +6,19 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-#if os(macOS)
+#if canImport(Cocoa)
 import Cocoa
 #else
 import UIKit
 #endif
 
+public typealias CenterAnchors = LayoutAnchors<XAxisAnchor, YAxisAnchor>
 public protocol LayoutAnchorable {
 
     var horizontalAnchors: XAxisAnchors { get }
     var verticalAnchors: YAxisAnchors { get }
-    var centerAnchors: LayoutAnchors<NSLayoutXAxisAnchor, NSLayoutYAxisAnchor> { get }
-    var sizeAnchors: LayoutDimensions { get }
+    var centerAnchors: CenterAnchors { get }
+    var sizeAnchors: SizeAnchors { get }
 
 }
 
@@ -39,11 +40,11 @@ extension UIView: LayoutAnchorable {
         return LayoutAnchors(topAnchor, bottomAnchor)
     }
 
-    public var centerAnchors: LayoutAnchors<NSLayoutXAxisAnchor, NSLayoutYAxisAnchor> {
+    public var centerAnchors: CenterAnchors {
         return LayoutAnchors(centerXAnchor, centerYAnchor)
     }
 
-    public var sizeAnchors: LayoutDimensions {
+    public var sizeAnchors: SizeAnchors {
         return LayoutAnchors(widthAnchor, heightAnchor)
     }
 
@@ -63,11 +64,11 @@ extension UIViewController: LayoutAnchorable {
         #endif
     }
 
-    public var centerAnchors: LayoutAnchors<NSLayoutXAxisAnchor, NSLayoutYAxisAnchor> {
+    public var centerAnchors: CenterAnchors {
         return view.centerAnchors
     }
 
-    public var sizeAnchors: LayoutDimensions {
+    public var sizeAnchors: SizeAnchors {
         return view.sizeAnchors
     }
 
@@ -83,11 +84,11 @@ extension UILayoutGuide: LayoutAnchorable {
         return LayoutAnchors(topAnchor, bottomAnchor)
     }
 
-    public var centerAnchors: LayoutAnchors<NSLayoutXAxisAnchor, NSLayoutYAxisAnchor> {
+    public var centerAnchors: CenterAnchors {
         return LayoutAnchors(centerXAnchor, centerYAnchor)
     }
 
-    public var sizeAnchors: LayoutDimensions {
+    public var sizeAnchors: SizeAnchors {
         return LayoutAnchors(widthAnchor, heightAnchor)
     }
 

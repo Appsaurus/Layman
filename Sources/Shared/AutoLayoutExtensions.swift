@@ -5,6 +5,7 @@
 //  Created by Brian Strobach on 12/7/18.
 //
 
+#if canImport(UIKit)
 import UIKit
 import UIKitExtensions
 
@@ -22,7 +23,7 @@ extension UITableView {
         headerView.translatesAutoresizingMaskIntoConstraints = true
         self.tableHeaderView = headerView
     }
-    
+
     /// Dynamically Size TableView headers with AutoLayout
     //  NOTE: Requires following override in UITableViewController
     //    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -37,9 +38,15 @@ extension UITableView {
     /// - Parameters:
     ///   - view: Base view for header
     ///   - insets: Insets for base view
-    
-    public func setupDynamicHeightTableHeaderView(fittingContentView view: UIView, insets: UIEdgeInsets = 20){
+
+    public func setupDynamicHeightTableHeaderView(fittingContentView view: UIView,
+                                                  insets: UIEdgeInsets = 20){
         tableHeaderView = UIView.parentViewFittingContent(of: view, insetBy: insets)
     }
-    
+
 }
+
+
+#endif
+
+

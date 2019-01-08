@@ -27,11 +27,11 @@ public func ~ <A>(lhs: LayoutExpression<A>, rhs: LayoutPriority) -> LayoutExpres
 }
 
 @discardableResult
-public func ~ <F, S>(lhs: LayoutAnchors<F, S>, rhs: LayoutPriority) -> MultiTermLayoutExpression<F, S> {
-    return MultiTermLayoutExpression(anchors: lhs).with(priority: rhs)
+public func ~ <F, S>(lhs: LayoutAnchors<F, S>, rhs: LayoutPriority) -> LayoutPairExpression<F, S> {
+    return LayoutPairExpression(anchors: lhs).with(priority: rhs)
 }
 
 @discardableResult
-public func ~ <F, S>(lhs: MultiTermLayoutExpression<F, S>, rhs: LayoutPriority) -> MultiTermLayoutExpression<F, S> {
+public func ~ <F, S>(lhs: LayoutPairExpression<F, S>, rhs: LayoutPriority) -> LayoutPairExpression<F, S> {
     return lhs.with(priority: rhs)
 }

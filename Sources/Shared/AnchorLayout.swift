@@ -8,62 +8,10 @@
 
 import UIKit
 import Swiftest
-//public class AutoLayoutBuilder{
-//	public enum LayoutAttribute{
-//		case left
-//		case right
-//		case top
-//		case bottom
-//
-//		case leading
-//		case trailing
-//
-//		case width
-//		case height
-//
-//		case centerX
-//		case centerY
-//
-//		case lastBaseline
-//
-//		@available(iOS 8.0, *)
-//		case firstBaseline
-//
-//
-//		@available(iOS 8.0, *)
-//		case leftMargin
-//
-//		@available(iOS 8.0, *)
-//		case rightMargin
-//
-//		@available(iOS 8.0, *)
-//		case topMargin
-//
-//		@available(iOS 8.0, *)
-//		case bottomMargin
-//
-//		@available(iOS 8.0, *)
-//		case leadingMargin
-//
-//		@available(iOS 8.0, *)
-//		case trailingMargin
-//
-//		@available(iOS 8.0, *)
-//		case centerXWithinMargins
-//
-//		@available(iOS 8.0, *)
-//		case centerYWithinMargins
-//
-//		case topRight
-//		case topLeft
-//		case bottomRight
-//		case bottomLeft
-//	}
-//}
 
 extension UIView {
     fileprivate func assertSuperview() -> UIView{
-        assert(superview != nil, "Åttempted to create constraint between a view and its superview without a superview.")
+        assert(superview != nil, "Attempted to create constraint between a view and its superview without a superview.")
         return superview!
     }
     
@@ -341,38 +289,4 @@ extension UIView {
         }
     }
     
-}
-
-extension Constraint{
-
-    public var items: [AnyObject?]{
-        return [firstItem, secondItem]
-    }
-
-    @discardableResult
-    public func activated(with configuration: LayoutConfiguration) -> Constraint{
-        return configured(with: configuration).activated()
-    }
-
-    @discardableResult
-    public func activated(with priority: LayoutPriority? = nil) -> Constraint{
-        self.priority =? priority
-        isActive = true
-
-        #if DEBUG
-            let views = items.filtered(as: UIView.self)
-            if views.count == 2{
-                guard let commonSuperview = views[0].nearestCommonSuperviewWith(other: views[1]) else{
-                    assertionFailure("Views that share constraints must share a common superview.")
-                    return constraint
-                }
-            }
-        #endif
-        return self
-    }
-
-    public func deactivated() -> Constraint{
-        isActive = false
-        return self
-    }
 }

@@ -1,8 +1,8 @@
 //
-//  LayoutConstraint+Configuration.swift
+//  ConstraintExtensions.swift
 //  UILayoutKit
 //
-//  Created by Brian Strobach on 1/3/19.
+//  Created by Brian Strobach on 1/8/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
@@ -12,7 +12,44 @@ import Cocoa
 import UIKit
 #endif
 
-public extension Constraint {
+import Swiftest
+
+extension Constraint{
+
+    public var items: [AnyObject?]{
+        return [firstItem, secondItem]
+    }
+
+    @discardableResult
+    public func activated(with configuration: LayoutConfiguration) -> Constraint{
+        return configured(with: configuration).activated()
+    }
+
+    @discardableResult
+    public func activated(with priority: LayoutPriority? = nil) -> Constraint{
+        self.priority =? priority
+        isActive = true
+
+        #if DEBUG
+        let views = items.filtered(as: UIView.self)
+        if views.count == 2{
+            guard let commonSuperview = views[0].nearestCommonSuperviewWith(other: views[1]) else{
+                assertionFailure("Views that share constraints must share a common superview.")
+                return constraint
+            }
+        }
+        #endif
+        return self
+    }
+
+    public func deactivated() -> Constraint{
+        isActive = false
+        return self
+    }
+}
+
+//MARK: Constraint + LayoutConfiguration
+extension Constraint {
     public func configured(with configuration: LayoutConfiguration) -> Constraint{
         let constraint = Constraint(item: firstItem as Any,
                                     attribute: firstAttribute,
@@ -43,34 +80,4 @@ public extension Constraint {
     }
 }
 
-// MARK: - LayoutConfiguration
-public class LayoutConfiguration {
 
-    public static var `default`: LayoutConfiguration{
-        return LayoutConfiguration()
-    }
-
-    public var constant: LayoutConstant
-    public var multiplier: LayoutMultiplier
-    public var priority: LayoutPriority
-
-    public init(constant: LayoutConstant = 0.0, multiplier: LayoutMultiplier = 1.0, priority: LayoutPriority = .required) {
-        self.constant = constant
-        self.multiplier = multiplier
-        self.priority = priority
-    }
-
-
-    public func with(constant: LayoutConstant) -> LayoutConfiguration{
-        self.constant = constant
-        return self
-    }
-    public func with(multiplier: LayoutMultiplier) -> LayoutConfiguration{
-        self.multiplier = multiplier
-        return self
-    }
-    public func with(priority: LayoutPriority) -> LayoutConfiguration{
-        self.priority = priority
-        return self
-    }
-}

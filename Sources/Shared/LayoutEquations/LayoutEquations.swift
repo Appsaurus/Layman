@@ -6,20 +6,25 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import Swiftest
 
 
 public protocol LayoutAnchorType {}
 extension LayoutAnchor: LayoutAnchorType {}
+extension EdgeAnchors : LayoutAnchorType {}
+extension LayoutAnchors : LayoutAnchorType {}
 
 
-public protocol LayoutExpressionBuilder: class{
-    var configuration: LayoutConfiguration { get set }
-}
+public class LayoutExpression<A: AnchorType> {
 
-extension LayoutExpressionBuilder{
+    public var anchor: LayoutAnchor<A>
+    public var configuration: LayoutConfiguration
+
+    public init(anchor: LayoutAnchor<A>, configuration: LayoutConfiguration = .default) {
+        self.anchor = anchor
+        self.configuration = configuration
+    }
+
     @discardableResult
     public func configured(with configuration: LayoutConfiguration) -> Self{
         self.configuration = configuration
@@ -45,28 +50,73 @@ extension LayoutExpressionBuilder{
     }
 }
 
-public class LayoutExpression<A: AnchorType>: LayoutExpressionBuilder {
+public struct LayoutRelationship<A: AnchorType> {
 
     public var anchor: LayoutAnchor<A>
+    public var relation: Constraint.Relation
+    public var relatedAnchor: LayoutAnchor<A>?
     public var configuration: LayoutConfiguration
 
-    public init(anchor: LayoutAnchor<A>, configuration: LayoutConfiguration = .default) {
+    public init(_ anchor: LayoutAnchor<A>,
+                _ relation: Constraint.Relation,
+                _ relatedAnchor: LayoutAnchor<A>?,
+                _ configuration: LayoutConfiguration = .default) {
         self.anchor = anchor
+        self.relation = relation
+        self.relatedAnchor = relatedAnchor
         self.configuration = configuration
     }
 
-
-}
-
-public struct LayoutDimensionEquation {
-
-    public var anchor: LayoutDimension
-    public var relation: Constraint.Relation
-    public var configuration: LayoutConfiguration
+    public init(_ anchor: LayoutAnchor<A>,
+                _ relation: Constraint.Relation,
+                _ relatedExpression: LayoutExpression<A>) {
+        self.init(anchor,
+                  relation,
+                  relatedExpression.anchor,
+                  relatedExpression.configuration)
+    }
 
 
     public var constraint: Constraint{
 
+        if let relatedAnchor = relatedAnchor {
+            return constraintRelated(to: relatedAnchor)
+        }
+
+        if let anchor = anchor as? LayoutDimension {
+            return sizeConstraint(for: anchor)
+        }
+        preconditionFailure("LayoutRelationship must contain two anchors or one anchor of type LayoutDimension")
+    }
+    
+    internal func constraintRelated(to relatedAnchor: LayoutAnchor<A>) -> Constraint{
+        var constraint: Constraint = {
+            switch relation{
+            case .lessThanOrEqual:
+                return anchor.constraint(lessThanOrEqualTo: relatedAnchor)
+            case .equal:
+                return anchor.constraint(equalTo: relatedAnchor)
+            case .greaterThanOrEqual:
+                return anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
+            }
+        }()
+
+        switch constraint.secondAttribute{
+        case .right, .bottom, .trailing, .rightMargin, .bottomMargin, .trailingMargin:
+            configuration.constant.negate()
+            switch relation{
+            case .lessThanOrEqual:
+                constraint = anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
+            case .greaterThanOrEqual:
+                constraint = anchor.constraint(lessThanOrEqualTo: relatedAnchor)
+            default: break
+            }
+        default: break
+        }
+        return constraint.activated(with: configuration)
+    }
+
+    internal func sizeConstraint(for anchor: LayoutDimension) -> Constraint{
         let constraint: Constraint = {
             switch relation{
             case .lessThanOrEqual:
@@ -77,96 +127,124 @@ public struct LayoutDimensionEquation {
                 return anchor.constraint(greaterThanOrEqualToConstant: configuration.constant)
             }
         }()
+        return constraint.activated(with: configuration)
+    }
+}
+
+public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>>{
+
+    public var anchor: LayoutAnchor<A>
+    public var relation: Constraint.Relation
+    public var configuration: LayoutConfiguration
+
+    public init(_ anchor: LayoutAnchor<A>,
+                _ relation: Constraint.Relation,
+                _ configuration: LayoutConfiguration = .default) {
+        self.anchor = anchor
+        self.relation = relation
+        self.configuration = configuration
+    }
+
+    public init(_ anchor: LayoutAnchor<A>,
+                _ relation: Constraint.Relation,
+                _ relatedExpression: LayoutExpression<A>) {
+        self.init(anchor,
+                  relation,
+                  relatedExpression.configuration)
+    }
+
+
+    public var constraint: Constraint{
+        let dimension = anchor as! LayoutDimension
+        let constraint: Constraint = {
+            switch relation{
+            case .lessThanOrEqual:
+                return dimension.constraint(lessThanOrEqualToConstant: configuration.constant)
+            case .equal:
+                return dimension.constraint(equalToConstant: configuration.constant)
+            case .greaterThanOrEqual:
+                return dimension.constraint(greaterThanOrEqualToConstant: configuration.constant)
+            }
+        }()
         return constraint.configured(with: configuration)
 
     }
 }
 
 
-public struct LayoutEquation<AT: AnchorType> {
-
-    public var anchor: LayoutAnchor<AT>
-    public var relation: Constraint.Relation
-    public var relatedAnchor: LayoutAnchor<AT>
-    public var configuration: LayoutConfiguration
-
-    public init(_ anchor: LayoutAnchor<AT>,
-                _ relation: Constraint.Relation,
-                _ relatedAnchor: LayoutAnchor<AT>,
-                _ configuration: LayoutConfiguration = .default) {
-        self.anchor = anchor
-        self.relation = relation
-        self.relatedAnchor = relatedAnchor
-        self.configuration = configuration
-    }
-
-    public init(_ anchor: LayoutAnchor<AT>,
-                _ relation: Constraint.Relation,
-                _ relatedExpression: LayoutExpression<AT>) {
-        self.init(anchor,
-                  relation,
-                  relatedExpression.anchor,
-                  relatedExpression.configuration)
-    }
-
-
-    public var constraint: Constraint{
-        let constraint: Constraint = {
-            switch relation{
-            case .lessThanOrEqual:
-                return anchor.constraint(lessThanOrEqualTo: relatedAnchor)
-            case .equal:
-                return anchor.constraint(equalTo: relatedAnchor)
-            case .greaterThanOrEqual:
-                return anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
-            }
-        }()
-        return constraint.activated(with: configuration)
-    }
-}
-
-
-public class MultiTermLayoutExpression<F: AnchorType, S: AnchorType>: LayoutExpressionBuilder {
+public class LayoutPairExpression<F: AnchorType, S: AnchorType> {
 
     public var anchors: LayoutAnchors<F, S>
-    public var configuration: LayoutConfiguration
+    public var configurations: LayoutPairConfiguration
 
-    public init(anchors: LayoutAnchors<F, S>, configuration: LayoutConfiguration = .default) {
+    public init(anchors: LayoutAnchors<F, S>, configurations: LayoutPairConfiguration = .default) {
         self.anchors = anchors
-        self.configuration = configuration
+        self.configurations = configurations
+    }
+
+    public init(anchors: LayoutAnchors<F, S>, configuration: LayoutConfiguration) {
+        self.anchors = anchors
+        self.configurations = LayoutPairConfiguration(configuration, configuration)
+    }
+
+    @discardableResult
+    public func configured(with configuration: LayoutConfiguration) -> Self{
+        self.configurations = LayoutPairConfiguration(configuration, configuration)
+        return self
+    }
+
+    @discardableResult
+    public func with(constant: LayoutConstant) -> Self{
+        configurations.first.constant = constant
+        configurations.second.constant = constant
+        return self
+    }
+
+    @discardableResult
+    public func with(multiplier: LayoutMultiplier) -> Self{
+        configurations.first.multiplier = multiplier
+        configurations.second.multiplier = multiplier
+        return self
+    }
+
+    @discardableResult
+    public func with(priority: LayoutPriority) -> Self{
+        configurations.first.priority = priority
+        configurations.second.priority = priority
+        return self
     }
 }
 
-public struct MultiTermLayoutEquation<F: AnchorType, S: AnchorType> {
+public struct LayoutPairRelationship<F: AnchorType, S: AnchorType> {
 
     public var anchors: LayoutAnchors<F, S>
     public var relation: Constraint.Relation
     public var relatedAnchors: LayoutAnchors<F, S>
-    public var configuration: LayoutConfiguration
+    public var configurations: LayoutPairConfiguration
 
     public init(_ anchors: LayoutAnchors<F, S>,
                 _ relation: Constraint.Relation,
                 _ relatedAnchors: LayoutAnchors<F, S>,
-                _ configuration: LayoutConfiguration = .default) {
+                _ configurations: LayoutPairConfiguration = .default) {
         self.anchors = anchors
         self.relation = relation
         self.relatedAnchors = relatedAnchors
-        self.configuration = configuration
+        self.configurations = configurations
     }
 
     public init(_ anchors: LayoutAnchors<F, S>,
                 _ relation: Constraint.Relation,
-                _ relatedExpression: MultiTermLayoutExpression<F,S>) {
+                _ relatedExpression: LayoutPairExpression<F,S>) {
         self.init(anchors,
                   relation,
                   relatedExpression.anchors,
-                  relatedExpression.configuration)
+                  relatedExpression.configurations)
     }
 
 
     public var constraints: ConstraintPair{
-        return (LayoutEquation(anchors.first, relation, relatedAnchors.first, configuration).constraint,
-                LayoutEquation(anchors.second, relation, relatedAnchors.second, configuration).constraint)
+        return (LayoutRelationship(anchors.first, relation, relatedAnchors.first, configurations.first).constraint,
+                LayoutRelationship(anchors.second, relation, relatedAnchors.second, configurations.second).constraint)
     }
 }
 
@@ -178,4 +256,22 @@ public struct LayoutAnchors<F: AnchorType, S: AnchorType> {
         self.first = first
         self.second = second
     }
+}
+
+public struct LayoutPairConfiguration {
+    public static var `default` = LayoutPairConfiguration(.default, .default)
+
+    public var first: LayoutConfiguration
+    public var second: LayoutConfiguration
+
+    public init(_ first: LayoutConfiguration, _ second: LayoutConfiguration) {
+        self.first = first
+        self.second = second
+    }
+
+    public init(_ configuration: LayoutConfiguration) {
+        self.first = configuration
+        self.second = configuration
+    }
+
 }
