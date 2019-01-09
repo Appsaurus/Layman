@@ -8,7 +8,7 @@
 //
 
 
-#if os(macOS)
+#if canImport(AppKit)
 import AppKit
 #else
 import UIKit
@@ -17,42 +17,21 @@ import UIKit
 @testable import UILayoutKit
 import XCTest
 
-#if swift(>=4.0)
-public typealias ConstraintAttribute = Constraint.Attribute
-#else
-public typealias ConstraintAttribute = NSLayoutAttribute
-func XCTAssertEqual<T>(_ expression1: @autoclosure () throws -> T, _ expression2: @autoclosure () throws -> T, accuracy: T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) where T : FloatingPoint {
-XCTAssertEqualWithAccuracy(expression1, expression2, accuracy: accuracy, message, file: file, line: line)
-}
-#endif
-
-#if os(macOS)
+#if canImport(AppKit)
 typealias TestView = NSView
 typealias TestWindow = NSWindow
 
-#if swift(>=4.0)
 let TestPriorityRequired = Constraint.Priority.required
 let TestPriorityHigh = Constraint.Priority.defaultHigh
 let TestPriorityLow = Constraint.Priority.defaultLow
-#else
-let TestPriorityRequired = NSLayoutPriorityRequired
-let TestPriorityHigh = NSLayoutPriorityDefaultHigh
-let TestPriorityLow = NSLayoutPriorityDefaultLow
-#endif
 
 #else
 typealias TestView = UIView
 typealias TestWindow = UIWindow
 
-#if swift(>=4.0)
 let TestPriorityRequired = UILayoutPriority.required
 let TestPriorityHigh = UILayoutPriority.defaultHigh
 let TestPriorityLow = UILayoutPriority.defaultLow
-#else
-let TestPriorityRequired = UILayoutPriorityRequired
-let TestPriorityHigh = UILayoutPriorityDefaultHigh
-let TestPriorityLow = UILayoutPriorityDefaultLow
-#endif
 #endif
 
 let cgEpsilon: CGFloat = 0.00001
@@ -518,7 +497,7 @@ class SharedTests: XCTestCase {
 //        XCTAssertEqual(bottom.firstAttribute, .bottom)
 //        XCTAssertEqual(bottom.secondAttribute, .bottom)
 //    }
-//
+
 //    func testEdgeAnchorsWithInsets() {
 //        let insets = EdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
 //

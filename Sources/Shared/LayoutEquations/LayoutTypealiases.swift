@@ -17,15 +17,17 @@ import Swiftest
 public typealias Constraint = NSLayoutConstraint
 public typealias ConstraintPair = (first: Constraint, second: Constraint)
 public typealias Constraints = [Constraint]
-
+public typealias ConstraintAttribute = Constraint.Attribute
+public typealias ConstraintAttributes = [ConstraintAttribute]
 
 
 public typealias LayoutAnchor = NSLayoutAnchor
+//public typealias LayoutAnchors<A: AnchorType> = [LayoutAnchor<A>]
 
 public typealias AnchorType = AnyObject
+public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 
 //MARK: Typed Anchors
-
 public typealias XAxisAnchor = NSLayoutXAxisAnchor
 public typealias XAxisAnchors = LayoutAnchors<XAxisAnchor, XAxisAnchor>
 
@@ -35,6 +37,7 @@ public typealias YAxisAnchors = LayoutAnchors<YAxisAnchor, YAxisAnchor>
 public typealias LayoutDimension = NSLayoutDimension
 public typealias SizeAnchors = LayoutAnchors<LayoutDimension, LayoutDimension>
 
+public typealias CenterAnchors = LayoutAnchors<XAxisAnchor, YAxisAnchor>
 
 //MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat

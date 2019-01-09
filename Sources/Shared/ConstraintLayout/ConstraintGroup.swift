@@ -21,8 +21,7 @@ internal extension Set{
 }
 
 
-public typealias Attribute = Constraint.Attribute
-public typealias Attributes = [Attribute]
+public typealias Attributes = [ConstraintAttribute]
 
 public func - (lhs: Attributes, rhs: Attributes) -> Attributes{
     return lhs.set.subtracting(rhs).array
@@ -31,7 +30,8 @@ public func - (lhs: Attributes, rhs: Attributes) -> Attributes{
 public func + (lhs: Attributes, rhs: Attributes) -> Attributes{
     return lhs.set.union(rhs).array
 }
-extension Collection where Element == Attribute{
+
+extension Collection where Element == ConstraintAttribute{
 
     public static var edges: Attributes{
         return [.top, .leading, .bottom, .trailing]
@@ -135,15 +135,37 @@ extension Collection where Element == Attribute{
     }
 }
 
+public protocol AttributeRepresentable{
+    var flatAttributes: [ConstraintAttribute] { get }
+}
 
-extension Array where Element == Attribute{
+extension ConstraintAttribute: AttributeRepresentable{
+
+    public var flatAttributes: [ConstraintAttribute] {
+        return [self]
+    }
+}
+
+//extension Array: AttributeRepresentable where Element == ConstraintAttribute{
+//    public var flatAttributes: [ConstraintAttribute] {
+//        return self.compactMap({$0})
+//    }
+//}
+
+extension Array: AttributeRepresentable where Element == AttributeRepresentable{
+    public var flatAttributes: [ConstraintAttribute] {
+        return self.compactMap({$0.flatAttributes}).flattened
+    }
+}
+
+extension Array where Element == ConstraintAttribute{
     public var toMargins: Array{
         return map{$0.margin}
     }
 }
 
-extension Attribute{
-    public var margin: Attribute{
+extension ConstraintAttribute{
+    public var margin: ConstraintAttribute{
         switch self{
         case .top, .topMargin:
             return .topMargin

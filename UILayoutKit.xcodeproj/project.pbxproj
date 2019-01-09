@@ -456,7 +456,6 @@
 				E458223E21E3F96E00B6054C /* LayoutDimension */,
 				E458223F21E3F9A000B6054C /* XAxisAnchor */,
 				E458224421E3F9EC00B6054C /* YAxisAnchor */,
-				E458224A21E50F6900B6054C /* CenterAnchorsOperators.swift */,
 			);
 			path = AnchorTypes;
 			sourceTree = "<group>";
@@ -468,6 +467,14 @@
 				E487379D21DE50F00094F2EB /* ConstraintGroup.swift */,
 			);
 			path = ConstraintLayout;
+			sourceTree = "<group>";
+		};
+		E458226321E65AF900B6054C /* GroupedAnchors */ = {
+			isa = PBXGroup;
+			children = (
+				E458224A21E50F6900B6054C /* CenterAnchorsOperators.swift */,
+			);
+			path = GroupedAnchors;
 			sourceTree = "<group>";
 		};
 		E48737AD21DEA2440094F2EB /* LayoutEquations */ = {
@@ -484,6 +491,7 @@
 		E48737B021DFFC310094F2EB /* Operators */ = {
 			isa = PBXGroup;
 			children = (
+				E458226321E65AF900B6054C /* GroupedAnchors */,
 				E458224921E50F2100B6054C /* AnchorTypes */,
 				E48737BD21E074D70094F2EB /* LayoutConstantArithmeticOperators.swift */,
 				E48737C121E0754D0094F2EB /* LayoutPriorityArithmeticOperators.swift */,

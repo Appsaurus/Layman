@@ -15,7 +15,6 @@ public func == (lhs: SizeAnchors, rhs: SizeAnchorsExpression) -> ConstraintPair{
     return LayoutPairRelationship(lhs, .equal, rhs).constraints
 }
 
-
 //MARK: Anchors == Anchors
 @discardableResult
 public func == (lhs: SizeAnchors, rhs: SizeAnchors) -> ConstraintPair {
