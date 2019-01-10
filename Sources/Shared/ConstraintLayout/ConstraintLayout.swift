@@ -463,14 +463,14 @@ extension UIView {
 
 
 extension UIEdgeInsets{
-    @available(iOS, obsoleted: 11.0, message: "Because fuck apple")
-    public init(top: CGFloat = 0.0, left: CGFloat = 0.0, bottom: CGFloat = 0.0, right: CGFloat = 0.0 ) {
-        self.init()
-        self.top = top
-        self.left = left
-        self.right = right
-        self.bottom = bottom
-    }
+//    @available(iOS, obsoleted: 11.0, message: "Because fuck apple")
+//    public init(top: CGFloat = 0.0, left: CGFloat = 0.0, bottom: CGFloat = 0.0, right: CGFloat = 0.0 ) {
+//        self.init()
+//        self.top = top
+//        self.left = left
+//        self.right = right
+//        self.bottom = bottom
+//    }
     
     func layoutOffsetValue(edgeAttribute: ConstraintAttribute) -> CGFloat{
         switch edgeAttribute{

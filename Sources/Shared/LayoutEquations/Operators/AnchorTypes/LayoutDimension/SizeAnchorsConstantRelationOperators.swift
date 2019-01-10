@@ -21,8 +21,8 @@ public func == (lhs: SizeAnchors, rhs: CGSize) -> ConstraintPair {
 
 @discardableResult
 public func == (lhs: SizeAnchors, rhs: LayoutPairConfiguration) -> ConstraintPair {
-    return (lhs.first == rhs.first,
-            lhs.second == rhs.second)
+    return (LayoutRelationship(lhs.first, .equal, nil, rhs.first).constraint,
+            LayoutRelationship(lhs.second, .equal, nil, rhs.second).constraint)
 }
 
 //MARK: SizeAnchors <= Constant
@@ -55,5 +55,5 @@ public func >= (lhs: SizeAnchors, rhs: CGSize) -> ConstraintPair {
 @discardableResult
 public func >= (lhs: SizeAnchors, rhs: LayoutPairConfiguration) -> ConstraintPair {
     return (LayoutRelationship(lhs.first, .greaterThanOrEqual, nil, rhs.first).constraint,
-            LayoutRelationship(lhs.second, .equal, nil, rhs.second).constraint)
+            LayoutRelationship(lhs.second, .greaterThanOrEqual, nil, rhs.second).constraint)
 }

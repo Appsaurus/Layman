@@ -12,21 +12,7 @@ import Cocoa
 import UIKit
 #endif
 
-public class LayoutConfiguration {
-
-    public static var `default`: LayoutConfiguration{
-        return LayoutConfiguration()
-    }
-
-    public static func constant(_ constant: LayoutConstant) -> LayoutConfiguration{
-        return LayoutConfiguration(constant: constant)
-    }
-    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutConfiguration{
-        return LayoutConfiguration(multiplier: multiplier)
-    }
-    public static func priority(_ priority: LayoutPriority) -> LayoutConfiguration{
-        return LayoutConfiguration(priority: priority)
-    }
+public final class LayoutConfiguration {
 
     public var constant: LayoutConstant
     public var multiplier: LayoutMultiplier
@@ -55,3 +41,23 @@ public class LayoutConfiguration {
     }
 }
 
+extension LayoutConfiguration: Defaultable {
+    public static var `default`: LayoutConfiguration{
+        return .init()
+    }
+
+    public static func constant(_ constant: LayoutConstant) -> LayoutConfiguration{
+        return LayoutConfiguration(constant: constant)
+    }
+    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutConfiguration{
+        return LayoutConfiguration(multiplier: multiplier)
+    }
+    public static func priority(_ priority: LayoutPriority) -> LayoutConfiguration{
+        return LayoutConfiguration(priority: priority)
+    }
+}
+
+
+public final class LayoutPairConfiguration: Pair<LayoutConfiguration>, Defaultable {
+    public static var `default`: LayoutPairConfiguration { return .init(.default) }
+}

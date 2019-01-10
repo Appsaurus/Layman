@@ -6,8 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public typealias YAxisAnchorsExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
-
 //MARK: Equal
 //MARK: Anchors == Expression
 @discardableResult

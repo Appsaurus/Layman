@@ -6,7 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public typealias CenterAnchorsExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
 
 
 //MARK: Equal

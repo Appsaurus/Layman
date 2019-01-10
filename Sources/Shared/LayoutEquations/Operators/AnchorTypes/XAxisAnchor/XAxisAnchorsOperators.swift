@@ -6,8 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public typealias XAxisAnchorsExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
-
 //MARK: Equal
 //MARK: Anchors == Expression
 @discardableResult

@@ -49,10 +49,10 @@ extension NSLayoutAnchor{
 }
 extension LayoutAnchorable {
     public var edgeAnchors: EdgeAnchors {
-        return  EdgeAnchors(top: topAnchor,
-                            leading: leadingAnchor,
-                            bottom: bottomAnchor,
-                            trailing: trailingAnchor)
+        return  EdgeAnchors(topAnchor,
+                            leadingAnchor,
+                            bottomAnchor,
+                            trailingAnchor)
     }
 
     public func anchors(_ attributes: ConstraintAttributes) -> [NSLayoutAnchor<AnchorType>] {

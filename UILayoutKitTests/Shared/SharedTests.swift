@@ -38,6 +38,28 @@ let cgEpsilon: CGFloat = 0.00001
 let fEpsilon: Float = 0.00001
 let dEpsilon: Double = 0.00001
 
+fileprivate extension Constraint{
+    fileprivate func assert(_ firstItem: (AnyObject & LayoutAnchorable)?,
+                            _ firstAttribute: ConstraintAttribute?,
+                            _ relation: Constraint.Relation,
+                            _ secondItem: (AnyObject & LayoutAnchorable)? = nil,
+                            _ secondAttribute: ConstraintAttribute? = .notAnAttribute,
+                            constant: LayoutConstant = 0.0,
+                            multiplier: LayoutMultiplier = 1.0,
+                            priority: LayoutPriority = .required,
+                            file: StaticString = #file,
+                            line: UInt = #line){
+        assertIdentical(firstItem, self.firstItem, file: file, line: line)
+        XCTAssertEqual(firstAttribute, self.firstAttribute, file: file, line: line)
+        XCTAssertEqual(relation, self.relation, file: file, line: line)
+        assertIdentical(secondItem, self.secondItem, file: file, line: line)
+        XCTAssertEqual(secondAttribute, self.secondAttribute, file: file, line: line)
+        XCTAssertEqual(constant, self.constant, accuracy: cgEpsilon, file: file, line: line)
+        XCTAssertEqual(multiplier, self.multiplier, accuracy: cgEpsilon, file: file, line: line)
+        XCTAssertEqual(priority.rawValue, self.priority.rawValue, accuracy: fEpsilon, file: file, line: line)
+        XCTAssertTrue(isActive, file: file, line: line)
+    }
+}
 class SharedTests: XCTestCase {
 
     let view1 = TestView()
@@ -54,112 +76,85 @@ class SharedTests: XCTestCase {
         window.addSubview(view2)
         #endif
     }
+
     func testEqualityToConstant() {
         let constraint = view1.widthAnchor == 200
-        assertIdentical(constraint.firstItem, view1)
-        XCTAssertNil(constraint.secondItem)
-        XCTAssertEqual(constraint.constant, 200, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .equal)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .notAnAttribute)
+        constraint.assert(view1, .width, .equal, constant: 200)
     }
 
     func testGreaterThanConstant() {
         let constraint = view1.widthAnchor >= 200
-        assertIdentical(constraint.firstItem, view1)
-        XCTAssertNil(constraint.secondItem)
-        XCTAssertEqual(constraint.constant, 200, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .greaterThanOrEqual)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .notAnAttribute)
+        constraint.assert(view1, .width, .greaterThanOrEqual, constant: 200)
     }
+
+//    func testEqualityToConstant() {
+//        let constraint = view1.widthAnchor == 200
+//        assertIdentical(constraint.firstItem, view1)
+//        XCTAssertNil(constraint.secondItem)
+//        XCTAssertEqual(constraint.constant, 200, accuracy: cgEpsilon)
+//        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
+//        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
+//        XCTAssertTrue(constraint.isActive)
+//        XCTAssertEqual(constraint.relation, .equal)
+//        XCTAssertEqual(constraint.firstAttribute, .width)
+//        XCTAssertEqual(constraint.secondAttribute, .notAnAttribute)
+//    }
+
+//    func testGreaterThanConstant() {
+//        let constraint = view1.widthAnchor == 200
+//        assertIdentical(constraint.firstItem, view1)
+//        XCTAssertNil(constraint.secondItem)
+//        XCTAssertEqual(constraint.constant, 200, accuracy: cgEpsilon)
+//        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
+//        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
+//        XCTAssertTrue(constraint.isActive)
+//        XCTAssertEqual(constraint.relation, .greaterThanOrEqual)
+//        XCTAssertEqual(constraint.firstAttribute, .width)
+//        XCTAssertEqual(constraint.secondAttribute, .notAnAttribute)
+//    }
 
     func testLessThanConstant() {
         let constraint = view1.widthAnchor <= 200
-        assertIdentical(constraint.firstItem, view1)
-        XCTAssertNil(constraint.secondItem)
-        XCTAssertEqual(constraint.constant, 200, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .lessThanOrEqual)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .notAnAttribute)
+        constraint.assert(view1, .width, .lessThanOrEqual, constant: 200)
     }
 
     func testBasicEquality() {
         let constraint = view1.widthAnchor == view2.widthAnchor
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .equal)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .width)
+        constraint.assert(view1, .width, .equal, view2, .width)
     }
 
     func testBasicLessThan() {
         let constraint = view1.widthAnchor <= view2.widthAnchor
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .lessThanOrEqual)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .width)
+        constraint.assert(view1, .width, .lessThanOrEqual, view2, .width)
     }
 
     func testBasicGreaterThan() {
         let constraint = view1.widthAnchor >= view2.widthAnchor
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .greaterThanOrEqual)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .width)
+        constraint.assert(view1, .width, .greaterThanOrEqual, view2, .width)
     }
 
     func testEqualityWithOffset() {
         let constraint = view1.widthAnchor == view2.widthAnchor + 10
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 10, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .equal)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .width)
+        constraint.assert(view1, .width, .equal, view2, .width, constant: 10)
     }
 
     func testEqualityWithMultiplier() {
         let constraint = view1.widthAnchor == view2.widthAnchor / 2
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 0.5, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .equal)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .width)
+        constraint.assert(view1, .width, .equal, view2, .width, multiplier: 0.5)
+//        assertIdentical(constraint.firstItem, view1)
+//        assertIdentical(constraint.secondItem, view2)
+//        XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
+//        XCTAssertEqual(constraint.multiplier, 0.5, accuracy: cgEpsilon)
+//        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
+//        XCTAssertTrue(constraint.isActive)
+//        XCTAssertEqual(constraint.relation, .equal)
+//        XCTAssertEqual(constraint.firstAttribute, .width)
+//        XCTAssertEqual(constraint.secondAttribute, .width)
     }
 
     func testAxisAnchorEqualityWithMultiplier() {
         let constraint = view1.leadingAnchor == view2.trailingAnchor / 2
+        constraint.assert(view1, .leading, .equal, view2, .trailing, multiplier: 0.5)
         assertIdentical(constraint.firstItem, view1)
         assertIdentical(constraint.secondItem, view2)
         XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
@@ -173,58 +168,27 @@ class SharedTests: XCTestCase {
 
     func testEqualityWithOffsetAndMultiplier() {
         let constraint = view1.widthAnchor == (view2.widthAnchor + 10) / 2
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 10, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 0.5, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .equal)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .width)
+        constraint.assert(view1, .width, .equal, view2, .width, constant: 10.0, multiplier: 0.5)
     }
 
     func testAxisAnchorEqualityWithOffsetAndMultiplier() {
         let constraint = view1.trailingAnchor == (view2.centerXAnchor + 10) / 2
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 10, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 0.5, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .equal)
-        XCTAssertEqual(constraint.firstAttribute, .trailing)
-        XCTAssertEqual(constraint.secondAttribute, .centerX)
+        constraint.assert(view1, .trailing, .equal, view2, .centerX, constant: 10.0, multiplier: 0.5)
     }
 
     func testEqualityWithPriorityConstant() {
-        let constraint = view1.widthAnchor == view2.widthAnchor ~ .high
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityHigh.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .equal)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .width)
+        let constraint = view1.widthAnchor == view2.widthAnchor ~ .low
+        constraint.assert(view1, .width, .equal, view2, .width, priority: .low)
     }
 
     func testEqualityWithPriorityLiteral() {
         let constraint = view1.widthAnchor == view2.widthAnchor ~ 750
-        assertIdentical(constraint.firstItem, view1)
-        assertIdentical(constraint.secondItem, view2)
-        XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.multiplier, 1, accuracy: cgEpsilon)
-        XCTAssertEqual(constraint.priority.rawValue, TestPriorityHigh.rawValue, accuracy: fEpsilon)
-        XCTAssertTrue(constraint.isActive)
-        XCTAssertEqual(constraint.relation, .equal)
-        XCTAssertEqual(constraint.firstAttribute, .width)
-        XCTAssertEqual(constraint.secondAttribute, .width)
+        constraint.assert(view1, .width, .equal, view2, .width, priority: LayoutPriority(rawValue: 750))
     }
 
     func testEqualityWithPriorityConstantMath() {
         let constraint = view1.widthAnchor == view2.widthAnchor ~ .high - 1
+        constraint.assert(view1, .width, .equal, view2, .width, priority: LayoutPriority(rawValue: 749))
         assertIdentical(constraint.firstItem, view1)
         assertIdentical(constraint.secondItem, view2)
         XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
@@ -238,6 +202,7 @@ class SharedTests: XCTestCase {
 
     func testEqualityWithPriorityLiteralMath() {
         let constraint = view1.widthAnchor == view2.widthAnchor ~ LayoutPriority(rawValue: 750 - 1)
+                constraint.assert(view1, .width, .equal, view2, .width, priority: LayoutPriority(rawValue: 749))
         assertIdentical(constraint.firstItem, view1)
         assertIdentical(constraint.secondItem, view2)
         XCTAssertEqual(constraint.constant, 0, accuracy: cgEpsilon)
@@ -251,6 +216,7 @@ class SharedTests: XCTestCase {
 
     func testEqualityWithOffsetAndPriorityMath() {
         let constraint = view1.widthAnchor == view2.widthAnchor + 10 ~ .high - 1
+        constraint.assert(view1, .width, .equal, view2, .width, constant: 10, priority: LayoutPriority(rawValue: 749))
         assertIdentical(constraint.firstItem, view1)
         assertIdentical(constraint.secondItem, view2)
         XCTAssertEqual(constraint.constant, 10, accuracy: cgEpsilon)
@@ -263,9 +229,7 @@ class SharedTests: XCTestCase {
     }
 
     func testEqualityWithOffsetAndMultiplierAndPriorityMath() {
-        let priority = UILayoutPriority.high - 1
-        let exp = (view2.widthAnchor + 10) / 2.0
-        let constraint = view1.widthAnchor == exp ~ priority
+        let constraint = view1.widthAnchor == (view2.widthAnchor + 10) / 2 ~ .high - 1
         assertIdentical(constraint.firstItem, view1)
         assertIdentical(constraint.secondItem, view2)
         XCTAssertEqual(constraint.constant, 10, accuracy: cgEpsilon)
@@ -500,215 +464,127 @@ class SharedTests: XCTestCase {
         XCTAssertEqual(bottom.secondAttribute, .bottom)
     }
 
-//    func testEdgeAnchorsWithInsets() {
-//        let insets = EdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
-//
-//        let constraints = view1.edgeAnchors == view2.edgeAnchors + insets ~ .high - 1
-//
-//        let leading = constraints.leading
-//        assertIdentical(leading.firstItem, view1)
-//        assertIdentical(leading.secondItem, view2)
-//        XCTAssertEqual(leading.constant, 5, accuracy: cgEpsilon)
-//        XCTAssertEqual(leading.multiplier, 1, accuracy: cgEpsilon)
-//        XCTAssertEqual(leading.priority.rawValue, TestPriorityHigh.rawValue - 1, accuracy: fEpsilon)
-//        XCTAssertTrue(leading.isActive)
-//        XCTAssertEqual(leading.relation, .equal)
-//        XCTAssertEqual(leading.firstAttribute, .leading)
-//        XCTAssertEqual(leading.secondAttribute, .leading)
-//
-//        let trailing = constraints.trailing
-//        assertIdentical(trailing.firstItem, view1)
-//        assertIdentical(trailing.secondItem, view2)
-//        XCTAssertEqual(trailing.constant, -20, accuracy: cgEpsilon)
-//        XCTAssertEqual(trailing.multiplier, 1, accuracy: cgEpsilon)
-//        XCTAssertEqual(trailing.priority.rawValue, TestPriorityHigh.rawValue - 1, accuracy: fEpsilon)
-//        XCTAssertTrue(trailing.isActive)
-//        XCTAssertEqual(trailing.relation, .equal)
-//        XCTAssertEqual(trailing.firstAttribute, .trailing)
-//        XCTAssertEqual(trailing.secondAttribute, .trailing)
-//
-//        let top = constraints.top
-//        assertIdentical(top.firstItem, view1)
-//        assertIdentical(top.secondItem, view2)
-//        XCTAssertEqual(top.constant, 10, accuracy: cgEpsilon)
-//        XCTAssertEqual(top.multiplier, 1, accuracy: cgEpsilon)
-//        XCTAssertEqual(top.priority.rawValue, TestPriorityHigh.rawValue - 1, accuracy: fEpsilon)
-//        XCTAssertTrue(top.isActive)
-//        XCTAssertEqual(top.relation, .equal)
-//        XCTAssertEqual(top.firstAttribute, .top)
-//        XCTAssertEqual(top.secondAttribute, .top)
-//
-//        let bottom = constraints.bottom
-//        assertIdentical(bottom.firstItem, view1)
-//        assertIdentical(bottom.secondItem, view2)
-//        XCTAssertEqual(bottom.constant, -15, accuracy: cgEpsilon)
-//        XCTAssertEqual(bottom.multiplier, 1, accuracy: cgEpsilon)
-//        XCTAssertEqual(bottom.priority.rawValue, TestPriorityHigh.rawValue - 1, accuracy: fEpsilon)
-//        XCTAssertTrue(bottom.isActive)
-//        XCTAssertEqual(bottom.relation, .equal)
-//        XCTAssertEqual(bottom.firstAttribute, .bottom)
-//        XCTAssertEqual(bottom.secondAttribute, .bottom)
-//    }
-//
-//    func testInactiveBatchConstraints() {
-//        let constraints = Anchorage.batch(active: false) {
-//            view1.widthAnchor == view2.widthAnchor
-//            view1.heightAnchor == view2.heightAnchor / 2 ~ .low
-//        }
-//
-//        let width = constraints[0]
-//        let height = constraints[1]
-//
-//        assertIdentical(width.firstItem, view1)
-//        assertIdentical(width.secondItem, view2)
-//        XCTAssertEqual(width.constant, 0, accuracy: cgEpsilon)
-//        XCTAssertEqual(width.multiplier, 1, accuracy: cgEpsilon)
-//        XCTAssertEqual(width.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-//        XCTAssertFalse(width.isActive)
-//        XCTAssertEqual(width.relation, .equal)
-//        XCTAssertEqual(width.firstAttribute, .width)
-//        XCTAssertEqual(width.secondAttribute, .width)
-//
-//        assertIdentical(height.firstItem, view1)
-//        assertIdentical(height.secondItem, view2)
-//        XCTAssertEqual(height.constant, 0, accuracy: cgEpsilon)
-//        XCTAssertEqual(height.multiplier, 0.5, accuracy: cgEpsilon)
-//        XCTAssertEqual(height.priority.rawValue, TestPriorityLow.rawValue, accuracy: fEpsilon)
-//        XCTAssertFalse(height.isActive)
-//        XCTAssertEqual(height.relation, .equal)
-//        XCTAssertEqual(height.firstAttribute, .height)
-//        XCTAssertEqual(height.secondAttribute, .height)
-//    }
-//
-//    func testActiveBatchConstraints() {
-//        let constraints = Anchorage.batch {
-//            view1.widthAnchor == view2.widthAnchor
-//            view1.heightAnchor == view2.heightAnchor / 2 ~ .low
-//        }
-//
-//        let width = constraints[0]
-//        let height = constraints[1]
-//
-//        assertIdentical(width.firstItem, view1)
-//        assertIdentical(width.secondItem, view2)
-//        XCTAssertEqual(width.constant, 0, accuracy: cgEpsilon)
-//        XCTAssertEqual(width.multiplier, 1, accuracy: cgEpsilon)
-//        XCTAssertEqual(width.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-//        XCTAssertTrue(width.isActive)
-//        XCTAssertEqual(width.relation, .equal)
-//        XCTAssertEqual(width.firstAttribute, .width)
-//        XCTAssertEqual(width.secondAttribute, .width)
-//
-//        assertIdentical(height.firstItem, view1)
-//        assertIdentical(height.secondItem, view2)
-//        XCTAssertEqual(height.constant, 0, accuracy: cgEpsilon)
-//        XCTAssertEqual(height.multiplier, 0.5, accuracy: cgEpsilon)
-//        XCTAssertEqual(height.priority.rawValue, TestPriorityLow.rawValue, accuracy: fEpsilon)
-//        XCTAssertTrue(height.isActive)
-//        XCTAssertEqual(height.relation, .equal)
-//        XCTAssertEqual(height.firstAttribute, .height)
-//        XCTAssertEqual(height.secondAttribute, .height)
-//    }
-//
-//    func testNestedBatchConstraints() {
-//        var nestedConstraints: [Constraint] = []
-//        let constraints = Anchorage.batch {
-//            view1.widthAnchor == view2.widthAnchor
-//            nestedConstraints = Anchorage.batch(active: false) {
-//                view1.heightAnchor == view2.heightAnchor / 2 ~ .low
-//            }
-//            view1.leadingAnchor == view2.leadingAnchor
-//        }
-//
-//        let width = constraints[0]
-//        let leading = constraints[1]
-//        let height = nestedConstraints[0]
-//
-//        assertIdentical(width.firstItem, view1)
-//        assertIdentical(width.secondItem, view2)
-//        XCTAssertEqual(width.constant, 0, accuracy: cgEpsilon)
-//        XCTAssertEqual(width.multiplier, 1, accuracy: cgEpsilon)
-//        XCTAssertEqual(width.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-//        XCTAssertTrue(width.isActive)
-//        XCTAssertEqual(width.relation, .equal)
-//        XCTAssertEqual(width.firstAttribute, .width)
-//        XCTAssertEqual(width.secondAttribute, .width)
-//
-//        assertIdentical(height.firstItem, view1)
-//        assertIdentical(height.secondItem, view2)
-//        XCTAssertEqual(height.constant, 0, accuracy: cgEpsilon)
-//        XCTAssertEqual(height.multiplier, 0.5, accuracy: cgEpsilon)
-//        XCTAssertEqual(height.priority.rawValue, TestPriorityLow.rawValue, accuracy: fEpsilon)
-//        XCTAssertFalse(height.isActive)
-//        XCTAssertEqual(height.relation, .equal)
-//        XCTAssertEqual(height.firstAttribute, .height)
-//        XCTAssertEqual(height.secondAttribute, .height)
-//
-//        assertIdentical(leading.firstItem, view1)
-//        assertIdentical(leading.secondItem, view2)
-//        XCTAssertEqual(leading.constant, 0, accuracy: cgEpsilon)
-//        XCTAssertEqual(leading.multiplier, 1, accuracy: cgEpsilon)
-//        XCTAssertEqual(leading.priority.rawValue, TestPriorityRequired.rawValue, accuracy: fEpsilon)
-//        XCTAssertTrue(leading.isActive)
-//        XCTAssertEqual(leading.relation, .equal)
-//        XCTAssertEqual(leading.firstAttribute, .leading)
-//        XCTAssertEqual(leading.secondAttribute, .leading)
-//    }
-//
-}
+    func testEdgeAnchorsWithInsets() {
+        let insets = UIEdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
 
-extension SharedTests {
+        let constraints = view1.edgeAnchors == view2.edgeAnchors + insets ~ .high - 1
 
-    func assertIdentical(_ expression1: @autoclosure () -> AnyObject?, _ expression2: @autoclosure () -> AnyObject?, _ message: @autoclosure () -> String = "Objects were not identical", file: StaticString = #file, line: UInt = #line) {
-        XCTAssertTrue(expression1() === expression2(), message, file: file, line: line)
+        let leading = constraints.leading
+        assertIdentical(leading.firstItem, view1)
+        assertIdentical(leading.secondItem, view2)
+        XCTAssertEqual(leading.constant, 5, accuracy: cgEpsilon)
+        XCTAssertEqual(leading.multiplier, 1, accuracy: cgEpsilon)
+        XCTAssertEqual(leading.priority.rawValue, TestPriorityHigh.rawValue - 1, accuracy: fEpsilon)
+        XCTAssertTrue(leading.isActive)
+        XCTAssertEqual(leading.relation, .equal)
+        XCTAssertEqual(leading.firstAttribute, .leading)
+        XCTAssertEqual(leading.secondAttribute, .leading)
+
+        let trailing = constraints.trailing
+        assertIdentical(trailing.firstItem, view1)
+        assertIdentical(trailing.secondItem, view2)
+        XCTAssertEqual(trailing.constant, -20, accuracy: cgEpsilon)
+        XCTAssertEqual(trailing.multiplier, 1, accuracy: cgEpsilon)
+        XCTAssertEqual(trailing.priority.rawValue, TestPriorityHigh.rawValue - 1, accuracy: fEpsilon)
+        XCTAssertTrue(trailing.isActive)
+        XCTAssertEqual(trailing.relation, .equal)
+        XCTAssertEqual(trailing.firstAttribute, .trailing)
+        XCTAssertEqual(trailing.secondAttribute, .trailing)
+
+        let top = constraints.top
+        assertIdentical(top.firstItem, view1)
+        assertIdentical(top.secondItem, view2)
+        XCTAssertEqual(top.constant, 10, accuracy: cgEpsilon)
+        XCTAssertEqual(top.multiplier, 1, accuracy: cgEpsilon)
+        XCTAssertEqual(top.priority.rawValue, TestPriorityHigh.rawValue - 1, accuracy: fEpsilon)
+        XCTAssertTrue(top.isActive)
+        XCTAssertEqual(top.relation, .equal)
+        XCTAssertEqual(top.firstAttribute, .top)
+        XCTAssertEqual(top.secondAttribute, .top)
+
+        let bottom = constraints.bottom
+        assertIdentical(bottom.firstItem, view1)
+        assertIdentical(bottom.secondItem, view2)
+        XCTAssertEqual(bottom.constant, -15, accuracy: cgEpsilon)
+        XCTAssertEqual(bottom.multiplier, 1, accuracy: cgEpsilon)
+        XCTAssertEqual(bottom.priority.rawValue, TestPriorityHigh.rawValue - 1, accuracy: fEpsilon)
+        XCTAssertTrue(bottom.isActive)
+        XCTAssertEqual(bottom.relation, .equal)
+        XCTAssertEqual(bottom.firstAttribute, .bottom)
+        XCTAssertEqual(bottom.secondAttribute, .bottom)
     }
+}
+
+
+
+func assertIdentical(_ expression1: @autoclosure () -> AnyObject?,
+                     _ expression2: @autoclosure () -> AnyObject?,
+                     _ message: String? = nil,
+                     file: StaticString = #file,
+                     line: UInt = #line) {
+    XCTAssertTrue(expression1() === expression2(), message ?? "\(expression1()) was not identical to \(expression2())", file: file, line: line)
+}
+
+func assertIdentical(_ expressions: TuplePair<() -> AnyObject?>...,
+    message: String? = nil,
+    file: StaticString = #file,
+    line: UInt = #line) {
+    expressions.forEach{assertIdentical($0.first(), $0.second())}
 
 }
-//
-//extension ConstraintAttribute: CustomDebugStringConvertible {
-//
-//    public var debugDescription: String {
-//        #if os(macOS)
-//        switch self {
-//        case .left: return "left"
-//        case .right: return "right"
-//        case .top: return "top"
-//        case .bottom: return "bottom"
-//        case .leading: return "leading"
-//        case .trailing: return "trailing"
-//        case .width: return "width"
-//        case .height: return "height"
-//        case .centerX: return "centerX"
-//        case .centerY: return "centerY"
-//        case .lastBaseline: return "lastBaseline"
-//        case .firstBaseline: return "firstBaseline"
-//        case .notAnAttribute: return "notAnAttribute"
-//        }
-//        #else
-//        switch self {
-//        case .left: return "left"
-//        case .right: return "right"
-//        case .top: return "top"
-//        case .bottom: return "bottom"
-//        case .leading: return "leading"
-//        case .trailing: return "trailing"
-//        case .width: return "width"
-//        case .height: return "height"
-//        case .centerX: return "centerX"
-//        case .centerY: return "centerY"
-//        case .lastBaseline: return "lastBaseline"
-//        case .firstBaseline: return "firstBaseline"
-//        case .leftMargin: return "leftMargin"
-//        case .rightMargin: return "rightMargin"
-//        case .topMargin: return "topMargin"
-//        case .bottomMargin: return "bottomMargin"
-//        case .leadingMargin: return "leadingMargin"
-//        case .trailingMargin: return "trailingMargin"
-//        case .centerXWithinMargins: return "centerXWithinMargins"
-//        case .centerYWithinMargins: return "centerYWithinMargins"
-//        case .notAnAttribute: return "notAnAttribute"
-//        }
-//        #endif
-//    }
-//
-//}
+
+func assertIdentical(_ expressions: TuplePair<AnyObject?>...,
+    message: String? = nil,
+    file: StaticString = #file,
+    line: UInt = #line) {
+    expressions.forEach{assertIdentical($0.first, $0.second, message, file: file, line: line)}
+
+}
+
+
+extension ConstraintAttribute: CustomDebugStringConvertible {
+
+    public var debugDescription: String {
+        #if os(macOS)
+        switch self {
+        case .left: return "left"
+        case .right: return "right"
+        case .top: return "top"
+        case .bottom: return "bottom"
+        case .leading: return "leading"
+        case .trailing: return "trailing"
+        case .width: return "width"
+        case .height: return "height"
+        case .centerX: return "centerX"
+        case .centerY: return "centerY"
+        case .lastBaseline: return "lastBaseline"
+        case .firstBaseline: return "firstBaseline"
+        case .notAnAttribute: return "notAnAttribute"
+        }
+        #else
+        switch self {
+        case .left: return "left"
+        case .right: return "right"
+        case .top: return "top"
+        case .bottom: return "bottom"
+        case .leading: return "leading"
+        case .trailing: return "trailing"
+        case .width: return "width"
+        case .height: return "height"
+        case .centerX: return "centerX"
+        case .centerY: return "centerY"
+        case .lastBaseline: return "lastBaseline"
+        case .firstBaseline: return "firstBaseline"
+        case .leftMargin: return "leftMargin"
+        case .rightMargin: return "rightMargin"
+        case .topMargin: return "topMargin"
+        case .bottomMargin: return "bottomMargin"
+        case .leadingMargin: return "leadingMargin"
+        case .trailingMargin: return "trailingMargin"
+        case .centerXWithinMargins: return "centerXWithinMargins"
+        case .centerYWithinMargins: return "centerYWithinMargins"
+        case .notAnAttribute: return "notAnAttribute"
+        }
+        #endif
+    }
+}

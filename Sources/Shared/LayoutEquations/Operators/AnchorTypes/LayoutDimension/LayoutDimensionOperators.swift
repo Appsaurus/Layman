@@ -6,12 +6,10 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-//MARK: Anchor Relations
-
 //MARK: Equal
 //MARK: Anchor == Expression
 @discardableResult
-public func == (lhs: LayoutDimension, rhs: LayoutExpression<LayoutDimension>) -> Constraint{
+public func == (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> Constraint{
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
@@ -25,7 +23,7 @@ public func == (lhs: LayoutDimension, rhs: LayoutDimension) -> Constraint {
 //MARK: LessThanOrEqual
 //MARK: Anchor <= Expression
 @discardableResult
-public func <= (lhs: LayoutDimension, rhs: LayoutExpression<LayoutDimension>) -> Constraint{
+public func <= (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> Constraint{
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
@@ -39,7 +37,7 @@ public func <= (lhs: LayoutDimension, rhs: LayoutDimension) -> Constraint {
 //MARK: GreaterThanOrEqual
 //MARK: Anchor >= Expression
 @discardableResult
-public func >= (lhs: LayoutDimension, rhs: LayoutExpression<LayoutDimension>) -> Constraint{
+public func >= (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> Constraint{
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
 }
 
@@ -53,27 +51,27 @@ public func >= (lhs: LayoutDimension, rhs: LayoutDimension) -> Constraint {
 
 //MARK: Constants
 
-////MARK: LayoutDimension == Constant
-//@discardableResult
-//public func == (lhs: LayoutDimension, rhs: LayoutConstant) -> Constraint {
-//    return lhs == LayoutConfiguration.constant(rhs)
-//}
-//
-//@discardableResult
-//public func == (lhs: LayoutDimension, rhs: LayoutConfiguration) -> Constraint {
-//    return LayoutRelationship(lhs, .equal, nil, rhs).constraint
-//}
-
-//MARK: LayoutAnchor<LayoutDimension> == Constant
+//MARK: LayoutDimension == Constant
 @discardableResult
-public func == (lhs: LayoutAnchor<LayoutDimension>, rhs: LayoutConstant) -> Constraint {
+public func == (lhs: LayoutDimension, rhs: LayoutConstant) -> Constraint {
     return lhs == LayoutConfiguration.constant(rhs)
 }
 
 @discardableResult
-public func == (lhs: LayoutAnchor<LayoutDimension>, rhs: LayoutConfiguration) -> Constraint {
+public func == (lhs: LayoutDimension, rhs: LayoutConfiguration) -> Constraint {
     return LayoutRelationship(lhs, .equal, nil, rhs).constraint
 }
+
+//MARK: LayoutAnchor<LayoutDimension> == Constant
+//@discardableResult
+//public func == (lhs: LayoutAnchor<LayoutDimension>, rhs: LayoutConstant) -> Constraint {
+//    return lhs == LayoutConfiguration.constant(rhs)
+//}
+//
+//@discardableResult
+//public func == (lhs: LayoutAnchor<LayoutDimension>, rhs: LayoutConfiguration) -> Constraint {
+//    return LayoutRelationship(lhs, .equal, nil, rhs).constraint
+//}
 
 //MARK: LayoutDimension <= Constant
 @discardableResult
