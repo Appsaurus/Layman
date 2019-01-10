@@ -30,6 +30,7 @@ public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>>{
 
 
     public var constraint: Constraint{
+        // swiftlint:disable:next force_cast
         let dimension = anchor as! LayoutDimension
         let constraint: Constraint = {
             switch relation{

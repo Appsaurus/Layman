@@ -319,6 +319,7 @@ public struct ViewAnchorPair{
     public var attribute: UIView.AnchorEnum
 
     public var anchor: AnyLayoutAnchor{
+        // swiftlint:disable:next force_cast
         return attribute.anchor(view: item) as! AnyLayoutAnchor
     }
 }
@@ -341,6 +342,7 @@ extension UIView{
 
 
     public func anchor(for anchorEnum: AnchorEnum) -> AnyLayoutAnchor{
+        // swiftlint:disable:next force_cast
         return anchorEnum.anchor(view: self) as! AnyLayoutAnchor
     }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// swiftlint:disable line_length
 public typealias ConstraintDictionary = [ConstraintAttribute: Constraint]
 public typealias ConstraintDictionaryMap = [UIView: ConstraintDictionary]
 
@@ -43,8 +43,6 @@ public enum AutoLayoutAspectRatio{
         }
     }
 }
-
-
 
 //MARK: -Expand size of superview
 extension UIView{

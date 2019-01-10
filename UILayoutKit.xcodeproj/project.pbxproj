@@ -235,6 +235,7 @@
 		E45822AE21E7F36800B6054C /* XAxisPriorityOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisPriorityOperators.swift; sourceTree = "<group>"; };
 		E45822B221E7F39E00B6054C /* LayoutDimensionPriorityOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDimensionPriorityOperators.swift; sourceTree = "<group>"; };
 		E45822B621E7F41800B6054C /* CenterAnchorPriorityOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterAnchorPriorityOperators.swift; sourceTree = "<group>"; };
+		E45822BC21E7F77300B6054C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E487379D21DE50F00094F2EB /* ConstraintGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintGroup.swift; sourceTree = "<group>"; };
 		E48737A021DE510D0094F2EB /* LayoutTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTypealiases.swift; sourceTree = "<group>"; };
 		E48737A621DE66F90094F2EB /* LayoutPriorityOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutPriorityOperator.swift; sourceTree = "<group>"; };
@@ -412,6 +413,7 @@
 		D5B2E8951C3A780C00C0327D = {
 			isa = PBXGroup;
 			children = (
+				E45822BC21E7F77300B6054C /* .swiftlint.yml */,
 				E4AF81CE21BF20FD002D6E86 /* Cartfile */,
 				E4AF81CA21BF20FC002D6E86 /* circle.yml */,
 				E4AF81CD21BF20FD002D6E86 /* CONTRIBUTING.md */,
@@ -761,6 +763,7 @@
 				D5B2E89B1C3A780C00C0327D /* Frameworks */,
 				D5B2E89C1C3A780C00C0327D /* Headers */,
 				D5B2E89D1C3A780C00C0327D /* Resources */,
+				E45822BB21E7F62800B6054C /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1143,6 +1146,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E45822BB21E7F62800B6054C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" --config .swiftlint.yml \n";
 		};
 		EAE50391C3D2FF9929688A85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
