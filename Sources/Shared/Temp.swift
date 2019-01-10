@@ -85,7 +85,7 @@ public protocol DefaultConstructorMutable: Defaultable {
     static var defaultConstructor: ClosureOut<Self> { get set }
 }
 extension DefaultConstructorMutable{
-    static var `default`: Self{
+    public static var `default`: Self{
         return defaultConstructor()
     }
 }
