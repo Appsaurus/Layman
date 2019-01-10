@@ -6,10 +6,11 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+public typealias XAxisAnchorExpression = LayoutExpression<XAxisAnchor>
 //MARK: Equal
 //MARK: Anchor == Expression
 @discardableResult
-public func == (lhs: XAxisAnchor, rhs: LayoutExpression<XAxisAnchor>) -> Constraint{
+public func == (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint{
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
@@ -23,7 +24,7 @@ public func == (lhs: XAxisAnchor, rhs: XAxisAnchor) -> Constraint {
 //MARK: LessThanOrEqual
 //MARK: Anchor <= Expression
 @discardableResult
-public func <= (lhs: XAxisAnchor, rhs: LayoutExpression<XAxisAnchor>) -> Constraint{
+public func <= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint{
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
@@ -37,7 +38,7 @@ public func <= (lhs: XAxisAnchor, rhs: XAxisAnchor) -> Constraint {
 //MARK: GreaterThanOrEqual
 //MARK: Anchor >= Expression
 @discardableResult
-public func >= (lhs: XAxisAnchor, rhs: LayoutExpression<XAxisAnchor>) -> Constraint{
+public func >= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint{
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
 }
 

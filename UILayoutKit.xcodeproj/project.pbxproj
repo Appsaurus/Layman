@@ -52,6 +52,12 @@
 		E458226021E5553500B6054C /* ConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225F21E5553500B6054C /* ConstraintExtensions.swift */; };
 		E458226121E5553500B6054C /* ConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225F21E5553500B6054C /* ConstraintExtensions.swift */; };
 		E458226221E5553500B6054C /* ConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225F21E5553500B6054C /* ConstraintExtensions.swift */; };
+		E458226621E6952200B6054C /* AnyAnchorOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458226521E6952200B6054C /* AnyAnchorOperators.swift */; };
+		E458226721E6952200B6054C /* AnyAnchorOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458226521E6952200B6054C /* AnyAnchorOperators.swift */; };
+		E458226821E6952200B6054C /* AnyAnchorOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458226521E6952200B6054C /* AnyAnchorOperators.swift */; };
+		E458226A21E6981300B6054C /* EdgeAnchorOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458226921E6981300B6054C /* EdgeAnchorOperators.swift */; };
+		E458226B21E6981300B6054C /* EdgeAnchorOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458226921E6981300B6054C /* EdgeAnchorOperators.swift */; };
+		E458226C21E6981300B6054C /* EdgeAnchorOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458226921E6981300B6054C /* EdgeAnchorOperators.swift */; };
 		E487379B21DE4E270094F2EB /* LayoutEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487379A21DE4E270094F2EB /* LayoutEquations.swift */; };
 		E487379C21DE4E270094F2EB /* LayoutEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487379A21DE4E270094F2EB /* LayoutEquations.swift */; };
 		E487379E21DE50F00094F2EB /* ConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487379D21DE50F00094F2EB /* ConstraintGroup.swift */; };
@@ -161,6 +167,8 @@
 		E458225621E54D0300B6054C /* SizeAnchorsConstantRelationOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeAnchorsConstantRelationOperators.swift; sourceTree = "<group>"; };
 		E458225A21E54FE900B6054C /* LayoutPriority+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutPriority+Sugar.swift"; sourceTree = "<group>"; };
 		E458225F21E5553500B6054C /* ConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtensions.swift; sourceTree = "<group>"; };
+		E458226521E6952200B6054C /* AnyAnchorOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyAnchorOperators.swift; sourceTree = "<group>"; };
+		E458226921E6981300B6054C /* EdgeAnchorOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeAnchorOperators.swift; sourceTree = "<group>"; };
 		E487379A21DE4E270094F2EB /* LayoutEquations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutEquations.swift; sourceTree = "<group>"; };
 		E487379D21DE50F00094F2EB /* ConstraintGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintGroup.swift; sourceTree = "<group>"; };
 		E48737A021DE510D0094F2EB /* LayoutTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTypealiases.swift; sourceTree = "<group>"; };
@@ -453,6 +461,7 @@
 		E458224921E50F2100B6054C /* AnchorTypes */ = {
 			isa = PBXGroup;
 			children = (
+				E458226421E6950500B6054C /* TypeErased */,
 				E458223E21E3F96E00B6054C /* LayoutDimension */,
 				E458223F21E3F9A000B6054C /* XAxisAnchor */,
 				E458224421E3F9EC00B6054C /* YAxisAnchor */,
@@ -473,8 +482,17 @@
 			isa = PBXGroup;
 			children = (
 				E458224A21E50F6900B6054C /* CenterAnchorsOperators.swift */,
+				E458226921E6981300B6054C /* EdgeAnchorOperators.swift */,
 			);
 			path = GroupedAnchors;
+			sourceTree = "<group>";
+		};
+		E458226421E6950500B6054C /* TypeErased */ = {
+			isa = PBXGroup;
+			children = (
+				E458226521E6952200B6054C /* AnyAnchorOperators.swift */,
+			);
+			path = TypeErased;
 			sourceTree = "<group>";
 		};
 		E48737AD21DEA2440094F2EB /* LayoutEquations */ = {
@@ -1059,6 +1077,7 @@
 				E458225921E54D0300B6054C /* SizeAnchorsConstantRelationOperators.swift in Sources */,
 				E487379F21DE50F00094F2EB /* ConstraintGroup.swift in Sources */,
 				E4AF81B721BF162B002D6E86 /* ConstraintLayout.swift in Sources */,
+				E458226821E6952200B6054C /* AnyAnchorOperators.swift in Sources */,
 				E48737A821DE66F90094F2EB /* LayoutPriorityOperator.swift in Sources */,
 				E4AF81BB21BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 				E48737BC21DFFCF30094F2EB /* YAxisAnchorOperator.swift in Sources */,
@@ -1073,6 +1092,7 @@
 				E458224D21E50F6900B6054C /* CenterAnchorsOperators.swift in Sources */,
 				E458225521E5273400B6054C /* SizeAnchorsConstantArithmeticOperators.swift in Sources */,
 				E48737B421DFFC620094F2EB /* LayoutDimensionOperators.swift in Sources */,
+				E458226C21E6981300B6054C /* EdgeAnchorOperators.swift in Sources */,
 				E458223D21E3D4B600B6054C /* AnchorGroup.swift in Sources */,
 				E48737A221DE510D0094F2EB /* LayoutTypealiases.swift in Sources */,
 				E458225D21E54FE900B6054C /* LayoutPriority+Sugar.swift in Sources */,
@@ -1105,6 +1125,7 @@
 				E458225721E54D0300B6054C /* SizeAnchorsConstantRelationOperators.swift in Sources */,
 				E487379E21DE50F00094F2EB /* ConstraintGroup.swift in Sources */,
 				E4AF81B521BF162B002D6E86 /* ConstraintLayout.swift in Sources */,
+				E458226621E6952200B6054C /* AnyAnchorOperators.swift in Sources */,
 				E48737A721DE66F90094F2EB /* LayoutPriorityOperator.swift in Sources */,
 				E4AF81B921BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 				E48737BA21DFFCF30094F2EB /* YAxisAnchorOperator.swift in Sources */,
@@ -1119,6 +1140,7 @@
 				E458224B21E50F6900B6054C /* CenterAnchorsOperators.swift in Sources */,
 				E458225321E5273400B6054C /* SizeAnchorsConstantArithmeticOperators.swift in Sources */,
 				E48737B221DFFC620094F2EB /* LayoutDimensionOperators.swift in Sources */,
+				E458226A21E6981300B6054C /* EdgeAnchorOperators.swift in Sources */,
 				E458223B21E3D4B600B6054C /* AnchorGroup.swift in Sources */,
 				E48737A121DE510D0094F2EB /* LayoutTypealiases.swift in Sources */,
 				E458225B21E54FE900B6054C /* LayoutPriority+Sugar.swift in Sources */,
@@ -1143,7 +1165,9 @@
 				E48737AB21DEA1E70094F2EB /* LayoutConfiguration.swift in Sources */,
 				E458223821E2EEF500B6054C /* SizeAnchorsOperators.swift in Sources */,
 				E458224C21E50F6900B6054C /* CenterAnchorsOperators.swift in Sources */,
+				E458226B21E6981300B6054C /* EdgeAnchorOperators.swift in Sources */,
 				E4AF81BA21BF162B002D6E86 /* AnchorLayout.swift in Sources */,
+				E458226721E6952200B6054C /* AnyAnchorOperators.swift in Sources */,
 				E458225821E54D0300B6054C /* SizeAnchorsConstantRelationOperators.swift in Sources */,
 				E458225421E5273400B6054C /* SizeAnchorsConstantArithmeticOperators.swift in Sources */,
 				E48737BF21E074D70094F2EB /* LayoutConstantArithmeticOperators.swift in Sources */,

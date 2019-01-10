@@ -35,3 +35,8 @@ public func ~ <F, S>(lhs: LayoutAnchors<F, S>, rhs: LayoutPriority) -> LayoutPai
 public func ~ <F, S>(lhs: LayoutPairExpression<F, S>, rhs: LayoutPriority) -> LayoutPairExpression<F, S> {
     return lhs.with(priority: rhs)
 }
+
+@discardableResult
+public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutConfiguration {
+    return LayoutConfiguration(constant: lhs, priority: rhs)
+}

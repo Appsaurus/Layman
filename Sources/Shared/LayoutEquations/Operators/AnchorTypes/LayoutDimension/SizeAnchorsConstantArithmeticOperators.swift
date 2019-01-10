@@ -22,8 +22,8 @@ public func - (lhs: SizeAnchors, rhs: CGSize) -> SizeAnchorsExpression {
 @discardableResult
 public func ~ (lhs: CGSize, rhs: LayoutPriority) -> LayoutPairConfiguration {
     return LayoutPairConfiguration(
-        LayoutConfiguration(constant: lhs.width, priority: rhs),
-        LayoutConfiguration(constant: lhs.height, priority: rhs)
+        lhs.width ~ rhs,
+        lhs.height ~ rhs
     )
 }
 

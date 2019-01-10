@@ -248,30 +248,41 @@ public struct LayoutPairRelationship<F: AnchorType, S: AnchorType> {
     }
 }
 
-public struct LayoutAnchors<F: AnchorType, S: AnchorType> {
-    public var first: LayoutAnchor<F>
-    public var second: LayoutAnchor<S>
+public class PairOf<O>: Paired<O, O>{}
 
-    public init(_ first: LayoutAnchor<F>, _ second: LayoutAnchor<S>) {
+public class Paired<F, S>{
+    public var first: F
+    public var second: S
+
+    public init(_ first: F, _ second: S) {
         self.first = first
         self.second = second
     }
+
+}
+public class LayoutAnchors<F: AnchorType, S: AnchorType>: Paired<LayoutAnchor<F>, LayoutAnchor<S>> {
+//    public var first: LayoutAnchor<F>
+//    public var second: LayoutAnchor<S>
+//
+//    public init(_ first: LayoutAnchor<F>, _ second: LayoutAnchor<S>) {
+//        self.first = first
+//        self.second = second
+//    }
 }
 
-public struct LayoutPairConfiguration {
-    public static var `default` = LayoutPairConfiguration(.default, .default)
+public class LayoutPairConfiguration: Paired<LayoutConfiguration, LayoutConfiguration> {
+    public static var `default` = LayoutPairConfiguration(.default)
 
-    public var first: LayoutConfiguration
-    public var second: LayoutConfiguration
+//    public var first: LayoutConfiguration
+//    public var second: LayoutConfiguration
+//
+//    public init(_ first: LayoutConfiguration, _ second: LayoutConfiguration) {
+//        self.first = first
+//        self.second = second
+//    }
 
-    public init(_ first: LayoutConfiguration, _ second: LayoutConfiguration) {
-        self.first = first
-        self.second = second
-    }
-
-    public init(_ configuration: LayoutConfiguration) {
-        self.first = configuration
-        self.second = configuration
+    public convenience init(_ configuration: LayoutConfiguration) {
+        self.init(configuration, configuration)
     }
 
 }

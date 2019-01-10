@@ -6,10 +6,12 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+
+public typealias YAxisAnchorExpression = LayoutExpression<YAxisAnchor>
 //MARK: Equal
 //MARK: Anchor == Expression
 @discardableResult
-public func == (lhs: YAxisAnchor, rhs: LayoutExpression<YAxisAnchor>) -> Constraint{
+public func == (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint{
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
@@ -23,7 +25,7 @@ public func == (lhs: YAxisAnchor, rhs: YAxisAnchor) -> Constraint {
 //MARK: LessThanOrEqual
 //MARK: Anchor <= Expression
 @discardableResult
-public func <= (lhs: YAxisAnchor, rhs: LayoutExpression<YAxisAnchor>) -> Constraint{
+public func <= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint{
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
@@ -37,7 +39,7 @@ public func <= (lhs: YAxisAnchor, rhs: YAxisAnchor) -> Constraint {
 //MARK: GreaterThanOrEqual
 //MARK: Anchor >= Expression
 @discardableResult
-public func >= (lhs: YAxisAnchor, rhs: LayoutExpression<YAxisAnchor>) -> Constraint{
+public func >= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint{
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
 }
 

@@ -14,8 +14,9 @@ import UIKit
 
 import Swiftest
 
+public typealias Pair<I> = (first: I, second: I)
 public typealias Constraint = NSLayoutConstraint
-public typealias ConstraintPair = (first: Constraint, second: Constraint)
+public typealias ConstraintPair = Pair<Constraint>
 public typealias Constraints = [Constraint]
 public typealias ConstraintAttribute = Constraint.Attribute
 public typealias ConstraintAttributes = [ConstraintAttribute]
@@ -52,24 +53,62 @@ public typealias LayoutSize = CGSize
 
 // MARK: - ConstraintGroup
 
-public struct SideConstraints {
+public protocol SideCorrelated{
+    associatedtype VerticalSideType
+    associatedtype HorizontalSideType
+    var top: VerticalSideType { get set }
+    var leading: HorizontalSideType { get set }
+    var bottom: VerticalSideType { get set }
+    var trailing: HorizontalSideType { get set }
 
-    public var top: Constraint
-    public var leading: Constraint
-    public var bottom: Constraint
-    public var trailing: Constraint
-
-    public var horizontal: [Constraint] {
-        return [leading, trailing]
-    }
-
-    public var vertical: [Constraint] {
-        return [top, bottom]
-    }
-
-    public var all: [Constraint] {
-        return [top, leading, bottom, trailing]
-    }
-
+    init(top: VerticalSideType,
+         leading: HorizontalSideType,
+         bottom: VerticalSideType,
+         trailing: HorizontalSideType)
+//    init(horizontal: Pair<HorizontalSideType>, vertical: Pair<VerticalSideType>)
 }
 
+extension SideCorrelated{
+
+    public init<S: SideCorrelated>(_ other: S)
+        where S.HorizontalSideType == HorizontalSideType, S.VerticalSideType == VerticalSideType {
+        self.init(top: other.top, leading: other.leading, bottom: other.bottom, trailing: other.trailing)
+    }
+}
+
+extension SideCorrelated where HorizontalSideType == VerticalSideType{
+    public typealias SideType = HorizontalSideType
+    public var all: [SideType] {
+        return [top, leading, bottom, trailing]
+    }
+}
+
+public class SideCorrelatedStruct<H, V>: SideCorrelated{
+    public typealias HorizontalSideType = H
+    public typealias VerticalSideType = V
+
+    public var top: V
+    public var leading: H
+    public var bottom: V
+    public var trailing: H
+
+    required public init(top: V,
+                leading: H,
+                bottom: V,
+                trailing: H) {
+        self.top = top
+        self.leading = leading
+        self.bottom = bottom
+        self.trailing = trailing
+    }
+
+    public var horizontal: PairOf<H> {
+        return PairOf<H>(leading, trailing)
+    }
+
+    public var vertical: PairOf<V> {
+        return PairOf<V>(top, bottom)
+    }
+}
+
+public typealias SideConstraints = SideCorrelatedStruct<Constraint, Constraint>

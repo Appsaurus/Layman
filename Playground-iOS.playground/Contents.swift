@@ -11,31 +11,25 @@ let view1 = UIView()
 let view2 = UIView()
 
 parent.addSubviews(view1, view2)
-var constraint = view1.widthAnchor == view2.widthAnchor
+//var constraints = view1 == view2[.top, .bottom, .left, .right]
+
+var constraints = view1.edgeAnchors == view2.edgeAnchors
+
+var constraint = constraints.top
 XCTAssertEqual(constraint.firstItem as? UIView, view1)
 XCTAssertEqual(constraint.secondItem as? UIView, view2)
 XCTAssertEqual(constraint.priority, .required)
+XCTAssertEqual(constraint.firstAnchor, view1.topAnchor)
+XCTAssertEqual(constraint.secondAnchor, view2.topAnchor)
 
-constraint = view1.heightAnchor == view2.heightAnchor
-XCTAssertEqual(constraint.firstAnchor, view1.heightAnchor)
-XCTAssertEqual(constraint.secondAnchor, view2.heightAnchor)
+constraint = constraints.bottom
+XCTAssertEqual(constraint.firstAnchor, view1.bottomAnchor)
+XCTAssertEqual(constraint.secondAnchor, view2.bottomAnchor)
 XCTAssertEqual(constraint.constant, 0)
 
-constraint = view1.heightAnchor == view2.heightAnchor + 200
-XCTAssertEqual(constraint.firstAnchor, view1.heightAnchor)
-XCTAssertEqual(constraint.secondAnchor, view2.heightAnchor)
-XCTAssertEqual(constraint.constant, 200)
+constraint = constraints.leading
+XCTAssertEqual(constraint.firstAnchor, view1.leadingAnchor)
+XCTAssertEqual(constraint.secondAnchor, view2.leadingAnchor)
+XCTAssertEqual(constraint.constant, 0)
 
-constraint = view1.heightAnchor == view2.heightAnchor ~ .defaultLow
-
-XCTAssertEqual(constraint.priority, .defaultLow)
-
-constraint = view1.heightAnchor == view2.heightAnchor + 300 ~ .defaultHigh
-
-XCTAssertEqual(constraint.constant, 300)
-
-XCTAssertEqual(constraint.priority, .defaultHigh)
-print(parent.constraints.count)
-print(view1.constraints)
-print(view2.constraints.count)
 print("SUCCESS")
