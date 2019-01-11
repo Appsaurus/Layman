@@ -12,12 +12,9 @@ import Cocoa
 import UIKit
 #endif
 
-import Swiftest
-
-
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
-public typealias ConstraintPair = TuplePair<Constraint>
+public typealias ConstraintPair = (first: Constraint, second: Constraint)
 public typealias SideConstraints = SidesTuple<Constraint, Constraint>
 
 public typealias ConstraintAttribute = Constraint.Attribute
@@ -28,41 +25,39 @@ public typealias AnchorType = AnyObject
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 public class LayoutAnchors<F, S>: Paired<LayoutAnchor<F>, LayoutAnchor<S>> where F: AnchorType, S: AnchorType {}
 
-//MARK: Typed Anchors
+// MARK: Typed Anchors
 public typealias XAxisAnchor = NSLayoutXAxisAnchor
 public typealias YAxisAnchor = NSLayoutYAxisAnchor
 public typealias LayoutDimension = NSLayoutDimension
 
-//MARK: Grouped Anchor Types
+// MARK: Grouped Anchor Types
 public typealias XAxisAnchors = LayoutAnchors<XAxisAnchor, XAxisAnchor>
 public typealias YAxisAnchors = LayoutAnchors<YAxisAnchor, YAxisAnchor>
 public typealias SizeAnchors = LayoutAnchors<LayoutDimension, LayoutDimension>
 public typealias CenterAnchors = LayoutAnchors<XAxisAnchor, YAxisAnchor>
-public class EdgeAnchors: SidesTuple<XAxisAnchor, YAxisAnchor>{}
+public class EdgeAnchors: SidesTuple<XAxisAnchor, YAxisAnchor> {}
 
-
-//MARK: Layout Configuration
+// MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat
 public typealias LayoutConstant = CGFloat
 public typealias LayoutPriority = UILayoutPriority
 
-//MARK: Expressions
+// MARK: Expressions
 public typealias XAxisAnchorsExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
 public typealias YAxisAnchorsExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
 public typealias LayoutDimensionExpression = LayoutExpression<LayoutDimension>
 public typealias CenterAnchorsExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
 
-//MARK: Layout Constants
+// MARK: Layout Constants
 public typealias LayoutInset = UIEdgeInsets
 public typealias LayoutSize = CGSize
-
 
 //public protocol LayoutAnchorType {}
 //extension LayoutAnchor: LayoutAnchorType {}
 //extension LayoutAnchors : LayoutAnchorType {}
 //extension EdgeAnchors : LayoutAnchorType {}
 
-public protocol SideCorrelated{
+public protocol SideCorrelated {
     associatedtype VerticalSideType
     associatedtype HorizontalSideType
     var top: VerticalSideType { get set }
@@ -76,23 +71,24 @@ public protocol SideCorrelated{
          _ trailing: HorizontalSideType)
 }
 
-extension SideCorrelated{
-    
+extension SideCorrelated {
+    public typealias HorizontalSides = (leading: HorizontalSideType, trailing: HorizontalSideType)
+    public typealias VerticalSides = (top: VerticalSideType, bottom: VerticalSideType)
+
     public init<S: SideCorrelated>(_ other: S)
         where S.HorizontalSideType == HorizontalSideType, S.VerticalSideType == VerticalSideType {
             self.init(other.top, other.leading, other.bottom, other.trailing)
     }
-    public var horizontal: Pair<HorizontalSideType> {
-        return Pair<HorizontalSideType>(leading, trailing)
+    public var horizontal: HorizontalSides {
+        return HorizontalSides(leading, trailing)
     }
     
-    public var vertical: Pair<VerticalSideType> {
-        return Pair<VerticalSideType>(top, bottom)
+    public var vertical: VerticalSides {
+        return VerticalSides(top, bottom)
     }
 }
 
-
-extension SideCorrelated where HorizontalSideType == VerticalSideType{
+extension SideCorrelated where HorizontalSideType == VerticalSideType {
     public typealias SideType = HorizontalSideType
     public var all: [SideType] {
         return [top, leading, bottom, trailing]
@@ -103,7 +99,7 @@ extension SideCorrelated where HorizontalSideType == VerticalSideType{
     }
 }
 
-public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated{
+public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated {
     
     public var top: VerticalSideType
     public var leading: HorizontalSideType
@@ -111,9 +107,9 @@ public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated{
     public var trailing: HorizontalSideType
     
     required public init(_ top: VerticalSideType,
-                _ leading: HorizontalSideType,
-                _ bottom: VerticalSideType,
-                _ trailing: HorizontalSideType) {
+                         _ leading: HorizontalSideType,
+                         _ bottom: VerticalSideType,
+                         _ trailing: HorizontalSideType) {
         self.top = top
         self.leading = leading
         self.bottom = bottom

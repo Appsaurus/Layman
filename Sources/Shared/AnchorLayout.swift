@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Swiftest
 
 extension UIView {
-    fileprivate func assertSuperview() -> UIView{
+    fileprivate func assertSuperview() -> UIView {
         assert(superview != nil, "Attempted to create constraint between a view and its superview without a superview.")
         return superview!
     }
@@ -143,9 +142,9 @@ extension UIView {
         return widthAnchor.constraint(equalToConstant: constant).activated()
     }
     
-    //MARK: Inequality constraints
+    // MARK: Inequality constraints
     
-    //MARK: GreaterThan
+    // MARK: GreaterThan
     @discardableResult
     public func topAnchor(greaterThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return topAnchor.constraint(greaterThanOrEqualTo: anchor, constant: constant).activated()
@@ -186,7 +185,7 @@ extension UIView {
         return widthAnchor.constraint(greaterThanOrEqualToConstant: constant).activated()
     }
     
-    //MARK: LessThan
+    // MARK: LessThan
     @discardableResult
     public func topAnchor(lessThanOrEqualTo anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> Constraint {
         return topAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant).activated()
@@ -227,8 +226,7 @@ extension UIView {
         return widthAnchor.constraint(lessThanOrEqualToConstant: constant).activated()
     }
     
-    
-    public func anchorToSuperview(withInsets insets: UIEdgeInsets = .zero){
+    public func anchorToSuperview(withInsets insets: UIEdgeInsets = .zero) {
         anchorTopToSuperview(constant: insets.top)
         anchorBottomToSuperview(constant: -insets.bottom)
         anchorLeftToSuperview(constant: insets.left)
@@ -242,49 +240,47 @@ extension UIView {
 //        sView.rightAnchor(equalTo: rightAnchor, constant: insets.right)
 //        sView.bottomAnchor(equalTo: bottomAnchor, constant: insets.bottom)
 //    }
-    //MARK: To multiple views
+    // MARK: To multiple views
     
-    public func autoPinTop(toTopOf views: [UIView], offsetBy padding: CGFloat = 0.0){
-        for view in views{
+    public func autoPinTop(toTopOf views: [UIView], offsetBy padding: CGFloat = 0.0) {
+        for view in views {
             topAnchor(equalTo: view.topAnchor, constant: -padding)
         }
     }
     
-    public func autoPinBottom(toBottomOf views: [UIView], offsetBy padding: CGFloat = 0.0){
-        for view in views{
+    public func autoPinBottom(toBottomOf views: [UIView], offsetBy padding: CGFloat = 0.0) {
+        for view in views {
             bottomAnchor(equalTo: view.bottomAnchor, constant: padding)
         }
     }
     
-    public func autoPinTopAtOrAbove(views: [UIView], offsetByAtLeast padding: CGFloat = 0.0){
-        for view in views{
+    public func autoPinTopAtOrAbove(views: [UIView], offsetByAtLeast padding: CGFloat = 0.0) {
+        for view in views {
             topAnchor(lessThanOrEqualTo: view.topAnchor, constant: -padding)
         }
     }
     
-    public func autoPinBottomAtOrBelow(views: [UIView], offsetByAtLeast padding: CGFloat = 0.0){
-        for view in views{
+    public func autoPinBottomAtOrBelow(views: [UIView], offsetByAtLeast padding: CGFloat = 0.0) {
+        for view in views {
             bottomAnchor(greaterThanOrEqualTo: view.bottomAnchor, constant: padding)
         }
     }
     
     //For dynamic sized cells, apply to contentView
     //For dynamic sized cells, apply to contentView
-    public func autoExpandHeight(toFitHeightOf views: [UIView], offsetBy padding: CGFloat, flexibleTop: Bool = false, flexibleBottom: Bool = true){
+    public func autoExpandHeight(toFitHeightOf views: [UIView], offsetBy padding: CGFloat, flexibleTop: Bool = false, flexibleBottom: Bool = true) {
         autoExpandHeight(toFitHeightOf: views, topPadding: padding, flexibleTop: flexibleTop, bottomPadding: padding, flexibleBottom: flexibleBottom)
     }
     
-    public func autoExpandHeight(toFitHeightOf views: [UIView], topPadding: CGFloat = 0.0, flexibleTop: Bool = false, bottomPadding: CGFloat = 0.0, flexibleBottom: Bool = true){
-        if flexibleTop{
+    public func autoExpandHeight(toFitHeightOf views: [UIView], topPadding: CGFloat = 0.0, flexibleTop: Bool = false, bottomPadding: CGFloat = 0.0, flexibleBottom: Bool = true) {
+        if flexibleTop {
             autoPinTopAtOrAbove(views: views, offsetByAtLeast: topPadding)
-        }
-        else{
+        } else {
             autoPinTop(toTopOf: views, offsetBy: topPadding)
         }
-        if flexibleBottom{
+        if flexibleBottom {
             autoPinBottomAtOrBelow(views: views, offsetByAtLeast: bottomPadding)
-        }
-        else{
+        } else {
             autoPinBottom(toBottomOf: views, offsetBy: bottomPadding)
         }
     }

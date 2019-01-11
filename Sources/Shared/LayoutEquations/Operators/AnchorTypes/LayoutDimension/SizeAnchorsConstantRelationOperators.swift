@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-//MARK: SizeAnchors == Constant
+// MARK: SizeAnchors == Constant
 @discardableResult
 public func == (lhs: SizeAnchors, rhs: LayoutConstant) -> ConstraintPair {
     return lhs == CGSize(side: rhs)
@@ -25,7 +25,7 @@ public func == (lhs: SizeAnchors, rhs: LayoutPairConfiguration) -> ConstraintPai
             LayoutRelationship(lhs.second, .equal, nil, rhs.second).constraint)
 }
 
-//MARK: SizeAnchors <= Constant
+// MARK: SizeAnchors <= Constant
 @discardableResult
 public func <= (lhs: SizeAnchors, rhs: LayoutConstant) -> ConstraintPair {
     return lhs <= CGSize(side: rhs)
@@ -42,7 +42,7 @@ public func <= (lhs: SizeAnchors, rhs: LayoutPairConfiguration) -> ConstraintPai
             LayoutRelationship(lhs.second, .lessThanOrEqual, nil, rhs.second).constraint)
 }
 
-//MARK: SizeAnchors >= Constant
+// MARK: SizeAnchors >= Constant
 @discardableResult
 public func >= (lhs: SizeAnchors, rhs: LayoutConstant) -> ConstraintPair {
     return lhs <= CGSize(side: rhs)

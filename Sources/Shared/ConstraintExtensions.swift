@@ -12,28 +12,26 @@ import Cocoa
 import UIKit
 #endif
 
-import Swiftest
+extension Constraint {
 
-extension Constraint{
-
-    public var items: [AnyObject?]{
+    public var items: [AnyObject?] {
         return [firstItem, secondItem]
     }
 
     @discardableResult
-    public func activated(with configuration: LayoutConfiguration) -> Constraint{
+    public func activated(with configuration: LayoutConfiguration) -> Constraint {
         return configured(with: configuration).activated()
     }
 
     @discardableResult
-    public func activated(with priority: LayoutPriority? = nil) -> Constraint{
-        self.priority =? priority
+    public func activated(with priority: LayoutPriority? = nil) -> Constraint {
+        if let priority = priority { self.priority = priority }
         isActive = true
 
         #if DEBUG
         let views = items.filtered(as: UIView.self)
-        if views.count == 2{
-            guard let commonSuperview = views[0].nearestCommonSuperviewWith(other: views[1]) else{
+        if views.count == 2 {
+            guard let commonSuperview = views[0].nearestCommonSuperviewWith(other: views[1]) else {
                 assertionFailure("Views that share constraints must share a common superview.")
                 return constraint
             }
@@ -42,15 +40,15 @@ extension Constraint{
         return self
     }
 
-    public func deactivated() -> Constraint{
+    public func deactivated() -> Constraint {
         isActive = false
         return self
     }
 }
 
-//MARK: Constraint + LayoutConfiguration
+// MARK: Constraint + LayoutConfiguration
 extension Constraint {
-    public func configured(with configuration: LayoutConfiguration) -> Constraint{
+    public func configured(with configuration: LayoutConfiguration) -> Constraint {
         let constraint = Constraint(item: firstItem as Any,
                                     attribute: firstAttribute,
                                     relatedBy: relation,
@@ -74,10 +72,8 @@ extension Constraint {
     }
 
     @discardableResult
-    public func with(priority: LayoutPriority) -> Self{
+    public func with(priority: LayoutPriority) -> Self {
         self.priority = priority
         return self
     }
 }
-
-

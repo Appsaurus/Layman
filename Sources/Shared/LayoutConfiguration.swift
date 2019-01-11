@@ -26,38 +26,36 @@ public final class LayoutConfiguration {
         self.priority = priority
     }
 
-
-    public func with(constant: LayoutConstant) -> LayoutConfiguration{
+    public func with(constant: LayoutConstant) -> LayoutConfiguration {
         self.constant = constant
         return self
     }
-    public func with(multiplier: LayoutMultiplier) -> LayoutConfiguration{
+    public func with(multiplier: LayoutMultiplier) -> LayoutConfiguration {
         self.multiplier = multiplier
         return self
     }
-    public func with(priority: LayoutPriority) -> LayoutConfiguration{
+    public func with(priority: LayoutPriority) -> LayoutConfiguration {
         self.priority = priority
         return self
     }
 }
 
-extension LayoutConfiguration: Defaultable {
-    public static var `default`: LayoutConfiguration{
+extension LayoutConfiguration {
+    public static var `default`: LayoutConfiguration {
         return .init()
     }
 
-    public static func constant(_ constant: LayoutConstant) -> LayoutConfiguration{
+    public static func constant(_ constant: LayoutConstant) -> LayoutConfiguration {
         return LayoutConfiguration(constant: constant)
     }
-    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutConfiguration{
+    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutConfiguration {
         return LayoutConfiguration(multiplier: multiplier)
     }
-    public static func priority(_ priority: LayoutPriority) -> LayoutConfiguration{
+    public static func priority(_ priority: LayoutPriority) -> LayoutConfiguration {
         return LayoutConfiguration(priority: priority)
     }
 }
 
-
-public final class LayoutPairConfiguration: Pair<LayoutConfiguration>, Defaultable {
+public final class LayoutPairConfiguration: Pair<LayoutConfiguration> {
     public static var `default`: LayoutPairConfiguration { return .init(.default) }
 }

@@ -12,14 +12,13 @@ import Cocoa
 import UIKit
 #endif
 
-
 public typealias Autolayoutable = LayoutAnchorable & LayoutConstrainable
 
 public protocol LayoutConstrainable {}
 
-extension UIView: LayoutConstrainable{}
-extension UILayoutGuide: LayoutConstrainable{}
-extension UIViewController: LayoutConstrainable{}
+extension UIView: LayoutConstrainable {}
+extension UILayoutGuide: LayoutConstrainable {}
+extension UIViewController: LayoutConstrainable {}
 
 public protocol LayoutAnchorable {
 
@@ -44,7 +43,7 @@ public protocol LayoutAnchorable {
     func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor
 }
 
-extension NSLayoutAnchor{
+extension NSLayoutAnchor {
     
 }
 extension LayoutAnchorable {
@@ -56,42 +55,42 @@ extension LayoutAnchorable {
     }
 
     public func anchors(_ attributes: ConstraintAttributes) -> [NSLayoutAnchor<AnchorType>] {
-        return attributes.map{anchor($0)}
+        return attributes.map {anchor($0)}
     }
 }
 
-private let viewAttributesToAnchorMap: [ConstraintAttribute : (UIView) -> AnchorType] = [
-    .left : { $0.leftAnchor },
-    .right : { $0.rightAnchor },
-    .top : { $0.topAnchor },
-    .bottom : { $0.bottomAnchor },
-    .leading : { $0.leadingAnchor },
-    .trailing : { $0.trailingAnchor },
-    .width : { $0.widthAnchor },
-    .height : { $0.heightAnchor },
-    .centerX : { $0.centerXAnchor },
-    .centerY : { $0.centerYAnchor },
-    .lastBaseline : { $0.lastBaselineAnchor },
-    .firstBaseline : { $0.firstBaselineAnchor },
-    .leftMargin : { $0.layoutMarginsGuide.leftAnchor },
-    .rightMargin : { $0.layoutMarginsGuide.rightAnchor},
-    .topMargin : { $0.layoutMarginsGuide.topAnchor },
-    .bottomMargin : { $0.layoutMarginsGuide.bottomAnchor },
-    .leadingMargin : { $0.layoutMarginsGuide.leadingAnchor },
-    .trailingMargin : { $0.layoutMarginsGuide.trailingAnchor },
-    .centerXWithinMargins : { $0.layoutMarginsGuide.centerXAnchor },
-    .centerYWithinMargins : { $0.layoutMarginsGuide.centerYAnchor }
+private let viewAttributesToAnchorMap: [ConstraintAttribute: (UIView) -> AnchorType] = [
+    .left: { $0.leftAnchor },
+    .right: { $0.rightAnchor },
+    .top: { $0.topAnchor },
+    .bottom: { $0.bottomAnchor },
+    .leading: { $0.leadingAnchor },
+    .trailing: { $0.trailingAnchor },
+    .width: { $0.widthAnchor },
+    .height: { $0.heightAnchor },
+    .centerX: { $0.centerXAnchor },
+    .centerY: { $0.centerYAnchor },
+    .lastBaseline: { $0.lastBaselineAnchor },
+    .firstBaseline: { $0.firstBaselineAnchor },
+    .leftMargin: { $0.layoutMarginsGuide.leftAnchor },
+    .rightMargin: { $0.layoutMarginsGuide.rightAnchor},
+    .topMargin: { $0.layoutMarginsGuide.topAnchor },
+    .bottomMargin: { $0.layoutMarginsGuide.bottomAnchor },
+    .leadingMargin: { $0.layoutMarginsGuide.leadingAnchor },
+    .trailingMargin: { $0.layoutMarginsGuide.trailingAnchor },
+    .centerXWithinMargins: { $0.layoutMarginsGuide.centerXAnchor },
+    .centerYWithinMargins: { $0.layoutMarginsGuide.centerYAnchor }
 ]
 extension UIView: LayoutAnchorable {
 
-    public func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor{
-        guard let anchor = viewAttributesToAnchorMap[attribute]?(self) as? AnyLayoutAnchor else{
+    public func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor {
+        guard let anchor = viewAttributesToAnchorMap[attribute]?(self) as? AnyLayoutAnchor else {
             preconditionFailure(String(describing: self) + " does not support \(attribute) constraint attribute.")
         }
         return anchor
     }
 
-    public var attributeToAnchorMap: [ConstraintAttribute : (UIView) -> AnchorType]{
+    public var attributeToAnchorMap: [ConstraintAttribute: (UIView) -> AnchorType] {
         return viewAttributesToAnchorMap
     }
 
@@ -135,7 +134,7 @@ extension UIView: LayoutAnchorable {
 //    .centerXWithinMargins : { $0.layoutMarginsGuide.centerXAnchor },
 //    .centerYWithinMargins : { $0.layoutMarginsGuide.centerYAnchor }
 //]
-extension UIViewController: LayoutAnchorable{
+extension UIViewController: LayoutAnchorable {
     public var leadingAnchor: XAxisAnchor {
         return view.leadingAnchor
     }
@@ -160,14 +159,12 @@ extension UIViewController: LayoutAnchorable{
         return view.bottomAnchor
     }
 
-
-    public func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor{
-        guard let anchor = viewAttributesToAnchorMap[attribute]?(self.view) as? AnyLayoutAnchor else{
+    public func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor {
+        guard let anchor = viewAttributesToAnchorMap[attribute]?(self.view) as? AnyLayoutAnchor else {
             preconditionFailure(String(describing: self) + " does not support \(attribute) constraint attribute.")
         }
         return anchor
     }
-
     
     public var horizontalAnchors: XAxisAnchors {
         return view.horizontalAnchors
@@ -191,22 +188,22 @@ extension UIViewController: LayoutAnchorable{
     
 }
 
-private let layoutGuideAttributesToAnchorMap: [ConstraintAttribute : (UILayoutGuide) -> AnchorType] = [
-    .left : { $0.leftAnchor },
-    .right : { $0.rightAnchor },
-    .top : { $0.topAnchor },
-    .bottom : { $0.bottomAnchor },
-    .leading : { $0.leadingAnchor },
-    .trailing : { $0.trailingAnchor },
-    .width : { $0.widthAnchor },
-    .height : { $0.heightAnchor },
-    .centerX : { $0.centerXAnchor },
-    .centerY : { $0.centerYAnchor },
+private let layoutGuideAttributesToAnchorMap: [ConstraintAttribute: (UILayoutGuide) -> AnchorType] = [
+    .left: { $0.leftAnchor },
+    .right: { $0.rightAnchor },
+    .top: { $0.topAnchor },
+    .bottom: { $0.bottomAnchor },
+    .leading: { $0.leadingAnchor },
+    .trailing: { $0.trailingAnchor },
+    .width: { $0.widthAnchor },
+    .height: { $0.heightAnchor },
+    .centerX: { $0.centerXAnchor },
+    .centerY: { $0.centerYAnchor }
 ]
 extension UILayoutGuide: LayoutAnchorable {
 
-    public func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor{
-        guard let anchor = layoutGuideAttributesToAnchorMap[attribute]?(self) as? AnyLayoutAnchor else{
+    public func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor {
+        guard let anchor = layoutGuideAttributesToAnchorMap[attribute]?(self) as? AnyLayoutAnchor else {
             preconditionFailure(String(describing: self) + " does not support \(attribute) constraint attribute.")
         }
         return anchor
@@ -241,7 +238,6 @@ extension UILayoutGuide: LayoutAnchorable {
 //    
 //}
 
-
 ////MARK: LayoutAnchor<LayoutDimension> == Constant
 //@discardableResult
 //public func == <A: LayoutAnchorable>(lhs: A, rhs: ConstraintItemAttributePair<A>) -> Constraint {
@@ -253,85 +249,82 @@ extension UILayoutGuide: LayoutAnchorable {
 //    return rhs.map{lhs == $0}
 //}
 
-
 //Type erased to accommodate LayoutAnchor of AnchorType aka AnyObject
-public func == <A: AnchorType>(lhs: LayoutAnchor<A>, rhs: LayoutAnchor<A>) -> Constraint{
+public func == <A: AnchorType>(lhs: LayoutAnchor<A>, rhs: LayoutAnchor<A>) -> Constraint {
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
-public func == <A: AnchorType>(lhs: [LayoutAnchor<A>], rhs: [LayoutAnchor<A>]) -> Constraints{
+public func == <A: AnchorType>(lhs: [LayoutAnchor<A>], rhs: [LayoutAnchor<A>]) -> Constraints {
     return lhs.enumerated().map { (arg) -> Constraint in
         let (index, element) = arg
         return element == rhs[index]
     }
 }
 
-public func == (lhs: UIView, rhs: [ViewAnchorPair]) -> Constraints{
-    return lhs[rhs.map{$0.attribute}].anchors == rhs.anchors
+public func == (lhs: UIView, rhs: [ViewAnchorPair]) -> Constraints {
+    return lhs[rhs.map {$0.attribute}].anchors == rhs.anchors
 }
 
-extension ConstraintAttribute{
-    public func of<A: LayoutConstrainable>(_ item: A) -> ConstraintItemAttributePair<A>{
+extension ConstraintAttribute {
+    public func of<A: LayoutConstrainable>(_ item: A) -> ConstraintItemAttributePair<A> {
         return ConstraintItemAttributePair(item: item, attribute: self)
     }
 
-    public func anchor<A: LayoutAnchorable>(_ item: A) -> AnyLayoutAnchor{
+    public func anchor<A: LayoutAnchorable>(_ item: A) -> AnyLayoutAnchor {
         return item.anchor(self)
     }
 }
 
-
-public struct ConstraintItemAttributePair<A: LayoutConstrainable>{
+public struct ConstraintItemAttributePair<A: LayoutConstrainable> {
     public var item: A
     public var attribute: ConstraintAttribute
 }
-extension ConstraintItemAttributePair where A: LayoutAnchorable{
-    public var anchor: AnyLayoutAnchor{
+extension ConstraintItemAttributePair where A: LayoutAnchorable {
+    public var anchor: AnyLayoutAnchor {
         return item.anchor(attribute)
     }
 }
 
-//MARK: ConstraintAttributes extension
-extension Array where Element == ConstraintAttribute{
-    public func of<A: LayoutConstrainable>(_ item: A) -> [ConstraintItemAttributePair<A>]{
-        return self.map{$0.of(item)}
+// MARK: ConstraintAttributes extension
+extension Array where Element == ConstraintAttribute {
+    public func of<A: LayoutConstrainable>(_ item: A) -> [ConstraintItemAttributePair<A>] {
+        return self.map {$0.of(item)}
     }
 
-    public func anchors<A: LayoutAnchorable>(_ item: A) -> [AnyLayoutAnchor]{
+    public func anchors<A: LayoutAnchorable>(_ item: A) -> [AnyLayoutAnchor] {
         return item.anchors(self)
     }
 }
 
-
-private let anchorMap: [UIView.AnchorEnum : (UIView) -> AnchorType] = [
-    .left : { $0.leftAnchor },
-    .right : { $0.rightAnchor },
-    .top : { $0.topAnchor },
-    .bottom : { $0.bottomAnchor }
+private let anchorMap: [UIView.AnchorEnum: (UIView) -> AnchorType] = [
+    .left: { $0.leftAnchor },
+    .right: { $0.rightAnchor },
+    .top: { $0.topAnchor },
+    .bottom: { $0.bottomAnchor }
 ]
 
-extension Collection where Element == ViewAnchorPair{
-    public var anchors: [AnyLayoutAnchor]{
-        return map{$0.anchor}
+extension Collection where Element == ViewAnchorPair {
+    public var anchors: [AnyLayoutAnchor] {
+        return map {$0.anchor}
     }
 }
-public struct ViewAnchorPair{
+public struct ViewAnchorPair {
     public var item: UIView
     public var attribute: UIView.AnchorEnum
 
-    public var anchor: AnyLayoutAnchor{
+    public var anchor: AnyLayoutAnchor {
         // swiftlint:disable:next force_cast
         return attribute.anchor(view: item) as! AnyLayoutAnchor
     }
 }
-extension UIView{
-    public enum AnchorEnum{
+extension UIView {
+    public enum AnchorEnum {
         case left
         case right
         case top
         case bottom
 
-        public func anchor(view: UIView) -> AnchorType{
-            switch self{
+        public func anchor(view: UIView) -> AnchorType {
+            switch self {
             case .left: return view.leftAnchor
             case .right: return view.rightAnchor
             case .top: return view.topAnchor
@@ -340,17 +333,16 @@ extension UIView{
         }
     }
 
-
-    public func anchor(for anchorEnum: AnchorEnum) -> AnyLayoutAnchor{
+    public func anchor(for anchorEnum: AnchorEnum) -> AnyLayoutAnchor {
         // swiftlint:disable:next force_cast
         return anchorEnum.anchor(view: self) as! AnyLayoutAnchor
     }
 
-    public subscript (attributes: [AnchorEnum]) -> [ViewAnchorPair]{
-        return attributes.map{ ViewAnchorPair(item: self, attribute: $0) }
+    public subscript (attributes: [AnchorEnum]) -> [ViewAnchorPair] {
+        return attributes.map { ViewAnchorPair(item: self, attribute: $0) }
     }
 
-    public subscript (attributes: AnchorEnum...) -> [ViewAnchorPair]{
+    public subscript (attributes: AnchorEnum...) -> [ViewAnchorPair] {
         return self[attributes]
     }
 }

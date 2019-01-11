@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-//MARK: AnchorPairs + Constant Arithmetic
+// MARK: CenterAnchors Constant Arithmetic
 @discardableResult
 public func + (lhs: CenterAnchors, rhs: LayoutConstant) -> CenterAnchorsExpression {
     return CenterAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))

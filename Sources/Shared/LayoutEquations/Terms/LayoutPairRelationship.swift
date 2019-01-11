@@ -25,15 +25,14 @@ public struct LayoutPairRelationship<F: AnchorType, S: AnchorType> {
 
     public init(_ anchors: LayoutAnchors<F, S>,
                 _ relation: Constraint.Relation,
-                _ relatedExpression: LayoutPairExpression<F,S>) {
+                _ relatedExpression: LayoutPairExpression<F, S>) {
         self.init(anchors,
                   relation,
                   relatedExpression.anchors,
                   relatedExpression.configurations)
     }
 
-
-    public var constraints: ConstraintPair{
+    public var constraints: ConstraintPair {
         return (LayoutRelationship(anchors.first, relation, relatedAnchors.first, configurations.first).constraint,
                 LayoutRelationship(anchors.second, relation, relatedAnchors.second, configurations.second).constraint)
     }

@@ -7,43 +7,40 @@
 //
 
 public typealias XAxisAnchorExpression = LayoutExpression<XAxisAnchor>
-//MARK: Equal
-//MARK: Anchor == Expression
+// MARK: Equal
+// MARK: Anchor == Expression
 @discardableResult
-public func == (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint{
+public func == (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint {
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
-
-//MARK: Anchor == Anchor
+// MARK: Anchor == Anchor
 @discardableResult
 public func == (lhs: XAxisAnchor, rhs: XAxisAnchor) -> Constraint {
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
-//MARK: LessThanOrEqual
-//MARK: Anchor <= Expression
+// MARK: LessThanOrEqual
+// MARK: Anchor <= Expression
 @discardableResult
-public func <= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint{
+public func <= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint {
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
-
-//MARK: Anchor <= Anchor
+// MARK: Anchor <= Anchor
 @discardableResult
 public func <= (lhs: XAxisAnchor, rhs: XAxisAnchor) -> Constraint {
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
-//MARK: GreaterThanOrEqual
-//MARK: Anchor >= Expression
+// MARK: GreaterThanOrEqual
+// MARK: Anchor >= Expression
 @discardableResult
-public func >= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint{
+public func >= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint {
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
 }
 
-
-//MARK: Anchor >= Anchor
+// MARK: Anchor >= Anchor
 @discardableResult
 public func >= (lhs: XAxisAnchor, rhs: XAxisAnchor) -> Constraint {
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint

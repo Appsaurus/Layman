@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>>{
+public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> {
 
     public var anchor: LayoutAnchor<A>
     public var relation: Constraint.Relation
@@ -28,12 +28,11 @@ public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>>{
                   relatedExpression.configuration)
     }
 
-
-    public var constraint: Constraint{
+    public var constraint: Constraint {
         // swiftlint:disable:next force_cast
         let dimension = anchor as! LayoutDimension
         let constraint: Constraint = {
-            switch relation{
+            switch relation {
             case .lessThanOrEqual:
                 return dimension.constraint(lessThanOrEqualToConstant: configuration.constant)
             case .equal:

@@ -26,4 +26,3 @@ public func ~ (lhs: CGSize, rhs: LayoutPriority) -> LayoutPairConfiguration {
         lhs.height ~ rhs
     )
 }
-

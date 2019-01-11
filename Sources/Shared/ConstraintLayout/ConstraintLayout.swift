@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-// swiftlint:disable line_length
+// swiftlint:disable line_length file_length
 public typealias ConstraintDictionary = [ConstraintAttribute: Constraint]
 public typealias ConstraintDictionaryMap = [UIView: ConstraintDictionary]
 
@@ -18,7 +17,7 @@ extension UIView: LayoutItem {}
 @available(iOS 9.0, *)
 extension UILayoutGuide: LayoutItem {}
 
-public enum AutoLayoutAspectRatio{
+public enum AutoLayoutAspectRatio {
     case wide // 16:9
     case standard // 4:3
     case square
@@ -26,7 +25,7 @@ public enum AutoLayoutAspectRatio{
     case customSize(size: CGSize)
     case customRatio(ratio: CGFloat)
     
-    public var ratio: CGFloat{
+    public var ratio: CGFloat {
         switch self {
         case .wide:
             return 16.0/9.0
@@ -44,33 +43,32 @@ public enum AutoLayoutAspectRatio{
     }
 }
 
-//MARK: -Expand size of superview
-extension UIView{
-    public func autoForceSuperviewToMatchContentSize(insetBy insets: UIEdgeInsets = .zero, priority: LayoutPriority? = .required){
+// MARK: - Expand size of superview
+extension UIView {
+    public func autoForceSuperviewToMatchContentSize(insetBy insets: UIEdgeInsets = .zero, priority: LayoutPriority? = .required) {
         autoForceSuperviewToMatchContentWidth(insetBy: insets, priority: priority)
         autoForceSuperviewToMatchContentHeight(insetBy: insets, priority: priority)
     }
     
-    public func autoForceSuperviewToMatchContentWidth(insetBy insets: UIEdgeInsets = .zero, priority: LayoutPriority? = .required){
+    public func autoForceSuperviewToMatchContentWidth(insetBy insets: UIEdgeInsets = .zero, priority: LayoutPriority? = .required) {
         anchorLeftToSuperview(constant: insets.left)
         anchorRightToSuperview(constant: -insets.right)
         autoSizeWidth(to: 0.0, relatedBy: .greaterThanOrEqual, priority: priority)
         autoEnforceContentSize()
     }
     
-    public func autoForceSuperviewToMatchContentHeight(insetBy insets: UIEdgeInsets = .zero, priority: LayoutPriority? = .required){
+    public func autoForceSuperviewToMatchContentHeight(insetBy insets: UIEdgeInsets = .zero, priority: LayoutPriority? = .required) {
         anchorTopToSuperview(constant: insets.top)
         anchorBottomToSuperview(constant: -insets.bottom)
         autoSizeHeight(to: 0.0, relatedBy: .greaterThanOrEqual, priority: priority)
         autoEnforceContentSize()
     }
     
-    
 }
 // MARK: - Pin: Superview
 extension UIView {
     
-    fileprivate func assertSuperview() -> UIView{
+    fileprivate func assertSuperview() -> UIView {
         assert(superview != nil, "Åttempted to create constraint between a view and its superview without a superview.")
         return superview!
     }
@@ -105,11 +103,10 @@ extension UIView {
         return self.autoPin(edge: edge, toEdgeOf: assertSuperview(), withOffset: offset, relatedBy: relatedBy, priority: priority)
     }
     
-    
 }
 
 // MARK: - Pin: to margins
-extension UIView{
+extension UIView {
     
     @discardableResult
     public func autoPinToSuperviewMargin(_ attribute: ConstraintAttribute, withOffset offset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> Constraint {
@@ -133,7 +130,6 @@ extension UIView{
 // MARK: - Pin: to edges
 extension UIView {
     
-    
     @discardableResult
     public func autoPin(toEdgesOf item: LayoutItem, excludingEdges: Attributes = [], withInsets insets: UIEdgeInsets = .zero, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary {
         var attributes: Attributes = .sides
@@ -145,7 +141,7 @@ extension UIView {
     @discardableResult
     public func autoPin(to edges: Attributes = .sides, of item: LayoutItem, withInsets insets: UIEdgeInsets = .zero, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary {
         var constraints: ConstraintDictionary = [:]
-        for edge in edges{
+        for edge in edges {
             constraints[edge] = autoPin(edge: edge, toEdgeOf: item, withOffset: insets.layoutOffsetValue(edgeAttribute: edge), relatedBy: relatedBy, priority: priority)
         }
         return constraints
@@ -156,17 +152,14 @@ extension UIView {
         return autoPin(edge: edge, toEdge: edge, of: item, withOffset: offset, relatedBy: relatedBy, priority: priority)
     }
     
-    
-    
-    
     @discardableResult
     public func autoPin(edge: ConstraintAttribute, toEdge: ConstraintAttribute, of item: LayoutItem, withOffset offset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> Constraint {
         var offset = offset
         var relatedBy = relatedBy
-        switch edge{
+        switch edge {
         case .right, .bottom, .trailing, .rightMargin, .bottomMargin, .trailingMargin:
             offset.negate()
-            switch relatedBy{
+            switch relatedBy {
             case .lessThanOrEqual:
                 relatedBy = .greaterThanOrEqual
             case .greaterThanOrEqual:
@@ -178,19 +171,17 @@ extension UIView {
         return self.autoConstrain(attribute: edge, ofItem: self, toAttribute: toEdge, ofItem: item, constant: offset, relatedBy: relatedBy, priority: priority)
     }
     
-    
 }
 // MARK: - Center
 extension UIView {
     
     @discardableResult
-    public func autoCenterInSuperview(withXOffset xOffset: CGFloat = 0, withYOffset yOffset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary{
+    public func autoCenterInSuperview(withXOffset xOffset: CGFloat = 0, withYOffset yOffset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary {
         return [
-            .centerX : self.autoCenterHorizontallyInSuperview(withOffset: xOffset, relatedBy: relatedBy, priority: priority),
-            .centerY : self.autoCenterVerticallyInSuperview(withOffset: yOffset, relatedBy: relatedBy, priority: priority)
+            .centerX: self.autoCenterHorizontallyInSuperview(withOffset: xOffset, relatedBy: relatedBy, priority: priority),
+            .centerY: self.autoCenterVerticallyInSuperview(withOffset: yOffset, relatedBy: relatedBy, priority: priority)
         ]
     }
-    
     
     @discardableResult
     public func autoCenterHorizontallyInSuperview(withOffset offset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, multiplier: CGFloat = 1, priority: LayoutPriority? = .required) -> Constraint {
@@ -221,7 +212,6 @@ extension UIView {
         return self.autoConstrain(attribute: .width, multiplier: multiplier, constant: width, relatedBy: relatedBy, priority: priority)
     }
     
-    
     @discardableResult
     public func autoSizeHeight(to height: CGFloat, relatedBy: Constraint.Relation = .equal, multiplier: CGFloat = 1, priority: LayoutPriority? = .required) -> Constraint {
         return self.autoConstrain(attribute: .height, multiplier: multiplier, constant: height, relatedBy: relatedBy, priority: priority)
@@ -237,12 +227,11 @@ extension UIView {
         )
     }
     
-    
     @discardableResult
     public func autoSize(to size: CGSize, relatedBy: Constraint.Relation = .equal, multiplier: CGFloat = 1, priority: LayoutPriority? = .required) -> ConstraintDictionary {
         return [
-            .width : self.autoSizeWidth(to: size.width, relatedBy: relatedBy, multiplier: multiplier, priority: priority),
-            .height : self.autoSizeHeight(to: size.height, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
+            .width: self.autoSizeWidth(to: size.width, relatedBy: relatedBy, multiplier: multiplier, priority: priority),
+            .height: self.autoSizeHeight(to: size.height, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         ]
     }
     
@@ -276,15 +265,13 @@ extension UIView {
 
 // MARK: - Matching Size
 
-extension UIView{
-    
+extension UIView {
     
     /// Centers in and matches size of superview. Paramaters only apply to size constraints.
     @discardableResult
     public func autoCenterAndMatchSizeOfSuperview(withSizeOffset offset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, multiplier: CGFloat = 1, priority: LayoutPriority? = .required) -> ConstraintDictionary {
         return autoCenterInSuperview().merged(with: autoMatchSizeOfSuperview(withOffset: offset, relatedBy: relatedBy, multiplier: multiplier, priority: priority))
     }
-    
     
     @discardableResult
     public func autoMatchSizeOfSuperview(withOffset offset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, multiplier: CGFloat = 1, priority: LayoutPriority? = .required) -> ConstraintDictionary {
@@ -294,7 +281,7 @@ extension UIView{
     @discardableResult
     public func autoMatchSize(of item: LayoutItem, withOffset offset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, multiplier: CGFloat = 1, priority: LayoutPriority? = .required) -> ConstraintDictionary {
         return [
-            .width : self.autoMatchWidth(of: item, withOffset: offset, relatedBy: relatedBy, multiplier: multiplier, priority: priority),
+            .width: self.autoMatchWidth(of: item, withOffset: offset, relatedBy: relatedBy, multiplier: multiplier, priority: priority),
             .height: self.autoMatchHeight(of: item, withOffset: offset, relatedBy: relatedBy, multiplier: multiplier, priority: priority)
         ]
     }
@@ -339,10 +326,10 @@ extension UIView {
     }
 }
 
-//MARK: - Private
-extension UIView{
+// MARK: - Private
+extension UIView {
     @discardableResult
-    fileprivate func autoConstrain<C : Constraint>(attribute: ConstraintAttribute, ofItem item: LayoutItem, toAttribute: ConstraintAttribute = .notAnAttribute, ofItem toItem: LayoutItem? = nil, multiplier: CGFloat = 1, constant: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> C {
+    fileprivate func autoConstrain<C: Constraint>(attribute: ConstraintAttribute, ofItem item: LayoutItem, toAttribute: ConstraintAttribute = .notAnAttribute, ofItem toItem: LayoutItem? = nil, multiplier: CGFloat = 1, constant: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> C {
         
         if let view = item as? UIView {
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -357,11 +344,11 @@ extension UIView{
             constraint.priority = priority!
         }
         constraint.isActive = true
-        guard let toItem = toItem as? UIView else{
+        guard let toItem = toItem as? UIView else {
             self.addConstraint(constraint)
             return constraint
         }
-        guard let commonSuperview = self.nearestCommonSuperviewWith(other: toItem) else{
+        guard let commonSuperview = self.nearestCommonSuperviewWith(other: toItem) else {
             assertionFailure("Views that share constraints must share a common superview.")
             return constraint
         }
@@ -374,7 +361,7 @@ extension UIView{
     fileprivate func autoConstrain(attributes: Attributes, ofItem item: LayoutItem, toItem: LayoutItem?, relatedBy: Constraint.Relation = .equal, multiplier: CGFloat = 1, constant: CGFloat = 0, priority: LayoutPriority? = .required) -> ConstraintDictionary {
         
         var constraintDict: ConstraintDictionary = [:]
-        for attribute in attributes{
+        for attribute in attributes {
             let toAttribute = toItem == nil ? .notAnAttribute : attribute
             let constraint = autoConstrain(attribute: attribute, ofItem: item, toAttribute: toAttribute, ofItem: toItem, multiplier: multiplier, constant: constant, relatedBy: relatedBy, priority: priority)
             constraintDict[attribute] = constraint
@@ -383,53 +370,52 @@ extension UIView{
     }
 }
 
-//MARK: General Convenience Autolayout Extensions
-public extension UIView{
+// MARK: General Convenience Autolayout Extensions
+public extension UIView {
     
-    public func addActiveConstraints(_ constraints: Constraints){
-        constraints.forEach{$0.isActive = true}
+    public func addActiveConstraints(_ constraints: Constraints) {
+        constraints.forEach {$0.isActive = true}
         addConstraints(constraints)
     }
     
-    public func autoEnforceContentSize(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]){
+    public func autoEnforceContentSize(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
         autoEnforceContentHugging(priority, forAxes: axes)
         autoEnforceCompressionResistance(priority, forAxes: axes)
     }
     
-    
-    public func autoEnforceContentHugging(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]){
+    public func autoEnforceContentHugging(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
         axes.forEach { (axis) in
             setContentHuggingPriority(priority, for: axis)
         }
         
     }
     
-    public func autoEnforceCompressionResistance(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]){
+    public func autoEnforceCompressionResistance(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
         axes.forEach { (axis) in
             setContentCompressionResistancePriority(priority, for: axis)
         }
     }
     
-    public func forceAutolayoutPass(){
+    public func forceAutolayoutPass() {
         setNeedsLayout()
         layoutIfNeeded()
     }
     
-    public func constraint(for attribute: ConstraintAttribute, relatedTo view: UIView? = nil) -> Constraint?{
+    public func constraint(for attribute: ConstraintAttribute, relatedTo view: UIView? = nil) -> Constraint? {
         let allConstraints = constraints + (superview?.constraints ?? [])
         let contraintsToCheck = view != nil ? constraintsRelated(to: view!) : allConstraints
-        for constraint in contraintsToCheck{
-            if (constraint.firstItem as? UIView == self && constraint.firstAttribute == attribute){
+        for constraint in contraintsToCheck {
+            if constraint.firstItem === self && constraint.firstAttribute == attribute {
                 return constraint
             }
-            if(constraint.secondItem as? UIView == self && constraint.secondAttribute == attribute){
+            if constraint.secondItem === self && constraint.secondAttribute == attribute {
                 return constraint
             }
         }
         return nil
     }
     
-    public func constraintsRelated(to view: UIView) -> Constraints{
+    public func constraintsRelated(to view: UIView) -> Constraints {
         let allConstraints = constraints + (superview?.constraints ?? [])
         return allConstraints.compactMap({ (constraint: Constraint) -> Constraint? in
             guard let firstView = constraint.firstItem as? UIView, let secondView = constraint.secondItem as? UIView else { return nil }
@@ -438,7 +424,7 @@ public extension UIView{
     }
 }
 
-//MARK: View Heirarchy
+// MARK: View Heirarchy
 extension UIView {
     
     public func nearestCommonSuperviewWith(other: UIView) -> UIView? {
@@ -458,9 +444,7 @@ extension UIView {
     
 }
 
-
-
-extension UIEdgeInsets{
+extension UIEdgeInsets {
 //    @available(iOS, obsoleted: 11.0, message: "Because fuck apple")
 //    public init(top: CGFloat = 0.0, left: CGFloat = 0.0, bottom: CGFloat = 0.0, right: CGFloat = 0.0 ) {
 //        self.init()
@@ -470,8 +454,8 @@ extension UIEdgeInsets{
 //        self.bottom = bottom
 //    }
     
-    func layoutOffsetValue(edgeAttribute: ConstraintAttribute) -> CGFloat{
-        switch edgeAttribute{
+    func layoutOffsetValue(edgeAttribute: ConstraintAttribute) -> CGFloat {
+        switch edgeAttribute {
         case .top, .topMargin:
             return self.top
         case .bottom, .bottomMargin:
@@ -487,32 +471,30 @@ extension UIEdgeInsets{
     }
 }
 
-extension Array where Element: UIView{
+extension Array where Element: UIView {
     
     /// Autostacks an array of views vertically inside a common superview. Requires that all views share the same superview.
     ///
     /// - Returns: Constraints mapped to each view
     @discardableResult
-    public func autoStackVertically() -> ConstraintDictionaryMap{
+    public func autoStackVertically() -> ConstraintDictionaryMap {
         var constraintMap: ConstraintDictionaryMap = [:]
-        guard let firstView = self.first else{
+        guard let firstView = self.first else {
             return constraintMap
         }
         
-        guard self[safe: 1] != nil else{//If only one view exists
+        guard self[safe: 1] != nil else {//If only one view exists
             constraintMap[firstView] = firstView.autoPinToSuperview()
             return constraintMap
         }
         
-        
         for (index, view) in self.enumerated() {
-            if index == 0{
+            if index == 0 {
                 constraintMap[view] = view.autoPinToSuperview(excludingEdges: [.bottom])
-            }
-            else{
+            } else {
                 constraintMap[view] = view.autoPinToSuperview(edges: .leftAndRight)
                 constraintMap[view]?[.top] = view.autoPin(edge: .top, toEdge: .bottom, of: self[index - 1])
-                if index == self.lastIndex{
+                if index == self.lastIndex {
                     constraintMap[view]?[.bottom] = view.autoPinToSuperview(edge: .bottom)
                 }
             }
@@ -520,48 +502,41 @@ extension Array where Element: UIView{
         return constraintMap
     }
     
-    
-    
-    
     @discardableResult
-    public func autoStackVertically(insetFromSuperview insets: UIEdgeInsets = .zero) -> ConstraintDictionaryMap{
+    public func autoStackVertically(insetFromSuperview insets: UIEdgeInsets = .zero) -> ConstraintDictionaryMap {
         return autoStackVertically(insetFromSuperview: insets, spacing: 0)
     }
     /// Autostacks an array of views vertically inside a common superview. Requires that all views share the same superview.
     ///
     /// - Returns: Constraints mapped to each view
     @discardableResult
-    public func autoStackVertically(insetFromSuperview insets: UIEdgeInsets = .zero, spacing: CGFloat...) -> ConstraintDictionaryMap{
+    public func autoStackVertically(insetFromSuperview insets: UIEdgeInsets = .zero, spacing: CGFloat...) -> ConstraintDictionaryMap {
         
         assert(spacing.count == 0 || spacing.count == self.count - 1 || spacing.count == 1, "Invalid number of paramters for spacing")
         var constraintMap: ConstraintDictionaryMap = [:]
-        guard let firstView = self.first else{
+        guard let firstView = self.first else {
             return constraintMap
         }
         
-        guard self[safe: 1] != nil else{//If only one view exists
+        guard self[safe: 1] != nil else {//If only one view exists
             constraintMap[firstView] = firstView.autoPinToSuperview(withInsets: insets)
             return constraintMap
         }
         
-        
         for (index, view) in self.enumerated() {
-            if index == 0{
+            if index == 0 {
                 constraintMap[view] = view.autoPinToSuperview(excludingEdges: [.bottom], withInsets: insets)
-            }
-            else{
+            } else {
                 constraintMap[view] = view.autoPinToSuperview(edges: .leftAndRight, withInsets: insets)
                 let space = spacing[safe: index - 1] ?? spacing[safe: 0] ?? 0
                 constraintMap[view]?[.top] = view.autoPin(edge: .top, toEdge: .bottom, of: self[index - 1], withOffset: space)
-                if index == self.lastIndex{
+                if index == self.lastIndex {
                     constraintMap[view]?[.bottom] = view.autoPinToSuperview(edge: .bottom, withOffset: insets.bottom)
                 }
             }
         }
         return constraintMap
     }
-    
-    
     
     /// Autostacks an array of views horizontally inside a common superview. Requires that all views share the same superview.
     ///
@@ -570,10 +545,9 @@ extension Array where Element: UIView{
     /// - Returns: Constraints mapped to each view
     
     @discardableResult
-    public func autoStackHorizontally(insetFromSuperview insets: UIEdgeInsets = .zero) -> ConstraintDictionaryMap{
+    public func autoStackHorizontally(insetFromSuperview insets: UIEdgeInsets = .zero) -> ConstraintDictionaryMap {
         return autoStackHorizontally(insetFromSuperview: insets, spacing: 0)
     }
-    
     
     /// Autostacks an array of views horizontally inside a common superview. Requires that all views share the same superview.
     ///
@@ -582,28 +556,26 @@ extension Array where Element: UIView{
     ///   - spacing: spaces between views, can be single value or specific value for each gap between views (1 less than total view count)
     /// - Returns: Constraints mapped to each view
     @discardableResult
-    public func autoStackHorizontally(insetFromSuperview insets: UIEdgeInsets = .zero, spacing: CGFloat...) -> ConstraintDictionaryMap{
+    public func autoStackHorizontally(insetFromSuperview insets: UIEdgeInsets = .zero, spacing: CGFloat...) -> ConstraintDictionaryMap {
         var constraintMap: ConstraintDictionaryMap = [:]
         assert(spacing.count == 0 || spacing.count == self.count - 1 || spacing.count == 1, "Invalid number of paramters for spacing")
-        guard let firstView = self.first else{
+        guard let firstView = self.first else {
             return constraintMap
         }
         
-        guard self[safe: 1] != nil else{//If only one view exists
+        guard self[safe: 1] != nil else {//If only one view exists
             constraintMap[firstView] = firstView.autoPinToSuperview(withInsets: insets)
             return constraintMap
         }
         
-        
         for (index, view) in self.enumerated() {
             let space = spacing[safe: index - 1] ?? spacing[safe: 0] ?? 0
-            if index == 0{
+            if index == 0 {
                 constraintMap[view] = view.autoPinToSuperview(excludingEdges: [.right], withInsets: UIEdgeInsets.init(top: insets.top, left: insets.left, bottom: insets.bottom, right: 0))
-            }
-            else{
+            } else {
                 constraintMap[view] = view.autoPinToSuperview(edges: .topAndBottom, withInsets: UIEdgeInsets.init(top: insets.top, left: 0, bottom: insets.bottom, right: 0))
                 constraintMap[view]?[.left] = view.autoPin(edge: .left, toEdge: .right, of: self[index - 1], withOffset: space)
-                if index == self.lastIndex{
+                if index == self.lastIndex {
                     constraintMap[view]?[.right] = view.autoPinToSuperview(edge: .right, withOffset: insets.right)
                 }
             }
@@ -611,34 +583,32 @@ extension Array where Element: UIView{
         return constraintMap
     }
     
-    public func autoEnforceContentSize(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]){
+    public func autoEnforceContentSize(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
         autoEnforceContentHugging(priority, forAxes: axes)
         autoEnforceCompressionResistance(priority, forAxes: axes)
         
     }
     
-    public func autoEnforceContentHugging(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]){
-        for view in self{
+    public func autoEnforceContentHugging(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
+        for view in self {
             view.autoEnforceContentSize(priority, forAxes: axes)
         }
     }
     
-    public func autoEnforceCompressionResistance(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]){
-        for view in self{
+    public func autoEnforceCompressionResistance(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
+        for view in self {
             view.autoEnforceCompressionResistance(priority, forAxes: axes)
         }
     }
 }
 
-
-extension UIView{
+extension UIView {
     public func swap(subview: UIView, with replacementView: UIView) {
         addSubview(replacementView)
         for constraint: Constraint in self.constraints {
             if constraint.firstItem as? UIView == subview {
                 addConstraint(Constraint(item: replacementView, attribute: constraint.firstAttribute, relatedBy: constraint.relation, toItem: constraint.secondItem, attribute: constraint.secondAttribute, multiplier: constraint.multiplier, constant: constraint.constant))
-            }
-            else if constraint.secondItem as? UIView == subview {
+            } else if constraint.secondItem as? UIView == subview {
                 addConstraint(Constraint(item: constraint.firstItem as Any, attribute: constraint.firstAttribute, relatedBy: constraint.relation, toItem: replacementView, attribute: constraint.secondAttribute, multiplier: constraint.multiplier, constant: constraint.constant))
             }
         }
@@ -646,8 +616,8 @@ extension UIView{
     }
 }
 
-extension UIView{
-    public class func parentViewFittingContent(of view: UIView, insetBy insets: UIEdgeInsets = UIEdgeInsets(padding: 20)) -> UIView{
+extension UIView {
+    public class func parentViewFittingContent(of view: UIView, insetBy insets: UIEdgeInsets = UIEdgeInsets(padding: 20)) -> UIView {
         let layoutView: UIView = UIView()
         layoutView.addSubview(view)
         view.autoForceSuperviewToMatchContentSize(insetBy: insets)
@@ -655,9 +625,8 @@ extension UIView{
     }
 }
 
-
-extension UIView{
-    public func layoutDynamicHeight(forWidth width: CGFloat){
+extension UIView {
+    public func layoutDynamicHeight(forWidth width: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         let widthConstraint = autoSizeWidth(to: width)
         addConstraint(widthConstraint)

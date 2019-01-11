@@ -6,6 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class EdgeAnchorsConfiguration: SidesTuple<LayoutConfiguration, LayoutConfiguration>, Defaultable{
+public final class EdgeAnchorsConfiguration: SidesTuple<LayoutConfiguration, LayoutConfiguration> {
     public static var `default`: EdgeAnchorsConfiguration { return .init(.default) }
 }

@@ -6,10 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-import CoreGraphics
-import Swiftest
-
-//MARK: Constant Arithmetic
+// MARK: XAxisAnchor Constant Arithmetic
 @discardableResult
 public func + (lhs: XAxisAnchor, rhs: LayoutConstant) -> XAxisAnchorExpression {
     return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
@@ -35,7 +32,7 @@ public func / (lhs: XAxisAnchorExpression, rhs: LayoutConstant) -> XAxisAnchorEx
     return lhs.with(multiplier: (1.0 / rhs))
 }
 
-//MARK: AnchorPairs + Constant Arithmetic
+// MARK: XAxisAnchors Constant Arithmetic
 @discardableResult
 public func + (lhs: XAxisAnchors, rhs: LayoutConstant) -> XAxisAnchorsExpression {
     return XAxisAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))

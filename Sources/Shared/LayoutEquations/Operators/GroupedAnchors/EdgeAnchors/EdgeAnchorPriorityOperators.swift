@@ -16,7 +16,6 @@ public func ~ (lhs: EdgeAnchorsExpression, rhs: LayoutPriority) -> EdgeAnchorsEx
     return lhs.with(priority: rhs)
 }
 
-
 @discardableResult
 public func ~ (lhs: LayoutInset, rhs: LayoutPriority) -> EdgeAnchorsConfiguration {
     return EdgeAnchorsConfiguration(

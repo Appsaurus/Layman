@@ -6,7 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
 public struct LayoutRelationship<A: AnchorType> {
 
     public var anchor: LayoutAnchor<A>
@@ -33,8 +32,7 @@ public struct LayoutRelationship<A: AnchorType> {
                   relatedExpression.configuration)
     }
 
-
-    public var constraint: Constraint{
+    public var constraint: Constraint {
 
         if let relatedAnchor = relatedAnchor {
             return constraintRelated(to: relatedAnchor)
@@ -46,9 +44,9 @@ public struct LayoutRelationship<A: AnchorType> {
         preconditionFailure("LayoutRelationship must contain two anchors or one anchor of type LayoutDimension")
     }
 
-    internal func constraintRelated(to relatedAnchor: LayoutAnchor<A>) -> Constraint{
+    internal func constraintRelated(to relatedAnchor: LayoutAnchor<A>) -> Constraint {
         var constraint: Constraint = {
-            switch relation{
+            switch relation {
             case .lessThanOrEqual:
                 return anchor.constraint(lessThanOrEqualTo: relatedAnchor)
             case .equal:
@@ -58,10 +56,10 @@ public struct LayoutRelationship<A: AnchorType> {
             }
         }()
 
-        switch constraint.secondAttribute{
+        switch constraint.secondAttribute {
         case .right, .bottom, .trailing, .rightMargin, .bottomMargin, .trailingMargin:
             configuration.constant.negate()
-            switch relation{
+            switch relation {
             case .lessThanOrEqual:
                 constraint = anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
             case .greaterThanOrEqual:
@@ -73,9 +71,9 @@ public struct LayoutRelationship<A: AnchorType> {
         return constraint.activated(with: configuration)
     }
 
-    internal func sizeConstraint(for anchor: LayoutDimension) -> Constraint{
+    internal func sizeConstraint(for anchor: LayoutDimension) -> Constraint {
         let constraint: Constraint = {
-            switch relation{
+            switch relation {
             case .lessThanOrEqual:
                 return anchor.constraint(lessThanOrEqualToConstant: configuration.constant)
             case .equal:

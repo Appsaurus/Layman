@@ -141,6 +141,9 @@
 		E4AF81BD21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
 		E4AF81BE21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
 		E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
+		E4DA5BF821E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
+		E4DA5BF921E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
+		E4DA5BFA21E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
 		E97EDE134D1D424769955DEE /* Pods_UILayoutKit_tvOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6522945E07E0926917F2F85 /* Pods_UILayoutKit_tvOS_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -256,6 +259,7 @@
 		E4AF81CE21BF20FD002D6E86 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		E4AF81CF21BF20FD002D6E86 /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		E4AF81D021BF20FD002D6E86 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E4DA5BF721E94E2400A25746 /* InternalTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalTypes.swift; sourceTree = "<group>"; };
 		E90D7A1FB733A6F3B6A054BD /* Pods-UILayoutKit-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKit-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKit-iOS/Pods-UILayoutKit-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED5E3362E26FF0EF82B88A95 /* Pods-UILayoutKit-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKit-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKit-iOS/Pods-UILayoutKit-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F6522945E07E0926917F2F85 /* Pods_UILayoutKit_tvOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UILayoutKit_tvOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -478,6 +482,7 @@
 				E458225A21E54FE900B6054C /* LayoutPriority+Sugar.swift */,
 				E458225F21E5553500B6054C /* ConstraintExtensions.swift */,
 				E458226D21E79BA800B6054C /* Temp.swift */,
+				E4DA5BF721E94E2400A25746 /* InternalTypes.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1238,6 +1243,7 @@
 				E48737BC21DFFCF30094F2EB /* YAxisAnchorOperators.swift in Sources */,
 				E458229921E7E56200B6054C /* EdgeAnchorExpression.swift in Sources */,
 				E48737B821DFFCC20094F2EB /* XAxisAnchorOperators.swift in Sources */,
+				E4DA5BFA21E94E2400A25746 /* InternalTypes.swift in Sources */,
 				E45822A421E7F06300B6054C /* CenterAnchorsConstantArithmeticOperators.swift in Sources */,
 				E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
 				E45822A921E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */,
@@ -1302,6 +1308,7 @@
 				E48737BA21DFFCF30094F2EB /* YAxisAnchorOperators.swift in Sources */,
 				E458229721E7E56200B6054C /* EdgeAnchorExpression.swift in Sources */,
 				E48737B621DFFCC20094F2EB /* XAxisAnchorOperators.swift in Sources */,
+				E4DA5BF821E94E2400A25746 /* InternalTypes.swift in Sources */,
 				E45822A221E7F06300B6054C /* CenterAnchorsConstantArithmeticOperators.swift in Sources */,
 				E4AF81BD21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
 				E45822A721E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */,
@@ -1354,6 +1361,7 @@
 				E45822A821E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */,
 				E458226721E6952200B6054C /* AnyAnchorOperators.swift in Sources */,
 				E458228C21E7E00300B6054C /* YAxisConstantArithmeticOperators.swift in Sources */,
+				E4DA5BF921E94E2400A25746 /* InternalTypes.swift in Sources */,
 				E458226F21E79BA900B6054C /* Temp.swift in Sources */,
 				E458228421E79C9A00B6054C /* LayoutPairRelationship.swift in Sources */,
 				E458225821E54D0300B6054C /* SizeAnchorsConstantRelationOperators.swift in Sources */,
@@ -1752,10 +1760,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4B7GH74X7C;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/UILayoutKitTests/Info-iOS-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.appsaurus.UILayoutKitTests;
@@ -1775,10 +1779,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4B7GH74X7C;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/UILayoutKitTests/Info-iOS-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.appsaurus.UILayoutKitTests;
@@ -1846,10 +1846,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4B7GH74X7C;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/UILayoutKitTests/Info-macOS-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -1870,10 +1866,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4B7GH74X7C;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/UILayoutKitTests/Info-macOS-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(FRAMEWORK_SEARCH_PATHS)";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;

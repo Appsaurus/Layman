@@ -9,7 +9,7 @@
 import UIKit
 import UIKitExtensions
 
-//Dynamic Height TableView Header //TODO: Fix bug where height breaks after rotation
+//Dynamic Height TableView Header, need to fix bug where height breaks after rotation
 extension UITableView {
     public func layoutDynamicHeightHeaderView(width: CGFloat) {
         guard let headerView = tableHeaderView else { return }
@@ -40,13 +40,10 @@ extension UITableView {
     ///   - insets: Insets for base view
 
     public func setupDynamicHeightTableHeaderView(fittingContentView view: UIView,
-                                                  insets: UIEdgeInsets = 20){
+                                                  insets: UIEdgeInsets = 20) {
         tableHeaderView = UIView.parentViewFittingContent(of: view, insetBy: insets)
     }
 
 }
 
-
 #endif
-
-

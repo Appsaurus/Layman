@@ -6,40 +6,30 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-import Swiftest
+import UIKit
 
-extension LayoutPriority: CGFloatConvertible, CGFloatInitializable {
-    public init(_ cgFloat: CGFloat) {
-        self.init(cgFloat.float)
-    }
-
-    public var cgFloat: CGFloat {
-        return rawValue.cgFloat
-    }
-}
-
-extension LayoutPriority: ExpressibleByIntegerLiteral{
+extension LayoutPriority: ExpressibleByIntegerLiteral {
     public typealias IntegerLiteralType = Int
     public init(integerLiteral value: Int) {
-        self.init(value.float)
+        self.init(Float(value))
     }
 }
 
-//MARK: Shorthand aliases
+// MARK: Shorthand aliases
 
-extension LayoutPriority{
+extension LayoutPriority {
     /// Shorthand syntax for UILayoutPriority.defaultHigh
-    public static var high: UILayoutPriority{
+    public static var high: UILayoutPriority {
         return .defaultHigh
     }
 
     /// Shorthand syntax for UILayoutPriority.defaultLow
-    public static var low: UILayoutPriority{
+    public static var low: UILayoutPriority {
         return .defaultLow
     }
 
     /// Shorthand syntax for UILayoutPriority.fittingSizeLevel
-    public static var fittingSize: UILayoutPriority{
+    public static var fittingSize: UILayoutPriority {
         return .fittingSizeLevel
     }
 }

@@ -13,8 +13,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
-//MARK: AnchorPairs + Constant Arithmetic
+// MARK: EdgeAnchors Constant Arithmetic
 @discardableResult
 public func + (lhs: EdgeAnchors, rhs: LayoutConstant) -> EdgeAnchorsExpression {
     return lhs + LayoutInset(padding: rhs)
@@ -40,10 +39,9 @@ public func / (lhs: EdgeAnchorsExpression, rhs: LayoutConstant) -> EdgeAnchorsEx
     return lhs.with(multiplier: (1.0 / rhs))
 }
 
-
-//MARK: UIEdgeInset Constant
+// MARK: UIEdgeInset Constant
 @discardableResult
-public func + (lhs: EdgeAnchors, rhs: LayoutInset) -> EdgeAnchorsExpression{
+public func + (lhs: EdgeAnchors, rhs: LayoutInset) -> EdgeAnchorsExpression {
 
     let configuration = EdgeAnchorsConfiguration(
         .constant(rhs.top),
