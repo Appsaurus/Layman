@@ -9,13 +9,13 @@
 import CoreGraphics
 
 @discardableResult
-public func + (lhs: SizeAnchors, rhs: CGSize) -> SizeAnchorsExpression {
-    return SizeAnchorsExpression(anchors: lhs,
+public func + (lhs: SizeAnchorPair, rhs: CGSize) -> SizeAnchorExpression {
+    return SizeAnchorExpression(anchors: lhs,
                                 configurations: LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height)))
 }
 
 @discardableResult
-public func - (lhs: SizeAnchors, rhs: CGSize) -> SizeAnchorsExpression {
+public func - (lhs: SizeAnchorPair, rhs: CGSize) -> SizeAnchorExpression {
     return lhs + CGSize(width: -rhs.width, height: -rhs.height)
 }
 

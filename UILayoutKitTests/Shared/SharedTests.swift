@@ -14,6 +14,7 @@ import UIKit
 
 @testable import UILayoutKit
 import XCTest
+import SwiftTestUtils
 
 #if canImport(AppKit)
 typealias TestView = NSView
@@ -62,16 +63,15 @@ class SharedTests: XCTestCase {
 
     let view1 = TestView()
     let view2 = TestView()
+    let view3 = TestView()
 
     let window = TestWindow()
 
     override func setUp() {
         #if os(macOS)
-        window.contentView!.addSubview(view1)
-        window.contentView!.addSubview(view2)
+        window.contentView!.addSubviews(view1, view2, view3)
         #else
-        window.addSubview(view1)
-        window.addSubview(view2)
+        window.addSubviews(view1, view2, view3)
         #endif
     }
 
@@ -214,31 +214,20 @@ class SharedTests: XCTestCase {
         constraints.bottom.assert(view1, .bottom, .equal, view2, .bottom, constant: -15, priority: 749)
         constraints.trailing.assert(view1, .trailing, .equal, view2, .trailing, constant: -20, priority: 749)
     }
-}
 
-func assertIdentical(_ expression1: @autoclosure () -> AnyObject?,
-                     _ expression2: @autoclosure () -> AnyObject?,
-                     _ message: String? = nil,
-                     file: StaticString = #file,
-                     line: UInt = #line) {
-    XCTAssertTrue(expression1() === expression2(), message ?? "\(String(describing: expression1())) was not identical to \(String(describing: expression2()))", file: file, line: line)
+    func testKeyPaths() {
+//        let insets = UIEdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
+//        let constraints = [view1, view2] == view3.anchorsAt(\.leadingAnchor, \.trailingAnchor)
+//        let other = [view1, view2] == view3.anchorsAt(\.topAnchor, \.bottomAnchor)
+        [view1, view2].trailingAnchor <= view3.leadingAnchor + 20
+        view3.leadingAnchor >= [view1, view2].trailingAnchor + 20
+//        let constraints = view1 == view2.anchors(forKeyPaths: \.widthAnchor, \.heightAnchor)
+//        constraints.top.assert(view1, .top, .equal, view2, .top, constant: 10, priority: 749)
+//        constraints.leading.assert(view1, .leading, .equal, view2, .leading, constant: 5, priority: 749)
+//        constraints.bottom.assert(view1, .bottom, .equal, view2, .bottom, constant: -15, priority: 749)
+//        constraints.trailing.assert(view1, .trailing, .equal, view2, .trailing, constant: -20, priority: 749)
+    }
 }
-
-// swiftlint:disable vertical_parameter_alignment
-func assertIdentical(_ expressions: TuplePair<() -> AnyObject?>...,
-    message: String? = nil,
-    file: StaticString = #file,
-    line: UInt = #line) {
-    expressions.forEach {assertIdentical($0.first(), $0.second())}
-}
-
-func assertIdentical(_ expressions: TuplePair<AnyObject?>...,
-    message: String? = nil,
-    file: StaticString = #file,
-    line: UInt = #line) {
-    expressions.forEach {assertIdentical($0.first, $0.second, message, file: file, line: line)}
-}
-// swiftlint:enable vertical_parameter_alignment
 
 extension ConstraintAttribute: CustomDebugStringConvertible {
 

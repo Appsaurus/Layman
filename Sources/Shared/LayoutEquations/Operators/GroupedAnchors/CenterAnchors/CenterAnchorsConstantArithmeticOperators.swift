@@ -6,28 +6,28 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-// MARK: CenterAnchors Constant Arithmetic
+// MARK: CenterAnchorPair Constant Arithmetic
 @discardableResult
-public func + (lhs: CenterAnchors, rhs: LayoutConstant) -> CenterAnchorsExpression {
-    return CenterAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
+public func + (lhs: CenterAnchorPair, rhs: LayoutConstant) -> CenterAnchorPairExpression {
+    return CenterAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
 
 @discardableResult
-public func - (lhs: CenterAnchors, rhs: LayoutConstant) -> CenterAnchorsExpression {
-    return CenterAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
+public func - (lhs: CenterAnchorPair, rhs: LayoutConstant) -> CenterAnchorPairExpression {
+    return CenterAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
 }
 
 @discardableResult
-public func * (lhs: CenterAnchors, rhs: LayoutConstant) -> CenterAnchorsExpression {
-    return CenterAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
+public func * (lhs: CenterAnchorPair, rhs: LayoutConstant) -> CenterAnchorPairExpression {
+    return CenterAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
-public func / (lhs: CenterAnchors, rhs: LayoutConstant) -> CenterAnchorsExpression {
+public func / (lhs: CenterAnchorPair, rhs: LayoutConstant) -> CenterAnchorPairExpression {
     return lhs * (1.0 / rhs)
 }
 
 @discardableResult
-public func / (lhs: CenterAnchorsExpression, rhs: LayoutConstant) -> CenterAnchorsExpression {
+public func / (lhs: CenterAnchorPairExpression, rhs: LayoutConstant) -> CenterAnchorPairExpression {
     return lhs.with(multiplier: (1.0 / rhs))
 }

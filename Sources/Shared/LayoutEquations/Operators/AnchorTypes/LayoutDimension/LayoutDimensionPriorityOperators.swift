@@ -17,11 +17,11 @@ public func ~ (lhs: LayoutDimensionExpression, rhs: LayoutPriority) -> LayoutDim
 }
 
 @discardableResult
-public func ~ (lhs: SizeAnchors, rhs: LayoutPriority) -> SizeAnchorsExpression {
-    return SizeAnchorsExpression(anchors: lhs).with(priority: rhs)
+public func ~ (lhs: SizeAnchorPair, rhs: LayoutPriority) -> SizeAnchorExpression {
+    return SizeAnchorExpression(anchors: lhs).with(priority: rhs)
 }
 
 @discardableResult
-public func ~ (lhs: SizeAnchorsExpression, rhs: LayoutPriority) -> SizeAnchorsExpression {
+public func ~ (lhs: SizeAnchorExpression, rhs: LayoutPriority) -> SizeAnchorExpression {
     return lhs.with(priority: rhs)
 }

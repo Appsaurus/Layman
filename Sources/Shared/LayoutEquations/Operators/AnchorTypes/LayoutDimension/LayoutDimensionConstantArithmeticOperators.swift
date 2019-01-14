@@ -32,28 +32,28 @@ public func / (lhs: LayoutDimensionExpression, rhs: LayoutConstant) -> LayoutDim
     return lhs.with(multiplier: (1.0 / rhs))
 }
 
-// MARK: SizeAnchors Constant Arithmetic
+// MARK: SizeAnchorPair Constant Arithmetic
 @discardableResult
-public func + (lhs: SizeAnchors, rhs: LayoutConstant) -> SizeAnchorsExpression {
-    return SizeAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
+public func + (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
+    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
 
 @discardableResult
-public func - (lhs: SizeAnchors, rhs: LayoutConstant) -> SizeAnchorsExpression {
-    return SizeAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
+public func - (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
+    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
 }
 
 @discardableResult
-public func * (lhs: SizeAnchors, rhs: LayoutConstant) -> SizeAnchorsExpression {
-    return SizeAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
+public func * (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
+    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
-public func / (lhs: SizeAnchors, rhs: LayoutConstant) -> SizeAnchorsExpression {
+public func / (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
     return lhs * (1.0 / rhs)
 }
 
 @discardableResult
-public func / (lhs: SizeAnchorsExpression, rhs: LayoutConstant) -> SizeAnchorsExpression {
+public func / (lhs: SizeAnchorExpression, rhs: LayoutConstant) -> SizeAnchorExpression {
     return lhs.with(multiplier: (1.0 / rhs))
 }

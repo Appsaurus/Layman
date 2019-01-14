@@ -9,17 +9,17 @@
 // MARK: XAxisAnchor Constant Arithmetic
 @discardableResult
 public func + (lhs: XAxisAnchor, rhs: LayoutConstant) -> XAxisAnchorExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
+    return XAxisAnchorExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
 
 @discardableResult
 public func - (lhs: XAxisAnchor, rhs: LayoutConstant) -> XAxisAnchorExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: -rhs))
+    return XAxisAnchorExpression(anchor: lhs, configuration: LayoutConfiguration(constant: -rhs))
 }
 
 @discardableResult
 public func * (lhs: XAxisAnchor, rhs: LayoutConstant) -> XAxisAnchorExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(multiplier: rhs))
+    return XAxisAnchorExpression(anchor: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
@@ -32,28 +32,28 @@ public func / (lhs: XAxisAnchorExpression, rhs: LayoutConstant) -> XAxisAnchorEx
     return lhs.with(multiplier: (1.0 / rhs))
 }
 
-// MARK: XAxisAnchors Constant Arithmetic
+// MARK: XAxisAnchorPair Constant Arithmetic
 @discardableResult
-public func + (lhs: XAxisAnchors, rhs: LayoutConstant) -> XAxisAnchorsExpression {
-    return XAxisAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
+public func + (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
+    return XAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
 
 @discardableResult
-public func - (lhs: XAxisAnchors, rhs: LayoutConstant) -> XAxisAnchorsExpression {
-    return XAxisAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
+public func - (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
+    return XAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
 }
 
 @discardableResult
-public func * (lhs: XAxisAnchors, rhs: LayoutConstant) -> XAxisAnchorsExpression {
-    return XAxisAnchorsExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
+public func * (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
+    return XAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
-public func / (lhs: XAxisAnchors, rhs: LayoutConstant) -> XAxisAnchorsExpression {
+public func / (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
     return lhs * (1.0 / rhs)
 }
 
 @discardableResult
-public func / (lhs: XAxisAnchorsExpression, rhs: LayoutConstant) -> XAxisAnchorsExpression {
+public func / (lhs: XAxisAnchorPairExpression, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
     return lhs.with(multiplier: (1.0 / rhs))
 }

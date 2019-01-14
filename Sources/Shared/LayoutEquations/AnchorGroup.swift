@@ -20,7 +20,7 @@ extension UIView: LayoutConstrainable {}
 extension UILayoutGuide: LayoutConstrainable {}
 extension UIViewController: LayoutConstrainable {}
 
-public protocol LayoutAnchorable {
+public protocol LayoutAnchorable: NSObjectProtocol {
 
     var leadingAnchor: XAxisAnchor { get }
     var trailingAnchor: XAxisAnchor { get }
@@ -35,20 +35,33 @@ public protocol LayoutAnchorable {
 //    var firstBaselineAnchor: YAxisAnchor { get }
 //    var lastBaselineAnchor: YAxisAnchor { get }
 
-    var horizontalAnchors: XAxisAnchors { get }
-    var verticalAnchors: YAxisAnchors { get }
-    var centerAnchors: CenterAnchors { get }
-    var sizeAnchors: SizeAnchors { get }
+    var horizontalAnchors: XAxisAnchorPair { get }
+    var verticalAnchors: YAxisAnchorPair { get }
+    var centerAnchors: CenterAnchorPair { get }
+    var sizeAnchors: SizeAnchorPair { get }
     func anchors(_ attributes: ConstraintAttributes) -> [AnyLayoutAnchor]
     func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor
 }
 
-extension NSLayoutAnchor {
-    
+extension Array where Element: LayoutAnchorable {
+    var leadingAnchor: XAxisAnchors { return map {$0.leadingAnchor } }
+    var trailingAnchor: XAxisAnchors { return map {$0.trailingAnchor } }
+    var leftAnchor: XAxisAnchors { return map {$0.leftAnchor } }
+    var rightAnchor: XAxisAnchors { return map {$0.rightAnchor } }
+    var topAnchor: [YAxisAnchor] { return map {$0.topAnchor } }
+    var bottomAnchor: [YAxisAnchor] { return map {$0.bottomAnchor } }
+
+    var horizontalAnchors: XAxisAnchorPairs { return map { $0.horizontalAnchors } }
+    var verticalAnchors: YAxisAnchorPairs { return map { $0.verticalAnchors } }
+    var centerAnchors: CenterAnchorPairs { return map { $0.centerAnchors } }
+    var sizeAnchors: SizeAnchorPairs { return map { $0.sizeAnchors } }
+
+    var edgeAnchors: EdgeAnchorGroups { return map { $0.edgeAnchors } }
 }
+
 extension LayoutAnchorable {
-    public var edgeAnchors: EdgeAnchors {
-        return  EdgeAnchors(topAnchor,
+    public var edgeAnchors: EdgeAnchorGroup {
+        return  EdgeAnchorGroup(topAnchor,
                             leadingAnchor,
                             bottomAnchor,
                             trailingAnchor)
@@ -94,20 +107,20 @@ extension UIView: LayoutAnchorable {
         return viewAttributesToAnchorMap
     }
 
-    public var horizontalAnchors: XAxisAnchors {
-        return LayoutAnchors(leadingAnchor, trailingAnchor)
+    public var horizontalAnchors: XAxisAnchorPair {
+        return LayoutAnchorPair(leadingAnchor, trailingAnchor)
     }
     
-    public var verticalAnchors: YAxisAnchors {
-        return LayoutAnchors(topAnchor, bottomAnchor)
+    public var verticalAnchors: YAxisAnchorPair {
+        return LayoutAnchorPair(topAnchor, bottomAnchor)
     }
     
-    public var centerAnchors: CenterAnchors {
-        return LayoutAnchors(centerXAnchor, centerYAnchor)
+    public var centerAnchors: CenterAnchorPair {
+        return LayoutAnchorPair(centerXAnchor, centerYAnchor)
     }
     
-    public var sizeAnchors: SizeAnchors {
-        return LayoutAnchors(widthAnchor, heightAnchor)
+    public var sizeAnchors: SizeAnchorPair {
+        return LayoutAnchorPair(widthAnchor, heightAnchor)
     }
     
 }
@@ -166,23 +179,23 @@ extension UIViewController: LayoutAnchorable {
         return anchor
     }
     
-    public var horizontalAnchors: XAxisAnchors {
+    public var horizontalAnchors: XAxisAnchorPair {
         return view.horizontalAnchors
     }
     
-    public var verticalAnchors: YAxisAnchors {
+    public var verticalAnchors: YAxisAnchorPair {
         #if os(macOS)
         return view.verticalAnchors
         #else
-        return LayoutAnchors(topLayoutGuide.bottomAnchor, bottomLayoutGuide.topAnchor)
+        return LayoutAnchorPair(topLayoutGuide.bottomAnchor, bottomLayoutGuide.topAnchor)
         #endif
     }
     
-    public var centerAnchors: CenterAnchors {
+    public var centerAnchors: CenterAnchorPair {
         return view.centerAnchors
     }
     
-    public var sizeAnchors: SizeAnchors {
+    public var sizeAnchors: SizeAnchorPair {
         return view.sizeAnchors
     }
     
@@ -209,20 +222,20 @@ extension UILayoutGuide: LayoutAnchorable {
         return anchor
     }
 
-    public var horizontalAnchors: XAxisAnchors {
-        return LayoutAnchors(leadingAnchor, trailingAnchor)
+    public var horizontalAnchors: XAxisAnchorPair {
+        return LayoutAnchorPair(leadingAnchor, trailingAnchor)
     }
     
-    public var verticalAnchors: YAxisAnchors {
-        return LayoutAnchors(topAnchor, bottomAnchor)
+    public var verticalAnchors: YAxisAnchorPair {
+        return LayoutAnchorPair(topAnchor, bottomAnchor)
     }
     
-    public var centerAnchors: CenterAnchors {
-        return LayoutAnchors(centerXAnchor, centerYAnchor)
+    public var centerAnchors: CenterAnchorPair {
+        return LayoutAnchorPair(centerXAnchor, centerYAnchor)
     }
     
-    public var sizeAnchors: SizeAnchors {
-        return LayoutAnchors(widthAnchor, heightAnchor)
+    public var sizeAnchors: SizeAnchorPair {
+        return LayoutAnchorPair(widthAnchor, heightAnchor)
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  YAxisAnchorsOperators.swift
+//  XAxisAnchorPairOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/7/19.
@@ -9,38 +9,38 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: YAxisAnchors, rhs: YAxisAnchorsExpression) -> ConstraintPair {
+public func == (lhs: XAxisAnchorPair, rhs: XAxisAnchorPairExpression) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .equal, rhs).constraints
 }
 
 // MARK: Anchors == Anchors
 @discardableResult
-public func == (lhs: YAxisAnchors, rhs: YAxisAnchors) -> ConstraintPair {
+public func == (lhs: XAxisAnchorPair, rhs: XAxisAnchorPair) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .equal, rhs).constraints
 }
 
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
-public func <= (lhs: YAxisAnchors, rhs: YAxisAnchorsExpression) -> ConstraintPair {
+public func <= (lhs: XAxisAnchorPair, rhs: XAxisAnchorPairExpression) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraints
 }
 
 // MARK: Anchors <= Anchors
 @discardableResult
-public func <= (lhs: YAxisAnchors, rhs: YAxisAnchors) -> ConstraintPair {
+public func <= (lhs: XAxisAnchorPair, rhs: XAxisAnchorPair) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraints
 }
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
-public func >= (lhs: YAxisAnchors, rhs: YAxisAnchorsExpression) -> ConstraintPair {
+public func >= (lhs: XAxisAnchorPair, rhs: XAxisAnchorPairExpression) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraints
 }
 
 // MARK: Anchors >= Anchors
 @discardableResult
-public func >= (lhs: YAxisAnchors, rhs: YAxisAnchors) -> ConstraintPair {
+public func >= (lhs: XAxisAnchorPair, rhs: XAxisAnchorPair) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraints
 }

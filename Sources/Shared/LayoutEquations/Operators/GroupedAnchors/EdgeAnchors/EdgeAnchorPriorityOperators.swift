@@ -7,7 +7,7 @@
 //
 
 @discardableResult
-public func ~ (lhs: EdgeAnchors, rhs: LayoutPriority) -> EdgeAnchorsExpression {
+public func ~ (lhs: EdgeAnchorGroup, rhs: LayoutPriority) -> EdgeAnchorsExpression {
     return EdgeAnchorsExpression(lhs) ~ rhs
 }
 

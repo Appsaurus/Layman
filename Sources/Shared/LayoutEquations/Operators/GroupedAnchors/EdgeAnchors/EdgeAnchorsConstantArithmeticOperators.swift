@@ -15,22 +15,22 @@
 
 // MARK: EdgeAnchors Constant Arithmetic
 @discardableResult
-public func + (lhs: EdgeAnchors, rhs: LayoutConstant) -> EdgeAnchorsExpression {
+public func + (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorsExpression {
     return lhs + LayoutInset(padding: rhs)
 }
 
 @discardableResult
-public func - (lhs: EdgeAnchors, rhs: LayoutConstant) -> EdgeAnchorsExpression {
+public func - (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorsExpression {
     return lhs + (-1 * rhs)
 }
 
 @discardableResult
-public func * (lhs: EdgeAnchors, rhs: LayoutConstant) -> EdgeAnchorsExpression {
+public func * (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorsExpression {
     return EdgeAnchorsExpression(anchors: lhs, configurations: EdgeAnchorsConfiguration(.multiplier(rhs)))
 }
 
 @discardableResult
-public func / (lhs: EdgeAnchors, rhs: LayoutConstant) -> EdgeAnchorsExpression {
+public func / (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorsExpression {
     return lhs * (1.0 / rhs)
 }
 
@@ -41,7 +41,7 @@ public func / (lhs: EdgeAnchorsExpression, rhs: LayoutConstant) -> EdgeAnchorsEx
 
 // MARK: UIEdgeInset Constant
 @discardableResult
-public func + (lhs: EdgeAnchors, rhs: LayoutInset) -> EdgeAnchorsExpression {
+public func + (lhs: EdgeAnchorGroup, rhs: LayoutInset) -> EdgeAnchorsExpression {
 
     let configuration = EdgeAnchorsConfiguration(
         .constant(rhs.top),

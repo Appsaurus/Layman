@@ -9,13 +9,13 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: CenterAnchors, rhs: CenterAnchorsExpression) -> ConstraintPair {
+public func == (lhs: CenterAnchorPair, rhs: CenterAnchorPairExpression) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .equal, rhs).constraints
 }
 
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: CenterAnchors, rhs: CenterAnchors) -> ConstraintPair {
+public func == (lhs: CenterAnchorPair, rhs: CenterAnchorPair) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .equal, rhs).constraints
 }

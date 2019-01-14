@@ -8,15 +8,15 @@
 
 public class LayoutPairExpression<F: AnchorType, S: AnchorType> {
 
-    public var anchors: LayoutAnchors<F, S>
+    public var anchors: LayoutAnchorPair<F, S>
     public var configurations: LayoutPairConfiguration
 
-    public init(anchors: LayoutAnchors<F, S>, configurations: LayoutPairConfiguration = .default) {
+    public init(anchors: LayoutAnchorPair<F, S>, configurations: LayoutPairConfiguration = .default) {
         self.anchors = anchors
         self.configurations = configurations
     }
 
-    public init(anchors: LayoutAnchors<F, S>, configuration: LayoutConfiguration) {
+    public init(anchors: LayoutAnchorPair<F, S>, configuration: LayoutConfiguration) {
         self.anchors = anchors
         self.configurations = LayoutPairConfiguration(configuration, configuration)
     }

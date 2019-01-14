@@ -23,30 +23,59 @@ public typealias ConstraintAttributes = [ConstraintAttribute]
 public typealias LayoutAnchor = NSLayoutAnchor
 public typealias AnchorType = AnyObject
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
-public class LayoutAnchors<F, S>: Paired<LayoutAnchor<F>, LayoutAnchor<S>> where F: AnchorType, S: AnchorType {}
+public class LayoutAnchorPair<F, S>: MixedLayoutModelReferencePair<LayoutAnchor<F>, LayoutAnchor<S>> where F: AnchorType, S: AnchorType {}
 
 // MARK: Typed Anchors
 public typealias XAxisAnchor = NSLayoutXAxisAnchor
 public typealias YAxisAnchor = NSLayoutYAxisAnchor
 public typealias LayoutDimension = NSLayoutDimension
 
-// MARK: Grouped Anchor Types
-public typealias XAxisAnchors = LayoutAnchors<XAxisAnchor, XAxisAnchor>
-public typealias YAxisAnchors = LayoutAnchors<YAxisAnchor, YAxisAnchor>
-public typealias SizeAnchors = LayoutAnchors<LayoutDimension, LayoutDimension>
-public typealias CenterAnchors = LayoutAnchors<XAxisAnchor, YAxisAnchor>
-public class EdgeAnchors: SidesTuple<XAxisAnchor, YAxisAnchor> {}
+// MARK: Typed Anchor Arrays
+public typealias XAxisAnchors = [XAxisAnchor]
+public typealias YAxisAnchors = [YAxisAnchor]
+public typealias LayoutDimensions = [LayoutDimension]
+
+// MARK: Typed Anchor Pairs
+public typealias XAxisAnchorPair = LayoutAnchorPair<XAxisAnchor, XAxisAnchor>
+public typealias YAxisAnchorPair = LayoutAnchorPair<YAxisAnchor, YAxisAnchor>
+public typealias SizeAnchorPair = LayoutAnchorPair<LayoutDimension, LayoutDimension>
+public typealias CenterAnchorPair = LayoutAnchorPair<XAxisAnchor, YAxisAnchor>
+
+// MARK: Typed Anchor Pair Arrays
+public typealias XAxisAnchorPairs = [XAxisAnchorPair]
+public typealias YAxisAnchorPairs = [YAxisAnchorPair]
+public typealias SizeAnchorPairs = [SizeAnchorPair]
+public typealias CenterAnchorPairs = [CenterAnchorPair]
+
+// MARK: Typed Anchor Group
+public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
+
+// MARK: Typed Anchor Group Array
+public typealias EdgeAnchorGroups = [EdgeAnchorGroup]
+
+
+// MARK: Expressions
+public typealias XAxisAnchorExpression = LayoutExpression<XAxisAnchor>
+public typealias YAxisAnchorExpression = LayoutExpression<YAxisAnchor>
+public typealias LayoutDimensionExpression = LayoutExpression<LayoutDimension>
+
+// MARK: Anchor Expressions Arrays
+
+public typealias XAxisAnchorExpressions = [XAxisAnchorExpression]
+public typealias YAxisAnchorExpressions = [YAxisAnchorExpression]
+public typealias LayoutDimensionExpressions = [LayoutDimensionExpression]
+
+// MARK: Anchor Pair Expressions
+public typealias XAxisAnchorPairExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
+public typealias YAxisAnchorPairExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
+public typealias SizeAnchorExpression = LayoutPairExpression<LayoutDimension, LayoutDimension>
+
+public typealias CenterAnchorPairExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
 
 // MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat
 public typealias LayoutConstant = CGFloat
 public typealias LayoutPriority = UILayoutPriority
-
-// MARK: Expressions
-public typealias XAxisAnchorsExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
-public typealias YAxisAnchorsExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
-public typealias LayoutDimensionExpression = LayoutExpression<LayoutDimension>
-public typealias CenterAnchorsExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
 
 // MARK: Layout Constants
 public typealias LayoutInset = UIEdgeInsets

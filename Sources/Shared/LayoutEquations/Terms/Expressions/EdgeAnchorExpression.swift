@@ -9,7 +9,7 @@
 public class EdgeAnchorsExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
     public var configurations: EdgeAnchorsConfiguration = .default
 
-    public convenience init(anchors: EdgeAnchors, configurations: EdgeAnchorsConfiguration = .default) {
+    public convenience init(anchors: EdgeAnchorGroup, configurations: EdgeAnchorsConfiguration = .default) {
         self.init(anchors)
         self.configurations = configurations
     }

@@ -18,7 +18,7 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: EdgeAnchors, rhs: EdgeAnchorsExpression) -> SideConstraints {
+public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorsExpression) -> SideConstraints {
     let top = lhs.top == rhs.top + rhs.configurations.top
     let leading = lhs.leading == rhs.leading + rhs.configurations.leading
     let bottom = lhs.bottom == rhs.bottom + rhs.configurations.bottom
@@ -28,7 +28,7 @@ public func == (lhs: EdgeAnchors, rhs: EdgeAnchorsExpression) -> SideConstraints
 
 // MARK: Anchors == Anchors
 @discardableResult
-public func == (lhs: EdgeAnchors, rhs: EdgeAnchors) -> SideConstraints {
+public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> SideConstraints {
     let top = lhs.top == rhs.top
     let leading = lhs.leading == rhs.leading
     let bottom = lhs.bottom == rhs.bottom
@@ -41,6 +41,6 @@ public func + <A>(lhs: LayoutAnchor<A>, rhs: LayoutConfiguration) -> LayoutExpre
     return LayoutExpression(anchor: lhs, configuration: rhs)
 }
 @discardableResult
-public func + <F, S>(lhs: LayoutAnchors<F, S>, rhs: (first: LayoutConfiguration, second: LayoutConfiguration)) -> LayoutPairExpression<F, S> {
+public func + <F, S>(lhs: LayoutAnchorPair<F, S>, rhs: (first: LayoutConfiguration, second: LayoutConfiguration)) -> LayoutPairExpression<F, S> {
     return LayoutPairExpression(anchors: lhs, configurations: LayoutPairConfiguration(rhs.first, rhs.second))
 }

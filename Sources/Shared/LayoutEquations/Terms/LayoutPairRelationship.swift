@@ -8,14 +8,14 @@
 
 public struct LayoutPairRelationship<F: AnchorType, S: AnchorType> {
 
-    public var anchors: LayoutAnchors<F, S>
+    public var anchors: LayoutAnchorPair<F, S>
     public var relation: Constraint.Relation
-    public var relatedAnchors: LayoutAnchors<F, S>
+    public var relatedAnchors: LayoutAnchorPair<F, S>
     public var configurations: LayoutPairConfiguration
 
-    public init(_ anchors: LayoutAnchors<F, S>,
+    public init(_ anchors: LayoutAnchorPair<F, S>,
                 _ relation: Constraint.Relation,
-                _ relatedAnchors: LayoutAnchors<F, S>,
+                _ relatedAnchors: LayoutAnchorPair<F, S>,
                 _ configurations: LayoutPairConfiguration = .default) {
         self.anchors = anchors
         self.relation = relation
@@ -23,7 +23,7 @@ public struct LayoutPairRelationship<F: AnchorType, S: AnchorType> {
         self.configurations = configurations
     }
 
-    public init(_ anchors: LayoutAnchors<F, S>,
+    public init(_ anchors: LayoutAnchorPair<F, S>,
                 _ relation: Constraint.Relation,
                 _ relatedExpression: LayoutPairExpression<F, S>) {
         self.init(anchors,

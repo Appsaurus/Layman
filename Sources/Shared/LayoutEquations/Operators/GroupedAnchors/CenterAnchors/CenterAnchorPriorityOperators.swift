@@ -7,11 +7,11 @@
 //
 
 @discardableResult
-public func ~ (lhs: CenterAnchors, rhs: LayoutPriority) -> CenterAnchorsExpression {
-    return CenterAnchorsExpression(anchors: lhs).with(priority: rhs)
+public func ~ (lhs: CenterAnchorPair, rhs: LayoutPriority) -> CenterAnchorPairExpression {
+    return CenterAnchorPairExpression(anchors: lhs).with(priority: rhs)
 }
 
 @discardableResult
-public func ~ (lhs: CenterAnchorsExpression, rhs: LayoutPriority) -> CenterAnchorsExpression {
+public func ~ (lhs: CenterAnchorPairExpression, rhs: LayoutPriority) -> CenterAnchorPairExpression {
     return lhs.with(priority: rhs)
 }

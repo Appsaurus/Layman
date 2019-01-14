@@ -56,6 +56,6 @@ extension LayoutConfiguration {
     }
 }
 
-public final class LayoutPairConfiguration: Pair<LayoutConfiguration> {
+public final class LayoutPairConfiguration: LayoutModelReferencePair<LayoutConfiguration> {
     public static var `default`: LayoutPairConfiguration { return .init(.default) }
 }

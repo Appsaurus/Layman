@@ -17,11 +17,11 @@ public func ~ (lhs: YAxisAnchorExpression, rhs: LayoutPriority) -> YAxisAnchorEx
 }
 
 @discardableResult
-public func ~ (lhs: YAxisAnchors, rhs: LayoutPriority) -> YAxisAnchorsExpression {
-    return YAxisAnchorsExpression(anchors: lhs).with(priority: rhs)
+public func ~ (lhs: YAxisAnchorPair, rhs: LayoutPriority) -> YAxisAnchorPairExpression {
+    return YAxisAnchorPairExpression(anchors: lhs).with(priority: rhs)
 }
 
 @discardableResult
-public func ~ (lhs: YAxisAnchorsExpression, rhs: LayoutPriority) -> YAxisAnchorsExpression {
+public func ~ (lhs: YAxisAnchorPairExpression, rhs: LayoutPriority) -> YAxisAnchorPairExpression {
     return lhs.with(priority: rhs)
 }
