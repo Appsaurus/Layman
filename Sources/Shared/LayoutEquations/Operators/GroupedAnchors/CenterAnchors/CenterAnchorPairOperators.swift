@@ -1,5 +1,5 @@
 //
-//  CenterAnchorsOperators.swift
+//  CenterAnchorPairOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/8/19.

@@ -53,24 +53,23 @@ public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
 // MARK: Typed Anchor Group Array
 public typealias EdgeAnchorGroups = [EdgeAnchorGroup]
 
-
 // MARK: Expressions
 public typealias XAxisAnchorExpression = LayoutExpression<XAxisAnchor>
 public typealias YAxisAnchorExpression = LayoutExpression<YAxisAnchor>
 public typealias LayoutDimensionExpression = LayoutExpression<LayoutDimension>
 
-// MARK: Anchor Expressions Arrays
-
-public typealias XAxisAnchorExpressions = [XAxisAnchorExpression]
-public typealias YAxisAnchorExpressions = [YAxisAnchorExpression]
-public typealias LayoutDimensionExpressions = [LayoutDimensionExpression]
-
 // MARK: Anchor Pair Expressions
 public typealias XAxisAnchorPairExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
 public typealias YAxisAnchorPairExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
 public typealias SizeAnchorExpression = LayoutPairExpression<LayoutDimension, LayoutDimension>
-
 public typealias CenterAnchorPairExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
+
+// MARK: Anchor Expressions Arrays
+public typealias XAxisAnchorExpressions = [XAxisAnchorExpression]
+public typealias YAxisAnchorExpressions = [YAxisAnchorExpression]
+public typealias LayoutDimensionExpressions = [LayoutDimensionExpression]
+public typealias CenterAnchorPairExpressions = [CenterAnchorPairExpression]
+public typealias EdgeAnchorGroupExpressions = [EdgeAnchorGroupExpression]
 
 // MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat

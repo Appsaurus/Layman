@@ -31,29 +31,3 @@ public func / (lhs: YAxisAnchor, rhs: LayoutConstant) -> YAxisAnchorExpression {
 public func / (lhs: YAxisAnchorExpression, rhs: LayoutConstant) -> YAxisAnchorExpression {
     return lhs.with(multiplier: (1.0 / rhs))
 }
-
-// MARK: YAxisAnchorPair Constant Arithmetic
-@discardableResult
-public func + (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
-    return YAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
-}
-
-@discardableResult
-public func - (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
-    return YAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
-}
-
-@discardableResult
-public func * (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
-    return YAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
-}
-
-@discardableResult
-public func / (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
-    return lhs * (1.0 / rhs)
-}
-
-@discardableResult
-public func / (lhs: YAxisAnchorPairExpression, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
-    return lhs.with(multiplier: (1.0 / rhs))
-}

@@ -1,5 +1,5 @@
 //
-//  YAxisAnchorsOperatorsConstantArithmetic.swift
+//  YAxisAnchorsConstantArithmeticOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/14/19.

@@ -31,29 +31,3 @@ public func / (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpr
 public func / (lhs: LayoutDimensionExpression, rhs: LayoutConstant) -> LayoutDimensionExpression {
     return lhs.with(multiplier: (1.0 / rhs))
 }
-
-// MARK: SizeAnchorPair Constant Arithmetic
-@discardableResult
-public func + (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
-}
-
-@discardableResult
-public func - (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
-}
-
-@discardableResult
-public func * (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
-}
-
-@discardableResult
-public func / (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return lhs * (1.0 / rhs)
-}
-
-@discardableResult
-public func / (lhs: SizeAnchorExpression, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return lhs.with(multiplier: (1.0 / rhs))
-}

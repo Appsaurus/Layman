@@ -1,46 +1,133 @@
 //
-//  EdgeAnchorsOperators.swift
+//  EdgeAnchorGroupsOperators.swift
 //  UILayoutKit
 //
-//  Created by Brian Strobach on 1/9/19.
+//  Created by Brian Strobach on 1/14/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
-
-//extension SideCorrelated where HorizontalSideType == XAxisAnchor, VerticalSideType == YAxisAnchor{
-//    public var horizontalAnchors: LayoutAnchors<HorizontalSideType, HorizontalSideType> {
-//        return .init(leading, trailing)
-//    }
 //
-//    public var verticalAnchors: LayoutAnchors<VerticalSideType, VerticalSideType> {
-//        return .init(top, bottom)
-//    }
-//}
 
-// MARK: Equal
-// MARK: Anchors == Expression
+// MARK: - Equal
+
+// MARK: Anchor == Anchor Array
 @discardableResult
-public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorsExpression) -> SideConstraints {
-    let top = lhs.top == rhs.top + rhs.configurations.top
-    let leading = lhs.leading == rhs.leading + rhs.configurations.leading
-    let bottom = lhs.bottom == rhs.bottom + rhs.configurations.bottom
-    let trailing = lhs.trailing == rhs.trailing + rhs.configurations.trailing
-    return SideConstraints(top, leading, bottom, trailing)
+public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroups) -> [SideConstraints] {
+    return rhs.map({lhs == $0})
 }
 
-// MARK: Anchors == Anchors
+// MARK: Anchor Array == Anchor
 @discardableResult
-public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> SideConstraints {
-    let top = lhs.top == rhs.top
-    let leading = lhs.leading == rhs.leading
-    let bottom = lhs.bottom == rhs.bottom
-    let trailing = lhs.trailing == rhs.trailing
-    return SideConstraints(top, leading, bottom, trailing)
+public func == (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroup) -> [SideConstraints] {
+    return lhs.map({$0 == rhs})
 }
 
+// MARK: Anchor Array == Anchor Array
 @discardableResult
-public func + <A>(lhs: LayoutAnchor<A>, rhs: LayoutConfiguration) -> LayoutExpression<A> {
-    return LayoutExpression(anchor: lhs, configuration: rhs)
+public func == (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroups) -> [[SideConstraints]] {
+    return lhs.map { element in
+        rhs.map { element == $0 }
+    }
 }
+
+// MARK: Anchor == Expression Array
 @discardableResult
-public func + <F, S>(lhs: LayoutAnchorPair<F, S>, rhs: (first: LayoutConfiguration, second: LayoutConfiguration)) -> LayoutPairExpression<F, S> {
-    return LayoutPairExpression(anchors: lhs, configurations: LayoutPairConfiguration(rhs.first, rhs.second))
+public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpressions) -> [SideConstraints] {
+    return rhs.map({lhs == $0})
+}
+
+// MARK: Anchor Array == Expression
+@discardableResult
+public func == (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroupExpression) -> [SideConstraints] {
+    return lhs.map {$0 == rhs }
+}
+
+// MARK: Anchor Array == Expression Array
+@discardableResult
+public func == (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroupExpressions) -> [[SideConstraints]] {
+    return lhs.map { element in
+        rhs.map { element == $0 }
+    }
+}
+
+// MARK: - LessThanOrEqual
+
+// MARK: Anchor <= Anchor Array
+@discardableResult
+public func <= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroups) -> [SideConstraints] {
+    return rhs.map({lhs <= $0})
+}
+
+// MARK: Anchor Array <= Anchor
+@discardableResult
+public func <= (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroup) -> [SideConstraints] {
+    return lhs.map({$0 <= rhs})
+}
+
+// MARK: Anchor Array <= Anchor Array
+@discardableResult
+public func <= (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroups) -> [[SideConstraints]] {
+    return lhs.map { element in
+        rhs.map { element <= $0 }
+    }
+}
+
+// MARK: Anchor <= Expression Array
+@discardableResult
+public func <= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpressions) -> [SideConstraints] {
+    return rhs.map({lhs <= $0})
+}
+
+// MARK: Anchor Array <= Expression
+@discardableResult
+public func <= (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroupExpression) -> [SideConstraints] {
+    return lhs.map {$0 <= rhs }
+}
+
+// MARK: Anchor Array <= Expression Array
+@discardableResult
+public func <= (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroupExpressions) -> [[SideConstraints]] {
+    return lhs.map { element in
+        rhs.map { element <= $0 }
+    }
+}
+
+// MARK: - GreaterThanOrEqual
+
+// MARK: Anchor >= Anchor Array
+@discardableResult
+public func >= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroups) -> [SideConstraints] {
+    return rhs.map({lhs >= $0})
+}
+
+// MARK: Anchor Array >= Anchor
+@discardableResult
+public func >= (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroup) -> [SideConstraints] {
+    return lhs.map({$0 >= rhs})
+}
+
+// MARK: Anchor Array >= Anchor Array
+@discardableResult
+public func >= (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroups) -> [[SideConstraints]] {
+    return lhs.map { element in
+        rhs.map { element >= $0 }
+    }
+}
+
+// MARK: Anchor >= Expression Array
+@discardableResult
+public func >= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpressions) -> [SideConstraints] {
+    return rhs.map({lhs >= $0})
+}
+
+// MARK: Anchor Array >= Expression
+@discardableResult
+public func >= (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroupExpression) -> [SideConstraints] {
+    return lhs.map {$0 >= rhs }
+}
+
+// MARK: Anchor Array >= Expression Array
+@discardableResult
+public func >= (lhs: EdgeAnchorGroups, rhs: EdgeAnchorGroupExpressions) -> [[SideConstraints]] {
+    return lhs.map { element in
+        rhs.map { element >= $0 }
+    }
 }

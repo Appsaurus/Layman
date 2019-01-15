@@ -1,5 +1,5 @@
 //
-//  EdgeAnchorPriorityOperators.swift
+//  EdgeAnchorGroupPriorityOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/10/19.
@@ -7,12 +7,12 @@
 //
 
 @discardableResult
-public func ~ (lhs: EdgeAnchorGroup, rhs: LayoutPriority) -> EdgeAnchorsExpression {
-    return EdgeAnchorsExpression(lhs) ~ rhs
+public func ~ (lhs: EdgeAnchorGroup, rhs: LayoutPriority) -> EdgeAnchorGroupExpression {
+    return EdgeAnchorGroupExpression(lhs) ~ rhs
 }
 
 @discardableResult
-public func ~ (lhs: EdgeAnchorsExpression, rhs: LayoutPriority) -> EdgeAnchorsExpression {
+public func ~ (lhs: EdgeAnchorGroupExpression, rhs: LayoutPriority) -> EdgeAnchorGroupExpression {
     return lhs.with(priority: rhs)
 }
 
