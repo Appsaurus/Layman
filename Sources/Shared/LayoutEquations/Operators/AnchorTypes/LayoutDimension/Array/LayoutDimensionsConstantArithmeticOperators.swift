@@ -1,5 +1,5 @@
 //
-//  LayoutDimensionsOperatorsConstantArithmetic.swift
+//  LayoutDimensionsConstantArithmeticOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/14/19.

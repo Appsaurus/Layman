@@ -28,8 +28,8 @@ public protocol LayoutAnchorable: NSObjectProtocol {
     var rightAnchor: XAxisAnchor { get }
     var topAnchor: YAxisAnchor { get }
     var bottomAnchor: YAxisAnchor { get }
-//    var widthAnchor: LayoutDimension { get }
-//    var heightAnchor: LayoutDimension { get }
+    var widthAnchor: LayoutDimension { get }
+    var heightAnchor: LayoutDimension { get }
 //    var centerXAnchor: XAxisAnchor { get }
 //    var centerYAnchor: YAxisAnchor { get }
 //    var firstBaselineAnchor: YAxisAnchor { get }
@@ -51,6 +51,9 @@ extension Array where Element: LayoutAnchorable {
     var topAnchor: [YAxisAnchor] { return map {$0.topAnchor } }
     var bottomAnchor: [YAxisAnchor] { return map {$0.bottomAnchor } }
 
+    var widthAnchor: LayoutDimensions { return map { $0.widthAnchor } }
+    var heightAnchor: LayoutDimensions { return map { $0.heightAnchor } }
+    
     var horizontalAnchors: XAxisAnchorPairs { return map { $0.horizontalAnchors } }
     var verticalAnchors: YAxisAnchorPairs { return map { $0.verticalAnchors } }
     var centerAnchors: CenterAnchorPairs { return map { $0.centerAnchors } }
@@ -148,6 +151,7 @@ extension UIView: LayoutAnchorable {
 //    .centerYWithinMargins : { $0.layoutMarginsGuide.centerYAnchor }
 //]
 extension UIViewController: LayoutAnchorable {
+
     public var leadingAnchor: XAxisAnchor {
         return view.leadingAnchor
     }
@@ -170,6 +174,14 @@ extension UIViewController: LayoutAnchorable {
 
     public var bottomAnchor: YAxisAnchor {
         return view.bottomAnchor
+    }
+
+    public var widthAnchor: LayoutDimension {
+        return view.widthAnchor
+    }
+
+    public var heightAnchor: LayoutDimension {
+        return view.heightAnchor
     }
 
     public func anchor(_ attribute: ConstraintAttribute) -> AnyLayoutAnchor {
