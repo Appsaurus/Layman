@@ -1,6 +1,6 @@
 Licensed under the **MIT** license
 
-> Copyright (c) 2015 Brian Strobach
+> Copyright (c) 2019 Brian Strobach
 >
 > Permission is hereby granted, free of charge, to any person obtaining
 > a copy of this software and associated documentation files (the

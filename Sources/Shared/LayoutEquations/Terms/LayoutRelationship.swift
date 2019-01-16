@@ -33,42 +33,34 @@ public struct LayoutRelationship<A: AnchorType> {
     }
 
     public var constraint: Constraint {
+        return inactiveConstraint.activated()
+    }
 
+    public var constraintInvertedAsInset: Constraint {
+        return inactiveConstraint.invertedAsInset.activated()
+
+    }
+
+    internal var inactiveConstraint: Constraint {
         if let relatedAnchor = relatedAnchor {
-            return constraintRelated(to: relatedAnchor)
+            return constraintRelated(to: relatedAnchor).configured(with: configuration)
         }
 
         if let anchor = anchor as? LayoutDimension {
-            return sizeConstraint(for: anchor)
+            return sizeConstraint(for: anchor).configured(with: configuration)
         }
         preconditionFailure("LayoutRelationship must contain two anchors or one anchor of type LayoutDimension")
     }
 
     internal func constraintRelated(to relatedAnchor: LayoutAnchor<A>) -> Constraint {
-        var constraint: Constraint = {
-            switch relation {
-            case .lessThanOrEqual:
-                return anchor.constraint(lessThanOrEqualTo: relatedAnchor)
-            case .equal:
-                return anchor.constraint(equalTo: relatedAnchor)
-            case .greaterThanOrEqual:
-                return anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
-            }
-        }()
-
-        switch constraint.secondAttribute {
-        case .right, .bottom, .trailing, .rightMargin, .bottomMargin, .trailingMargin:
-            configuration.constant.negate()
-            switch relation {
-            case .lessThanOrEqual:
-                constraint = anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
-            case .greaterThanOrEqual:
-                constraint = anchor.constraint(lessThanOrEqualTo: relatedAnchor)
-            default: break
-            }
-        default: break
+        switch relation {
+        case .lessThanOrEqual:
+            return anchor.constraint(lessThanOrEqualTo: relatedAnchor)
+        case .equal:
+            return anchor.constraint(equalTo: relatedAnchor)
+        case .greaterThanOrEqual:
+            return anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
         }
-        return constraint.activated(with: configuration)
     }
 
     internal func sizeConstraint(for anchor: LayoutDimension) -> Constraint {
@@ -82,6 +74,53 @@ public struct LayoutRelationship<A: AnchorType> {
                 return anchor.constraint(greaterThanOrEqualToConstant: configuration.constant)
             }
         }()
-        return constraint.activated(with: configuration)
+        return constraint
+    }
+}
+
+extension ConstraintAttribute {
+    public var isTrailingType: Bool {
+        return self.equalToAny(of: [.right, .bottom, .trailing, .rightMargin, .bottomMargin, .trailingMargin])
+
+    }
+}
+extension Constraint.Relation {
+    public var inverted: Constraint.Relation {
+        switch self {
+        case .lessThanOrEqual:
+            return .greaterThanOrEqual
+        case .greaterThanOrEqual:
+            return .lessThanOrEqual
+        default:
+            return self
+        }
+    }
+}
+extension Constraint {
+
+    public func invertConstant() -> Constraint {
+        return self.set(constant: -constant)
+    }
+    public func set(constant: LayoutConstant) -> Constraint {
+        self.constant = constant
+        return self
+    }
+    
+    public var withInvertedRelationship: Constraint {
+        return with(relation: relation.inverted)
+    }
+
+    public func with(relation: Constraint.Relation) -> Constraint {
+        return Constraint(item: firstItem as Any,
+                          attribute: firstAttribute,
+                          relatedBy: relation,
+                          toItem: secondItem,
+                          attribute: secondAttribute,
+                          multiplier: multiplier,
+                          constant: constant).with(priority: priority)
+    }
+    public var invertedAsInset: Constraint {
+        guard firstAttribute.isTrailingType, secondAttribute.isTrailingType else { return self }
+        return self.withInvertedRelationship.invertConstant()
     }
 }

@@ -44,15 +44,7 @@ public func + (lhs: EdgeAnchorGroup, rhs: LayoutInset) -> EdgeAnchorGroupExpress
     return EdgeAnchorGroupExpression(lhs).configured(with: configuration)
 }
 
-// MARK: UIEdgeInset Constant
 @discardableResult
 public func - (lhs: EdgeAnchorGroup, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
-
-    let configuration = EdgeAnchorsConfiguration(
-        .constant(-rhs.top),
-        .constant(-rhs.left),
-        .constant(-rhs.bottom),
-        .constant(-rhs.right)
-    )
-    return EdgeAnchorGroupExpression(lhs).configured(with: configuration)
+    return lhs + LayoutInset(top: -rhs.top, left: -rhs.left, bottom: -rhs.bottom, right: -rhs.right)
 }

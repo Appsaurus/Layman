@@ -6,15 +6,25 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-#if canImport(Cocoa)
-import Cocoa
+#if canImport(AppKit)
+import AppKit
+internal typealias View = NSView
+internal typealias Window = NSWindow
+internal typealias ViewController = NSViewController
+internal typealias LayoutGuide = NSLayoutGuide
+
 #else
 import UIKit
+internal typealias View = UIView
+internal typealias Window = UIWindow
+internal typealias ViewController = UIViewController
+internal typealias LayoutGuide = UILayoutGuide
 #endif
 
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
 public typealias ConstraintPair = (first: Constraint, second: Constraint)
+public typealias ConstraintPairs = [ConstraintPair]
 public typealias SideConstraints = SidesTuple<Constraint, Constraint>
 
 public typealias ConstraintAttribute = Constraint.Attribute
@@ -38,14 +48,14 @@ public typealias LayoutDimensions = [LayoutDimension]
 // MARK: Typed Anchor Pairs
 public typealias XAxisAnchorPair = LayoutAnchorPair<XAxisAnchor, XAxisAnchor>
 public typealias YAxisAnchorPair = LayoutAnchorPair<YAxisAnchor, YAxisAnchor>
+public typealias XYAxesAnchorPair = LayoutAnchorPair<XAxisAnchor, YAxisAnchor>
 public typealias SizeAnchorPair = LayoutAnchorPair<LayoutDimension, LayoutDimension>
-public typealias CenterAnchorPair = LayoutAnchorPair<XAxisAnchor, YAxisAnchor>
 
 // MARK: Typed Anchor Pair Arrays
 public typealias XAxisAnchorPairs = [XAxisAnchorPair]
 public typealias YAxisAnchorPairs = [YAxisAnchorPair]
+public typealias XYAxesAnchorPairs = [XYAxesAnchorPair]
 public typealias SizeAnchorPairs = [SizeAnchorPair]
-public typealias CenterAnchorPairs = [CenterAnchorPair]
 
 // MARK: Typed Anchor Group
 public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
@@ -61,14 +71,20 @@ public typealias LayoutDimensionExpression = LayoutExpression<LayoutDimension>
 // MARK: Anchor Pair Expressions
 public typealias XAxisAnchorPairExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
 public typealias YAxisAnchorPairExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
+public typealias XYAxesAnchorPairExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
 public typealias SizeAnchorExpression = LayoutPairExpression<LayoutDimension, LayoutDimension>
-public typealias CenterAnchorPairExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
 
 // MARK: Anchor Expressions Arrays
 public typealias XAxisAnchorExpressions = [XAxisAnchorExpression]
 public typealias YAxisAnchorExpressions = [YAxisAnchorExpression]
 public typealias LayoutDimensionExpressions = [LayoutDimensionExpression]
-public typealias CenterAnchorPairExpressions = [CenterAnchorPairExpression]
+
+// MARK: Anchor Pair Expressions Arrays
+public typealias XAxisAnchorPairExpressions = [XAxisAnchorPairExpression]
+public typealias YAxisAnchorPairExpressions = [YAxisAnchorPairExpression]
+public typealias SizeAnchorExpressions = [SizeAnchorExpression]
+
+public typealias XYAxesAnchorPairExpressions = [XYAxesAnchorPairExpression]
 public typealias EdgeAnchorGroupExpressions = [EdgeAnchorGroupExpression]
 
 // MARK: Layout Configuration
@@ -79,68 +95,3 @@ public typealias LayoutPriority = UILayoutPriority
 // MARK: Layout Constants
 public typealias LayoutInset = UIEdgeInsets
 public typealias LayoutSize = CGSize
-
-//public protocol LayoutAnchorType {}
-//extension LayoutAnchor: LayoutAnchorType {}
-//extension LayoutAnchors : LayoutAnchorType {}
-//extension EdgeAnchors : LayoutAnchorType {}
-
-public protocol SideCorrelated {
-    associatedtype VerticalSideType
-    associatedtype HorizontalSideType
-    var top: VerticalSideType { get set }
-    var leading: HorizontalSideType { get set }
-    var bottom: VerticalSideType { get set }
-    var trailing: HorizontalSideType { get set }
-    
-    init(_ top: VerticalSideType,
-         _ leading: HorizontalSideType,
-         _ bottom: VerticalSideType,
-         _ trailing: HorizontalSideType)
-}
-
-extension SideCorrelated {
-    public typealias HorizontalSides = (leading: HorizontalSideType, trailing: HorizontalSideType)
-    public typealias VerticalSides = (top: VerticalSideType, bottom: VerticalSideType)
-
-    public init<S: SideCorrelated>(_ other: S)
-        where S.HorizontalSideType == HorizontalSideType, S.VerticalSideType == VerticalSideType {
-            self.init(other.top, other.leading, other.bottom, other.trailing)
-    }
-    public var horizontal: HorizontalSides {
-        return HorizontalSides(leading, trailing)
-    }
-    
-    public var vertical: VerticalSides {
-        return VerticalSides(top, bottom)
-    }
-}
-
-extension SideCorrelated where HorizontalSideType == VerticalSideType {
-    public typealias SideType = HorizontalSideType
-    public var all: [SideType] {
-        return [top, leading, bottom, trailing]
-    }
-
-    public init(_ allSides: SideType) {
-        self.init(allSides, allSides, allSides, allSides)
-    }
-}
-
-public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated {
-    
-    public var top: VerticalSideType
-    public var leading: HorizontalSideType
-    public var bottom: VerticalSideType
-    public var trailing: HorizontalSideType
-    
-    required public init(_ top: VerticalSideType,
-                         _ leading: HorizontalSideType,
-                         _ bottom: VerticalSideType,
-                         _ trailing: HorizontalSideType) {
-        self.top = top
-        self.leading = leading
-        self.bottom = bottom
-        self.trailing = trailing
-    }
-}

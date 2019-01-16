@@ -33,7 +33,16 @@ public struct LayoutPairRelationship<F: AnchorType, S: AnchorType> {
     }
 
     public var constraints: ConstraintPair {
-        return (LayoutRelationship(anchors.first, relation, relatedAnchors.first, configurations.first).constraint,
-                LayoutRelationship(anchors.second, relation, relatedAnchors.second, configurations.second).constraint)
+        let relationships = layoutRelationships
+        return (relationships.0.constraint, relationships.1.constraint)
+    }
+
+    public var constraintsInvertedAsInsets: ConstraintPair {
+        let relationships = layoutRelationships
+        return (relationships.0.constraintInvertedAsInset, relationships.1.constraintInvertedAsInset)
+    }
+    private var layoutRelationships: (LayoutRelationship<F>, LayoutRelationship<S>) {
+        return (LayoutRelationship(anchors.first, relation, relatedAnchors.first, configurations.first),
+                LayoutRelationship(anchors.second, relation, relatedAnchors.second, configurations.second))
     }
 }
