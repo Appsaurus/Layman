@@ -16,77 +16,7 @@ import UIKit
 import XCTest
 import SwiftTestUtils
 
-#if canImport(AppKit)
-typealias Window = NSWindow
-#else
-typealias Window = UIWindow
-#endif
-
-let cgEpsilon: CGFloat = 0.00001
-let fEpsilon: Float = 0.00001
-let dEpsilon: Double = 0.00001
-
-fileprivate extension Constraint {
-    fileprivate func assert(_ firstItem: (AnyObject & LayoutAnchorable)?,
-                            _ firstAttribute: ConstraintAttribute?,
-                            _ relation: Constraint.Relation,
-                            _ secondItem: (AnyObject & LayoutAnchorable)? = nil,
-                            _ secondAttribute: ConstraintAttribute? = .notAnAttribute,
-                            constant: LayoutConstant = 0.0,
-                            multiplier: LayoutMultiplier = 1.0,
-                            priority: LayoutPriority = .required,
-                            file: StaticString = #file,
-                            line: UInt = #line) {
-        assertIdentical(firstItem, self.firstItem, file: file, line: line)
-        XCTAssertEqual(firstAttribute, self.firstAttribute, file: file, line: line)
-        XCTAssertEqual(relation, self.relation, file: file, line: line)
-        assertIdentical(secondItem, self.secondItem, file: file, line: line)
-        XCTAssertEqual(secondAttribute, self.secondAttribute, file: file, line: line)
-        XCTAssertEqual(constant, self.constant, accuracy: cgEpsilon, file: file, line: line)
-        XCTAssertEqual(multiplier, self.multiplier, accuracy: cgEpsilon, file: file, line: line)
-        XCTAssertEqual(priority.rawValue, self.priority.rawValue, accuracy: fEpsilon, file: file, line: line)
-        XCTAssertTrue(isActive, file: file, line: line)
-    }
-}
-
-fileprivate extension Array where Element: Constraint {
-    fileprivate func assert(_ items: [(AnyObject & LayoutAnchorable)],
-                            _ firstAttribute: ConstraintAttribute?,
-                            _ relation: Constraint.Relation,
-                            _ secondItem: (AnyObject & LayoutAnchorable)? = nil,
-                            _ secondAttribute: ConstraintAttribute? = .notAnAttribute,
-                            constant: LayoutConstant = 0.0,
-                            multiplier: LayoutMultiplier = 1.0,
-                            priority: LayoutPriority = .required,
-                            file: StaticString = #file,
-                            line: UInt = #line) {
-        XCTAssertEqual(count, items.count)
-        enumerated().forEach {$1.assert(items[$0], firstAttribute, relation, secondItem, secondAttribute,
-                                        constant: constant,
-                                        multiplier: multiplier,
-                                        priority: priority,
-                                        file: file,
-                                        line: line)}
-    }
-}
-class SharedTests: XCTestCase {
-    
-    let view1 = View()
-    let view2 = View()
-    let relatedView = View()
-    
-    var viewArray: [UIView] {
-        return [view1, view2]
-    }
-    let window = Window()
-    
-    override func setUp() {
-        #if os(macOS)
-        window.contentView!.addSubviews(view1, view2, view3)
-        #else
-        window.addSubviews(view1, relatedView, view2)
-        #endif
-    }
+class SharedTests: UILayoutKitTestCase {
 
     // MARK: WidthAnchor
     func testWidthEqualityToConstant() {
@@ -353,63 +283,19 @@ class SharedTests: XCTestCase {
     func testKeyPaths() {
         //        let insets = UIEdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
         //        let constraints = [view1, view2] == view3.anchorsAt(\.leadingAnchor, \.trailingAnchor)
-        let other = [view1, view2] == relatedView.anchorsAt(\.topAnchor, \.bottomAnchor)
+//        let other = [view1, view2] == relatedView[\.topAnchor, \.bottomAnchor]
+//        let anchors = relatedView[\.topAnchor, \.bottomAnchor]
+//        let mixed = relatedView.anchors(at: \.topAnchor, \.bottomAnchor, \.widthAnchor)
 
         [view1, relatedView].trailingAnchor <= view2.leadingAnchor + 20
         view2.leadingAnchor >= [view1, relatedView].trailingAnchor + 20
         
         [view1, relatedView].edgeAnchors <= view2.edgeAnchors
-        //        let constraints = view1 == view2.anchors(forKeyPaths: \.widthAnchor, \.heightAnchor)
+
+        [view1, view2] == relatedView[\.leadingAnchor, \.trailingAnchor]
         //        constraints.top.assert(view1, .top, .equal, view2, .top, constant: 10, priority: 749)
         //        constraints.leading.assert(view1, .leading, .equal, view2, .leading, constant: 5, priority: 749)
         //        constraints.bottom.assert(view1, .bottom, .equal, view2, .bottom, constant: -15, priority: 749)
         //        constraints.trailing.assert(view1, .trailing, .equal, view2, .trailing, constant: -20, priority: 749)
-    }
-}
-
-extension ConstraintAttribute: CustomDebugStringConvertible {
-    
-    public var debugDescription: String {
-        #if os(macOS)
-        switch self {
-        case .left: return "left"
-        case .right: return "right"
-        case .top: return "top"
-        case .bottom: return "bottom"
-        case .leading: return "leading"
-        case .trailing: return "trailing"
-        case .width: return "width"
-        case .height: return "height"
-        case .centerX: return "centerX"
-        case .centerY: return "centerY"
-        case .lastBaseline: return "lastBaseline"
-        case .firstBaseline: return "firstBaseline"
-        case .notAnAttribute: return "notAnAttribute"
-        }
-        #else
-        switch self {
-        case .left: return "left"
-        case .right: return "right"
-        case .top: return "top"
-        case .bottom: return "bottom"
-        case .leading: return "leading"
-        case .trailing: return "trailing"
-        case .width: return "width"
-        case .height: return "height"
-        case .centerX: return "centerX"
-        case .centerY: return "centerY"
-        case .lastBaseline: return "lastBaseline"
-        case .firstBaseline: return "firstBaseline"
-        case .leftMargin: return "leftMargin"
-        case .rightMargin: return "rightMargin"
-        case .topMargin: return "topMargin"
-        case .bottomMargin: return "bottomMargin"
-        case .leadingMargin: return "leadingMargin"
-        case .trailingMargin: return "trailingMargin"
-        case .centerXWithinMargins: return "centerXWithinMargins"
-        case .centerYWithinMargins: return "centerYWithinMargins"
-        case .notAnAttribute: return "notAnAttribute"
-        }
-        #endif
     }
 }

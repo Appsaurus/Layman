@@ -5,8 +5,8 @@ platform :ios, '9.0'
 
 def shared
     pod 'Swiftest', :git => 'https://github.com/Appsaurus/Swiftest'
-    pod 'UIKitExtensions', :git => 'https://github.com/Appsaurus/UIKitExtensions'
-    pod 'DarkMagic', :git => 'https://github.com/Appsaurus/DarkMagic'
+    #    pod 'UIKitExtensions', :git => 'https://github.com/Appsaurus/UIKitExtensions'
+    #    pod 'DarkMagic', :git => 'https://github.com/Appsaurus/DarkMagic'
 end
 
 def libaryShared

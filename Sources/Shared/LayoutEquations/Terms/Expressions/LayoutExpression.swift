@@ -14,6 +14,7 @@ public final class LayoutExpression<A: AnchorType> {
     public init(anchor: LayoutAnchor<A>, configuration: LayoutConfiguration = .default) {
         self.anchor = anchor
         self.configuration = configuration
+
     }
 
     @discardableResult

@@ -12,8 +12,7 @@ import Cocoa
 import UIKit
 #endif
 
-public protocol LayoutAnchorable: NSObjectProtocol {
-
+public protocol XYAxisAnchorable: NSObjectProtocol {
     var leadingAnchor: XAxisAnchor { get }
     var trailingAnchor: XAxisAnchor { get }
 
@@ -22,10 +21,6 @@ public protocol LayoutAnchorable: NSObjectProtocol {
 
     var topAnchor: YAxisAnchor { get }
     var bottomAnchor: YAxisAnchor { get }
-
-    var widthAnchor: LayoutDimension { get }
-    var heightAnchor: LayoutDimension { get }
-    var sizeAnchors: SizeAnchorPair { get }
 
     var horizontalAnchors: XAxisAnchorPair { get }
     var verticalAnchors: YAxisAnchorPair { get }
@@ -41,7 +36,22 @@ public protocol LayoutAnchorable: NSObjectProtocol {
     var bottomLeft: XYAxesAnchorPair { get }
 }
 
-extension LayoutAnchorable {
+public protocol BaselineAnchorable: NSObjectProtocol {
+    var lastBaselineAnchor: YAxisAnchor { get }
+    var firstBaselineAnchor: YAxisAnchor { get }
+}
+
+public protocol SizeAnchorable: NSObjectProtocol {
+    var widthAnchor: LayoutDimension { get }
+    var heightAnchor: LayoutDimension { get }
+    var sizeAnchors: SizeAnchorPair { get }
+}
+
+public protocol LayoutAnchorable: XYAxisAnchorable, SizeAnchorable {}
+
+public protocol BaselineLayoutAnchorable: LayoutAnchorable, BaselineAnchorable {}
+
+extension XYAxisAnchorable {
 
     public var horizontalAnchors: XAxisAnchorPair {
         return LayoutAnchorPair(leadingAnchor, trailingAnchor)
@@ -53,10 +63,6 @@ extension LayoutAnchorable {
 
     public var centerAnchors: XYAxesAnchorPair {
         return LayoutAnchorPair(centerXAnchor, centerYAnchor)
-    }
-
-    public var sizeAnchors: SizeAnchorPair {
-        return LayoutAnchorPair(widthAnchor, heightAnchor)
     }
 
     public var edgeAnchors: EdgeAnchorGroup {
@@ -72,11 +78,17 @@ extension LayoutAnchorable {
     public var bottomLeft: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, bottomAnchor) }
 }
 
-extension View: LayoutAnchorable {}
+extension SizeAnchorable {
+    public var sizeAnchors: SizeAnchorPair {
+        return LayoutAnchorPair(widthAnchor, heightAnchor)
+    }
+}
+
+extension View: BaselineLayoutAnchorable {}
 
 extension UILayoutGuide: LayoutAnchorable {}
 
-extension ViewController: LayoutAnchorable {
+extension ViewController: BaselineLayoutAnchorable {
 
     private var backingLayoutAnchorable: LayoutAnchorable {
         guard #available(iOS 11.0, *) else {
@@ -129,6 +141,14 @@ extension ViewController: LayoutAnchorable {
 
     public var centerYAnchor: YAxisAnchor {
         return backingLayoutAnchorable.centerYAnchor
+    }
+
+    public var lastBaselineAnchor: YAxisAnchor {
+        return view.lastBaselineAnchor
+    }
+
+    public var firstBaselineAnchor: YAxisAnchor {
+        return view.firstBaselineAnchor
     }
 }
 

@@ -8,17 +8,18 @@
 
 #if canImport(AppKit)
 import AppKit
-internal typealias View = NSView
+public typealias View = NSView
 internal typealias Window = NSWindow
 internal typealias ViewController = NSViewController
 internal typealias LayoutGuide = NSLayoutGuide
 
 #else
 import UIKit
-internal typealias View = UIView
+public typealias View = UIView
 internal typealias Window = UIWindow
 internal typealias ViewController = UIViewController
 internal typealias LayoutGuide = UILayoutGuide
+
 #endif
 
 public typealias Constraint = NSLayoutConstraint
@@ -90,8 +91,14 @@ public typealias EdgeAnchorGroupExpressions = [EdgeAnchorGroupExpression]
 // MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat
 public typealias LayoutConstant = CGFloat
+
+#if canImport(AppKit)
+public typealias LayoutPriority = Constraint.Priority
+public typealias LayoutInset = NSEdgeInsets
+#else
 public typealias LayoutPriority = UILayoutPriority
+public typealias LayoutInset = UIEdgeInsets
+#endif
 
 // MARK: Layout Constants
-public typealias LayoutInset = UIEdgeInsets
 public typealias LayoutSize = CGSize

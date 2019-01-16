@@ -32,4 +32,5 @@ XCTAssertEqual(constraint.firstAnchor, view1.leadingAnchor)
 XCTAssertEqual(constraint.secondAnchor, view2.leadingAnchor)
 XCTAssertEqual(constraint.constant, 0)
 
+let widthAnchor = view1.widthAnchor
 print("SUCCESS")

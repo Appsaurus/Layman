@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swiftest
 // swiftlint:disable line_length file_length
 public typealias ConstraintDictionary = [ConstraintAttribute: Constraint]
 public typealias ConstraintDictionaryMap = [UIView: ConstraintDictionary]
@@ -36,7 +37,7 @@ public enum AutoLayoutAspectRatio {
         case .custom(let ratio):
             return ratio.width/ratio.height
         case .customSize(let size):
-            return size.w / size.h
+            return size.width / size.height
         case .customRatio(let ratio):
             return ratio
         }
@@ -543,7 +544,7 @@ extension UIView {
 }
 
 extension UIView {
-    public class func parentViewFittingContent(of view: UIView, insetBy insets: UIEdgeInsets = UIEdgeInsets(padding: 20)) -> UIView {
+    public class func parentViewFittingContent(of view: UIView, insetBy insets: UIEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)) -> UIView {
         let layoutView: UIView = UIView()
         layoutView.addSubview(view)
         view.autoForceSuperviewToMatchContentSize(insetBy: insets)

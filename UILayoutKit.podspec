@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.swift_version = '4.2'
   s.requires_arc = true
 
-  s.dependency 'UIKitExtensions'
+  s.dependency 'Swiftest'
 
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
 
 
   s.ios.frameworks = 'UIKit', 'Foundation'
-  # s.osx.frameworks = 'Cocoa', 'Foundation'
+  s.osx.frameworks = 'AppKit', 'Foundation'
 
 end

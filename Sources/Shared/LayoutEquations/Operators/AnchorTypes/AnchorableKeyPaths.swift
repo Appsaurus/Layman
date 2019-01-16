@@ -6,7 +6,14 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-// MARK: Anchor == Anchor
+extension LayoutAnchorable {
+    public subscript<A: AnchorType>(_ keyPaths: KeyPath<LayoutAnchorable, A>...) -> AnchorableKeyPaths<A> {
+        return AnchorableKeyPaths(self, keyPaths)
+    }
+}
+
+//// MARK: Anchor == Anchor
+
 @discardableResult
 public func == (lhs: LayoutAnchorable, rhs: AnchorableKeyPath<XAxisAnchor>) -> Constraint {
     return lhs[keyPath: rhs.keyPath] == rhs.anchor
@@ -25,16 +32,6 @@ public func == (lhs: LayoutAnchorable, rhs: AnchorableKeyPaths<XAxisAnchor>) -> 
 @discardableResult
 public func == (lhs: [LayoutAnchorable], rhs: AnchorableKeyPaths<XAxisAnchor>) -> Constraints {
     return lhs.map { $0 == rhs }.flattened
-}
-
-extension LayoutAnchorable {
-    public func anchorAt(_ keyPath: KeyPath<LayoutAnchorable, XAxisAnchor>) -> AnchorableKeyPath<XAxisAnchor> {
-        return AnchorableKeyPath(self, keyPath)
-    }
-
-    public func anchorsAt(_ keyPaths: KeyPath<LayoutAnchorable, XAxisAnchor>...) -> AnchorableKeyPaths<XAxisAnchor> {
-        return AnchorableKeyPaths(self, keyPaths)
-    }
 }
 
 // MARK: Anchor == Anchor
@@ -58,14 +55,25 @@ public func == (lhs: [LayoutAnchorable], rhs: AnchorableKeyPaths<YAxisAnchor>) -
     return lhs.map { $0 == rhs }.flattened
 }
 
-extension LayoutAnchorable {
-    public func anchorAt(_ keyPath: KeyPath<LayoutAnchorable, YAxisAnchor>) -> AnchorableKeyPath<YAxisAnchor> {
-        return AnchorableKeyPath(self, keyPath)
-    }
+// MARK: Anchor == Anchor
+@discardableResult
+public func == (lhs: LayoutAnchorable, rhs: AnchorableKeyPath<LayoutDimension>) -> Constraint {
+    return lhs[keyPath: rhs.keyPath] == rhs.anchor
+}
 
-    public func anchorsAt(_ keyPaths: KeyPath<LayoutAnchorable, YAxisAnchor>...) -> AnchorableKeyPaths<YAxisAnchor> {
-        return AnchorableKeyPaths(self, keyPaths)
-    }
+@discardableResult
+public func == (lhs: [LayoutAnchorable], rhs: AnchorableKeyPath<LayoutDimension>) -> Constraints {
+    return lhs.map { $0 == rhs }
+}
+
+@discardableResult
+public func == (lhs: LayoutAnchorable, rhs: AnchorableKeyPaths<LayoutDimension>) -> Constraints {
+    return rhs.anchorableKeyPaths.map {lhs == $0}
+}
+
+@discardableResult
+public func == (lhs: [LayoutAnchorable], rhs: AnchorableKeyPaths<LayoutDimension>) -> Constraints {
+    return lhs.map { $0 == rhs }.flattened
 }
 
 public protocol AnchorProvider {

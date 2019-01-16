@@ -80,7 +80,7 @@ public struct LayoutRelationship<A: AnchorType> {
 
 extension ConstraintAttribute {
     public var isTrailingType: Bool {
-        return self.equalToAny(of: [.right, .bottom, .trailing, .rightMargin, .bottomMargin, .trailingMargin])
+        return [.right, .bottom, .trailing, .rightMargin, .bottomMargin, .trailingMargin].contains(self)
 
     }
 }
