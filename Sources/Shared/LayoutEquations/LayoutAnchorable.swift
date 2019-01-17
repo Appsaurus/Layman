@@ -44,7 +44,7 @@ public protocol BaselineAnchorable: NSObjectProtocol {
 public protocol SizeAnchorable: NSObjectProtocol {
     var widthAnchor: LayoutDimension { get }
     var heightAnchor: LayoutDimension { get }
-    var sizeAnchors: SizeAnchorPair { get }
+    var sizeAnchors: LayoutDimensionPair { get }
 }
 
 public protocol LayoutAnchorable: XYAxisAnchorable, SizeAnchorable {}
@@ -79,7 +79,7 @@ extension XYAxisAnchorable {
 }
 
 extension SizeAnchorable {
-    public var sizeAnchors: SizeAnchorPair {
+    public var sizeAnchors: LayoutDimensionPair {
         return LayoutAnchorPair(widthAnchor, heightAnchor)
     }
 }
@@ -164,7 +164,7 @@ extension Array where Element: LayoutAnchorable {
 
     public var widthAnchor: LayoutDimensions { return map { $0.widthAnchor } }
     public var heightAnchor: LayoutDimensions { return map { $0.heightAnchor } }
-    public var sizeAnchors: SizeAnchorPairs { return map { $0.sizeAnchors } }
+    public var sizeAnchors: LayoutDimensionPairs { return map { $0.sizeAnchors } }
 
     public var horizontalAnchors: XAxisAnchorPairs { return map { $0.horizontalAnchors } }
     public var verticalAnchors: YAxisAnchorPairs { return map { $0.verticalAnchors } }

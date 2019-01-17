@@ -17,17 +17,6 @@ public func == (lhs: LayoutDimension, rhs: LayoutConfiguration) -> Constraint {
     return LayoutRelationship(lhs, .equal, nil, rhs).constraint
 }
 
-// MARK: LayoutAnchor<LayoutDimension> == Constant
-//@discardableResult
-//public func == (lhs: LayoutAnchor<LayoutDimension>, rhs: LayoutConstant) -> Constraint {
-//    return lhs == LayoutConfiguration.constant(rhs)
-//}
-//
-//@discardableResult
-//public func == (lhs: LayoutAnchor<LayoutDimension>, rhs: LayoutConfiguration) -> Constraint {
-//    return LayoutRelationship(lhs, .equal, nil, rhs).constraint
-//}
-
 // MARK: LayoutDimension <= Constant
 @discardableResult
 public func <= (lhs: LayoutDimension, rhs: LayoutConstant) -> Constraint {

@@ -56,13 +56,13 @@ extension LayoutDimension: LayoutAnchorType{}
 public typealias XAxisAnchorPair = LayoutAnchorPair<XAxisAnchor, XAxisAnchor>
 public typealias YAxisAnchorPair = LayoutAnchorPair<YAxisAnchor, YAxisAnchor>
 public typealias XYAxesAnchorPair = LayoutAnchorPair<XAxisAnchor, YAxisAnchor>
-public typealias SizeAnchorPair = LayoutAnchorPair<LayoutDimension, LayoutDimension>
+public typealias LayoutDimensionPair = LayoutAnchorPair<LayoutDimension, LayoutDimension>
 
 // MARK: Typed Anchor Pair Arrays
 public typealias XAxisAnchorPairs = [XAxisAnchorPair]
 public typealias YAxisAnchorPairs = [YAxisAnchorPair]
 public typealias XYAxesAnchorPairs = [XYAxesAnchorPair]
-public typealias SizeAnchorPairs = [SizeAnchorPair]
+public typealias LayoutDimensionPairs = [LayoutDimensionPair]
 
 // MARK: Typed Anchor Group
 public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
@@ -75,21 +75,21 @@ public typealias XAxisAnchorExpression = LayoutExpression<XAxisAnchor>
 public typealias YAxisAnchorExpression = LayoutExpression<YAxisAnchor>
 public typealias LayoutDimensionExpression = LayoutExpression<LayoutDimension>
 
-// MARK: Anchor Pair Expressions
-public typealias XAxisAnchorPairExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
-public typealias YAxisAnchorPairExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
-public typealias XYAxesAnchorPairExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
-public typealias SizeAnchorExpression = LayoutPairExpression<LayoutDimension, LayoutDimension>
-
 // MARK: Anchor Expressions Arrays
 public typealias XAxisAnchorExpressions = [XAxisAnchorExpression]
 public typealias YAxisAnchorExpressions = [YAxisAnchorExpression]
 public typealias LayoutDimensionExpressions = [LayoutDimensionExpression]
 
+// MARK: Anchor Pair Expressions
+public typealias XAxisAnchorPairExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
+public typealias YAxisAnchorPairExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
+public typealias XYAxesAnchorPairExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
+public typealias LayoutDimensionPairExpression = LayoutPairExpression<LayoutDimension, LayoutDimension>
+
 // MARK: Anchor Pair Expressions Arrays
 public typealias XAxisAnchorPairExpressions = [XAxisAnchorPairExpression]
 public typealias YAxisAnchorPairExpressions = [YAxisAnchorPairExpression]
-public typealias SizeAnchorExpressions = [SizeAnchorExpression]
+public typealias LayoutDimensionPairExpressions = [LayoutDimensionPairExpression]
 
 public typealias XYAxesAnchorPairExpressions = [XYAxesAnchorPairExpression]
 public typealias EdgeAnchorGroupExpressions = [EdgeAnchorGroupExpression]

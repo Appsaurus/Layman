@@ -1,0 +1,54 @@
+{% for anchortype in argument.AnchorTypes %}
+{% set constraintMethod %}{% if anchortype == 'LayoutDimension' %}constraints{% else %}constraintsInvertedAsInsets{% endif %}{% endset %}
+// sourcery:file:PairRelationOperators/{{anchortype}}Pair+RelationOperators
+//
+//  {{anchortype}}+ArrayConstantArithmeticOperators.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+// NOTE: Paired edge constraints are inverted as insets because it is more common and easier
+// to reason about layouts in terms of insets from edges rather than shifted value offsets.
+
+// MARK: Equal
+// MARK: Anchors == Expression
+@discardableResult
+public func == (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpression) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .equal, rhs).{{constraintMethod}}
+}
+
+// MARK: Anchors == Anchors
+@discardableResult
+public func == (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pair) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .equal, rhs).{{constraintMethod}}
+}
+
+// MARK: LessThanOrEqual
+// MARK: Anchors <= Expression
+@discardableResult
+public func <= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpression) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).{{constraintMethod}}
+}
+
+// MARK: Anchors <= Anchors
+@discardableResult
+public func <= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pair) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).{{constraintMethod}}
+}
+
+// MARK: GreaterThanOrEqual
+// MARK: Anchors >= Expression
+@discardableResult
+public func >= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpression) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).{{constraintMethod}}
+}
+
+// MARK: Anchors >= Anchors
+@discardableResult
+public func >= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pair) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).{{constraintMethod}}
+}
+// sourcery:end
+{% endfor %}

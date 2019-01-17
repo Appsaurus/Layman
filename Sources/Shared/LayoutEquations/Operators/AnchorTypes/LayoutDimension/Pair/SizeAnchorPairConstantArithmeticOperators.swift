@@ -8,41 +8,16 @@
 
 import CoreGraphics
 
-// MARK: SizeAnchorPair Constant Arithmetic
-@discardableResult
-public func + (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
-}
-
-@discardableResult
-public func - (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
-}
-
-@discardableResult
-public func * (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return SizeAnchorExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
-}
-
-@discardableResult
-public func / (lhs: SizeAnchorPair, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return lhs * (1.0 / rhs)
-}
-
-@discardableResult
-public func / (lhs: SizeAnchorExpression, rhs: LayoutConstant) -> SizeAnchorExpression {
-    return lhs.with(multiplier: (1.0 / rhs))
-}
 
 // MARK: CGSize Constant
 @discardableResult
-public func + (lhs: SizeAnchorPair, rhs: CGSize) -> SizeAnchorExpression {
-    return SizeAnchorExpression(anchors: lhs,
-                                configurations: LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height)))
+public func + (lhs: LayoutDimensionPair, rhs: CGSize) -> LayoutDimensionPairExpression {
+    let configurations = LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
+    return LayoutDimensionPairExpression(anchors: lhs, configurations: configurations)
 }
 
 @discardableResult
-public func - (lhs: SizeAnchorPair, rhs: CGSize) -> SizeAnchorExpression {
+public func - (lhs: LayoutDimensionPair, rhs: CGSize) -> LayoutDimensionPairExpression {
     return lhs + CGSize(width: -rhs.width, height: -rhs.height)
 }
 

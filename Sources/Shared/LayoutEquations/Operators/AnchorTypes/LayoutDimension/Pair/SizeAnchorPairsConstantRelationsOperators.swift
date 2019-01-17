@@ -10,52 +10,52 @@ import CoreGraphics
 
 // MARK: Anchor Array == LayoutConstant
 @discardableResult
-public func == (lhs: SizeAnchorPairs, rhs: LayoutConstant) -> ConstraintPairs {
+public func == (lhs: LayoutDimensionPairs, rhs: LayoutConstant) -> ConstraintPairs {
     return lhs.map({$0 == rhs})
 }
 
 // MARK: Anchor Array == LayoutPairConfiguration
 @discardableResult
-public func == (lhs: SizeAnchorPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
+public func == (lhs: LayoutDimensionPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
     return lhs.map({$0 == rhs})
 }
 
 // MARK: Anchor Array <= LayoutConstant
 @discardableResult
-public func <= (lhs: SizeAnchorPairs, rhs: LayoutConstant) -> ConstraintPairs {
+public func <= (lhs: LayoutDimensionPairs, rhs: LayoutConstant) -> ConstraintPairs {
     return lhs.map({$0 <= rhs})
 }
 
 // MARK: Anchor Array <= LayoutPairConfiguration
 @discardableResult
-public func <= (lhs: SizeAnchorPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
+public func <= (lhs: LayoutDimensionPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
     return lhs.map({$0 <= rhs})
 }
 
 // MARK: Anchor Array >= LayoutConstant
 @discardableResult
-public func >= (lhs: SizeAnchorPairs, rhs: LayoutConstant) -> ConstraintPairs {
+public func >= (lhs: LayoutDimensionPairs, rhs: LayoutConstant) -> ConstraintPairs {
     return lhs.map({$0 >= rhs})
 }
 
 // MARK: Anchor Array >= LayoutConstant
 @discardableResult
-public func >= (lhs: SizeAnchorPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
+public func >= (lhs: LayoutDimensionPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
     return lhs.map({$0 >= rhs})
 }
 
 // MARK: CGSize Constants
 @discardableResult
-public func == (lhs: SizeAnchorPairs, rhs: CGSize) -> ConstraintPairs {
+public func == (lhs: LayoutDimensionPairs, rhs: CGSize) -> ConstraintPairs {
     return lhs.map({$0 == rhs})
 }
 
 @discardableResult
-public func <= (lhs: SizeAnchorPairs, rhs: CGSize) -> ConstraintPairs {
+public func <= (lhs: LayoutDimensionPairs, rhs: CGSize) -> ConstraintPairs {
     return lhs.map({$0 <= rhs})
 }
 
 @discardableResult
-public func >= (lhs: SizeAnchorPairs, rhs: CGSize) -> ConstraintPairs {
+public func >= (lhs: LayoutDimensionPairs, rhs: CGSize) -> ConstraintPairs {
     return lhs.map({$0 >= rhs})
 }
