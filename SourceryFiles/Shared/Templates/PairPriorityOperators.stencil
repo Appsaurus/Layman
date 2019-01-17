@@ -1,0 +1,20 @@
+{% for AnchorPairType in argument.AnchorPairTypes %}
+// sourcery:file:PairPriorityOperators/{{AnchorPairType}}+PriorityOperators
+//
+//  {{AnchorType}}+PriorityOperators.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+@discardableResult
+public func ~ (lhs: {{AnchorPairType}}, rhs: LayoutPriority) -> {{AnchorPairType}}Expression {
+    return {{AnchorPairType}}Expression(anchors: lhs).with(priority: rhs)
+}
+
+@discardableResult
+public func ~ (lhs: {{AnchorPairType}}Expression, rhs: LayoutPriority) -> {{AnchorPairType}}Expression {
+    return lhs.with(priority: rhs)
+}
+// sourcery:end
+{% endfor %}
