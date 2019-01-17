@@ -1,5 +1,5 @@
 //
-//  YAxisImpliedRelationOperators.swift
+//  YAxisAnchorImpliedRelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/16/19.

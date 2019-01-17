@@ -5,6 +5,7 @@ platform :ios, '9.0'
 
 def shared
     pod 'Swiftest', :git => 'https://github.com/Appsaurus/Swiftest'
+    pod 'Sourcery'
     #    pod 'UIKitExtensions', :git => 'https://github.com/Appsaurus/UIKitExtensions'
     #    pod 'DarkMagic', :git => 'https://github.com/Appsaurus/DarkMagic'
 end

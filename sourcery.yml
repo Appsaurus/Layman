@@ -1,0 +1,7 @@
+sources:
+- Sources/Shared/
+templates:
+- SourceryFiles/Shared/Templates
+args:
+    AnchorTypes: ['XAxisAnchor','YAxisAnchor','LayoutDimension']
+output: Sources/Shared/Generated
