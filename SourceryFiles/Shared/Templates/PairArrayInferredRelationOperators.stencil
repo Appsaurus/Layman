@@ -1,8 +1,8 @@
 
-{% for AnchorType in argument.AnchorTypes %}
-// sourcery:file:ArrayInferredRelationOperators/{{AnchorType}}+ArrayInferredRelationOperators
+{% for AnchorPairType in argument.AnchorPairTypes %}
+// sourcery:file:PairArrayInferredRelationOperators/{{AnchorPairType}}+PairArrayInferredRelationOperators
 //
-//  {{AnchorType}}+ArrayInferredRelationOperators.swift
+//  {{AnchorPairType}}+PairArrayInferredRelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -10,13 +10,13 @@
 //
 // MARK: [View] == Anchor
 @discardableResult
-public func == (lhs: [View], rhs: {{AnchorType}}) -> Constraints {
+public func == (lhs: [View], rhs: {{AnchorPairType}}) -> [ConstraintPair] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Anchors
 @discardableResult
-public func == (lhs: [View], rhs: {{AnchorType}}s) -> [Constraints] {
+public func == (lhs: [View], rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -24,13 +24,13 @@ public func == (lhs: [View], rhs: {{AnchorType}}s) -> [Constraints] {
 
 // MARK: [View] == Expression
 @discardableResult
-public func == (lhs: [View], rhs: {{AnchorType}}Expression) -> Constraints {
+public func == (lhs: [View], rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Expressions
 @discardableResult
-public func == (lhs: [View], rhs: {{AnchorType}}Expressions) -> [Constraints] {
+public func == (lhs: [View], rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -40,13 +40,13 @@ public func == (lhs: [View], rhs: {{AnchorType}}Expressions) -> [Constraints] {
 
 // MARK: [View] <= Anchor
 @discardableResult
-public func <= (lhs: [View], rhs: {{AnchorType}}) -> Constraints {
+public func <= (lhs: [View], rhs: {{AnchorPairType}}) -> [ConstraintPair] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Anchors
 @discardableResult
-public func <= (lhs: [View], rhs: {{AnchorType}}s) -> [Constraints] {
+public func <= (lhs: [View], rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map({element <= $0})
     }
@@ -54,13 +54,13 @@ public func <= (lhs: [View], rhs: {{AnchorType}}s) -> [Constraints] {
 
 // MARK: [View] <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: {{AnchorType}}Expression) -> Constraints {
+public func <= (lhs: [View], rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Expressions
 @discardableResult
-public func <= (lhs: [View], rhs: {{AnchorType}}Expressions) -> [Constraints] {
+public func <= (lhs: [View], rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map({element <= $0})
     }
@@ -70,13 +70,13 @@ public func <= (lhs: [View], rhs: {{AnchorType}}Expressions) -> [Constraints] {
 
 // MARK: [View] >= Anchor
 @discardableResult
-public func >= (lhs: [View], rhs: {{AnchorType}}) -> Constraints {
+public func >= (lhs: [View], rhs: {{AnchorPairType}}) -> [ConstraintPair] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Anchors
 @discardableResult
-public func >= (lhs: [View], rhs: {{AnchorType}}s) -> [Constraints] {
+public func >= (lhs: [View], rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map({element >= $0})
     }
@@ -84,13 +84,13 @@ public func >= (lhs: [View], rhs: {{AnchorType}}s) -> [Constraints] {
 
 // MARK: [View] >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: {{AnchorType}}Expression) -> Constraints {
+public func >= (lhs: [View], rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Expressions
 @discardableResult
-public func >= (lhs: [View], rhs: {{AnchorType}}Expressions) -> [Constraints] {
+public func >= (lhs: [View], rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map({element >= $0})
     }

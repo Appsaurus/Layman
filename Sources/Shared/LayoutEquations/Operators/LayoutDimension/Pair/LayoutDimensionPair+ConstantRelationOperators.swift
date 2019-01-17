@@ -1,17 +1,15 @@
 //
-//  SizeAnchorPairConstantRelationOperators.swift
+//  LayoutDimensionPair+ConstantRelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/8/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-import CoreGraphics
-
 // MARK: SizeAnchorPair == Constant
 @discardableResult
 public func == (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> ConstraintPair {
-    return lhs == CGSize(side: rhs)
+    return lhs == LayoutSize(side: rhs)
 }
 
 @discardableResult
@@ -23,7 +21,7 @@ public func == (lhs: LayoutDimensionPair, rhs: LayoutPairConfiguration) -> Const
 // MARK: SizeAnchorPair <= Constant
 @discardableResult
 public func <= (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> ConstraintPair {
-    return lhs <= CGSize(side: rhs)
+    return lhs <= LayoutSize(side: rhs)
 }
 
 @discardableResult
@@ -35,7 +33,7 @@ public func <= (lhs: LayoutDimensionPair, rhs: LayoutPairConfiguration) -> Const
 // MARK: SizeAnchorPair >= Constant
 @discardableResult
 public func >= (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> ConstraintPair {
-    return lhs <= CGSize(side: rhs)
+    return lhs <= LayoutSize(side: rhs)
 }
 
 @discardableResult
@@ -44,18 +42,18 @@ public func >= (lhs: LayoutDimensionPair, rhs: LayoutPairConfiguration) -> Const
             LayoutRelationship(lhs.second, .greaterThanOrEqual, nil, rhs.second).constraint)
 }
 
-// MARK: CGSize Constants
+// MARK: LayoutSize Constants
 @discardableResult
-public func == (lhs: LayoutDimensionPair, rhs: CGSize) -> ConstraintPair {
+public func == (lhs: LayoutDimensionPair, rhs: LayoutSize) -> ConstraintPair {
     return lhs == LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
 }
 
 @discardableResult
-public func <= (lhs: LayoutDimensionPair, rhs: CGSize) -> ConstraintPair {
+public func <= (lhs: LayoutDimensionPair, rhs: LayoutSize) -> ConstraintPair {
     return lhs <= LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
 }
 
 @discardableResult
-public func >= (lhs: LayoutDimensionPair, rhs: CGSize) -> ConstraintPair {
+public func >= (lhs: LayoutDimensionPair, rhs: LayoutSize) -> ConstraintPair {
     return lhs >= LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
 }

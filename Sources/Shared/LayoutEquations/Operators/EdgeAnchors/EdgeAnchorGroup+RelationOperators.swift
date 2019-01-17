@@ -1,5 +1,5 @@
 //
-//  EdgeAnchorGroupOperators.swift
+//  EdgeAnchorGroup+RelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/9/19.

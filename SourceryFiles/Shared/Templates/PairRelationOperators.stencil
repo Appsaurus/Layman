@@ -1,8 +1,8 @@
-{% for anchortype in argument.AnchorTypes %}
+{% for AnchorPairType in argument.AnchorPairTypes %}
 {% set constraintMethod %}{% if anchortype == 'LayoutDimension' %}constraints{% else %}constraintsInvertedAsInsets{% endif %}{% endset %}
-// sourcery:file:PairRelationOperators/{{anchortype}}Pair+RelationOperators
+// sourcery:file:PairRelationOperators/{{AnchorPairType}}+RelationOperators
 //
-//  {{anchortype}}+ArrayConstantArithmeticOperators.swift
+//  {{AnchorType}}+ArrayConstantArithmeticOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -15,39 +15,39 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpression) -> ConstraintPair {
+public func == (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .equal, rhs).{{constraintMethod}}
 }
 
 // MARK: Anchors == Anchors
 @discardableResult
-public func == (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pair) -> ConstraintPair {
+public func == (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .equal, rhs).{{constraintMethod}}
 }
 
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
-public func <= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpression) -> ConstraintPair {
+public func <= (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).{{constraintMethod}}
 }
 
 // MARK: Anchors <= Anchors
 @discardableResult
-public func <= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pair) -> ConstraintPair {
+public func <= (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).{{constraintMethod}}
 }
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
-public func >= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpression) -> ConstraintPair {
+public func >= (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).{{constraintMethod}}
 }
 
 // MARK: Anchors >= Anchors
 @discardableResult
-public func >= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pair) -> ConstraintPair {
+public func >= (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
     return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).{{constraintMethod}}
 }
 // sourcery:end

@@ -1,12 +1,10 @@
 //
-//  SizeAnchorPairsConstantRelationOperators.swift
+//  LayoutDimensionPairArray+ConstantRelationsOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/15/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
-
-import CoreGraphics
 
 // MARK: Anchor Array == LayoutConstant
 @discardableResult
@@ -44,18 +42,18 @@ public func >= (lhs: LayoutDimensionPairs, rhs: LayoutPairConfiguration) -> Cons
     return lhs.map({$0 >= rhs})
 }
 
-// MARK: CGSize Constants
+// MARK: LayoutSize Constants
 @discardableResult
-public func == (lhs: LayoutDimensionPairs, rhs: CGSize) -> ConstraintPairs {
+public func == (lhs: LayoutDimensionPairs, rhs: LayoutSize) -> ConstraintPairs {
     return lhs.map({$0 == rhs})
 }
 
 @discardableResult
-public func <= (lhs: LayoutDimensionPairs, rhs: CGSize) -> ConstraintPairs {
+public func <= (lhs: LayoutDimensionPairs, rhs: LayoutSize) -> ConstraintPairs {
     return lhs.map({$0 <= rhs})
 }
 
 @discardableResult
-public func >= (lhs: LayoutDimensionPairs, rhs: CGSize) -> ConstraintPairs {
+public func >= (lhs: LayoutDimensionPairs, rhs: LayoutSize) -> ConstraintPairs {
     return lhs.map({$0 >= rhs})
 }

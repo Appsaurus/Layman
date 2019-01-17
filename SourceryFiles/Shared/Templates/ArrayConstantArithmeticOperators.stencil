@@ -1,7 +1,7 @@
-{% for anchortype in argument.AnchorTypes %}
-// sourcery:file:ArrayConstantArithmeticOperators/{{anchortype}}+ArrayConstantArithmeticOperators
+{% for AnchorType in argument.AnchorTypes %}
+// sourcery:file:ArrayConstantArithmeticOperators/{{AnchorType}}+ArrayConstantArithmeticOperators
 //
-//  {{anchortype}}+ArrayConstantArithmeticOperators.swift
+//  {{AnchorType}}+ArrayConstantArithmeticOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -9,27 +9,27 @@
 //
 
 @discardableResult
-public func + (lhs: {{anchortype}}s, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+public func + (lhs: {{AnchorType}}s, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
     return lhs.map { $0 + rhs }
 }
 
 @discardableResult
-public func - (lhs: {{anchortype}}s, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+public func - (lhs: {{AnchorType}}s, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
     return lhs.map { $0 - rhs }
 }
 
 @discardableResult
-public func * (lhs: {{anchortype}}s, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+public func * (lhs: {{AnchorType}}s, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
     return lhs.map { $0 * rhs }
 }
 
 @discardableResult
-public func / (lhs: {{anchortype}}s, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+public func / (lhs: {{AnchorType}}s, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
     return lhs.map { $0 / rhs }
 }
 
 @discardableResult
-public func / (lhs: {{anchortype}}Expressions, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+public func / (lhs: {{AnchorType}}Expressions, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
     return lhs.map { $0 / rhs }
 }
 // sourcery:end

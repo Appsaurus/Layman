@@ -1,5 +1,5 @@
 //
-//  LayoutDimensionsConstantRelationOperators.swift
+//  LayoutDimensionArray+ConstantRelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/15/19.

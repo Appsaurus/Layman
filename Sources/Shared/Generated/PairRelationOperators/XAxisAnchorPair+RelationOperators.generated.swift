@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 //
-//  XAxisAnchor+ArrayConstantArithmeticOperators.swift
+//  +ArrayConstantArithmeticOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.

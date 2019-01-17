@@ -18,13 +18,3 @@ public func ~ (lhs: XAxisAnchor, rhs: LayoutPriority) -> XAxisAnchorExpression {
 public func ~ (lhs: XAxisAnchorExpression, rhs: LayoutPriority) -> XAxisAnchorExpression {
     return lhs.with(priority: rhs)
 }
-
-@discardableResult
-public func ~ (lhs: XAxisAnchorPair, rhs: LayoutPriority) -> XAxisAnchorPairExpression {
-    return XAxisAnchorPairExpression(anchors: lhs).with(priority: rhs)
-}
-
-@discardableResult
-public func ~ (lhs: XAxisAnchorPairExpression, rhs: LayoutPriority) -> XAxisAnchorPairExpression {
-    return lhs.with(priority: rhs)
-}

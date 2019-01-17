@@ -33,3 +33,24 @@ extension LayoutPriority {
         return .fittingSizeLevel
     }
 }
+
+extension LayoutAnchorable {
+    var leading: XAxisAnchor { return leadingAnchor }
+    var trailing: XAxisAnchor { return trailingAnchor }
+
+    var left: XAxisAnchor { return leftAnchor }
+    var right: XAxisAnchor { return rightAnchor }
+
+    var top: YAxisAnchor { return topAnchor }
+    var bottom: YAxisAnchor { return bottomAnchor }
+
+    var horizontalEdges: XAxisAnchorPair { return horizontalEdgeAnchors }
+    var verticalEdges: YAxisAnchorPair { return verticalEdgeAnchors }
+    var edges: EdgeAnchorGroup { return edgeAnchors }
+
+    var centerX: XAxisAnchor { return centerXAnchor }
+    var centerY: YAxisAnchor { return centerYAnchor }
+    var center: XYAxesAnchorPair { return centerAnchors }
+
+    var size: LayoutDimensionPair { return sizeAnchors }
+}

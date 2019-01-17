@@ -1,7 +1,7 @@
-{% for anchortype in argument.AnchorTypes %}
-// sourcery:file:PriorityOperators/{{anchortype}}+PriorityOperators
+{% for AnchorType in argument.AnchorTypes %}
+// sourcery:file:PriorityOperators/{{AnchorType}}+PriorityOperators
 //
-//  {{anchortype}}+PriorityOperators.swift
+//  {{AnchorType}}+PriorityOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -9,22 +9,12 @@
 //
 
 @discardableResult
-public func ~ (lhs: {{anchortype}}, rhs: LayoutPriority) -> {{anchortype}}Expression {
-    return {{anchortype}}Expression(anchor: lhs).with(priority: rhs)
+public func ~ (lhs: {{AnchorType}}, rhs: LayoutPriority) -> {{AnchorType}}Expression {
+    return {{AnchorType}}Expression(anchor: lhs).with(priority: rhs)
 }
 
 @discardableResult
-public func ~ (lhs: {{anchortype}}Expression, rhs: LayoutPriority) -> {{anchortype}}Expression {
-    return lhs.with(priority: rhs)
-}
-
-@discardableResult
-public func ~ (lhs: {{anchortype}}Pair, rhs: LayoutPriority) -> {{anchortype}}PairExpression {
-    return {{anchortype}}PairExpression(anchors: lhs).with(priority: rhs)
-}
-
-@discardableResult
-public func ~ (lhs: {{anchortype}}PairExpression, rhs: LayoutPriority) -> {{anchortype}}PairExpression {
+public func ~ (lhs: {{AnchorType}}Expression, rhs: LayoutPriority) -> {{AnchorType}}Expression {
     return lhs.with(priority: rhs)
 }
 // sourcery:end

@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 //
-//  LayoutDimension+ArrayConstantArithmeticOperators.swift
+//  +ArrayConstantArithmeticOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -16,37 +16,37 @@
 // MARK: Anchors == Expression
 @discardableResult
 public func == (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .equal, rhs).constraints
+    return LayoutPairRelationship(lhs, .equal, rhs).constraintsInvertedAsInsets
 }
 
 // MARK: Anchors == Anchors
 @discardableResult
 public func == (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .equal, rhs).constraints
+    return LayoutPairRelationship(lhs, .equal, rhs).constraintsInvertedAsInsets
 }
 
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
 public func <= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraints
+    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraintsInvertedAsInsets
 }
 
 // MARK: Anchors <= Anchors
 @discardableResult
 public func <= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraints
+    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraintsInvertedAsInsets
 }
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
 public func >= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraints
+    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraintsInvertedAsInsets
 }
 
 // MARK: Anchors >= Anchors
 @discardableResult
 public func >= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraints
+    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraintsInvertedAsInsets
 }

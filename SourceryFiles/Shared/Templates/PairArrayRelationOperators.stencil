@@ -1,7 +1,7 @@
-{% for anchortype in argument.AnchorTypes %}
-// sourcery:file:PairArrayRelationOperators/{{anchortype}}Pair+ArrayRelationOperators
+{% for AnchorPairType in argument.AnchorPairTypes %}
+// sourcery:file:PairArrayRelationOperators/{{AnchorPairType}}+ArrayRelationOperators
 //
-//  {{anchortype}}Pair+ArrayRelationOperators.swift
+//  {{AnchorPairType}}+ArrayRelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -12,19 +12,19 @@
 
 // MARK: Anchor == Anchor Array
 @discardableResult
-public func == (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pairs) -> [ConstraintPair] {
+public func == (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [ConstraintPair] {
     return rhs.map({lhs == $0})
 }
 
 // MARK: Anchor Array == Anchor
 @discardableResult
-public func == (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pair) -> [ConstraintPair] {
+public func == (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [ConstraintPair] {
     return lhs.map({$0 == rhs})
 }
 
 // MARK: Anchor Array == Anchor Array
 @discardableResult
-public func == (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pairs) -> [[ConstraintPair]] {
+public func == (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map { element == $0 }
     }
@@ -32,19 +32,19 @@ public func == (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pairs) -> [[Constra
 
 // MARK: Anchor == Expression Array
 @discardableResult
-public func == (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpressions) -> [ConstraintPair] {
+public func == (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [ConstraintPair] {
     return rhs.map({lhs == $0})
 }
 
 // MARK: Anchor Array == Expression
 @discardableResult
-public func == (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}PairExpression) -> [ConstraintPair] {
+public func == (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
     return lhs.map {$0 == rhs }
 }
 
 // MARK: Anchor Array == Expression Array
 @discardableResult
-public func == (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}PairExpressions) -> [[ConstraintPair]] {
+public func == (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map { element == $0 }
     }
@@ -54,19 +54,19 @@ public func == (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}PairExpressions) ->
 
 // MARK: Anchor <= Anchor Array
 @discardableResult
-public func <= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pairs) -> [ConstraintPair] {
+public func <= (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [ConstraintPair] {
     return rhs.map({lhs <= $0})
 }
 
 // MARK: Anchor Array <= Anchor
 @discardableResult
-public func <= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pair) -> [ConstraintPair] {
+public func <= (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [ConstraintPair] {
     return lhs.map({$0 <= rhs})
 }
 
 // MARK: Anchor Array <= Anchor Array
 @discardableResult
-public func <= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pairs) -> [[ConstraintPair]] {
+public func <= (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map { element <= $0 }
     }
@@ -74,19 +74,19 @@ public func <= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pairs) -> [[Constra
 
 // MARK: Anchor <= Expression Array
 @discardableResult
-public func <= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpressions) -> [ConstraintPair] {
+public func <= (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [ConstraintPair] {
     return rhs.map({lhs <= $0})
 }
 
 // MARK: Anchor Array <= Expression
 @discardableResult
-public func <= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}PairExpression) -> [ConstraintPair] {
+public func <= (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
     return lhs.map {$0 <= rhs }
 }
 
 // MARK: Anchor Array <= Expression Array
 @discardableResult
-public func <= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}PairExpressions) -> [[ConstraintPair]] {
+public func <= (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map { element <= $0 }
     }
@@ -96,19 +96,19 @@ public func <= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}PairExpressions) ->
 
 // MARK: Anchor >= Anchor Array
 @discardableResult
-public func >= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}Pairs) -> [ConstraintPair] {
+public func >= (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [ConstraintPair] {
     return rhs.map({lhs >= $0})
 }
 
 // MARK: Anchor Array >= Anchor
 @discardableResult
-public func >= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pair) -> [ConstraintPair] {
+public func >= (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [ConstraintPair] {
     return lhs.map({$0 >= rhs})
 }
 
 // MARK: Anchor Array >= Anchor Array
 @discardableResult
-public func >= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pairs) -> [[ConstraintPair]] {
+public func >= (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map { element >= $0 }
     }
@@ -116,19 +116,19 @@ public func >= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}Pairs) -> [[Constra
 
 // MARK: Anchor >= Expression Array
 @discardableResult
-public func >= (lhs: {{anchortype}}Pair, rhs: {{anchortype}}PairExpressions) -> [ConstraintPair] {
+public func >= (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [ConstraintPair] {
     return rhs.map({lhs >= $0})
 }
 
 // MARK: Anchor Array >= Expression
 @discardableResult
-public func >= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}PairExpression) -> [ConstraintPair] {
+public func >= (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
     return lhs.map {$0 >= rhs }
 }
 
 // MARK: Anchor Array >= Expression Array
 @discardableResult
-public func >= (lhs: {{anchortype}}Pairs, rhs: {{anchortype}}PairExpressions) -> [[ConstraintPair]] {
+public func >= (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
     return lhs.map { element in
         rhs.map { element >= $0 }
     }

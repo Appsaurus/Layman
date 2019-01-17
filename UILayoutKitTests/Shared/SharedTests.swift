@@ -215,25 +215,25 @@ class SharedTests: UILayoutKitTestCase {
     }
     
     func testHorizontalAnchors() {
-        let constraints = view1.horizontalAnchors == relatedView.horizontalAnchors + 10 ~ .high - 1
+        let constraints = view1.horizontalEdgeAnchors == relatedView.horizontalEdgeAnchors + 10 ~ .high - 1
         constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, priority: 749)
         constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -10, priority: 749)
     }
     
     func testArrayHorizontalAnchors() {
-        let constraints = viewArray.horizontalAnchors == relatedView.horizontalAnchors + 10 ~ .high - 1
+        let constraints = viewArray.horizontalAnchors == relatedView.horizontalEdgeAnchors + 10 ~ .high - 1
         constraints.map {$0.first}.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, priority: 749)
         constraints.map {$0.second}.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: -10, priority: 749)
     }
     
     func testVerticalAnchors() {
-        let constraints = view1.verticalAnchors == relatedView.verticalAnchors + 10 ~ .high - 1
+        let constraints = view1.verticalEdgeAnchors == relatedView.verticalEdgeAnchors + 10 ~ .high - 1
         constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10, priority: 749)
         constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: -10, priority: 749)
     }
     
     func testArrayVerticalAnchors() {
-        let constraints = viewArray.verticalAnchors == relatedView.verticalAnchors + 10 ~ .high - 1
+        let constraints = viewArray.verticalAnchors == relatedView.verticalEdgeAnchors + 10 ~ .high - 1
         constraints.map {$0.first}.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, priority: 749)
         constraints.map {$0.second}.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: -10, priority: 749)
     }

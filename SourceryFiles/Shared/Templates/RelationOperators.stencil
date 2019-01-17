@@ -1,7 +1,7 @@
-{% for anchortype in argument.AnchorTypes %}
-// sourcery:file:RelationOperators/{{anchortype}}+RelationOperators
+{% for AnchorType in argument.AnchorTypes %}
+// sourcery:file:RelationOperators/{{AnchorType}}+RelationOperators
 //
-//  {{anchortype}}_RelationOperators.swift
+//  {{AnchorType}}_RelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -12,13 +12,13 @@
 
 // MARK: Anchor == Anchor
 @discardableResult
-public func == (lhs: {{anchortype}}, rhs: {{anchortype}}) -> Constraint {
+public func == (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
 // MARK: Anchor == Expression
 @discardableResult
-public func == (lhs: {{anchortype}}, rhs: {{anchortype}}Expression) -> Constraint {
+public func == (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
@@ -26,13 +26,13 @@ public func == (lhs: {{anchortype}}, rhs: {{anchortype}}Expression) -> Constrain
 
 // MARK: Anchor <= Anchor
 @discardableResult
-public func <= (lhs: {{anchortype}}, rhs: {{anchortype}}) -> Constraint {
+public func <= (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
 // MARK: Anchor <= Expression
 @discardableResult
-public func <= (lhs: {{anchortype}}, rhs: {{anchortype}}Expression) -> Constraint {
+public func <= (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
@@ -40,13 +40,13 @@ public func <= (lhs: {{anchortype}}, rhs: {{anchortype}}Expression) -> Constrain
 
 // MARK: Anchor >= Anchor
 @discardableResult
-public func >= (lhs: {{anchortype}}, rhs: {{anchortype}}) -> Constraint {
+public func >= (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
 }
 
 // MARK: Anchor >= Expression
 @discardableResult
-public func >= (lhs: {{anchortype}}, rhs: {{anchortype}}Expression) -> Constraint {
+public func >= (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
 }
 // sourcery:end

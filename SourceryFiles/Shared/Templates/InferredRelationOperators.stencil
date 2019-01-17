@@ -1,8 +1,8 @@
 
-{% for anchortype in argument.AnchorTypes %}
-// sourcery:file:InferredRelationOperators/{{anchortype}}+InferredRelationOperators
+{% for AnchorType in argument.AnchorTypes %}
+// sourcery:file:InferredRelationOperators/{{AnchorType}}+InferredRelationOperators
 //
-//  {{anchortype}}+InferredRelationOperators.swift
+//  {{AnchorType}}+InferredRelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -13,12 +13,12 @@
 
 // MARK: View == Anchor
 @discardableResult
-public func == (lhs: View, rhs: {{anchortype}}) -> Constraint {
+public func == (lhs: View, rhs: {{AnchorType}}) -> Constraint {
     return lhs[keyPath: ...rhs] == rhs
 }
 // MARK: View == Expression
 @discardableResult
-public func == (lhs: View, rhs: {{anchortype}}Expression) -> Constraint {
+public func == (lhs: View, rhs: {{AnchorType}}Expression) -> Constraint {
     return lhs[keyPath: ...rhs.anchor] == rhs
 }
 
@@ -26,12 +26,12 @@ public func == (lhs: View, rhs: {{anchortype}}Expression) -> Constraint {
 
 // MARK: View <= Anchor
 @discardableResult
-public func <= (lhs: View, rhs: {{anchortype}}) -> Constraint {
+public func <= (lhs: View, rhs: {{AnchorType}}) -> Constraint {
     return lhs[keyPath: ...rhs] <= rhs
 }
 // MARK: View <= Expression
 @discardableResult
-public func <= (lhs: View, rhs: {{anchortype}}Expression) -> Constraint {
+public func <= (lhs: View, rhs: {{AnchorType}}Expression) -> Constraint {
     return lhs[keyPath: ...rhs.anchor] <= rhs
 }
 
@@ -39,12 +39,12 @@ public func <= (lhs: View, rhs: {{anchortype}}Expression) -> Constraint {
 
 // MARK: View >= Anchor
 @discardableResult
-public func >= (lhs: View, rhs: {{anchortype}}) -> Constraint {
+public func >= (lhs: View, rhs: {{AnchorType}}) -> Constraint {
     return lhs[keyPath: ...rhs] >= rhs
 }
 // MARK: View >= Expression
 @discardableResult
-public func >= (lhs: View, rhs: {{anchortype}}Expression) -> Constraint {
+public func >= (lhs: View, rhs: {{AnchorType}}Expression) -> Constraint {
     return lhs[keyPath: ...rhs.anchor] >= rhs
 }
 
@@ -54,13 +54,13 @@ public func >= (lhs: View, rhs: {{anchortype}}Expression) -> Constraint {
 
 // MARK: View == Anchors
 @discardableResult
-public func == (lhs: View, rhs: {{anchortype}}s) -> Constraints {
+public func == (lhs: View, rhs: {{AnchorType}}s) -> Constraints {
     return rhs.map({lhs == $0})
 }
 
 // MARK: View == Expressions
 @discardableResult
-public func == (lhs: View, rhs: {{anchortype}}Expressions) -> Constraints {
+public func == (lhs: View, rhs: {{AnchorType}}Expressions) -> Constraints {
     return rhs.map({lhs == $0})
 }
 
@@ -68,12 +68,12 @@ public func == (lhs: View, rhs: {{anchortype}}Expressions) -> Constraints {
 
 // MARK: View <= Anchors
 @discardableResult
-public func <= (lhs: View, rhs: {{anchortype}}s) -> Constraints {
+public func <= (lhs: View, rhs: {{AnchorType}}s) -> Constraints {
     return rhs.map({lhs <= $0})
 }
 // MARK: View <= Expressions
 @discardableResult
-public func <= (lhs: View, rhs: {{anchortype}}Expressions) -> Constraints {
+public func <= (lhs: View, rhs: {{AnchorType}}Expressions) -> Constraints {
     return rhs.map({lhs <= $0})
 }
 
@@ -81,12 +81,12 @@ public func <= (lhs: View, rhs: {{anchortype}}Expressions) -> Constraints {
 
 // MARK: View >= Anchors
 @discardableResult
-public func >= (lhs: View, rhs: {{anchortype}}s) -> Constraints {
+public func >= (lhs: View, rhs: {{AnchorType}}s) -> Constraints {
     return rhs.map({lhs >= $0})
 }
 // MARK: View >= Expressions
 @discardableResult
-public func >= (lhs: View, rhs: {{anchortype}}Expressions) -> Constraints {
+public func >= (lhs: View, rhs: {{AnchorType}}Expressions) -> Constraints {
     return rhs.map({lhs >= $0})
 }
 // sourcery:end

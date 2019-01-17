@@ -22,8 +22,8 @@ public protocol XYAxisAnchorable: NSObjectProtocol {
     var topAnchor: YAxisAnchor { get }
     var bottomAnchor: YAxisAnchor { get }
 
-    var horizontalAnchors: XAxisAnchorPair { get }
-    var verticalAnchors: YAxisAnchorPair { get }
+    var horizontalEdgeAnchors: XAxisAnchorPair { get }
+    var verticalEdgeAnchors: YAxisAnchorPair { get }
     var edgeAnchors: EdgeAnchorGroup { get }
 
     var centerXAnchor: XAxisAnchor { get }
@@ -53,16 +53,12 @@ public protocol BaselineLayoutAnchorable: LayoutAnchorable, BaselineAnchorable {
 
 extension XYAxisAnchorable {
 
-    public var horizontalAnchors: XAxisAnchorPair {
+    public var horizontalEdgeAnchors: XAxisAnchorPair {
         return LayoutAnchorPair(leadingAnchor, trailingAnchor)
     }
 
-    public var verticalAnchors: YAxisAnchorPair {
+    public var verticalEdgeAnchors: YAxisAnchorPair {
         return LayoutAnchorPair(topAnchor, bottomAnchor)
-    }
-
-    public var centerAnchors: XYAxesAnchorPair {
-        return LayoutAnchorPair(centerXAnchor, centerYAnchor)
     }
 
     public var edgeAnchors: EdgeAnchorGroup {
@@ -70,6 +66,10 @@ extension XYAxisAnchorable {
                                 leadingAnchor,
                                 bottomAnchor,
                                 trailingAnchor)
+    }
+
+    public var centerAnchors: XYAxesAnchorPair {
+        return LayoutAnchorPair(centerXAnchor, centerYAnchor)
     }
 
     public var topLeft: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, topAnchor) }
@@ -166,8 +166,8 @@ extension Array where Element: LayoutAnchorable {
     public var heightAnchor: LayoutDimensions { return map { $0.heightAnchor } }
     public var sizeAnchors: LayoutDimensionPairs { return map { $0.sizeAnchors } }
 
-    public var horizontalAnchors: XAxisAnchorPairs { return map { $0.horizontalAnchors } }
-    public var verticalAnchors: YAxisAnchorPairs { return map { $0.verticalAnchors } }
+    public var horizontalAnchors: XAxisAnchorPairs { return map { $0.horizontalEdgeAnchors } }
+    public var verticalAnchors: YAxisAnchorPairs { return map { $0.verticalEdgeAnchors } }
     public var edgeAnchors: EdgeAnchorGroups { return map { $0.edgeAnchors } }
 
     public var centerXAnchor: XAxisAnchors { return map { $0.centerXAnchor } }

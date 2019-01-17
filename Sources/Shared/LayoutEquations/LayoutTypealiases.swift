@@ -46,11 +46,10 @@ public typealias XAxisAnchors = [XAxisAnchor]
 public typealias YAxisAnchors = [YAxisAnchor]
 public typealias LayoutDimensions = [LayoutDimension]
 
-
-public protocol LayoutAnchorType{}
-extension XAxisAnchor: LayoutAnchorType{}
-extension YAxisAnchor: LayoutAnchorType{}
-extension LayoutDimension: LayoutAnchorType{}
+public protocol LayoutAnchorType {}
+extension XAxisAnchor: LayoutAnchorType {}
+extension YAxisAnchor: LayoutAnchorType {}
+extension LayoutDimension: LayoutAnchorType {}
 
 // MARK: Typed Anchor Pairs
 public typealias XAxisAnchorPair = LayoutAnchorPair<XAxisAnchor, XAxisAnchor>

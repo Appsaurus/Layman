@@ -4,4 +4,5 @@ templates:
 - SourceryFiles/Shared/Templates
 args:
     AnchorTypes: ['XAxisAnchor','YAxisAnchor','LayoutDimension']
+    AnchorPairTypes: ['XAxisAnchorPair','YAxisAnchorPair','LayoutDimensionPair','XYAxesAnchorPair']
 output: Sources/Shared/Generated

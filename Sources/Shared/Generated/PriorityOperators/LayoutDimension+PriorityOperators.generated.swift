@@ -18,13 +18,3 @@ public func ~ (lhs: LayoutDimension, rhs: LayoutPriority) -> LayoutDimensionExpr
 public func ~ (lhs: LayoutDimensionExpression, rhs: LayoutPriority) -> LayoutDimensionExpression {
     return lhs.with(priority: rhs)
 }
-
-@discardableResult
-public func ~ (lhs: LayoutDimensionPair, rhs: LayoutPriority) -> LayoutDimensionPairExpression {
-    return LayoutDimensionPairExpression(anchors: lhs).with(priority: rhs)
-}
-
-@discardableResult
-public func ~ (lhs: LayoutDimensionPairExpression, rhs: LayoutPriority) -> LayoutDimensionPairExpression {
-    return lhs.with(priority: rhs)
-}
