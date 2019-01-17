@@ -6,41 +6,4 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-// MARK: - Equal
 
-// MARK: View == Anchor
-@discardableResult
-public func == (lhs: View, rhs: LayoutDimension) -> Constraint {
-    return lhs[keyPath: ...rhs] == rhs
-}
-// MARK: View == Expression
-@discardableResult
-public func == (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] == rhs
-}
-
-// MARK: - LessThanOrEqual
-
-// MARK: View <= Anchor
-@discardableResult
-public func <= (lhs: View, rhs: LayoutDimension) -> Constraint {
-    return lhs[keyPath: ...rhs] <= rhs
-}
-// MARK: View <= Expression
-@discardableResult
-public func <= (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] <= rhs
-}
-
-// MARK: - GreaterThanOrEqual
-
-// MARK: View >= Anchor
-@discardableResult
-public func >= (lhs: View, rhs: LayoutDimension) -> Constraint {
-    return lhs[keyPath: ...rhs] >= rhs
-}
-// MARK: View >= Expression
-@discardableResult
-public func >= (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] >= rhs
-}

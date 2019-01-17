@@ -1,0 +1,38 @@
+{% for anchortype in argument.AnchorTypes %}
+// sourcery:file:ArrayConstantArithmeticOperators/{{anchortype}}+ArrayConstantArithmeticOperators
+//
+//  {{anchortype}}+ArrayConstantArithmeticOperators.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+@discardableResult
+public func + (lhs: {{anchortype}}s, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+    return lhs.map { $0 + rhs }
+}
+
+@discardableResult
+public func - (lhs: {{anchortype}}s, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+    return lhs.map { $0 - rhs }
+}
+
+@discardableResult
+public func * (lhs: {{anchortype}}s, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+    return lhs.map { $0 * rhs }
+}
+
+@discardableResult
+public func / (lhs: {{anchortype}}s, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+    return lhs.map { $0 / rhs }
+}
+
+@discardableResult
+public func / (lhs: {{anchortype}}Expressions, rhs: LayoutConstant) -> {{anchortype}}Expressions {
+    return lhs.map { $0 / rhs }
+}
+// sourcery:end
+{% endfor %}
+
+
