@@ -155,8 +155,8 @@ internal class XAxisKeyPathExctractor: AnchorKeyPathExtracting {
 //}
 
 internal prefix func ... (_ anchorPair: LayoutDimensionPair) -> KeyPath<LayoutAnchorable, LayoutDimensionPair> {
-    let firstAnchorAttribute = anchorPair.first.constraint(equalTo: anchorPair.first).firstAttribute
-    let secondAnchorAttribute = anchorPair.second.constraint(equalTo: anchorPair.second).firstAttribute
+    let firstAnchorAttribute = anchorPair.first.attribute
+    let secondAnchorAttribute = anchorPair.second.attribute
     guard firstAnchorAttribute == .width, secondAnchorAttribute == .height else {
         preconditionFailure("\(anchorPair.first) and \(anchorPair.second) with attributes \(firstAnchorAttribute) and \(secondAnchorAttribute) cannot be inferred as LayoutDimensionPair.")
     }
@@ -164,17 +164,17 @@ internal prefix func ... (_ anchorPair: LayoutDimensionPair) -> KeyPath<LayoutAn
 }
 
 internal prefix func ... (_ anchorPair: XYAxesAnchorPair) -> KeyPath<LayoutAnchorable, XYAxesAnchorPair> {
-    let firstAnchorAttribute = anchorPair.first.constraint(equalTo: anchorPair.first).firstAttribute
-    let secondAnchorAttribute = anchorPair.second.constraint(equalTo: anchorPair.second).firstAttribute
+    let firstAnchorAttribute = anchorPair.first.attribute
+    let secondAnchorAttribute = anchorPair.second.attribute
     switch (firstAnchorAttribute, secondAnchorAttribute) {
     case (.left, .top):
-        return \.topLeft
+        return \.topLeftAnchors
     case (.right, .top):
-        return \.topRight
+        return \.topRightAnchors
     case (.right, .bottom):
-        return \.bottomRight
+        return \.bottomRightAnchors
     case (.left, .bottom):
-        return \.bottomLeft
+        return \.bottomLeftAnchors
     case (.centerX, .centerY):
         return \.centerAnchors
     default:
@@ -183,8 +183,8 @@ internal prefix func ... (_ anchorPair: XYAxesAnchorPair) -> KeyPath<LayoutAncho
 }
 
 internal prefix func ... (_ anchorPair: YAxisAnchorPair) -> KeyPath<LayoutAnchorable, YAxisAnchorPair> {
-    let firstAnchorAttribute = anchorPair.first.constraint(equalTo: anchorPair.first).firstAttribute
-    let secondAnchorAttribute = anchorPair.second.constraint(equalTo: anchorPair.second).firstAttribute
+    let firstAnchorAttribute = anchorPair.first.attribute
+    let secondAnchorAttribute = anchorPair.second.attribute
     switch (firstAnchorAttribute, secondAnchorAttribute) {
     case (.top, .bottom):
         return \.verticalEdgeAnchors
@@ -194,8 +194,8 @@ internal prefix func ... (_ anchorPair: YAxisAnchorPair) -> KeyPath<LayoutAnchor
 }
 
 internal prefix func ... (_ anchorPair: XAxisAnchorPair) -> KeyPath<LayoutAnchorable, XAxisAnchorPair> {
-    let firstAnchorAttribute = anchorPair.first.constraint(equalTo: anchorPair.first).firstAttribute
-    let secondAnchorAttribute = anchorPair.second.constraint(equalTo: anchorPair.second).firstAttribute
+    let firstAnchorAttribute = anchorPair.first.attribute
+    let secondAnchorAttribute = anchorPair.second.attribute
     switch (firstAnchorAttribute, secondAnchorAttribute) {
     case (.leading, .trailing):
         return \.horizontalEdgeAnchors
@@ -214,3 +214,21 @@ internal prefix func ... (_ anchorPair: XAxisAnchorPair) -> KeyPath<LayoutAnchor
 //        preconditionFailure("\(anchorPair.first) and \(anchorPair.second) with attributes \(firstAnchorAttribute) and \(secondAnchorAttribute) cannot be inferred as XAxisAnchorPair.")
 //    }
 //}
+
+extension LayoutAnchor where AnchorType == LayoutDimension {
+    public var attribute: ConstraintAttribute {
+        return constraint(equalTo: self).firstAttribute
+    }
+}
+
+extension LayoutAnchor where AnchorType == XAxisAnchor {
+    public var attribute: ConstraintAttribute {
+        return constraint(equalTo: self).firstAttribute
+    }
+}
+
+extension LayoutAnchor where AnchorType == YAxisAnchor {
+    public var attribute: ConstraintAttribute {
+        return constraint(equalTo: self).firstAttribute
+    }
+}

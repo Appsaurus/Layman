@@ -28,6 +28,8 @@ target 'UILayoutKit-iOS-Tests' do
     platform :ios, '9.0'
     shared
     testShared
+    pod 'CwlPreconditionTesting', :git => 'https://github.com/mattgallagher/CwlPreconditionTesting.git'
+    pod 'CwlCatchException', :git => 'https://github.com/mattgallagher/CwlCatchException.git'
 end
 
 target 'UILayoutKit-macOS' do
@@ -40,6 +42,8 @@ target 'UILayoutKit-macOS-Tests' do
     platform :osx, '10.10'
     shared
     testShared
+    pod 'CwlPreconditionTesting', :git => 'https://github.com/mattgallagher/CwlPreconditionTesting.git'
+    pod 'CwlCatchException', :git => 'https://github.com/mattgallagher/CwlCatchException.git'
 end
 
 target 'UILayoutKit-tvOS' do

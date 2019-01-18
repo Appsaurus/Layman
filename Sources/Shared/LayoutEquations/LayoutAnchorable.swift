@@ -30,10 +30,10 @@ public protocol XYAxisAnchorable: NSObjectProtocol {
     var centerYAnchor: YAxisAnchor { get }
     var centerAnchors: XYAxesAnchorPair { get }
 
-    var topLeft: XYAxesAnchorPair { get }
-    var topRight: XYAxesAnchorPair { get }
-    var bottomRight: XYAxesAnchorPair { get }
-    var bottomLeft: XYAxesAnchorPair { get }
+    var topLeftAnchors: XYAxesAnchorPair { get }
+    var topRightAnchors: XYAxesAnchorPair { get }
+    var bottomRightAnchors: XYAxesAnchorPair { get }
+    var bottomLeftAnchors: XYAxesAnchorPair { get }
 }
 
 public protocol BaselineAnchorable: NSObjectProtocol {
@@ -72,16 +72,49 @@ extension XYAxisAnchorable {
         return LayoutAnchorPair(centerXAnchor, centerYAnchor)
     }
 
-    public var topLeft: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, topAnchor) }
-    public var topRight: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, topAnchor) }
-    public var bottomRight: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, bottomAnchor) }
-    public var bottomLeft: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, bottomAnchor) }
+    public var topLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, topAnchor) }
+    public var topRightAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, topAnchor) }
+    public var bottomRightAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, bottomAnchor) }
+    public var bottomLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, bottomAnchor) }
+
+    public func edgesExcluding(_ edge: XAxisAnchor) -> EdgeAnchorGroupExpression {
+        let edgeExpression = EdgeAnchorGroupExpression(anchors: edgeAnchors)
+        switch edge.attribute {
+        case .leading:
+            edgeExpression.leadingExpression.configuration.active = false
+        case .trailing:
+            edgeExpression.trailingExpression.configuration.active = false
+        default:
+            invalidEdgePreconditionFailure(edge)
+        }
+        return edgeExpression
+    }
+
+    public func edgesExcluding(_ edge: YAxisAnchor) -> EdgeAnchorGroupExpression {
+        let edgeExpression = EdgeAnchorGroupExpression(anchors: edgeAnchors)
+        switch edge.attribute {
+        case .top:
+            edgeExpression.topExpression.configuration.active = false
+        case .bottom:
+            edgeExpression.bottomExpression.configuration.active = false
+        default:
+            invalidEdgePreconditionFailure(edge)
+        }
+        return edgeExpression
+    }
+    private func invalidEdgePreconditionFailure<A: AnchorType>(_ edge: LayoutAnchor<A>) {
+        preconditionFailure("EdgeAnchorGroup only includes top, leading, bottom and trailing edges. Cannot exclude \(edge)")
+    }
 }
 
 extension SizeAnchorable {
     public var sizeAnchors: LayoutDimensionPair {
         return LayoutAnchorPair(widthAnchor, heightAnchor)
     }
+}
+
+extension View {
+
 }
 
 extension View: BaselineLayoutAnchorable {}
@@ -152,7 +185,7 @@ extension ViewController: BaselineLayoutAnchorable {
     }
 }
 
-extension Array where Element: LayoutAnchorable {
+extension Array where Element: XYAxisAnchorable {
     public var leadingAnchor: XAxisAnchors { return map {$0.leadingAnchor } }
     public var trailingAnchor: XAxisAnchors { return map {$0.trailingAnchor } }
 
@@ -162,10 +195,6 @@ extension Array where Element: LayoutAnchorable {
     public var topAnchor: [YAxisAnchor] { return map {$0.topAnchor } }
     public var bottomAnchor: [YAxisAnchor] { return map {$0.bottomAnchor } }
 
-    public var widthAnchor: LayoutDimensions { return map { $0.widthAnchor } }
-    public var heightAnchor: LayoutDimensions { return map { $0.heightAnchor } }
-    public var sizeAnchors: LayoutDimensionPairs { return map { $0.sizeAnchors } }
-
     public var horizontalAnchors: XAxisAnchorPairs { return map { $0.horizontalEdgeAnchors } }
     public var verticalAnchors: YAxisAnchorPairs { return map { $0.verticalEdgeAnchors } }
     public var edgeAnchors: EdgeAnchorGroups { return map { $0.edgeAnchors } }
@@ -174,8 +203,19 @@ extension Array where Element: LayoutAnchorable {
     public var centerYAnchor: YAxisAnchors { return map { $0.centerYAnchor } }
     public var centerAnchors: XYAxesAnchorPairs { return map { $0.centerAnchors } }
 
-    public var topLeft: XYAxesAnchorPairs { return map { $0.topLeft } }
-    public var topRight: XYAxesAnchorPairs { return map { $0.topRight } }
-    public var bottomRight: XYAxesAnchorPairs { return map { $0.bottomRight } }
-    public var bottomLeft: XYAxesAnchorPairs { return map { $0.bottomLeft } }
+    public var topLeftAnchors: XYAxesAnchorPairs { return map { $0.topLeftAnchors } }
+    public var topRightAnchors: XYAxesAnchorPairs { return map { $0.topRightAnchors } }
+    public var bottomRightAnchors: XYAxesAnchorPairs { return map { $0.bottomRightAnchors } }
+    public var bottomLeftAnchors: XYAxesAnchorPairs { return map { $0.bottomLeftAnchors } }
+}
+
+extension Array where Element: SizeAnchorable {
+    public var widthAnchor: LayoutDimensions { return map { $0.widthAnchor } }
+    public var heightAnchor: LayoutDimensions { return map { $0.heightAnchor } }
+    public var sizeAnchors: LayoutDimensionPairs { return map { $0.sizeAnchors } }
+}
+
+extension Array where Element: View {
+    public var aspectRatioAnchor: AspectRatioAnchors { return map { $0.aspectRatioAnchor } }
+    public var aspectRatioInverseAnchor: AspectRatioAnchors { return map { $0.aspectRatioInverseAnchor } }
 }

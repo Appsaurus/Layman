@@ -17,13 +17,16 @@ public final class LayoutConfiguration {
     public var constant: LayoutConstant
     public var multiplier: LayoutMultiplier
     public var priority: LayoutPriority
+    public var active: Bool
 
     public init(constant: LayoutConstant = 0.0,
                 multiplier: LayoutMultiplier = 1.0,
-                priority: LayoutPriority = .required) {
+                priority: LayoutPriority = .required,
+                active: Bool = true ) {
         self.constant = constant
         self.multiplier = multiplier
         self.priority = priority
+        self.active = active
     }
 
     public func with(constant: LayoutConstant) -> LayoutConfiguration {
@@ -36,6 +39,11 @@ public final class LayoutConfiguration {
     }
     public func with(priority: LayoutPriority) -> LayoutConfiguration {
         self.priority = priority
+        return self
+    }
+
+    public func with(active: Bool) -> LayoutConfiguration {
+        self.active = active
         return self
     }
 }

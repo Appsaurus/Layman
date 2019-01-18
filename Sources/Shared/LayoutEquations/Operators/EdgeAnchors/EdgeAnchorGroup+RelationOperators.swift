@@ -7,73 +7,64 @@
 // MARK: Anchor == Anchor
 @discardableResult
 public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> SideConstraints {
-    return constraints(
-        .init(lhs.top, .equal, rhs.top),
-        .init(lhs.leading, .equal, rhs.leading),
-        .init(lhs.bottom, .equal, rhs.bottom),
-        .init(lhs.trailing, .equal, rhs.trailing)
-    )
+    return constraints(lhs, .equal, rhs)
 }
 
 // MARK: Equal
 // MARK: Anchor == Expression
 @discardableResult
 public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> SideConstraints {
-    return constraints(
-        .init(lhs.top, .equal, rhs.topExpression),
-        .init(lhs.leading, .equal, rhs.leadingExpression),
-        .init(lhs.bottom, .equal, rhs.bottomExpression),
-        .init(lhs.trailing, .equal, rhs.trailingExpression)
-    )
+    return constraints(lhs, .equal, rhs)
 }
 
-    // MARK: Anchor <= Anchor
-    @discardableResult
-    public func <= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> SideConstraints {
-        return constraints(
-            .init(lhs.top, .lessThanOrEqual, rhs.top),
-            .init(lhs.leading, .lessThanOrEqual, rhs.leading),
-            .init(lhs.bottom, .lessThanOrEqual, rhs.bottom),
-            .init(lhs.trailing, .lessThanOrEqual, rhs.trailing)
-        )
-    }
+// MARK: Anchor <= Anchor
+@discardableResult
+public func <= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> SideConstraints {
+    return constraints(lhs, .lessThanOrEqual, rhs)
+}
 
 // MARK: LessThanOrEqual
 // MARK: Anchor <= Expression
 @discardableResult
 public func <= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> SideConstraints {
-    return constraints(
-        .init(lhs.top, .lessThanOrEqual, rhs.topExpression),
-        .init(lhs.leading, .lessThanOrEqual, rhs.leadingExpression),
-        .init(lhs.bottom, .lessThanOrEqual, rhs.bottomExpression),
-        .init(lhs.trailing, .lessThanOrEqual, rhs.trailingExpression)
-    )
+    return constraints(lhs, .lessThanOrEqual, rhs)
 }
 
-    // MARK: Anchor >= Anchor
-    @discardableResult
-    public func >= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> SideConstraints {
-        return constraints(
-            .init(lhs.top, .greaterThanOrEqual, rhs.top),
-            .init(lhs.leading, .greaterThanOrEqual, rhs.leading),
-            .init(lhs.bottom, .greaterThanOrEqual, rhs.bottom),
-            .init(lhs.trailing, .greaterThanOrEqual, rhs.trailing)
-        )
-    }
+// MARK: Anchor >= Anchor
+@discardableResult
+public func >= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> SideConstraints {
+    return constraints(lhs, .greaterThanOrEqual, rhs)
+}
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchor >= Expression
 @discardableResult
 public func >= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> SideConstraints {
+    return constraints(lhs, .greaterThanOrEqual, rhs)
+}
+
+private func constraints(_ lhs: EdgeAnchorGroup,
+                        _ relation: Constraint.Relation,
+                        _ rhs: EdgeAnchorGroup) -> SideConstraints {
     return constraints(
-        .init(lhs.top, .greaterThanOrEqual, rhs.topExpression),
-        .init(lhs.leading, .greaterThanOrEqual, rhs.leadingExpression),
-        .init(lhs.bottom, .greaterThanOrEqual, rhs.bottomExpression),
-        .init(lhs.trailing, .greaterThanOrEqual, rhs.trailingExpression)
+        .init(lhs.top, relation, rhs.top),
+        .init(lhs.leading, relation, rhs.leading),
+        .init(lhs.bottom, relation, rhs.bottom),
+        .init(lhs.trailing, relation, rhs.trailing)
     )
 }
 
-public func constraints(_ top: LayoutRelationship<YAxisAnchor>,
+private func constraints(_ lhs: EdgeAnchorGroup,
+                        _ relation: Constraint.Relation,
+                        _ rhs: EdgeAnchorGroupExpression) -> SideConstraints {
+    return constraints(
+        .init(lhs.top, relation, rhs.topExpression),
+        .init(lhs.leading, relation, rhs.leadingExpression),
+        .init(lhs.bottom, relation, rhs.bottomExpression),
+        .init(lhs.trailing, relation, rhs.trailingExpression)
+    )
+}
+private func constraints(_ top: LayoutRelationship<YAxisAnchor>,
                         _ leading: LayoutRelationship<XAxisAnchor>,
                         _ bottom: LayoutRelationship<YAxisAnchor>,
                         _ trailing: LayoutRelationship<XAxisAnchor>) -> SideConstraints {

@@ -33,11 +33,14 @@ public struct LayoutRelationship<A: AnchorType> {
     }
 
     public var constraint: Constraint {
+        guard configuration.active else { return inactiveConstraint }
         return inactiveConstraint.activated()
     }
 
     public var constraintInvertedAsInset: Constraint {
-        return inactiveConstraint.invertedAsInset.activated()
+        let invertestConstraint = inactiveConstraint.invertedAsInset
+        guard configuration.active else { return invertestConstraint }
+        return invertestConstraint.activated()
 
     }
 

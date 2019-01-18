@@ -36,6 +36,11 @@ public typealias AnchorType = AnyObject
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 public class LayoutAnchorPair<F, S>: MixedLayoutModelReferencePair<LayoutAnchor<F>, LayoutAnchor<S>> where F: AnchorType, S: AnchorType {}
 
+public protocol LayoutAnchorType {}
+extension XAxisAnchor: LayoutAnchorType {}
+extension YAxisAnchor: LayoutAnchorType {}
+extension LayoutDimension: LayoutAnchorType {}
+
 // MARK: Typed Anchors
 public typealias XAxisAnchor = NSLayoutXAxisAnchor
 public typealias YAxisAnchor = NSLayoutYAxisAnchor
@@ -45,11 +50,7 @@ public typealias LayoutDimension = NSLayoutDimension
 public typealias XAxisAnchors = [XAxisAnchor]
 public typealias YAxisAnchors = [YAxisAnchor]
 public typealias LayoutDimensions = [LayoutDimension]
-
-public protocol LayoutAnchorType {}
-extension XAxisAnchor: LayoutAnchorType {}
-extension YAxisAnchor: LayoutAnchorType {}
-extension LayoutDimension: LayoutAnchorType {}
+public typealias AspectRatioAnchors = [AspectRatioAnchor]
 
 // MARK: Typed Anchor Pairs
 public typealias XAxisAnchorPair = LayoutAnchorPair<XAxisAnchor, XAxisAnchor>

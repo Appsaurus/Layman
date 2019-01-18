@@ -13,6 +13,7 @@ public class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
     var leadingExpression: XAxisAnchorExpression { return leading + configurations.leading }
     var bottomExpression: YAxisAnchorExpression { return bottom + configurations.bottom }
     var trailingExpression: XAxisAnchorExpression { return trailing + configurations.trailing }
+
     public convenience init(anchors: EdgeAnchorGroup, configurations: EdgeAnchorsConfiguration = .default) {
         self.init(anchors)
         self.configurations = configurations

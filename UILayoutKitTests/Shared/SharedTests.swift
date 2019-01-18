@@ -15,6 +15,7 @@ import UIKit
 @testable import UILayoutKit
 import XCTest
 import SwiftTestUtils
+import CwlPreconditionTesting
 
 class SharedTests: UILayoutKitTestCase {
 
@@ -279,23 +280,32 @@ class SharedTests: UILayoutKitTestCase {
         constraints.bottom.assert(view1, .bottom, .equal, relatedView, .bottom, constant: -15, priority: 749)
         constraints.trailing.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -20, priority: 749)
     }
-    
-    func testKeyPaths() {
-        //        let insets = UIEdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
-        //        let constraints = [view1, view2] == view3.anchorsAt(\.leadingAnchor, \.trailingAnchor)
-//        let other = [view1, view2] == relatedView[\.topAnchor, \.bottomAnchor]
-//        let anchors = relatedView[\.topAnchor, \.bottomAnchor]
-//        let mixed = relatedView.anchors(at: \.topAnchor, \.bottomAnchor, \.widthAnchor)
 
-        [view1, relatedView].trailingAnchor <= view2.leadingAnchor + 20
-        view2.leadingAnchor >= [view1, relatedView].trailingAnchor + 20
-        
-        [view1, relatedView].edgeAnchors <= view2.edgeAnchors
+    func testAspectRatioPrecondition() {
+        let caughtWidthPreconditionError = catchBadInstruction { [weak self] in
+            guard let self = self else { return }
+            self.view1.aspectRatioAnchor == .wide
+        }
 
-        [view1, view2] == relatedView[\.leadingAnchor, \.trailingAnchor]
-        //        constraints.top.assert(view1, .top, .equal, view2, .top, constant: 10, priority: 749)
-        //        constraints.leading.assert(view1, .leading, .equal, view2, .leading, constant: 5, priority: 749)
-        //        constraints.bottom.assert(view1, .bottom, .equal, view2, .bottom, constant: -15, priority: 749)
-        //        constraints.trailing.assert(view1, .trailing, .equal, view2, .trailing, constant: -20, priority: 749)
+        XCTAssertNotNil(caughtWidthPreconditionError)
+
+        let caughtHeightPreconditionError = catchBadInstruction { [weak self] in
+            guard let self = self else { return }
+            self.view1.aspectRatioInverseAnchor == .wide
+        }
+
+        XCTAssertNotNil(caughtHeightPreconditionError)
+    }
+
+    func testAspectRatio() {
+        view1.widthAnchor == 160
+        let aspectRatioConstraint = view1.aspectRatioAnchor == .wide
+        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 16.0/9.0)
+    }
+
+    func testInverseAspectRatio() {
+        view1.heightAnchor == 90
+        let aspectRatioConstraint = view1.aspectRatioInverseAnchor == .wide
+        aspectRatioConstraint.assert(view1, .width, .equal, view1, .height, multiplier: 9.0/16.0)
     }
 }

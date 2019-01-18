@@ -14,7 +14,6 @@ public final class LayoutExpression<A: AnchorType> {
     public init(anchor: LayoutAnchor<A>, configuration: LayoutConfiguration = .default) {
         self.anchor = anchor
         self.configuration = configuration
-
     }
 
     @discardableResult
@@ -40,6 +39,13 @@ public final class LayoutExpression<A: AnchorType> {
         configuration.priority = priority
         return self
     }
+
+    @discardableResult
+    public func with(active: Bool) -> Self {
+        configuration.active = active
+        return self
+    }
+
 }
 
 public final class LayoutKeyPathExpression<A: AnchorType> {

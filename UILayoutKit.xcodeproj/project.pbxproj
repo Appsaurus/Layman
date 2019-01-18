@@ -1162,8 +1162,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5B2E8B31C3A780C00C0327D /* Build configuration list for PBXNativeTarget "UILayoutKit-iOS" */;
 			buildPhases = (
-				E4DA5CA721F0260700A25746 /* Sourcery */,
 				CD50BBD6725E0A580763E813 /* [CP] Check Pods Manifest.lock */,
+				E4DA5CA721F0260700A25746 /* Sourcery */,
 				D5B2E89A1C3A780C00C0327D /* Sources */,
 				D5B2E89B1C3A780C00C0327D /* Frameworks */,
 				D5B2E89C1C3A780C00C0327D /* Headers */,
@@ -1374,6 +1374,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UILayoutKit-iOS-Tests/Pods-UILayoutKit-iOS-Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Swiftest-iOS/Swiftest.framework",
+				"${BUILT_PRODUCTS_DIR}/CwlCatchException-iOS/CwlCatchException.framework",
+				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting-iOS/CwlPreconditionTesting.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTestUtils-iOS/SwiftTestUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1381,6 +1383,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftest.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlCatchException.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlPreconditionTesting.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTestUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1578,8 +1582,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\n";
 		};
 		EAE50391C3D2FF9929688A85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1613,6 +1616,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UILayoutKit-macOS-Tests/Pods-UILayoutKit-macOS-Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Swiftest-macOS/Swiftest.framework",
+				"${BUILT_PRODUCTS_DIR}/CwlCatchException-macOS/CwlCatchException.framework",
+				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting-macOS/CwlPreconditionTesting.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTestUtils-macOS/SwiftTestUtils.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1620,6 +1625,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftest.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlCatchException.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlPreconditionTesting.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTestUtils.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
