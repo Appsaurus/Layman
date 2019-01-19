@@ -285,6 +285,9 @@
 		E4EDA2F321F12E8B00F345E8 /* View+AspectRatioOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDA2F221F12E8B00F345E8 /* View+AspectRatioOperators.swift */; };
 		E4EDA2F421F12E8B00F345E8 /* View+AspectRatioOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDA2F221F12E8B00F345E8 /* View+AspectRatioOperators.swift */; };
 		E4EDA2F521F12E8B00F345E8 /* View+AspectRatioOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDA2F221F12E8B00F345E8 /* View+AspectRatioOperators.swift */; };
+		E4EDA2F721F26D1400F345E8 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDA2F621F26D1400F345E8 /* Temp.swift */; };
+		E4EDA2F821F26D1800F345E8 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDA2F621F26D1400F345E8 /* Temp.swift */; };
+		E4EDA2F921F26D1900F345E8 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EDA2F621F26D1400F345E8 /* Temp.swift */; };
 		E97EDE134D1D424769955DEE /* Pods_UILayoutKit_tvOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6522945E07E0926917F2F85 /* Pods_UILayoutKit_tvOS_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -462,6 +465,7 @@
 		E4EDA2EA21F1221100F345E8 /* View+EdgeAnchorRelationOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+EdgeAnchorRelationOperators.swift"; sourceTree = "<group>"; };
 		E4EDA2EE21F126FA00F345E8 /* ViewArray+EdgeAnchorRelationOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewArray+EdgeAnchorRelationOperators.swift"; sourceTree = "<group>"; };
 		E4EDA2F221F12E8B00F345E8 /* View+AspectRatioOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AspectRatioOperators.swift"; sourceTree = "<group>"; };
+		E4EDA2F621F26D1400F345E8 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		E90D7A1FB733A6F3B6A054BD /* Pods-UILayoutKit-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKit-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKit-iOS/Pods-UILayoutKit-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED5E3362E26FF0EF82B88A95 /* Pods-UILayoutKit-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKit-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKit-iOS/Pods-UILayoutKit-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F6522945E07E0926917F2F85 /* Pods_UILayoutKit_tvOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UILayoutKit_tvOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -692,6 +696,7 @@
 				E4DA5C5D21EF097A00A25746 /* InternalTypes */,
 				E4DA5C6221EFBDFE00A25746 /* UIKitExtensions */,
 				E4DA5C6721EFD35500A25746 /* LayoutAnchor+KeyPaths.swift */,
+				E4EDA2F621F26D1400F345E8 /* Temp.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1582,7 +1587,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n";
+			shellScript = "
+";
 		};
 		EAE50391C3D2FF9929688A85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1666,6 +1672,7 @@
 				E4EDA22621F05AD900F345E8 /* LayoutDimension+PriorityOperators.generated.swift in Sources */,
 				E48737A821DE66F90094F2EB /* LayoutPriorityOperator.swift in Sources */,
 				E4EDA25421F05D3100F345E8 /* XAxisAnchorPair+ConstantArithmeticOperators.generated.swift in Sources */,
+				E4EDA2F921F26D1900F345E8 /* Temp.swift in Sources */,
 				E458227D21E79C5F00B6054C /* LayoutConstantRelationship.swift in Sources */,
 				E4AF81BB21BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 				E4EDA29121F0F1DF00F345E8 /* XAxisAnchorPair+PriorityOperators.generated.swift in Sources */,
@@ -1778,6 +1785,7 @@
 				E4EDA22421F05AD900F345E8 /* LayoutDimension+PriorityOperators.generated.swift in Sources */,
 				E48737A721DE66F90094F2EB /* LayoutPriorityOperator.swift in Sources */,
 				E4EDA25221F05D3100F345E8 /* XAxisAnchorPair+ConstantArithmeticOperators.generated.swift in Sources */,
+				E4EDA2F721F26D1400F345E8 /* Temp.swift in Sources */,
 				E458227B21E79C5F00B6054C /* LayoutConstantRelationship.swift in Sources */,
 				E4AF81B921BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 				E4EDA28F21F0F1DF00F345E8 /* XAxisAnchorPair+PriorityOperators.generated.swift in Sources */,
@@ -1904,6 +1912,7 @@
 				E4DA5C6021EF099900A25746 /* SideCorrelated.swift in Sources */,
 				E4EDA25021F05D3100F345E8 /* LayoutDimensionPair+ConstantArithmeticOperators.generated.swift in Sources */,
 				E4EDA2E821F1154800F345E8 /* ViewArray+SizeConstantOperators.swift in Sources */,
+				E4EDA2F821F26D1800F345E8 /* Temp.swift in Sources */,
 				E4EDA27621F0F0A800F345E8 /* XYAxesAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
 				E458229E21E7EC1A00B6054C /* EdgeAnchorGroup+PriorityOperators.swift in Sources */,
 				E458229821E7E56200B6054C /* EdgeAnchorExpression.swift in Sources */,
@@ -2201,6 +2210,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=5 -Xfrontend -warn-long-expression-type-checking=250";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;

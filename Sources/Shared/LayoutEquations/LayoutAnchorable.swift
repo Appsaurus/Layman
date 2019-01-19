@@ -12,7 +12,7 @@ import Cocoa
 import UIKit
 #endif
 
-public protocol XYAxisAnchorable: NSObjectProtocol {
+public protocol XYAxisAnchorable {
     var leadingAnchor: XAxisAnchor { get }
     var trailingAnchor: XAxisAnchor { get }
 
@@ -36,12 +36,12 @@ public protocol XYAxisAnchorable: NSObjectProtocol {
     var bottomLeftAnchors: XYAxesAnchorPair { get }
 }
 
-public protocol BaselineAnchorable: NSObjectProtocol {
+public protocol BaselineAnchorable {
     var lastBaselineAnchor: YAxisAnchor { get }
     var firstBaselineAnchor: YAxisAnchor { get }
 }
 
-public protocol SizeAnchorable: NSObjectProtocol {
+public protocol SizeAnchorable {
     var widthAnchor: LayoutDimension { get }
     var heightAnchor: LayoutDimension { get }
     var sizeAnchors: LayoutDimensionPair { get }

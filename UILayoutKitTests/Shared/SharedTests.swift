@@ -16,7 +16,7 @@ import UIKit
 import XCTest
 import SwiftTestUtils
 import CwlPreconditionTesting
-
+// swiftlint:disable type_body_length file_length
 class SharedTests: UILayoutKitTestCase {
 
     // MARK: WidthAnchor
@@ -111,12 +111,12 @@ class SharedTests: UILayoutKitTestCase {
     }
     
     func testEqualityWithOffsetAndMultiplier() {
-        let constraint = view1.widthAnchor == (relatedView.widthAnchor + 10) / 2
+        let constraint = view1.widthAnchor == (relatedView.widthAnchor + 10) / 2.0
         constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10.0, multiplier: 0.5)
     }
     
     func testArrayEqualityWithOffsetAndMultiplier() {
-        let constraints = viewArray.widthAnchor == (relatedView.widthAnchor + 10) / 2
+        let constraints = viewArray.widthAnchor == (relatedView.widthAnchor + 10) / 2.0
         constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10.0, multiplier: 0.5)
     }
     
@@ -161,32 +161,32 @@ class SharedTests: UILayoutKitTestCase {
     }
     
     func testEqualityWithOffsetAndPriorityMath() {
-        let constraint = view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1
+        let constraint = view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
         constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, priority: 749)
     }
     
     func testArrayEqualityWithOffsetAndPriorityMath() {
-        let constraints = viewArray.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1
+        let constraints = viewArray.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
         constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, priority: 749)
     }
     
     func testEqualityWithOffsetAndMultiplierAndPriorityMath() {
-        let constraint = view1.widthAnchor == (relatedView.widthAnchor + 10) / 2 ~ .high - 1
+        let constraint = view1.widthAnchor == (relatedView.widthAnchor + 10) / 2.0 ~ .high - 1
         constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5, priority: 749)
     }
     
     func testArrayEqualityWithOffsetAndMultiplierAndPriorityMath() {
-        let constraints = viewArray.widthAnchor == (relatedView.widthAnchor + 10) / 2 ~ .high - 1
+        let constraints = viewArray.widthAnchor == (relatedView.widthAnchor + 10) / 2.0 ~ .high - 1
         constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5, priority: 749)
     }
 
     func testXAxisAnchorEqualityWithOffsetAndMultiplier() {
-        let constraint = view1.trailingAnchor == (relatedView.centerXAnchor + 10) / 2
+        let constraint = view1.trailingAnchor == (relatedView.centerXAnchor + 10) / 2.0
         constraint.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10.0, multiplier: 0.5)
     }
 
     func testArrayXAxisAnchorEqualityWithOffsetAndMultiplier() {
-        let constraints = viewArray.trailingAnchor == (relatedView.centerXAnchor + 10) / 2
+        let constraints = viewArray.trailingAnchor == (relatedView.centerXAnchor + 10) / 2.0
         constraints.assert(viewArray, .trailing, .equal, relatedView, .centerX, constant: 10.0, multiplier: 0.5)
     }
 
@@ -270,6 +270,14 @@ class SharedTests: UILayoutKitTestCase {
         constraints.bottom.assert(view1, .bottom, .equal, relatedView, .bottom, constant: -10, priority: 749)
         constraints.trailing.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -10, priority: 749)
     }
+
+    func testArrayEdgeAnchors() {
+        let constraints = viewArray.edgeAnchors == relatedView.edgeAnchors + 10 ~ .high - 1
+        constraints.map {$0.top}.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, priority: 749)
+        constraints.map {$0.leading}.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, priority: 749)
+        constraints.map {$0.bottom}.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: -10, priority: 749)
+        constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: -10, priority: 749)
+    }
     
     func testEdgeAnchorsWithInsets() {
         let insets = UIEdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
@@ -279,6 +287,16 @@ class SharedTests: UILayoutKitTestCase {
         constraints.leading.assert(view1, .leading, .equal, relatedView, .leading, constant: 5, priority: 749)
         constraints.bottom.assert(view1, .bottom, .equal, relatedView, .bottom, constant: -15, priority: 749)
         constraints.trailing.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -20, priority: 749)
+    }
+
+    func testArrayEdgeAnchorsWithInsets() {
+        let insets = UIEdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
+
+        let constraints = viewArray.edgeAnchors == relatedView.edgeAnchors + insets ~ .high - 1
+        constraints.map {$0.top}.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, priority: 749)
+        constraints.map {$0.leading}.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 5, priority: 749)
+        constraints.map {$0.bottom}.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: -15, priority: 749)
+        constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: -20, priority: 749)
     }
 
     func testAspectRatioPrecondition() {
@@ -308,4 +326,1010 @@ class SharedTests: UILayoutKitTestCase {
         let aspectRatioConstraint = view1.aspectRatioInverseAnchor == .wide
         aspectRatioConstraint.assert(view1, .width, .equal, view1, .height, multiplier: 9.0/16.0)
     }
+
+    func dimensionAnchorPlusConstantCompilationBenchmark() {
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+        relatedView.widthAnchor + 10
+    }
+
+    func layoutDimensionEqualityImpliedCompilationBenchmark() {
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+        view1 == relatedView.width
+    }
+
+    func layoutDimensionEqualityShorthandCompilationBenchmark() {
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+        view1.width == relatedView.width
+    }
+
+    func layoutDimensionEqualityCompilationBenchmark() {
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+        view1.widthAnchor == relatedView.widthAnchor
+    }
+
+    func layoutDimensionEqualityCompilationBenchmarkClassConstant() {
+
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+        relatedView.widthAnchor + Constant(10)
+    }
+
+    func layoutDimensionEqualityCompilationBenchmarkCGFloatConstant() {
+
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+        relatedView.widthAnchor + CGFloat(10)
+    }
+
+    func layoutDimensionShorthandPlusConstantCompilationBenchmark() {
+
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+        view1.width == relatedView.width + 10
+
+    }
+
+    func layoutDimensionPlusConstantCompilationBenchmark() {
+
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+        view1.widthAnchor == relatedView.widthAnchor + 10
+
+    }
+
+    func layoutDimensionPlusConstantAndPriorityArithmeticCompilationBenchmark() {
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+        view1.widthAnchor == relatedView.widthAnchor + 10 ~ .high - 1.0
+    }
+
+    func otherOperator() {
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+        view1.widthAnchor .= view2.widthAnchor
+    }
+
+    func otherOperator2() {
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+        view1.widthAnchor |=| view2.widthAnchor
+    }
+
+    func otherOperator3() {
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+        view1.widthAnchor ≈ view2.widthAnchor
+    }
+
+    func otherShorthandOperatorPlusConstant() {
+        //        view1.width.equal(to: view2)
+        //        view1.equal(to: view2.width.plus(10).with(priority: 20))
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+        view1.width .= view2.width .+ 20
+    }
+
+    func otherOperatorPlusConstant() {
+        //        view1.width.equal(to: view2)
+        //        view1.equal(to: view2.width.plus(10).with(priority: 20))
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+        view1.widthAnchor .= view2.widthAnchor .+ 20
+    }
+
+    func otherOperatorPlusConstantPriority() {
+        //        view1.width.equal(to: view2)
+        //        view1.equal(to: view2.width.plus(10).with(priority: 20))
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+        view1.widthAnchor .= view2.widthAnchor .+ 20 ~ .high
+    }
+
+    func otherOperatorPlusConstantPriorityDots() {
+        //        view1.width.equal(to: view2)
+        //        view1.equal(to: view2.width.plus(10).with(priority: 20))
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+        view1.widthAnchor .=. view2.widthAnchor .+. 20 ~ .high
+    }
+
+    func otherOperatorPlusConstantPriority2() {
+        //        view1.width.equal(to: view2)
+        //        view1.equal(to: view2.width.plus(10).with(priority: 20))
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+        view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
+    }
+
+    func showcase(){
+
+        view1 .= view2.width .+ 20
+
+        view1 <> view2.width + 20
+
+        view1 .=. view2.width .+. 20
+
+        view1 |=| view2.width |+| 20
+
+        view1 <=> view2.width <+> 20
+
+        view1 ≈ view2.width
+    }
+//    func compilationBenchmark2() {
+//        [view1, view2].widthAnchor == 20.0
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//        [view1, view2].widthAnchor == relatedView.widthAnchor + Constant(10) ~ .high
+//
+//    }
+
+//    func compilationBenchmark3() {
+//
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//        view1.widthAnchor == relatedView.widthAnchor + Constant(10)
+//    }
+//
+
+//    func compilationBenchmark3b() {
+//
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//        view1.widthAnchor == relatedView.widthAnchor + CGFloat(10)
+//    }
+
+//
+//    func compilationBenchmark4() {
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//        view1.widthAnchor == relatedView.widthAnchor
+//    }
+//
+//    func compilationBenchmark5() {
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//        view1.edgeAnchors == relatedView.edgeAnchors
+//    }
+//
+//    func compilationBenchmark6() {
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//        view1.widthAnchor <= relatedView.widthAnchor
+//    }
+
+    func compilationBenchmarkRegular() {
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+        view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
+    }
+
 }
+
+public struct Constant {
+    public static func constant(_ value: CGFloat) -> Constant {
+        return Constant(value)
+    }
+    public var value: CGFloat
+
+    public init(_ value: CGFloat) {
+        self.value = value
+    }
+
+}
+@discardableResult
+public func + (lhs: LayoutDimension, rhs: Constant) -> LayoutDimensionExpression {
+    return lhs + rhs.value
+}
+
+public func constant(_ value: CGFloat) -> Constant{
+    return Constant(value)
+}
+
+public func equalTo() -> (_ lhs: LayoutDimension, _ rhs: LayoutDimension) -> Constraint{
+    return (==)
+}
+
+public let equalsMethod: (_ lhs: LayoutDimension, _ rhs: LayoutDimension) -> Constraint = (==)

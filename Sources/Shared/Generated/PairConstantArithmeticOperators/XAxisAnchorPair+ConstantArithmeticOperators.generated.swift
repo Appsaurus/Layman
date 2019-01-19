@@ -20,16 +20,16 @@ public func - (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpr
 }
 
 @discardableResult
-public func * (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
+public func * (lhs: XAxisAnchorPair, rhs: LayoutDivisor) -> XAxisAnchorPairExpression {
     return XAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
-public func / (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
+public func / (lhs: XAxisAnchorPair, rhs: LayoutDivisor) -> XAxisAnchorPairExpression {
     return lhs * (1.0 / rhs)
 }
 
 @discardableResult
-public func / (lhs: XAxisAnchorPairExpression, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
+public func / (lhs: XAxisAnchorPairExpression, rhs: LayoutDivisor) -> XAxisAnchorPairExpression {
     return lhs.with(multiplier: (1.0 / rhs))
 }

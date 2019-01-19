@@ -20,7 +20,8 @@ public func == (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatioConfiguration)
         return view.heightAnchor == view.widthAnchor * rhs.aspectRatio.ratio ~ rhs.priority
     case .inverse(let view):
         precondition(view.constraint(for: .height) != nil, "You must set a height constraint before setting an inverse aspect ratio constraint.")
-        return view.widthAnchor == view.heightAnchor * (1 / rhs.aspectRatio.ratio) ~ rhs.priority
+        let inverseRatio = 1 / rhs.aspectRatio.ratio
+        return view.widthAnchor == view.heightAnchor * inverseRatio ~ rhs.priority
     }
 }
 

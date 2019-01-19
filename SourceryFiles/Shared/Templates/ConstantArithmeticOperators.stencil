@@ -19,17 +19,17 @@ public func - (lhs: {{AnchorType}}, rhs: LayoutConstant) -> {{AnchorType}}Expres
 }
 
 @discardableResult
-public func * (lhs: {{AnchorType}}, rhs: LayoutConstant) -> {{AnchorType}}Expression {
+public func * (lhs: {{AnchorType}}, rhs: LayoutMultiplier) -> {{AnchorType}}Expression {
     return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
-public func / (lhs: {{AnchorType}}, rhs: LayoutConstant) -> {{AnchorType}}Expression {
+public func / (lhs: {{AnchorType}}, rhs: LayoutDivisor) -> {{AnchorType}}Expression {
     return lhs * (1.0 / rhs)
 }
 
 @discardableResult
-public func / (lhs: {{AnchorType}}Expression, rhs: LayoutConstant) -> {{AnchorType}}Expression {
+public func / (lhs: {{AnchorType}}Expression, rhs: LayoutDivisor) -> {{AnchorType}}Expression {
     return lhs.with(multiplier: (1.0 / rhs))
 }
 

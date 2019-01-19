@@ -20,16 +20,16 @@ public func - (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> LayoutDimension
 }
 
 @discardableResult
-public func * (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
+public func * (lhs: LayoutDimensionPair, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {
     return LayoutDimensionPairExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
-public func / (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
+public func / (lhs: LayoutDimensionPair, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {
     return lhs * (1.0 / rhs)
 }
 
 @discardableResult
-public func / (lhs: LayoutDimensionPairExpression, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
+public func / (lhs: LayoutDimensionPairExpression, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {
     return lhs.with(multiplier: (1.0 / rhs))
 }

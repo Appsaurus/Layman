@@ -10,7 +10,7 @@ import UIKit
 
 precedencegroup PriorityPrecedence {
     associativity: none
-    higherThan: ComparisonPrecedence
+    higherThan: RelationPrecedence
     lowerThan: AdditionPrecedence
 }
 
@@ -20,3 +20,13 @@ infix operator ~ : PriorityPrecedence
 public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutConfiguration {
     return LayoutConfiguration(constant: lhs, priority: rhs)
 }
+
+//@discardableResult
+//public func ~ (lhs: IntegerLiteralType, rhs: LayoutPriority) -> LayoutConfiguration {
+//    return LayoutConfiguration(constant: lhs.cgFloat, priority: rhs)
+//}
+//
+//@discardableResult
+//public func ~ (lhs: FloatLiteralType, rhs: LayoutPriority) -> LayoutConfiguration {
+//    return LayoutConfiguration(constant: lhs.cgFloat, priority: rhs)
+//}

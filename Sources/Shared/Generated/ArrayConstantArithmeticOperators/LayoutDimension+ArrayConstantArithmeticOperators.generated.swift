@@ -11,7 +11,7 @@
 
 @discardableResult
 public func + (lhs: LayoutDimensions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
-    return lhs.map { $0 + rhs }
+    return lhs.map { return LayoutExpression(anchor: $0, configuration: LayoutConfiguration(constant: rhs)) }
 }
 
 @discardableResult
@@ -20,16 +20,16 @@ public func - (lhs: LayoutDimensions, rhs: LayoutConstant) -> LayoutDimensionExp
 }
 
 @discardableResult
-public func * (lhs: LayoutDimensions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
+public func * (lhs: LayoutDimensions, rhs: LayoutMultiplier) -> LayoutDimensionExpressions {
     return lhs.map { $0 * rhs }
 }
 
 @discardableResult
-public func / (lhs: LayoutDimensions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
+public func / (lhs: LayoutDimensions, rhs: LayoutDivisor) -> LayoutDimensionExpressions {
     return lhs.map { $0 / rhs }
 }
 
 @discardableResult
-public func / (lhs: LayoutDimensionExpressions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
+public func / (lhs: LayoutDimensionExpressions, rhs: LayoutDivisor) -> LayoutDimensionExpressions {
     return lhs.map { $0 / rhs }
 }

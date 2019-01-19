@@ -19,17 +19,17 @@ public func - (lhs: {{AnchorType}}s, rhs: LayoutConstant) -> {{AnchorType}}Expre
 }
 
 @discardableResult
-public func * (lhs: {{AnchorType}}s, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
+public func * (lhs: {{AnchorType}}s, rhs: LayoutMultiplier) -> {{AnchorType}}Expressions {
     return lhs.map { $0 * rhs }
 }
 
 @discardableResult
-public func / (lhs: {{AnchorType}}s, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
+public func / (lhs: {{AnchorType}}s, rhs: LayoutDivisor) -> {{AnchorType}}Expressions {
     return lhs.map { $0 / rhs }
 }
 
 @discardableResult
-public func / (lhs: {{AnchorType}}Expressions, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
+public func / (lhs: {{AnchorType}}Expressions, rhs: LayoutDivisor) -> {{AnchorType}}Expressions {
     return lhs.map { $0 / rhs }
 }
 // sourcery:end

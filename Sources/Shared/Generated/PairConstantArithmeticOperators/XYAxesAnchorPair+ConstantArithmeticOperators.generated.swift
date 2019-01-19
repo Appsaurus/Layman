@@ -20,16 +20,16 @@ public func - (lhs: XYAxesAnchorPair, rhs: LayoutConstant) -> XYAxesAnchorPairEx
 }
 
 @discardableResult
-public func * (lhs: XYAxesAnchorPair, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
+public func * (lhs: XYAxesAnchorPair, rhs: LayoutDivisor) -> XYAxesAnchorPairExpression {
     return XYAxesAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
-public func / (lhs: XYAxesAnchorPair, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
+public func / (lhs: XYAxesAnchorPair, rhs: LayoutDivisor) -> XYAxesAnchorPairExpression {
     return lhs * (1.0 / rhs)
 }
 
 @discardableResult
-public func / (lhs: XYAxesAnchorPairExpression, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
+public func / (lhs: XYAxesAnchorPairExpression, rhs: LayoutDivisor) -> XYAxesAnchorPairExpression {
     return lhs.with(multiplier: (1.0 / rhs))
 }

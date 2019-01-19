@@ -96,6 +96,7 @@ public typealias EdgeAnchorGroupExpressions = [EdgeAnchorGroupExpression]
 
 // MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat
+public typealias LayoutDivisor = CGFloat
 public typealias LayoutConstant = CGFloat
 
 #if canImport(AppKit)
@@ -108,3 +109,8 @@ public typealias LayoutInset = UIEdgeInsets
 
 // MARK: Layout Constants
 public typealias LayoutSize = CGSize
+
+//@discardableResult
+//public func / (lhs: Double, rhs: Int) -> CGFloat {
+//    return CGFloat(lhs / rhs.double)
+//}

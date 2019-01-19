@@ -69,13 +69,13 @@ class ImpliedRelationTests: UILayoutKitTestCase {
     }
 
     func testEqualityWithOffsetAndMultiplier() {
-        let constraint = view1 == (relatedView.widthAnchor + 10) / 2
-        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10.0, multiplier: 0.5)
+        let constraint = view1 == (relatedView.widthAnchor + 10) / 2.0
+        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5)
     }
 
     func testArrayEqualityWithOffsetAndMultiplier() {
-        let constraints = viewArray == (relatedView.widthAnchor + 10) / 2
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10.0, multiplier: 0.5)
+        let constraints = viewArray == (relatedView.widthAnchor + 10) / 2.0
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5)
     }
 
     func testEqualityWithPriorityConstant() {
@@ -119,22 +119,23 @@ class ImpliedRelationTests: UILayoutKitTestCase {
     }
 
     func testEqualityWithOffsetAndPriorityMath() {
-        let constraint = view1 == relatedView.widthAnchor + 10 ~ .high - 1
+        let priority = .high - 1
+        let constraint: Constraint = view1 == relatedView.widthAnchor + 10 ~ priority
         constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, priority: 749)
     }
 
     func testArrayEqualityWithOffsetAndPriorityMath() {
-        let constraints = viewArray == relatedView.widthAnchor + 10 ~ .high - 1
+        let constraints = viewArray == (relatedView.widthAnchor + 10) ~ .high - 1.0
         constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, priority: 749)
     }
 
     func testEqualityWithOffsetAndMultiplierAndPriorityMath() {
-        let constraint = view1 == (relatedView.widthAnchor + 10) / 2 ~ .high - 1
+        let constraint = view1 == (relatedView.widthAnchor + 10) / 2.0 ~ .high - 1.0
         constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5, priority: 749)
     }
 
     func testArrayEqualityWithOffsetAndMultiplierAndPriorityMath() {
-        let constraints = viewArray == (relatedView.widthAnchor + 10) / 2 ~ .high - 1
+        let constraints = viewArray == (relatedView.widthAnchor + 10) / 2.0 ~ .high - 1
         constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5, priority: 749)
     }
 
@@ -219,6 +220,14 @@ class ImpliedRelationTests: UILayoutKitTestCase {
         constraints.trailing.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -10, priority: 749)
     }
 
+    func testArrayEdgeAnchors() {
+        let constraints = viewArray == relatedView.edgeAnchors + 10 ~ .high - 1
+        constraints.map {$0.top}.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, priority: 749)
+        constraints.map {$0.leading}.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, priority: 749)
+        constraints.map {$0.bottom}.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: -10, priority: 749)
+        constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: -10, priority: 749)
+    }
+
     func testEdgeAnchorsWithInsets() {
         let insets = UIEdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
 
@@ -227,5 +236,15 @@ class ImpliedRelationTests: UILayoutKitTestCase {
         constraints.leading.assert(view1, .leading, .equal, relatedView, .leading, constant: 5, priority: 749)
         constraints.bottom.assert(view1, .bottom, .equal, relatedView, .bottom, constant: -15, priority: 749)
         constraints.trailing.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -20, priority: 749)
+    }
+
+    func testArrayEdgeAnchorsWithInsets() {
+        let insets = UIEdgeInsets(top: 10, left: 5, bottom: 15, right: 20)
+
+        let constraints = viewArray == relatedView.edgeAnchors + insets ~ .high - 1
+        constraints.map {$0.top}.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, priority: 749)
+        constraints.map {$0.leading}.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 5, priority: 749)
+        constraints.map {$0.bottom}.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: -15, priority: 749)
+        constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: -20, priority: 749)
     }
 }

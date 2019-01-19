@@ -57,7 +57,22 @@ public class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
     }
 }
 
+//@discardableResult
+//private func + <A>(lhs: LayoutAnchor<A>, rhs: LayoutConfiguration) -> LayoutExpression<A> {
+//    return LayoutExpression(anchor: lhs, configuration: rhs)
+//}
+
 @discardableResult
-private func + <A>(lhs: LayoutAnchor<A>, rhs: LayoutConfiguration) -> LayoutExpression<A> {
-    return LayoutExpression(anchor: lhs, configuration: rhs)
+private func + (lhs: XAxisAnchor, rhs: LayoutConfiguration) -> XAxisAnchorExpression {
+    return XAxisAnchorExpression(anchor: lhs, configuration: rhs)
+}
+
+@discardableResult
+private func + (lhs: YAxisAnchor, rhs: LayoutConfiguration) -> YAxisAnchorExpression {
+    return YAxisAnchorExpression(anchor: lhs, configuration: rhs)
+}
+
+@discardableResult
+private func + (lhs: LayoutDimension, rhs: LayoutConfiguration) -> LayoutDimensionExpression {
+    return LayoutDimensionExpression(anchor: lhs, configuration: rhs)
 }
