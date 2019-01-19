@@ -19,9 +19,9 @@ public func ~ (lhs: EdgeAnchorGroupExpression, rhs: LayoutPriority) -> EdgeAncho
 @discardableResult
 public func ~ (lhs: LayoutInset, rhs: LayoutPriority) -> EdgeAnchorsConfiguration {
     return EdgeAnchorsConfiguration(
-        lhs.top ~ rhs,
-        lhs.left ~ rhs,
-        lhs.bottom ~ rhs,
-        lhs.right ~ rhs
+        LayoutConfiguration(constant: lhs.top, priority: rhs),
+        LayoutConfiguration(constant: lhs.left, priority: rhs),
+        LayoutConfiguration(constant: lhs.bottom, priority: rhs),
+        LayoutConfiguration(constant: lhs.right, priority: rhs)
     )
 }

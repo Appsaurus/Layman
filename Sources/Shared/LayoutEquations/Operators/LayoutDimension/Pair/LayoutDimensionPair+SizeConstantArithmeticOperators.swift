@@ -21,7 +21,7 @@ public func - (lhs: LayoutDimensionPair, rhs: LayoutSize) -> LayoutDimensionPair
 @discardableResult
 public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutPairConfiguration {
     return LayoutPairConfiguration(
-        lhs.width ~ rhs,
-        lhs.height ~ rhs
+        LayoutConfiguration(constant: lhs.width, priority: rhs),
+        LayoutConfiguration(constant: lhs.height, priority: rhs)
     )
 }

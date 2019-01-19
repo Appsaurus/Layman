@@ -44,8 +44,8 @@ public func >= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> SideCon
 }
 
 private func constraints(_ lhs: EdgeAnchorGroup,
-                        _ relation: Constraint.Relation,
-                        _ rhs: EdgeAnchorGroup) -> SideConstraints {
+                         _ relation: Constraint.Relation,
+                         _ rhs: EdgeAnchorGroup) -> SideConstraints {
     return constraints(
         .init(lhs.top, relation, rhs.top),
         .init(lhs.leading, relation, rhs.leading),
@@ -55,8 +55,8 @@ private func constraints(_ lhs: EdgeAnchorGroup,
 }
 
 private func constraints(_ lhs: EdgeAnchorGroup,
-                        _ relation: Constraint.Relation,
-                        _ rhs: EdgeAnchorGroupExpression) -> SideConstraints {
+                         _ relation: Constraint.Relation,
+                         _ rhs: EdgeAnchorGroupExpression) -> SideConstraints {
     return constraints(
         .init(lhs.top, relation, rhs.topExpression),
         .init(lhs.leading, relation, rhs.leadingExpression),
@@ -65,9 +65,9 @@ private func constraints(_ lhs: EdgeAnchorGroup,
     )
 }
 private func constraints(_ top: LayoutRelationship<YAxisAnchor>,
-                        _ leading: LayoutRelationship<XAxisAnchor>,
-                        _ bottom: LayoutRelationship<YAxisAnchor>,
-                        _ trailing: LayoutRelationship<XAxisAnchor>) -> SideConstraints {
+                         _ leading: LayoutRelationship<XAxisAnchor>,
+                         _ bottom: LayoutRelationship<YAxisAnchor>,
+                         _ trailing: LayoutRelationship<XAxisAnchor>) -> SideConstraints {
 
     return SideConstraints(
         top.constraint,
