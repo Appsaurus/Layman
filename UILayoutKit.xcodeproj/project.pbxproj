@@ -70,6 +70,9 @@
 		E45822A721E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45822A621E7F15800B6054C /* EdgeAnchorsConfiguration.swift */; };
 		E45822A821E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45822A621E7F15800B6054C /* EdgeAnchorsConfiguration.swift */; };
 		E45822A921E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45822A621E7F15800B6054C /* EdgeAnchorsConfiguration.swift */; };
+		E472DDF321F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E472DDF221F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift */; };
+		E472DDF421F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E472DDF221F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift */; };
+		E472DDF521F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E472DDF221F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift */; };
 		E487379E21DE50F00094F2EB /* ConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487379D21DE50F00094F2EB /* ConstraintGroup.swift */; };
 		E487379F21DE50F00094F2EB /* ConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487379D21DE50F00094F2EB /* ConstraintGroup.swift */; };
 		E48737A121DE510D0094F2EB /* LayoutTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48737A021DE510D0094F2EB /* LayoutTypealiases.swift */; };
@@ -369,6 +372,7 @@
 		E458229C21E7EC1A00B6054C /* EdgeAnchorGroup+PriorityOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeAnchorGroup+PriorityOperators.swift"; sourceTree = "<group>"; };
 		E45822A621E7F15800B6054C /* EdgeAnchorsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeAnchorsConfiguration.swift; sourceTree = "<group>"; };
 		E45822BC21E7F77300B6054C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E472DDF221F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeAnchorGroup+Relation.swift"; sourceTree = "<group>"; };
 		E487379D21DE50F00094F2EB /* ConstraintGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintGroup.swift; sourceTree = "<group>"; };
 		E48737A021DE510D0094F2EB /* LayoutTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTypealiases.swift; sourceTree = "<group>"; };
 		E48737A621DE66F90094F2EB /* LayoutPriorityOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutPriorityOperator.swift; sourceTree = "<group>"; };
@@ -749,9 +753,10 @@
 		E458229A21E7E93000B6054C /* EdgeAnchors */ = {
 			isa = PBXGroup;
 			children = (
-				E458226921E6981300B6054C /* EdgeAnchorGroup+RelationOperators.swift */,
 				E458229221E7E4CE00B6054C /* EdgeAnchorGroup+ConstantArithmeticOperators.swift */,
 				E458229C21E7EC1A00B6054C /* EdgeAnchorGroup+PriorityOperators.swift */,
+				E472DDF221F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift */,
+				E458226921E6981300B6054C /* EdgeAnchorGroup+RelationOperators.swift */,
 				E4DA5C3521EDA21C00A25746 /* EdgeAnchorGroupArray+RelationOperators.swift */,
 			);
 			path = EdgeAnchors;
@@ -1680,6 +1685,7 @@
 				E458227521E79C2400B6054C /* LayoutExpression.swift in Sources */,
 				E4EDA1FE21F050F700F345E8 /* XAxisAnchor+ConstantArithmeticOperators.generated.swift in Sources */,
 				E4EDA27321F0611D00F345E8 /* YAxisAnchor+InferredRelationOperators.generated.swift in Sources */,
+				E472DDF521F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift in Sources */,
 				E458229921E7E56200B6054C /* EdgeAnchorExpression.swift in Sources */,
 				E4DA5BFA21E94E2400A25746 /* InternalTypes.swift in Sources */,
 				E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
@@ -1793,6 +1799,7 @@
 				E458227321E79C2400B6054C /* LayoutExpression.swift in Sources */,
 				E4EDA1FC21F050F700F345E8 /* XAxisAnchor+ConstantArithmeticOperators.generated.swift in Sources */,
 				E4EDA27121F0611D00F345E8 /* YAxisAnchor+InferredRelationOperators.generated.swift in Sources */,
+				E472DDF321F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift in Sources */,
 				E458229721E7E56200B6054C /* EdgeAnchorExpression.swift in Sources */,
 				E4DA5BF821E94E2400A25746 /* InternalTypes.swift in Sources */,
 				E4AF81BD21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
@@ -1934,6 +1941,7 @@
 				E4DA5C5321EE733800A25746 /* LayoutDimensionPairArray+ConstantRelationsOperators.swift in Sources */,
 				E4DA5C6921EFD35600A25746 /* LayoutAnchor+KeyPaths.swift in Sources */,
 				E4EDA1E821F050F700F345E8 /* XAxisAnchor+ArrayConstantArithmeticOperators.generated.swift in Sources */,
+				E472DDF421F3E5FF008DCBD5 /* EdgeAnchorGroup+Relation.swift in Sources */,
 				E4EDA28A21F0F1DF00F345E8 /* XYAxesAnchorPair+PriorityOperators.generated.swift in Sources */,
 				E4EDA22521F05AD900F345E8 /* LayoutDimension+PriorityOperators.generated.swift in Sources */,
 				E4EDA2DB21F1082400F345E8 /* XAxisAnchorPair+PairArrayInferredRelationOperators.generated.swift in Sources */,
