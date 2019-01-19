@@ -12,13 +12,13 @@
 
 // MARK: Anchor == Anchor
 @discardableResult
-public func == (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
 // MARK: Anchor == Expression
 @discardableResult
-public func == (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
@@ -26,13 +26,13 @@ public func == (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constrain
 
 // MARK: Anchor <= Anchor
 @discardableResult
-public func <= (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
 // MARK: Anchor <= Expression
 @discardableResult
-public func <= (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
     return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
 }
 
@@ -40,14 +40,16 @@ public func <= (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constrain
 
 // MARK: Anchor >= Anchor
 @discardableResult
-public func >= (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
 }
 
 // MARK: Anchor >= Expression
 @discardableResult
-public func >= (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
     return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
 }
 // sourcery:end
 {% endfor %}
+
+

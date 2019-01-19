@@ -9,10 +9,10 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-//@discardableResult
-//public func + (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-//    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
-//}
+@discardableResult
+public func + (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
+    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
+}
 
 @discardableResult
 public func - (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
@@ -32,16 +32,4 @@ public func / (lhs: LayoutDimension, rhs: LayoutDivisor) -> LayoutDimensionExpre
 @discardableResult
 public func / (lhs: LayoutDimensionExpression, rhs: LayoutDivisor) -> LayoutDimensionExpression {
     return lhs.with(multiplier: (1.0 / rhs))
-}
-
-//public func + (lhs: LayoutDimension, rhs: IntegerLiteralType) -> LayoutDimensionExpression {
-//    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs.cgFloat))
-//}
-//
-//public func + (lhs: LayoutDimension, rhs: FloatLiteralType) -> LayoutDimensionExpression {
-//    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs.cgFloat))
-//}
-@discardableResult
-public func + (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
 }

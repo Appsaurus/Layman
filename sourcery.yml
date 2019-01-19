@@ -5,4 +5,7 @@ templates:
 args:
     AnchorTypes: ['XAxisAnchor','YAxisAnchor','LayoutDimension']
     AnchorPairTypes: ['XAxisAnchorPair','YAxisAnchorPair','LayoutDimensionPair','XYAxesAnchorPair']
+    EqualityOperator: '=='
+    LessThanOrEqualToOperator: '<='
+    GreaterThanOrEqualToOperator: '>='
 output: Sources/Shared/Generated

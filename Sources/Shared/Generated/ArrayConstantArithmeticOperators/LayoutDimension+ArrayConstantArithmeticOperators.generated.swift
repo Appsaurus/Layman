@@ -11,7 +11,7 @@
 
 @discardableResult
 public func + (lhs: LayoutDimensions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
-    return lhs.map { return LayoutExpression(anchor: $0, configuration: LayoutConfiguration(constant: rhs)) }
+    return lhs.map { $0 + rhs }
 }
 
 @discardableResult
