@@ -267,6 +267,18 @@
 		E4AF81BD21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
 		E4AF81BE21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
 		E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
+		E4D5568821F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568421F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift */; };
+		E4D5568921F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568421F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift */; };
+		E4D5568A21F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568421F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift */; };
+		E4D5568B21F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568521F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift */; };
+		E4D5568C21F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568521F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift */; };
+		E4D5568D21F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568521F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift */; };
+		E4D5568E21F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568621F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift */; };
+		E4D5568F21F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568621F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift */; };
+		E4D5569021F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568621F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift */; };
+		E4D5569121F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568721F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift */; };
+		E4D5569221F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568721F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift */; };
+		E4D5569321F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5568721F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift */; };
 		E4DA5BF821E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
 		E4DA5BF921E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
 		E4DA5BFA21E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
@@ -488,6 +500,11 @@
 		E4AF81CE21BF20FD002D6E86 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		E4AF81CF21BF20FD002D6E86 /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		E4AF81D021BF20FD002D6E86 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E4D5567321F64A23007862C1 /* PairLeftHandExpression.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = PairLeftHandExpression.stencil; sourceTree = "<group>"; };
+		E4D5568421F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LayoutDimensionPair+LeftHandExpression.generated.swift"; sourceTree = "<group>"; };
+		E4D5568521F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XAxisAnchorPair+LeftHandExpression.generated.swift"; sourceTree = "<group>"; };
+		E4D5568621F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XYAxesAnchorPair+LeftHandExpression.generated.swift"; sourceTree = "<group>"; };
+		E4D5568721F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YAxisAnchorPair+LeftHandExpression.generated.swift"; sourceTree = "<group>"; };
 		E4DA5BF721E94E2400A25746 /* InternalTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalTypes.swift; sourceTree = "<group>"; };
 		E4DA5C2621ED98F100A25746 /* AnchorableKeyPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorableKeyPaths.swift; sourceTree = "<group>"; };
 		E4DA5C3521EDA21C00A25746 /* EdgeAnchorGroupArray+RelationOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeAnchorGroupArray+RelationOperators.swift"; sourceTree = "<group>"; };
@@ -972,6 +989,10 @@
 		E472DF5821F58AAB008DCBD5 /* LeftHandExpression */ = {
 			isa = PBXGroup;
 			children = (
+				E4D5568421F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift */,
+				E4D5568521F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift */,
+				E4D5568621F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift */,
+				E4D5568721F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift */,
 				E472DF5921F58AAB008DCBD5 /* YAxisAnchor+LeftHandExpression.generated.swift */,
 				E472DF5A21F58AAB008DCBD5 /* LayoutDimension+LeftHandExpression.generated.swift */,
 				E472DF5B21F58AAB008DCBD5 /* XAxisAnchor+LeftHandExpression.generated.swift */,
@@ -1099,6 +1120,7 @@
 				E4DA5CA521F0228100A25746 /* RelationOperators.stencil */,
 				E472DE0A21F51495008DCBD5 /* Variable.stencil */,
 				E472DE1821F52675008DCBD5 /* LeftHandExpression.stencil */,
+				E4D5567321F64A23007862C1 /* PairLeftHandExpression.stencil */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -1783,7 +1805,9 @@
 				E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
 				E45822A921E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */,
 				E472DFD421F58AAB008DCBD5 /* LayoutDimension+ArrayConstantArithmeticOperators.generated.swift in Sources */,
+				E4D5569321F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift in Sources */,
 				E4EDA2E521F1153D00F345E8 /* View+SizeConstantOperators.swift in Sources */,
+				E4D5568D21F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift in Sources */,
 				E4DA5C5C21EEFF4200A25746 /* View+AutolayoutSugar.swift in Sources */,
 				E472DFCB21F58AAB008DCBD5 /* YAxisAnchor+PriorityOperators.generated.swift in Sources */,
 				E472DFFF21F5A6F4008DCBD5 /* LayoutDimensionPair+ArrayRelationOperators.generated.swift in Sources */,
@@ -1814,6 +1838,7 @@
 				E4EDA2E021F1133D00F345E8 /* LayoutDimensionPairArray+SizeConstantArithmeticOperators.swift in Sources */,
 				E472DFA121F58AAB008DCBD5 /* LayoutDimension+ArrayInferredRelationOperators.generated.swift in Sources */,
 				E472DFFC21F5A6F4008DCBD5 /* XAxisAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
+				E4D5569021F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift in Sources */,
 				E472DF6221F58AAB008DCBD5 /* YAxisAnchorPair+PairArrayInferredRelationOperators.generated.swift in Sources */,
 				E472DDF921F3ECC3008DCBD5 /* EdgeAnchorGroup+ConstantArithmetic.swift in Sources */,
 				E472DF6521F58AAB008DCBD5 /* XYAxesAnchorPair+PairArrayInferredRelationOperators.generated.swift in Sources */,
@@ -1825,6 +1850,7 @@
 				E472DF8621F58AAB008DCBD5 /* YAxisAnchorPair+RelationOperators.generated.swift in Sources */,
 				E472DF9221F58AAB008DCBD5 /* XAxisAnchor+RelationOperators.generated.swift in Sources */,
 				E472DFF021F58B34008DCBD5 /* LayoutAnchorPair+Variable.swift in Sources */,
+				E4D5568A21F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift in Sources */,
 				E472E00521F5A6F4008DCBD5 /* XYAxesAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
 				E458229F21E7EC1A00B6054C /* EdgeAnchorGroup+PriorityOperators.swift in Sources */,
 				E458226C21E6981300B6054C /* EdgeAnchorGroup+RelationOperators.swift in Sources */,
@@ -1909,7 +1935,9 @@
 				E4AF81BD21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
 				E45822A721E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */,
 				E472DFD221F58AAB008DCBD5 /* LayoutDimension+ArrayConstantArithmeticOperators.generated.swift in Sources */,
+				E4D5569121F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift in Sources */,
 				E4EDA2E321F1153D00F345E8 /* View+SizeConstantOperators.swift in Sources */,
+				E4D5568B21F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift in Sources */,
 				E4DA5C5A21EEFF4200A25746 /* View+AutolayoutSugar.swift in Sources */,
 				E472DFC921F58AAB008DCBD5 /* YAxisAnchor+PriorityOperators.generated.swift in Sources */,
 				E472DFFD21F5A6F4008DCBD5 /* LayoutDimensionPair+ArrayRelationOperators.generated.swift in Sources */,
@@ -1940,6 +1968,7 @@
 				E4EDA2DE21F1133D00F345E8 /* LayoutDimensionPairArray+SizeConstantArithmeticOperators.swift in Sources */,
 				E472DF9F21F58AAB008DCBD5 /* LayoutDimension+ArrayInferredRelationOperators.generated.swift in Sources */,
 				E472DFFA21F5A6F4008DCBD5 /* XAxisAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
+				E4D5568E21F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift in Sources */,
 				E472DF6021F58AAB008DCBD5 /* YAxisAnchorPair+PairArrayInferredRelationOperators.generated.swift in Sources */,
 				E472DDF721F3ECC3008DCBD5 /* EdgeAnchorGroup+ConstantArithmetic.swift in Sources */,
 				E472DF6321F58AAB008DCBD5 /* XYAxesAnchorPair+PairArrayInferredRelationOperators.generated.swift in Sources */,
@@ -1951,6 +1980,7 @@
 				E472DF8421F58AAB008DCBD5 /* YAxisAnchorPair+RelationOperators.generated.swift in Sources */,
 				E472DF9021F58AAB008DCBD5 /* XAxisAnchor+RelationOperators.generated.swift in Sources */,
 				E472DFEE21F58B34008DCBD5 /* LayoutAnchorPair+Variable.swift in Sources */,
+				E4D5568821F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift in Sources */,
 				E472E00321F5A6F4008DCBD5 /* XYAxesAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
 				E458229D21E7EC1A00B6054C /* EdgeAnchorGroup+PriorityOperators.swift in Sources */,
 				E458226A21E6981300B6054C /* EdgeAnchorGroup+RelationOperators.swift in Sources */,
@@ -1989,7 +2019,10 @@
 				E472DF7C21F58AAB008DCBD5 /* YAxisAnchor+InferredRelationOperators.generated.swift in Sources */,
 				E458225C21E54FE900B6054C /* LayoutPriority+Sugar.swift in Sources */,
 				E48737AB21DEA1E70094F2EB /* LayoutConfiguration.swift in Sources */,
+				E4D5568F21F65758007862C1 /* XYAxesAnchorPair+LeftHandExpression.generated.swift in Sources */,
+				E4D5568921F65758007862C1 /* LayoutDimensionPair+LeftHandExpression.generated.swift in Sources */,
 				E472E00421F5A6F4008DCBD5 /* XYAxesAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
+				E4D5569221F65758007862C1 /* YAxisAnchorPair+LeftHandExpression.generated.swift in Sources */,
 				E4DA5C3F21EE4C1400A25746 /* LayoutDimension+ConstantRelationOperators.swift in Sources */,
 				E4DA5C3721EDA21C00A25746 /* EdgeAnchorGroupArray+RelationOperators.swift in Sources */,
 				E458226B21E6981300B6054C /* EdgeAnchorGroup+RelationOperators.swift in Sources */,
@@ -2012,6 +2045,7 @@
 				E472DF7621F58AAB008DCBD5 /* LayoutDimension+InferredRelationOperators.generated.swift in Sources */,
 				E472DF7F21F58AAB008DCBD5 /* LayoutDimensionPair+RelationOperators.generated.swift in Sources */,
 				E472DFC121F58AAB008DCBD5 /* YAxisAnchor+ArrayRelationOperators.generated.swift in Sources */,
+				E4D5568C21F65758007862C1 /* XAxisAnchorPair+LeftHandExpression.generated.swift in Sources */,
 				E458228421E79C9A00B6054C /* LayoutPairRelationship.swift in Sources */,
 				E4EDA2F421F12E8B00F345E8 /* View+AspectRatioOperators.swift in Sources */,
 				E472DF6721F58AAB008DCBD5 /* LayoutDimensionPair+PairArrayInferredRelationOperators.generated.swift in Sources */,

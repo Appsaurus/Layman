@@ -19,7 +19,7 @@ public func {{argument.EqualityOperator}} (lhs: View, rhs: {{AnchorPairType}}) -
 // MARK: View == Expression
 @discardableResult
 public func {{argument.EqualityOperator}} (lhs: View, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
-    return lhs[keyPath: ...rhs.anchors] {{argument.EqualityOperator}} rhs
+    return lhs[keyPath: ...rhs.anchor] {{argument.EqualityOperator}} rhs
 }
 
 // MARK: - LessThanOrEqual
@@ -32,7 +32,7 @@ public func {{argument.LessThanOrEqualToOperator}} (lhs: View, rhs: {{AnchorPair
 // MARK: View <= Expression
 @discardableResult
 public func {{argument.LessThanOrEqualToOperator}} (lhs: View, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
-    return lhs[keyPath: ...rhs.anchors] {{argument.LessThanOrEqualToOperator}} rhs
+    return lhs[keyPath: ...rhs.anchor] {{argument.LessThanOrEqualToOperator}} rhs
 }
 
 // MARK: - GreaterThanOrEqual
@@ -45,7 +45,7 @@ public func {{argument.GreaterThanOrEqualToOperator}} (lhs: View, rhs: {{AnchorP
 // MARK: View >= Expression
 @discardableResult
 public func {{argument.GreaterThanOrEqualToOperator}} (lhs: View, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
-    return lhs[keyPath: ...rhs.anchors] {{argument.GreaterThanOrEqualToOperator}} rhs
+    return lhs[keyPath: ...rhs.anchor] {{argument.GreaterThanOrEqualToOperator}} rhs
 }
 
 // MARK: - rhs collection -

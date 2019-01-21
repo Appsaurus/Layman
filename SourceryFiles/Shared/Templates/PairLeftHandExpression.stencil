@@ -1,0 +1,83 @@
+{% for AnchorTypePair in argument.AnchorPairUnderlyingTypes %}
+// sourcery:file:LeftHandExpression/{{AnchorTypePair}}+LeftHandExpression
+//
+//  {{AnchorTypePair}}+LeftHandExpression.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+extension LayoutAnchorPair where F == {{argument.AnchorPairUnderlyingTypes[AnchorTypePair].0}}, S == {{argument.AnchorPairUnderlyingTypes[AnchorTypePair].1}} {
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: {{AnchorTypePair}}) -> {{AnchorTypePair}}Relationship {
+        return {{AnchorTypePair}}Relationship(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: {{AnchorTypePair}}Expression) -> {{AnchorTypePair}}Relationship {
+        return {{AnchorTypePair}}Relationship(self, relation, rhs)
+
+    }
+
+// MARK: Pair Relations
+@discardableResult
+    public func equal(to rhs: {{AnchorTypePair}}) -> ConstraintPair {
+        return relation(.equal, rhs).solution
+    }
+
+    @discardableResult
+    public func equal(to rhs: {{AnchorTypePair}}Expression) -> ConstraintPair {
+        return relation(.equal, rhs).solution
+    }
+
+    @discardableResult
+    public func equal(to rhs: [{{AnchorTypePair}}]) -> [ConstraintPair] {
+        return rhs.map { relation(.equal, $0).solution }
+    }
+
+    @discardableResult
+    public func equal(to rhs: [{{AnchorTypePair}}Expression]) -> [ConstraintPair] {
+        return rhs.map { relation(.equal, $0).solution }
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: {{AnchorTypePair}}) -> ConstraintPair {
+        return relation(.lessThanOrEqual, rhs).solution
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: {{AnchorTypePair}}Expression) -> ConstraintPair {
+        return relation(.lessThanOrEqual, rhs).solution
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [{{AnchorTypePair}}]) -> [ConstraintPair] {
+        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [{{AnchorTypePair}}Expression]) -> [ConstraintPair] {
+        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: {{AnchorTypePair}}) -> ConstraintPair {
+        return relation(.greaterThanOrEqual, rhs).solution
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: {{AnchorTypePair}}Expression) -> ConstraintPair {
+        return relation(.greaterThanOrEqual, rhs).solution
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [{{AnchorTypePair}}]) -> [ConstraintPair] {
+        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+    }
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [{{AnchorTypePair}}Expression]) -> [ConstraintPair] {
+        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+    }
+}
+// sourcery:end
+{% endfor %}

@@ -5,6 +5,19 @@ templates:
 args:
     AnchorTypes: ['XAxisAnchor','YAxisAnchor','LayoutDimension']
     AnchorPairTypes: ['XAxisAnchorPair','YAxisAnchorPair','LayoutDimensionPair','XYAxesAnchorPair']
+    AnchorPairUnderlyingTypes:
+        XAxisAnchorPair:
+            - 'XAxisAnchor'
+            - 'XAxisAnchor'
+        YAxisAnchorPair:
+            - 'YAxisAnchor'
+            - 'YAxisAnchor'
+        LayoutDimensionPair:
+            - 'LayoutDimension'
+            - 'LayoutDimension'
+        XYAxesAnchorPair:
+            - 'XAxisAnchor'
+            - 'YAxisAnchor'
     EqualityOperator: '=='
     LessThanOrEqualToOperator: '<='
     GreaterThanOrEqualToOperator: '>='

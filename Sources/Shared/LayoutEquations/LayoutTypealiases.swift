@@ -36,10 +36,17 @@ public typealias AnchorType = AnyObject
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 //public class LayoutAnchorPair<F, S>: MixedLayoutModelReferencePair<LayoutAnchor<F>, LayoutAnchor<S>> where F: AnchorType, S: AnchorType {}
 
-public protocol LayoutAnchorType {}
-extension XAxisAnchor: LayoutAnchorType {}
-extension YAxisAnchor: LayoutAnchorType {}
-extension LayoutDimension: LayoutAnchorType {}
+//public protocol LayoutAnchorType: AnchorType {
+//}
+//extension LayoutAnchorType{
+//    func toAnchor<F: AnchorType>() -> LayoutAnchor<F>{
+//        return self as! LayoutAnchor<F>
+//    }
+//}
+//extension LayoutAnchor: LayoutAnchorType {}
+//extension XAxisAnchor: LayoutAnchorType {}
+//extension YAxisAnchor: LayoutAnchorType {}
+//extension LayoutDimension: LayoutAnchorType {}
 
 // MARK: Typed Anchors
 public typealias XAxisAnchor = NSLayoutXAxisAnchor

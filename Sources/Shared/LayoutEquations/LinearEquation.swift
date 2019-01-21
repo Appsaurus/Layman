@@ -79,7 +79,6 @@ extension LeftHandExpression {
     public func greaterThanOrEqual(to rhs: [E]) -> [S] {
         return rhs.map { relation(.greaterThanOrEqual, $0).solution }
     }
-
 }
 
 extension Array where Element: LeftHandExpression {
@@ -159,7 +158,6 @@ extension Array where Element: LeftHandExpression {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }
-
 
 public protocol Variable {
     associatedtype E

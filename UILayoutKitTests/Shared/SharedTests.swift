@@ -192,6 +192,7 @@ class SharedTests: UILayoutKitTestCase {
 
     func testXYAxesAnchors() {
         let constraints = view1.centerAnchors.equal(to: relatedView.centerAnchors)
+//        let constraints = view1.centerAnchors == relatedView.centerAnchors
         constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX)
         constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY)
         

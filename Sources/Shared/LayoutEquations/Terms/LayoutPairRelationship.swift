@@ -24,8 +24,8 @@ public class LayoutPairRelationship<F: AnchorType, S: AnchorType> {
     }
 
     public convenience init(_ anchors: LayoutAnchorPair<F, S>,
-                _ relation: Constraint.Relation,
-                _ relatedExpression: LayoutPairExpression<F, S>) {
+                            _ relation: Constraint.Relation,
+                            _ relatedExpression: LayoutPairExpression<F, S>) {
         self.init(anchors,
                   relation,
                   relatedExpression.anchor,
@@ -47,12 +47,11 @@ public class LayoutPairRelationship<F: AnchorType, S: AnchorType> {
     }
 }
 
-extension LayoutPairRelationship: LinearEquatable{
+extension LayoutPairRelationship: LinearEquatable {
     public var solution: ConstraintPair {
         return constraints
     }
 
     public typealias Solution = ConstraintPair
-
 
 }
