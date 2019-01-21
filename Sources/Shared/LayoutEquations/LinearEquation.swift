@@ -13,7 +13,7 @@ public protocol LinearEquatable {
 public protocol LeftHandExpression {
     associatedtype E
     associatedtype LinearEquation: LinearEquatable
-    typealias S = LinearEquation.Solution
+    typealias Solution = LinearEquation.Solution
 
     func relation(_ relation: Constraint.Relation, _ rhs: Self) -> LinearEquation
     func relation(_ relation: Constraint.Relation, _ rhs: E) -> LinearEquation
@@ -22,61 +22,61 @@ public protocol LeftHandExpression {
 extension LeftHandExpression {
 
     @discardableResult
-    public func equal(to rhs: Self) -> S {
+    public func equal(to rhs: Self) -> Solution {
         return relation(.equal, rhs).solution
     }
 
     @discardableResult
-    public func equal(to rhs: E) -> S {
+    public func equal(to rhs: E) -> Solution {
         return relation(.equal, rhs).solution
     }
 
     @discardableResult
-    public func equal(to rhs: [Self]) -> [S] {
+    public func equal(to rhs: [Self]) -> [Solution] {
         return rhs.map { relation(.equal, $0).solution }
     }
 
     @discardableResult
-    public func equal(to rhs: [E]) -> [S] {
+    public func equal(to rhs: [E]) -> [Solution] {
         return rhs.map { relation(.equal, $0).solution }
     }
 
     @discardableResult
-    public func lessThanOrEqual(to rhs: Self) -> S {
+    public func lessThanOrEqual(to rhs: Self) -> Solution {
         return relation(.lessThanOrEqual, rhs).solution
     }
 
     @discardableResult
-    public func lessThanOrEqual(to rhs: E) -> S {
+    public func lessThanOrEqual(to rhs: E) -> Solution {
         return relation(.lessThanOrEqual, rhs).solution
     }
 
     @discardableResult
-    public func lessThanOrEqual(to rhs: [Self]) -> [S] {
+    public func lessThanOrEqual(to rhs: [Self]) -> [Solution] {
         return rhs.map { relation(.lessThanOrEqual, $0).solution }
     }
 
     @discardableResult
-    public func lessThanOrEqual(to rhs: [E]) -> [S] {
+    public func lessThanOrEqual(to rhs: [E]) -> [Solution] {
         return rhs.map { relation(.lessThanOrEqual, $0).solution }
     }
 
     @discardableResult
-    public func greaterThanOrEqual(to rhs: Self) -> S {
+    public func greaterThanOrEqual(to rhs: Self) -> Solution {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
     @discardableResult
-    public func greaterThanOrEqual(to rhs: E) -> S {
+    public func greaterThanOrEqual(to rhs: E) -> Solution {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
     @discardableResult
-    public func greaterThanOrEqual(to rhs: [Self]) -> [S] {
+    public func greaterThanOrEqual(to rhs: [Self]) -> [Solution] {
         return rhs.map { relation(.greaterThanOrEqual, $0).solution }
     }
     @discardableResult
-    public func greaterThanOrEqual(to rhs: [E]) -> [S] {
+    public func greaterThanOrEqual(to rhs: [E]) -> [Solution] {
         return rhs.map { relation(.greaterThanOrEqual, $0).solution }
     }
 }
@@ -168,17 +168,6 @@ public protocol Variable {
 
 }
 
-//public protocol VariablePair {
-//    associatedtype F: AnchorType
-//    associatedtype S: AnchorType
-//    associatedtype E: LayoutPairExpression<F, S>
-//    func plus(_ constant: LayoutConstant) -> LayoutPairExpression<F, S>
-//    func minus(_ constant: LayoutConstant) -> LayoutPairExpression<F, S>
-//    func times(_ multiplier: LayoutMultiplier) -> LayoutPairExpression<F, S>
-//    func divided(by divisor: LayoutDivisor) -> LayoutPairExpression<F, S>
-//
-//}
-
 public protocol Coefficient {
     //    var constant: LayoutConstant { get set }
     //    var multiplier: LayoutMultiplier { get set }
@@ -247,5 +236,75 @@ extension Array: LinearEquatable where Element: LinearEquatable {
 
     public var solution: Solution {
         return map { $0.solution }
+    }
+}
+
+//public protocol VariablePair {
+//    associatedtype F: AnchorType
+//    associatedtype S: AnchorType
+//    associatedtype E
+//    func plus(_ constant: LayoutConstant) -> E
+//    func minus(_ constant: LayoutConstant) -> E
+//    func times(_ multiplier: LayoutMultiplier) -> E
+//    func divided(by divisor: LayoutDivisor) -> E
+//}
+//
+//extension VariablePair {
+//
+//    public func minus(_ constant: LayoutConstant) -> E {
+//        return self.plus(-constant)
+//    }
+//    public func divided(by divisor: LayoutDivisor) -> E {
+//        return times(1.0 / divisor)
+//    }
+//}
+
+extension LayoutAnchorPair: Variable {
+
+    public typealias E = LayoutPairExpression<F, S>
+
+    public func plus(_ constant: LayoutConstant) -> E {
+        return LayoutPairExpression<F, S>.init(anchor: self, configuration: .constant(constant))
+    }
+
+    public func times(_ multiplier: LayoutMultiplier) -> E {
+        return LayoutPairExpression<F, S>.init(anchor: self, configuration: .multiplier(multiplier))
+    }
+}
+//extension Array: VariablePair where Element: VariablePair {
+//    public typealias F = Element.F
+//    public typealias S = Element.S
+//    //    public typealias E = [Element.E]
+//    public func plus(_ constant: LayoutConstant) -> [Element.E] {
+//        return self.map { $0.plus(constant) }
+//    }
+//
+//    public func times(_ multiplier: LayoutMultiplier) -> [Element.E] {
+//        return self.map { $0.times(multiplier) }
+//    }
+//}
+
+//public protocol LeftHandPairExpression {
+//    associatedtype F: AnchorType
+//    associatedtype S: AnchorType
+//    associatedtype E
+//    associatedtype LinearEquation: LinearEquatable
+////    associatedtype Solution
+//
+//    func relation(_ relation: Constraint.Relation, _ rhs: Self) -> LinearEquation
+//    func relation(_ relation: Constraint.Relation, _ rhs: E) -> LinearEquation
+//}
+
+extension LayoutAnchorPair: LeftHandExpression {
+//    public typealias Expression = LayoutPairExpression<F, S>
+    public typealias LinearEquation = LayoutPairRelationship<F, S>
+//    public typealias Solution = LinearEquation.Solution
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutAnchorPair<F, S>) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: E ) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
     }
 }
