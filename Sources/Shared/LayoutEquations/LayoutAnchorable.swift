@@ -54,11 +54,11 @@ public protocol BaselineLayoutAnchorable: LayoutAnchorable, BaselineAnchorable {
 extension XYAxisAnchorable {
 
     public var horizontalEdgeAnchors: XAxisAnchorPair {
-        return LayoutAnchorPair(leadingAnchor, trailingAnchor)
+        return XAxisAnchorPair(leadingAnchor, trailingAnchor)
     }
 
     public var verticalEdgeAnchors: YAxisAnchorPair {
-        return LayoutAnchorPair(topAnchor, bottomAnchor)
+        return YAxisAnchorPair(topAnchor, bottomAnchor)
     }
 
     public var edgeAnchors: EdgeAnchorGroup {
@@ -69,7 +69,7 @@ extension XYAxisAnchorable {
     }
 
     public var centerAnchors: XYAxesAnchorPair {
-        return LayoutAnchorPair(centerXAnchor, centerYAnchor)
+        return XYAxesAnchorPair(centerXAnchor, centerYAnchor)
     }
 
     public var topLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, topAnchor) }
@@ -78,7 +78,7 @@ extension XYAxisAnchorable {
     public var bottomLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, bottomAnchor) }
 
     public func edgesExcluding(_ edge: XAxisAnchor) -> EdgeAnchorGroupExpression {
-        let edgeExpression = EdgeAnchorGroupExpression(anchors: edgeAnchors)
+        let edgeExpression = EdgeAnchorGroupExpression(anchor: edgeAnchors)
         switch edge.attribute {
         case .leading:
             edgeExpression.leadingExpression.configuration.active = false
@@ -91,7 +91,7 @@ extension XYAxisAnchorable {
     }
 
     public func edgesExcluding(_ edge: YAxisAnchor) -> EdgeAnchorGroupExpression {
-        let edgeExpression = EdgeAnchorGroupExpression(anchors: edgeAnchors)
+        let edgeExpression = EdgeAnchorGroupExpression(anchor: edgeAnchors)
         switch edge.attribute {
         case .top:
             edgeExpression.topExpression.configuration.active = false
@@ -109,7 +109,7 @@ extension XYAxisAnchorable {
 
 extension SizeAnchorable {
     public var sizeAnchors: LayoutDimensionPair {
-        return LayoutAnchorPair(widthAnchor, heightAnchor)
+        return LayoutDimensionPair(widthAnchor, heightAnchor)
     }
 }
 

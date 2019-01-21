@@ -14,41 +14,37 @@
 // MARK: Anchor == Anchor Array
 @discardableResult
 public func == (lhs: XAxisAnchor, rhs: XAxisAnchors) -> Constraints {
-    return rhs.map({lhs == $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Anchor
 @discardableResult
 public func == (lhs: XAxisAnchors, rhs: XAxisAnchor) -> Constraints {
-    return lhs.map({$0 == rhs})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Anchor Array
 @discardableResult
 public func == (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map { element == $0 }
-    }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor == Expression Array
 @discardableResult
 public func == (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> Constraints {
-    return rhs.map({lhs == $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Expression
 @discardableResult
 public func == (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> Constraints {
-    return lhs.map {$0 == rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Expression Array
 @discardableResult
 public func == (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map { element == $0 }
-    }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
@@ -56,41 +52,37 @@ public func == (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints]
 // MARK: Anchor <= Anchor Array
 @discardableResult
 public func <= (lhs: XAxisAnchor, rhs: XAxisAnchors) -> Constraints {
-    return rhs.map({lhs <= $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Anchor
 @discardableResult
 public func <= (lhs: XAxisAnchors, rhs: XAxisAnchor) -> Constraints {
-    return lhs.map({$0 <= rhs})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Anchor Array
 @discardableResult
 public func <= (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map { element <= $0 }
-    }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor <= Expression Array
 @discardableResult
 public func <= (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> Constraints {
-    return rhs.map({lhs <= $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Expression
 @discardableResult
 public func <= (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> Constraints {
-    return lhs.map {$0 <= rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Expression Array
 @discardableResult
 public func <= (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map { element <= $0 }
-    }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
@@ -98,39 +90,35 @@ public func <= (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints]
 // MARK: Anchor >= Anchor Array
 @discardableResult
 public func >= (lhs: XAxisAnchor, rhs: XAxisAnchors) -> Constraints {
-    return rhs.map({lhs >= $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Anchor
 @discardableResult
 public func >= (lhs: XAxisAnchors, rhs: XAxisAnchor) -> Constraints {
-    return lhs.map({$0 >= rhs})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Anchor Array
 @discardableResult
 public func >= (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map { element >= $0 }
-    }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor >= Expression Array
 @discardableResult
 public func >= (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> Constraints {
-    return rhs.map({lhs >= $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Expression
 @discardableResult
 public func >= (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> Constraints {
-    return lhs.map {$0 >= rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Expression Array
 @discardableResult
 public func >= (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map { element >= $0 }
-    }
+    return lhs.greaterThanOrEqual(to: rhs)
 }

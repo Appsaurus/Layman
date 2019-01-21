@@ -11,22 +11,22 @@
 
 @discardableResult
 public func + (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
+    return lhs.plus(rhs)
 }
 
 @discardableResult
 public func - (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: -rhs))
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func * (lhs: LayoutDimension, rhs: LayoutMultiplier) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(multiplier: rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func / (lhs: LayoutDimension, rhs: LayoutDivisor) -> LayoutDimensionExpression {
-    return lhs * (1.0 / rhs)
+    return lhs.divided(by: rhs)
 }
 
 @discardableResult

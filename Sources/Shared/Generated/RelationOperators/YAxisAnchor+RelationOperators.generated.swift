@@ -14,13 +14,13 @@
 // MARK: Anchor == Anchor
 @discardableResult
 public func == (lhs: YAxisAnchor, rhs: YAxisAnchor) -> Constraint {
-    return LayoutRelationship(lhs, .equal, rhs).constraint
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor == Expression
 @discardableResult
 public func == (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
-    return LayoutRelationship(lhs, .equal, rhs).constraint
+    return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
@@ -28,13 +28,13 @@ public func == (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
 // MARK: Anchor <= Anchor
 @discardableResult
 public func <= (lhs: YAxisAnchor, rhs: YAxisAnchor) -> Constraint {
-    return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor <= Expression
 @discardableResult
 public func <= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
-    return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
@@ -42,11 +42,11 @@ public func <= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
 // MARK: Anchor >= Anchor
 @discardableResult
 public func >= (lhs: YAxisAnchor, rhs: YAxisAnchor) -> Constraint {
-    return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor >= Expression
 @discardableResult
 public func >= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
-    return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
+    return lhs.greaterThanOrEqual(to: rhs)
 }

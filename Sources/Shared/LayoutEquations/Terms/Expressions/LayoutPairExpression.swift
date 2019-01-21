@@ -8,43 +8,50 @@
 
 public class LayoutPairExpression<F: AnchorType, S: AnchorType> {
 
-    public var anchors: LayoutAnchorPair<F, S>
-    public var configurations: LayoutPairConfiguration
+    public var anchor: LayoutAnchorPair<F, S>
+    public var configuration: LayoutPairConfiguration
 
-    public init(anchors: LayoutAnchorPair<F, S>, configurations: LayoutPairConfiguration = .default) {
-        self.anchors = anchors
-        self.configurations = configurations
+    public init(anchor: LayoutAnchorPair<F, S>, configuration: LayoutPairConfiguration = .default) {
+        self.anchor = anchor
+        self.configuration = configuration
     }
 
-    public init(anchors: LayoutAnchorPair<F, S>, configuration: LayoutConfiguration) {
-        self.anchors = anchors
-        self.configurations = LayoutPairConfiguration(configuration, configuration)
+    public init(anchor: LayoutAnchorPair<F, S>, configuration: LayoutConfiguration) {
+        self.anchor = anchor
+        self.configuration = LayoutPairConfiguration(configuration, configuration)
     }
 
     @discardableResult
     public func configured(with configuration: LayoutConfiguration) -> Self {
-        self.configurations = LayoutPairConfiguration(configuration, configuration)
+        self.configuration = LayoutPairConfiguration(configuration, configuration)
         return self
     }
 
     @discardableResult
     public func with(constant: LayoutConstant) -> Self {
-        configurations.first.constant = constant
-        configurations.second.constant = constant
+        configuration.first.constant = constant
+        configuration.second.constant = constant
         return self
     }
 
     @discardableResult
     public func with(multiplier: LayoutMultiplier) -> Self {
-        configurations.first.multiplier = multiplier
-        configurations.second.multiplier = multiplier
+        configuration.first.multiplier = multiplier
+        configuration.second.multiplier = multiplier
         return self
     }
 
     @discardableResult
     public func with(priority: LayoutPriority) -> Self {
-        configurations.first.priority = priority
-        configurations.second.priority = priority
+        configuration.first.priority = priority
+        configuration.second.priority = priority
         return self
     }
+}
+
+extension LayoutPairExpression: Expression {
+    public typealias C = LayoutPairConfiguration
+    public typealias V = LayoutAnchorPair<F, S>
+
+
 }

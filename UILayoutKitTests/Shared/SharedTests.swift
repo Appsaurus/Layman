@@ -191,7 +191,7 @@ class SharedTests: UILayoutKitTestCase {
     }
 
     func testXYAxesAnchors() {
-        let constraints = view1.centerAnchors == relatedView.centerAnchors
+        let constraints = view1.centerAnchors.equal(to: relatedView.centerAnchors)
         constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX)
         constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY)
         
@@ -603,7 +603,6 @@ class SharedTests: UILayoutKitTestCase {
 
     }
 
-
     func layoutDimensionPlusConstantCompilationBenchmark() {
         view1.widthAnchor == relatedView.widthAnchor + 10
         view1.widthAnchor == relatedView.widthAnchor + 10
@@ -845,6 +844,48 @@ class SharedTests: UILayoutKitTestCase {
         view1.width .= view2.width .+ 20
     }
 
+    func otherShorthandOperatorPlusConstantVerbose() {
+        //        view1.width.equal(to: view2)
+        //        view1.equal(to: view2.width.plus(10).with(priority: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+        view1.widthAnchor.equal(to: view2.width.divided(by: 10).with(constant: 20))
+    }
+
     func otherOperatorPlusConstant() {
         //        view1.width.equal(to: view2)
         //        view1.equal(to: view2.width.plus(10).with(priority: 20))
@@ -1013,7 +1054,7 @@ class SharedTests: UILayoutKitTestCase {
         view1.widthAnchor |=| view2.widthAnchor |+| 20 ~ .high
     }
 
-    func showcase(){
+    func showcase() {
 
         view1 .= view2.width .+ 20
 
@@ -1324,11 +1365,11 @@ public func + (lhs: LayoutDimension, rhs: Constant) -> LayoutDimensionExpression
     return lhs + rhs.value
 }
 
-public func constant(_ value: CGFloat) -> Constant{
+public func constant(_ value: CGFloat) -> Constant {
     return Constant(value)
 }
 
-public func equalTo() -> (_ lhs: LayoutDimension, _ rhs: LayoutDimension) -> Constraint{
+public func equalTo() -> (_ lhs: LayoutDimension, _ rhs: LayoutDimension) -> Constraint {
     return (==)
 }
 

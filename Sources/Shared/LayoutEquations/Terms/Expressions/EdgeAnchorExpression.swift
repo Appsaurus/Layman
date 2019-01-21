@@ -7,16 +7,16 @@
 //
 
 public class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
-    public var configurations: EdgeAnchorsConfiguration = .default
+    public var configuration: EdgeAnchorsConfiguration = .default
 
-    var topExpression: YAxisAnchorExpression { return top + configurations.top }
-    var leadingExpression: XAxisAnchorExpression { return leading + configurations.leading }
-    var bottomExpression: YAxisAnchorExpression { return bottom + configurations.bottom }
-    var trailingExpression: XAxisAnchorExpression { return trailing + configurations.trailing }
+    var topExpression: YAxisAnchorExpression { return top + configuration.top }
+    var leadingExpression: XAxisAnchorExpression { return leading + configuration.leading }
+    var bottomExpression: YAxisAnchorExpression { return bottom + configuration.bottom }
+    var trailingExpression: XAxisAnchorExpression { return trailing + configuration.trailing }
 
-    public convenience init(anchors: EdgeAnchorGroup, configurations: EdgeAnchorsConfiguration = .default) {
-        self.init(anchors)
-        self.configurations = configurations
+    public convenience init(anchor: EdgeAnchorGroup, configuration: EdgeAnchorsConfiguration = .default) {
+        self.init(anchor)
+        self.configuration = configuration
     }
 
     required public init(_ top: YAxisAnchor,
@@ -27,33 +27,32 @@ public class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
     }
 
     @discardableResult
-    public func configured(with configurations: EdgeAnchorsConfiguration) -> Self {
-        self.configurations = configurations
-        return self
-    }
-
-    @discardableResult
     public func configured(with configuration: LayoutConfiguration) -> Self {
-        self.configurations = EdgeAnchorsConfiguration(configuration)
+        self.configuration = EdgeAnchorsConfiguration(configuration)
         return self
     }
 
     @discardableResult
     public func with(constant: LayoutConstant) -> Self {
-        configurations.all.forEach {$0.constant = constant}
+        configuration.all.forEach {$0.constant = constant}
         return self
     }
 
     @discardableResult
     public func with(multiplier: LayoutMultiplier) -> Self {
-        configurations.all.forEach {$0.multiplier = multiplier}
+        configuration.all.forEach {$0.multiplier = multiplier}
         return self
     }
 
+}
+
+extension EdgeAnchorGroupExpression: Expression {
+    public typealias C = EdgeAnchorsConfiguration
+    public typealias V = EdgeAnchorGroup
+
     @discardableResult
-    public func with(priority: LayoutPriority) -> Self {
-        configurations.all.forEach {$0.priority = priority}
-        return self
+    public func divided(by rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
+        return with(multiplier: (1.0 / rhs))
     }
 }
 

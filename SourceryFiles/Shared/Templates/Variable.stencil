@@ -1,0 +1,24 @@
+{% for AnchorType in argument.AnchorTypes %}
+// sourcery:file:Variables/{{AnchorType}}+Variable
+//
+//  {{AnchorType}}+Variable.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+extension {{AnchorType}}: Variable {
+
+    public typealias E = {{AnchorType}}Expression
+
+    public func plus(_ constant: LayoutConstant) -> {{AnchorType}}Expression {
+        return {{AnchorType}}Expression(anchor: self, configuration: .constant(constant))
+    }
+
+    public func times(_ multiplier: LayoutMultiplier) -> {{AnchorType}}Expression {
+        return {{AnchorType}}Expression(anchor: self, configuration: .multiplier(multiplier))
+    }
+}
+// sourcery:end
+{% endfor %}

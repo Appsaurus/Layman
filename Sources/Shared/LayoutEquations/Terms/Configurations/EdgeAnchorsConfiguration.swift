@@ -9,3 +9,4 @@
 public final class EdgeAnchorsConfiguration: SidesTuple<LayoutConfiguration, LayoutConfiguration> {
     public static var `default`: EdgeAnchorsConfiguration { return .init(.default) }
 }
+extension EdgeAnchorsConfiguration: Coefficient { }

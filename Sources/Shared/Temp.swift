@@ -66,13 +66,6 @@ public func .=. (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
     return lhs[keyPath: ...rhs.anchor] .=. rhs
 }
 
-
-
-
-
-
-
-
 infix operator ≡ : RelationPrecedence
 
 // MARK: Anchor == Anchor
@@ -86,11 +79,6 @@ public func ≡ (lhs: LayoutDimension, rhs: LayoutDimension) -> Constraint {
 public func ≡ (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> Constraint {
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
-
-
-
-
-
 
 infix operator ≈ : RelationPrecedence
 
@@ -106,7 +94,6 @@ public func ≈ (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> Constr
     return LayoutRelationship(lhs, .equal, rhs).constraint
 }
 
-
 // MARK: View == Anchor
 @discardableResult
 public func ≈ (lhs: View, rhs: LayoutDimension) -> Constraint {
@@ -118,8 +105,6 @@ public func ≈ (lhs: View, rhs: LayoutDimension) -> Constraint {
 public func ≈ (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
     return lhs[keyPath: ...rhs.anchor] ≈ rhs
 }
-
-
 
 infix operator |=| : RelationPrecedence
 
@@ -175,7 +160,6 @@ public func <=> (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
     return lhs[keyPath: ...rhs.anchor] <=> rhs
 }
 
-
 infix operator <> : RelationPrecedence
 
 // MARK: Anchor == Anchor
@@ -202,13 +186,10 @@ public func <> (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
     return lhs[keyPath: ...rhs.anchor] <> rhs
 }
 
-
-
 precedencegroup OffsetPrecedence {
     associativity: none
     higherThan: AdditionPrecedence
 }
-
 
 infix operator .+ : OffsetPrecedence
 
@@ -224,14 +205,12 @@ public func |+| (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionEx
     return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
 
-
 infix operator .+. : OffsetPrecedence
 
 @discardableResult
 public func .+. (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
     return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
-
 
 infix operator <+> : OffsetPrecedence
 
@@ -246,4 +225,3 @@ infix operator ~+~ : OffsetPrecedence
 public func ~+~ (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
     return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
-

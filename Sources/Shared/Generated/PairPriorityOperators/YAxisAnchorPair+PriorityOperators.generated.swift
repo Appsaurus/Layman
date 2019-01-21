@@ -10,7 +10,7 @@
 //
 @discardableResult
 public func ~ (lhs: YAxisAnchorPair, rhs: LayoutPriority) -> YAxisAnchorPairExpression {
-    return YAxisAnchorPairExpression(anchors: lhs).with(priority: rhs)
+    return YAxisAnchorPairExpression(anchor: lhs).with(priority: rhs)
 }
 
 @discardableResult

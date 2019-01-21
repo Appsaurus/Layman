@@ -14,13 +14,13 @@
 // MARK: Anchor == Anchor
 @discardableResult
 public func == (lhs: XAxisAnchor, rhs: XAxisAnchor) -> Constraint {
-    return LayoutRelationship(lhs, .equal, rhs).constraint
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor == Expression
 @discardableResult
 public func == (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint {
-    return LayoutRelationship(lhs, .equal, rhs).constraint
+    return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
@@ -28,13 +28,13 @@ public func == (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint {
 // MARK: Anchor <= Anchor
 @discardableResult
 public func <= (lhs: XAxisAnchor, rhs: XAxisAnchor) -> Constraint {
-    return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor <= Expression
 @discardableResult
 public func <= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint {
-    return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
@@ -42,11 +42,11 @@ public func <= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint {
 // MARK: Anchor >= Anchor
 @discardableResult
 public func >= (lhs: XAxisAnchor, rhs: XAxisAnchor) -> Constraint {
-    return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor >= Expression
 @discardableResult
 public func >= (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> Constraint {
-    return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
+    return lhs.greaterThanOrEqual(to: rhs)
 }

@@ -19,7 +19,7 @@ public func == (lhs: View, rhs: YAxisAnchorPair) -> ConstraintPair {
 // MARK: View == Expression
 @discardableResult
 public func == (lhs: View, rhs: YAxisAnchorPairExpression) -> ConstraintPair {
-    return lhs[keyPath: ...rhs.anchors] == rhs
+    return lhs[keyPath: ...rhs.anchor] == rhs
 }
 
 // MARK: - LessThanOrEqual
@@ -32,7 +32,7 @@ public func <= (lhs: View, rhs: YAxisAnchorPair) -> ConstraintPair {
 // MARK: View <= Expression
 @discardableResult
 public func <= (lhs: View, rhs: YAxisAnchorPairExpression) -> ConstraintPair {
-    return lhs[keyPath: ...rhs.anchors] <= rhs
+    return lhs[keyPath: ...rhs.anchor] <= rhs
 }
 
 // MARK: - GreaterThanOrEqual
@@ -45,7 +45,7 @@ public func >= (lhs: View, rhs: YAxisAnchorPair) -> ConstraintPair {
 // MARK: View >= Expression
 @discardableResult
 public func >= (lhs: View, rhs: YAxisAnchorPairExpression) -> ConstraintPair {
-    return lhs[keyPath: ...rhs.anchors] >= rhs
+    return lhs[keyPath: ...rhs.anchor] >= rhs
 }
 
 // MARK: - rhs collection -

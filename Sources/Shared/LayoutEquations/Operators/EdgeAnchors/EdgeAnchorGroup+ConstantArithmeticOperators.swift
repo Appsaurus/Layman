@@ -8,43 +8,37 @@
 // MARK: EdgeAnchors Constant Arithmetic
 @discardableResult
 public func + (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
-    return lhs + LayoutInset(padding: rhs)
+    return lhs.plus(rhs)
 }
 
 @discardableResult
 public func - (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
-    return lhs + -rhs
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func * (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
-    return EdgeAnchorGroupExpression(anchors: lhs, configurations: EdgeAnchorsConfiguration(.multiplier(rhs)))
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func / (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
-    return lhs * (1.0 / rhs)
-}
-
-@discardableResult
-public func / (lhs: EdgeAnchorGroupExpression, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
-    return lhs.with(multiplier: (1.0 / rhs))
+    return lhs.divided(by: rhs)
 }
 
 // MARK: UIEdgeInset Constant
 @discardableResult
 public func + (lhs: EdgeAnchorGroup, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
-
-    let configuration = EdgeAnchorsConfiguration(
-        .constant(rhs.top),
-        .constant(rhs.left),
-        .constant(rhs.bottom),
-        .constant(rhs.right)
-    )
-    return EdgeAnchorGroupExpression(lhs).configured(with: configuration)
+    return lhs.plus(inset: rhs)
 }
 
 @discardableResult
 public func - (lhs: EdgeAnchorGroup, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
-    return lhs + LayoutInset(top: -rhs.top, left: -rhs.left, bottom: -rhs.bottom, right: -rhs.right)
+    return lhs.minus(inset: rhs)
+}
+
+// MARK: EdgeAnchorGroupExpression
+@discardableResult
+public func / (lhs: EdgeAnchorGroupExpression, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
+    return lhs.divided(by: rhs)
 }

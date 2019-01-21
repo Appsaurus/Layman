@@ -10,7 +10,7 @@
 //
 @discardableResult
 public func ~ (lhs: LayoutDimensionPair, rhs: LayoutPriority) -> LayoutDimensionPairExpression {
-    return LayoutDimensionPairExpression(anchors: lhs).with(priority: rhs)
+    return LayoutDimensionPairExpression(anchor: lhs).with(priority: rhs)
 }
 
 @discardableResult

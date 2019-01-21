@@ -11,25 +11,25 @@
 
 @discardableResult
 public func + (lhs: LayoutDimensions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
-    return lhs.map { $0 + rhs }
+    return lhs.plus(rhs)
 }
 
 @discardableResult
 public func - (lhs: LayoutDimensions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
-    return lhs.map { $0 - rhs }
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func * (lhs: LayoutDimensions, rhs: LayoutMultiplier) -> LayoutDimensionExpressions {
-    return lhs.map { $0 * rhs }
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func / (lhs: LayoutDimensions, rhs: LayoutDivisor) -> LayoutDimensionExpressions {
-    return lhs.map { $0 / rhs }
+    return lhs.divided(by: rhs)
 }
 
 @discardableResult
 public func / (lhs: LayoutDimensionExpressions, rhs: LayoutDivisor) -> LayoutDimensionExpressions {
-    return lhs.map { $0 / rhs }
+    return lhs.map { $0.with(multiplier: (1.0 / rhs)) }
 }

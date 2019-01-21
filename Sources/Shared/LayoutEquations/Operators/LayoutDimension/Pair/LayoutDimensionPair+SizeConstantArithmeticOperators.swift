@@ -9,8 +9,8 @@
 // MARK: LayoutSize Constant
 @discardableResult
 public func + (lhs: LayoutDimensionPair, rhs: LayoutSize) -> LayoutDimensionPairExpression {
-    let configurations = LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
-    return LayoutDimensionPairExpression(anchors: lhs, configurations: configurations)
+    let configuration = LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
+    return LayoutDimensionPairExpression(anchor: lhs, configuration: configuration)
 }
 
 @discardableResult

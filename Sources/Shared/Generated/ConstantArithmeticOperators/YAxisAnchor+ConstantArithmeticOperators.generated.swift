@@ -11,22 +11,22 @@
 
 @discardableResult
 public func + (lhs: YAxisAnchor, rhs: LayoutConstant) -> YAxisAnchorExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
+    return lhs.plus(rhs)
 }
 
 @discardableResult
 public func - (lhs: YAxisAnchor, rhs: LayoutConstant) -> YAxisAnchorExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(constant: -rhs))
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func * (lhs: YAxisAnchor, rhs: LayoutMultiplier) -> YAxisAnchorExpression {
-    return LayoutExpression(anchor: lhs, configuration: LayoutConfiguration(multiplier: rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func / (lhs: YAxisAnchor, rhs: LayoutDivisor) -> YAxisAnchorExpression {
-    return lhs * (1.0 / rhs)
+    return lhs.divided(by: rhs)
 }
 
 @discardableResult

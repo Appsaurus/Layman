@@ -17,6 +17,24 @@ public final class LayoutExpression<A: AnchorType> {
     }
 
     @discardableResult
+    public func with(priority: LayoutPriority) -> Self {
+        configuration.priority = priority
+        return self
+    }
+
+    @discardableResult
+    public func with(active: Bool) -> Self {
+        configuration.active = active
+        return self
+    }
+
+}
+
+extension LayoutExpression: Expression where A: Variable {
+    public typealias C = LayoutConfiguration
+    public typealias V = LayoutAnchor<A>
+
+    @discardableResult
     public func configured(with configuration: LayoutConfiguration) -> Self {
         self.configuration = configuration
         return self
@@ -33,17 +51,4 @@ public final class LayoutExpression<A: AnchorType> {
         configuration.multiplier = multiplier
         return self
     }
-
-    @discardableResult
-    public func with(priority: LayoutPriority) -> Self {
-        configuration.priority = priority
-        return self
-    }
-
-    @discardableResult
-    public func with(active: Bool) -> Self {
-        configuration.active = active
-        return self
-    }
-
 }

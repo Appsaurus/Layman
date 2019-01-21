@@ -12,7 +12,7 @@ import Cocoa
 import UIKit
 #endif
 
-public final class LayoutConfiguration {
+public final class LayoutConfiguration: Coefficient {
 
     public var constant: LayoutConstant
     public var multiplier: LayoutMultiplier
@@ -35,6 +35,11 @@ public final class LayoutConfiguration {
     }
     public func with(multiplier: LayoutMultiplier) -> LayoutConfiguration {
         self.multiplier = multiplier
+        return self
+    }
+
+    public func with(divisor: LayoutConstant) -> LayoutConfiguration {
+        self.constant = (1.0 / divisor)
         return self
     }
     public func with(priority: LayoutPriority) -> LayoutConfiguration {
@@ -67,3 +72,5 @@ extension LayoutConfiguration {
 public final class LayoutPairConfiguration: LayoutModelReferencePair<LayoutConfiguration> {
     public static var `default`: LayoutPairConfiguration { return .init(.default) }
 }
+
+extension LayoutPairConfiguration: Coefficient {}

@@ -34,7 +34,7 @@ public typealias ConstraintAttributes = [ConstraintAttribute]
 public typealias LayoutAnchor = NSLayoutAnchor
 public typealias AnchorType = AnyObject
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
-public class LayoutAnchorPair<F, S>: MixedLayoutModelReferencePair<LayoutAnchor<F>, LayoutAnchor<S>> where F: AnchorType, S: AnchorType {}
+//public class LayoutAnchorPair<F, S>: MixedLayoutModelReferencePair<LayoutAnchor<F>, LayoutAnchor<S>> where F: AnchorType, S: AnchorType {}
 
 public protocol LayoutAnchorType {}
 extension XAxisAnchor: LayoutAnchorType {}

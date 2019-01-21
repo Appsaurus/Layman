@@ -11,25 +11,25 @@
 
 @discardableResult
 public func + (lhs: XAxisAnchors, rhs: LayoutConstant) -> XAxisAnchorExpressions {
-    return lhs.map { $0 + rhs }
+    return lhs.plus(rhs)
 }
 
 @discardableResult
 public func - (lhs: XAxisAnchors, rhs: LayoutConstant) -> XAxisAnchorExpressions {
-    return lhs.map { $0 - rhs }
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func * (lhs: XAxisAnchors, rhs: LayoutMultiplier) -> XAxisAnchorExpressions {
-    return lhs.map { $0 * rhs }
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func / (lhs: XAxisAnchors, rhs: LayoutDivisor) -> XAxisAnchorExpressions {
-    return lhs.map { $0 / rhs }
+    return lhs.divided(by: rhs)
 }
 
 @discardableResult
 public func / (lhs: XAxisAnchorExpressions, rhs: LayoutDivisor) -> XAxisAnchorExpressions {
-    return lhs.map { $0 / rhs }
+    return lhs.map { $0.with(multiplier: (1.0 / rhs)) }
 }

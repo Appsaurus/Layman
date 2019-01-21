@@ -13,13 +13,13 @@
 // MARK: Anchor == Anchor
 @discardableResult
 public func {{argument.EqualityOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
-    return LayoutRelationship(lhs, .equal, rhs).constraint
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor == Expression
 @discardableResult
 public func {{argument.EqualityOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
-    return LayoutRelationship(lhs, .equal, rhs).constraint
+    return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
@@ -27,13 +27,13 @@ public func {{argument.EqualityOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorTyp
 // MARK: Anchor <= Anchor
 @discardableResult
 public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
-    return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor <= Expression
 @discardableResult
 public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
-    return LayoutRelationship(lhs, .lessThanOrEqual, rhs).constraint
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
@@ -41,13 +41,13 @@ public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{
 // MARK: Anchor >= Anchor
 @discardableResult
 public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> Constraint {
-    return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor >= Expression
 @discardableResult
 public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> Constraint {
-    return LayoutRelationship(lhs, .greaterThanOrEqual, rhs).constraint
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 // sourcery:end
 {% endfor %}

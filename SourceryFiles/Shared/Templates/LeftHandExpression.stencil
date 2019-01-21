@@ -1,0 +1,24 @@
+{% for AnchorType in argument.AnchorTypes %}
+// sourcery:file:LeftHandExpression/{{AnchorType}}+LeftHandExpression
+//
+//  {{AnchorType}}+LeftHandExpression.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+extension {{AnchorType}}: LeftHandExpression {
+    public typealias LinearEquation = LayoutRelationship<{{AnchorType}}>
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: {{AnchorType}}) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+    public func relation(_ relation: Constraint.Relation, _ rhs: E) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+}
+// sourcery:end
+{% endfor %}
+
+

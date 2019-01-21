@@ -31,9 +31,7 @@ public func == (lhs: [View], rhs: LayoutDimensionExpression) -> Constraints {
 // MARK: [View] == Expressions
 @discardableResult
 public func == (lhs: [View], rhs: LayoutDimensionExpressions) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map({element == $0})
-    }
+    return lhs.map { $0 == rhs }
 }
 
 // MARK: - LessThanOrEqual
@@ -47,9 +45,7 @@ public func <= (lhs: [View], rhs: LayoutDimension) -> Constraints {
 // MARK: [View] <= Anchors
 @discardableResult
 public func <= (lhs: [View], rhs: LayoutDimensions) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map({element <= $0})
-    }
+    return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Expression
@@ -61,9 +57,7 @@ public func <= (lhs: [View], rhs: LayoutDimensionExpression) -> Constraints {
 // MARK: [View] <= Expressions
 @discardableResult
 public func <= (lhs: [View], rhs: LayoutDimensionExpressions) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map({element <= $0})
-    }
+    return lhs.map { $0 <= rhs }
 }
 
 // MARK: - GreaterThanOrEqual
@@ -77,9 +71,7 @@ public func >= (lhs: [View], rhs: LayoutDimension) -> Constraints {
 // MARK: [View] >= Anchors
 @discardableResult
 public func >= (lhs: [View], rhs: LayoutDimensions) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map({element >= $0})
-    }
+    return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Expression
@@ -91,7 +83,5 @@ public func >= (lhs: [View], rhs: LayoutDimensionExpression) -> Constraints {
 // MARK: [View] >= Expressions
 @discardableResult
 public func >= (lhs: [View], rhs: LayoutDimensionExpressions) -> [Constraints] {
-    return lhs.map { element in
-        rhs.map({element >= $0})
-    }
+    return lhs.map { $0 >= rhs }
 }

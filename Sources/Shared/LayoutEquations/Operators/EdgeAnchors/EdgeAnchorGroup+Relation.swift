@@ -22,7 +22,7 @@ extension EdgeAnchorGroup {
 
     // MARK: Anchor <= Anchor
     @discardableResult
-    public func lessThanOrEqual(to rhs:  EdgeAnchorGroup) -> SideConstraints {
+    public func lessThanOrEqual(to rhs: EdgeAnchorGroup) -> SideConstraints {
         return constraints(.lessThanOrEqual, rhs)
     }
 
@@ -42,7 +42,7 @@ extension EdgeAnchorGroup {
     // MARK: GreaterThanOrEqual
     // MARK: Anchor >= Expression
     @discardableResult
-    public func greaterThanOrEqual(to rhs:EdgeAnchorGroupExpression) -> SideConstraints {
+    public func greaterThanOrEqual(to rhs: EdgeAnchorGroupExpression) -> SideConstraints {
         return constraints(.greaterThanOrEqual, rhs)
     }
 
@@ -78,6 +78,3 @@ extension EdgeAnchorGroup {
         )
     }
 }
-
-
-

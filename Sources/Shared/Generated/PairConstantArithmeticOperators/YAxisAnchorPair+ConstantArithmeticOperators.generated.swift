@@ -11,17 +11,17 @@
 
 @discardableResult
 public func + (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
-    return YAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
+    return YAxisAnchorPairExpression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
 
 @discardableResult
 public func - (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
-    return YAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
+    return YAxisAnchorPairExpression(anchor: lhs, configuration: LayoutConfiguration(constant: -rhs))
 }
 
 @discardableResult
 public func * (lhs: YAxisAnchorPair, rhs: LayoutDivisor) -> YAxisAnchorPairExpression {
-    return YAxisAnchorPairExpression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
+    return YAxisAnchorPairExpression(anchor: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult

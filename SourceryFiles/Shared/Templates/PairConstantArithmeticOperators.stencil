@@ -10,17 +10,17 @@
 
 @discardableResult
 public func + (lhs: {{AnchorPairType}}, rhs: LayoutConstant) -> {{AnchorPairType}}Expression {
-    return {{AnchorPairType}}Expression(anchors: lhs, configuration: LayoutConfiguration(constant: rhs))
+    return {{AnchorPairType}}Expression(anchor: lhs, configuration: LayoutConfiguration(constant: rhs))
 }
 
 @discardableResult
 public func - (lhs: {{AnchorPairType}}, rhs: LayoutConstant) -> {{AnchorPairType}}Expression {
-    return {{AnchorPairType}}Expression(anchors: lhs, configuration: LayoutConfiguration(constant: -rhs))
+    return {{AnchorPairType}}Expression(anchor: lhs, configuration: LayoutConfiguration(constant: -rhs))
 }
 
 @discardableResult
 public func * (lhs: {{AnchorPairType}}, rhs: LayoutDivisor) -> {{AnchorPairType}}Expression {
-    return {{AnchorPairType}}Expression(anchors: lhs, configuration: LayoutConfiguration(multiplier: rhs))
+    return {{AnchorPairType}}Expression(anchor: lhs, configuration: LayoutConfiguration(multiplier: rhs))
 }
 
 @discardableResult
