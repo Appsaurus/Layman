@@ -14,7 +14,7 @@ extension {{AnchorType}}: LeftHandExpression {
     public func relation(_ relation: Constraint.Relation, _ rhs: {{AnchorType}}) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
-    public func relation(_ relation: Constraint.Relation, _ rhs: E) -> LinearEquation {
+    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }
