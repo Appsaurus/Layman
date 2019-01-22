@@ -6,12 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-#if canImport(Cocoa)
-import Cocoa
-#else
-import UIKit
-#endif
-
 public final class LayoutConfiguration: Coefficient {
 
     public var constant: LayoutConstant
@@ -68,13 +62,3 @@ extension LayoutConfiguration {
         return LayoutConfiguration(priority: priority)
     }
 }
-
-public final class LayoutPairConfiguration: LayoutModelReferencePair<LayoutConfiguration> {
-    public static var `default`: LayoutPairConfiguration { return .init(.default) }
-
-    public static func size(_ size: LayoutSize) -> LayoutPairConfiguration{
-        return LayoutPairConfiguration(.constant(size.width), .constant(size.height))
-    }
-}
-
-extension LayoutPairConfiguration: Coefficient {}

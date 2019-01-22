@@ -14,7 +14,7 @@ public func == (lhs: LayoutDimensionPairs, rhs: LayoutConstant) -> ConstraintPai
 
 // MARK: Anchor Array == LayoutPairConfiguration
 @discardableResult
-public func == (lhs: LayoutDimensionPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
+public func == (lhs: LayoutDimensionPairs, rhs: LayoutConfigurationPair) -> ConstraintPairs {
     return lhs.map({$0 == rhs})
 }
 
@@ -26,7 +26,7 @@ public func <= (lhs: LayoutDimensionPairs, rhs: LayoutConstant) -> ConstraintPai
 
 // MARK: Anchor Array <= LayoutPairConfiguration
 @discardableResult
-public func <= (lhs: LayoutDimensionPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
+public func <= (lhs: LayoutDimensionPairs, rhs: LayoutConfigurationPair) -> ConstraintPairs {
     return lhs.map({$0 <= rhs})
 }
 
@@ -38,7 +38,7 @@ public func >= (lhs: LayoutDimensionPairs, rhs: LayoutConstant) -> ConstraintPai
 
 // MARK: Anchor Array >= LayoutConstant
 @discardableResult
-public func >= (lhs: LayoutDimensionPairs, rhs: LayoutPairConfiguration) -> ConstraintPairs {
+public func >= (lhs: LayoutDimensionPairs, rhs: LayoutConfigurationPair) -> ConstraintPairs {
     return lhs.map({$0 >= rhs})
 }
 

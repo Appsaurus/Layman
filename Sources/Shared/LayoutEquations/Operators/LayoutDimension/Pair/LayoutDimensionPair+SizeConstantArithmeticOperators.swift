@@ -9,7 +9,7 @@
 // MARK: LayoutSize Constant
 @discardableResult
 public func + (lhs: LayoutDimensionPair, rhs: LayoutSize) -> LayoutDimensionPairExpression {
-    let configuration = LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
+    let configuration = LayoutConfigurationPair(.constant(rhs.width), .constant(rhs.height))
     return LayoutDimensionPairExpression(anchor: lhs, configuration: configuration)
 }
 
@@ -19,8 +19,8 @@ public func - (lhs: LayoutDimensionPair, rhs: LayoutSize) -> LayoutDimensionPair
 }
 
 @discardableResult
-public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutPairConfiguration {
-    return LayoutPairConfiguration(
+public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutConfigurationPair {
+    return LayoutConfigurationPair(
         LayoutConfiguration(constant: lhs.width, priority: rhs),
         LayoutConfiguration(constant: lhs.height, priority: rhs)
     )

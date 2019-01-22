@@ -68,7 +68,6 @@ internal prefix func ... (_ anchorExpression: YAxisAnchorExpression) -> KeyPath<
     return ...anchorExpression.anchor
 }
 
-
 // MARK: LayoutDimension
 
 private let layoutDimensionMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, LayoutDimension>] = [

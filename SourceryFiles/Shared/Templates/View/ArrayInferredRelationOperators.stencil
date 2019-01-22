@@ -1,8 +1,8 @@
 
 {% for AnchorType in argument.AnchorTypes %}
-// sourcery:file:ArrayInferredRelationOperators/{{AnchorType}}+ArrayInferredRelationOperators
+// sourcery:file:View/Operators/ViewArray+{{AnchorType}}RelationOperators
 //
-//  {{AnchorType}}+ArrayInferredRelationOperators.swift
+//  ViewArray+{{AnchorType}}RelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.

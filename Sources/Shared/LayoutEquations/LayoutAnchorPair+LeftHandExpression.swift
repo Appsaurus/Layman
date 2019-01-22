@@ -13,12 +13,12 @@ public class LayoutAnchorPair<FA: AnchorType, SA: AnchorType>: MixedLayoutModelR
     public typealias RightHandExpression = LayoutPairExpression<FA, SA>
 
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
-        let config = LayoutPairConfiguration(.constant(constant))
+        let config = LayoutConfigurationPair(.constant(constant))
         return RightHandExpression(anchor: self, configuration: config)
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
-        let config = LayoutPairConfiguration(.multiplier(multiplier))
+        let config = LayoutConfigurationPair(.multiplier(multiplier))
         return RightHandExpression(anchor: self, configuration: config)
     }
 }

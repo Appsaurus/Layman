@@ -25,6 +25,14 @@ public struct LayoutRelationship<A: AnchorType> {
 
     public init(_ anchor: LayoutAnchor<A>,
                 _ relation: Constraint.Relation,
+                _ configuration: LayoutConfiguration) {
+        self.anchor = anchor
+        self.relation = relation
+        self.configuration = configuration
+    }
+
+    public init(_ anchor: LayoutAnchor<A>,
+                _ relation: Constraint.Relation,
                 _ relatedExpression: LayoutExpression<A>) {
         self.init(anchor,
                   relation,

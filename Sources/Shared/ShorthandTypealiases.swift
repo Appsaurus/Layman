@@ -8,32 +8,6 @@
 
 import UIKit
 
-extension LayoutPriority: ExpressibleByIntegerLiteral {
-    public typealias IntegerLiteralType = Int
-    public init(integerLiteral value: Int) {
-        self.init(Float(value))
-    }
-}
-
-// MARK: Shorthand aliases
-
-extension LayoutPriority {
-    /// Shorthand syntax for UILayoutPriority.defaultHigh
-    public static var high: UILayoutPriority {
-        return .defaultHigh
-    }
-
-    /// Shorthand syntax for UILayoutPriority.defaultLow
-    public static var low: UILayoutPriority {
-        return .defaultLow
-    }
-
-    /// Shorthand syntax for UILayoutPriority.fittingSizeLevel
-    public static var fittingSize: UILayoutPriority {
-        return .fittingSizeLevel
-    }
-}
-
 extension XYAxisAnchorable {
     public var leading: XAxisAnchor { return leadingAnchor }
     public var trailing: XAxisAnchor { return trailingAnchor }
@@ -101,4 +75,28 @@ extension Array where Element: SizeAnchorable {
 extension Array where Element: View {
     public var aspectRatio: AspectRatioAnchors { return map { $0.aspectRatio } }
     public var aspectRatioInverse: AspectRatioAnchors { return map { $0.aspectRatioInverse } }
+}
+
+extension LayoutPriority {
+    /// Shorthand syntax for UILayoutPriority.defaultHigh
+    public static var high: UILayoutPriority {
+        return .defaultHigh
+    }
+
+    /// Shorthand syntax for UILayoutPriority.defaultLow
+    public static var low: UILayoutPriority {
+        return .defaultLow
+    }
+
+    /// Shorthand syntax for UILayoutPriority.fittingSizeLevel
+    public static var fittingSize: UILayoutPriority {
+        return .fittingSizeLevel
+    }
+}
+
+extension LayoutPriority: ExpressibleByIntegerLiteral {
+    public typealias IntegerLiteralType = Int
+    public init(integerLiteral value: Int) {
+        self.init(Float(value))
+    }
 }

@@ -9,32 +9,32 @@
 // MARK: LayoutDimension == Constant
 @discardableResult
 public func == (lhs: LayoutDimension, rhs: LayoutConstant) -> Constraint {
-    return lhs == LayoutConfiguration.constant(rhs)
+    return lhs.equal(to: rhs)
 }
 
 @discardableResult
 public func == (lhs: LayoutDimension, rhs: LayoutConfiguration) -> Constraint {
-    return LayoutRelationship(lhs, .equal, nil, rhs).constraint
+    return lhs.equal(to: rhs)
 }
 
 // MARK: LayoutDimension <= Constant
 @discardableResult
 public func <= (lhs: LayoutDimension, rhs: LayoutConstant) -> Constraint {
-    return lhs <= LayoutConfiguration.constant(rhs)
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
 public func <= (lhs: LayoutDimension, rhs: LayoutConfiguration) -> Constraint {
-    return LayoutRelationship(lhs, .lessThanOrEqual, nil, rhs).constraint
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension >= Constant
 @discardableResult
 public func >= (lhs: LayoutDimension, rhs: LayoutConstant) -> Constraint {
-    return lhs >= LayoutConfiguration.constant(rhs)
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
 public func >= (lhs: LayoutDimension, rhs: LayoutConfiguration) -> Constraint {
-    return LayoutRelationship(lhs, .greaterThanOrEqual, nil, rhs).constraint
+    return lhs.greaterThanOrEqual(to: rhs)
 }

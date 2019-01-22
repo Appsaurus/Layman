@@ -9,21 +9,21 @@
 public class LayoutPairExpression<F: AnchorType, S: AnchorType> {
 
     public var anchor: LayoutAnchorPair<F, S>
-    public var configuration: LayoutPairConfiguration
+    public var configuration: LayoutConfigurationPair
 
-    public init(anchor: LayoutAnchorPair<F, S>, configuration: LayoutPairConfiguration = .default) {
+    public init(anchor: LayoutAnchorPair<F, S>, configuration: LayoutConfigurationPair = .default) {
         self.anchor = anchor
         self.configuration = configuration
     }
 
     public init(anchor: LayoutAnchorPair<F, S>, configuration: LayoutConfiguration) {
         self.anchor = anchor
-        self.configuration = LayoutPairConfiguration(configuration, configuration)
+        self.configuration = LayoutConfigurationPair(configuration, configuration)
     }
 
     @discardableResult
     public func configured(with configuration: LayoutConfiguration) -> Self {
-        self.configuration = LayoutPairConfiguration(configuration, configuration)
+        self.configuration = LayoutConfigurationPair(configuration, configuration)
         return self
     }
 
@@ -50,7 +50,7 @@ public class LayoutPairExpression<F: AnchorType, S: AnchorType> {
 }
 
 extension LayoutPairExpression: Expression {
-    public typealias C = LayoutPairConfiguration
+    public typealias C = LayoutConfigurationPair
     public typealias V = LayoutAnchorPair<F, S>
 
 }

@@ -1,13 +1,14 @@
 
 {% for AnchorPairType in argument.AnchorPairTypes %}
-// sourcery:file:PairArrayInferredRelationOperators/{{AnchorPairType}}+PairArrayInferredRelationOperators
+// sourcery:file:View/Operators/ViewArray+{{AnchorPairType}}RelationOperators
 //
-//  {{AnchorPairType}}+PairArrayInferredRelationOperators.swift
+//  ViewArray+{{AnchorPairType}}RelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
+
 // MARK: [View] == Anchor
 @discardableResult
 public func {{argument.EqualityOperator}} (lhs: [View], rhs: {{AnchorPairType}}) -> [ConstraintPair] {

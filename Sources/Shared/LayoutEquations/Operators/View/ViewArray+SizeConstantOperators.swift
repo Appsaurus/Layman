@@ -13,7 +13,7 @@ public func == (lhs: [View], rhs: LayoutSize) -> [ConstraintPair] {
 }
 
 @discardableResult
-public func == (lhs: [View], rhs: LayoutPairConfiguration) -> [ConstraintPair] {
+public func == (lhs: [View], rhs: LayoutConfigurationPair) -> [ConstraintPair] {
     return lhs.map {$0.sizeAnchors == rhs}
 }
 
@@ -24,7 +24,7 @@ public func <= (lhs: [View], rhs: LayoutSize) -> [ConstraintPair] {
 }
 
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutPairConfiguration) -> [ConstraintPair] {
+public func <= (lhs: [View], rhs: LayoutConfigurationPair) -> [ConstraintPair] {
     return lhs.map {$0.sizeAnchors <= rhs}
 }
 
@@ -35,6 +35,6 @@ public func >= (lhs: [View], rhs: LayoutSize) -> [ConstraintPair] {
 }
 
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutPairConfiguration) -> [ConstraintPair] {
+public func >= (lhs: [View], rhs: LayoutConfigurationPair) -> [ConstraintPair] {
     return lhs.map {$0.sizeAnchors >= rhs}
 }

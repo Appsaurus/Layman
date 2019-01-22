@@ -13,9 +13,8 @@ public func == (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> ConstraintPair
 }
 
 @discardableResult
-public func == (lhs: LayoutDimensionPair, rhs: LayoutPairConfiguration) -> ConstraintPair {
-    return (LayoutRelationship(lhs.first, .equal, nil, rhs.first).constraint,
-            LayoutRelationship(lhs.second, .equal, nil, rhs.second).constraint)
+public func == (lhs: LayoutDimensionPair, rhs: LayoutConfigurationPair) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .equal, rhs).constraints
 }
 
 // MARK: SizeAnchorPair <= Constant
@@ -25,9 +24,9 @@ public func <= (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> ConstraintPair
 }
 
 @discardableResult
-public func <= (lhs: LayoutDimensionPair, rhs: LayoutPairConfiguration) -> ConstraintPair {
-    return (LayoutRelationship(lhs.first, .lessThanOrEqual, nil, rhs.first).constraint,
-            LayoutRelationship(lhs.second, .lessThanOrEqual, nil, rhs.second).constraint)
+public func <= (lhs: LayoutDimensionPair, rhs: LayoutConfigurationPair) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraints
+
 }
 
 // MARK: SizeAnchorPair >= Constant
@@ -37,12 +36,11 @@ public func >= (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> ConstraintPair
 }
 
 @discardableResult
-public func >= (lhs: LayoutDimensionPair, rhs: LayoutPairConfiguration) -> ConstraintPair {
-    return (LayoutRelationship(lhs.first, .greaterThanOrEqual, nil, rhs.first).constraint,
-            LayoutRelationship(lhs.second, .greaterThanOrEqual, nil, rhs.second).constraint)
+public func >= (lhs: LayoutDimensionPair, rhs: LayoutConfigurationPair) -> ConstraintPair {
+    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraints
 }
 
-// MARK: LayoutSize Constants
+// MARK: LayoutSize Constant
 @discardableResult
 public func == (lhs: LayoutDimensionPair, rhs: LayoutSize) -> ConstraintPair {
     return lhs == .size(rhs)
