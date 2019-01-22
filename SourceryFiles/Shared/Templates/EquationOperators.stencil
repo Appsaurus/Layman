@@ -1,0 +1,98 @@
+{% for EquationProtocol in argument.EquationProtocols %}
+{% set RelationshipType %}{{argument.EquationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
+{% for LeftHandType in argument.EquationProtocols[EquationProtocol]["LeftHandTypes"] %}
+// sourcery:file:EquationProtocols/{{EquationProtocol}}/Operators/{{LeftHandType}}+{{EquationProtocol}}
+//
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/22/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+{% for RightHandType in argument.EquationProtocols[EquationProtocol]["RightHandTypes"] %}
+// MARK: {{LeftHandType}} <=> {{RightHandType}}
+
+// MARK: - Equal
+
+@discardableResult
+public func {{argument.EqualityOperator}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{RelationshipType}}.Solution {
+    return lhs.equal(to: rhs)
+}
+
+@discardableResult
+public func {{argument.EqualityOperator}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType}}]) -> [{{RelationshipType}}.Solution] {
+    return lhs.equal(to: rhs)
+}
+
+// MARK: - LessThanOrEqual
+
+@discardableResult
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{RelationshipType}}.Solution {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+@discardableResult
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType}}]) -> [{{RelationshipType}}.Solution] {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+// MARK: - GreaterThanOrEqual
+
+@discardableResult
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{RelationshipType}}.Solution {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+
+@discardableResult
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType}}]) -> [{{RelationshipType}}.Solution] {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+
+
+// MARK: {{LeftHandType}} Array <=> {{RightHandType}}
+
+// MARK: - Equal
+
+// MARK: Collection == Expression
+@discardableResult
+public func {{argument.EqualityOperator}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{RelationshipType}}.Solution] {
+    return lhs.map { $0.equal(to: rhs) }
+}
+
+// MARK: Collection == Expression Array
+@discardableResult
+public func {{argument.EqualityOperator}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{RelationshipType}}.Solution]] {
+    return lhs.map { $0.equal(to: rhs) }
+}
+
+// MARK: - LessThanOrEqual
+
+// MARK: Collection <= Expression
+@discardableResult
+public func {{argument.LessThanOrEqualToOperator}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{RelationshipType}}.Solution] {
+    return lhs.map { $0.lessThanOrEqual(to: rhs) }
+}
+
+// MARK: Collection <= Expression Array
+@discardableResult
+public func {{argument.LessThanOrEqualToOperator}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{RelationshipType}}.Solution]] {
+    return lhs.map { $0.lessThanOrEqual(to: rhs) }
+}
+
+// MARK: - GreaterThanOrEqual
+
+// MARK: Collection >= Expression
+@discardableResult
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{RelationshipType}}.Solution] {
+    return lhs.map { $0.greaterThanOrEqual(to: rhs) }
+}
+
+// MARK: Collection >= Expression Array
+@discardableResult
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{RelationshipType}}.Solution]] {
+    return lhs.map { $0.greaterThanOrEqual(to: rhs) }
+}
+{% endfor %}
+// sourcery:end
+{% endfor %}
+{% endfor %}
+

@@ -1,8 +1,6 @@
 {% for EquationProtocol in argument.EquationProtocols %}
-{% set Protocol %}{{argument.EquationProtocols[EquationProtocol]}}{% endset %}
-{% set RightHandTypes %}{{argument.EquationProtocols[EquationProtocol]["RightHandTypes"]}}{% endset %}
 {% set RelationshipType %}{{argument.EquationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
-// sourcery:file:EquationProtocols/{{EquationProtocol}}
+// sourcery:file:EquationProtocols/{{EquationProtocol}}/{{EquationProtocol}}
 //
 //  UILayoutKit
 //

@@ -22,13 +22,20 @@ args:
     - "XYAxesAnchorPair"
   EquationProtocols:
     LeftHandSizeRelatableExpression:
-        LeftHandType: 'LayoutDimensionPair'
+        LeftHandTypes:
+            - 'LayoutDimensionPair'
         RightHandTypes:
             - 'LayoutConstant'
             - 'LayoutSize'
             - 'LayoutConfigurationPair'
         RelationshipType: LayoutDimensionPairRelationship
-        SolutionType: 'ConstraintPair'
+    LeftHandConstantRelatableExpression:
+        LeftHandTypes:
+            - 'LayoutDimension'
+        RightHandTypes:
+            - 'LayoutConstant'
+            - 'LayoutConfiguration'
+        RelationshipType: LayoutDimensionRelationship
 
   AnchorPairUnderlyingTypes:
     XAxisAnchorPair:
