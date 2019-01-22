@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
 
 
   s.ios.frameworks = 'UIKit', 'Foundation'
+  s.tvos.frameworks = 'UIKit', 'Foundation'
   s.osx.frameworks = 'AppKit', 'Foundation'
 
 end

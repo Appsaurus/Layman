@@ -49,7 +49,7 @@ public class LayoutPairRelationship<F: AnchorType, S: AnchorType> {
 
 extension LayoutPairRelationship: LinearEquatable {
     public var solution: ConstraintPair {
-        return constraints
+        return constraintsInvertedAsInsets
     }
 
     public typealias Solution = ConstraintPair

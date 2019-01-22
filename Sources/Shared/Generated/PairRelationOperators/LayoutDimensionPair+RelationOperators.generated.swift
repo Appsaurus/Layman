@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 //
-//  +ArrayConstantArithmeticOperators.swift
+//  +RelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -15,38 +15,38 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .equal, rhs).constraintsInvertedAsInsets
+public func == (lhs: LayoutDimensionPair, rhs: LayoutPairExpression<LayoutDimension, LayoutDimension>) -> ConstraintPair {
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchors == Anchors
 @discardableResult
 public func == (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .equal, rhs).constraintsInvertedAsInsets
+    return lhs.equal(to: rhs)
 }
 
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
-public func <= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraintsInvertedAsInsets
+public func <= (lhs: LayoutDimensionPair, rhs: LayoutPairExpression<LayoutDimension, LayoutDimension>) -> ConstraintPair {
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors <= Anchors
 @discardableResult
 public func <= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).constraintsInvertedAsInsets
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
-public func >= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraintsInvertedAsInsets
+public func >= (lhs: LayoutDimensionPair, rhs: LayoutPairExpression<LayoutDimension, LayoutDimension>) -> ConstraintPair {
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors >= Anchors
 @discardableResult
 public func >= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).constraintsInvertedAsInsets
+    return lhs.greaterThanOrEqual(to: rhs)
 }

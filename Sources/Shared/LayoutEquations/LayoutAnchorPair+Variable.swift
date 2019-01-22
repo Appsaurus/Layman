@@ -1,19 +1,21 @@
+////
+////  LayoutAnchorPair+Variable.swift
+////  UILayoutKit
+////
+////  Created by Brian Strobach on 1/20/19.
+////  Copyright © 2019 Brian Strobach. All rights reserved.
+////
 //
-//  LayoutAnchorPair+Variable.swift
-//  UILayoutKit
+//public class LayoutAnchorPair<F: AnchorType, S: AnchorType>: MixedLayoutModelReferencePair<LayoutAnchor<F>, LayoutAnchor<S>>, Variable {
 //
-//  Created by Brian Strobach on 1/20/19.
-//  Copyright © 2019 Brian Strobach. All rights reserved.
+//    // MARK: Variable
+//    public typealias E = LayoutPairExpression<F, S>
 //
-
-import UIKit
-
-public class LayoutAnchorPair<F: AnchorType, S: AnchorType>: MixedLayoutModelReferencePair<LayoutAnchor<F>, LayoutAnchor<S>> {}
-
-public typealias XAxisAnchorPairRelationship = LayoutPairRelationship<XAxisAnchor, XAxisAnchor>
-
-public typealias YAxisAnchorPairRelationship = LayoutPairRelationship<YAxisAnchor, YAxisAnchor>
-
-public typealias LayoutDimensionPairRelationship = LayoutPairRelationship<LayoutDimension, LayoutDimension>
-
-public typealias XYAxesAnchorPairRelationship = LayoutPairRelationship<XAxisAnchor, YAxisAnchor>
+//    public func plus(_ constant: LayoutConstant) -> E {
+//        return E(anchor: self, configuration: LayoutPairConfiguration(.constant(constant)))
+//    }
+//
+//    public func times(_ multiplier: LayoutMultiplier) -> E {
+//        return E(anchor: self, configuration: LayoutPairConfiguration(.multiplier(multiplier)))
+//    }
+//}

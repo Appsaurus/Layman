@@ -11,7 +11,7 @@
 
 extension XAxisAnchor: Variable {
 
-    public typealias E = XAxisAnchorExpression
+    public typealias Expression = XAxisAnchorExpression
 
     public func plus(_ constant: LayoutConstant) -> XAxisAnchorExpression {
         return XAxisAnchorExpression(anchor: self, configuration: .constant(constant))

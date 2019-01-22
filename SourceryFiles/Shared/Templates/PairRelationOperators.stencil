@@ -2,7 +2,7 @@
 {% set constraintMethod %}{% if anchortype == 'LayoutDimension' %}constraints{% else %}constraintsInvertedAsInsets{% endif %}{% endset %}
 // sourcery:file:PairRelationOperators/{{AnchorPairType}}+RelationOperators
 //
-//  {{AnchorType}}+ArrayConstantArithmeticOperators.swift
+//  {{AnchorType}}+RelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -16,39 +16,39 @@
 // MARK: Anchors == Expression
 @discardableResult
 public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .equal, rhs).{{constraintMethod}}
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Anchors == Anchors
 @discardableResult
 public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .equal, rhs).{{constraintMethod}}
+    return lhs.equal(to: rhs)
 }
 
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
 public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).{{constraintMethod}}
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors <= Anchors
 @discardableResult
 public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .lessThanOrEqual, rhs).{{constraintMethod}}
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
 public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).{{constraintMethod}}
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors >= Anchors
 @discardableResult
 public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
-    return LayoutPairRelationship(lhs, .greaterThanOrEqual, rhs).{{constraintMethod}}
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 // sourcery:end
 {% endfor %}

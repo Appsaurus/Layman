@@ -22,31 +22,37 @@ internal typealias LayoutGuide = UILayoutGuide
 
 #endif
 
+// MARK: Constraint
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
 public typealias ConstraintPair = (first: Constraint, second: Constraint)
 public typealias ConstraintPairs = [ConstraintPair]
 public typealias SideConstraints = SidesTuple<Constraint, Constraint>
 
+// MARK: Attribute
 public typealias ConstraintAttribute = Constraint.Attribute
 public typealias ConstraintAttributes = [ConstraintAttribute]
 
+// MARK: Anchor
 public typealias LayoutAnchor = NSLayoutAnchor
 public typealias AnchorType = AnyObject
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
-//public class LayoutAnchorPair<F, S>: MixedLayoutModelReferencePair<LayoutAnchor<F>, LayoutAnchor<S>> where F: AnchorType, S: AnchorType {}
 
-//public protocol LayoutAnchorType: AnchorType {
-//}
-//extension LayoutAnchorType{
-//    func toAnchor<F: AnchorType>() -> LayoutAnchor<F>{
-//        return self as! LayoutAnchor<F>
-//    }
-//}
-//extension LayoutAnchor: LayoutAnchorType {}
-//extension XAxisAnchor: LayoutAnchorType {}
-//extension YAxisAnchor: LayoutAnchorType {}
-//extension LayoutDimension: LayoutAnchorType {}
+// MARK: Layout Configuration
+public typealias LayoutMultiplier = CGFloat
+public typealias LayoutDivisor = CGFloat
+public typealias LayoutConstant = CGFloat
+
+#if canImport(AppKit)
+public typealias LayoutPriority = Constraint.Priority
+public typealias LayoutInset = NSEdgeInsets
+#else
+public typealias LayoutPriority = UILayoutPriority
+public typealias LayoutInset = UIEdgeInsets
+#endif
+
+// MARK: Layout Constants
+public typealias LayoutSize = CGSize
 
 // MARK: Typed Anchors
 public typealias XAxisAnchor = NSLayoutXAxisAnchor
@@ -101,21 +107,16 @@ public typealias LayoutDimensionPairExpressions = [LayoutDimensionPairExpression
 public typealias XYAxesAnchorPairExpressions = [XYAxesAnchorPairExpression]
 public typealias EdgeAnchorGroupExpressions = [EdgeAnchorGroupExpression]
 
-// MARK: Layout Configuration
-public typealias LayoutMultiplier = CGFloat
-public typealias LayoutDivisor = CGFloat
-public typealias LayoutConstant = CGFloat
+// MARK: Typed Relationships
+public typealias XAxisAnchorRelationship = LayoutRelationship<XAxisAnchor>
+public typealias YAxisAnchorRelationship = LayoutRelationship<YAxisAnchor>
+public typealias LayoutDimensionRelationship = LayoutRelationship<LayoutDimension>
 
-#if canImport(AppKit)
-public typealias LayoutPriority = Constraint.Priority
-public typealias LayoutInset = NSEdgeInsets
-#else
-public typealias LayoutPriority = UILayoutPriority
-public typealias LayoutInset = UIEdgeInsets
-#endif
-
-// MARK: Layout Constants
-public typealias LayoutSize = CGSize
+// MARK: Typed Anchor Pair Relationships
+public typealias XAxisAnchorPairRelationship = LayoutPairRelationship<XAxisAnchor, XAxisAnchor>
+public typealias YAxisAnchorPairRelationship = LayoutPairRelationship<YAxisAnchor, YAxisAnchor>
+public typealias LayoutDimensionPairRelationship = LayoutPairRelationship<LayoutDimension, LayoutDimension>
+public typealias XYAxesAnchorPairRelationship = LayoutPairRelationship<XAxisAnchor, YAxisAnchor>
 
 //@discardableResult
 //public func / (lhs: Double, rhs: Int) -> CGFloat {

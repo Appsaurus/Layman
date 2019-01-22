@@ -6,8 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-import UIKit
-
 precedencegroup PriorityPrecedence {
     associativity: none
     higherThan: RelationPrecedence

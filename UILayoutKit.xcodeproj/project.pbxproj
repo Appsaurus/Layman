@@ -25,6 +25,15 @@
 		D5B2E8AA1C3A780C00C0327D /* UILayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2E89F1C3A780C00C0327D /* UILayoutKit.framework */; };
 		D5C6294A1C3A7FAA007F7B7C /* UILayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C629401C3A7FAA007F7B7C /* UILayoutKit.framework */; };
 		D784C94D26C73BD13F186EC6 /* Pods_UILayoutKit_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C7C361865716A3053A0E59 /* Pods_UILayoutKit_macOS.framework */; };
+		E44E6F3F21F686640026EEE6 /* Array+LeftHandExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E6F3E21F686640026EEE6 /* Array+LeftHandExpression.swift */; };
+		E44E6F4021F686640026EEE6 /* Array+LeftHandExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E6F3E21F686640026EEE6 /* Array+LeftHandExpression.swift */; };
+		E44E6F4121F686640026EEE6 /* Array+LeftHandExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E6F3E21F686640026EEE6 /* Array+LeftHandExpression.swift */; };
+		E44E6F4321F686C60026EEE6 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E6F4221F686C60026EEE6 /* Variable.swift */; };
+		E44E6F4421F686C60026EEE6 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E6F4221F686C60026EEE6 /* Variable.swift */; };
+		E44E6F4521F686C60026EEE6 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E6F4221F686C60026EEE6 /* Variable.swift */; };
+		E44E6F4621F6899E0026EEE6 /* LayoutTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48737A021DE510D0094F2EB /* LayoutTypealiases.swift */; };
+		E44E6F4721F689AC0026EEE6 /* LayoutPriorityArithmeticOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48737C121E0754D0094F2EB /* LayoutPriorityArithmeticOperators.swift */; };
+		E44E6F4821F689AE0026EEE6 /* LayoutPriorityOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48737A621DE66F90094F2EB /* LayoutPriorityOperator.swift */; };
 		E458223B21E3D4B600B6054C /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458223A21E3D4B600B6054C /* AnchorGroup.swift */; };
 		E458223C21E3D4B600B6054C /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458223A21E3D4B600B6054C /* AnchorGroup.swift */; };
 		E458223D21E3D4B600B6054C /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458223A21E3D4B600B6054C /* AnchorGroup.swift */; };
@@ -263,10 +272,12 @@
 		E4AF81B921BF162B002D6E86 /* AnchorLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B321BF162A002D6E86 /* AnchorLayout.swift */; };
 		E4AF81BA21BF162B002D6E86 /* AnchorLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B321BF162A002D6E86 /* AnchorLayout.swift */; };
 		E4AF81BB21BF162B002D6E86 /* AnchorLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B321BF162A002D6E86 /* AnchorLayout.swift */; };
-		E4AF81BC21BF162B002D6E86 /* AnchorLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B321BF162A002D6E86 /* AnchorLayout.swift */; };
 		E4AF81BD21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
 		E4AF81BE21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
 		E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B421BF162A002D6E86 /* AutoLayoutExtensions.swift */; };
+		E4D5569521F68109007862C1 /* LeftHandExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5569421F68109007862C1 /* LeftHandExpression.swift */; };
+		E4D5569621F68109007862C1 /* LeftHandExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5569421F68109007862C1 /* LeftHandExpression.swift */; };
+		E4D5569721F68109007862C1 /* LeftHandExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5569421F68109007862C1 /* LeftHandExpression.swift */; };
 		E4DA5BF821E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
 		E4DA5BF921E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
 		E4DA5BFA21E94E2400A25746 /* InternalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5BF721E94E2400A25746 /* InternalTypes.swift */; };
@@ -395,6 +406,8 @@
 		D8DE4ABB6495C370AB7A6398 /* Pods_UILayoutKit_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UILayoutKit_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDDC65758795020D69BC1A9 /* Pods-UILayoutKit-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKit-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKit-macOS/Pods-UILayoutKit-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E1F1E47608A8B424EBA38EB7 /* Pods-UILayoutKit-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKit-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKit-tvOS/Pods-UILayoutKit-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E44E6F3E21F686640026EEE6 /* Array+LeftHandExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+LeftHandExpression.swift"; sourceTree = "<group>"; };
+		E44E6F4221F686C60026EEE6 /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
 		E458223A21E3D4B600B6054C /* AnchorGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorGroup.swift; sourceTree = "<group>"; };
 		E458225221E5273400B6054C /* LayoutDimensionPair+SizeConstantArithmeticOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutDimensionPair+SizeConstantArithmeticOperators.swift"; sourceTree = "<group>"; };
 		E458225621E54D0300B6054C /* LayoutDimensionPair+ConstantRelationOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutDimensionPair+ConstantRelationOperators.swift"; sourceTree = "<group>"; };
@@ -488,6 +501,7 @@
 		E4AF81CE21BF20FD002D6E86 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		E4AF81CF21BF20FD002D6E86 /* Podfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		E4AF81D021BF20FD002D6E86 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E4D5569421F68109007862C1 /* LeftHandExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftHandExpression.swift; sourceTree = "<group>"; };
 		E4DA5BF721E94E2400A25746 /* InternalTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalTypes.swift; sourceTree = "<group>"; };
 		E4DA5C2621ED98F100A25746 /* AnchorableKeyPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorableKeyPaths.swift; sourceTree = "<group>"; };
 		E4DA5C3521EDA21C00A25746 /* EdgeAnchorGroupArray+RelationOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeAnchorGroupArray+RelationOperators.swift"; sourceTree = "<group>"; };
@@ -858,9 +872,9 @@
 		E472DF2821F58AAA008DCBD5 /* Variables */ = {
 			isa = PBXGroup;
 			children = (
-				E472DF2921F58AAA008DCBD5 /* LayoutDimension+Variable.generated.swift */,
-				E472DF2A21F58AAA008DCBD5 /* XAxisAnchor+Variable.generated.swift */,
 				E472DF2B21F58AAA008DCBD5 /* YAxisAnchor+Variable.generated.swift */,
+				E472DF2A21F58AAA008DCBD5 /* XAxisAnchor+Variable.generated.swift */,
+				E472DF2921F58AAA008DCBD5 /* LayoutDimension+Variable.generated.swift */,
 			);
 			path = Variables;
 			sourceTree = "<group>";
@@ -1012,6 +1026,9 @@
 				E472DE0621F5140A008DCBD5 /* LinearEquation.swift */,
 				E472DFED21F58B34008DCBD5 /* LayoutAnchorPair+Variable.swift */,
 				E472DFF121F58B55008DCBD5 /* LayoutAnchorPair+LeftHandExpression.swift */,
+				E4D5569421F68109007862C1 /* LeftHandExpression.swift */,
+				E44E6F3E21F686640026EEE6 /* Array+LeftHandExpression.swift */,
+				E44E6F4221F686C60026EEE6 /* Variable.swift */,
 			);
 			path = LayoutEquations;
 			sourceTree = "<group>";
@@ -1779,6 +1796,7 @@
 				E4DA5BFA21E94E2400A25746 /* InternalTypes.swift in Sources */,
 				E472DF8321F58AAB008DCBD5 /* XYAxesAnchorPair+RelationOperators.generated.swift in Sources */,
 				E472DF6E21F58AAB008DCBD5 /* LayoutDimension+Variable.generated.swift in Sources */,
+				E4D5569721F68109007862C1 /* LeftHandExpression.swift in Sources */,
 				E472DFE021F58AAB008DCBD5 /* LayoutDimension+LeftHandExpression.generated.swift in Sources */,
 				E4AF81BF21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
 				E45822A921E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */,
@@ -1798,6 +1816,7 @@
 				E472DFF421F58B55008DCBD5 /* LayoutAnchorPair+LeftHandExpression.swift in Sources */,
 				E4EDA2F121F126FA00F345E8 /* ViewArray+EdgeAnchorRelationOperators.swift in Sources */,
 				E472DF7421F58AAB008DCBD5 /* YAxisAnchor+Variable.generated.swift in Sources */,
+				E44E6F4121F686640026EEE6 /* Array+LeftHandExpression.swift in Sources */,
 				E472DFDA21F58AAB008DCBD5 /* YAxisAnchor+ArrayConstantArithmeticOperators.generated.swift in Sources */,
 				E458226221E5553500B6054C /* ConstraintExtensions.swift in Sources */,
 				E4DA5C3C21EE4B5000A25746 /* LayoutDimensionArray+ConstantRelationOperators.swift in Sources */,
@@ -1809,6 +1828,7 @@
 				E4DA5C4021EE4C1400A25746 /* LayoutDimension+ConstantRelationOperators.swift in Sources */,
 				E4DA5C5421EE733800A25746 /* LayoutDimensionPairArray+ConstantRelationsOperators.swift in Sources */,
 				E458225521E5273400B6054C /* LayoutDimensionPair+SizeConstantArithmeticOperators.swift in Sources */,
+				E44E6F4521F686C60026EEE6 /* Variable.swift in Sources */,
 				E458227921E79C3F00B6054C /* LayoutRelationship.swift in Sources */,
 				E472E00221F5A6F4008DCBD5 /* YAxisAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
 				E4EDA2E021F1133D00F345E8 /* LayoutDimensionPairArray+SizeConstantArithmeticOperators.swift in Sources */,
@@ -1856,7 +1876,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4AF81BC21BF162B002D6E86 /* AnchorLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1905,6 +1924,7 @@
 				E4DA5BF821E94E2400A25746 /* InternalTypes.swift in Sources */,
 				E472DF8121F58AAB008DCBD5 /* XYAxesAnchorPair+RelationOperators.generated.swift in Sources */,
 				E472DF6C21F58AAB008DCBD5 /* LayoutDimension+Variable.generated.swift in Sources */,
+				E4D5569521F68109007862C1 /* LeftHandExpression.swift in Sources */,
 				E472DFDE21F58AAB008DCBD5 /* LayoutDimension+LeftHandExpression.generated.swift in Sources */,
 				E4AF81BD21BF162B002D6E86 /* AutoLayoutExtensions.swift in Sources */,
 				E45822A721E7F15800B6054C /* EdgeAnchorsConfiguration.swift in Sources */,
@@ -1924,6 +1944,7 @@
 				E472DFF221F58B55008DCBD5 /* LayoutAnchorPair+LeftHandExpression.swift in Sources */,
 				E4EDA2EF21F126FA00F345E8 /* ViewArray+EdgeAnchorRelationOperators.swift in Sources */,
 				E472DF7221F58AAB008DCBD5 /* YAxisAnchor+Variable.generated.swift in Sources */,
+				E44E6F3F21F686640026EEE6 /* Array+LeftHandExpression.swift in Sources */,
 				E472DFD821F58AAB008DCBD5 /* YAxisAnchor+ArrayConstantArithmeticOperators.generated.swift in Sources */,
 				E458226021E5553500B6054C /* ConstraintExtensions.swift in Sources */,
 				E4DA5C3A21EE4B5000A25746 /* LayoutDimensionArray+ConstantRelationOperators.swift in Sources */,
@@ -1935,6 +1956,7 @@
 				E4DA5C3E21EE4C1400A25746 /* LayoutDimension+ConstantRelationOperators.swift in Sources */,
 				E4DA5C5221EE733800A25746 /* LayoutDimensionPairArray+ConstantRelationsOperators.swift in Sources */,
 				E458225321E5273400B6054C /* LayoutDimensionPair+SizeConstantArithmeticOperators.swift in Sources */,
+				E44E6F4321F686C60026EEE6 /* Variable.swift in Sources */,
 				E458227721E79C3F00B6054C /* LayoutRelationship.swift in Sources */,
 				E472E00021F5A6F4008DCBD5 /* YAxisAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
 				E4EDA2DE21F1133D00F345E8 /* LayoutDimensionPairArray+SizeConstantArithmeticOperators.swift in Sources */,
@@ -2007,12 +2029,14 @@
 				E4EDA2E421F1153D00F345E8 /* View+SizeConstantOperators.swift in Sources */,
 				E4DA5BF921E94E2400A25746 /* InternalTypes.swift in Sources */,
 				E472DFA321F58AAB008DCBD5 /* YAxisAnchor+ArrayInferredRelationOperators.generated.swift in Sources */,
+				E44E6F4021F686640026EEE6 /* Array+LeftHandExpression.swift in Sources */,
 				E4EDA2DF21F1133D00F345E8 /* LayoutDimensionPairArray+SizeConstantArithmeticOperators.swift in Sources */,
 				E472DFE521F58AAB008DCBD5 /* YAxisAnchor+ConstantArithmeticOperators.generated.swift in Sources */,
 				E472DF7621F58AAB008DCBD5 /* LayoutDimension+InferredRelationOperators.generated.swift in Sources */,
 				E472DF7F21F58AAB008DCBD5 /* LayoutDimensionPair+RelationOperators.generated.swift in Sources */,
 				E472DFC121F58AAB008DCBD5 /* YAxisAnchor+ArrayRelationOperators.generated.swift in Sources */,
 				E458228421E79C9A00B6054C /* LayoutPairRelationship.swift in Sources */,
+				E4D5569621F68109007862C1 /* LeftHandExpression.swift in Sources */,
 				E4EDA2F421F12E8B00F345E8 /* View+AspectRatioOperators.swift in Sources */,
 				E472DF6721F58AAB008DCBD5 /* LayoutDimensionPair+PairArrayInferredRelationOperators.generated.swift in Sources */,
 				E472DF9121F58AAB008DCBD5 /* XAxisAnchor+RelationOperators.generated.swift in Sources */,
@@ -2026,6 +2050,8 @@
 				E458225421E5273400B6054C /* LayoutDimensionPair+SizeConstantArithmeticOperators.swift in Sources */,
 				E4DA5C5B21EEFF4200A25746 /* View+AutolayoutSugar.swift in Sources */,
 				E458227421E79C2400B6054C /* LayoutExpression.swift in Sources */,
+				E44E6F4621F6899E0026EEE6 /* LayoutTypealiases.swift in Sources */,
+				E44E6F4821F689AE0026EEE6 /* LayoutPriorityOperator.swift in Sources */,
 				E472DFD621F58AAB008DCBD5 /* XAxisAnchor+ArrayConstantArithmeticOperators.generated.swift in Sources */,
 				E4EDA2F021F126FA00F345E8 /* ViewArray+EdgeAnchorRelationOperators.swift in Sources */,
 				E472DFC721F58AAB008DCBD5 /* LayoutDimension+ArrayRelationOperators.generated.swift in Sources */,
@@ -2056,6 +2082,7 @@
 				E472DFB821F58AAB008DCBD5 /* YAxisAnchorPair+InferredRelationOperators.generated.swift in Sources */,
 				E472DF7321F58AAB008DCBD5 /* YAxisAnchor+Variable.generated.swift in Sources */,
 				E472DF6A21F58AAB008DCBD5 /* XAxisAnchorPair+PairArrayInferredRelationOperators.generated.swift in Sources */,
+				E44E6F4421F686C60026EEE6 /* Variable.swift in Sources */,
 				E472DDFC21F3EF4C008DCBD5 /* EdgeAnchorGroup+Priority.swift in Sources */,
 				E4DA5C5321EE733800A25746 /* LayoutDimensionPairArray+ConstantRelationsOperators.swift in Sources */,
 				E472DF8E21F58AAB008DCBD5 /* LayoutDimension+RelationOperators.generated.swift in Sources */,
@@ -2073,6 +2100,7 @@
 				E4DA5C2821ED98F100A25746 /* AnchorableKeyPaths.swift in Sources */,
 				E472DFCA21F58AAB008DCBD5 /* YAxisAnchor+PriorityOperators.generated.swift in Sources */,
 				E4EDA2EC21F1221100F345E8 /* View+EdgeAnchorRelationOperators.swift in Sources */,
+				E44E6F4721F689AC0026EEE6 /* LayoutPriorityArithmeticOperators.swift in Sources */,
 				E458226121E5553500B6054C /* ConstraintExtensions.swift in Sources */,
 				E472DF8B21F58AAB008DCBD5 /* YAxisAnchor+RelationOperators.generated.swift in Sources */,
 				E4DA5C3B21EE4B5000A25746 /* LayoutDimensionArray+ConstantRelationOperators.swift in Sources */,
@@ -2342,6 +2370,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=300 -Xfrontend -warn-long-expression-type-checking=250";
 				SDKROOT = iphoneos;
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2385,6 +2414,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2394,6 +2424,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
