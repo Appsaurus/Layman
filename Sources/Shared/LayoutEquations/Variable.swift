@@ -7,18 +7,18 @@
 //
 
 public protocol Variable {
-    associatedtype Expression
-    func plus(_ constant: LayoutConstant) -> Expression
-    func minus(_ constant: LayoutConstant) -> Expression
-    func times(_ multiplier: LayoutMultiplier) -> Expression
-    func divided(by divisor: LayoutDivisor) -> Expression
+    associatedtype RightHandExpression
+    func plus(_ constant: LayoutConstant) -> RightHandExpression
+    func minus(_ constant: LayoutConstant) -> RightHandExpression
+    func times(_ multiplier: LayoutMultiplier) -> RightHandExpression
+    func divided(by divisor: LayoutDivisor) -> RightHandExpression
 }
 
 extension Variable {
-    public func minus(_ constant: LayoutConstant) -> Expression {
+    public func minus(_ constant: LayoutConstant) -> RightHandExpression {
         return plus(-constant)
     }
-    public func divided(by divisor: LayoutDivisor) -> Expression {
+    public func divided(by divisor: LayoutDivisor) -> RightHandExpression {
         return times(1.0 / divisor)
     }
 
@@ -26,13 +26,13 @@ extension Variable {
 
 extension Array: Variable where Element: Variable {
 
-    public typealias Expression = [Element.Expression]
+    public typealias RightHandExpression = [Element.RightHandExpression]
 
-    public func plus(_ constant: LayoutConstant) -> [Element.Expression] {
+    public func plus(_ constant: LayoutConstant) -> [Element.RightHandExpression] {
         return self.map { $0.plus(constant) }
     }
 
-    public func times(_ multiplier: LayoutMultiplier) -> [Element.Expression] {
+    public func times(_ multiplier: LayoutMultiplier) -> [Element.RightHandExpression] {
         return self.map { $0.times(multiplier) }
     }
 }

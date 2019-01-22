@@ -10,7 +10,7 @@
 
 extension {{AnchorType}}: Variable {
 
-    public typealias E = {{AnchorType}}Expression
+    public typealias RightHandExpression = {{AnchorType}}Expression
 
     public func plus(_ constant: LayoutConstant) -> {{AnchorType}}Expression {
         return {{AnchorType}}Expression(anchor: self, configuration: .constant(constant))

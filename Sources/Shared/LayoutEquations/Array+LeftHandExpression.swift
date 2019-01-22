@@ -21,13 +21,13 @@ extension Array where Element: LeftHandExpression {
 
     // MARK: Anchor Array == Expression
     @discardableResult
-    public func equal(to rhs: Element.Expression) -> [Element.LinearEquation.Solution] {
+    public func equal(to rhs: Element.RightHandExpression) -> [Element.LinearEquation.Solution] {
         return map { $0.equal(to: rhs) }
     }
 
     // MARK: Anchor Array == Expression Array
     @discardableResult
-    public func equal(to rhs: [Element.Expression]) -> [[Element.LinearEquation.Solution]] {
+    public func equal(to rhs: [Element.RightHandExpression]) -> [[Element.LinearEquation.Solution]] {
         return map { $0.equal(to: rhs) }
     }
 
@@ -47,13 +47,13 @@ extension Array where Element: LeftHandExpression {
 
     // MARK: Anchor Array <= Expression
     @discardableResult
-    public func lessThanOrEqual(to rhs: Element.Expression) -> [Element.LinearEquation.Solution] {
+    public func lessThanOrEqual(to rhs: Element.RightHandExpression) -> [Element.LinearEquation.Solution] {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
     // MARK: Anchor Array <= Expression Array
     @discardableResult
-    public func lessThanOrEqual(to rhs: [Element.Expression]) -> [[Element.LinearEquation.Solution]] {
+    public func lessThanOrEqual(to rhs: [Element.RightHandExpression]) -> [[Element.LinearEquation.Solution]] {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
@@ -73,13 +73,13 @@ extension Array where Element: LeftHandExpression {
 
     // MARK: Anchor Array >= Expression
     @discardableResult
-    public func greaterThanOrEqual(to rhs: Element.Expression) -> [Element.LinearEquation.Solution] {
+    public func greaterThanOrEqual(to rhs: Element.RightHandExpression) -> [Element.LinearEquation.Solution] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 
     // MARK: Anchor Array >= Expression Array
     @discardableResult
-    public func greaterThanOrEqual(to rhs: [Element.Expression]) -> [[Element.LinearEquation.Solution]] {
+    public func greaterThanOrEqual(to rhs: [Element.RightHandExpression]) -> [[Element.LinearEquation.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }

@@ -11,7 +11,7 @@
 
 extension YAxisAnchor: Variable {
 
-    public typealias Expression = YAxisAnchorExpression
+    public typealias RightHandExpression = YAxisAnchorExpression
 
     public func plus(_ constant: LayoutConstant) -> YAxisAnchorExpression {
         return YAxisAnchorExpression(anchor: self, configuration: .constant(constant))

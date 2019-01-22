@@ -37,7 +37,7 @@ public func .= (lhs: View, rhs: LayoutDimension) -> Constraint {
 // M.RK: View == Anchor
 @discardableResult
 public func .= (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] .= rhs
+    return lhs[keyPath: ...rhs] .= rhs
 }
 
 infix operator .=. : RelationPrecedence
@@ -63,7 +63,7 @@ public func .=. (lhs: View, rhs: LayoutDimension) -> Constraint {
 // MARK: View == Anchor
 @discardableResult
 public func .=. (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] .=. rhs
+    return lhs[keyPath: ...rhs] .=. rhs
 }
 
 infix operator ≡ : RelationPrecedence
@@ -103,7 +103,7 @@ public func ≈ (lhs: View, rhs: LayoutDimension) -> Constraint {
 // MARK: View == Anchor
 @discardableResult
 public func ≈ (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] ≈ rhs
+    return lhs[keyPath: ...rhs] ≈ rhs
 }
 
 infix operator |=| : RelationPrecedence
@@ -129,7 +129,7 @@ public func |=| (lhs: View, rhs: LayoutDimension) -> Constraint {
 // MARK: View == Anchor
 @discardableResult
 public func |=| (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] |=| rhs
+    return lhs[keyPath: ...rhs] |=| rhs
 }
 
 infix operator ≤ : RelationPrecedence
@@ -157,7 +157,7 @@ public func <=> (lhs: View, rhs: LayoutDimension) -> Constraint {
 // MARK: View == Anchor
 @discardableResult
 public func <=> (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] <=> rhs
+    return lhs[keyPath: ...rhs] <=> rhs
 }
 
 infix operator <> : RelationPrecedence
@@ -183,7 +183,7 @@ public func <> (lhs: View, rhs: LayoutDimension) -> Constraint {
 // MARK: View == Anchor
 @discardableResult
 public func <> (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor] <> rhs
+    return lhs[keyPath: ...rhs] <> rhs
 }
 
 precedencegroup OffsetPrecedence {

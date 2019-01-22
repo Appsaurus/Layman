@@ -15,7 +15,7 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: LayoutDimensionPair, rhs: LayoutPairExpression<LayoutDimension, LayoutDimension>) -> ConstraintPair {
+public func == (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
     return lhs.equal(to: rhs)
 }
 
@@ -28,7 +28,7 @@ public func == (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> Constrain
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
-public func <= (lhs: LayoutDimensionPair, rhs: LayoutPairExpression<LayoutDimension, LayoutDimension>) -> ConstraintPair {
+public func <= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -41,7 +41,7 @@ public func <= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> Constrain
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
-public func >= (lhs: LayoutDimensionPair, rhs: LayoutPairExpression<LayoutDimension, LayoutDimension>) -> ConstraintPair {
+public func >= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 

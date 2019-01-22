@@ -7,6 +7,7 @@
 //
 
 public class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
+
     public var configuration: EdgeAnchorsConfiguration = .default
 
     var topExpression: YAxisAnchorExpression { return top + configuration.top }

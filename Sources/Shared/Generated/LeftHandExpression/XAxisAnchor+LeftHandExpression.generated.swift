@@ -15,7 +15,7 @@ extension XAxisAnchor: LeftHandExpression {
     public func relation(_ relation: Constraint.Relation, _ rhs: XAxisAnchor) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
-    public func relation(_ relation: Constraint.Relation, _ rhs: Expression) -> LinearEquation {
+    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }

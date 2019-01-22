@@ -34,7 +34,7 @@ extension EdgeAnchorGroup {
 
 extension EdgeAnchorGroup: Variable {
 
-    public typealias Expression = EdgeAnchorGroupExpression
+    public typealias RightHandExpression = EdgeAnchorGroupExpression
 
     @discardableResult
     public func plus(_ constant: LayoutConstant) -> EdgeAnchorGroupExpression {

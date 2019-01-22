@@ -11,7 +11,7 @@
 
 extension LayoutDimension: Variable {
 
-    public typealias Expression = LayoutDimensionExpression
+    public typealias RightHandExpression = LayoutDimensionExpression
 
     public func plus(_ constant: LayoutConstant) -> LayoutDimensionExpression {
         return LayoutDimensionExpression(anchor: self, configuration: .constant(constant))

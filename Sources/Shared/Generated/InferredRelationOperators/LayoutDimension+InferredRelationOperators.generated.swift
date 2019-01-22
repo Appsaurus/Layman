@@ -19,7 +19,7 @@ public func == (lhs: View, rhs: LayoutDimension) -> Constraint {
 // MARK: View == Expression
 @discardableResult
 public func == (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor].equal(to: rhs)
+    return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
@@ -32,7 +32,7 @@ public func <= (lhs: View, rhs: LayoutDimension) -> Constraint {
 // MARK: View <= Expression
 @discardableResult
 public func <= (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor].lessThanOrEqual(to: rhs)
+    return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
@@ -45,7 +45,7 @@ public func >= (lhs: View, rhs: LayoutDimension) -> Constraint {
 // MARK: View >= Expression
 @discardableResult
 public func >= (lhs: View, rhs: LayoutDimensionExpression) -> Constraint {
-    return lhs[keyPath: ...rhs.anchor].greaterThanOrEqual(to: rhs)
+    return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 
 // MARK: - rhs collection -

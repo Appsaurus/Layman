@@ -11,12 +11,12 @@
 // MARK: View == Anchor
 @discardableResult
 public func == (lhs: View, rhs: EdgeAnchorGroup) -> SideConstraints {
-    return lhs[keyPath: \View.edgeAnchors] == rhs
+    return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 // MARK: View == Expression
 @discardableResult
 public func == (lhs: View, rhs: EdgeAnchorGroupExpression) -> SideConstraints {
-    return lhs[keyPath: \View.edgeAnchors] == rhs
+    return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
@@ -24,12 +24,12 @@ public func == (lhs: View, rhs: EdgeAnchorGroupExpression) -> SideConstraints {
 // MARK: View <= Anchor
 @discardableResult
 public func <= (lhs: View, rhs: EdgeAnchorGroup) -> SideConstraints {
-    return lhs[keyPath: \View.edgeAnchors] <= rhs
+    return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 // MARK: View <= Expression
 @discardableResult
 public func <= (lhs: View, rhs: EdgeAnchorGroupExpression) -> SideConstraints {
-    return lhs[keyPath: \View.edgeAnchors] <= rhs
+    return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
@@ -37,12 +37,12 @@ public func <= (lhs: View, rhs: EdgeAnchorGroupExpression) -> SideConstraints {
 // MARK: View >= Anchor
 @discardableResult
 public func >= (lhs: View, rhs: EdgeAnchorGroup) -> SideConstraints {
-    return lhs[keyPath: \View.edgeAnchors] >= rhs
+    return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 // MARK: View >= Expression
 @discardableResult
 public func >= (lhs: View, rhs: EdgeAnchorGroupExpression) -> SideConstraints {
-    return lhs[keyPath: \View.edgeAnchors] >= rhs
+    return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 
 // MARK: - rhs collection -

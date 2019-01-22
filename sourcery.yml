@@ -1,24 +1,39 @@
 sources:
-- Sources/Shared/
+  - Sources/Shared/
 templates:
-- SourceryFiles/Shared/Templates
+  - SourceryFiles/Shared/Templates
 args:
-    AnchorTypes: ['XAxisAnchor','YAxisAnchor','LayoutDimension']
-    AnchorPairTypes: ['XAxisAnchorPair','YAxisAnchorPair','LayoutDimensionPair','XYAxesAnchorPair']
-    AnchorPairUnderlyingTypes:
-        XAxisAnchorPair:
-            - 'XAxisAnchor'
-            - 'XAxisAnchor'
-        YAxisAnchorPair:
-            - 'YAxisAnchor'
-            - 'YAxisAnchor'
-        LayoutDimensionPair:
-            - 'LayoutDimension'
-            - 'LayoutDimension'
-        XYAxesAnchorPair:
-            - 'XAxisAnchor'
-            - 'YAxisAnchor'
-    EqualityOperator: '=='
-    LessThanOrEqualToOperator: '<='
-    GreaterThanOrEqualToOperator: '>='
+  AnchorTypes:
+    - "XAxisAnchor"
+    - "YAxisAnchor"
+    - "LayoutDimension"
+  AnchorPairTypes:
+    - "XAxisAnchorPair"
+    - "YAxisAnchorPair"
+    - "LayoutDimensionPair"
+    - "XYAxesAnchorPair"
+  InferrableAnchorTypes:
+    - "XAxisAnchor"
+    - "YAxisAnchor"
+    - "LayoutDimension"
+    - "XAxisAnchorPair"
+    - "YAxisAnchorPair"
+    - "LayoutDimensionPair"
+    - "XYAxesAnchorPair"
+  AnchorPairUnderlyingTypes:
+    XAxisAnchorPair:
+      - "XAxisAnchor"
+      - "XAxisAnchor"
+    YAxisAnchorPair:
+      - "YAxisAnchor"
+      - "YAxisAnchor"
+    LayoutDimensionPair:
+      - "LayoutDimension"
+      - "LayoutDimension"
+    XYAxesAnchorPair:
+      - "XAxisAnchor"
+      - "YAxisAnchor"
+  EqualityOperator: "=="
+  LessThanOrEqualToOperator: "<="
+  GreaterThanOrEqualToOperator: ">="
 output: Sources/Shared/Generated

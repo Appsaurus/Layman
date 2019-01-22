@@ -53,27 +53,27 @@ extension Array: LinearEquatable where Element: LinearEquatable {
 
 //extension View {
 //    public func relation(_ relation: Constraint.Relation, _ rhs: XAxisAnchorExpression) -> XAxisAnchorRelationship {
-//        return self[keyPath: ...rhs.anchor].relation(relation, rhs)
+//        return self[keyPath: ...rhs].relation(relation, rhs)
 //    }
 //
 //    public func relation(_ relation: Constraint.Relation, _ rhs: YAxisAnchorExpression) -> YAxisAnchorRelationship {
-//        return self[keyPath: ...rhs.anchor].relation(relation, rhs)
+//        return self[keyPath: ...rhs].relation(relation, rhs)
 //    }
 //
 //    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutDimensionExpression) -> LayoutDimensionRelationship {
-//        return self[keyPath: ...rhs.anchor].relation(relation, rhs)
+//        return self[keyPath: ...rhs].relation(relation, rhs)
 //    }
 //
 //    public func relation(_ relation: Constraint.Relation, _ rhs: XAxisAnchorPairExpression) -> XAxisAnchorPairRelationship {
-//        return self[keyPath: ...rhs.anchor].relation(relation, rhs)
+//        return self[keyPath: ...rhs].relation(relation, rhs)
 //    }
 //
 //    public func relation(_ relation: Constraint.Relation, _ rhs: YAxisAnchorPairExpression) -> YAxisAnchorPairRelationship {
-//        return self[keyPath: ...rhs.anchor].relation(relation, rhs)
+//        return self[keyPath: ...rhs].relation(relation, rhs)
 //    }
 //
 //    public func relation(_ relation: Constraint.Relation, _ rhs: XYAxesAnchorPairExpression) -> XYAxesAnchorPairRelationship {
-//        return self[keyPath: ...rhs.anchor].relation(relation, rhs)
+//        return self[keyPath: ...rhs].relation(relation, rhs)
 //    }
 //}
 //

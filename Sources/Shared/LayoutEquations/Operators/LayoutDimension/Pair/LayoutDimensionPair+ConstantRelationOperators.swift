@@ -45,15 +45,15 @@ public func >= (lhs: LayoutDimensionPair, rhs: LayoutPairConfiguration) -> Const
 // MARK: LayoutSize Constants
 @discardableResult
 public func == (lhs: LayoutDimensionPair, rhs: LayoutSize) -> ConstraintPair {
-    return lhs == LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
+    return lhs == .size(rhs)
 }
 
 @discardableResult
 public func <= (lhs: LayoutDimensionPair, rhs: LayoutSize) -> ConstraintPair {
-    return lhs <= LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
+    return lhs <= .size(rhs)
 }
 
 @discardableResult
 public func >= (lhs: LayoutDimensionPair, rhs: LayoutSize) -> ConstraintPair {
-    return lhs >= LayoutPairConfiguration(.constant(rhs.width), .constant(rhs.height))
+    return lhs >= .size(rhs)
 }

@@ -19,12 +19,6 @@ public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutConfiguration 
     return LayoutConfiguration(constant: lhs, priority: rhs)
 }
 
-//@discardableResult
-//public func ~ (lhs: IntegerLiteralType, rhs: LayoutPriority) -> LayoutConfiguration {
-//    return LayoutConfiguration(constant: lhs.cgFloat, priority: rhs)
-//}
-//
-//@discardableResult
-//public func ~ (lhs: FloatLiteralType, rhs: LayoutPriority) -> LayoutConfiguration {
-//    return LayoutConfiguration(constant: lhs.cgFloat, priority: rhs)
-//}
+public func == (lhs: LayoutPriority, rhs: LayoutPriority) -> Bool {
+    return lhs.rawValue == rhs.rawValue
+}

@@ -35,6 +35,10 @@ internal prefix func ... (_ anchor: LayoutAnchor<XAxisAnchor>) -> KeyPath<Layout
     return keyPath(anchor)
 }
 
+internal prefix func ... (_ anchorExpression: XAxisAnchorExpression) -> KeyPath<LayoutAnchorable, XAxisAnchor> {
+    return ...anchorExpression.anchor
+}
+
 // MARK: YAxisAnchor
 
 private let yAxisAnchorMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, YAxisAnchor>] = [
@@ -60,6 +64,11 @@ internal prefix func ... (_ anchor: LayoutAnchor<YAxisAnchor>) -> KeyPath<Layout
     return keyPath(anchor)
 }
 
+internal prefix func ... (_ anchorExpression: YAxisAnchorExpression) -> KeyPath<LayoutAnchorable, YAxisAnchor> {
+    return ...anchorExpression.anchor
+}
+
+
 // MARK: LayoutDimension
 
 private let layoutDimensionMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, LayoutDimension>] = [
@@ -77,6 +86,10 @@ private func keyPath(_ anchor: LayoutAnchor<LayoutDimension>) -> KeyPath<LayoutA
 
 internal prefix func ... (_ anchor: LayoutAnchor<LayoutDimension>) -> KeyPath<LayoutAnchorable, LayoutDimension> {
     return keyPath(anchor)
+}
+
+internal prefix func ... (_ anchorExpression: LayoutDimensionExpression) -> KeyPath<LayoutAnchorable, LayoutDimension> {
+    return ...anchorExpression.anchor
 }
 
 internal protocol KeyPathExtracting {
@@ -163,6 +176,10 @@ internal prefix func ... (_ anchorPair: LayoutDimensionPair) -> KeyPath<LayoutAn
     return \.sizeAnchors
 }
 
+internal prefix func ... (_ anchorPairExpression: LayoutDimensionPairExpression) -> KeyPath<LayoutAnchorable, LayoutDimensionPair> {
+    return ...anchorPairExpression.anchor
+}
+
 internal prefix func ... (_ anchorPair: XYAxesAnchorPair) -> KeyPath<LayoutAnchorable, XYAxesAnchorPair> {
     let firstAnchorAttribute = anchorPair.first.attribute
     let secondAnchorAttribute = anchorPair.second.attribute
@@ -182,6 +199,10 @@ internal prefix func ... (_ anchorPair: XYAxesAnchorPair) -> KeyPath<LayoutAncho
     }
 }
 
+internal prefix func ... (_ anchorPairExpression: XYAxesAnchorPairExpression) -> KeyPath<LayoutAnchorable, XYAxesAnchorPair> {
+    return ...anchorPairExpression.anchor
+}
+
 internal prefix func ... (_ anchorPair: YAxisAnchorPair) -> KeyPath<LayoutAnchorable, YAxisAnchorPair> {
     let firstAnchorAttribute = anchorPair.first.attribute
     let secondAnchorAttribute = anchorPair.second.attribute
@@ -191,6 +212,10 @@ internal prefix func ... (_ anchorPair: YAxisAnchorPair) -> KeyPath<LayoutAnchor
     default:
         preconditionFailure("\(anchorPair.first) and \(anchorPair.second) with attributes \(firstAnchorAttribute) and \(secondAnchorAttribute) cannot be inferred as YAxisAnchorPair.")
     }
+}
+
+internal prefix func ... (_ anchorPairExpression: YAxisAnchorPairExpression) -> KeyPath<LayoutAnchorable, YAxisAnchorPair> {
+    return ...anchorPairExpression.anchor
 }
 
 internal prefix func ... (_ anchorPair: XAxisAnchorPair) -> KeyPath<LayoutAnchorable, XAxisAnchorPair> {
@@ -204,16 +229,17 @@ internal prefix func ... (_ anchorPair: XAxisAnchorPair) -> KeyPath<LayoutAnchor
     }
 }
 
-//internal prefix func ... (_ anchorGroup: EdgeAnchorGroup) -> KeyPath<LayoutAnchorable, EdgeAnchorGroup> {
-//    let firstAnchorAttribute = anchorGroup.top.constraint(equalTo: anchorPair.first).firstAttribute
-//    let secondAnchorAttribute = anchorPair.second.constraint(equalTo: anchorPair.second).firstAttribute
-//    switch (firstAnchorAttribute, secondAnchorAttribute) {
-//    case (.leading, .trailing):
-//        return \.horizontalEdgeAnchors
-//    default:
-//        preconditionFailure("\(anchorPair.first) and \(anchorPair.second) with attributes \(firstAnchorAttribute) and \(secondAnchorAttribute) cannot be inferred as XAxisAnchorPair.")
-//    }
-//}
+internal prefix func ... (_ anchorPairExpression: XAxisAnchorPairExpression) -> KeyPath<LayoutAnchorable, XAxisAnchorPair> {
+    return ...anchorPairExpression.anchor
+}
+
+internal prefix func ... (_ anchorGroup: EdgeAnchorGroup) -> KeyPath<LayoutAnchorable, EdgeAnchorGroup> {
+    return \LayoutAnchorable.edgeAnchors
+}
+
+internal prefix func ... (_ anchorGroupExpression: EdgeAnchorGroupExpression) -> KeyPath<LayoutAnchorable, EdgeAnchorGroup> {
+    return \LayoutAnchorable.edgeAnchors
+}
 
 extension LayoutAnchor where AnchorType == LayoutDimension {
     public var attribute: ConstraintAttribute {

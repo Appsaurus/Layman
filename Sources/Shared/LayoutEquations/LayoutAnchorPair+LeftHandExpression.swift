@@ -7,41 +7,41 @@
 //
 
 // MARK: - Anchor Pair
-public class LayoutAnchorPair<FA: AnchorType, SA: AnchorType>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>>, PairVairiable {
+public class LayoutAnchorPair<FA: AnchorType, SA: AnchorType>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>>, Variable {
 
     // MARK: Variable
-    public typealias Expression = LayoutPairExpression<FA, SA>
+    public typealias RightHandExpression = LayoutPairExpression<FA, SA>
 
-    public func plus(_ constant: LayoutConstant) -> Expression {
+    public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         let config = LayoutPairConfiguration(.constant(constant))
-        return Expression(anchor: self, configuration: config)
+        return RightHandExpression(anchor: self, configuration: config)
     }
 
-    public func times(_ multiplier: LayoutMultiplier) -> Expression {
+    public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
         let config = LayoutPairConfiguration(.multiplier(multiplier))
-        return Expression(anchor: self, configuration: config)
+        return RightHandExpression(anchor: self, configuration: config)
     }
 }
 
-public protocol PairVairiable: Variable where Expression == LayoutPairExpression<FA, SA> {
-    associatedtype FA: AnchorType
-    associatedtype SA: AnchorType
+//public protocol PairVairiable: Variable where RightHandExpression == LayoutPairExpression<FA, SA> {
+//    associatedtype FA: AnchorType
+//    associatedtype SA: AnchorType
 
-}
+//}
 
-extension LayoutAnchorPair: LeftHandPairExpression {
+extension LayoutAnchorPair: LeftHandExpression {
     public typealias LinearEquation = LayoutPairRelationship<FA, SA>
 
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutAnchorPair<FA, SA>) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Constraint.Relation, _ rhs: Expression ) -> LinearEquation {
+    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression ) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }
 
-public protocol LeftHandPairExpression: LeftHandExpression where LinearEquation == LayoutPairRelationship<FA, SA> {
-    associatedtype FA: AnchorType
-    associatedtype SA: AnchorType
-}
+//public protocol LeftHandPairExpression: LeftHandExpression where LinearEquation == LayoutPairRelationship<FA, SA> {
+//    associatedtype FA: AnchorType
+//    associatedtype SA: AnchorType
+//}

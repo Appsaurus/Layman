@@ -71,6 +71,10 @@ extension LayoutConfiguration {
 
 public final class LayoutPairConfiguration: LayoutModelReferencePair<LayoutConfiguration> {
     public static var `default`: LayoutPairConfiguration { return .init(.default) }
+
+    public static func size(_ size: LayoutSize) -> LayoutPairConfiguration{
+        return LayoutPairConfiguration(.constant(size.width), .constant(size.height))
+    }
 }
 
 extension LayoutPairConfiguration: Coefficient {}
