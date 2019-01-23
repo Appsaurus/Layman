@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 //
-//  View+XAxisAnchorRelationOperators.swift
+//  View+EdgeAnchorGroupRelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -13,12 +13,12 @@
 
 // MARK: View == Anchor
 @discardableResult
-public func == (lhs: View, rhs: XAxisAnchor) -> XAxisAnchor.Solution {
+public func == (lhs: View, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 // MARK: View == Expression
 @discardableResult
-public func == (lhs: View, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
+public func == (lhs: View, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
     return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 
@@ -26,12 +26,12 @@ public func == (lhs: View, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
 
 // MARK: View <= Anchor
 @discardableResult
-public func <= (lhs: View, rhs: XAxisAnchor) -> XAxisAnchor.Solution {
+public func <= (lhs: View, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 // MARK: View <= Expression
 @discardableResult
-public func <= (lhs: View, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
+public func <= (lhs: View, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
     return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 
@@ -39,12 +39,12 @@ public func <= (lhs: View, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
 
 // MARK: View >= Anchor
 @discardableResult
-public func >= (lhs: View, rhs: XAxisAnchor) -> XAxisAnchor.Solution {
+public func >= (lhs: View, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 // MARK: View >= Expression
 @discardableResult
-public func >= (lhs: View, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
+public func >= (lhs: View, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
     return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 
@@ -54,13 +54,13 @@ public func >= (lhs: View, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
 
 // MARK: View == Anchors
 @discardableResult
-public func == (lhs: View, rhs: XAxisAnchors) -> [XAxisAnchor.Solution] {
+public func == (lhs: View, rhs: EdgeAnchorGroups) -> [EdgeAnchorGroup.Solution] {
     return rhs.map({lhs == $0})
 }
 
 // MARK: View == Expressions
 @discardableResult
-public func == (lhs: View, rhs: XAxisAnchorExpressions) -> [XAxisAnchor.Solution] {
+public func == (lhs: View, rhs: EdgeAnchorGroupExpressions) -> [EdgeAnchorGroup.Solution] {
     return rhs.map({lhs == $0})
 }
 
@@ -68,12 +68,12 @@ public func == (lhs: View, rhs: XAxisAnchorExpressions) -> [XAxisAnchor.Solution
 
 // MARK: View <= Anchors
 @discardableResult
-public func <= (lhs: View, rhs: XAxisAnchors) -> [XAxisAnchor.Solution] {
+public func <= (lhs: View, rhs: EdgeAnchorGroups) -> [EdgeAnchorGroup.Solution] {
     return rhs.map({lhs <= $0})
 }
 // MARK: View <= Expressions
 @discardableResult
-public func <= (lhs: View, rhs: XAxisAnchorExpressions) -> [XAxisAnchor.Solution] {
+public func <= (lhs: View, rhs: EdgeAnchorGroupExpressions) -> [EdgeAnchorGroup.Solution] {
     return rhs.map({lhs <= $0})
 }
 
@@ -81,11 +81,11 @@ public func <= (lhs: View, rhs: XAxisAnchorExpressions) -> [XAxisAnchor.Solution
 
 // MARK: View >= Anchors
 @discardableResult
-public func >= (lhs: View, rhs: XAxisAnchors) -> [XAxisAnchor.Solution] {
+public func >= (lhs: View, rhs: EdgeAnchorGroups) -> [EdgeAnchorGroup.Solution] {
     return rhs.map({lhs >= $0})
 }
 // MARK: View >= Expressions
 @discardableResult
-public func >= (lhs: View, rhs: XAxisAnchorExpressions) -> [XAxisAnchor.Solution] {
+public func >= (lhs: View, rhs: EdgeAnchorGroupExpressions) -> [EdgeAnchorGroup.Solution] {
     return rhs.map({lhs >= $0})
 }

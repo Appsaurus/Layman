@@ -11,13 +11,13 @@
 
 // MARK: [View] == Anchor
 @discardableResult
-public func == (lhs: [View], rhs: XYAxesAnchorPair) -> [ConstraintPair] {
+public func == (lhs: [View], rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Anchors
 @discardableResult
-public func == (lhs: [View], rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
+public func == (lhs: [View], rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -25,13 +25,13 @@ public func == (lhs: [View], rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] == Expression
 @discardableResult
-public func == (lhs: [View], rhs: XYAxesAnchorPairExpression) -> [ConstraintPair] {
+public func == (lhs: [View], rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Expressions
 @discardableResult
-public func == (lhs: [View], rhs: XYAxesAnchorPairExpressions) -> [[ConstraintPair]] {
+public func == (lhs: [View], rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -41,13 +41,13 @@ public func == (lhs: [View], rhs: XYAxesAnchorPairExpressions) -> [[ConstraintPa
 
 // MARK: [View] <= Anchor
 @discardableResult
-public func <= (lhs: [View], rhs: XYAxesAnchorPair) -> [ConstraintPair] {
+public func <= (lhs: [View], rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Anchors
 @discardableResult
-public func <= (lhs: [View], rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
+public func <= (lhs: [View], rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element <= $0})
     }
@@ -55,13 +55,13 @@ public func <= (lhs: [View], rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: XYAxesAnchorPairExpression) -> [ConstraintPair] {
+public func <= (lhs: [View], rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Expressions
 @discardableResult
-public func <= (lhs: [View], rhs: XYAxesAnchorPairExpressions) -> [[ConstraintPair]] {
+public func <= (lhs: [View], rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element <= $0})
     }
@@ -71,13 +71,13 @@ public func <= (lhs: [View], rhs: XYAxesAnchorPairExpressions) -> [[ConstraintPa
 
 // MARK: [View] >= Anchor
 @discardableResult
-public func >= (lhs: [View], rhs: XYAxesAnchorPair) -> [ConstraintPair] {
+public func >= (lhs: [View], rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Anchors
 @discardableResult
-public func >= (lhs: [View], rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
+public func >= (lhs: [View], rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element >= $0})
     }
@@ -85,13 +85,13 @@ public func >= (lhs: [View], rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: XYAxesAnchorPairExpression) -> [ConstraintPair] {
+public func >= (lhs: [View], rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Expressions
 @discardableResult
-public func >= (lhs: [View], rhs: XYAxesAnchorPairExpressions) -> [[ConstraintPair]] {
+public func >= (lhs: [View], rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element >= $0})
     }

@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UIView {
-    fileprivate func assertSuperview() -> UIView {
+extension View {
+    public func assertSuperview() -> View {
         assert(superview != nil, "Attempted to create constraint between a view and its superview without a superview.")
         return superview!
     }

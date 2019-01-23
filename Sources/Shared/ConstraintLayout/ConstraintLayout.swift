@@ -69,11 +69,6 @@ extension UIView {
 // MARK: - Pin: Superview
 extension UIView {
     
-    fileprivate func assertSuperview() -> UIView {
-        assert(superview != nil, "Åttempted to create constraint between a view and its superview without a superview.")
-        return superview!
-    }
-    
     @discardableResult
     public func autoPinToSuperviewMargins(margins: Attributes = .margins, withInsets insets: UIEdgeInsets = .zero, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary {
         return autoPin(to: margins, of: assertSuperview(), withInsets: insets, relatedBy: relatedBy, priority: priority)

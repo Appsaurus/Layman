@@ -47,7 +47,6 @@ public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{LeftHandType}}, rh
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-
 // MARK: {{LeftHandType}} Array <=> {{RightHandType}}
 
 // MARK: - Equal

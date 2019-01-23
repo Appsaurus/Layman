@@ -32,17 +32,17 @@ extension EdgeAnchorGroup {
 
 }
 
-extension EdgeAnchorGroup: Variable {
-
-    public typealias RightHandExpression = EdgeAnchorGroupExpression
-
-    @discardableResult
-    public func plus(_ constant: LayoutConstant) -> EdgeAnchorGroupExpression {
-        return plus(inset: LayoutInset(padding: constant))
-    }
-
-    @discardableResult
-    public func times(_ multiplier: LayoutConstant) -> EdgeAnchorGroupExpression {
-        return EdgeAnchorGroupExpression(anchor: self, configuration: EdgeAnchorsConfiguration(.multiplier(multiplier)))
-    }
-}
+//extension EdgeAnchorGroup: Variable {
+//
+//    public typealias RightHandExpression = EdgeAnchorGroupExpression
+//
+//    @discardableResult
+//    public func plus(_ constant: LayoutConstant) -> EdgeAnchorGroupExpression {
+//        return plus(inset: LayoutInset(padding: constant))
+//    }
+//
+//    @discardableResult
+//    public func times(_ multiplier: LayoutConstant) -> EdgeAnchorGroupExpression {
+//        return EdgeAnchorGroupExpression(anchor: self, configuration: EdgeAnchorsConfiguration(.multiplier(multiplier)))
+//    }
+//}

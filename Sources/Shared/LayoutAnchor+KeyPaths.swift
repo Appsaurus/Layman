@@ -244,16 +244,41 @@ extension LayoutAnchor where AnchorType == LayoutDimension {
     public var attribute: ConstraintAttribute {
         return constraint(equalTo: self).firstAttribute
     }
+
+    public var view: View? {
+        return constraint(equalTo: self).firstView
+    }
 }
 
 extension LayoutAnchor where AnchorType == XAxisAnchor {
     public var attribute: ConstraintAttribute {
         return constraint(equalTo: self).firstAttribute
     }
+
+    public var view: View? {
+        return constraint(equalTo: self).firstView
+    }
 }
 
 extension LayoutAnchor where AnchorType == YAxisAnchor {
     public var attribute: ConstraintAttribute {
         return constraint(equalTo: self).firstAttribute
+    }
+
+    public var view: View? {
+        return constraint(equalTo: self).firstView
+    }
+}
+
+extension EdgeAnchorGroup {
+    public var attributes: SidesTuple<ConstraintAttribute, ConstraintAttribute> {
+        return SidesTuple(top.attribute,
+                          leading.attribute,
+                          bottom.attribute,
+                          trailing.attribute)
+    }
+
+    public var views: [View] {
+        return [top.view, leading.view, bottom.view, trailing.view].compactMap {$0}
     }
 }

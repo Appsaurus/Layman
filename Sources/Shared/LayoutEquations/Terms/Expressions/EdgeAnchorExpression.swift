@@ -9,6 +9,9 @@
 public class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
 
     public var configuration: EdgeAnchorsConfiguration = .default
+    public var anchor: EdgeAnchorGroup {
+        return EdgeAnchorGroup(top, leading, bottom, trailing)
+    }
 
     var topExpression: YAxisAnchorExpression { return top + configuration.top }
     var leadingExpression: XAxisAnchorExpression { return leading + configuration.leading }

@@ -18,6 +18,14 @@ extension Constraint {
         return [firstItem, secondItem]
     }
 
+    public var firstView: View? {
+        return firstItem as? View
+    }
+
+    public var secondView: View? {
+        return secondItem as? View
+    }
+
     @discardableResult
     public func activated(with configuration: LayoutConfiguration) -> Constraint {
         return configured(with: configuration).activated()
@@ -75,5 +83,52 @@ extension Constraint {
     public func with(priority: LayoutPriority) -> Self {
         self.priority = priority
         return self
+    }
+}
+
+extension ConstraintAttribute {
+    public var isTrailingType: Bool {
+        return [.right, .bottom, .trailing, .rightMargin, .bottomMargin, .trailingMargin].contains(self)
+
+    }
+}
+extension Constraint.Relation {
+    public var inverted: Constraint.Relation {
+        switch self {
+        case .lessThanOrEqual:
+            return .greaterThanOrEqual
+        case .greaterThanOrEqual:
+            return .lessThanOrEqual
+        default:
+            return self
+        }
+    }
+}
+extension Constraint {
+
+    public func invertConstant() -> Constraint {
+        return self.set(constant: -constant)
+    }
+    public func set(constant: LayoutConstant) -> Constraint {
+        self.constant = constant
+        return self
+    }
+
+    public var withInvertedRelationship: Constraint {
+        return with(relation: relation.inverted)
+    }
+
+    public func with(relation: Constraint.Relation) -> Constraint {
+        return Constraint(item: firstItem as Any,
+                          attribute: firstAttribute,
+                          relatedBy: relation,
+                          toItem: secondItem,
+                          attribute: secondAttribute,
+                          multiplier: multiplier,
+                          constant: constant).with(priority: priority)
+    }
+    public var invertedAsInset: Constraint {
+        guard firstAttribute.isTrailingType, secondAttribute.isTrailingType else { return self }
+        return self.withInvertedRelationship.invertConstant()
     }
 }

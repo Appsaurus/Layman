@@ -7,6 +7,7 @@ args:
     - "XAxisAnchor"
     - "YAxisAnchor"
     - "LayoutDimension"
+    - "EdgeAnchorGroup"
   AnchorPairTypes:
     - "XAxisAnchorPair"
     - "YAxisAnchorPair"
@@ -36,20 +37,6 @@ args:
             - 'LayoutConstant'
             - 'LayoutConfiguration'
         RelationshipType: LayoutDimensionRelationship
-
-  AnchorPairUnderlyingTypes:
-    XAxisAnchorPair:
-      - "XAxisAnchor"
-      - "XAxisAnchor"
-    YAxisAnchorPair:
-      - "YAxisAnchor"
-      - "YAxisAnchor"
-    LayoutDimensionPair:
-      - "LayoutDimension"
-      - "LayoutDimension"
-    XYAxesAnchorPair:
-      - "XAxisAnchor"
-      - "YAxisAnchor"
   EqualityOperator: "=="
   LessThanOrEqualToOperator: "<="
   GreaterThanOrEqualToOperator: ">="

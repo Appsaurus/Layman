@@ -1,4 +1,5 @@
 {% for AnchorPairType in argument.AnchorPairTypes %}
+{% set Solution %}{{AnchorPairType}}.Solution{% endset %}
 // sourcery:file:PairArrayRelationOperators/{{AnchorPairType}}+ArrayRelationOperators
 //
 //  {{AnchorPairType}}+ArrayRelationOperators.swift
@@ -12,19 +13,19 @@
 
 // MARK: Anchor == Anchor Array
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [ConstraintPair] {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [{{Solution}}] {
     return rhs.map({lhs {{argument.EqualityOperator}} $0})
 }
 
 // MARK: Anchor Array == Anchor
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [ConstraintPair] {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [{{Solution}}] {
     return lhs.map({$0 {{argument.EqualityOperator}} rhs})
 }
 
 // MARK: Anchor Array == Anchor Array
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[{{Solution}}]] {
     return lhs.map { element in
         rhs.map { element {{argument.EqualityOperator}} $0 }
     }
@@ -32,19 +33,19 @@ public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{Anch
 
 // MARK: Anchor == Expression Array
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [ConstraintPair] {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [{{Solution}}] {
     return rhs.map({lhs {{argument.EqualityOperator}} $0})
 }
 
 // MARK: Anchor Array == Expression
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [{{Solution}}] {
     return lhs.map {$0 {{argument.EqualityOperator}} rhs }
 }
 
 // MARK: Anchor Array == Expression Array
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[{{Solution}}]] {
     return lhs.map { element in
         rhs.map { element {{argument.EqualityOperator}} $0 }
     }
@@ -54,19 +55,19 @@ public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}s, rhs: {{Anch
 
 // MARK: Anchor <= Anchor Array
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [ConstraintPair] {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [{{Solution}}] {
     return rhs.map({lhs {{argument.LessThanOrEqualToOperator}} $0})
 }
 
 // MARK: Anchor Array <= Anchor
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [ConstraintPair] {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [{{Solution}}] {
     return lhs.map({$0 {{argument.LessThanOrEqualToOperator}} rhs})
 }
 
 // MARK: Anchor Array <= Anchor Array
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[{{Solution}}]] {
     return lhs.map { element in
         rhs.map { element {{argument.LessThanOrEqualToOperator}} $0 }
     }
@@ -74,19 +75,19 @@ public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rh
 
 // MARK: Anchor <= Expression Array
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [ConstraintPair] {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [{{Solution}}] {
     return rhs.map({lhs {{argument.LessThanOrEqualToOperator}} $0})
 }
 
 // MARK: Anchor Array <= Expression
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [{{Solution}}] {
     return lhs.map {$0 {{argument.LessThanOrEqualToOperator}} rhs }
 }
 
 // MARK: Anchor Array <= Expression Array
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[{{Solution}}]] {
     return lhs.map { element in
         rhs.map { element {{argument.LessThanOrEqualToOperator}} $0 }
     }
@@ -96,19 +97,19 @@ public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rh
 
 // MARK: Anchor >= Anchor Array
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [ConstraintPair] {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}s) -> [{{Solution}}] {
     return rhs.map({lhs {{argument.GreaterThanOrEqualToOperator}} $0})
 }
 
 // MARK: Anchor Array >= Anchor
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [ConstraintPair] {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}) -> [{{Solution}}] {
     return lhs.map({$0 {{argument.GreaterThanOrEqualToOperator}} rhs})
 }
 
 // MARK: Anchor Array >= Anchor Array
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[ConstraintPair]] {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}s) -> [[{{Solution}}]] {
     return lhs.map { element in
         rhs.map { element {{argument.GreaterThanOrEqualToOperator}} $0 }
     }
@@ -116,19 +117,19 @@ public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s,
 
 // MARK: Anchor >= Expression Array
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [ConstraintPair] {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expressions) -> [{{Solution}}] {
     return rhs.map({lhs {{argument.GreaterThanOrEqualToOperator}} $0})
 }
 
 // MARK: Anchor Array >= Expression
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [ConstraintPair] {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expression) -> [{{Solution}}] {
     return lhs.map {$0 {{argument.GreaterThanOrEqualToOperator}} rhs }
 }
 
 // MARK: Anchor Array >= Expression Array
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[ConstraintPair]] {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}s, rhs: {{AnchorPairType}}Expressions) -> [[{{Solution}}]] {
     return lhs.map { element in
         rhs.map { element {{argument.GreaterThanOrEqualToOperator}} $0 }
     }

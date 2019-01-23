@@ -13,19 +13,19 @@
 
 // MARK: Anchor == Anchor Array
 @discardableResult
-public func == (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [ConstraintPair] {
+public func == (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
     return rhs.map({lhs == $0})
 }
 
 // MARK: Anchor Array == Anchor
 @discardableResult
-public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [ConstraintPair] {
+public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
     return lhs.map({$0 == rhs})
 }
 
 // MARK: Anchor Array == Anchor Array
 @discardableResult
-public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
+public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map { element == $0 }
     }
@@ -33,19 +33,19 @@ public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[ConstraintP
 
 // MARK: Anchor == Expression Array
 @discardableResult
-public func == (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [ConstraintPair] {
+public func == (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
     return rhs.map({lhs == $0})
 }
 
 // MARK: Anchor Array == Expression
 @discardableResult
-public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [ConstraintPair] {
+public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
     return lhs.map {$0 == rhs }
 }
 
 // MARK: Anchor Array == Expression Array
 @discardableResult
-public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[ConstraintPair]] {
+public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map { element == $0 }
     }
@@ -55,19 +55,19 @@ public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[C
 
 // MARK: Anchor <= Anchor Array
 @discardableResult
-public func <= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [ConstraintPair] {
+public func <= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
     return rhs.map({lhs <= $0})
 }
 
 // MARK: Anchor Array <= Anchor
 @discardableResult
-public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [ConstraintPair] {
+public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
     return lhs.map({$0 <= rhs})
 }
 
 // MARK: Anchor Array <= Anchor Array
 @discardableResult
-public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
+public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map { element <= $0 }
     }
@@ -75,19 +75,19 @@ public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[ConstraintP
 
 // MARK: Anchor <= Expression Array
 @discardableResult
-public func <= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [ConstraintPair] {
+public func <= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
     return rhs.map({lhs <= $0})
 }
 
 // MARK: Anchor Array <= Expression
 @discardableResult
-public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [ConstraintPair] {
+public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
     return lhs.map {$0 <= rhs }
 }
 
 // MARK: Anchor Array <= Expression Array
 @discardableResult
-public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[ConstraintPair]] {
+public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map { element <= $0 }
     }
@@ -97,19 +97,19 @@ public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[C
 
 // MARK: Anchor >= Anchor Array
 @discardableResult
-public func >= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [ConstraintPair] {
+public func >= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
     return rhs.map({lhs >= $0})
 }
 
 // MARK: Anchor Array >= Anchor
 @discardableResult
-public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [ConstraintPair] {
+public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
     return lhs.map({$0 >= rhs})
 }
 
 // MARK: Anchor Array >= Anchor Array
 @discardableResult
-public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[ConstraintPair]] {
+public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map { element >= $0 }
     }
@@ -117,19 +117,19 @@ public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[ConstraintP
 
 // MARK: Anchor >= Expression Array
 @discardableResult
-public func >= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [ConstraintPair] {
+public func >= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
     return rhs.map({lhs >= $0})
 }
 
 // MARK: Anchor Array >= Expression
 @discardableResult
-public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [ConstraintPair] {
+public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
     return lhs.map {$0 >= rhs }
 }
 
 // MARK: Anchor Array >= Expression Array
 @discardableResult
-public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[ConstraintPair]] {
+public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map { element >= $0 }
     }

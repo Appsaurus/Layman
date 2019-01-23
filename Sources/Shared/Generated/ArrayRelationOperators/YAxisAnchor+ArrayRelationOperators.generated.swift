@@ -13,37 +13,37 @@
 
 // MARK: Anchor == Anchor Array
 @discardableResult
-public func == (lhs: YAxisAnchor, rhs: YAxisAnchors) -> Constraints {
+public func == (lhs: YAxisAnchor, rhs: YAxisAnchors) -> [YAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Anchor
 @discardableResult
-public func == (lhs: YAxisAnchors, rhs: YAxisAnchor) -> Constraints {
+public func == (lhs: YAxisAnchors, rhs: YAxisAnchor) -> [YAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Anchor Array
 @discardableResult
-public func == (lhs: YAxisAnchors, rhs: YAxisAnchors) -> [Constraints] {
+public func == (lhs: YAxisAnchors, rhs: YAxisAnchors) -> [[YAxisAnchor.Solution]] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor == Expression Array
 @discardableResult
-public func == (lhs: YAxisAnchor, rhs: YAxisAnchorExpressions) -> Constraints {
+public func == (lhs: YAxisAnchor, rhs: YAxisAnchorExpressions) -> [YAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Expression
 @discardableResult
-public func == (lhs: YAxisAnchors, rhs: YAxisAnchorExpression) -> Constraints {
+public func == (lhs: YAxisAnchors, rhs: YAxisAnchorExpression) -> [YAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Expression Array
 @discardableResult
-public func == (lhs: YAxisAnchors, rhs: YAxisAnchorExpressions) -> [Constraints] {
+public func == (lhs: YAxisAnchors, rhs: YAxisAnchorExpressions) -> [[YAxisAnchor.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -51,37 +51,37 @@ public func == (lhs: YAxisAnchors, rhs: YAxisAnchorExpressions) -> [Constraints]
 
 // MARK: Anchor <= Anchor Array
 @discardableResult
-public func <= (lhs: YAxisAnchor, rhs: YAxisAnchors) -> Constraints {
+public func <= (lhs: YAxisAnchor, rhs: YAxisAnchors) -> [YAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Anchor
 @discardableResult
-public func <= (lhs: YAxisAnchors, rhs: YAxisAnchor) -> Constraints {
+public func <= (lhs: YAxisAnchors, rhs: YAxisAnchor) -> [YAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Anchor Array
 @discardableResult
-public func <= (lhs: YAxisAnchors, rhs: YAxisAnchors) -> [Constraints] {
+public func <= (lhs: YAxisAnchors, rhs: YAxisAnchors) -> [[YAxisAnchor.Solution]] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor <= Expression Array
 @discardableResult
-public func <= (lhs: YAxisAnchor, rhs: YAxisAnchorExpressions) -> Constraints {
+public func <= (lhs: YAxisAnchor, rhs: YAxisAnchorExpressions) -> [YAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Expression
 @discardableResult
-public func <= (lhs: YAxisAnchors, rhs: YAxisAnchorExpression) -> Constraints {
+public func <= (lhs: YAxisAnchors, rhs: YAxisAnchorExpression) -> [YAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Expression Array
 @discardableResult
-public func <= (lhs: YAxisAnchors, rhs: YAxisAnchorExpressions) -> [Constraints] {
+public func <= (lhs: YAxisAnchors, rhs: YAxisAnchorExpressions) -> [[YAxisAnchor.Solution]] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -89,36 +89,36 @@ public func <= (lhs: YAxisAnchors, rhs: YAxisAnchorExpressions) -> [Constraints]
 
 // MARK: Anchor >= Anchor Array
 @discardableResult
-public func >= (lhs: YAxisAnchor, rhs: YAxisAnchors) -> Constraints {
+public func >= (lhs: YAxisAnchor, rhs: YAxisAnchors) -> [YAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Anchor
 @discardableResult
-public func >= (lhs: YAxisAnchors, rhs: YAxisAnchor) -> Constraints {
+public func >= (lhs: YAxisAnchors, rhs: YAxisAnchor) -> [YAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Anchor Array
 @discardableResult
-public func >= (lhs: YAxisAnchors, rhs: YAxisAnchors) -> [Constraints] {
+public func >= (lhs: YAxisAnchors, rhs: YAxisAnchors) -> [[YAxisAnchor.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor >= Expression Array
 @discardableResult
-public func >= (lhs: YAxisAnchor, rhs: YAxisAnchorExpressions) -> Constraints {
+public func >= (lhs: YAxisAnchor, rhs: YAxisAnchorExpressions) -> [YAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Expression
 @discardableResult
-public func >= (lhs: YAxisAnchors, rhs: YAxisAnchorExpression) -> Constraints {
+public func >= (lhs: YAxisAnchors, rhs: YAxisAnchorExpression) -> [YAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Expression Array
 @discardableResult
-public func >= (lhs: YAxisAnchors, rhs: YAxisAnchorExpressions) -> [Constraints] {
+public func >= (lhs: YAxisAnchors, rhs: YAxisAnchorExpressions) -> [[YAxisAnchor.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }

@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 //
-//  ViewArray+LayoutDimensionRelationOperators.swift
+//  ViewArray+EdgeAnchorGroupRelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -10,13 +10,13 @@
 //
 // MARK: [View] == Anchor
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimension) -> [LayoutDimension.Solution] {
+public func == (lhs: [View], rhs: EdgeAnchorGroup) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Anchors
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensions) -> [[LayoutDimension.Solution]] {
+public func == (lhs: [View], rhs: EdgeAnchorGroups) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -24,13 +24,13 @@ public func == (lhs: [View], rhs: LayoutDimensions) -> [[LayoutDimension.Solutio
 
 // MARK: [View] == Expression
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionExpression) -> [LayoutDimension.Solution] {
+public func == (lhs: [View], rhs: EdgeAnchorGroupExpression) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Expressions
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionExpressions) -> [[LayoutDimension.Solution]] {
+public func == (lhs: [View], rhs: EdgeAnchorGroupExpressions) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0 == rhs }
 }
 
@@ -38,25 +38,25 @@ public func == (lhs: [View], rhs: LayoutDimensionExpressions) -> [[LayoutDimensi
 
 // MARK: [View] <= Anchor
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimension) -> [LayoutDimension.Solution] {
+public func <= (lhs: [View], rhs: EdgeAnchorGroup) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Anchors
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensions) -> [[LayoutDimension.Solution]] {
+public func <= (lhs: [View], rhs: EdgeAnchorGroups) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionExpression) -> [LayoutDimension.Solution] {
+public func <= (lhs: [View], rhs: EdgeAnchorGroupExpression) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Expressions
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionExpressions) -> [[LayoutDimension.Solution]] {
+public func <= (lhs: [View], rhs: EdgeAnchorGroupExpressions) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0 <= rhs }
 }
 
@@ -64,24 +64,24 @@ public func <= (lhs: [View], rhs: LayoutDimensionExpressions) -> [[LayoutDimensi
 
 // MARK: [View] >= Anchor
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimension) -> [LayoutDimension.Solution] {
+public func >= (lhs: [View], rhs: EdgeAnchorGroup) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Anchors
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensions) -> [[LayoutDimension.Solution]] {
+public func >= (lhs: [View], rhs: EdgeAnchorGroups) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionExpression) -> [LayoutDimension.Solution] {
+public func >= (lhs: [View], rhs: EdgeAnchorGroupExpression) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Expressions
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionExpressions) -> [[LayoutDimension.Solution]] {
+public func >= (lhs: [View], rhs: EdgeAnchorGroupExpressions) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0 >= rhs }
 }

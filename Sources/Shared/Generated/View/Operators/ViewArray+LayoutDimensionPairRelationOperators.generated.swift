@@ -11,13 +11,13 @@
 
 // MARK: [View] == Anchor
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionPair) -> [ConstraintPair] {
+public func == (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Anchors
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionPairs) -> [[ConstraintPair]] {
+public func == (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -25,13 +25,13 @@ public func == (lhs: [View], rhs: LayoutDimensionPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] == Expression
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionPairExpression) -> [ConstraintPair] {
+public func == (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Expressions
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[ConstraintPair]] {
+public func == (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -41,13 +41,13 @@ public func == (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[Constrain
 
 // MARK: [View] <= Anchor
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionPair) -> [ConstraintPair] {
+public func <= (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Anchors
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionPairs) -> [[ConstraintPair]] {
+public func <= (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
         rhs.map({element <= $0})
     }
@@ -55,13 +55,13 @@ public func <= (lhs: [View], rhs: LayoutDimensionPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionPairExpression) -> [ConstraintPair] {
+public func <= (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Expressions
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[ConstraintPair]] {
+public func <= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
         rhs.map({element <= $0})
     }
@@ -71,13 +71,13 @@ public func <= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[Constrain
 
 // MARK: [View] >= Anchor
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionPair) -> [ConstraintPair] {
+public func >= (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Anchors
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionPairs) -> [[ConstraintPair]] {
+public func >= (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
         rhs.map({element >= $0})
     }
@@ -85,13 +85,13 @@ public func >= (lhs: [View], rhs: LayoutDimensionPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionPairExpression) -> [ConstraintPair] {
+public func >= (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Expressions
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[ConstraintPair]] {
+public func >= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
         rhs.map({element >= $0})
     }

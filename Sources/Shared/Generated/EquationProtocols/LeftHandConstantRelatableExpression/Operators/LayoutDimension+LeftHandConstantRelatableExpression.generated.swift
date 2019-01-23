@@ -45,7 +45,6 @@ public func >= (lhs: LayoutDimension, rhs: [LayoutConstant]) -> [LayoutDimension
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-
 // MARK: LayoutDimension Array <=> LayoutConstant
 
 // MARK: - Equal
@@ -126,7 +125,6 @@ public func >= (lhs: LayoutDimension, rhs: LayoutConfiguration) -> LayoutDimensi
 public func >= (lhs: LayoutDimension, rhs: [LayoutConfiguration]) -> [LayoutDimensionRelationship.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
 
 // MARK: LayoutDimension Array <=> LayoutConfiguration
 

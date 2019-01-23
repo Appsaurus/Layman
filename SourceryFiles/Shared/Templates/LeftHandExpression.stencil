@@ -9,7 +9,7 @@
 //
 
 extension {{AnchorType}}: LeftHandExpression {
-    public typealias LinearEquation = LayoutRelationship<{{AnchorType}}>
+    public typealias LinearEquation = {{AnchorType}}Relationship
 
     public func relation(_ relation: Constraint.Relation, _ rhs: {{AnchorType}}) -> LinearEquation {
         return LinearEquation(self, relation, rhs)

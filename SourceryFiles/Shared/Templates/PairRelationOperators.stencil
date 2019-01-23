@@ -1,4 +1,5 @@
 {% for AnchorPairType in argument.AnchorPairTypes %}
+{% set Solution %}{{AnchorPairType}}.Solution{% endset %}
 {% set constraintMethod %}{% if anchortype == 'LayoutDimension' %}constraints{% else %}constraintsInvertedAsInsets{% endif %}{% endset %}
 // sourcery:file:PairRelationOperators/{{AnchorPairType}}+RelationOperators
 //
@@ -15,39 +16,39 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> {{Solution}} {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchors == Anchors
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
+public func {{argument.EqualityOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> {{Solution}} {
     return lhs.equal(to: rhs)
 }
 
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> {{Solution}} {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors <= Anchors
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
+public func {{argument.LessThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> {{Solution}} {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> ConstraintPair {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> {{Solution}} {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors >= Anchors
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> ConstraintPair {
+public func {{argument.GreaterThanOrEqualToOperator}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> {{Solution}} {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 // sourcery:end

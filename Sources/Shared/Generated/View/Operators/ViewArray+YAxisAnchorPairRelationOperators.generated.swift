@@ -11,13 +11,13 @@
 
 // MARK: [View] == Anchor
 @discardableResult
-public func == (lhs: [View], rhs: YAxisAnchorPair) -> [ConstraintPair] {
+public func == (lhs: [View], rhs: YAxisAnchorPair) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Anchors
 @discardableResult
-public func == (lhs: [View], rhs: YAxisAnchorPairs) -> [[ConstraintPair]] {
+public func == (lhs: [View], rhs: YAxisAnchorPairs) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -25,13 +25,13 @@ public func == (lhs: [View], rhs: YAxisAnchorPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] == Expression
 @discardableResult
-public func == (lhs: [View], rhs: YAxisAnchorPairExpression) -> [ConstraintPair] {
+public func == (lhs: [View], rhs: YAxisAnchorPairExpression) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0 == rhs }
 }
 
 // MARK: [View] == Expressions
 @discardableResult
-public func == (lhs: [View], rhs: YAxisAnchorPairExpressions) -> [[ConstraintPair]] {
+public func == (lhs: [View], rhs: YAxisAnchorPairExpressions) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element == $0})
     }
@@ -41,13 +41,13 @@ public func == (lhs: [View], rhs: YAxisAnchorPairExpressions) -> [[ConstraintPai
 
 // MARK: [View] <= Anchor
 @discardableResult
-public func <= (lhs: [View], rhs: YAxisAnchorPair) -> [ConstraintPair] {
+public func <= (lhs: [View], rhs: YAxisAnchorPair) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Anchors
 @discardableResult
-public func <= (lhs: [View], rhs: YAxisAnchorPairs) -> [[ConstraintPair]] {
+public func <= (lhs: [View], rhs: YAxisAnchorPairs) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element <= $0})
     }
@@ -55,13 +55,13 @@ public func <= (lhs: [View], rhs: YAxisAnchorPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: YAxisAnchorPairExpression) -> [ConstraintPair] {
+public func <= (lhs: [View], rhs: YAxisAnchorPairExpression) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0 <= rhs }
 }
 
 // MARK: [View] <= Expressions
 @discardableResult
-public func <= (lhs: [View], rhs: YAxisAnchorPairExpressions) -> [[ConstraintPair]] {
+public func <= (lhs: [View], rhs: YAxisAnchorPairExpressions) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element <= $0})
     }
@@ -71,13 +71,13 @@ public func <= (lhs: [View], rhs: YAxisAnchorPairExpressions) -> [[ConstraintPai
 
 // MARK: [View] >= Anchor
 @discardableResult
-public func >= (lhs: [View], rhs: YAxisAnchorPair) -> [ConstraintPair] {
+public func >= (lhs: [View], rhs: YAxisAnchorPair) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Anchors
 @discardableResult
-public func >= (lhs: [View], rhs: YAxisAnchorPairs) -> [[ConstraintPair]] {
+public func >= (lhs: [View], rhs: YAxisAnchorPairs) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element >= $0})
     }
@@ -85,13 +85,13 @@ public func >= (lhs: [View], rhs: YAxisAnchorPairs) -> [[ConstraintPair]] {
 
 // MARK: [View] >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: YAxisAnchorPairExpression) -> [ConstraintPair] {
+public func >= (lhs: [View], rhs: YAxisAnchorPairExpression) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0 >= rhs }
 }
 
 // MARK: [View] >= Expressions
 @discardableResult
-public func >= (lhs: [View], rhs: YAxisAnchorPairExpressions) -> [[ConstraintPair]] {
+public func >= (lhs: [View], rhs: YAxisAnchorPairExpressions) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { element in
         rhs.map({element >= $0})
     }

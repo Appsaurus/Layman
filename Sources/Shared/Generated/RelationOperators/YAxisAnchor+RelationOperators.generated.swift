@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 //
-//  YAxisAnchor_RelationOperators.swift
+//  YAxisAnchor+RelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -13,13 +13,13 @@
 
 // MARK: Anchor == Anchor
 @discardableResult
-public func == (lhs: YAxisAnchor, rhs: YAxisAnchor) -> Constraint {
+public func == (lhs: YAxisAnchor, rhs: YAxisAnchor) -> YAxisAnchor.Solution {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor == Expression
 @discardableResult
-public func == (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
+public func == (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> YAxisAnchor.Solution {
     return lhs.equal(to: rhs)
 }
 
@@ -27,13 +27,13 @@ public func == (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
 
 // MARK: Anchor <= Anchor
 @discardableResult
-public func <= (lhs: YAxisAnchor, rhs: YAxisAnchor) -> Constraint {
+public func <= (lhs: YAxisAnchor, rhs: YAxisAnchor) -> YAxisAnchor.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor <= Expression
 @discardableResult
-public func <= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
+public func <= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> YAxisAnchor.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -41,12 +41,12 @@ public func <= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
 
 // MARK: Anchor >= Anchor
 @discardableResult
-public func >= (lhs: YAxisAnchor, rhs: YAxisAnchor) -> Constraint {
+public func >= (lhs: YAxisAnchor, rhs: YAxisAnchor) -> YAxisAnchor.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor >= Expression
 @discardableResult
-public func >= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> Constraint {
+public func >= (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> YAxisAnchor.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }

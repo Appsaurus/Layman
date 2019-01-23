@@ -13,12 +13,12 @@
 
 // MARK: View == Anchor
 @discardableResult
-public func == (lhs: View, rhs: LayoutDimensionPair) -> ConstraintPair {
+public func == (lhs: View, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
     return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 // MARK: View == Expression
 @discardableResult
-public func == (lhs: View, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
+public func == (lhs: View, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
     return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 
@@ -26,12 +26,12 @@ public func == (lhs: View, rhs: LayoutDimensionPairExpression) -> ConstraintPair
 
 // MARK: View <= Anchor
 @discardableResult
-public func <= (lhs: View, rhs: LayoutDimensionPair) -> ConstraintPair {
+public func <= (lhs: View, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
     return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 // MARK: View <= Expression
 @discardableResult
-public func <= (lhs: View, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
+public func <= (lhs: View, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
     return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 
@@ -39,12 +39,12 @@ public func <= (lhs: View, rhs: LayoutDimensionPairExpression) -> ConstraintPair
 
 // MARK: View >= Anchor
 @discardableResult
-public func >= (lhs: View, rhs: LayoutDimensionPair) -> ConstraintPair {
+public func >= (lhs: View, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
     return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 // MARK: View >= Expression
 @discardableResult
-public func >= (lhs: View, rhs: LayoutDimensionPairExpression) -> ConstraintPair {
+public func >= (lhs: View, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
     return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 
@@ -54,13 +54,13 @@ public func >= (lhs: View, rhs: LayoutDimensionPairExpression) -> ConstraintPair
 
 // MARK: View == Anchors
 @discardableResult
-public func == (lhs: View, rhs: LayoutDimensionPairs) -> ConstraintPairs {
+public func == (lhs: View, rhs: LayoutDimensionPairs) -> [LayoutDimensionPair.Solution] {
     return rhs.map({lhs == $0})
 }
 
 // MARK: View == Expressions
 @discardableResult
-public func == (lhs: View, rhs: LayoutDimensionPairExpressions) -> ConstraintPairs {
+public func == (lhs: View, rhs: LayoutDimensionPairExpressions) -> [LayoutDimensionPair.Solution] {
     return rhs.map({lhs == $0})
 }
 
@@ -68,12 +68,12 @@ public func == (lhs: View, rhs: LayoutDimensionPairExpressions) -> ConstraintPai
 
 // MARK: View <= Anchors
 @discardableResult
-public func <= (lhs: View, rhs: LayoutDimensionPairs) -> ConstraintPairs {
+public func <= (lhs: View, rhs: LayoutDimensionPairs) -> [LayoutDimensionPair.Solution] {
     return rhs.map({lhs <= $0})
 }
 // MARK: View <= Expressions
 @discardableResult
-public func <= (lhs: View, rhs: LayoutDimensionPairExpressions) -> ConstraintPairs {
+public func <= (lhs: View, rhs: LayoutDimensionPairExpressions) -> [LayoutDimensionPair.Solution] {
     return rhs.map({lhs <= $0})
 }
 
@@ -81,11 +81,11 @@ public func <= (lhs: View, rhs: LayoutDimensionPairExpressions) -> ConstraintPai
 
 // MARK: View >= Anchors
 @discardableResult
-public func >= (lhs: View, rhs: LayoutDimensionPairs) -> ConstraintPairs {
+public func >= (lhs: View, rhs: LayoutDimensionPairs) -> [LayoutDimensionPair.Solution] {
     return rhs.map({lhs >= $0})
 }
 // MARK: View >= Expressions
 @discardableResult
-public func >= (lhs: View, rhs: LayoutDimensionPairExpressions) -> ConstraintPairs {
+public func >= (lhs: View, rhs: LayoutDimensionPairExpressions) -> [LayoutDimensionPair.Solution] {
     return rhs.map({lhs >= $0})
 }

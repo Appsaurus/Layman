@@ -13,37 +13,37 @@
 
 // MARK: Anchor == Anchor Array
 @discardableResult
-public func == (lhs: XAxisAnchor, rhs: XAxisAnchors) -> Constraints {
+public func == (lhs: XAxisAnchor, rhs: XAxisAnchors) -> [XAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Anchor
 @discardableResult
-public func == (lhs: XAxisAnchors, rhs: XAxisAnchor) -> Constraints {
+public func == (lhs: XAxisAnchors, rhs: XAxisAnchor) -> [XAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Anchor Array
 @discardableResult
-public func == (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [Constraints] {
+public func == (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [[XAxisAnchor.Solution]] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor == Expression Array
 @discardableResult
-public func == (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> Constraints {
+public func == (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> [XAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Expression
 @discardableResult
-public func == (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> Constraints {
+public func == (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> [XAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor Array == Expression Array
 @discardableResult
-public func == (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints] {
+public func == (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [[XAxisAnchor.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -51,37 +51,37 @@ public func == (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints]
 
 // MARK: Anchor <= Anchor Array
 @discardableResult
-public func <= (lhs: XAxisAnchor, rhs: XAxisAnchors) -> Constraints {
+public func <= (lhs: XAxisAnchor, rhs: XAxisAnchors) -> [XAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Anchor
 @discardableResult
-public func <= (lhs: XAxisAnchors, rhs: XAxisAnchor) -> Constraints {
+public func <= (lhs: XAxisAnchors, rhs: XAxisAnchor) -> [XAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Anchor Array
 @discardableResult
-public func <= (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [Constraints] {
+public func <= (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [[XAxisAnchor.Solution]] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor <= Expression Array
 @discardableResult
-public func <= (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> Constraints {
+public func <= (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> [XAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Expression
 @discardableResult
-public func <= (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> Constraints {
+public func <= (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> [XAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array <= Expression Array
 @discardableResult
-public func <= (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints] {
+public func <= (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [[XAxisAnchor.Solution]] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -89,36 +89,36 @@ public func <= (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints]
 
 // MARK: Anchor >= Anchor Array
 @discardableResult
-public func >= (lhs: XAxisAnchor, rhs: XAxisAnchors) -> Constraints {
+public func >= (lhs: XAxisAnchor, rhs: XAxisAnchors) -> [XAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Anchor
 @discardableResult
-public func >= (lhs: XAxisAnchors, rhs: XAxisAnchor) -> Constraints {
+public func >= (lhs: XAxisAnchors, rhs: XAxisAnchor) -> [XAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Anchor Array
 @discardableResult
-public func >= (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [Constraints] {
+public func >= (lhs: XAxisAnchors, rhs: XAxisAnchors) -> [[XAxisAnchor.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor >= Expression Array
 @discardableResult
-public func >= (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> Constraints {
+public func >= (lhs: XAxisAnchor, rhs: XAxisAnchorExpressions) -> [XAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Expression
 @discardableResult
-public func >= (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> Constraints {
+public func >= (lhs: XAxisAnchors, rhs: XAxisAnchorExpression) -> [XAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor Array >= Expression Array
 @discardableResult
-public func >= (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [Constraints] {
+public func >= (lhs: XAxisAnchors, rhs: XAxisAnchorExpressions) -> [[XAxisAnchor.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }

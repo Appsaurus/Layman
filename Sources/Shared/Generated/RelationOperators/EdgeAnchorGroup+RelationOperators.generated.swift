@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 //
-//  LayoutDimension+RelationOperators.swift
+//  EdgeAnchorGroup+RelationOperators.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -13,13 +13,13 @@
 
 // MARK: Anchor == Anchor
 @discardableResult
-public func == (lhs: LayoutDimension, rhs: LayoutDimension) -> LayoutDimension.Solution {
+public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchor == Expression
 @discardableResult
-public func == (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> LayoutDimension.Solution {
+public func == (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
     return lhs.equal(to: rhs)
 }
 
@@ -27,13 +27,13 @@ public func == (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> LayoutD
 
 // MARK: Anchor <= Anchor
 @discardableResult
-public func <= (lhs: LayoutDimension, rhs: LayoutDimension) -> LayoutDimension.Solution {
+public func <= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor <= Expression
 @discardableResult
-public func <= (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> LayoutDimension.Solution {
+public func <= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -41,12 +41,12 @@ public func <= (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> LayoutD
 
 // MARK: Anchor >= Anchor
 @discardableResult
-public func >= (lhs: LayoutDimension, rhs: LayoutDimension) -> LayoutDimension.Solution {
+public func >= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchor >= Expression
 @discardableResult
-public func >= (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> LayoutDimension.Solution {
+public func >= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
