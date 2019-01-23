@@ -576,7 +576,7 @@
 		E44E732421F8174A0026EEE6 /* LayoutTypealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTypealiases.swift; sourceTree = "<group>"; };
 		E44E732521F8174A0026EEE6 /* AnchorGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorGroup.swift; sourceTree = "<group>"; };
 		E44E73AD21F8E96A0026EEE6 /* LayoutLinearEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLinearEquation.swift; sourceTree = "<group>"; };
-		E44E73B221F8EEFA0026EEE6 /* Renamed.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Renamed.stencil; sourceTree = "<group>"; };
+		E44E73B221F8EEFA0026EEE6 /* LeftHandExtension.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = LeftHandExtension.stencil; sourceTree = "<group>"; };
 		E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShorthandTypealiases.swift; sourceTree = "<group>"; };
 		E458225F21E5553500B6054C /* ConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtensions.swift; sourceTree = "<group>"; };
 		E45822BC21E7F77300B6054C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -1281,7 +1281,7 @@
 		E4DA5CA421F0228100A25746 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				E44E73B221F8EEFA0026EEE6 /* Renamed.stencil */,
+				E44E73B221F8EEFA0026EEE6 /* LeftHandExtension.stencil */,
 				E4EDA1D221F04FE300F345E8 /* ArrayConstantArithmeticOperators.stencil */,
 				E44E6FA921F6EDC30026EEE6 /* View */,
 				E4EDA1D121F04E0F00F345E8 /* ArrayRelationOperators.stencil */,
