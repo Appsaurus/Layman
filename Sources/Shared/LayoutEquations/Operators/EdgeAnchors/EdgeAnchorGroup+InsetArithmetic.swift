@@ -12,13 +12,13 @@ extension EdgeAnchorGroup {
     // MARK: UIEdgeInset Constant
     @discardableResult
     public func plus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
-        let configuration = EdgeAnchorsConfiguration(
+        let coefficients = EdgeAnchorsConfiguration(
             .constant(inset.top),
             .constant(inset.left),
             .constant(inset.bottom),
             .constant(inset.right)
         )
-        return EdgeAnchorGroupExpression(self).configured(with: configuration)
+        return EdgeAnchorGroupExpression(self).with(coefficients: coefficients)
     }
 
     @discardableResult
@@ -31,18 +31,3 @@ extension EdgeAnchorGroup {
     }
 
 }
-
-//extension EdgeAnchorGroup: Variable {
-//
-//    public typealias RightHandExpression = EdgeAnchorGroupExpression
-//
-//    @discardableResult
-//    public func plus(_ constant: LayoutConstant) -> EdgeAnchorGroupExpression {
-//        return plus(inset: LayoutInset(padding: constant))
-//    }
-//
-//    @discardableResult
-//    public func times(_ multiplier: LayoutConstant) -> EdgeAnchorGroupExpression {
-//        return EdgeAnchorGroupExpression(anchor: self, configuration: EdgeAnchorsConfiguration(.multiplier(multiplier)))
-//    }
-//}

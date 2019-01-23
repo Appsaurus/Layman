@@ -9,22 +9,22 @@
 public final class LayoutExpression<A: AnchorType> {
 
     public var anchor: LayoutAnchor<A>
-    public var configuration: LayoutConfiguration
+    public var coefficients: LayoutConfiguration
 
-    public init(anchor: LayoutAnchor<A>, configuration: LayoutConfiguration = .default) {
+    public init(anchor: LayoutAnchor<A>, coefficients: LayoutConfiguration = .default) {
         self.anchor = anchor
-        self.configuration = configuration
+        self.coefficients = coefficients
     }
 
 //    @discardableResult
 //    public func with(priority: LayoutPriority) -> Self {
-//        configuration.priority = priority
+//        coefficients.priority = priority
 //        return self
 //    }
 
     @discardableResult
     public func with(active: Bool) -> Self {
-        configuration.active = active
+        coefficients.active = active
         return self
     }
 
@@ -35,20 +35,20 @@ extension LayoutExpression: Expression where A: Variable {
     public typealias V = LayoutAnchor<A>
 
     @discardableResult
-    public func with(coefficients configuration: LayoutConfiguration) -> Self {
-        self.configuration = configuration
+    public func with(coefficients: LayoutConfiguration) -> Self {
+        self.coefficients = coefficients
         return self
     }
 
     @discardableResult
     public func with(constant: LayoutConstant) -> Self {
-        configuration.constant = constant
+        coefficients.constant = constant
         return self
     }
 
     @discardableResult
     public func with(multiplier: LayoutMultiplier) -> Self {
-        configuration.multiplier = multiplier
+        coefficients.multiplier = multiplier
         return self
     }
 }

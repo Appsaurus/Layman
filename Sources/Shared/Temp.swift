@@ -195,33 +195,33 @@ infix operator .+ : OffsetPrecedence
 
 @discardableResult
 public func .+ (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: .constant(rhs))
+    return LayoutExpression(anchor: lhs, coefficients: .constant(rhs))
 }
 
 infix operator |+| : OffsetPrecedence
 
 @discardableResult
 public func |+| (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: .constant(rhs))
+    return LayoutExpression(anchor: lhs, coefficients: .constant(rhs))
 }
 
 infix operator .+. : OffsetPrecedence
 
 @discardableResult
 public func .+. (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: .constant(rhs))
+    return LayoutExpression(anchor: lhs, coefficients: .constant(rhs))
 }
 
 infix operator <+> : OffsetPrecedence
 
 @discardableResult
 public func <+> (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: .constant(rhs))
+    return LayoutExpression(anchor: lhs, coefficients: .constant(rhs))
 }
 
 infix operator ~+~ : OffsetPrecedence
 
 @discardableResult
 public func ~+~ (lhs: LayoutDimension, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return LayoutExpression(anchor: lhs, configuration: .constant(rhs))
+    return LayoutExpression(anchor: lhs, coefficients: .constant(rhs))
 }

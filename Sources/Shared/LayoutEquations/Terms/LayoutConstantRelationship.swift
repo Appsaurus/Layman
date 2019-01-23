@@ -10,14 +10,14 @@ public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> {
 
     public var anchor: LayoutAnchor<A>
     public var relation: Constraint.Relation
-    public var configuration: LayoutConfiguration
+    public var coefficients: LayoutConfiguration
 
     public init(_ anchor: LayoutAnchor<A>,
                 _ relation: Constraint.Relation,
-                _ configuration: LayoutConfiguration = .default) {
+                _ coefficients: LayoutConfiguration = .default) {
         self.anchor = anchor
         self.relation = relation
-        self.configuration = configuration
+        self.coefficients = coefficients
     }
 
     public init(_ anchor: LayoutAnchor<A>,
@@ -25,7 +25,7 @@ public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> {
                 _ relatedExpression: LayoutExpression<A>) {
         self.init(anchor,
                   relation,
-                  relatedExpression.configuration)
+                  relatedExpression.coefficients)
     }
 
     public var constraint: Constraint {
@@ -34,14 +34,14 @@ public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> {
         let constraint: Constraint = {
             switch relation {
             case .lessThanOrEqual:
-                return dimension.constraint(lessThanOrEqualToConstant: configuration.constant)
+                return dimension.constraint(lessThanOrEqualToConstant: coefficients.constant)
             case .equal:
-                return dimension.constraint(equalToConstant: configuration.constant)
+                return dimension.constraint(equalToConstant: coefficients.constant)
             case .greaterThanOrEqual:
-                return dimension.constraint(greaterThanOrEqualToConstant: configuration.constant)
+                return dimension.constraint(greaterThanOrEqualToConstant: coefficients.constant)
             }
         }()
-        return constraint.configured(with: configuration)
+        return constraint.configured(with: coefficients)
 
     }
 }

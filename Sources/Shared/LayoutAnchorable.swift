@@ -81,9 +81,9 @@ extension XYAxisAnchorable {
         let edgeExpression = EdgeAnchorGroupExpression(anchor: edgeAnchors)
         switch edge.attribute {
         case .leading:
-            edgeExpression.leadingExpression.configuration.active = false
+            edgeExpression.leadingExpression.coefficients.active = false
         case .trailing:
-            edgeExpression.trailingExpression.configuration.active = false
+            edgeExpression.trailingExpression.coefficients.active = false
         default:
             invalidEdgePreconditionFailure(edge)
         }
@@ -94,9 +94,9 @@ extension XYAxisAnchorable {
         let edgeExpression = EdgeAnchorGroupExpression(anchor: edgeAnchors)
         switch edge.attribute {
         case .top:
-            edgeExpression.topExpression.configuration.active = false
+            edgeExpression.topExpression.coefficients.active = false
         case .bottom:
-            edgeExpression.bottomExpression.configuration.active = false
+            edgeExpression.bottomExpression.coefficients.active = false
         default:
             invalidEdgePreconditionFailure(edge)
         }

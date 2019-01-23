@@ -14,20 +14,14 @@ public class LayoutAnchorPair<FA: AnchorType, SA: AnchorType>: MixedLayoutModelR
 
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         let config = LayoutConfigurationPair(.constant(constant))
-        return RightHandExpression(anchor: self, configuration: config)
+        return RightHandExpression(anchor: self, coefficients: config)
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
         let config = LayoutConfigurationPair(.multiplier(multiplier))
-        return RightHandExpression(anchor: self, configuration: config)
+        return RightHandExpression(anchor: self, coefficients: config)
     }
 }
-
-//public protocol PairVairiable: Variable where RightHandExpression == LayoutPairExpression<FA, SA> {
-//    associatedtype FA: AnchorType
-//    associatedtype SA: AnchorType
-
-//}
 
 extension LayoutAnchorPair: LeftHandExpression {
     public typealias LinearEquation = LayoutPairRelationship<FA, SA>
@@ -40,8 +34,3 @@ extension LayoutAnchorPair: LeftHandExpression {
         return LinearEquation(self, relation, rhs)
     }
 }
-
-//public protocol LeftHandPairExpression: LeftHandExpression where LinearEquation == LayoutPairRelationship<FA, SA> {
-//    associatedtype FA: AnchorType
-//    associatedtype SA: AnchorType
-//}

@@ -11,24 +11,24 @@ public struct LayoutRelationship<A: AnchorType> {
     public var anchor: LayoutAnchor<A>
     public var relation: Constraint.Relation
     public var relatedAnchor: LayoutAnchor<A>?
-    public var configuration: LayoutConfiguration
+    public var coefficients: LayoutConfiguration
 
     public init(_ anchor: LayoutAnchor<A>,
                 _ relation: Constraint.Relation,
                 _ relatedAnchor: LayoutAnchor<A>?,
-                _ configuration: LayoutConfiguration = .default) {
+                _ coefficients: LayoutConfiguration = .default) {
         self.anchor = anchor
         self.relation = relation
         self.relatedAnchor = relatedAnchor
-        self.configuration = configuration
+        self.coefficients = coefficients
     }
 
     public init(_ anchor: LayoutAnchor<A>,
                 _ relation: Constraint.Relation,
-                _ configuration: LayoutConfiguration) {
+                _ coefficients: LayoutConfiguration) {
         self.anchor = anchor
         self.relation = relation
-        self.configuration = configuration
+        self.coefficients = coefficients
     }
 
     public init(_ anchor: LayoutAnchor<A>,
@@ -37,28 +37,28 @@ public struct LayoutRelationship<A: AnchorType> {
         self.init(anchor,
                   relation,
                   relatedExpression.anchor,
-                  relatedExpression.configuration)
+                  relatedExpression.coefficients)
     }
 
     public var constraint: Constraint {
-        guard configuration.active else { return inactiveConstraint }
+        guard coefficients.active else { return inactiveConstraint }
         return inactiveConstraint.activated()
     }
 
     public var constraintInvertedAsInset: Constraint {
         let invertestConstraint = inactiveConstraint.invertedAsInset
-        guard configuration.active else { return invertestConstraint }
+        guard coefficients.active else { return invertestConstraint }
         return invertestConstraint.activated()
 
     }
 
     internal var inactiveConstraint: Constraint {
         if let relatedAnchor = relatedAnchor {
-            return constraintRelated(to: relatedAnchor).configured(with: configuration)
+            return constraintRelated(to: relatedAnchor).configured(with: coefficients)
         }
 
         if let anchor = anchor as? LayoutDimension {
-            return sizeConstraint(for: anchor).configured(with: configuration)
+            return sizeConstraint(for: anchor).configured(with: coefficients)
         }
         preconditionFailure("LayoutRelationship must contain two anchors or one anchor of type LayoutDimension")
     }
@@ -78,11 +78,11 @@ public struct LayoutRelationship<A: AnchorType> {
         let constraint: Constraint = {
             switch relation {
             case .lessThanOrEqual:
-                return anchor.constraint(lessThanOrEqualToConstant: configuration.constant)
+                return anchor.constraint(lessThanOrEqualToConstant: coefficients.constant)
             case .equal:
-                return anchor.constraint(equalToConstant: configuration.constant)
+                return anchor.constraint(equalToConstant: coefficients.constant)
             case .greaterThanOrEqual:
-                return anchor.constraint(greaterThanOrEqualToConstant: configuration.constant)
+                return anchor.constraint(greaterThanOrEqualToConstant: coefficients.constant)
             }
         }()
         return constraint

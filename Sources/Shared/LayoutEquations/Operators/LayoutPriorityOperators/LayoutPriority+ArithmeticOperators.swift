@@ -10,14 +10,6 @@ public func + (lhs: LayoutPriority, rhs: LayoutConstant) -> LayoutPriority {
     return lhs.plus(rhs)
 }
 
-//public func + (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutPriority {
-//    return LayoutPriority(rawValue: lhs.float + rhs.rawValue)
-//}
-
 public func - (lhs: LayoutPriority, rhs: LayoutConstant) -> LayoutPriority {
     return lhs.minus(rhs)
 }
-
-//public func - (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutPriority {
-//    return LayoutPriority(rawValue: lhs.float - rhs.rawValue)
-//}

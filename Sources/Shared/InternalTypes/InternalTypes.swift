@@ -47,26 +47,3 @@ open class MixedLayoutModelReferencePair<F, S>: TuplePairBacked {
         self.values = (first, second)
     }
 }
-//
-//internal struct PairStruct<T>: TuplePairBacked {
-//    public typealias F = T
-//    public typealias S = T
-//
-//    public var values: (T, T)
-//
-//    public init(_ first: T, _ second: T) {
-//        self.values = (first, second)
-//    }
-//
-//    public init(_ duplicatedItem: T) {
-//        self.init(duplicatedItem, duplicatedItem)
-//    }
-//}
-//
-//internal struct MixedPairStruct<F, S>: TuplePairBacked {
-//    public var values: (F, S)
-//
-//    public init(_ first: F, _ second: S) {
-//        self.values = (first, second)
-//    }
-//}

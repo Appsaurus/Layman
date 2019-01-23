@@ -11,24 +11,24 @@ public class LayoutPairRelationship<F: AnchorType, S: AnchorType> {
     public var anchors: LayoutAnchorPair<F, S>
     public var relation: Constraint.Relation
     public var relatedAnchors: LayoutAnchorPair<F, S>?
-    public var configuration: LayoutConfigurationPair
+    public var coefficients: LayoutConfigurationPair
 
     public init(_ anchors: LayoutAnchorPair<F, S>,
                 _ relation: Constraint.Relation,
                 _ relatedAnchors: LayoutAnchorPair<F, S>,
-                _ configuration: LayoutConfigurationPair = .default) {
+                _ coefficients: LayoutConfigurationPair = .default) {
         self.anchors = anchors
         self.relation = relation
         self.relatedAnchors = relatedAnchors
-        self.configuration = configuration
+        self.coefficients = coefficients
     }
 
     public init(_ anchors: LayoutAnchorPair<F, S>,
                 _ relation: Constraint.Relation,
-                _ configuration: LayoutConfigurationPair) {
+                _ coefficients: LayoutConfigurationPair) {
         self.anchors = anchors
         self.relation = relation
-        self.configuration = configuration
+        self.coefficients = coefficients
     }
 
     public convenience init(_ anchors: LayoutAnchorPair<F, S>,
@@ -50,8 +50,8 @@ public class LayoutPairRelationship<F: AnchorType, S: AnchorType> {
         return (relationships.0.constraintInvertedAsInset, relationships.1.constraintInvertedAsInset)
     }
     private var layoutRelationships: (LayoutRelationship<F>, LayoutRelationship<S>) {
-        return (LayoutRelationship(anchors.first, relation, relatedAnchors?.first, configuration.first),
-                LayoutRelationship(anchors.second, relation, relatedAnchors?.second, configuration.second))
+        return (LayoutRelationship(anchors.first, relation, relatedAnchors?.first, coefficients.first),
+                LayoutRelationship(anchors.second, relation, relatedAnchors?.second, coefficients.second))
     }
 }
 

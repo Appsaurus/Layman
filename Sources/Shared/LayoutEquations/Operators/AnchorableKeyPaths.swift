@@ -127,34 +127,34 @@
 //public final class LayoutKeyPathExpression<A: AnchorType> {
 //
 //    public var anchorableKeyPath: AnchorableKeyPath<A>
-//    public var configuration: LayoutConfiguration
+//    public var coefficients: LayoutConfiguration
 //
-//    public init(anchorableKeyPath: AnchorableKeyPath<A>, configuration: LayoutConfiguration = .default) {
+//    public init(anchorableKeyPath: AnchorableKeyPath<A>, coefficients: LayoutConfiguration = .default) {
 //        self.anchorableKeyPath = anchorableKeyPath
-//        self.configuration = configuration
+//        self.coefficients = coefficients
 //    }
 //
 //    @discardableResult
-//    public func configured(with configuration: LayoutConfiguration) -> Self {
-//        self.configuration = configuration
+//    public func configured(with coefficients: LayoutConfiguration) -> Self {
+//        self.coefficients = coefficients
 //        return self
 //    }
 //
 //    @discardableResult
 //    public func with(constant: LayoutConstant) -> Self {
-//        configuration.constant = constant
+//        coefficients.constant = constant
 //        return self
 //    }
 //
 //    @discardableResult
 //    public func with(multiplier: LayoutMultiplier) -> Self {
-//        configuration.multiplier = multiplier
+//        coefficients.multiplier = multiplier
 //        return self
 //    }
 //
 //    @discardableResult
 //    public func with(priority: LayoutPriority) -> Self {
-//        configuration.priority = priority
+//        coefficients.priority = priority
 //        return self
 //    }
 //}

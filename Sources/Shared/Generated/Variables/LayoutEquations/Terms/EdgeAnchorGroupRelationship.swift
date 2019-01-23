@@ -11,24 +11,24 @@ public struct EdgeAnchorGroupRelationship {
     public var anchor: EdgeAnchorGroup
     public var relation: Constraint.Relation
     public var relatedAnchor: EdgeAnchorGroup?
-    public var configuration: EdgeAnchorsConfiguration
+    public var coefficients: EdgeAnchorsConfiguration
 
     public init(_ anchor: EdgeAnchorGroup,
                 _ relation: Constraint.Relation,
                 _ relatedAnchor: EdgeAnchorGroup?,
-                _ configuration: EdgeAnchorsConfiguration = .default) {
+                _ coefficients: EdgeAnchorsConfiguration = .default) {
         self.anchor = anchor
         self.relation = relation
         self.relatedAnchor = relatedAnchor
-        self.configuration = configuration
+        self.coefficients = coefficients
     }
 
     public init(_ anchor: EdgeAnchorGroup,
                 _ relation: Constraint.Relation,
-                _ configuration: EdgeAnchorsConfiguration) {
+                _ coefficients: EdgeAnchorsConfiguration) {
         self.anchor = anchor
         self.relation = relation
-        self.configuration = configuration
+        self.coefficients = coefficients
     }
 
     public init(_ anchor: EdgeAnchorGroup,
@@ -54,10 +54,10 @@ public struct EdgeAnchorGroupRelationship {
 
     internal func constraintRelated(to relatedAnchor: EdgeAnchorGroup) -> SideConstraints {
         return constraints(
-            .init(anchor.top, relation, relatedAnchor.top, configuration.top) ,
-            .init(anchor.leading, relation, relatedAnchor.leading, configuration.leading),
-            .init(anchor.bottom, relation, relatedAnchor.bottom, configuration.bottom),
-            .init(anchor.trailing, relation, relatedAnchor.trailing, configuration.trailing)
+            .init(anchor.top, relation, relatedAnchor.top, coefficients.top) ,
+            .init(anchor.leading, relation, relatedAnchor.leading, coefficients.leading),
+            .init(anchor.bottom, relation, relatedAnchor.bottom, coefficients.bottom),
+            .init(anchor.trailing, relation, relatedAnchor.trailing, coefficients.trailing)
         )
     }
 

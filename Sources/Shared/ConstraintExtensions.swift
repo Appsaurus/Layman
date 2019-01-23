@@ -27,8 +27,8 @@ extension Constraint {
     }
 
     @discardableResult
-    public func activated(with configuration: LayoutConfiguration) -> Constraint {
-        return configured(with: configuration).activated()
+    public func activated(with coefficients: LayoutConfiguration) -> Constraint {
+        return configured(with: coefficients).activated()
     }
 
     @discardableResult
@@ -56,16 +56,16 @@ extension Constraint {
 
 // MARK: Constraint + LayoutConfiguration
 extension Constraint {
-    public func configured(with configuration: LayoutConfiguration) -> Constraint {
+    public func configured(with coefficients: LayoutConfiguration) -> Constraint {
         let constraint = Constraint(item: firstItem as Any,
                                     attribute: firstAttribute,
                                     relatedBy: relation,
                                     toItem: secondItem,
                                     attribute: secondAttribute,
-                                    multiplier: configuration.multiplier,
-                                    constant: configuration.constant)
+                                    multiplier: coefficients.multiplier,
+                                    constant: coefficients.constant)
 
-        return constraint.with(priority: configuration.priority)
+        return constraint.with(priority: coefficients.priority)
     }
 
     public func with(multiplier: CGFloat) -> Constraint {
