@@ -38,6 +38,12 @@ public typealias LayoutAnchor = NSLayoutAnchor
 public typealias AnchorType = AnyObject
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 
+// MARK: Layout Anchor Pair
+public class LayoutAnchorPair<FA: AnchorType, SA: AnchorType>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>>{}
+// MARK: Typed Anchor Group
+public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
+
+
 // MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat
 public typealias LayoutDivisor = CGFloat
@@ -77,8 +83,6 @@ public typealias YAxisAnchorPairs = [YAxisAnchorPair]
 public typealias XYAxesAnchorPairs = [XYAxesAnchorPair]
 public typealias LayoutDimensionPairs = [LayoutDimensionPair]
 
-// MARK: Typed Anchor Group
-public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
 
 // MARK: Typed Anchor Group Array
 public typealias EdgeAnchorGroups = [EdgeAnchorGroup]

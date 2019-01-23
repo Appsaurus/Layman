@@ -22,16 +22,3 @@ extension Variable {
         return times(1.0 / divisor)
     }
 }
-
-extension Array: Variable where Element: Variable {
-
-    public typealias RightHandExpression = [Element.RightHandExpression]
-
-    public func plus(_ constant: LayoutConstant) -> [Element.RightHandExpression] {
-        return self.map { $0.plus(constant) }
-    }
-
-    public func times(_ multiplier: LayoutMultiplier) -> [Element.RightHandExpression] {
-        return self.map { $0.times(multiplier) }
-    }
-}

@@ -18,10 +18,4 @@ public func - (lhs: LayoutDimensionPair, rhs: LayoutSize) -> LayoutDimensionPair
     return lhs + LayoutSize(width: -rhs.width, height: -rhs.height)
 }
 
-@discardableResult
-public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutConfigurationPair {
-    return LayoutConfigurationPair(
-        LayoutConfiguration().with(constant: lhs.width).with(priority: rhs),
-        LayoutConfiguration().with(constant: lhs.height).with(priority: rhs)
-    )
-}
+

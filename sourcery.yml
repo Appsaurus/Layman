@@ -25,6 +25,7 @@ args:
     LeftHandSizeRelatableExpression:
         LeftHandTypes:
             - 'LayoutDimensionPair'
+            - 'View'
         RightHandTypes:
             - 'LayoutConstant'
             - 'LayoutSize'

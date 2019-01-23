@@ -19,6 +19,14 @@ public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutConfiguration 
     return LayoutConfiguration().with(constant: lhs).with(priority: rhs)
 }
 
+@discardableResult
+public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutConfigurationPair {
+    return LayoutConfigurationPair(
+        LayoutConfiguration().with(constant: lhs.width).with(priority: rhs),
+        LayoutConfiguration().with(constant: lhs.height).with(priority: rhs)
+    )
+}
+
 public func == (lhs: LayoutPriority, rhs: LayoutPriority) -> Bool {
     return lhs.rawValue == rhs.rawValue
 }
