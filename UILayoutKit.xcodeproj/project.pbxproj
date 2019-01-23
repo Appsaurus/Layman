@@ -364,9 +364,6 @@
 		E458226021E5553500B6054C /* ConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225F21E5553500B6054C /* ConstraintExtensions.swift */; };
 		E458226121E5553500B6054C /* ConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225F21E5553500B6054C /* ConstraintExtensions.swift */; };
 		E458226221E5553500B6054C /* ConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225F21E5553500B6054C /* ConstraintExtensions.swift */; };
-		E472DE1921F52675008DCBD5 /* LeftHandExpression.stencil in Resources */ = {isa = PBXBuildFile; fileRef = E472DE1821F52675008DCBD5 /* LeftHandExpression.stencil */; };
-		E472DE1A21F52675008DCBD5 /* LeftHandExpression.stencil in Resources */ = {isa = PBXBuildFile; fileRef = E472DE1821F52675008DCBD5 /* LeftHandExpression.stencil */; };
-		E472DE1B21F52675008DCBD5 /* LeftHandExpression.stencil in Resources */ = {isa = PBXBuildFile; fileRef = E472DE1821F52675008DCBD5 /* LeftHandExpression.stencil */; };
 		E487379E21DE50F00094F2EB /* ConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487379D21DE50F00094F2EB /* ConstraintGroup.swift */; };
 		E487379F21DE50F00094F2EB /* ConstraintGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487379D21DE50F00094F2EB /* ConstraintGroup.swift */; };
 		E4AF81B521BF162B002D6E86 /* ConstraintLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF81B221BF162A002D6E86 /* ConstraintLayout.swift */; };
@@ -579,11 +576,11 @@
 		E44E732421F8174A0026EEE6 /* LayoutTypealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTypealiases.swift; sourceTree = "<group>"; };
 		E44E732521F8174A0026EEE6 /* AnchorGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorGroup.swift; sourceTree = "<group>"; };
 		E44E73AD21F8E96A0026EEE6 /* LayoutLinearEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLinearEquation.swift; sourceTree = "<group>"; };
+		E44E73B221F8EEFA0026EEE6 /* Renamed.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Renamed.stencil; sourceTree = "<group>"; };
 		E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShorthandTypealiases.swift; sourceTree = "<group>"; };
 		E458225F21E5553500B6054C /* ConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtensions.swift; sourceTree = "<group>"; };
 		E45822BC21E7F77300B6054C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E472DE0A21F51495008DCBD5 /* Variable.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Variable.stencil; sourceTree = "<group>"; };
-		E472DE1821F52675008DCBD5 /* LeftHandExpression.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = LeftHandExpression.stencil; sourceTree = "<group>"; };
 		E487379D21DE50F00094F2EB /* ConstraintGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintGroup.swift; sourceTree = "<group>"; };
 		E4AF81B221BF162A002D6E86 /* ConstraintLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayout.swift; sourceTree = "<group>"; };
 		E4AF81B321BF162A002D6E86 /* AnchorLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorLayout.swift; sourceTree = "<group>"; };
@@ -1284,6 +1281,7 @@
 		E4DA5CA421F0228100A25746 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				E44E73B221F8EEFA0026EEE6 /* Renamed.stencil */,
 				E4EDA1D221F04FE300F345E8 /* ArrayConstantArithmeticOperators.stencil */,
 				E44E6FA921F6EDC30026EEE6 /* View */,
 				E4EDA1D121F04E0F00F345E8 /* ArrayRelationOperators.stencil */,
@@ -1295,7 +1293,6 @@
 				E4EDA21921F05A1B00F345E8 /* PriorityOperators.stencil */,
 				E4DA5CA521F0228100A25746 /* RelationOperators.stencil */,
 				E472DE0A21F51495008DCBD5 /* Variable.stencil */,
-				E472DE1821F52675008DCBD5 /* LeftHandExpression.stencil */,
 				E44E70C821F77FCE0026EEE6 /* Equation.stencil */,
 				E44E70D621F7BECC0026EEE6 /* EquationOperators.stencil */,
 			);
@@ -1591,7 +1588,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E472DE1B21F52675008DCBD5 /* LeftHandExpression.stencil in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1616,7 +1612,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E472DE1921F52675008DCBD5 /* LeftHandExpression.stencil in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1631,7 +1626,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E472DE1A21F52675008DCBD5 /* LeftHandExpression.stencil in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
