@@ -355,6 +355,9 @@
 		E44E73AA21F8174A0026EEE6 /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E732521F8174A0026EEE6 /* AnchorGroup.swift */; };
 		E44E73AB21F8174A0026EEE6 /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E732521F8174A0026EEE6 /* AnchorGroup.swift */; };
 		E44E73AC21F8174A0026EEE6 /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E732521F8174A0026EEE6 /* AnchorGroup.swift */; };
+		E44E73AE21F8E96A0026EEE6 /* LayoutLinearEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E73AD21F8E96A0026EEE6 /* LayoutLinearEquation.swift */; };
+		E44E73AF21F8E96A0026EEE6 /* LayoutLinearEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E73AD21F8E96A0026EEE6 /* LayoutLinearEquation.swift */; };
+		E44E73B021F8E96A0026EEE6 /* LayoutLinearEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E73AD21F8E96A0026EEE6 /* LayoutLinearEquation.swift */; };
 		E458225B21E54FE900B6054C /* ShorthandTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */; };
 		E458225C21E54FE900B6054C /* ShorthandTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */; };
 		E458225D21E54FE900B6054C /* ShorthandTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */; };
@@ -575,6 +578,7 @@
 		E44E732321F8174A0026EEE6 /* Variable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
 		E44E732421F8174A0026EEE6 /* LayoutTypealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutTypealiases.swift; sourceTree = "<group>"; };
 		E44E732521F8174A0026EEE6 /* AnchorGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorGroup.swift; sourceTree = "<group>"; };
+		E44E73AD21F8E96A0026EEE6 /* LayoutLinearEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLinearEquation.swift; sourceTree = "<group>"; };
 		E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShorthandTypealiases.swift; sourceTree = "<group>"; };
 		E458225F21E5553500B6054C /* ConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtensions.swift; sourceTree = "<group>"; };
 		E45822BC21E7F77300B6054C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -1088,19 +1092,19 @@
 		E44E72EC21F8174A0026EEE6 /* LayoutEquations */ = {
 			isa = PBXGroup;
 			children = (
-				E44E72ED21F8174A0026EEE6 /* Configurations */,
-				E44E72F021F8174A0026EEE6 /* LayoutEquationProtocols.swift */,
-				E44E72F121F8174A0026EEE6 /* LayoutAnchorPair+LeftHandExpression.swift */,
+				E44E732521F8174A0026EEE6 /* AnchorGroup.swift */,
+				E44E73B121F8ED800026EEE6 /* LeftHandExpression */,
 				E44E72F221F8174A0026EEE6 /* LayoutAnchorable.swift */,
-				E44E72F321F8174A0026EEE6 /* Operators */,
-				E44E731521F8174A0026EEE6 /* LeftHandExpression.swift */,
-				E44E731621F8174A0026EEE6 /* Terms */,
-				E44E732021F8174A0026EEE6 /* Array+LeftHandExpression.swift */,
+				E44E72F121F8174A0026EEE6 /* LayoutAnchorPair+LeftHandExpression.swift */,
 				E44E732121F8174A0026EEE6 /* LayoutAnchorPair+Variable.swift */,
+				E44E72F021F8174A0026EEE6 /* LayoutEquationProtocols.swift */,
+				E44E732421F8174A0026EEE6 /* LayoutTypealiases.swift */,
 				E44E732221F8174A0026EEE6 /* LinearEquation.swift */,
 				E44E732321F8174A0026EEE6 /* Variable.swift */,
-				E44E732421F8174A0026EEE6 /* LayoutTypealiases.swift */,
-				E44E732521F8174A0026EEE6 /* AnchorGroup.swift */,
+				E44E72ED21F8174A0026EEE6 /* Configurations */,
+				E44E72F321F8174A0026EEE6 /* Operators */,
+				E44E731621F8174A0026EEE6 /* Terms */,
+				E44E73AD21F8E96A0026EEE6 /* LayoutLinearEquation.swift */,
 			);
 			path = LayoutEquations;
 			sourceTree = "<group>";
@@ -1231,6 +1235,15 @@
 				E44E731E21F8174A0026EEE6 /* EdgeAnchorExpression.swift */,
 			);
 			path = Expressions;
+			sourceTree = "<group>";
+		};
+		E44E73B121F8ED800026EEE6 /* LeftHandExpression */ = {
+			isa = PBXGroup;
+			children = (
+				E44E732021F8174A0026EEE6 /* Array+LeftHandExpression.swift */,
+				E44E731521F8174A0026EEE6 /* LeftHandExpression.swift */,
+			);
+			path = LeftHandExpression;
 			sourceTree = "<group>";
 		};
 		E458225E21E553E700B6054C /* ConstraintLayout */ = {
@@ -1918,6 +1931,7 @@
 				E44E729121F815380026EEE6 /* LayoutDimension+PriorityOperators.generated.swift in Sources */,
 				E44E734021F8174A0026EEE6 /* EdgeAnchorGroup+RelationOperators.swift in Sources */,
 				E44E723D21F815380026EEE6 /* ViewArray+XYAxesAnchorPairRelationOperators.generated.swift in Sources */,
+				E44E73B021F8E96A0026EEE6 /* LayoutLinearEquation.swift in Sources */,
 				E44E73AC21F8174A0026EEE6 /* AnchorGroup.swift in Sources */,
 				E44E72A621F815380026EEE6 /* LayoutDimension+ConstantArithmeticOperators.generated.swift in Sources */,
 				E44E72C421F815380026EEE6 /* XYAxesAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
@@ -2065,6 +2079,7 @@
 				E44E728F21F815380026EEE6 /* LayoutDimension+PriorityOperators.generated.swift in Sources */,
 				E44E733E21F8174A0026EEE6 /* EdgeAnchorGroup+RelationOperators.swift in Sources */,
 				E44E723B21F815380026EEE6 /* ViewArray+XYAxesAnchorPairRelationOperators.generated.swift in Sources */,
+				E44E73AE21F8E96A0026EEE6 /* LayoutLinearEquation.swift in Sources */,
 				E44E73AA21F8174A0026EEE6 /* AnchorGroup.swift in Sources */,
 				E44E72A421F815380026EEE6 /* LayoutDimension+ConstantArithmeticOperators.generated.swift in Sources */,
 				E44E72C221F815380026EEE6 /* XYAxesAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
@@ -2209,6 +2224,7 @@
 				E44E726621F815380026EEE6 /* LeftHandSizeRelatableExpression.generated.swift in Sources */,
 				E44E734E21F8174A0026EEE6 /* LayoutDimension+LeftHandConstantRelatableExpression.swift in Sources */,
 				E44E72BA21F815380026EEE6 /* XAxisAnchorPair+ArrayRelationOperators.generated.swift in Sources */,
+				E44E73AF21F8E96A0026EEE6 /* LayoutLinearEquation.swift in Sources */,
 				E458225C21E54FE900B6054C /* ShorthandTypealiases.swift in Sources */,
 				E44E737221F8174A0026EEE6 /* View+AspectRatioOperators.swift in Sources */,
 				E44E738D21F8174A0026EEE6 /* LayoutPairRelationship.swift in Sources */,

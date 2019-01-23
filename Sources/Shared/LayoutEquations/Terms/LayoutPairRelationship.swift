@@ -59,7 +59,4 @@ extension LayoutPairRelationship: LinearEquatable {
     public var solution: ConstraintPair {
         return constraintsInvertedAsInsets
     }
-
-    public typealias Solution = ConstraintPair
-
 }

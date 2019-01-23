@@ -10,58 +10,58 @@ import UIKit
 
 // MARK: XAxisAnchor
 
-private let xAxisAnchorMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, XAxisAnchor>] = [
-    .left: \.leftAnchor,
-    .right: \.rightAnchor,
-    .leading: \.leadingAnchor,
-    .trailing: \.trailingAnchor,
-    .centerX: \.centerXAnchor,
-    .leftMargin: \.leftAnchor,
-    .rightMargin: \.rightAnchor,
-    .leadingMargin: \.leadingAnchor,
-    .trailingMargin: \.trailingAnchor,
-    .centerXWithinMargins: \.centerXAnchor
-]
-
-private func keyPath(_ anchor: LayoutAnchor<XAxisAnchor>) -> KeyPath<LayoutAnchorable, XAxisAnchor> {
-    let attribute = anchor.constraint(equalTo: anchor).firstAttribute
-    guard let keyPath = xAxisAnchorMap[attribute] else {
-        preconditionFailure(String(describing: anchor) + " cannot be converted into \(attribute) constraint attribute.")
-    }
-    return keyPath
-}
+//private let xAxisAnchorMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, XAxisAnchor>] = [
+//    .left: \.leftAnchor,
+//    .right: \.rightAnchor,
+//    .leading: \.leadingAnchor,
+//    .trailing: \.trailingAnchor,
+//    .centerX: \.centerXAnchor,
+//    .leftMargin: \.leftAnchor,
+//    .rightMargin: \.rightAnchor,
+//    .leadingMargin: \.leadingAnchor,
+//    .trailingMargin: \.trailingAnchor,
+//    .centerXWithinMargins: \.centerXAnchor
+//]
+//
+//private func keyPath(_ anchor: LayoutAnchor<XAxisAnchor>) -> KeyPath<LayoutAnchorable, XAxisAnchor> {
+//    let attribute = anchor.constraint(equalTo: anchor).firstAttribute
+//    guard let keyPath = xAxisAnchorMap[attribute] else {
+//        preconditionFailure(String(describing: anchor) + " cannot be converted into \(attribute) constraint attribute.")
+//    }
+//    return keyPath
+//}
 
 internal prefix func ... (_ anchor: LayoutAnchor<XAxisAnchor>) -> KeyPath<LayoutAnchorable, XAxisAnchor> {
-    return keyPath(anchor)
+    return XAxisKeyPathExctractor.keyPath(anchor)
 }
 
 internal prefix func ... (_ anchorExpression: XAxisAnchorExpression) -> KeyPath<LayoutAnchorable, XAxisAnchor> {
     return ...anchorExpression.anchor
 }
 
-// MARK: YAxisAnchor
-
-private let yAxisAnchorMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, YAxisAnchor>] = [
-    .top: \.topAnchor,
-    .bottom: \.bottomAnchor,
-    .centerY: \.centerYAnchor,
-//    .lastBaseline: \.lastBaselineAnchor,
-//    .firstBaseline: \.firstBaselineAnchor,
-    .topMargin: \.topAnchor,
-    .bottomMargin: \.bottomAnchor,
-    .centerYWithinMargins: \.centerYAnchor
-]
-
-private func keyPath(_ anchor: LayoutAnchor<YAxisAnchor>) -> KeyPath<LayoutAnchorable, YAxisAnchor> {
-    let attribute = anchor.constraint(equalTo: anchor).firstAttribute
-    guard let keyPath = yAxisAnchorMap[attribute] else {
-        preconditionFailure(String(describing: anchor) + " cannot be converted into \(attribute) constraint attribute.")
-    }
-    return keyPath
-}
+//// MARK: YAxisAnchor
+//
+//private let yAxisAnchorMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, YAxisAnchor>] = [
+//    .top: \.topAnchor,
+//    .bottom: \.bottomAnchor,
+//    .centerY: \.centerYAnchor,
+////    .lastBaseline: \.lastBaselineAnchor,
+////    .firstBaseline: \.firstBaselineAnchor,
+//    .topMargin: \.topAnchor,
+//    .bottomMargin: \.bottomAnchor,
+//    .centerYWithinMargins: \.centerYAnchor
+//]
+//
+//private func keyPath(_ anchor: LayoutAnchor<YAxisAnchor>) -> KeyPath<LayoutAnchorable, YAxisAnchor> {
+//    let attribute = anchor.constraint(equalTo: anchor).firstAttribute
+//    guard let keyPath = yAxisAnchorMap[attribute] else {
+//        preconditionFailure(String(describing: anchor) + " cannot be converted into \(attribute) constraint attribute.")
+//    }
+//    return keyPath
+//}
 
 internal prefix func ... (_ anchor: LayoutAnchor<YAxisAnchor>) -> KeyPath<LayoutAnchorable, YAxisAnchor> {
-    return keyPath(anchor)
+    return YAxisKeyPathExctractor.keyPath(anchor)
 }
 
 internal prefix func ... (_ anchorExpression: YAxisAnchorExpression) -> KeyPath<LayoutAnchorable, YAxisAnchor> {
@@ -70,21 +70,21 @@ internal prefix func ... (_ anchorExpression: YAxisAnchorExpression) -> KeyPath<
 
 // MARK: LayoutDimension
 
-private let layoutDimensionMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, LayoutDimension>] = [
-    .width: \.widthAnchor,
-    .height: \.heightAnchor
-]
-
-private func keyPath(_ anchor: LayoutAnchor<LayoutDimension>) -> KeyPath<LayoutAnchorable, LayoutDimension> {
-    let attribute = anchor.constraint(equalTo: anchor).firstAttribute
-    guard let keyPath = layoutDimensionMap[attribute] else {
-        preconditionFailure(String(describing: anchor) + " cannot be converted into \(attribute) constraint attribute.")
-    }
-    return keyPath
-}
+//private let layoutDimensionMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, LayoutDimension>] = [
+//    .width: \.widthAnchor,
+//    .height: \.heightAnchor
+//]
+//
+////private func keyPath(_ anchor: LayoutAnchor<LayoutDimension>) -> KeyPath<LayoutAnchorable, LayoutDimension> {
+////    let attribute = anchor.constraint(equalTo: anchor).firstAttribute
+////    guard let keyPath = layoutDimensionMap[attribute] else {
+////        preconditionFailure(String(describing: anchor) + " cannot be converted into \(attribute) constraint attribute.")
+////    }
+////    return keyPath
+////}
 
 internal prefix func ... (_ anchor: LayoutAnchor<LayoutDimension>) -> KeyPath<LayoutAnchorable, LayoutDimension> {
-    return keyPath(anchor)
+    return LayoutDimensionKeyPathExctractor.keyPath(anchor)
 }
 
 internal prefix func ... (_ anchorExpression: LayoutDimensionExpression) -> KeyPath<LayoutAnchorable, LayoutDimension> {
@@ -132,6 +132,28 @@ internal class XAxisKeyPathExctractor: AnchorKeyPathExtracting {
         .leadingMargin: \.leadingAnchor,
         .trailingMargin: \.trailingAnchor,
         .centerXWithinMargins: \.centerXAnchor
+    ]
+}
+
+internal class YAxisKeyPathExctractor: AnchorKeyPathExtracting {
+    typealias Value = YAxisAnchor
+    static let constraintKeyPathMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, YAxisAnchor>] = [
+        .top: \.topAnchor,
+        .bottom: \.bottomAnchor,
+        .centerY: \.centerYAnchor,
+//        .lastBaseline: \.lastBaselineAnchor,
+//        .firstBaseline: \.firstBaselineAnchor,
+        .topMargin: \.topAnchor,
+        .bottomMargin: \.bottomAnchor,
+        .centerYWithinMargins: \.centerYAnchor
+    ]
+}
+
+internal class LayoutDimensionKeyPathExctractor: AnchorKeyPathExtracting {
+    typealias Value = LayoutDimension
+    static let constraintKeyPathMap: [ConstraintAttribute: KeyPath<LayoutAnchorable, LayoutDimension>] = [
+        .width: \.widthAnchor,
+        .height: \.heightAnchor
     ]
 }
 

@@ -45,3 +45,9 @@ public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> {
 
     }
 }
+
+extension LayoutConstantRelationship: LinearEquatable {
+    public var solution: Constraint {
+        return constraint
+    }
+}

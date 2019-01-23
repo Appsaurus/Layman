@@ -8,6 +8,9 @@
 
 public final class EdgeAnchorsConfiguration: SidesTuple<LayoutConfiguration, LayoutConfiguration> {
     public static var `default`: EdgeAnchorsConfiguration { return .init(.default) }
+}
+
+extension EdgeAnchorsConfiguration: CoefficientMutating {
 
     public static func constant(_ constant: LayoutConstant) -> EdgeAnchorsConfiguration {
         return EdgeAnchorsConfiguration(.constant(constant))
@@ -18,6 +21,16 @@ public final class EdgeAnchorsConfiguration: SidesTuple<LayoutConfiguration, Lay
     public static func priority(_ priority: LayoutPriority) -> EdgeAnchorsConfiguration {
         return EdgeAnchorsConfiguration(.priority(priority))
     }
-}
+    
+    public func set(constant: LayoutConstant) {
+        all.forEach {$0.constant = constant}
+    }
 
-extension EdgeAnchorsConfiguration: Coefficient { }
+    public func set(multiplier: LayoutMultiplier) {
+        all.forEach {$0.multiplier = multiplier}
+    }
+
+    public func set(priority: LayoutPriority) {
+        all.forEach {$0.priority = priority}
+    }
+}

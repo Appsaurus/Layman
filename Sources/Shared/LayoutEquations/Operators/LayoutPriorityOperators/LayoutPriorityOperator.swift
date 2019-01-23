@@ -16,7 +16,7 @@ infix operator ~ : PriorityPrecedence
 
 @discardableResult
 public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutConfiguration {
-    return LayoutConfiguration(constant: lhs, priority: rhs)
+    return LayoutConfiguration().with(constant: lhs).with(priority: rhs)
 }
 
 public func == (lhs: LayoutPriority, rhs: LayoutPriority) -> Bool {

@@ -14,4 +14,31 @@ public final class LayoutConfigurationPair: LayoutModelReferencePair<LayoutConfi
     }
 }
 
-extension LayoutConfigurationPair: Coefficient {}
+extension LayoutConfigurationPair: CoefficientMutating {
+    public static func constant(_ constant: LayoutConstant) -> LayoutConfigurationPair {
+        return LayoutConfigurationPair(.constant(constant))
+    }
+
+    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutConfigurationPair {
+        return LayoutConfigurationPair(.multiplier(multiplier))
+    }
+
+    public static func priority(_ priority: LayoutPriority) -> LayoutConfigurationPair {
+        return LayoutConfigurationPair(.priority(priority))
+    }
+
+    public func set(constant: LayoutConstant) {
+        first.constant = constant
+        second.constant = constant
+    }
+
+    public func set(multiplier: LayoutMultiplier) {
+        first.multiplier = multiplier
+        second.multiplier = multiplier
+    }
+
+    public func set(priority: LayoutPriority) {
+        first.priority = priority
+        second.priority = priority
+    }
+}

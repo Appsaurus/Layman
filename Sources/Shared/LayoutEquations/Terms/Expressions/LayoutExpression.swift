@@ -16,11 +16,11 @@ public final class LayoutExpression<A: AnchorType> {
         self.configuration = configuration
     }
 
-    @discardableResult
-    public func with(priority: LayoutPriority) -> Self {
-        configuration.priority = priority
-        return self
-    }
+//    @discardableResult
+//    public func with(priority: LayoutPriority) -> Self {
+//        configuration.priority = priority
+//        return self
+//    }
 
     @discardableResult
     public func with(active: Bool) -> Self {

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
+public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
 
     public var configuration: EdgeAnchorsConfiguration = .default
     public var anchor: EdgeAnchorGroup {
@@ -36,17 +36,17 @@ public class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
         return self
     }
 
-    @discardableResult
-    public func with(constant: LayoutConstant) -> Self {
-        configuration.all.forEach {$0.constant = constant}
-        return self
-    }
-
-    @discardableResult
-    public func with(multiplier: LayoutMultiplier) -> Self {
-        configuration.all.forEach {$0.multiplier = multiplier}
-        return self
-    }
+//    @discardableResult
+//    public func with(constant: LayoutConstant) -> Self {
+//        configuration.all.forEach {$0.constant = constant}
+//        return self
+//    }
+//
+//    @discardableResult
+//    public func with(multiplier: LayoutMultiplier) -> Self {
+//        configuration.all.forEach {$0.multiplier = multiplier}
+//        return self
+//    }
 
 }
 

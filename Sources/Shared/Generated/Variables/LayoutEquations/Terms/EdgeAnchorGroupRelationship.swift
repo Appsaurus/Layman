@@ -76,9 +76,7 @@ public struct EdgeAnchorGroupRelationship {
 }
 
 extension EdgeAnchorGroupRelationship: LinearEquatable {
-    public typealias Solution = SideConstraints
-
-    public var solution: Solution {
+    public var solution: SideConstraints {
         return constraint
     }
 }

@@ -86,7 +86,7 @@ extension UIView {
     
     @discardableResult
     public func autoPinToSuperview(edges: Attributes = .sides, withOffset offset: CGFloat, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary {
-        return autoPinToSuperview(edges: edges, withInsets: UIEdgeInsets.init(padding: offset), relatedBy: relatedBy, priority: priority)
+        return autoPinToSuperview(edges: edges, withInsets: LayoutInset(padding: offset), relatedBy: relatedBy, priority: priority)
     }
     
     @discardableResult

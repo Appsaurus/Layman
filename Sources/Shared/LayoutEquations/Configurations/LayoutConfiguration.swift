@@ -6,39 +6,19 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class LayoutConfiguration: Coefficient {
+public final class LayoutConfiguration {
 
-    public var constant: LayoutConstant
-    public var multiplier: LayoutMultiplier
-    public var priority: LayoutPriority
-    public var active: Bool
+    public var constant: LayoutConstant = 0.0
+    public var multiplier: LayoutMultiplier = 1.0
+    public var priority: LayoutPriority = .required
+    public var active: Bool = true
 
-    public init(constant: LayoutConstant = 0.0,
-                multiplier: LayoutMultiplier = 1.0,
-                priority: LayoutPriority = .required,
-                active: Bool = true ) {
-        self.constant = constant
-        self.multiplier = multiplier
-        self.priority = priority
-        self.active = active
-    }
+    public init() {}
+}
 
-    public func with(constant: LayoutConstant) -> LayoutConfiguration {
-        self.constant = constant
-        return self
-    }
-    public func with(multiplier: LayoutMultiplier) -> LayoutConfiguration {
-        self.multiplier = multiplier
-        return self
-    }
-
-    public func with(divisor: LayoutConstant) -> LayoutConfiguration {
-        self.constant = (1.0 / divisor)
-        return self
-    }
-    public func with(priority: LayoutPriority) -> LayoutConfiguration {
-        self.priority = priority
-        return self
+extension LayoutConfiguration {
+    public static var `default`: LayoutConfiguration {
+        return .init()
     }
 
     public func with(active: Bool) -> LayoutConfiguration {
@@ -47,18 +27,17 @@ public final class LayoutConfiguration: Coefficient {
     }
 }
 
-extension LayoutConfiguration {
-    public static var `default`: LayoutConfiguration {
-        return .init()
+extension LayoutConfiguration: CoefficientMutating & Coeficient {
+
+    public func set(constant: LayoutConstant) {
+        self.constant = constant
     }
 
-    public static func constant(_ constant: LayoutConstant) -> LayoutConfiguration {
-        return LayoutConfiguration(constant: constant)
+    public func set(multiplier: LayoutMultiplier) {
+        self.multiplier = multiplier
     }
-    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutConfiguration {
-        return LayoutConfiguration(multiplier: multiplier)
-    }
-    public static func priority(_ priority: LayoutPriority) -> LayoutConfiguration {
-        return LayoutConfiguration(priority: priority)
+
+    public func set(priority: LayoutPriority) {
+        self.priority = priority
     }
 }

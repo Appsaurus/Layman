@@ -6,10 +6,10 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-#if canImport(UIKit)
-import UIKit
+#if canImport(CoreGraphics)
+import CoreGraphics
 
-internal extension UIEdgeInsets {
+internal extension LayoutInset {
     init(padding: CGFloat) {
         self.init(top: padding, left: padding, bottom: padding, right: padding)
     }

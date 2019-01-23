@@ -21,7 +21,6 @@ extension Variable {
     public func divided(by divisor: LayoutDivisor) -> RightHandExpression {
         return times(1.0 / divisor)
     }
-
 }
 
 extension Array: Variable where Element: Variable {

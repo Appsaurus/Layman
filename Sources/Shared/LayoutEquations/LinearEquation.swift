@@ -11,38 +11,6 @@ public protocol LinearEquatable {
     var solution: Solution { get }
 }
 
-public protocol Coefficient {
-    //    var constant: LayoutConstant { get set }
-    //    var multiplier: LayoutMultiplier { get set }
-}
-public protocol Expression: class {
-
-    associatedtype V//: Variable where V.Expression == Self
-    associatedtype C: Coefficient
-    //    var anchor: V { get set } //variable
-    var configuration: C { get set } //coefficients
-    //    init(anchor: V, configuration: LayoutConfiguration)
-    func configured(with configuration: LayoutConfiguration) -> Self
-    func with(constant: LayoutConstant) -> Self
-    func with(multiplier: LayoutMultiplier) -> Self
-}
-
-extension Expression {
-    @discardableResult
-    public func configured(with configuration: C) -> Self {
-        self.configuration = configuration
-        return self
-    }
-}
-
-extension LayoutRelationship: LinearEquatable {
-    public typealias Solution = Constraint
-
-    public var solution: Constraint {
-        return constraint
-    }
-}
-
 extension Array: LinearEquatable where Element: LinearEquatable {
     public typealias Solution = [Element.Solution]
 
@@ -51,32 +19,92 @@ extension Array: LinearEquatable where Element: LinearEquatable {
     }
 }
 
-//extension View {
-//    public func relation(_ relation: Constraint.Relation, _ rhs: XAxisAnchorExpression) -> XAxisAnchorRelationship {
-//        return self[keyPath: ...rhs].relation(relation, rhs)
-//    }
-//
-//    public func relation(_ relation: Constraint.Relation, _ rhs: YAxisAnchorExpression) -> YAxisAnchorRelationship {
-//        return self[keyPath: ...rhs].relation(relation, rhs)
-//    }
-//
-//    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutDimensionExpression) -> LayoutDimensionRelationship {
-//        return self[keyPath: ...rhs].relation(relation, rhs)
-//    }
-//
-//    public func relation(_ relation: Constraint.Relation, _ rhs: XAxisAnchorPairExpression) -> XAxisAnchorPairRelationship {
-//        return self[keyPath: ...rhs].relation(relation, rhs)
-//    }
-//
-//    public func relation(_ relation: Constraint.Relation, _ rhs: YAxisAnchorPairExpression) -> YAxisAnchorPairRelationship {
-//        return self[keyPath: ...rhs].relation(relation, rhs)
-//    }
-//
-//    public func relation(_ relation: Constraint.Relation, _ rhs: XYAxesAnchorPairExpression) -> XYAxesAnchorPairRelationship {
-//        return self[keyPath: ...rhs].relation(relation, rhs)
-//    }
-//}
-//
-//extension Array where Element: View {
-//
-//}
+public protocol Expression: class {
+
+    associatedtype V//: Variable where V.Expression == Self
+    associatedtype C: CoefficientMutating
+    //    var anchor: V { get set } //variable
+    var configuration: C { get set } //coefficients
+    //    init(anchor: V, configuration: LayoutConfiguration)
+    func configured(with configuration: C) -> Self
+    func with(constant: C.Constant) -> Self
+    func with(multiplier: C.Multiplier) -> Self
+    func with(priority: C.Priority) -> Self
+}
+
+extension Expression {
+    @discardableResult
+    public func configured(with configuration: C) -> Self {
+        self.configuration = configuration
+        return self
+    }
+
+    @discardableResult
+    public func with(priority: C.Priority) -> Self {
+        configuration.set(priority: priority)
+        return self
+    }
+
+    @discardableResult
+    public func with(constant: C.Constant) -> Self {
+        configuration.set(constant: constant)
+        return self
+    }
+
+    @discardableResult
+    public func with(multiplier: C.Multiplier) -> Self {
+        configuration.set(multiplier: multiplier)
+        return self
+    }
+}
+
+public protocol CoefficientMutating {
+    associatedtype Constant
+    associatedtype Multiplier
+    associatedtype Priority
+    func set(constant: Constant)
+    func set(multiplier: Multiplier)
+    func set(priority: Priority)
+
+    static func constant(_ constant: Constant) -> Self
+    static func multiplier(_ multiplier: Multiplier) -> Self
+    static func priority(_ priority: Priority) -> Self
+}
+
+extension CoefficientMutating {
+
+    public func with(constant: Constant) -> Self {
+        set(constant: constant)
+        return self
+    }
+
+    public func with(multiplier: Multiplier) -> Self {
+        set(multiplier: multiplier)
+        return self
+    }
+
+    public func with(priority: Priority) -> Self {
+        set(priority: priority)
+        return self
+    }
+}
+
+public protocol Coeficient: CoefficientMutating {
+    var constant: Constant { get set }
+    var multiplier: Multiplier { get set }
+    var priority: Priority { get set }
+    init()
+}
+
+extension Coeficient {
+
+    public static func constant(_ constant: Constant) -> Self {
+        return Self().with(constant: constant)
+    }
+    public static func multiplier(_ multiplier: Multiplier) -> Self {
+        return Self().with(multiplier: multiplier)
+    }
+    public static func priority(_ priority: Priority) -> Self {
+        return Self().with(priority: priority)
+    }
+}
