@@ -8,19 +8,19 @@
 
 public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
 
-    public var configuration: EdgeAnchorsConfiguration = .default
+    public var coefficients: EdgeAnchorsConfiguration = .default
     public var anchor: EdgeAnchorGroup {
         return EdgeAnchorGroup(top, leading, bottom, trailing)
     }
 
-    var topExpression: YAxisAnchorExpression { return top + configuration.top }
-    var leadingExpression: XAxisAnchorExpression { return leading + configuration.leading }
-    var bottomExpression: YAxisAnchorExpression { return bottom + configuration.bottom }
-    var trailingExpression: XAxisAnchorExpression { return trailing + configuration.trailing }
+    var topExpression: YAxisAnchorExpression { return top + coefficients.top }
+    var leadingExpression: XAxisAnchorExpression { return leading + coefficients.leading }
+    var bottomExpression: YAxisAnchorExpression { return bottom + coefficients.bottom }
+    var trailingExpression: XAxisAnchorExpression { return trailing + coefficients.trailing }
 
     public convenience init(anchor: EdgeAnchorGroup, configuration: EdgeAnchorsConfiguration = .default) {
         self.init(anchor)
-        self.configuration = configuration
+        self.coefficients = configuration
     }
 
     required public init(_ top: YAxisAnchor,
@@ -32,7 +32,7 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
 
     @discardableResult
     public func configured(with configuration: LayoutConfiguration) -> Self {
-        self.configuration = EdgeAnchorsConfiguration(configuration)
+        self.coefficients = EdgeAnchorsConfiguration(configuration)
         return self
     }
 

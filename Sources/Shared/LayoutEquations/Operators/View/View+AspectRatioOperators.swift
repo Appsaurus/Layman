@@ -8,7 +8,7 @@
 
 // MARK: AspectRatioAnchor == AspectRatio
 @discardableResult
-public func == (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatio) -> Constraint {
+public func == (lhs: AspectRatioAnchor, rhs: LayoutAspectRatio) -> Constraint {
     return lhs == AutoLayoutAspectRatioConfiguration(rhs)
 }
 
@@ -27,7 +27,7 @@ public func == (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatioConfiguration)
 
 // MARK: View == AspectRatio
 @discardableResult
-public func == (lhs: View, rhs: AutoLayoutAspectRatio) -> Constraint {
+public func == (lhs: View, rhs: LayoutAspectRatio) -> Constraint {
     return lhs.aspectRatioAnchor == rhs
 }
 
@@ -37,16 +37,16 @@ public func == (lhs: View, rhs: AutoLayoutAspectRatioConfiguration) -> Constrain
 }
 
 public final class AutoLayoutAspectRatioConfiguration {
-    public var aspectRatio: AutoLayoutAspectRatio
+    public var aspectRatio: LayoutAspectRatio
     public var priority: LayoutPriority
 
-    public init(_ aspectRatio: AutoLayoutAspectRatio, _ priority: LayoutPriority = .required) {
+    public init(_ aspectRatio: LayoutAspectRatio, _ priority: LayoutPriority = .required) {
         self.aspectRatio = aspectRatio
         self.priority = priority
     }
 }
 
-public func ~ (lhs: AutoLayoutAspectRatio, rhs: LayoutPriority) -> AutoLayoutAspectRatioConfiguration {
+public func ~ (lhs: LayoutAspectRatio, rhs: LayoutPriority) -> AutoLayoutAspectRatioConfiguration {
     return AutoLayoutAspectRatioConfiguration(lhs, rhs)
 }
 

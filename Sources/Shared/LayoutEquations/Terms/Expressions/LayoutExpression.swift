@@ -35,7 +35,7 @@ extension LayoutExpression: Expression where A: Variable {
     public typealias V = LayoutAnchor<A>
 
     @discardableResult
-    public func configured(with configuration: LayoutConfiguration) -> Self {
+    public func with(coefficients configuration: LayoutConfiguration) -> Self {
         self.configuration = configuration
         return self
     }

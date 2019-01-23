@@ -37,7 +37,7 @@ public class LayoutPairRelationship<F: AnchorType, S: AnchorType> {
         self.init(anchors,
                   relation,
                   relatedExpression.anchor,
-                  relatedExpression.configuration)
+                  relatedExpression.coefficients)
     }
 
     public var constraints: ConstraintPair {

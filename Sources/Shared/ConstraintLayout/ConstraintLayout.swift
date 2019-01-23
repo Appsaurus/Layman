@@ -10,42 +10,18 @@ import UIKit
 import Swiftest
 // swiftlint:disable line_length file_length
 public typealias ConstraintDictionary = [ConstraintAttribute: Constraint]
-public typealias ConstraintDictionaryMap = [UIView: ConstraintDictionary]
+public typealias ConstraintDictionaryMap = [View: ConstraintDictionary]
 
 public protocol LayoutItem {}
-extension UIView: LayoutItem {}
+extension View: LayoutItem {}
 
 @available(iOS 9.0, *)
 extension UILayoutGuide: LayoutItem {}
 
-public enum AutoLayoutAspectRatio {
-    case wide // 16:9
-    case standard // 4:3
-    case square
-    case custom(width: CGFloat, height: CGFloat)
-    case customSize(size: CGSize)
-    case customRatio(ratio: CGFloat)
-    
-    public var ratio: CGFloat {
-        switch self {
-        case .wide:
-            return 16.0/9.0
-        case .standard:
-            return 4.0/3.0
-        case .square:
-            return 1.0
-        case .custom(let ratio):
-            return ratio.width/ratio.height
-        case .customSize(let size):
-            return size.width / size.height
-        case .customRatio(let ratio):
-            return ratio
-        }
-    }
-}
+
 
 // MARK: - Expand size of superview
-extension UIView {
+extension View {
     public func autoForceSuperviewToMatchContentSize(insetBy insets: UIEdgeInsets = .zero, priority: LayoutPriority? = .required) {
         autoForceSuperviewToMatchContentWidth(insetBy: insets, priority: priority)
         autoForceSuperviewToMatchContentHeight(insetBy: insets, priority: priority)
@@ -67,7 +43,7 @@ extension UIView {
     
 }
 // MARK: - Pin: Superview
-extension UIView {
+extension View {
     
     @discardableResult
     public func autoPinToSuperviewMargins(margins: Attributes = .margins, withInsets insets: UIEdgeInsets = .zero, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary {
@@ -102,7 +78,7 @@ extension UIView {
 }
 
 // MARK: - Pin: to margins
-extension UIView {
+extension View {
     
     @discardableResult
     public func autoPinToSuperviewMargin(_ attribute: ConstraintAttribute, withOffset offset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> Constraint {
@@ -124,7 +100,7 @@ extension UIView {
     
 }
 // MARK: - Pin: to edges
-extension UIView {
+extension View {
     
     @discardableResult
     public func autoPin(toEdgesOf item: LayoutItem, excludingEdges: Attributes = [], withInsets insets: UIEdgeInsets = .zero, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary {
@@ -169,7 +145,7 @@ extension UIView {
     
 }
 // MARK: - Center
-extension UIView {
+extension View {
     
     @discardableResult
     public func autoCenterInSuperview(withXOffset xOffset: CGFloat = 0, withYOffset yOffset: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> ConstraintDictionary {
@@ -201,7 +177,7 @@ extension UIView {
 }
 
 // MARK: - Size
-extension UIView {
+extension View {
     
     @discardableResult
     public func autoSizeWidth(to width: CGFloat, relatedBy: Constraint.Relation = .equal, multiplier: CGFloat = 1, priority: LayoutPriority? = .required) -> Constraint {
@@ -250,7 +226,7 @@ extension UIView {
     /// Creates a constraint that enforces aspect ratio based on size of a masterDimension (Defaults to .width).
     /// It is assumed that a masterDimension's constraint is already set elsewhere.
     @discardableResult
-    public func autoSizeAspectRatio(to aspectRatio: AutoLayoutAspectRatio, masterAttribute: ConstraintAttribute = .width, priority: LayoutPriority? = .required) -> Constraint {
+    public func autoSizeAspectRatio(to aspectRatio: LayoutAspectRatio, masterAttribute: ConstraintAttribute = .width, priority: LayoutPriority? = .required) -> Constraint {
         assert(masterAttribute == .width || masterAttribute == .height, "Only height and width constraints apply to aspect ratio.")
         
         let slaveAttribute: ConstraintAttribute = masterAttribute == .width ? .height : .width
@@ -261,7 +237,7 @@ extension UIView {
 
 // MARK: - Matching Size
 
-extension UIView {
+extension View {
     
     /// Centers in and matches size of superview. Paramaters only apply to size constraints.
     @discardableResult
@@ -305,7 +281,7 @@ extension UIView {
 }
 
 // MARK: - General Constraint building
-extension UIView {
+extension View {
     
     @discardableResult
     public func autoConstrainToSuperview(attribute: ConstraintAttribute, toAttribute: ConstraintAttribute? = nil, multiplier: CGFloat = 1, constant: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> Constraint {
@@ -323,11 +299,11 @@ extension UIView {
 }
 
 // MARK: - Private
-extension UIView {
+extension View {
     @discardableResult
     fileprivate func autoConstrain<C: Constraint>(attribute: ConstraintAttribute, ofItem item: LayoutItem, toAttribute: ConstraintAttribute = .notAnAttribute, ofItem toItem: LayoutItem? = nil, multiplier: CGFloat = 1, constant: CGFloat = 0, relatedBy: Constraint.Relation = .equal, priority: LayoutPriority? = .required) -> C {
         
-        if let view = item as? UIView {
+        if let view = item as? View {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         let constraint = C(
@@ -340,7 +316,7 @@ extension UIView {
             constraint.priority = priority!
         }
         constraint.isActive = true
-        guard let toItem = toItem as? UIView else {
+        guard let toItem = toItem as? View else {
             self.addConstraint(constraint)
             return constraint
         }
@@ -393,7 +369,7 @@ extension UIEdgeInsets {
     }
 }
 
-extension Array where Element: UIView {
+extension Array where Element: View {
     
     /// Autostacks an array of views vertically inside a common superview. Requires that all views share the same superview.
     ///
@@ -524,13 +500,13 @@ extension Array where Element: UIView {
     }
 }
 
-extension UIView {
-    public func swap(subview: UIView, with replacementView: UIView) {
+extension View {
+    public func swap(subview: View, with replacementView: View) {
         addSubview(replacementView)
         for constraint: Constraint in self.constraints {
-            if constraint.firstItem as? UIView == subview {
+            if constraint.firstItem as? View == subview {
                 addConstraint(Constraint(item: replacementView, attribute: constraint.firstAttribute, relatedBy: constraint.relation, toItem: constraint.secondItem, attribute: constraint.secondAttribute, multiplier: constraint.multiplier, constant: constraint.constant))
-            } else if constraint.secondItem as? UIView == subview {
+            } else if constraint.secondItem as? View == subview {
                 addConstraint(Constraint(item: constraint.firstItem as Any, attribute: constraint.firstAttribute, relatedBy: constraint.relation, toItem: replacementView, attribute: constraint.secondAttribute, multiplier: constraint.multiplier, constant: constraint.constant))
             }
         }
@@ -538,22 +514,22 @@ extension UIView {
     }
 }
 
-extension UIView {
-    public class func parentViewFittingContent(of view: UIView, insetBy insets: UIEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)) -> UIView {
-        let layoutView: UIView = UIView()
+extension View {
+    public class func parentViewFittingContent(of view: View, insetBy insets: UIEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)) -> View {
+        let layoutView: View = View()
         layoutView.addSubview(view)
         view.autoForceSuperviewToMatchContentSize(insetBy: insets)
         return layoutView
     }
 }
 
-extension UIView {
+extension View {
     public func layoutDynamicHeight(forWidth width: CGFloat) {
         translatesAutoresizingMaskIntoConstraints = false
         let widthConstraint = autoSizeWidth(to: width)
         addConstraint(widthConstraint)
         forceAutolayoutPass()
-        let height = systemLayoutSizeFitting(UIView.layoutFittingExpandedSize).height
+        let height = systemLayoutSizeFitting(View.layoutFittingExpandedSize).height
         removeConstraint(widthConstraint)
         frame = CGRect(x: 0, y: 0, width: width, height: height)
         translatesAutoresizingMaskIntoConstraints = true

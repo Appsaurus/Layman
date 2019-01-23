@@ -9,11 +9,11 @@
 public final class LayoutPairExpression<F: AnchorType, S: AnchorType> {
 
     public var anchor: LayoutAnchorPair<F, S>
-    public var configuration: LayoutConfigurationPair
+    public var coefficients: LayoutConfigurationPair
 
     public init(anchor: LayoutAnchorPair<F, S>, configuration: LayoutConfigurationPair = .default) {
         self.anchor = anchor
-        self.configuration = configuration
+        self.coefficients = configuration
     }
 
 //    public init(anchor: LayoutAnchorPair<F, S>, configuration: LayoutConfiguration) {
@@ -23,7 +23,7 @@ public final class LayoutPairExpression<F: AnchorType, S: AnchorType> {
 
     @discardableResult
     public func configured(with configuration: LayoutConfiguration) -> Self {
-        self.configuration = LayoutConfigurationPair(configuration, configuration)
+        self.coefficients = LayoutConfigurationPair(configuration, configuration)
         return self
     }
 }

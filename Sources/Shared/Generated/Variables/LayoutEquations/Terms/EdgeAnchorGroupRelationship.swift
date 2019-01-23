@@ -37,7 +37,7 @@ public struct EdgeAnchorGroupRelationship {
         self.init(anchor,
                   relation,
                   relatedExpression.anchor,
-                  relatedExpression.configuration)
+                  relatedExpression.coefficients)
     }
 
     public var constraint: SideConstraints {

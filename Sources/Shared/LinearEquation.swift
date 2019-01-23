@@ -24,9 +24,9 @@ public protocol Expression: class {
     associatedtype V//: Variable where V.Expression == Self
     associatedtype C: CoefficientMutating
     //    var anchor: V { get set } //variable
-    var configuration: C { get set } //coefficients
+    var coefficients: C { get set } //coefficients
     //    init(anchor: V, configuration: LayoutConfiguration)
-    func configured(with configuration: C) -> Self
+    func with(coefficients configuration: C) -> Self
     func with(constant: C.Constant) -> Self
     func with(multiplier: C.Multiplier) -> Self
     func with(priority: C.Priority) -> Self
@@ -35,25 +35,25 @@ public protocol Expression: class {
 extension Expression {
     @discardableResult
     public func configured(with configuration: C) -> Self {
-        self.configuration = configuration
+        self.coefficients = configuration
         return self
     }
 
     @discardableResult
     public func with(priority: C.Priority) -> Self {
-        configuration.set(priority: priority)
+        coefficients.set(priority: priority)
         return self
     }
 
     @discardableResult
     public func with(constant: C.Constant) -> Self {
-        configuration.set(constant: constant)
+        coefficients.set(constant: constant)
         return self
     }
 
     @discardableResult
     public func with(multiplier: C.Multiplier) -> Self {
-        configuration.set(multiplier: multiplier)
+        coefficients.set(multiplier: multiplier)
         return self
     }
 }

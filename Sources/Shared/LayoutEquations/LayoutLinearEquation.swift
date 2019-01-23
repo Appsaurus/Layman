@@ -12,7 +12,6 @@ extension CoefficientMutating where Multiplier == LayoutMultiplier {
     }
 }
 
-
 extension LayoutRelationship: LinearEquatable {
     public typealias Solution = Constraint
 
