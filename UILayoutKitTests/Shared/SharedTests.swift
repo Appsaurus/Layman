@@ -270,6 +270,7 @@ class SharedTests: UILayoutKitTestCase {
         constraints.leading.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, priority: 749)
         constraints.bottom.assert(view1, .bottom, .equal, relatedView, .bottom, constant: -10, priority: 749)
         constraints.trailing.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -10, priority: 749)
+        print("\(constraints.all.heirarchy)")
     }
 
     func testArrayEdgeAnchors() {

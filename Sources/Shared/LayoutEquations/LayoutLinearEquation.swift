@@ -11,11 +11,3 @@ extension CoefficientMutating where Multiplier == LayoutMultiplier {
         return with(multiplier: (1.0 / divisor))
     }
 }
-
-extension LayoutRelationship: LinearEquatable {
-    public typealias Solution = Constraint
-
-    public var solution: Constraint {
-        return constraint
-    }
-}

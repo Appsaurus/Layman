@@ -8,7 +8,7 @@
 
 public protocol LeftHandExpression {
     associatedtype RightHandExpression
-    associatedtype LinearEquation: LinearEquatable
+    associatedtype LinearEquation: LinearEquationSolving
     typealias Solution = LinearEquation.Solution
 
     func relation(_ relation: Constraint.Relation, _ rhs: Self) -> LinearEquation

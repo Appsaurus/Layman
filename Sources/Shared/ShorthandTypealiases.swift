@@ -30,6 +30,7 @@ extension XYAxisAnchorable {
     public var topRight: XYAxesAnchorPair { return topRightAnchors }
     public var bottomRight: XYAxesAnchorPair { return bottomRightAnchors }
     public var bottomLeft: XYAxesAnchorPair { return bottomLeftAnchors }
+    public var margins: LayoutGuide { return layoutMarginsGuide }
 }
 
 extension SizeAnchorable {
@@ -64,6 +65,8 @@ extension Array where Element: XYAxisAnchorable {
     public var topRight: XYAxesAnchorPairs { return map { $0.topRight } }
     public var bottomRight: XYAxesAnchorPairs { return map { $0.bottomRight } }
     public var bottomLeft: XYAxesAnchorPairs { return map { $0.bottomLeft } }
+
+    public var margins: [LayoutGuide] { return map { $0.margins } }
 }
 
 extension Array where Element: SizeAnchorable {

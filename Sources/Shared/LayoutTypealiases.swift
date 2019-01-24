@@ -11,14 +11,14 @@ import AppKit
 public typealias View = NSView
 internal typealias Window = NSWindow
 internal typealias ViewController = NSViewController
-internal typealias LayoutGuide = NSLayoutGuide
+public typealias LayoutGuide = NSLayoutGuide
 
 #else
 import UIKit
 public typealias View = UIView
 internal typealias Window = UIWindow
 internal typealias ViewController = UIViewController
-internal typealias LayoutGuide = UILayoutGuide
+public typealias LayoutGuide = UILayoutGuide
 
 #endif
 
@@ -36,13 +36,13 @@ public typealias ConstraintAttributes = [ConstraintAttribute]
 // MARK: Anchor
 public typealias LayoutAnchor = NSLayoutAnchor
 public typealias AnchorType = AnyObject
+public typealias AnchorVariable = AnchorType & Variable
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 
 // MARK: Layout Anchor Pair
-public class LayoutAnchorPair<FA: AnchorType, SA: AnchorType>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>>{}
+public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>> {}
 // MARK: Typed Anchor Group
 public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
-
 
 // MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat
@@ -82,7 +82,6 @@ public typealias XAxisAnchorPairs = [XAxisAnchorPair]
 public typealias YAxisAnchorPairs = [YAxisAnchorPair]
 public typealias XYAxesAnchorPairs = [XYAxesAnchorPair]
 public typealias LayoutDimensionPairs = [LayoutDimensionPair]
-
 
 // MARK: Typed Anchor Group Array
 public typealias EdgeAnchorGroups = [EdgeAnchorGroup]

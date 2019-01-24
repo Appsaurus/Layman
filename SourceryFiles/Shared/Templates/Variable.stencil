@@ -13,11 +13,11 @@ extension {{AnchorType}}: Variable {
     public typealias RightHandExpression = {{AnchorType}}Expression
 
     public func plus(_ constant: LayoutConstant) -> {{AnchorType}}Expression {
-        return {{AnchorType}}Expression(anchor: self, coefficients: .constant(constant))
+        return {{AnchorType}}Expression(variable: self, coefficients: .constant(constant))
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> {{AnchorType}}Expression {
-        return {{AnchorType}}Expression(anchor: self, coefficients: .multiplier(multiplier))
+        return {{AnchorType}}Expression(variable: self, coefficients: .multiplier(multiplier))
     }
 }
 // sourcery:end

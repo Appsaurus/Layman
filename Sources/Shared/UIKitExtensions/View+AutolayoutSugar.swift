@@ -59,6 +59,48 @@ public extension View {
     }
 }
 
+public typealias ConstraintAttributeMap = [ConstraintAttribute: Constraints]
+public typealias ConstraintHeirarchy = [View: ConstraintAttributeMap]
+extension Collection where Element == Constraint {
+    public var heirarchy: ConstraintHeirarchy {
+        return reduce(into: ConstraintHeirarchy()) { (result, element) in
+            guard let view = element.firstView else { return }
+            var viewContraints = result[view, default: [:]]
+            var viewConstraintMap = viewContraints[element.firstAttribute, default: []]
+            viewConstraintMap.append(element)
+            viewContraints[element.firstAttribute] = viewConstraintMap
+            result[view] = viewContraints
+        }
+    }
+}
+
+private extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
+    subscript (all keys: Key...) -> [Value] {
+        return self[all: keys]
+    }
+
+    subscript (all keys: [Key]) -> [Value] {
+        return keys.map { self[$0] }.compactMap {$0}
+    }
+}
+extension View {
+    public var constraintMap: ConstraintAttributeMap {
+        return constraints.heirarchy[self] ?? [ : ]
+    }
+
+    public var hasAmbiguousWidth: Bool {
+        return constraintMap[.width] == nil &&
+            (constraintMap[all: ConstraintAttribute.Category.leadingXAxisTypes.array].count == 0
+                || constraintMap[all: ConstraintAttribute.Category.trailingXAxisTypes.array].count == 0)
+    }
+
+    public var hasAmbiguousHeight: Bool {
+        return constraintMap[.height] == nil &&
+            (constraintMap[all: ConstraintAttribute.Category.leadingYAxisTypes.array].count == 0
+                || constraintMap[all: ConstraintAttribute.Category.trailingYAxisTypes.array].count == 0)
+    }
+}
+
 // MARK: View Heirarchy
 internal extension View {
 

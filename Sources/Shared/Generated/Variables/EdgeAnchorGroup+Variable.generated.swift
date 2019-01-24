@@ -14,10 +14,10 @@ extension EdgeAnchorGroup: Variable {
     public typealias RightHandExpression = EdgeAnchorGroupExpression
 
     public func plus(_ constant: LayoutConstant) -> EdgeAnchorGroupExpression {
-        return EdgeAnchorGroupExpression(anchor: self, coefficients: .constant(constant))
+        return EdgeAnchorGroupExpression(variable: self, coefficients: .constant(constant))
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> EdgeAnchorGroupExpression {
-        return EdgeAnchorGroupExpression(anchor: self, coefficients: .multiplier(multiplier))
+        return EdgeAnchorGroupExpression(variable: self, coefficients: .multiplier(multiplier))
     }
 }

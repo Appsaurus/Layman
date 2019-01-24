@@ -18,8 +18,6 @@ extension View: LayoutItem {}
 @available(iOS 9.0, *)
 extension UILayoutGuide: LayoutItem {}
 
-
-
 // MARK: - Expand size of superview
 extension View {
     public func autoForceSuperviewToMatchContentSize(insetBy insets: UIEdgeInsets = .zero, priority: LayoutPriority? = .required) {

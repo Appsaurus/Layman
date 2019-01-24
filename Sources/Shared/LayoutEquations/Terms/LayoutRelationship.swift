@@ -6,38 +6,21 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public struct LayoutRelationship<A: AnchorType> {
+public final class LayoutRelationship<A: AnchorVariable> {
 
-    public var anchor: LayoutAnchor<A>
+    public var variable: LayoutAnchor<A>
     public var relation: Constraint.Relation
     public var relatedAnchor: LayoutAnchor<A>?
     public var coefficients: LayoutConfiguration
 
-    public init(_ anchor: LayoutAnchor<A>,
+    public init(_ variable: LayoutAnchor<A>,
                 _ relation: Constraint.Relation,
                 _ relatedAnchor: LayoutAnchor<A>?,
                 _ coefficients: LayoutConfiguration = .default) {
-        self.anchor = anchor
+        self.variable = variable
         self.relation = relation
         self.relatedAnchor = relatedAnchor
         self.coefficients = coefficients
-    }
-
-    public init(_ anchor: LayoutAnchor<A>,
-                _ relation: Constraint.Relation,
-                _ coefficients: LayoutConfiguration) {
-        self.anchor = anchor
-        self.relation = relation
-        self.coefficients = coefficients
-    }
-
-    public init(_ anchor: LayoutAnchor<A>,
-                _ relation: Constraint.Relation,
-                _ relatedExpression: LayoutExpression<A>) {
-        self.init(anchor,
-                  relation,
-                  relatedExpression.anchor,
-                  relatedExpression.coefficients)
     }
 
     public var constraint: Constraint {
@@ -57,7 +40,7 @@ public struct LayoutRelationship<A: AnchorType> {
             return constraintRelated(to: relatedAnchor).configured(with: coefficients)
         }
 
-        if let anchor = anchor as? LayoutDimension {
+        if let anchor = variable as? LayoutDimension {
             return sizeConstraint(for: anchor).configured(with: coefficients)
         }
         preconditionFailure("LayoutRelationship must contain two anchors or one anchor of type LayoutDimension")
@@ -66,11 +49,11 @@ public struct LayoutRelationship<A: AnchorType> {
     internal func constraintRelated(to relatedAnchor: LayoutAnchor<A>) -> Constraint {
         switch relation {
         case .lessThanOrEqual:
-            return anchor.constraint(lessThanOrEqualTo: relatedAnchor)
+            return variable.constraint(lessThanOrEqualTo: relatedAnchor)
         case .equal:
-            return anchor.constraint(equalTo: relatedAnchor)
+            return variable.constraint(equalTo: relatedAnchor)
         case .greaterThanOrEqual:
-            return anchor.constraint(greaterThanOrEqualTo: relatedAnchor)
+            return variable.constraint(greaterThanOrEqualTo: relatedAnchor)
         }
     }
 
@@ -85,6 +68,16 @@ public struct LayoutRelationship<A: AnchorType> {
                 return anchor.constraint(greaterThanOrEqualToConstant: coefficients.constant)
             }
         }()
+        return constraint
+    }
+}
+
+extension LayoutRelationship: LinearEquation {
+    public typealias E = LayoutExpression<A>
+
+    public typealias Solution = Constraint
+
+    public var solution: Constraint {
         return constraint
     }
 }

@@ -11,7 +11,7 @@
 
 @discardableResult
 public func ~ (lhs: LayoutDimension, rhs: LayoutPriority) -> LayoutDimensionExpression {
-    return LayoutDimensionExpression(anchor: lhs).with(priority: rhs)
+    return LayoutDimensionExpression(variable: lhs).with(priority: rhs)
 }
 
 @discardableResult

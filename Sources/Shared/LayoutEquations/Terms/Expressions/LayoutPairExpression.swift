@@ -6,13 +6,13 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class LayoutPairExpression<F: AnchorType, S: AnchorType> {
+public final class LayoutPairExpression<F: AnchorVariable, S: AnchorVariable> {
 
-    public var anchor: LayoutAnchorPair<F, S>
+    public var variable: LayoutAnchorPair<F, S>
     public var coefficients: LayoutConfigurationPair
 
-    public init(anchor: LayoutAnchorPair<F, S>, coefficients: LayoutConfigurationPair = .default) {
-        self.anchor = anchor
+    public init(variable: LayoutAnchorPair<F, S>, coefficients: LayoutConfigurationPair = .default) {
+        self.variable = variable
         self.coefficients = coefficients
     }
 

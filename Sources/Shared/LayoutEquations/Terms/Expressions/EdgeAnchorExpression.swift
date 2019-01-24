@@ -8,18 +8,28 @@
 
 public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
 
-    public var coefficients: EdgeAnchorsConfiguration = .default
-    public var anchor: EdgeAnchorGroup {
-        return EdgeAnchorGroup(top, leading, bottom, trailing)
+    public var variable: EdgeAnchorGroup {
+        get {
+            return EdgeAnchorGroup(top, leading, bottom, trailing)
+        }
+        set {
+            top = newValue.top
+            leading = newValue.leading
+            bottom = newValue.bottom
+            trailing = newValue.trailing
+        }
     }
+
+    public var coefficients: EdgeAnchorsConfiguration = .default
 
     var topExpression: YAxisAnchorExpression { return top + coefficients.top }
     var leadingExpression: XAxisAnchorExpression { return leading + coefficients.leading }
     var bottomExpression: YAxisAnchorExpression { return bottom + coefficients.bottom }
     var trailingExpression: XAxisAnchorExpression { return trailing + coefficients.trailing }
 
-    public convenience init(anchor: EdgeAnchorGroup, coefficients: EdgeAnchorsConfiguration = .default) {
-        self.init(anchor)
+    public convenience init(variable: EdgeAnchorGroup,
+                            coefficients: EdgeAnchorsConfiguration = .default) {
+        self.init(variable)
         self.coefficients = coefficients
     }
 
@@ -67,15 +77,15 @@ extension EdgeAnchorGroupExpression: Expression {
 
 @discardableResult
 private func + (lhs: XAxisAnchor, rhs: LayoutConfiguration) -> XAxisAnchorExpression {
-    return XAxisAnchorExpression(anchor: lhs, coefficients: rhs)
+    return XAxisAnchorExpression(variable: lhs, coefficients: rhs)
 }
 
 @discardableResult
 private func + (lhs: YAxisAnchor, rhs: LayoutConfiguration) -> YAxisAnchorExpression {
-    return YAxisAnchorExpression(anchor: lhs, coefficients: rhs)
+    return YAxisAnchorExpression(variable: lhs, coefficients: rhs)
 }
 
 @discardableResult
 private func + (lhs: LayoutDimension, rhs: LayoutConfiguration) -> LayoutDimensionExpression {
-    return LayoutDimensionExpression(anchor: lhs, coefficients: rhs)
+    return LayoutDimensionExpression(variable: lhs, coefficients: rhs)
 }

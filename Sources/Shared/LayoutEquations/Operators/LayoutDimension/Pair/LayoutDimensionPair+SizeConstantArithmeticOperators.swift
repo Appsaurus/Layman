@@ -10,12 +10,10 @@
 @discardableResult
 public func + (lhs: LayoutDimensionPair, rhs: LayoutSize) -> LayoutDimensionPairExpression {
     let coefficients = LayoutConfigurationPair(.constant(rhs.width), .constant(rhs.height))
-    return LayoutDimensionPairExpression(anchor: lhs, coefficients: coefficients)
+    return LayoutDimensionPairExpression(variable: lhs, coefficients: coefficients)
 }
 
 @discardableResult
 public func - (lhs: LayoutDimensionPair, rhs: LayoutSize) -> LayoutDimensionPairExpression {
     return lhs + LayoutSize(width: -rhs.width, height: -rhs.height)
 }
-
-

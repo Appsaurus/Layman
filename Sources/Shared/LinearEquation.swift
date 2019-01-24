@@ -6,12 +6,14 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol LinearEquatable {
+public protocol LinearEquationSolving {
+
     associatedtype Solution
     var solution: Solution { get }
 }
 
-extension Array: LinearEquatable where Element: LinearEquatable {
+extension Array: LinearEquationSolving where Element: LinearEquationSolving {
+
     public typealias Solution = [Element.Solution]
 
     public var solution: Solution {
@@ -19,13 +21,42 @@ extension Array: LinearEquatable where Element: LinearEquatable {
     }
 }
 
+public protocol SingleVariableLinearEquation: Expression, LinearEquationSolving {
+    associatedtype Relation
+    var relation: Relation { get set }
+
+}
+
+public protocol LinearEquation: SingleVariableLinearEquation {
+    var relatedAnchor: V? { get set }
+    associatedtype E: Expression where E.V == V, E.C == C
+    init(_ variable: V, _ relation: Relation, _ relatedAnchor: V?, _ coefficients: C )
+}
+
+extension LinearEquation {
+
+    public init(_ variable: V,
+                _ relation: Relation,
+                _ relatedExpression: E) {
+        self.init(variable,
+                  relation,
+                  relatedExpression.variable,
+                  relatedExpression.coefficients)
+    }
+
+    public init(_ anchor: V, _ relation: Relation, _ coefficients: C) {
+        self.init(anchor, relation, nil, coefficients)
+    }
+}
+
 public protocol Expression: class {
 
-    associatedtype V//: Variable where V.Expression == Self
+    associatedtype V
+    var variable: V { get set }
+
     associatedtype C: CoefficientMutating
-    //    var anchor: V { get set } //variable
     var coefficients: C { get set } //coefficients
-    //    init(anchor: V, coefficients: LayoutConfiguration)
+    //    init(anchor: V, coefficients: C)
     func with(coefficients: C) -> Self
     func with(constant: C.Constant) -> Self
     func with(multiplier: C.Multiplier) -> Self
@@ -33,6 +64,7 @@ public protocol Expression: class {
 }
 
 extension Expression {
+
     @discardableResult
     public func with(coefficients: C) -> Self {
         self.coefficients = coefficients

@@ -6,31 +6,23 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> {
+public final class LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> {
 
-    public var anchor: LayoutAnchor<A>
+    public var variable: LayoutAnchor<A>
     public var relation: Constraint.Relation
     public var coefficients: LayoutConfiguration
 
-    public init(_ anchor: LayoutAnchor<A>,
+    public init(_ variable: LayoutAnchor<A>,
                 _ relation: Constraint.Relation,
                 _ coefficients: LayoutConfiguration = .default) {
-        self.anchor = anchor
+        self.variable = variable
         self.relation = relation
         self.coefficients = coefficients
     }
 
-    public init(_ anchor: LayoutAnchor<A>,
-                _ relation: Constraint.Relation,
-                _ relatedExpression: LayoutExpression<A>) {
-        self.init(anchor,
-                  relation,
-                  relatedExpression.coefficients)
-    }
-
     public var constraint: Constraint {
         // swiftlint:disable:next force_cast
-        let dimension = anchor as! LayoutDimension
+        let dimension = variable as! LayoutDimension
         let constraint: Constraint = {
             switch relation {
             case .lessThanOrEqual:
@@ -46,7 +38,7 @@ public struct LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> {
     }
 }
 
-extension LayoutConstantRelationship: LinearEquatable {
+extension LayoutConstantRelationship: SingleVariableLinearEquation {
     public var solution: Constraint {
         return constraint
     }

@@ -11,17 +11,17 @@
 
 @discardableResult
 public func + (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
-    return LayoutDimensionPairExpression(anchor: lhs, coefficients: .constant(rhs))
+    return LayoutDimensionPairExpression(variable: lhs, coefficients: .constant(rhs))
 }
 
 @discardableResult
 public func - (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
-    return LayoutDimensionPairExpression(anchor: lhs, coefficients: .constant(-rhs))
+    return LayoutDimensionPairExpression(variable: lhs, coefficients: .constant(-rhs))
 }
 
 @discardableResult
 public func * (lhs: LayoutDimensionPair, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {
-    return LayoutDimensionPairExpression(anchor: lhs, coefficients: .multiplier(rhs))
+    return LayoutDimensionPairExpression(variable: lhs, coefficients: .multiplier(rhs))
 }
 
 @discardableResult

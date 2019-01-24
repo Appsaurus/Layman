@@ -14,10 +14,10 @@ extension XAxisAnchor: Variable {
     public typealias RightHandExpression = XAxisAnchorExpression
 
     public func plus(_ constant: LayoutConstant) -> XAxisAnchorExpression {
-        return XAxisAnchorExpression(anchor: self, coefficients: .constant(constant))
+        return XAxisAnchorExpression(variable: self, coefficients: .constant(constant))
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> XAxisAnchorExpression {
-        return XAxisAnchorExpression(anchor: self, coefficients: .multiplier(multiplier))
+        return XAxisAnchorExpression(variable: self, coefficients: .multiplier(multiplier))
     }
 }

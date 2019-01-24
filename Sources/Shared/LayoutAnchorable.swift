@@ -34,6 +34,9 @@ public protocol XYAxisAnchorable {
     var topRightAnchors: XYAxesAnchorPair { get }
     var bottomRightAnchors: XYAxesAnchorPair { get }
     var bottomLeftAnchors: XYAxesAnchorPair { get }
+
+    var layoutMarginsGuide: LayoutGuide { get }
+
 }
 
 public protocol BaselineAnchorable {
@@ -78,7 +81,7 @@ extension XYAxisAnchorable {
     public var bottomLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, bottomAnchor) }
 
     public func edgesExcluding(_ edge: XAxisAnchor) -> EdgeAnchorGroupExpression {
-        let edgeExpression = EdgeAnchorGroupExpression(anchor: edgeAnchors)
+        let edgeExpression = EdgeAnchorGroupExpression(variable: edgeAnchors)
         switch edge.attribute {
         case .leading:
             edgeExpression.leadingExpression.coefficients.active = false
@@ -91,7 +94,7 @@ extension XYAxisAnchorable {
     }
 
     public func edgesExcluding(_ edge: YAxisAnchor) -> EdgeAnchorGroupExpression {
-        let edgeExpression = EdgeAnchorGroupExpression(anchor: edgeAnchors)
+        let edgeExpression = EdgeAnchorGroupExpression(variable: edgeAnchors)
         switch edge.attribute {
         case .top:
             edgeExpression.topExpression.coefficients.active = false
@@ -113,13 +116,13 @@ extension SizeAnchorable {
     }
 }
 
-extension View {
-
-}
-
 extension View: BaselineLayoutAnchorable {}
 
-extension UILayoutGuide: LayoutAnchorable {}
+extension UILayoutGuide: LayoutAnchorable {
+    public var layoutMarginsGuide: LayoutGuide {
+        return self
+    }
+}
 
 extension ViewController: BaselineLayoutAnchorable {
 
@@ -183,6 +186,10 @@ extension ViewController: BaselineLayoutAnchorable {
     public var firstBaselineAnchor: YAxisAnchor {
         return view.firstBaselineAnchor
     }
+
+    public var layoutMarginsGuide: LayoutGuide {
+        return view.layoutMarginsGuide
+    }
 }
 
 extension Array where Element: XYAxisAnchorable {
@@ -207,6 +214,8 @@ extension Array where Element: XYAxisAnchorable {
     public var topRightAnchors: XYAxesAnchorPairs { return map { $0.topRightAnchors } }
     public var bottomRightAnchors: XYAxesAnchorPairs { return map { $0.bottomRightAnchors } }
     public var bottomLeftAnchors: XYAxesAnchorPairs { return map { $0.bottomLeftAnchors } }
+
+    public var layoutMarginsGuide: [LayoutGuide] { return map { $0.layoutMarginsGuide } }
 }
 
 extension Array where Element: SizeAnchorable {

@@ -14,10 +14,10 @@ extension YAxisAnchor: Variable {
     public typealias RightHandExpression = YAxisAnchorExpression
 
     public func plus(_ constant: LayoutConstant) -> YAxisAnchorExpression {
-        return YAxisAnchorExpression(anchor: self, coefficients: .constant(constant))
+        return YAxisAnchorExpression(variable: self, coefficients: .constant(constant))
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> YAxisAnchorExpression {
-        return YAxisAnchorExpression(anchor: self, coefficients: .multiplier(multiplier))
+        return YAxisAnchorExpression(variable: self, coefficients: .multiplier(multiplier))
     }
 }

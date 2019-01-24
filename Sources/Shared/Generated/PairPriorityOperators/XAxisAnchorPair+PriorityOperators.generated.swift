@@ -10,7 +10,7 @@
 //
 @discardableResult
 public func ~ (lhs: XAxisAnchorPair, rhs: LayoutPriority) -> XAxisAnchorPairExpression {
-    return XAxisAnchorPairExpression(anchor: lhs).with(priority: rhs)
+    return XAxisAnchorPairExpression(variable: lhs).with(priority: rhs)
 }
 
 @discardableResult

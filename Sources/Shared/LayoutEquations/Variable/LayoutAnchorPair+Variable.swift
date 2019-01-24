@@ -14,11 +14,11 @@ extension LayoutAnchorPair: Variable {
 
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         let config = LayoutConfigurationPair(.constant(constant))
-        return RightHandExpression(anchor: self, coefficients: config)
+        return RightHandExpression(variable: self, coefficients: config)
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
         let config = LayoutConfigurationPair(.multiplier(multiplier))
-        return RightHandExpression(anchor: self, coefficients: config)
+        return RightHandExpression(variable: self, coefficients: config)
     }
 }

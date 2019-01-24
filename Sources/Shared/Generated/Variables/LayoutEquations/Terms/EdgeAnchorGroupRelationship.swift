@@ -6,38 +6,21 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public struct EdgeAnchorGroupRelationship {
+public final class EdgeAnchorGroupRelationship {
 
-    public var anchor: EdgeAnchorGroup
+    public var variable: EdgeAnchorGroup
     public var relation: Constraint.Relation
     public var relatedAnchor: EdgeAnchorGroup?
     public var coefficients: EdgeAnchorsConfiguration
 
-    public init(_ anchor: EdgeAnchorGroup,
+    public init(_ variable: EdgeAnchorGroup,
                 _ relation: Constraint.Relation,
                 _ relatedAnchor: EdgeAnchorGroup?,
                 _ coefficients: EdgeAnchorsConfiguration = .default) {
-        self.anchor = anchor
+        self.variable = variable
         self.relation = relation
         self.relatedAnchor = relatedAnchor
         self.coefficients = coefficients
-    }
-
-    public init(_ anchor: EdgeAnchorGroup,
-                _ relation: Constraint.Relation,
-                _ coefficients: EdgeAnchorsConfiguration) {
-        self.anchor = anchor
-        self.relation = relation
-        self.coefficients = coefficients
-    }
-
-    public init(_ anchor: EdgeAnchorGroup,
-                _ relation: Constraint.Relation,
-                _ relatedExpression: EdgeAnchorGroupExpression) {
-        self.init(anchor,
-                  relation,
-                  relatedExpression.anchor,
-                  relatedExpression.coefficients)
     }
 
     public var constraint: SideConstraints {
@@ -45,7 +28,7 @@ public struct EdgeAnchorGroupRelationship {
             return constraintRelated(to: relatedAnchor)
         }
 
-        guard let superview = anchor.top.view?.superview else {
+        guard let superview = variable.top.view?.superview else {
             preconditionFailure("Attempted to create an Edge Achor constraint without a related ")
         }
 
@@ -53,29 +36,18 @@ public struct EdgeAnchorGroupRelationship {
     }
 
     internal func constraintRelated(to relatedAnchor: EdgeAnchorGroup) -> SideConstraints {
-        return constraints(
-            .init(anchor.top, relation, relatedAnchor.top, coefficients.top) ,
-            .init(anchor.leading, relation, relatedAnchor.leading, coefficients.leading),
-            .init(anchor.bottom, relation, relatedAnchor.bottom, coefficients.bottom),
-            .init(anchor.trailing, relation, relatedAnchor.trailing, coefficients.trailing)
-        )
-    }
-
-    private func constraints(_ top: LayoutRelationship<YAxisAnchor>,
-                             _ leading: LayoutRelationship<XAxisAnchor>,
-                             _ bottom: LayoutRelationship<YAxisAnchor>,
-                             _ trailing: LayoutRelationship<XAxisAnchor>) -> SideConstraints {
-
         return SideConstraints(
-            top.constraint,
-            leading.constraint,
-            bottom.constraintInvertedAsInset,
-            trailing.constraintInvertedAsInset
+            variable.top.relation(relation, relatedAnchor.top).with(coefficients: coefficients.top).constraint,
+            variable.leading.relation(relation, relatedAnchor.leading).with(coefficients: coefficients.leading).constraint,
+            variable.bottom.relation(relation, relatedAnchor.bottom).with(coefficients: coefficients.bottom).constraintInvertedAsInset,
+            variable.trailing.relation(relation, relatedAnchor.trailing).with(coefficients: coefficients.trailing).constraintInvertedAsInset
         )
     }
 }
 
-extension EdgeAnchorGroupRelationship: LinearEquatable {
+extension EdgeAnchorGroupRelationship: LinearEquation {
+    public typealias E = EdgeAnchorGroupExpression
+
     public var solution: SideConstraints {
         return constraint
     }

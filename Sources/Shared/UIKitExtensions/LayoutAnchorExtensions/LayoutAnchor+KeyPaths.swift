@@ -81,7 +81,7 @@ internal prefix func ... (_ anchor: LayoutAnchor<XAxisAnchor>) -> KeyPath<Layout
 }
 
 internal prefix func ... (_ anchorExpression: XAxisAnchorExpression) -> KeyPath<LayoutAnchorable, XAxisAnchor> {
-    return ...anchorExpression.anchor
+    return ...anchorExpression.variable
 }
 
 // MARK: YAxisAnchor
@@ -91,7 +91,7 @@ internal prefix func ... (_ anchor: LayoutAnchor<YAxisAnchor>) -> KeyPath<Layout
 }
 
 internal prefix func ... (_ anchorExpression: YAxisAnchorExpression) -> KeyPath<LayoutAnchorable, YAxisAnchor> {
-    return ...anchorExpression.anchor
+    return ...anchorExpression.variable
 }
 
 // MARK: LayoutDimension
@@ -101,7 +101,7 @@ internal prefix func ... (_ anchor: LayoutAnchor<LayoutDimension>) -> KeyPath<La
 }
 
 internal prefix func ... (_ anchorExpression: LayoutDimensionExpression) -> KeyPath<LayoutAnchorable, LayoutDimension> {
-    return ...anchorExpression.anchor
+    return ...anchorExpression.variable
 }
 
 // MARK: XAxisAnchorPair
@@ -117,7 +117,7 @@ internal prefix func ... (_ anchorPair: XAxisAnchorPair) -> KeyPath<LayoutAnchor
 }
 
 internal prefix func ... (_ anchorPairExpression: XAxisAnchorPairExpression) -> KeyPath<LayoutAnchorable, XAxisAnchorPair> {
-    return ...anchorPairExpression.anchor
+    return ...anchorPairExpression.variable
 }
 
 // MARK: YAxisAnchorPair
@@ -133,7 +133,7 @@ internal prefix func ... (_ anchorPair: YAxisAnchorPair) -> KeyPath<LayoutAnchor
 }
 
 internal prefix func ... (_ anchorPairExpression: YAxisAnchorPairExpression) -> KeyPath<LayoutAnchorable, YAxisAnchorPair> {
-    return ...anchorPairExpression.anchor
+    return ...anchorPairExpression.variable
 }
 
 // MARK: LayoutDimensionPair
@@ -147,7 +147,7 @@ internal prefix func ... (_ anchorPair: LayoutDimensionPair) -> KeyPath<LayoutAn
 }
 
 internal prefix func ... (_ anchorPairExpression: LayoutDimensionPairExpression) -> KeyPath<LayoutAnchorable, LayoutDimensionPair> {
-    return ...anchorPairExpression.anchor
+    return ...anchorPairExpression.variable
 }
 
 // MARK: XYAxesAnchorPair
@@ -171,7 +171,7 @@ internal prefix func ... (_ anchorPair: XYAxesAnchorPair) -> KeyPath<LayoutAncho
 }
 
 internal prefix func ... (_ anchorPairExpression: XYAxesAnchorPairExpression) -> KeyPath<LayoutAnchorable, XYAxesAnchorPair> {
-    return ...anchorPairExpression.anchor
+    return ...anchorPairExpression.variable
 }
 
 // MARK: EdgeAnchorGroup

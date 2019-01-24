@@ -8,11 +8,11 @@
 
 public final class LayoutExpression<A: AnchorType> {
 
-    public var anchor: LayoutAnchor<A>
+    public var variable: LayoutAnchor<A>
     public var coefficients: LayoutConfiguration
 
-    public init(anchor: LayoutAnchor<A>, coefficients: LayoutConfiguration = .default) {
-        self.anchor = anchor
+    public init(variable: LayoutAnchor<A>, coefficients: LayoutConfiguration = .default) {
+        self.variable = variable
         self.coefficients = coefficients
     }
 

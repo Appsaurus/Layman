@@ -11,17 +11,17 @@
 
 @discardableResult
 public func + (lhs: XYAxesAnchorPair, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
-    return XYAxesAnchorPairExpression(anchor: lhs, coefficients: .constant(rhs))
+    return XYAxesAnchorPairExpression(variable: lhs, coefficients: .constant(rhs))
 }
 
 @discardableResult
 public func - (lhs: XYAxesAnchorPair, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
-    return XYAxesAnchorPairExpression(anchor: lhs, coefficients: .constant(-rhs))
+    return XYAxesAnchorPairExpression(variable: lhs, coefficients: .constant(-rhs))
 }
 
 @discardableResult
 public func * (lhs: XYAxesAnchorPair, rhs: LayoutDivisor) -> XYAxesAnchorPairExpression {
-    return XYAxesAnchorPairExpression(anchor: lhs, coefficients: .multiplier(rhs))
+    return XYAxesAnchorPairExpression(variable: lhs, coefficients: .multiplier(rhs))
 }
 
 @discardableResult
