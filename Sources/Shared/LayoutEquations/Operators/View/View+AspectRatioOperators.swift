@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import Foundation
+
 // MARK: AspectRatioAnchor == AspectRatio
 @discardableResult
 public func == (lhs: AspectRatioAnchor, rhs: LayoutAspectRatio) -> Constraint {
@@ -16,10 +18,16 @@ public func == (lhs: AspectRatioAnchor, rhs: LayoutAspectRatio) -> Constraint {
 public func == (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
     switch lhs {
     case .standard(let view):
-        precondition(!view.hasAmbiguousWidth, "You must horizontally constrain (width or leading/left + trailing/right) a view an inverse aspect ratio constraint.")
+        if isTestOrDebug {
+            let ambiguityMessage = "You must horizontally constrain (width or leading/left + trailing/right) a view an inverse aspect ratio constraint."
+            precondition(!view.hasAmbiguousWidth, ambiguityMessage)
+        }
         return view.heightAnchor == view.widthAnchor * rhs.aspectRatio.ratio ~ rhs.priority
     case .inverse(let view):
-        precondition(!view.hasAmbiguousHeight, "You must vertically constrain (height or top+bottom) a view an inverse aspect ratio constraint.")
+        if isTestOrDebug {
+            let ambiguityMessage = "You must vertically constrain (height or top+bottom) a view an inverse aspect ratio constraint."
+            precondition(!view.hasAmbiguousHeight, ambiguityMessage)
+        }
         let inverseRatio = 1 / rhs.aspectRatio.ratio
         return view.widthAnchor == view.heightAnchor * inverseRatio ~ rhs.priority
     }
@@ -73,4 +81,22 @@ extension Collection where Element: View {
     public var aspectRatioInverseAnchor: [AspectRatioAnchor] {
         return map {.inverse($0)}
     }
+}
+
+private var isTestOrDebug: Bool {
+    #if DEBUG
+        return true
+    #endif
+    return isRunningUnitTests()
+}
+
+// Detect if the app is running unit tests.
+// Note this only detects unit tests, not UI tests.
+internal func isRunningUnitTests() -> Bool {
+
+    let env = ProcessInfo.processInfo.environment
+    if let injectBundle = env["XCInjectBundle"] {
+        return String(injectBundle).pathExtension == "xctest"
+    }
+    return NSClassFromString("XCTest") != nil
 }
