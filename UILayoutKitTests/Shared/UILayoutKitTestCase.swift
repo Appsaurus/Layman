@@ -17,6 +17,7 @@ import XCTest
 import SwiftTestUtils
 
 class UILayoutKitTestCase: XCTestCase {
+    let parentView = View()
     let view1 = View()
     let view2 = View()
     let relatedView = View()
@@ -27,13 +28,16 @@ class UILayoutKitTestCase: XCTestCase {
     let window = Window()
 
     override func setUp() {
+        #if canImport(AppKit)
+        window.contentView!.addSubview(parentView)
+        #else
+        window.addSubview(parentView)
+        #endif
         [view1, view2, relatedView].forEach { (view) in
-            #if canImport(AppKit)
-            window.contentView!.addSubview(view)
-            #else
-            window.addSubview(view)
-            #endif
+            parentView.addSubview(view)
         }
+
+        parentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
     }
 }

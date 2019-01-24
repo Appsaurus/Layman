@@ -19,6 +19,38 @@ import CwlPreconditionTesting
 // swiftlint:disable type_body_length file_length
 class SharedTests: UILayoutKitTestCase {
 
+    func testAmbiguityCheckValidSize() {
+        view1.sizeAnchors == 200
+        XCTAssertFalse(view1.hasAmbiguousSize)
+
+        view2.edgeAnchors == parentView.edgeAnchors
+        XCTAssertFalse(view2.hasAmbiguousSize)
+    }
+
+    func testAmbiguityCheckInvalidHeight() {
+        view1.widthAnchor == 200
+        XCTAssertFalse(view1.hasAmbiguousWidth)
+        XCTAssert(view1.hasAmbiguousHeight)
+        XCTAssert(view1.hasAmbiguousSize)
+
+        view2.horizontalEdges == parentView.horizontalEdges
+        XCTAssertFalse(view2.hasAmbiguousWidth)
+        XCTAssert(view2.hasAmbiguousHeight)
+        XCTAssert(view2.hasAmbiguousSize)
+    }
+
+    func testAmbiguityCheckInvalidWidth() {
+        view1.heightAnchor == 200
+        XCTAssert(view1.hasAmbiguousWidth)
+        XCTAssertFalse(view1.hasAmbiguousHeight)
+        XCTAssert(view1.hasAmbiguousSize)
+
+        view2.verticalEdges == parentView.verticalEdges
+        XCTAssert(view2.hasAmbiguousWidth)
+        XCTAssertFalse(view2.hasAmbiguousHeight)
+        XCTAssert(view2.hasAmbiguousSize)
+    }
+
     // MARK: WidthAnchor
     func testWidthEqualityToConstant() {
         let constraint = view1.widthAnchor == 200

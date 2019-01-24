@@ -64,12 +64,13 @@ public typealias ConstraintHeirarchy = [View: ConstraintAttributeMap]
 extension Collection where Element == Constraint {
     public var heirarchy: ConstraintHeirarchy {
         return reduce(into: ConstraintHeirarchy()) { (result, element) in
-            guard let view = element.firstView else { return }
-            var viewContraints = result[view, default: [:]]
-            var viewConstraintMap = viewContraints[element.firstAttribute, default: []]
-            viewConstraintMap.append(element)
-            viewContraints[element.firstAttribute] = viewConstraintMap
-            result[view] = viewContraints
+            for view in [element.firstView, element.secondView].compactMap({$0}) {
+                var viewContraints = result[view, default: [:]]
+                var viewConstraintMap = viewContraints[element.firstAttribute, default: []]
+                viewConstraintMap.append(element)
+                viewContraints[element.firstAttribute] = viewConstraintMap
+                result[view] = viewContraints
+            }
         }
     }
 }
@@ -85,19 +86,23 @@ private extension Dictionary where Key == ConstraintAttribute, Value == Constrai
 }
 extension View {
     public var constraintMap: ConstraintAttributeMap {
-        return constraints.heirarchy[self] ?? [ : ]
+        return constraintsRelated(to: self).heirarchy[self] ?? [ : ]
     }
 
     public var hasAmbiguousWidth: Bool {
-        return constraintMap[.width] == nil &&
-            (constraintMap[all: ConstraintAttribute.Category.leadingXAxisTypes.array].count == 0
-                || constraintMap[all: ConstraintAttribute.Category.trailingXAxisTypes.array].count == 0)
+        let leadingX = constraintMap[all: ConstraintAttribute.Category.leadingXAxisTypes.array]
+        let trailingX = constraintMap[all: ConstraintAttribute.Category.trailingXAxisTypes.array]
+        return constraintMap[.width] == nil && (leadingX.count == 0 || trailingX.count == 0)
     }
 
     public var hasAmbiguousHeight: Bool {
-        return constraintMap[.height] == nil &&
-            (constraintMap[all: ConstraintAttribute.Category.leadingYAxisTypes.array].count == 0
-                || constraintMap[all: ConstraintAttribute.Category.trailingYAxisTypes.array].count == 0)
+        let leadingY = constraintMap[all: ConstraintAttribute.Category.leadingYAxisTypes.array]
+        let trailingY = constraintMap[all: ConstraintAttribute.Category.trailingYAxisTypes.array]
+        return constraintMap[.height] == nil && (leadingY.count == 0 || trailingY.count == 0)
+    }
+
+    public var hasAmbiguousSize: Bool {
+        return hasAmbiguousWidth || hasAmbiguousHeight
     }
 }
 

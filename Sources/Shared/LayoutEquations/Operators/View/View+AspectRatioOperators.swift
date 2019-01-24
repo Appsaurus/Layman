@@ -16,10 +16,10 @@ public func == (lhs: AspectRatioAnchor, rhs: LayoutAspectRatio) -> Constraint {
 public func == (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
     switch lhs {
     case .standard(let view):
-        precondition(view.constraint(for: .width) != nil, "You must set a width constraint before setting an aspect ratio constraint.")
+        precondition(!view.hasAmbiguousWidth, "You must horizontally constrain (width or leading/left + trailing/right) a view an inverse aspect ratio constraint.")
         return view.heightAnchor == view.widthAnchor * rhs.aspectRatio.ratio ~ rhs.priority
     case .inverse(let view):
-        precondition(view.constraint(for: .height) != nil, "You must set a height constraint before setting an inverse aspect ratio constraint.")
+        precondition(!view.hasAmbiguousHeight, "You must vertically constrain (height or top+bottom) a view an inverse aspect ratio constraint.")
         let inverseRatio = 1 / rhs.aspectRatio.ratio
         return view.widthAnchor == view.heightAnchor * inverseRatio ~ rhs.priority
     }
