@@ -1,0 +1,67 @@
+
+{% set constant 10 %}
+{% set multiplier 3 %}
+{% set divisor 2 %}
+{% set sizeConstant 200 %}
+{% set LessThanOrEqualToOperator %}{{argument.LessThanOrEqualToOperator}}{% endset %}
+{% set GreaterThanOrEqualToOperator %}{{argument.GreaterThanOrEqualToOperator}}{% endset %}
+
+{% for type in types.all|annotated:"anchorEquationTest" %}
+// sourcery:inline:auto:{{type.name}}.EquationTests
+
+{% set lhsItem type.annotations.lhsItem %}
+{% for lhsAttribute in type.annotations.lhsAttributes %}
+{% for rhsAttribute in type.annotations.rhsAttributes %}
+// MARK: {{lhsItem}}{{lhsAttribute|upperFirstLetter}} <=> relatedView{{rhsAttribute|upperFirstLetter}}
+{% for operatorName in argument.operators %}
+{% set operator %}{{argument.operators[operatorName]}}{% endset %}
+{% set baseFunctionName %}test{{lhsItem|upperFirstLetter}}{{lhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}{{rhsAttribute|upperFirstLetter}}{% endset %}
+{% set baseLhs %}{{lhsItem}}.{{lhsAttribute}}Anchor{% endset %}
+{% set baseRhs %}relatedView.{{rhsAttribute}}{% endset %}
+{% set baseEquation %}{{baseLhs}} {{operator}} {{baseRhs}}{% endset %}
+{% set baseAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, relatedView, .{{rhsAttribute}}{% endset %}
+    public func {{baseFunctionName}}() {
+        let constraints = {{baseEquation}}
+        constraints.assert({{baseAssertion}})
+    }
+
+    public func {{baseFunctionName}}PlusConstant() {
+        let constraints = {{baseEquation}} + {{constant}}
+        constraints.assert({{baseAssertion}}, constant: {{constant}})
+    }
+
+    public func {{baseFunctionName}}MinusConstant() {
+        let constraints = {{baseEquation}} - {{constant}}
+        constraints.assert({{baseAssertion}}, constant: -{{constant}})
+    }
+
+    public func {{baseFunctionName}}MultiplyingConstant() {
+        let constraints = {{baseEquation}} * {{multiplier}}
+        constraints.assert({{baseAssertion}}, multiplier: {{multiplier}})
+    }
+
+    public func {{baseFunctionName}}MultipliedByConstant() {
+        let constraints = {{baseLhs}} {{operator}} {{multiplier}} * {{baseRhs}}
+        constraints.assert({{baseAssertion}}, multiplier: {{multiplier}})
+    }
+
+    public func {{baseFunctionName}}DividedByConstant() {
+        let constraints = {{baseEquation}} / {{divisor}}
+        constraints.assert({{baseAssertion}}, multiplier: 1 / {{divisor}})
+    }
+
+    public func {{baseFunctionName}}WithPriority() {
+        let constraints = {{baseEquation}} ~ .low
+        constraints.assert({{baseAssertion}}, priority: .low)
+    }
+
+    public func {{baseFunctionName}}WithPriorityArithmetic() {
+        let constraints = {{baseEquation}} ~ .high - 1
+        constraints.assert({{baseAssertion}}, priority: 749)
+    }
+
+{% endfor %}
+{% endfor %}
+{% endfor %}
+// sourcery:end
+{% endfor %}

@@ -1,0 +1,63 @@
+{% set EqualityOperator %}{{argument.EqualityOperator}}{% endset %}
+{% set LessThanOrEqualToOperator %}{{argument.LessThanOrEqualToOperator}}{% endset %}
+{% set GreaterThanOrEqualToOperator %}{{argument.GreaterThanOrEqualToOperator}}{% endset %}
+
+{% for type in types.all|annotated:"compilationTest" %}
+// sourcery:inline:auto:{{ type.name }}.TemplateName
+{% for value in type.annotations.functionName %}
+    public func {{value}}() {
+        {% set BodyLine %}{{type.annotations.body[forloop.counter0]|replace:'==',EqualityOperator|replace:'<=',LessThanOrEqualToOperator|replace:'>=',GreaterThanOrEqualToOperator}}{% endset %}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+        {{BodyLine}}
+    }
+{% endfor %}
+// sourcery:end
+{% endfor %}
