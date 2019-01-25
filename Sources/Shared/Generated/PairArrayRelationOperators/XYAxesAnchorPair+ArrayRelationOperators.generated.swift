@@ -13,41 +13,41 @@
 
 // MARK: Anchor == Anchor Array
 @discardableResult
-public func == (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs == $0})
+public func .= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
+    return rhs.map({lhs .= $0})
 }
 
 // MARK: Anchor Array == Anchor
 @discardableResult
-public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map({$0 == rhs})
+public func .= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
+    return lhs.map({$0 .= rhs})
 }
 
 // MARK: Anchor Array == Anchor Array
 @discardableResult
-public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
+public func .= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
-        rhs.map { element == $0 }
+        rhs.map { element .= $0 }
     }
 }
 
 // MARK: Anchor == Expression Array
 @discardableResult
-public func == (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs == $0})
+public func .= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
+    return rhs.map({lhs .= $0})
 }
 
 // MARK: Anchor Array == Expression
 @discardableResult
-public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map {$0 == rhs }
+public func .= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
+    return lhs.map {$0 .= rhs }
 }
 
 // MARK: Anchor Array == Expression Array
 @discardableResult
-public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
+public func .= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
-        rhs.map { element == $0 }
+        rhs.map { element .= $0 }
     }
 }
 
@@ -55,41 +55,41 @@ public func == (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[X
 
 // MARK: Anchor <= Anchor Array
 @discardableResult
-public func <= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs <= $0})
+public func ≤ (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
+    return rhs.map({lhs ≤ $0})
 }
 
 // MARK: Anchor Array <= Anchor
 @discardableResult
-public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map({$0 <= rhs})
+public func ≤ (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
+    return lhs.map({$0 ≤ rhs})
 }
 
 // MARK: Anchor Array <= Anchor Array
 @discardableResult
-public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
+public func ≤ (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
-        rhs.map { element <= $0 }
+        rhs.map { element ≤ $0 }
     }
 }
 
 // MARK: Anchor <= Expression Array
 @discardableResult
-public func <= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs <= $0})
+public func ≤ (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
+    return rhs.map({lhs ≤ $0})
 }
 
 // MARK: Anchor Array <= Expression
 @discardableResult
-public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map {$0 <= rhs }
+public func ≤ (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
+    return lhs.map {$0 ≤ rhs }
 }
 
 // MARK: Anchor Array <= Expression Array
 @discardableResult
-public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
+public func ≤ (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
-        rhs.map { element <= $0 }
+        rhs.map { element ≤ $0 }
     }
 }
 
@@ -97,40 +97,40 @@ public func <= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[X
 
 // MARK: Anchor >= Anchor Array
 @discardableResult
-public func >= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs >= $0})
+public func ≥ (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairs) -> [XYAxesAnchorPair.Solution] {
+    return rhs.map({lhs ≥ $0})
 }
 
 // MARK: Anchor Array >= Anchor
 @discardableResult
-public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map({$0 >= rhs})
+public func ≥ (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
+    return lhs.map({$0 ≥ rhs})
 }
 
 // MARK: Anchor Array >= Anchor Array
 @discardableResult
-public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
+public func ≥ (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairs) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
-        rhs.map { element >= $0 }
+        rhs.map { element ≥ $0 }
     }
 }
 
 // MARK: Anchor >= Expression Array
 @discardableResult
-public func >= (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs >= $0})
+public func ≥ (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpressions) -> [XYAxesAnchorPair.Solution] {
+    return rhs.map({lhs ≥ $0})
 }
 
 // MARK: Anchor Array >= Expression
 @discardableResult
-public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map {$0 >= rhs }
+public func ≥ (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
+    return lhs.map {$0 ≥ rhs }
 }
 
 // MARK: Anchor Array >= Expression Array
 @discardableResult
-public func >= (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
+public func ≥ (lhs: XYAxesAnchorPairs, rhs: XYAxesAnchorPairExpressions) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { element in
-        rhs.map { element >= $0 }
+        rhs.map { element ≥ $0 }
     }
 }

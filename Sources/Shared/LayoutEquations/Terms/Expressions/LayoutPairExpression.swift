@@ -26,6 +26,9 @@ public final class LayoutPairExpression<F: AnchorVariable, S: AnchorVariable> {
         self.coefficients = LayoutConfigurationPair(coefficients, coefficients)
         return self
     }
+
+// sourcery:inline:auto:LayoutPairExpression.TemplateName
+// sourcery:end
 }
 
 extension LayoutPairExpression: Expression {

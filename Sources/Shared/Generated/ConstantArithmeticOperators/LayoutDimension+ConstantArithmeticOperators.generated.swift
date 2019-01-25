@@ -25,6 +25,11 @@ public func * (lhs: LayoutDimension, rhs: LayoutMultiplier) -> LayoutDimensionEx
 }
 
 @discardableResult
+public func * (lhs: LayoutMultiplier, rhs: LayoutDimension ) -> LayoutDimensionExpression {
+    return rhs.times(lhs)
+}
+
+@discardableResult
 public func / (lhs: LayoutDimension, rhs: LayoutDivisor) -> LayoutDimensionExpression {
     return lhs.divided(by: rhs)
 }

@@ -30,4 +30,7 @@ public enum LayoutAspectRatio {
             return ratio
         }
     }
+
+// sourcery:inline:auto:LayoutAspectRatio.TemplateName
+// sourcery:end
 }

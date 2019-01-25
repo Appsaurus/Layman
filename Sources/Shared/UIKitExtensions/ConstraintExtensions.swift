@@ -52,6 +52,9 @@ extension Constraint {
         isActive = false
         return self
     }
+
+// sourcery:inline:auto:NSLayoutConstraint.TemplateName
+// sourcery:end
 }
 
 // MARK: Constraint + LayoutConfiguration
@@ -121,6 +124,9 @@ extension ConstraintAttribute {
         public static var centerYAxisTypes: Set<ConstraintAttribute> = [.centerY, .centerYWithinMargins]
 
         public static var trailingYAxisTypes: Set<ConstraintAttribute> = [.bottom, .bottomMargin]
+
+// sourcery:inline:auto:Constraint.Attribute.Category.TemplateName
+// sourcery:end
     }
 
     public func isCategory(_ category: Category) -> Bool {
@@ -147,6 +153,9 @@ extension ConstraintAttribute {
             return Category.trailingYAxisTypes.contains(self)
         }
     }
+
+// sourcery:inline:auto:Constraint.Attribute.TemplateName
+// sourcery:end
 }
 extension Constraint.Relation {
     public var inverted: Constraint.Relation {
@@ -159,6 +168,9 @@ extension Constraint.Relation {
             return self
         }
     }
+
+// sourcery:inline:auto:Constraint.Relation.TemplateName
+// sourcery:end
 }
 extension Constraint {
 

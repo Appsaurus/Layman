@@ -12,36 +12,36 @@
 // MARK: - Equal
 
 @discardableResult
-public func == (lhs: View, rhs: LayoutConstant) -> LayoutDimensionPairRelationship.Solution {
+public func .= (lhs: View, rhs: LayoutConstant) -> LayoutDimensionPairRelationship.Solution {
     return lhs.equal(to: rhs)
 }
 
 @discardableResult
-public func == (lhs: View, rhs: [LayoutConstant]) -> [LayoutDimensionPairRelationship.Solution] {
+public func .= (lhs: View, rhs: [LayoutConstant]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
 
 @discardableResult
-public func <= (lhs: View, rhs: LayoutConstant) -> LayoutDimensionPairRelationship.Solution {
+public func ≤ (lhs: View, rhs: LayoutConstant) -> LayoutDimensionPairRelationship.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func <= (lhs: View, rhs: [LayoutConstant]) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≤ (lhs: View, rhs: [LayoutConstant]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
 
 @discardableResult
-public func >= (lhs: View, rhs: LayoutConstant) -> LayoutDimensionPairRelationship.Solution {
+public func ≥ (lhs: View, rhs: LayoutConstant) -> LayoutDimensionPairRelationship.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func >= (lhs: View, rhs: [LayoutConstant]) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≥ (lhs: View, rhs: [LayoutConstant]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
@@ -51,13 +51,13 @@ public func >= (lhs: View, rhs: [LayoutConstant]) -> [LayoutDimensionPairRelatio
 
 // MARK: Collection == Expression
 @discardableResult
-public func == (lhs: [View], rhs: LayoutConstant) -> [LayoutDimensionPairRelationship.Solution] {
+public func .= (lhs: [View], rhs: LayoutConstant) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
-public func == (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func .= (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
@@ -65,13 +65,13 @@ public func == (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRela
 
 // MARK: Collection <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutConstant) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≤ (lhs: [View], rhs: LayoutConstant) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
-public func <= (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func ≤ (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
@@ -79,13 +79,13 @@ public func <= (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRela
 
 // MARK: Collection >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutConstant) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≥ (lhs: [View], rhs: LayoutConstant) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
-public func >= (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func ≥ (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 // MARK: View <=> LayoutSize
@@ -93,36 +93,36 @@ public func >= (lhs: [View], rhs: [LayoutConstant]) -> [[LayoutDimensionPairRela
 // MARK: - Equal
 
 @discardableResult
-public func == (lhs: View, rhs: LayoutSize) -> LayoutDimensionPairRelationship.Solution {
+public func .= (lhs: View, rhs: LayoutSize) -> LayoutDimensionPairRelationship.Solution {
     return lhs.equal(to: rhs)
 }
 
 @discardableResult
-public func == (lhs: View, rhs: [LayoutSize]) -> [LayoutDimensionPairRelationship.Solution] {
+public func .= (lhs: View, rhs: [LayoutSize]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
 
 @discardableResult
-public func <= (lhs: View, rhs: LayoutSize) -> LayoutDimensionPairRelationship.Solution {
+public func ≤ (lhs: View, rhs: LayoutSize) -> LayoutDimensionPairRelationship.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func <= (lhs: View, rhs: [LayoutSize]) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≤ (lhs: View, rhs: [LayoutSize]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
 
 @discardableResult
-public func >= (lhs: View, rhs: LayoutSize) -> LayoutDimensionPairRelationship.Solution {
+public func ≥ (lhs: View, rhs: LayoutSize) -> LayoutDimensionPairRelationship.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func >= (lhs: View, rhs: [LayoutSize]) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≥ (lhs: View, rhs: [LayoutSize]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
@@ -132,13 +132,13 @@ public func >= (lhs: View, rhs: [LayoutSize]) -> [LayoutDimensionPairRelationshi
 
 // MARK: Collection == Expression
 @discardableResult
-public func == (lhs: [View], rhs: LayoutSize) -> [LayoutDimensionPairRelationship.Solution] {
+public func .= (lhs: [View], rhs: LayoutSize) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
-public func == (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func .= (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
@@ -146,13 +146,13 @@ public func == (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelation
 
 // MARK: Collection <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutSize) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≤ (lhs: [View], rhs: LayoutSize) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
-public func <= (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func ≤ (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
@@ -160,13 +160,13 @@ public func <= (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelation
 
 // MARK: Collection >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutSize) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≥ (lhs: [View], rhs: LayoutSize) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
-public func >= (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func ≥ (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 // MARK: View <=> LayoutConfigurationPair
@@ -174,36 +174,36 @@ public func >= (lhs: [View], rhs: [LayoutSize]) -> [[LayoutDimensionPairRelation
 // MARK: - Equal
 
 @discardableResult
-public func == (lhs: View, rhs: LayoutConfigurationPair) -> LayoutDimensionPairRelationship.Solution {
+public func .= (lhs: View, rhs: LayoutConfigurationPair) -> LayoutDimensionPairRelationship.Solution {
     return lhs.equal(to: rhs)
 }
 
 @discardableResult
-public func == (lhs: View, rhs: [LayoutConfigurationPair]) -> [LayoutDimensionPairRelationship.Solution] {
+public func .= (lhs: View, rhs: [LayoutConfigurationPair]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
 
 @discardableResult
-public func <= (lhs: View, rhs: LayoutConfigurationPair) -> LayoutDimensionPairRelationship.Solution {
+public func ≤ (lhs: View, rhs: LayoutConfigurationPair) -> LayoutDimensionPairRelationship.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func <= (lhs: View, rhs: [LayoutConfigurationPair]) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≤ (lhs: View, rhs: [LayoutConfigurationPair]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
 
 @discardableResult
-public func >= (lhs: View, rhs: LayoutConfigurationPair) -> LayoutDimensionPairRelationship.Solution {
+public func ≥ (lhs: View, rhs: LayoutConfigurationPair) -> LayoutDimensionPairRelationship.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func >= (lhs: View, rhs: [LayoutConfigurationPair]) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≥ (lhs: View, rhs: [LayoutConfigurationPair]) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
@@ -213,13 +213,13 @@ public func >= (lhs: View, rhs: [LayoutConfigurationPair]) -> [LayoutDimensionPa
 
 // MARK: Collection == Expression
 @discardableResult
-public func == (lhs: [View], rhs: LayoutConfigurationPair) -> [LayoutDimensionPairRelationship.Solution] {
+public func .= (lhs: [View], rhs: LayoutConfigurationPair) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
-public func == (lhs: [View], rhs: [LayoutConfigurationPair]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func .= (lhs: [View], rhs: [LayoutConfigurationPair]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
@@ -227,13 +227,13 @@ public func == (lhs: [View], rhs: [LayoutConfigurationPair]) -> [[LayoutDimensio
 
 // MARK: Collection <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutConfigurationPair) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≤ (lhs: [View], rhs: LayoutConfigurationPair) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
-public func <= (lhs: [View], rhs: [LayoutConfigurationPair]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func ≤ (lhs: [View], rhs: [LayoutConfigurationPair]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
@@ -241,12 +241,12 @@ public func <= (lhs: [View], rhs: [LayoutConfigurationPair]) -> [[LayoutDimensio
 
 // MARK: Collection >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutConfigurationPair) -> [LayoutDimensionPairRelationship.Solution] {
+public func ≥ (lhs: [View], rhs: LayoutConfigurationPair) -> [LayoutDimensionPairRelationship.Solution] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
-public func >= (lhs: [View], rhs: [LayoutConfigurationPair]) -> [[LayoutDimensionPairRelationship.Solution]] {
+public func ≥ (lhs: [View], rhs: [LayoutConfigurationPair]) -> [[LayoutDimensionPairRelationship.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }

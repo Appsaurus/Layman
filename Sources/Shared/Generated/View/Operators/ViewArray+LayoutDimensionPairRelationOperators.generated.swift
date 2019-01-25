@@ -11,29 +11,29 @@
 
 // MARK: [View] == Anchor
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
-    return lhs.map { $0 == rhs }
+public func .= (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
+    return lhs.map { $0 .= rhs }
 }
 
 // MARK: [View] == Anchors
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
+public func .= (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
-        rhs.map({element == $0})
+        rhs.map({element .= $0})
     }
 }
 
 // MARK: [View] == Expression
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
-    return lhs.map { $0 == rhs }
+public func .= (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
+    return lhs.map { $0 .= rhs }
 }
 
 // MARK: [View] == Expressions
 @discardableResult
-public func == (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
+public func .= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
-        rhs.map({element == $0})
+        rhs.map({element .= $0})
     }
 }
 
@@ -41,29 +41,29 @@ public func == (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDim
 
 // MARK: [View] <= Anchor
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
-    return lhs.map { $0 <= rhs }
+public func ≤ (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
+    return lhs.map { $0 ≤ rhs }
 }
 
 // MARK: [View] <= Anchors
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
+public func ≤ (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
-        rhs.map({element <= $0})
+        rhs.map({element ≤ $0})
     }
 }
 
 // MARK: [View] <= Expression
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
-    return lhs.map { $0 <= rhs }
+public func ≤ (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
+    return lhs.map { $0 ≤ rhs }
 }
 
 // MARK: [View] <= Expressions
 @discardableResult
-public func <= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
+public func ≤ (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
-        rhs.map({element <= $0})
+        rhs.map({element ≤ $0})
     }
 }
 
@@ -71,28 +71,28 @@ public func <= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDim
 
 // MARK: [View] >= Anchor
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
-    return lhs.map { $0 >= rhs }
+public func ≥ (lhs: [View], rhs: LayoutDimensionPair) -> [LayoutDimensionPair.Solution] {
+    return lhs.map { $0 ≥ rhs }
 }
 
 // MARK: [View] >= Anchors
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
+public func ≥ (lhs: [View], rhs: LayoutDimensionPairs) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
-        rhs.map({element >= $0})
+        rhs.map({element ≥ $0})
     }
 }
 
 // MARK: [View] >= Expression
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
-    return lhs.map { $0 >= rhs }
+public func ≥ (lhs: [View], rhs: LayoutDimensionPairExpression) -> [LayoutDimensionPair.Solution] {
+    return lhs.map { $0 ≥ rhs }
 }
 
 // MARK: [View] >= Expressions
 @discardableResult
-public func >= (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
+public func ≥ (lhs: [View], rhs: LayoutDimensionPairExpressions) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { element in
-        rhs.map({element >= $0})
+        rhs.map({element ≥ $0})
     }
 }

@@ -24,6 +24,11 @@ public func * (lhs: {{AnchorType}}s, rhs: LayoutMultiplier) -> {{AnchorType}}Exp
 }
 
 @discardableResult
+public func * (lhs: LayoutMultiplier, rhs: {{AnchorType}}s ) -> {{AnchorType}}Expressions {
+    return rhs.times(lhs)
+}
+
+@discardableResult
 public func / (lhs: {{AnchorType}}s, rhs: LayoutDivisor) -> {{AnchorType}}Expressions {
     return lhs.divided(by: rhs)
 }

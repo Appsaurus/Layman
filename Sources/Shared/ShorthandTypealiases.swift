@@ -95,6 +95,9 @@ extension LayoutPriority {
     public static var fittingSize: UILayoutPriority {
         return .fittingSizeLevel
     }
+
+// sourcery:inline:auto:UILayoutPriority.TemplateName
+// sourcery:end
 }
 
 extension LayoutPriority: ExpressibleByIntegerLiteral {

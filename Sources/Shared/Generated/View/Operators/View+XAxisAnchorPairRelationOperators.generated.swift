@@ -13,12 +13,12 @@
 
 // MARK: View == Anchor
 @discardableResult
-public func == (lhs: View, rhs: XAxisAnchorPair) -> XAxisAnchorPair.Solution {
+public func .= (lhs: View, rhs: XAxisAnchorPair) -> XAxisAnchorPair.Solution {
     return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 // MARK: View == Expression
 @discardableResult
-public func == (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.Solution {
+public func .= (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.Solution {
     return lhs[keyPath: ...rhs].equal(to: rhs)
 }
 
@@ -26,12 +26,12 @@ public func == (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.So
 
 // MARK: View <= Anchor
 @discardableResult
-public func <= (lhs: View, rhs: XAxisAnchorPair) -> XAxisAnchorPair.Solution {
+public func ≤ (lhs: View, rhs: XAxisAnchorPair) -> XAxisAnchorPair.Solution {
     return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 // MARK: View <= Expression
 @discardableResult
-public func <= (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.Solution {
+public func ≤ (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.Solution {
     return lhs[keyPath: ...rhs].lessThanOrEqual(to: rhs)
 }
 
@@ -39,12 +39,12 @@ public func <= (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.So
 
 // MARK: View >= Anchor
 @discardableResult
-public func >= (lhs: View, rhs: XAxisAnchorPair) -> XAxisAnchorPair.Solution {
+public func ≥ (lhs: View, rhs: XAxisAnchorPair) -> XAxisAnchorPair.Solution {
     return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 // MARK: View >= Expression
 @discardableResult
-public func >= (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.Solution {
+public func ≥ (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.Solution {
     return lhs[keyPath: ...rhs].greaterThanOrEqual(to: rhs)
 }
 
@@ -54,38 +54,38 @@ public func >= (lhs: View, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPair.So
 
 // MARK: View == Anchors
 @discardableResult
-public func == (lhs: View, rhs: XAxisAnchorPairs) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs == $0})
+public func .= (lhs: View, rhs: XAxisAnchorPairs) -> [XAxisAnchorPair.Solution] {
+    return rhs.map({lhs .= $0})
 }
 
 // MARK: View == Expressions
 @discardableResult
-public func == (lhs: View, rhs: XAxisAnchorPairExpressions) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs == $0})
+public func .= (lhs: View, rhs: XAxisAnchorPairExpressions) -> [XAxisAnchorPair.Solution] {
+    return rhs.map({lhs .= $0})
 }
 
 // MARK: - LessThanOrEqual
 
 // MARK: View <= Anchors
 @discardableResult
-public func <= (lhs: View, rhs: XAxisAnchorPairs) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs <= $0})
+public func ≤ (lhs: View, rhs: XAxisAnchorPairs) -> [XAxisAnchorPair.Solution] {
+    return rhs.map({lhs ≤ $0})
 }
 // MARK: View <= Expressions
 @discardableResult
-public func <= (lhs: View, rhs: XAxisAnchorPairExpressions) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs <= $0})
+public func ≤ (lhs: View, rhs: XAxisAnchorPairExpressions) -> [XAxisAnchorPair.Solution] {
+    return rhs.map({lhs ≤ $0})
 }
 
 // MARK: - GreaterThanOrEqual
 
 // MARK: View >= Anchors
 @discardableResult
-public func >= (lhs: View, rhs: XAxisAnchorPairs) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs >= $0})
+public func ≥ (lhs: View, rhs: XAxisAnchorPairs) -> [XAxisAnchorPair.Solution] {
+    return rhs.map({lhs ≥ $0})
 }
 // MARK: View >= Expressions
 @discardableResult
-public func >= (lhs: View, rhs: XAxisAnchorPairExpressions) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs >= $0})
+public func ≥ (lhs: View, rhs: XAxisAnchorPairExpressions) -> [XAxisAnchorPair.Solution] {
+    return rhs.map({lhs ≥ $0})
 }

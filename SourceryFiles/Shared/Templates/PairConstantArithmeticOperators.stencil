@@ -19,9 +19,15 @@ public func - (lhs: {{AnchorPairType}}, rhs: LayoutConstant) -> {{AnchorPairType
 }
 
 @discardableResult
-public func * (lhs: {{AnchorPairType}}, rhs: LayoutDivisor) -> {{AnchorPairType}}Expression {
+public func * (lhs: {{AnchorPairType}}, rhs: LayoutMultiplier) -> {{AnchorPairType}}Expression {
     return {{AnchorPairType}}Expression(variable: lhs, coefficients: .multiplier(rhs))
 }
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: {{AnchorPairType}}) -> {{AnchorPairType}}Expression {
+    return rhs.times(lhs)
+}
+
 
 @discardableResult
 public func / (lhs: {{AnchorPairType}}, rhs: LayoutDivisor) -> {{AnchorPairType}}Expression {

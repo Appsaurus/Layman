@@ -1,8 +1,14 @@
 sources:
   - Sources/Shared/
+  - UILayoutKitTests/Shared/
 templates:
   - SourceryFiles/Shared/Templates
+  - SourceryFiles/Shared/Templates
 args:
+  BasicAnchorTypes:
+    - "XAxisAnchor"
+    - "YAxisAnchor"
+    - "LayoutDimension"
   AnchorTypes:
     - "XAxisAnchor"
     - "YAxisAnchor"
@@ -38,7 +44,12 @@ args:
             - 'LayoutConstant'
             - 'LayoutConfiguration'
         RelationshipType: LayoutDimensionRelationship
-  EqualityOperator: "=="
-  LessThanOrEqualToOperator: "<="
-  GreaterThanOrEqualToOperator: ">="
+  EqualityOperator: ".="
+  LessThanOrEqualToOperator: "≤"
+  GreaterThanOrEqualToOperator: "≥"
+  operators:
+    equal: ".="
+    lessThanOrEqual: "≤"
+    greaterThanOrEqual: "≥"
+
 output: Sources/Shared/Generated

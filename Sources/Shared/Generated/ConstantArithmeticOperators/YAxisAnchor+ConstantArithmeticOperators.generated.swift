@@ -25,6 +25,11 @@ public func * (lhs: YAxisAnchor, rhs: LayoutMultiplier) -> YAxisAnchorExpression
 }
 
 @discardableResult
+public func * (lhs: LayoutMultiplier, rhs: YAxisAnchor ) -> YAxisAnchorExpression {
+    return rhs.times(lhs)
+}
+
+@discardableResult
 public func / (lhs: YAxisAnchor, rhs: LayoutDivisor) -> YAxisAnchorExpression {
     return lhs.divided(by: rhs)
 }

@@ -1,0 +1,27 @@
+// sourcery:file:OperatorDefinitions
+//
+//  OperatorDefinitions.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+precedencegroup RelationPrecedence {
+    associativity: none
+    higherThan: ComparisonPrecedence
+    lowerThan: AdditionPrecedence
+}
+
+{% if argument.EqualityOperator != '==' %}
+infix operator {{argument.EqualityOperator}} : RelationPrecedence
+{% endif %}
+
+{% if argument.LessThanOrEqualToOperator != '<=' %}
+infix operator {{argument.LessThanOrEqualToOperator}} : RelationPrecedence
+{% endif %}
+
+{% if argument.GreaterThanOrEqualToOperator != '>=' %}
+infix operator {{argument.GreaterThanOrEqualToOperator}} : RelationPrecedence
+{% endif %}
+

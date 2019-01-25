@@ -25,6 +25,11 @@ public func * (lhs: EdgeAnchorGroup, rhs: LayoutMultiplier) -> EdgeAnchorGroupEx
 }
 
 @discardableResult
+public func * (lhs: LayoutMultiplier, rhs: EdgeAnchorGroup ) -> EdgeAnchorGroupExpression {
+    return rhs.times(lhs)
+}
+
+@discardableResult
 public func / (lhs: EdgeAnchorGroup, rhs: LayoutDivisor) -> EdgeAnchorGroupExpression {
     return lhs.divided(by: rhs)
 }

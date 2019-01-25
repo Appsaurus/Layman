@@ -10,4 +10,7 @@ internal extension LayoutInset {
     init(padding: LayoutConstant) {
         self.init(top: padding, left: padding, bottom: padding, right: padding)
     }
+
+// sourcery:inline:auto:UIEdgeInsets.TemplateName
+// sourcery:end
 }

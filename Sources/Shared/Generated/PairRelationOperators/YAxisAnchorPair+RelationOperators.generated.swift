@@ -15,38 +15,38 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: YAxisAnchorPair, rhs: YAxisAnchorPairExpression) -> YAxisAnchorPair.Solution {
+public func .= (lhs: YAxisAnchorPair, rhs: YAxisAnchorPairExpression) -> YAxisAnchorPair.Solution {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchors == Anchors
 @discardableResult
-public func == (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair) -> YAxisAnchorPair.Solution {
+public func .= (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair) -> YAxisAnchorPair.Solution {
     return lhs.equal(to: rhs)
 }
 
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
-public func <= (lhs: YAxisAnchorPair, rhs: YAxisAnchorPairExpression) -> YAxisAnchorPair.Solution {
+public func ≤ (lhs: YAxisAnchorPair, rhs: YAxisAnchorPairExpression) -> YAxisAnchorPair.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors <= Anchors
 @discardableResult
-public func <= (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair) -> YAxisAnchorPair.Solution {
+public func ≤ (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair) -> YAxisAnchorPair.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
-public func >= (lhs: YAxisAnchorPair, rhs: YAxisAnchorPairExpression) -> YAxisAnchorPair.Solution {
+public func ≥ (lhs: YAxisAnchorPair, rhs: YAxisAnchorPairExpression) -> YAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors >= Anchors
 @discardableResult
-public func >= (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair) -> YAxisAnchorPair.Solution {
+public func ≥ (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair) -> YAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }

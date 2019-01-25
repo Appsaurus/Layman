@@ -32,6 +32,9 @@ public final class LayoutPairRelationship<F: AnchorVariable, S: AnchorVariable> 
         return (LayoutRelationship(variable.first, relation, relatedAnchor?.first, coefficients.first),
                 LayoutRelationship(variable.second, relation, relatedAnchor?.second, coefficients.second))
     }
+
+// sourcery:inline:auto:LayoutPairRelationship.TemplateName
+// sourcery:end
 }
 
 extension LayoutPairRelationship: LinearEquation {

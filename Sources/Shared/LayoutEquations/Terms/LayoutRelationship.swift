@@ -70,6 +70,9 @@ public final class LayoutRelationship<A: AnchorVariable> {
         }()
         return constraint
     }
+
+// sourcery:inline:auto:LayoutRelationship.TemplateName
+// sourcery:end
 }
 
 extension LayoutRelationship: LinearEquation {

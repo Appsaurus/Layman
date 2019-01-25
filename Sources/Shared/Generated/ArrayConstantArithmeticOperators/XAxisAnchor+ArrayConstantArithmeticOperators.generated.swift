@@ -25,6 +25,11 @@ public func * (lhs: XAxisAnchors, rhs: LayoutMultiplier) -> XAxisAnchorExpressio
 }
 
 @discardableResult
+public func * (lhs: LayoutMultiplier, rhs: XAxisAnchors ) -> XAxisAnchorExpressions {
+    return rhs.times(lhs)
+}
+
+@discardableResult
 public func / (lhs: XAxisAnchors, rhs: LayoutDivisor) -> XAxisAnchorExpressions {
     return lhs.divided(by: rhs)
 }

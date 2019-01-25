@@ -15,38 +15,38 @@
 // MARK: Equal
 // MARK: Anchors == Expression
 @discardableResult
-public func == (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
+public func .= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
     return lhs.equal(to: rhs)
 }
 
 // MARK: Anchors == Anchors
 @discardableResult
-public func == (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
+public func .= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
     return lhs.equal(to: rhs)
 }
 
 // MARK: LessThanOrEqual
 // MARK: Anchors <= Expression
 @discardableResult
-public func <= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
+public func ≤ (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors <= Anchors
 @discardableResult
-public func <= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
+public func ≤ (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: GreaterThanOrEqual
 // MARK: Anchors >= Expression
 @discardableResult
-public func >= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
+public func ≥ (lhs: LayoutDimensionPair, rhs: LayoutDimensionPairExpression) -> LayoutDimensionPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Anchors >= Anchors
 @discardableResult
-public func >= (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
+public func ≥ (lhs: LayoutDimensionPair, rhs: LayoutDimensionPair) -> LayoutDimensionPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }

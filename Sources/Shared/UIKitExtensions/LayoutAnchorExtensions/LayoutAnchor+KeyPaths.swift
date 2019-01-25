@@ -50,6 +50,9 @@ internal class XAxisKeyPathExctractor: AnchorKeyPathExtracting {
         .trailingMargin: \.trailingAnchor,
         .centerXWithinMargins: \.centerXAnchor
     ]
+
+// sourcery:inline:auto:XAxisKeyPathExctractor.TemplateName
+// sourcery:end
 }
 
 internal class YAxisKeyPathExctractor: AnchorKeyPathExtracting {
@@ -64,6 +67,9 @@ internal class YAxisKeyPathExctractor: AnchorKeyPathExtracting {
         .bottomMargin: \.bottomAnchor,
         .centerYWithinMargins: \.centerYAnchor
     ]
+
+// sourcery:inline:auto:YAxisKeyPathExctractor.TemplateName
+// sourcery:end
 }
 
 internal class LayoutDimensionKeyPathExctractor: AnchorKeyPathExtracting {
@@ -72,6 +78,9 @@ internal class LayoutDimensionKeyPathExctractor: AnchorKeyPathExtracting {
         .width: \.widthAnchor,
         .height: \.heightAnchor
     ]
+
+// sourcery:inline:auto:LayoutDimensionKeyPathExctractor.TemplateName
+// sourcery:end
 }
 
 // MARK: XAxisAnchor

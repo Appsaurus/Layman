@@ -36,6 +36,9 @@ public final class LayoutConstantRelationship<A: LayoutAnchor<LayoutDimension>> 
         return constraint.configured(with: coefficients)
 
     }
+
+// sourcery:inline:auto:LayoutConstantRelationship.TemplateName
+// sourcery:end
 }
 
 extension LayoutConstantRelationship: SingleVariableLinearEquation {

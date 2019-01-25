@@ -12,6 +12,9 @@ public final class LayoutConfigurationPair: LayoutModelReferencePair<LayoutConfi
     public static func size(_ size: LayoutSize) -> LayoutConfigurationPair {
         return LayoutConfigurationPair(.constant(size.width), .constant(size.height))
     }
+
+// sourcery:inline:auto:LayoutConfigurationPair.TemplateName
+// sourcery:end
 }
 
 extension LayoutConfigurationPair: CoefficientMutating {

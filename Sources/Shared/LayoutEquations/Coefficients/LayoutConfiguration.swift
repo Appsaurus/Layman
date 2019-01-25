@@ -14,6 +14,9 @@ public final class LayoutConfiguration {
     public var active: Bool = true
 
     public init() {}
+
+// sourcery:inline:auto:LayoutConfiguration.TemplateName
+// sourcery:end
 }
 
 extension LayoutConfiguration {

@@ -28,6 +28,7 @@ class UILayoutKitTestCase: XCTestCase {
     let window = Window()
 
     override func setUp() {
+        UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         #if canImport(AppKit)
         window.contentView!.addSubview(parentView)
         #else
@@ -40,4 +41,7 @@ class UILayoutKitTestCase: XCTestCase {
         parentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
     }
+
+// sourcery:inline:auto:UILayoutKitTestCase.TemplateName
+// sourcery:end
 }

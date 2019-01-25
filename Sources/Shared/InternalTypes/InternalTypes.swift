@@ -38,6 +38,9 @@ open class LayoutModelReferencePair<T>: MixedLayoutModelReferencePair<T, T> {
     public convenience init(_ duplicatedItem: T) {
         self.init(duplicatedItem, duplicatedItem)
     }
+
+// sourcery:inline:auto:LayoutModelReferencePair.TemplateName
+// sourcery:end
 }
 
 open class MixedLayoutModelReferencePair<F, S>: TuplePairBacked {
@@ -46,4 +49,7 @@ open class MixedLayoutModelReferencePair<F, S>: TuplePairBacked {
     public required init(_ first: F, _ second: S) {
         self.values = (first, second)
     }
+
+// sourcery:inline:auto:MixedLayoutModelReferencePair.TemplateName
+// sourcery:end
 }

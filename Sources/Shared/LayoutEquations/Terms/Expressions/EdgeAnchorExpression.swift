@@ -58,6 +58,9 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
 //        return self
 //    }
 
+
+// sourcery:inline:auto:EdgeAnchorGroupExpression.TemplateName
+// sourcery:end
 }
 
 extension EdgeAnchorGroupExpression: Expression {

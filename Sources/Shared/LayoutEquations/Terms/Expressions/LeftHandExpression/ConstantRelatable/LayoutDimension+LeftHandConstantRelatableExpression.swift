@@ -14,4 +14,7 @@ extension LayoutDimension: LeftHandConstantRelatableExpression {
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutConfiguration) -> LayoutDimensionRelationship {
         return LayoutDimensionRelationship(self, relation, rhs)
     }
+
+// sourcery:inline:auto:NSLayoutDimension.TemplateName
+// sourcery:end
 }

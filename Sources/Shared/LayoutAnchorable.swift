@@ -116,12 +116,18 @@ extension SizeAnchorable {
     }
 }
 
-extension View: BaselineLayoutAnchorable {}
+extension View: BaselineLayoutAnchorable {
+// sourcery:inline:auto:UIView.TemplateName
+// sourcery:end
+}
 
 extension UILayoutGuide: LayoutAnchorable {
     public var layoutMarginsGuide: LayoutGuide {
         return self
     }
+
+// sourcery:inline:auto:UILayoutGuide.TemplateName
+// sourcery:end
 }
 
 extension ViewController: BaselineLayoutAnchorable {
@@ -190,6 +196,9 @@ extension ViewController: BaselineLayoutAnchorable {
     public var layoutMarginsGuide: LayoutGuide {
         return view.layoutMarginsGuide
     }
+
+// sourcery:inline:auto:UIViewController.TemplateName
+// sourcery:end
 }
 
 extension Array where Element: XYAxisAnchorable {
@@ -216,6 +225,9 @@ extension Array where Element: XYAxisAnchorable {
     public var bottomLeftAnchors: XYAxesAnchorPairs { return map { $0.bottomLeftAnchors } }
 
     public var layoutMarginsGuide: [LayoutGuide] { return map { $0.layoutMarginsGuide } }
+
+// sourcery:inline:auto:Array.TemplateName
+// sourcery:end
 }
 
 extension Array where Element: SizeAnchorable {

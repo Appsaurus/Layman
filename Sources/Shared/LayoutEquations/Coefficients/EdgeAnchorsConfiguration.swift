@@ -8,6 +8,9 @@
 
 public final class EdgeAnchorsConfiguration: SidesTuple<LayoutConfiguration, LayoutConfiguration> {
     public static var `default`: EdgeAnchorsConfiguration { return .init(.default) }
+
+// sourcery:inline:auto:EdgeAnchorsConfiguration.TemplateName
+// sourcery:end
 }
 
 extension EdgeAnchorsConfiguration: CoefficientMutating {

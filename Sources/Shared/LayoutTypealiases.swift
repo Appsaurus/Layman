@@ -40,9 +40,15 @@ public typealias AnchorVariable = AnchorType & Variable
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 
 // MARK: Layout Anchor Pair
-public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>> {}
+public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>> {
+// sourcery:inline:auto:LayoutAnchorPair.TemplateName
+// sourcery:end
+}
 // MARK: Typed Anchor Group
-public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
+public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {
+// sourcery:inline:auto:EdgeAnchorGroup.TemplateName
+// sourcery:end
+}
 
 // MARK: Layout Configuration
 public typealias LayoutMultiplier = CGFloat

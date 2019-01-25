@@ -20,9 +20,15 @@ public func - (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> LayoutDimension
 }
 
 @discardableResult
-public func * (lhs: LayoutDimensionPair, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {
+public func * (lhs: LayoutDimensionPair, rhs: LayoutMultiplier) -> LayoutDimensionPairExpression {
     return LayoutDimensionPairExpression(variable: lhs, coefficients: .multiplier(rhs))
 }
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: LayoutDimensionPair) -> LayoutDimensionPairExpression {
+    return rhs.times(lhs)
+}
+
 
 @discardableResult
 public func / (lhs: LayoutDimensionPair, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {

@@ -43,6 +43,9 @@ public final class EdgeAnchorGroupRelationship {
             variable.trailing.relation(relation, relatedAnchor.trailing).with(coefficients: coefficients.trailing).constraintInvertedAsInset
         )
     }
+
+// sourcery:inline:auto:EdgeAnchorGroupRelationship.TemplateName
+// sourcery:end
 }
 
 extension EdgeAnchorGroupRelationship: LinearEquation {
