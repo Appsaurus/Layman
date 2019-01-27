@@ -34,7 +34,29 @@ public func / (lhs: EdgeAnchorGroup, rhs: LayoutDivisor) -> EdgeAnchorGroupExpre
     return lhs.divided(by: rhs)
 }
 
+// MARK: Expressions
+
+@discardableResult
+public func + (lhs: EdgeAnchorGroupExpression, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
+    return lhs.with(constant: rhs)
+}
+
+@discardableResult
+public func - (lhs: EdgeAnchorGroupExpression, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
+    return lhs.with(constant: -rhs)
+}
+
+@discardableResult
+public func * (lhs: EdgeAnchorGroupExpression, rhs: LayoutMultiplier) -> EdgeAnchorGroupExpression {
+    return lhs.with(multiplier: rhs)
+}
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: EdgeAnchorGroupExpression ) -> EdgeAnchorGroupExpression {
+    return rhs.with(multiplier: lhs)
+}
+
 @discardableResult
 public func / (lhs: EdgeAnchorGroupExpression, rhs: LayoutDivisor) -> EdgeAnchorGroupExpression {
-    return lhs.with(multiplier: (1.0 / rhs))
+    return lhs.with(multiplier: 1.0 / rhs)
 }

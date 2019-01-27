@@ -70,12 +70,12 @@ class ImpliedRelationTests: UILayoutKitTestCase {
 
     func testEqualityWithOffsetAndMultiplier() {
         let constraint = view1 .= (relatedView.widthAnchor + 10) / 2.0
-        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5)
+        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2.0, multiplier: 0.5)
     }
 
     func testArrayEqualityWithOffsetAndMultiplier() {
         let constraints = viewArray .= (relatedView.widthAnchor + 10) / 2.0
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5)
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2.0, multiplier: 0.5)
     }
 
     func testEqualityWithPriorityConstant() {
@@ -131,12 +131,12 @@ class ImpliedRelationTests: UILayoutKitTestCase {
 
     func testEqualityWithOffsetAndMultiplierAndPriorityMath() {
         let constraint = view1 .= (relatedView.widthAnchor + 10) / 2.0 ~ .high - 1.0
-        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5, priority: 749)
+        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2.0, multiplier: 0.5, priority: 749)
     }
 
     func testArrayEqualityWithOffsetAndMultiplierAndPriorityMath() {
         let constraints = viewArray .= (relatedView.widthAnchor + 10) / 2.0 ~ .high - 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5, priority: 749)
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2.0, multiplier: 0.5, priority: 749)
     }
 
     func testXYAxesAnchors() {

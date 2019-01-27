@@ -34,7 +34,29 @@ public func / (lhs: LayoutDimensions, rhs: LayoutDivisor) -> LayoutDimensionExpr
     return lhs.divided(by: rhs)
 }
 
+// MARK: Expressions
+
+@discardableResult
+public func + (lhs: LayoutDimensionExpressions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
+    return lhs.map { $0.with(constant: rhs) }
+}
+
+@discardableResult
+public func - (lhs: LayoutDimensionExpressions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
+    return lhs.map { $0.with(constant: -rhs) }
+}
+
+@discardableResult
+public func * (lhs: LayoutDimensionExpressions, rhs: LayoutMultiplier) -> LayoutDimensionExpressions {
+    return lhs.map { $0.with(multiplier: rhs) }
+}
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: LayoutDimensionExpressions ) -> LayoutDimensionExpressions {
+    return rhs * lhs
+}
+
 @discardableResult
 public func / (lhs: LayoutDimensionExpressions, rhs: LayoutDivisor) -> LayoutDimensionExpressions {
-    return lhs.map { $0.with(multiplier: (1.0 / rhs)) }
+    return lhs * (1.0 / rhs)
 }

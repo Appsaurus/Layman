@@ -20,10 +20,6 @@ import SwiftTestUtils
 // sourcery: compilationTest
 class CompilationPerformanceTests: UILayoutKitTestCase {
 
-
-
-
-
 //    func dimensionAnchorPlusConstantCompilationBenchmark() {
 //        relatedView.widthAnchor + 10
 //        relatedView.widthAnchor + 10
@@ -289,61 +285,61 @@ class CompilationPerformanceTests: UILayoutKitTestCase {
 //        view1.width .= relatedView.width + 10
 //    }
 //
-//    func layoutDimensionPlusConstantCompilationBenchmark() {
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//        view1.widthAnchor .= relatedView.widthAnchor + 10
-//    }
-//
+    func layoutDimensionPlusConstantCompilationBenchmark() {
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+        view1 .= 3 * (relatedView.width + 10) ~ .high - 1.0
+    }
+
     func testLayoutDimensionPlusConstantAndPriorityArithmeticCompilationBenchmark() {
-        self.measure {
+//        self.benchmark {
             view1.widthAnchor .= relatedView.widthAnchor + 10 ~ .high - 1.0
             view1.widthAnchor .= relatedView.widthAnchor + 10 ~ .high - 1.0
             view1.widthAnchor .= relatedView.widthAnchor + 10 ~ .high - 1.0
@@ -394,11 +390,11 @@ class CompilationPerformanceTests: UILayoutKitTestCase {
             view1.widthAnchor .= relatedView.widthAnchor + 10 ~ .high - 1.0
             view1.widthAnchor .= relatedView.widthAnchor + 10 ~ .high - 1.0
             view1.widthAnchor .= relatedView.widthAnchor + 10 ~ .high - 1.0
-        }
+//        }
     }
 //
     func testOtherShorthandOperatorPlusConstantVerbose() {
-        self.measure {
+        self.benchmark {
             view1.width.equal(to: view2.width.plus(10))
             view1.width.equal(to: view2.width.plus(10))
             view1.width.equal(to: view2.width.plus(10))
@@ -453,7 +449,7 @@ class CompilationPerformanceTests: UILayoutKitTestCase {
     }
 //
     func testCompilationBenchmarkRegular() {
-        self.measure {
+        self.benchmark {
             view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
             view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
             view1.widthAnchor.constraint(equalTo: relatedView.widthAnchor, constant: 10)
@@ -508,62 +504,60 @@ class CompilationPerformanceTests: UILayoutKitTestCase {
     }
 
 // sourcery:inline:auto:CompilationPerformanceTests.TemplateName
-    public func testLayoutDimensionEqualityImpliedCompilationBenchmark() {
-        self.measure {
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-            view1 .= relatedView.width
-        }
-
+    func layoutDimensionEqualityImpliedCompilationBenchmark() {
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
+        view1 .= relatedView.width
     }
-    public func dimensionAnchorPlusConstantCompilationBenchmark() {
+
+    func dimensionAnchorPlusConstantCompilationBenchmark() {
         relatedView.widthAnchor + 10
         relatedView.widthAnchor + 10
         relatedView.widthAnchor + 10

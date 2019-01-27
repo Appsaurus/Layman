@@ -17,6 +17,9 @@ import XCTest
 import SwiftTestUtils
 
 class UILayoutKitTestCase: XCTestCase {
+
+    lazy var benchmarker: BenchmarkGroup = BenchmarkGroup()
+
     let parentView = View()
     let view1 = View()
     let view2 = View()
@@ -28,6 +31,7 @@ class UILayoutKitTestCase: XCTestCase {
     let window = Window()
 
     override func setUp() {
+        super.setUp()
         UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         #if canImport(AppKit)
         window.contentView!.addSubview(parentView)
@@ -40,6 +44,17 @@ class UILayoutKitTestCase: XCTestCase {
 
         parentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
+    }
+
+    override func tearDown() {
+        super.tearDown()
+        guard benchmarker.benchmarks.count > 0 else { return }
+        print(benchmarker.formattedTimeReport)
+    }
+
+    @discardableResult
+    public func benchmark(_ key: String = #function, block: () -> Void) -> Benchmark {
+        return benchmarker.measure(key, block: block)
     }
 
 // sourcery:inline:auto:UILayoutKitTestCase.TemplateName

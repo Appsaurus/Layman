@@ -17,1095 +17,1958 @@ import XCTest
 class XAxisAnchorTests: UILayoutKitTestCase {
 
 // sourcery:inline:auto:XAxisAnchorTests.EquationTests
-
 // MARK: view1Leading <=> relatedViewLeading
-    public func testView1LeadingEqualLeading() {
-        let constraints = view1.leadingAnchor .= relatedView.leading
-        constraints.assert(view1, .leading, .equal, relatedView, .leading)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1LeadingEqualLeadingPlusConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.leading + 10
-        constraints.assert(view1, .leading, .equal, relatedView, .leading, constant: 10)
-    }
-
-    public func testView1LeadingEqualLeadingMinusConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.leading - 10
-        constraints.assert(view1, .leading, .equal, relatedView, .leading, constant: -10)
-    }
-
-    public func testView1LeadingEqualLeadingMultiplyingConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.leading * 3
-        constraints.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 3)
-    }
-
-    public func testView1LeadingEqualLeadingMultipliedByConstant() {
-        let constraints = view1.leadingAnchor .= 3 * relatedView.leading
-        constraints.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 3)
-    }
-
-    public func testView1LeadingEqualLeadingDividedByConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.leading / 2
-        constraints.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 1 / 2)
-    }
-
-    public func testView1LeadingEqualLeadingWithPriority() {
-        let constraints = view1.leadingAnchor .= relatedView.leading ~ .low
-        constraints.assert(view1, .leading, .equal, relatedView, .leading, priority: .low)
-    }
-
-    public func testView1LeadingEqualLeadingWithPriorityArithmetic() {
-        let constraints = view1.leadingAnchor .= relatedView.leading ~ .high - 1
-        constraints.assert(view1, .leading, .equal, relatedView, .leading, priority: 749)
-    }
-
-    public func testView1LeadingLessThanOrEqualLeading() {
+    func testView1LeadingLessThanOrEqualToLeading() {
         let constraints = view1.leadingAnchor ≤ relatedView.leading
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading)
     }
 
-    public func testView1LeadingLessThanOrEqualLeadingPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1LeadingLessThanOrEqualToLeadingPlusConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.leading + 10
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
     }
 
-    public func testView1LeadingLessThanOrEqualLeadingMinusConstant() {
+    func testView1LeadingLessThanOrEqualToLeadingMinusConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.leading - 10
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
     }
 
-    public func testView1LeadingLessThanOrEqualLeadingMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LeadingLessThanOrEqualToLeadingMultiplyingConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.leading * 3
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1LeadingLessThanOrEqualLeadingMultipliedByConstant() {
+    func testView1LeadingLessThanOrEqualToLeadingMultipliedByConstant() {
         let constraints = view1.leadingAnchor ≤ 3 * relatedView.leading
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1LeadingLessThanOrEqualLeadingDividedByConstant() {
+    func testView1LeadingLessThanOrEqualToLeadingDividedByConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.leading / 2
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
     }
 
-    public func testView1LeadingLessThanOrEqualLeadingWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1LeadingLessThanOrEqualToLeadingWithPriority() {
         let constraints = view1.leadingAnchor ≤ relatedView.leading ~ .low
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
     }
 
-    public func testView1LeadingLessThanOrEqualLeadingWithPriorityArithmetic() {
+    func testView1LeadingLessThanOrEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor ≤ relatedView.leading ~ 300
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
+    }
+
+    func testView1LeadingLessThanOrEqualToLeadingWithPriorityArithmetic() {
         let constraints = view1.leadingAnchor ≤ relatedView.leading ~ .high - 1
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
     }
 
-    public func testView1LeadingGreaterThanOrEqualLeading() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1LeadingLessThanOrEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor ≤ (relatedView.leading + 10) * 3
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingLessThanOrEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor ≤ 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingLessThanOrEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor ≤ 3 * relatedView.leading + 10
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingLessThanOrEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor ≤ (relatedView.leading + 10) / 2
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1LeadingEqualToLeading() {
+        let constraints = view1.leadingAnchor .= relatedView.leading
+        constraints.assert(view1, .leading, .equal, relatedView, .leading)
+    }
+
+    // MARK: Equal with constant
+    func testView1LeadingEqualToLeadingPlusConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.leading + 10
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, constant: 10)
+    }
+
+    func testView1LeadingEqualToLeadingMinusConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.leading - 10
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1LeadingEqualToLeadingMultiplyingConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.leading * 3
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToLeadingMultipliedByConstant() {
+        let constraints = view1.leadingAnchor .= 3 * relatedView.leading
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToLeadingDividedByConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.leading / 2
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1LeadingEqualToLeadingWithPriority() {
+        let constraints = view1.leadingAnchor .= relatedView.leading ~ .low
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, priority: .low)
+    }
+
+    func testView1LeadingEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor .= relatedView.leading ~ 300
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, priority: 300)
+    }
+
+    func testView1LeadingEqualToLeadingWithPriorityArithmetic() {
+        let constraints = view1.leadingAnchor .= relatedView.leading ~ .high - 1
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1LeadingEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor .= (relatedView.leading + 10) * 3
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor .= 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor .= 3 * relatedView.leading + 10
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor .= (relatedView.leading + 10) / 2
+        constraints.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1LeadingGreaterThanOrEqualToLeading() {
         let constraints = view1.leadingAnchor ≥ relatedView.leading
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading)
     }
 
-    public func testView1LeadingGreaterThanOrEqualLeadingPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1LeadingGreaterThanOrEqualToLeadingPlusConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.leading + 10
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10)
     }
 
-    public func testView1LeadingGreaterThanOrEqualLeadingMinusConstant() {
+    func testView1LeadingGreaterThanOrEqualToLeadingMinusConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.leading - 10
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: -10)
     }
 
-    public func testView1LeadingGreaterThanOrEqualLeadingMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1LeadingGreaterThanOrEqualToLeadingMultiplyingConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.leading * 3
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1LeadingGreaterThanOrEqualLeadingMultipliedByConstant() {
+    func testView1LeadingGreaterThanOrEqualToLeadingMultipliedByConstant() {
         let constraints = view1.leadingAnchor ≥ 3 * relatedView.leading
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1LeadingGreaterThanOrEqualLeadingDividedByConstant() {
+    func testView1LeadingGreaterThanOrEqualToLeadingDividedByConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.leading / 2
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
     }
 
-    public func testView1LeadingGreaterThanOrEqualLeadingWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1LeadingGreaterThanOrEqualToLeadingWithPriority() {
         let constraints = view1.leadingAnchor ≥ relatedView.leading ~ .low
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, priority: .low)
     }
 
-    public func testView1LeadingGreaterThanOrEqualLeadingWithPriorityArithmetic() {
+    func testView1LeadingGreaterThanOrEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor ≥ relatedView.leading ~ 300
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, priority: 300)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToLeadingWithPriorityArithmetic() {
         let constraints = view1.leadingAnchor ≥ relatedView.leading ~ .high - 1
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, priority: 749)
     }
 
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1LeadingGreaterThanOrEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor ≥ (relatedView.leading + 10) * 3
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor ≥ 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor ≥ 3 * relatedView.leading + 10
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingGreaterThanOrEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor ≥ (relatedView.leading + 10) / 2
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // MARK: view1Leading <=> relatedViewCenterX
-    public func testView1LeadingEqualCenterX() {
-        let constraints = view1.leadingAnchor .= relatedView.centerX
-        constraints.assert(view1, .leading, .equal, relatedView, .centerX)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1LeadingEqualCenterXPlusConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.centerX + 10
-        constraints.assert(view1, .leading, .equal, relatedView, .centerX, constant: 10)
-    }
-
-    public func testView1LeadingEqualCenterXMinusConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.centerX - 10
-        constraints.assert(view1, .leading, .equal, relatedView, .centerX, constant: -10)
-    }
-
-    public func testView1LeadingEqualCenterXMultiplyingConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.centerX * 3
-        constraints.assert(view1, .leading, .equal, relatedView, .centerX, multiplier: 3)
-    }
-
-    public func testView1LeadingEqualCenterXMultipliedByConstant() {
-        let constraints = view1.leadingAnchor .= 3 * relatedView.centerX
-        constraints.assert(view1, .leading, .equal, relatedView, .centerX, multiplier: 3)
-    }
-
-    public func testView1LeadingEqualCenterXDividedByConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.centerX / 2
-        constraints.assert(view1, .leading, .equal, relatedView, .centerX, multiplier: 1 / 2)
-    }
-
-    public func testView1LeadingEqualCenterXWithPriority() {
-        let constraints = view1.leadingAnchor .= relatedView.centerX ~ .low
-        constraints.assert(view1, .leading, .equal, relatedView, .centerX, priority: .low)
-    }
-
-    public func testView1LeadingEqualCenterXWithPriorityArithmetic() {
-        let constraints = view1.leadingAnchor .= relatedView.centerX ~ .high - 1
-        constraints.assert(view1, .leading, .equal, relatedView, .centerX, priority: 749)
-    }
-
-    public func testView1LeadingLessThanOrEqualCenterX() {
+    func testView1LeadingLessThanOrEqualToCenterX() {
         let constraints = view1.leadingAnchor ≤ relatedView.centerX
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX)
     }
 
-    public func testView1LeadingLessThanOrEqualCenterXPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1LeadingLessThanOrEqualToCenterXPlusConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.centerX + 10
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, constant: 10)
     }
 
-    public func testView1LeadingLessThanOrEqualCenterXMinusConstant() {
+    func testView1LeadingLessThanOrEqualToCenterXMinusConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.centerX - 10
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, constant: -10)
     }
 
-    public func testView1LeadingLessThanOrEqualCenterXMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LeadingLessThanOrEqualToCenterXMultiplyingConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.centerX * 3
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1LeadingLessThanOrEqualCenterXMultipliedByConstant() {
+    func testView1LeadingLessThanOrEqualToCenterXMultipliedByConstant() {
         let constraints = view1.leadingAnchor ≤ 3 * relatedView.centerX
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1LeadingLessThanOrEqualCenterXDividedByConstant() {
+    func testView1LeadingLessThanOrEqualToCenterXDividedByConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.centerX / 2
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
     }
 
-    public func testView1LeadingLessThanOrEqualCenterXWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1LeadingLessThanOrEqualToCenterXWithPriority() {
         let constraints = view1.leadingAnchor ≤ relatedView.centerX ~ .low
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, priority: .low)
     }
 
-    public func testView1LeadingLessThanOrEqualCenterXWithPriorityArithmetic() {
+    func testView1LeadingLessThanOrEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor ≤ relatedView.centerX ~ 300
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1LeadingLessThanOrEqualToCenterXWithPriorityArithmetic() {
         let constraints = view1.leadingAnchor ≤ relatedView.centerX ~ .high - 1
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, priority: 749)
     }
 
-    public func testView1LeadingGreaterThanOrEqualCenterX() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1LeadingLessThanOrEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor ≤ (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingLessThanOrEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor ≤ 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingLessThanOrEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor ≤ 3 * relatedView.centerX + 10
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingLessThanOrEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor ≤ (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1LeadingEqualToCenterX() {
+        let constraints = view1.leadingAnchor .= relatedView.centerX
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX)
+    }
+
+    // MARK: Equal with constant
+    func testView1LeadingEqualToCenterXPlusConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.centerX + 10
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, constant: 10)
+    }
+
+    func testView1LeadingEqualToCenterXMinusConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.centerX - 10
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1LeadingEqualToCenterXMultiplyingConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.centerX * 3
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToCenterXMultipliedByConstant() {
+        let constraints = view1.leadingAnchor .= 3 * relatedView.centerX
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToCenterXDividedByConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.centerX / 2
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1LeadingEqualToCenterXWithPriority() {
+        let constraints = view1.leadingAnchor .= relatedView.centerX ~ .low
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, priority: .low)
+    }
+
+    func testView1LeadingEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor .= relatedView.centerX ~ 300
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1LeadingEqualToCenterXWithPriorityArithmetic() {
+        let constraints = view1.leadingAnchor .= relatedView.centerX ~ .high - 1
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1LeadingEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor .= (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor .= 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor .= 3 * relatedView.centerX + 10
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor .= (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .leading, .equal, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1LeadingGreaterThanOrEqualToCenterX() {
         let constraints = view1.leadingAnchor ≥ relatedView.centerX
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX)
     }
 
-    public func testView1LeadingGreaterThanOrEqualCenterXPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1LeadingGreaterThanOrEqualToCenterXPlusConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.centerX + 10
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, constant: 10)
     }
 
-    public func testView1LeadingGreaterThanOrEqualCenterXMinusConstant() {
+    func testView1LeadingGreaterThanOrEqualToCenterXMinusConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.centerX - 10
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, constant: -10)
     }
 
-    public func testView1LeadingGreaterThanOrEqualCenterXMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1LeadingGreaterThanOrEqualToCenterXMultiplyingConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.centerX * 3
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1LeadingGreaterThanOrEqualCenterXMultipliedByConstant() {
+    func testView1LeadingGreaterThanOrEqualToCenterXMultipliedByConstant() {
         let constraints = view1.leadingAnchor ≥ 3 * relatedView.centerX
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1LeadingGreaterThanOrEqualCenterXDividedByConstant() {
+    func testView1LeadingGreaterThanOrEqualToCenterXDividedByConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.centerX / 2
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
     }
 
-    public func testView1LeadingGreaterThanOrEqualCenterXWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1LeadingGreaterThanOrEqualToCenterXWithPriority() {
         let constraints = view1.leadingAnchor ≥ relatedView.centerX ~ .low
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, priority: .low)
     }
 
-    public func testView1LeadingGreaterThanOrEqualCenterXWithPriorityArithmetic() {
+    func testView1LeadingGreaterThanOrEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor ≥ relatedView.centerX ~ 300
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToCenterXWithPriorityArithmetic() {
         let constraints = view1.leadingAnchor ≥ relatedView.centerX ~ .high - 1
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, priority: 749)
     }
 
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1LeadingGreaterThanOrEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor ≥ (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor ≥ 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor ≥ 3 * relatedView.centerX + 10
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingGreaterThanOrEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor ≥ (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // MARK: view1Leading <=> relatedViewTrailing
-    public func testView1LeadingEqualTrailing() {
-        let constraints = view1.leadingAnchor .= relatedView.trailing
-        constraints.assert(view1, .leading, .equal, relatedView, .trailing)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1LeadingEqualTrailingPlusConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.trailing + 10
-        constraints.assert(view1, .leading, .equal, relatedView, .trailing, constant: 10)
-    }
-
-    public func testView1LeadingEqualTrailingMinusConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.trailing - 10
-        constraints.assert(view1, .leading, .equal, relatedView, .trailing, constant: -10)
-    }
-
-    public func testView1LeadingEqualTrailingMultiplyingConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.trailing * 3
-        constraints.assert(view1, .leading, .equal, relatedView, .trailing, multiplier: 3)
-    }
-
-    public func testView1LeadingEqualTrailingMultipliedByConstant() {
-        let constraints = view1.leadingAnchor .= 3 * relatedView.trailing
-        constraints.assert(view1, .leading, .equal, relatedView, .trailing, multiplier: 3)
-    }
-
-    public func testView1LeadingEqualTrailingDividedByConstant() {
-        let constraints = view1.leadingAnchor .= relatedView.trailing / 2
-        constraints.assert(view1, .leading, .equal, relatedView, .trailing, multiplier: 1 / 2)
-    }
-
-    public func testView1LeadingEqualTrailingWithPriority() {
-        let constraints = view1.leadingAnchor .= relatedView.trailing ~ .low
-        constraints.assert(view1, .leading, .equal, relatedView, .trailing, priority: .low)
-    }
-
-    public func testView1LeadingEqualTrailingWithPriorityArithmetic() {
-        let constraints = view1.leadingAnchor .= relatedView.trailing ~ .high - 1
-        constraints.assert(view1, .leading, .equal, relatedView, .trailing, priority: 749)
-    }
-
-    public func testView1LeadingLessThanOrEqualTrailing() {
+    func testView1LeadingLessThanOrEqualToTrailing() {
         let constraints = view1.leadingAnchor ≤ relatedView.trailing
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing)
     }
 
-    public func testView1LeadingLessThanOrEqualTrailingPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1LeadingLessThanOrEqualToTrailingPlusConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.trailing + 10
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, constant: 10)
     }
 
-    public func testView1LeadingLessThanOrEqualTrailingMinusConstant() {
+    func testView1LeadingLessThanOrEqualToTrailingMinusConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.trailing - 10
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, constant: -10)
     }
 
-    public func testView1LeadingLessThanOrEqualTrailingMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LeadingLessThanOrEqualToTrailingMultiplyingConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.trailing * 3
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1LeadingLessThanOrEqualTrailingMultipliedByConstant() {
+    func testView1LeadingLessThanOrEqualToTrailingMultipliedByConstant() {
         let constraints = view1.leadingAnchor ≤ 3 * relatedView.trailing
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1LeadingLessThanOrEqualTrailingDividedByConstant() {
+    func testView1LeadingLessThanOrEqualToTrailingDividedByConstant() {
         let constraints = view1.leadingAnchor ≤ relatedView.trailing / 2
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
     }
 
-    public func testView1LeadingLessThanOrEqualTrailingWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1LeadingLessThanOrEqualToTrailingWithPriority() {
         let constraints = view1.leadingAnchor ≤ relatedView.trailing ~ .low
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, priority: .low)
     }
 
-    public func testView1LeadingLessThanOrEqualTrailingWithPriorityArithmetic() {
+    func testView1LeadingLessThanOrEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor ≤ relatedView.trailing ~ 300
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1LeadingLessThanOrEqualToTrailingWithPriorityArithmetic() {
         let constraints = view1.leadingAnchor ≤ relatedView.trailing ~ .high - 1
         constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, priority: 749)
     }
 
-    public func testView1LeadingGreaterThanOrEqualTrailing() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1LeadingLessThanOrEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor ≤ (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingLessThanOrEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor ≤ 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingLessThanOrEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor ≤ 3 * relatedView.trailing + 10
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingLessThanOrEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor ≤ (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .leading, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1LeadingEqualToTrailing() {
+        let constraints = view1.leadingAnchor .= relatedView.trailing
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing)
+    }
+
+    // MARK: Equal with constant
+    func testView1LeadingEqualToTrailingPlusConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.trailing + 10
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, constant: 10)
+    }
+
+    func testView1LeadingEqualToTrailingMinusConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.trailing - 10
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1LeadingEqualToTrailingMultiplyingConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.trailing * 3
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToTrailingMultipliedByConstant() {
+        let constraints = view1.leadingAnchor .= 3 * relatedView.trailing
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToTrailingDividedByConstant() {
+        let constraints = view1.leadingAnchor .= relatedView.trailing / 2
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1LeadingEqualToTrailingWithPriority() {
+        let constraints = view1.leadingAnchor .= relatedView.trailing ~ .low
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, priority: .low)
+    }
+
+    func testView1LeadingEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor .= relatedView.trailing ~ 300
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1LeadingEqualToTrailingWithPriorityArithmetic() {
+        let constraints = view1.leadingAnchor .= relatedView.trailing ~ .high - 1
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1LeadingEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor .= (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor .= 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor .= 3 * relatedView.trailing + 10
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor .= (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .leading, .equal, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1LeadingGreaterThanOrEqualToTrailing() {
         let constraints = view1.leadingAnchor ≥ relatedView.trailing
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing)
     }
 
-    public func testView1LeadingGreaterThanOrEqualTrailingPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1LeadingGreaterThanOrEqualToTrailingPlusConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.trailing + 10
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, constant: 10)
     }
 
-    public func testView1LeadingGreaterThanOrEqualTrailingMinusConstant() {
+    func testView1LeadingGreaterThanOrEqualToTrailingMinusConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.trailing - 10
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, constant: -10)
     }
 
-    public func testView1LeadingGreaterThanOrEqualTrailingMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1LeadingGreaterThanOrEqualToTrailingMultiplyingConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.trailing * 3
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1LeadingGreaterThanOrEqualTrailingMultipliedByConstant() {
+    func testView1LeadingGreaterThanOrEqualToTrailingMultipliedByConstant() {
         let constraints = view1.leadingAnchor ≥ 3 * relatedView.trailing
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1LeadingGreaterThanOrEqualTrailingDividedByConstant() {
+    func testView1LeadingGreaterThanOrEqualToTrailingDividedByConstant() {
         let constraints = view1.leadingAnchor ≥ relatedView.trailing / 2
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
     }
 
-    public func testView1LeadingGreaterThanOrEqualTrailingWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1LeadingGreaterThanOrEqualToTrailingWithPriority() {
         let constraints = view1.leadingAnchor ≥ relatedView.trailing ~ .low
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, priority: .low)
     }
 
-    public func testView1LeadingGreaterThanOrEqualTrailingWithPriorityArithmetic() {
+    func testView1LeadingGreaterThanOrEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.leadingAnchor ≥ relatedView.trailing ~ 300
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToTrailingWithPriorityArithmetic() {
         let constraints = view1.leadingAnchor ≥ relatedView.trailing ~ .high - 1
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, priority: 749)
     }
 
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1LeadingGreaterThanOrEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.leadingAnchor ≥ (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.leadingAnchor ≥ 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LeadingGreaterThanOrEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.leadingAnchor ≥ 3 * relatedView.trailing + 10
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1LeadingGreaterThanOrEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.leadingAnchor ≥ (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // MARK: view1CenterX <=> relatedViewLeading
-    public func testView1CenterXEqualLeading() {
-        let constraints = view1.centerXAnchor .= relatedView.leading
-        constraints.assert(view1, .centerX, .equal, relatedView, .leading)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1CenterXEqualLeadingPlusConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.leading + 10
-        constraints.assert(view1, .centerX, .equal, relatedView, .leading, constant: 10)
-    }
-
-    public func testView1CenterXEqualLeadingMinusConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.leading - 10
-        constraints.assert(view1, .centerX, .equal, relatedView, .leading, constant: -10)
-    }
-
-    public func testView1CenterXEqualLeadingMultiplyingConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.leading * 3
-        constraints.assert(view1, .centerX, .equal, relatedView, .leading, multiplier: 3)
-    }
-
-    public func testView1CenterXEqualLeadingMultipliedByConstant() {
-        let constraints = view1.centerXAnchor .= 3 * relatedView.leading
-        constraints.assert(view1, .centerX, .equal, relatedView, .leading, multiplier: 3)
-    }
-
-    public func testView1CenterXEqualLeadingDividedByConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.leading / 2
-        constraints.assert(view1, .centerX, .equal, relatedView, .leading, multiplier: 1 / 2)
-    }
-
-    public func testView1CenterXEqualLeadingWithPriority() {
-        let constraints = view1.centerXAnchor .= relatedView.leading ~ .low
-        constraints.assert(view1, .centerX, .equal, relatedView, .leading, priority: .low)
-    }
-
-    public func testView1CenterXEqualLeadingWithPriorityArithmetic() {
-        let constraints = view1.centerXAnchor .= relatedView.leading ~ .high - 1
-        constraints.assert(view1, .centerX, .equal, relatedView, .leading, priority: 749)
-    }
-
-    public func testView1CenterXLessThanOrEqualLeading() {
+    func testView1CenterXLessThanOrEqualToLeading() {
         let constraints = view1.centerXAnchor ≤ relatedView.leading
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading)
     }
 
-    public func testView1CenterXLessThanOrEqualLeadingPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1CenterXLessThanOrEqualToLeadingPlusConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.leading + 10
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, constant: 10)
     }
 
-    public func testView1CenterXLessThanOrEqualLeadingMinusConstant() {
+    func testView1CenterXLessThanOrEqualToLeadingMinusConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.leading - 10
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, constant: -10)
     }
 
-    public func testView1CenterXLessThanOrEqualLeadingMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1CenterXLessThanOrEqualToLeadingMultiplyingConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.leading * 3
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1CenterXLessThanOrEqualLeadingMultipliedByConstant() {
+    func testView1CenterXLessThanOrEqualToLeadingMultipliedByConstant() {
         let constraints = view1.centerXAnchor ≤ 3 * relatedView.leading
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1CenterXLessThanOrEqualLeadingDividedByConstant() {
+    func testView1CenterXLessThanOrEqualToLeadingDividedByConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.leading / 2
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
     }
 
-    public func testView1CenterXLessThanOrEqualLeadingWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1CenterXLessThanOrEqualToLeadingWithPriority() {
         let constraints = view1.centerXAnchor ≤ relatedView.leading ~ .low
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, priority: .low)
     }
 
-    public func testView1CenterXLessThanOrEqualLeadingWithPriorityArithmetic() {
+    func testView1CenterXLessThanOrEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor ≤ relatedView.leading ~ 300
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, priority: 300)
+    }
+
+    func testView1CenterXLessThanOrEqualToLeadingWithPriorityArithmetic() {
         let constraints = view1.centerXAnchor ≤ relatedView.leading ~ .high - 1
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, priority: 749)
     }
 
-    public func testView1CenterXGreaterThanOrEqualLeading() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1CenterXLessThanOrEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor ≤ (relatedView.leading + 10) * 3
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXLessThanOrEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor ≤ 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXLessThanOrEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor ≤ 3 * relatedView.leading + 10
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXLessThanOrEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor ≤ (relatedView.leading + 10) / 2
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1CenterXEqualToLeading() {
+        let constraints = view1.centerXAnchor .= relatedView.leading
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading)
+    }
+
+    // MARK: Equal with constant
+    func testView1CenterXEqualToLeadingPlusConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.leading + 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, constant: 10)
+    }
+
+    func testView1CenterXEqualToLeadingMinusConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.leading - 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1CenterXEqualToLeadingMultiplyingConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.leading * 3
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToLeadingMultipliedByConstant() {
+        let constraints = view1.centerXAnchor .= 3 * relatedView.leading
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToLeadingDividedByConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.leading / 2
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1CenterXEqualToLeadingWithPriority() {
+        let constraints = view1.centerXAnchor .= relatedView.leading ~ .low
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, priority: .low)
+    }
+
+    func testView1CenterXEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor .= relatedView.leading ~ 300
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, priority: 300)
+    }
+
+    func testView1CenterXEqualToLeadingWithPriorityArithmetic() {
+        let constraints = view1.centerXAnchor .= relatedView.leading ~ .high - 1
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1CenterXEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor .= (relatedView.leading + 10) * 3
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor .= 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor .= 3 * relatedView.leading + 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor .= (relatedView.leading + 10) / 2
+        constraints.assert(view1, .centerX, .equal, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1CenterXGreaterThanOrEqualToLeading() {
         let constraints = view1.centerXAnchor ≥ relatedView.leading
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading)
     }
 
-    public func testView1CenterXGreaterThanOrEqualLeadingPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1CenterXGreaterThanOrEqualToLeadingPlusConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.leading + 10
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, constant: 10)
     }
 
-    public func testView1CenterXGreaterThanOrEqualLeadingMinusConstant() {
+    func testView1CenterXGreaterThanOrEqualToLeadingMinusConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.leading - 10
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, constant: -10)
     }
 
-    public func testView1CenterXGreaterThanOrEqualLeadingMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1CenterXGreaterThanOrEqualToLeadingMultiplyingConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.leading * 3
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1CenterXGreaterThanOrEqualLeadingMultipliedByConstant() {
+    func testView1CenterXGreaterThanOrEqualToLeadingMultipliedByConstant() {
         let constraints = view1.centerXAnchor ≥ 3 * relatedView.leading
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1CenterXGreaterThanOrEqualLeadingDividedByConstant() {
+    func testView1CenterXGreaterThanOrEqualToLeadingDividedByConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.leading / 2
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
     }
 
-    public func testView1CenterXGreaterThanOrEqualLeadingWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1CenterXGreaterThanOrEqualToLeadingWithPriority() {
         let constraints = view1.centerXAnchor ≥ relatedView.leading ~ .low
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, priority: .low)
     }
 
-    public func testView1CenterXGreaterThanOrEqualLeadingWithPriorityArithmetic() {
+    func testView1CenterXGreaterThanOrEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor ≥ relatedView.leading ~ 300
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, priority: 300)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToLeadingWithPriorityArithmetic() {
         let constraints = view1.centerXAnchor ≥ relatedView.leading ~ .high - 1
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, priority: 749)
     }
 
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1CenterXGreaterThanOrEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor ≥ (relatedView.leading + 10) * 3
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor ≥ 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor ≥ 3 * relatedView.leading + 10
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXGreaterThanOrEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor ≥ (relatedView.leading + 10) / 2
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // MARK: view1CenterX <=> relatedViewCenterX
-    public func testView1CenterXEqualCenterX() {
-        let constraints = view1.centerXAnchor .= relatedView.centerX
-        constraints.assert(view1, .centerX, .equal, relatedView, .centerX)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1CenterXEqualCenterXPlusConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.centerX + 10
-        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10)
-    }
-
-    public func testView1CenterXEqualCenterXMinusConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.centerX - 10
-        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, constant: -10)
-    }
-
-    public func testView1CenterXEqualCenterXMultiplyingConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.centerX * 3
-        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 3)
-    }
-
-    public func testView1CenterXEqualCenterXMultipliedByConstant() {
-        let constraints = view1.centerXAnchor .= 3 * relatedView.centerX
-        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 3)
-    }
-
-    public func testView1CenterXEqualCenterXDividedByConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.centerX / 2
-        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 1 / 2)
-    }
-
-    public func testView1CenterXEqualCenterXWithPriority() {
-        let constraints = view1.centerXAnchor .= relatedView.centerX ~ .low
-        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, priority: .low)
-    }
-
-    public func testView1CenterXEqualCenterXWithPriorityArithmetic() {
-        let constraints = view1.centerXAnchor .= relatedView.centerX ~ .high - 1
-        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, priority: 749)
-    }
-
-    public func testView1CenterXLessThanOrEqualCenterX() {
+    func testView1CenterXLessThanOrEqualToCenterX() {
         let constraints = view1.centerXAnchor ≤ relatedView.centerX
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX)
     }
 
-    public func testView1CenterXLessThanOrEqualCenterXPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1CenterXLessThanOrEqualToCenterXPlusConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.centerX + 10
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10)
     }
 
-    public func testView1CenterXLessThanOrEqualCenterXMinusConstant() {
+    func testView1CenterXLessThanOrEqualToCenterXMinusConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.centerX - 10
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: -10)
     }
 
-    public func testView1CenterXLessThanOrEqualCenterXMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1CenterXLessThanOrEqualToCenterXMultiplyingConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.centerX * 3
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1CenterXLessThanOrEqualCenterXMultipliedByConstant() {
+    func testView1CenterXLessThanOrEqualToCenterXMultipliedByConstant() {
         let constraints = view1.centerXAnchor ≤ 3 * relatedView.centerX
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1CenterXLessThanOrEqualCenterXDividedByConstant() {
+    func testView1CenterXLessThanOrEqualToCenterXDividedByConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.centerX / 2
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
     }
 
-    public func testView1CenterXLessThanOrEqualCenterXWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1CenterXLessThanOrEqualToCenterXWithPriority() {
         let constraints = view1.centerXAnchor ≤ relatedView.centerX ~ .low
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: .low)
     }
 
-    public func testView1CenterXLessThanOrEqualCenterXWithPriorityArithmetic() {
+    func testView1CenterXLessThanOrEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor ≤ relatedView.centerX ~ 300
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1CenterXLessThanOrEqualToCenterXWithPriorityArithmetic() {
         let constraints = view1.centerXAnchor ≤ relatedView.centerX ~ .high - 1
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 749)
     }
 
-    public func testView1CenterXGreaterThanOrEqualCenterX() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1CenterXLessThanOrEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor ≤ (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXLessThanOrEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor ≤ 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXLessThanOrEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor ≤ 3 * relatedView.centerX + 10
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXLessThanOrEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor ≤ (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1CenterXEqualToCenterX() {
+        let constraints = view1.centerXAnchor .= relatedView.centerX
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX)
+    }
+
+    // MARK: Equal with constant
+    func testView1CenterXEqualToCenterXPlusConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.centerX + 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10)
+    }
+
+    func testView1CenterXEqualToCenterXMinusConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.centerX - 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1CenterXEqualToCenterXMultiplyingConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.centerX * 3
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToCenterXMultipliedByConstant() {
+        let constraints = view1.centerXAnchor .= 3 * relatedView.centerX
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToCenterXDividedByConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.centerX / 2
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1CenterXEqualToCenterXWithPriority() {
+        let constraints = view1.centerXAnchor .= relatedView.centerX ~ .low
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, priority: .low)
+    }
+
+    func testView1CenterXEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor .= relatedView.centerX ~ 300
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1CenterXEqualToCenterXWithPriorityArithmetic() {
+        let constraints = view1.centerXAnchor .= relatedView.centerX ~ .high - 1
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1CenterXEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor .= (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor .= 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor .= 3 * relatedView.centerX + 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor .= (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1CenterXGreaterThanOrEqualToCenterX() {
         let constraints = view1.centerXAnchor ≥ relatedView.centerX
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX)
     }
 
-    public func testView1CenterXGreaterThanOrEqualCenterXPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1CenterXGreaterThanOrEqualToCenterXPlusConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.centerX + 10
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10)
     }
 
-    public func testView1CenterXGreaterThanOrEqualCenterXMinusConstant() {
+    func testView1CenterXGreaterThanOrEqualToCenterXMinusConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.centerX - 10
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: -10)
     }
 
-    public func testView1CenterXGreaterThanOrEqualCenterXMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1CenterXGreaterThanOrEqualToCenterXMultiplyingConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.centerX * 3
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1CenterXGreaterThanOrEqualCenterXMultipliedByConstant() {
+    func testView1CenterXGreaterThanOrEqualToCenterXMultipliedByConstant() {
         let constraints = view1.centerXAnchor ≥ 3 * relatedView.centerX
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1CenterXGreaterThanOrEqualCenterXDividedByConstant() {
+    func testView1CenterXGreaterThanOrEqualToCenterXDividedByConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.centerX / 2
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
     }
 
-    public func testView1CenterXGreaterThanOrEqualCenterXWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1CenterXGreaterThanOrEqualToCenterXWithPriority() {
         let constraints = view1.centerXAnchor ≥ relatedView.centerX ~ .low
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, priority: .low)
     }
 
-    public func testView1CenterXGreaterThanOrEqualCenterXWithPriorityArithmetic() {
+    func testView1CenterXGreaterThanOrEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor ≥ relatedView.centerX ~ 300
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToCenterXWithPriorityArithmetic() {
         let constraints = view1.centerXAnchor ≥ relatedView.centerX ~ .high - 1
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, priority: 749)
     }
 
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1CenterXGreaterThanOrEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor ≥ (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor ≥ 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor ≥ 3 * relatedView.centerX + 10
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXGreaterThanOrEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor ≥ (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // MARK: view1CenterX <=> relatedViewTrailing
-    public func testView1CenterXEqualTrailing() {
-        let constraints = view1.centerXAnchor .= relatedView.trailing
-        constraints.assert(view1, .centerX, .equal, relatedView, .trailing)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1CenterXEqualTrailingPlusConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.trailing + 10
-        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, constant: 10)
-    }
-
-    public func testView1CenterXEqualTrailingMinusConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.trailing - 10
-        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, constant: -10)
-    }
-
-    public func testView1CenterXEqualTrailingMultiplyingConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.trailing * 3
-        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, multiplier: 3)
-    }
-
-    public func testView1CenterXEqualTrailingMultipliedByConstant() {
-        let constraints = view1.centerXAnchor .= 3 * relatedView.trailing
-        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, multiplier: 3)
-    }
-
-    public func testView1CenterXEqualTrailingDividedByConstant() {
-        let constraints = view1.centerXAnchor .= relatedView.trailing / 2
-        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, multiplier: 1 / 2)
-    }
-
-    public func testView1CenterXEqualTrailingWithPriority() {
-        let constraints = view1.centerXAnchor .= relatedView.trailing ~ .low
-        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, priority: .low)
-    }
-
-    public func testView1CenterXEqualTrailingWithPriorityArithmetic() {
-        let constraints = view1.centerXAnchor .= relatedView.trailing ~ .high - 1
-        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, priority: 749)
-    }
-
-    public func testView1CenterXLessThanOrEqualTrailing() {
+    func testView1CenterXLessThanOrEqualToTrailing() {
         let constraints = view1.centerXAnchor ≤ relatedView.trailing
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing)
     }
 
-    public func testView1CenterXLessThanOrEqualTrailingPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1CenterXLessThanOrEqualToTrailingPlusConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.trailing + 10
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, constant: 10)
     }
 
-    public func testView1CenterXLessThanOrEqualTrailingMinusConstant() {
+    func testView1CenterXLessThanOrEqualToTrailingMinusConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.trailing - 10
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, constant: -10)
     }
 
-    public func testView1CenterXLessThanOrEqualTrailingMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1CenterXLessThanOrEqualToTrailingMultiplyingConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.trailing * 3
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1CenterXLessThanOrEqualTrailingMultipliedByConstant() {
+    func testView1CenterXLessThanOrEqualToTrailingMultipliedByConstant() {
         let constraints = view1.centerXAnchor ≤ 3 * relatedView.trailing
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1CenterXLessThanOrEqualTrailingDividedByConstant() {
+    func testView1CenterXLessThanOrEqualToTrailingDividedByConstant() {
         let constraints = view1.centerXAnchor ≤ relatedView.trailing / 2
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
     }
 
-    public func testView1CenterXLessThanOrEqualTrailingWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1CenterXLessThanOrEqualToTrailingWithPriority() {
         let constraints = view1.centerXAnchor ≤ relatedView.trailing ~ .low
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, priority: .low)
     }
 
-    public func testView1CenterXLessThanOrEqualTrailingWithPriorityArithmetic() {
+    func testView1CenterXLessThanOrEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor ≤ relatedView.trailing ~ 300
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1CenterXLessThanOrEqualToTrailingWithPriorityArithmetic() {
         let constraints = view1.centerXAnchor ≤ relatedView.trailing ~ .high - 1
         constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, priority: 749)
     }
 
-    public func testView1CenterXGreaterThanOrEqualTrailing() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1CenterXLessThanOrEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor ≤ (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXLessThanOrEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor ≤ 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXLessThanOrEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor ≤ 3 * relatedView.trailing + 10
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXLessThanOrEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor ≤ (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .centerX, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1CenterXEqualToTrailing() {
+        let constraints = view1.centerXAnchor .= relatedView.trailing
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing)
+    }
+
+    // MARK: Equal with constant
+    func testView1CenterXEqualToTrailingPlusConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.trailing + 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, constant: 10)
+    }
+
+    func testView1CenterXEqualToTrailingMinusConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.trailing - 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1CenterXEqualToTrailingMultiplyingConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.trailing * 3
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToTrailingMultipliedByConstant() {
+        let constraints = view1.centerXAnchor .= 3 * relatedView.trailing
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToTrailingDividedByConstant() {
+        let constraints = view1.centerXAnchor .= relatedView.trailing / 2
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1CenterXEqualToTrailingWithPriority() {
+        let constraints = view1.centerXAnchor .= relatedView.trailing ~ .low
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, priority: .low)
+    }
+
+    func testView1CenterXEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor .= relatedView.trailing ~ 300
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1CenterXEqualToTrailingWithPriorityArithmetic() {
+        let constraints = view1.centerXAnchor .= relatedView.trailing ~ .high - 1
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1CenterXEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor .= (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor .= 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor .= 3 * relatedView.trailing + 10
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor .= (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .centerX, .equal, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1CenterXGreaterThanOrEqualToTrailing() {
         let constraints = view1.centerXAnchor ≥ relatedView.trailing
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing)
     }
 
-    public func testView1CenterXGreaterThanOrEqualTrailingPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1CenterXGreaterThanOrEqualToTrailingPlusConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.trailing + 10
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, constant: 10)
     }
 
-    public func testView1CenterXGreaterThanOrEqualTrailingMinusConstant() {
+    func testView1CenterXGreaterThanOrEqualToTrailingMinusConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.trailing - 10
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, constant: -10)
     }
 
-    public func testView1CenterXGreaterThanOrEqualTrailingMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1CenterXGreaterThanOrEqualToTrailingMultiplyingConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.trailing * 3
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1CenterXGreaterThanOrEqualTrailingMultipliedByConstant() {
+    func testView1CenterXGreaterThanOrEqualToTrailingMultipliedByConstant() {
         let constraints = view1.centerXAnchor ≥ 3 * relatedView.trailing
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1CenterXGreaterThanOrEqualTrailingDividedByConstant() {
+    func testView1CenterXGreaterThanOrEqualToTrailingDividedByConstant() {
         let constraints = view1.centerXAnchor ≥ relatedView.trailing / 2
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
     }
 
-    public func testView1CenterXGreaterThanOrEqualTrailingWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1CenterXGreaterThanOrEqualToTrailingWithPriority() {
         let constraints = view1.centerXAnchor ≥ relatedView.trailing ~ .low
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, priority: .low)
     }
 
-    public func testView1CenterXGreaterThanOrEqualTrailingWithPriorityArithmetic() {
+    func testView1CenterXGreaterThanOrEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.centerXAnchor ≥ relatedView.trailing ~ 300
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToTrailingWithPriorityArithmetic() {
         let constraints = view1.centerXAnchor ≥ relatedView.trailing ~ .high - 1
         constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, priority: 749)
     }
 
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1CenterXGreaterThanOrEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.centerXAnchor ≥ (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.centerXAnchor ≥ 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1CenterXGreaterThanOrEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.centerXAnchor ≥ 3 * relatedView.trailing + 10
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1CenterXGreaterThanOrEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.centerXAnchor ≥ (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // MARK: view1Trailing <=> relatedViewLeading
-    public func testView1TrailingEqualLeading() {
-        let constraints = view1.trailingAnchor .= relatedView.leading
-        constraints.assert(view1, .trailing, .equal, relatedView, .leading)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1TrailingEqualLeadingPlusConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.leading + 10
-        constraints.assert(view1, .trailing, .equal, relatedView, .leading, constant: 10)
-    }
-
-    public func testView1TrailingEqualLeadingMinusConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.leading - 10
-        constraints.assert(view1, .trailing, .equal, relatedView, .leading, constant: -10)
-    }
-
-    public func testView1TrailingEqualLeadingMultiplyingConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.leading * 3
-        constraints.assert(view1, .trailing, .equal, relatedView, .leading, multiplier: 3)
-    }
-
-    public func testView1TrailingEqualLeadingMultipliedByConstant() {
-        let constraints = view1.trailingAnchor .= 3 * relatedView.leading
-        constraints.assert(view1, .trailing, .equal, relatedView, .leading, multiplier: 3)
-    }
-
-    public func testView1TrailingEqualLeadingDividedByConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.leading / 2
-        constraints.assert(view1, .trailing, .equal, relatedView, .leading, multiplier: 1 / 2)
-    }
-
-    public func testView1TrailingEqualLeadingWithPriority() {
-        let constraints = view1.trailingAnchor .= relatedView.leading ~ .low
-        constraints.assert(view1, .trailing, .equal, relatedView, .leading, priority: .low)
-    }
-
-    public func testView1TrailingEqualLeadingWithPriorityArithmetic() {
-        let constraints = view1.trailingAnchor .= relatedView.leading ~ .high - 1
-        constraints.assert(view1, .trailing, .equal, relatedView, .leading, priority: 749)
-    }
-
-    public func testView1TrailingLessThanOrEqualLeading() {
+    func testView1TrailingLessThanOrEqualToLeading() {
         let constraints = view1.trailingAnchor ≤ relatedView.leading
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading)
     }
 
-    public func testView1TrailingLessThanOrEqualLeadingPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1TrailingLessThanOrEqualToLeadingPlusConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.leading + 10
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, constant: 10)
     }
 
-    public func testView1TrailingLessThanOrEqualLeadingMinusConstant() {
+    func testView1TrailingLessThanOrEqualToLeadingMinusConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.leading - 10
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, constant: -10)
     }
 
-    public func testView1TrailingLessThanOrEqualLeadingMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1TrailingLessThanOrEqualToLeadingMultiplyingConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.leading * 3
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1TrailingLessThanOrEqualLeadingMultipliedByConstant() {
+    func testView1TrailingLessThanOrEqualToLeadingMultipliedByConstant() {
         let constraints = view1.trailingAnchor ≤ 3 * relatedView.leading
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1TrailingLessThanOrEqualLeadingDividedByConstant() {
+    func testView1TrailingLessThanOrEqualToLeadingDividedByConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.leading / 2
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
     }
 
-    public func testView1TrailingLessThanOrEqualLeadingWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1TrailingLessThanOrEqualToLeadingWithPriority() {
         let constraints = view1.trailingAnchor ≤ relatedView.leading ~ .low
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, priority: .low)
     }
 
-    public func testView1TrailingLessThanOrEqualLeadingWithPriorityArithmetic() {
+    func testView1TrailingLessThanOrEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor ≤ relatedView.leading ~ 300
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, priority: 300)
+    }
+
+    func testView1TrailingLessThanOrEqualToLeadingWithPriorityArithmetic() {
         let constraints = view1.trailingAnchor ≤ relatedView.leading ~ .high - 1
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, priority: 749)
     }
 
-    public func testView1TrailingGreaterThanOrEqualLeading() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1TrailingLessThanOrEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor ≤ (relatedView.leading + 10) * 3
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingLessThanOrEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor ≤ 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingLessThanOrEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor ≤ 3 * relatedView.leading + 10
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingLessThanOrEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor ≤ (relatedView.leading + 10) / 2
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1TrailingEqualToLeading() {
+        let constraints = view1.trailingAnchor .= relatedView.leading
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading)
+    }
+
+    // MARK: Equal with constant
+    func testView1TrailingEqualToLeadingPlusConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.leading + 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, constant: 10)
+    }
+
+    func testView1TrailingEqualToLeadingMinusConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.leading - 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1TrailingEqualToLeadingMultiplyingConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.leading * 3
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToLeadingMultipliedByConstant() {
+        let constraints = view1.trailingAnchor .= 3 * relatedView.leading
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToLeadingDividedByConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.leading / 2
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1TrailingEqualToLeadingWithPriority() {
+        let constraints = view1.trailingAnchor .= relatedView.leading ~ .low
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, priority: .low)
+    }
+
+    func testView1TrailingEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor .= relatedView.leading ~ 300
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, priority: 300)
+    }
+
+    func testView1TrailingEqualToLeadingWithPriorityArithmetic() {
+        let constraints = view1.trailingAnchor .= relatedView.leading ~ .high - 1
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1TrailingEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor .= (relatedView.leading + 10) * 3
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor .= 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor .= 3 * relatedView.leading + 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor .= (relatedView.leading + 10) / 2
+        constraints.assert(view1, .trailing, .equal, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1TrailingGreaterThanOrEqualToLeading() {
         let constraints = view1.trailingAnchor ≥ relatedView.leading
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading)
     }
 
-    public func testView1TrailingGreaterThanOrEqualLeadingPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1TrailingGreaterThanOrEqualToLeadingPlusConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.leading + 10
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, constant: 10)
     }
 
-    public func testView1TrailingGreaterThanOrEqualLeadingMinusConstant() {
+    func testView1TrailingGreaterThanOrEqualToLeadingMinusConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.leading - 10
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, constant: -10)
     }
 
-    public func testView1TrailingGreaterThanOrEqualLeadingMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1TrailingGreaterThanOrEqualToLeadingMultiplyingConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.leading * 3
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1TrailingGreaterThanOrEqualLeadingMultipliedByConstant() {
+    func testView1TrailingGreaterThanOrEqualToLeadingMultipliedByConstant() {
         let constraints = view1.trailingAnchor ≥ 3 * relatedView.leading
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, multiplier: 3)
     }
 
-    public func testView1TrailingGreaterThanOrEqualLeadingDividedByConstant() {
+    func testView1TrailingGreaterThanOrEqualToLeadingDividedByConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.leading / 2
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
     }
 
-    public func testView1TrailingGreaterThanOrEqualLeadingWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1TrailingGreaterThanOrEqualToLeadingWithPriority() {
         let constraints = view1.trailingAnchor ≥ relatedView.leading ~ .low
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, priority: .low)
     }
 
-    public func testView1TrailingGreaterThanOrEqualLeadingWithPriorityArithmetic() {
+    func testView1TrailingGreaterThanOrEqualToLeadingWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor ≥ relatedView.leading ~ 300
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, priority: 300)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToLeadingWithPriorityArithmetic() {
         let constraints = view1.trailingAnchor ≥ relatedView.leading ~ .high - 1
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, priority: 749)
     }
 
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1TrailingGreaterThanOrEqualToLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor ≥ (relatedView.leading + 10) * 3
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor ≥ 3 * (relatedView.leading + 10)
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor ≥ 3 * relatedView.leading + 10
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingGreaterThanOrEqualToLeadingPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor ≥ (relatedView.leading + 10) / 2
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .leading, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // MARK: view1Trailing <=> relatedViewCenterX
-    public func testView1TrailingEqualCenterX() {
-        let constraints = view1.trailingAnchor .= relatedView.centerX
-        constraints.assert(view1, .trailing, .equal, relatedView, .centerX)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1TrailingEqualCenterXPlusConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.centerX + 10
-        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10)
-    }
-
-    public func testView1TrailingEqualCenterXMinusConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.centerX - 10
-        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, constant: -10)
-    }
-
-    public func testView1TrailingEqualCenterXMultiplyingConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.centerX * 3
-        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, multiplier: 3)
-    }
-
-    public func testView1TrailingEqualCenterXMultipliedByConstant() {
-        let constraints = view1.trailingAnchor .= 3 * relatedView.centerX
-        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, multiplier: 3)
-    }
-
-    public func testView1TrailingEqualCenterXDividedByConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.centerX / 2
-        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, multiplier: 1 / 2)
-    }
-
-    public func testView1TrailingEqualCenterXWithPriority() {
-        let constraints = view1.trailingAnchor .= relatedView.centerX ~ .low
-        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, priority: .low)
-    }
-
-    public func testView1TrailingEqualCenterXWithPriorityArithmetic() {
-        let constraints = view1.trailingAnchor .= relatedView.centerX ~ .high - 1
-        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, priority: 749)
-    }
-
-    public func testView1TrailingLessThanOrEqualCenterX() {
+    func testView1TrailingLessThanOrEqualToCenterX() {
         let constraints = view1.trailingAnchor ≤ relatedView.centerX
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX)
     }
 
-    public func testView1TrailingLessThanOrEqualCenterXPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1TrailingLessThanOrEqualToCenterXPlusConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.centerX + 10
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, constant: 10)
     }
 
-    public func testView1TrailingLessThanOrEqualCenterXMinusConstant() {
+    func testView1TrailingLessThanOrEqualToCenterXMinusConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.centerX - 10
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, constant: -10)
     }
 
-    public func testView1TrailingLessThanOrEqualCenterXMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1TrailingLessThanOrEqualToCenterXMultiplyingConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.centerX * 3
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1TrailingLessThanOrEqualCenterXMultipliedByConstant() {
+    func testView1TrailingLessThanOrEqualToCenterXMultipliedByConstant() {
         let constraints = view1.trailingAnchor ≤ 3 * relatedView.centerX
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1TrailingLessThanOrEqualCenterXDividedByConstant() {
+    func testView1TrailingLessThanOrEqualToCenterXDividedByConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.centerX / 2
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
     }
 
-    public func testView1TrailingLessThanOrEqualCenterXWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1TrailingLessThanOrEqualToCenterXWithPriority() {
         let constraints = view1.trailingAnchor ≤ relatedView.centerX ~ .low
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, priority: .low)
     }
 
-    public func testView1TrailingLessThanOrEqualCenterXWithPriorityArithmetic() {
+    func testView1TrailingLessThanOrEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor ≤ relatedView.centerX ~ 300
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1TrailingLessThanOrEqualToCenterXWithPriorityArithmetic() {
         let constraints = view1.trailingAnchor ≤ relatedView.centerX ~ .high - 1
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, priority: 749)
     }
 
-    public func testView1TrailingGreaterThanOrEqualCenterX() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1TrailingLessThanOrEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor ≤ (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingLessThanOrEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor ≤ 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingLessThanOrEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor ≤ 3 * relatedView.centerX + 10
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingLessThanOrEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor ≤ (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1TrailingEqualToCenterX() {
+        let constraints = view1.trailingAnchor .= relatedView.centerX
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX)
+    }
+
+    // MARK: Equal with constant
+    func testView1TrailingEqualToCenterXPlusConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.centerX + 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10)
+    }
+
+    func testView1TrailingEqualToCenterXMinusConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.centerX - 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1TrailingEqualToCenterXMultiplyingConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.centerX * 3
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToCenterXMultipliedByConstant() {
+        let constraints = view1.trailingAnchor .= 3 * relatedView.centerX
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToCenterXDividedByConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.centerX / 2
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1TrailingEqualToCenterXWithPriority() {
+        let constraints = view1.trailingAnchor .= relatedView.centerX ~ .low
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, priority: .low)
+    }
+
+    func testView1TrailingEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor .= relatedView.centerX ~ 300
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1TrailingEqualToCenterXWithPriorityArithmetic() {
+        let constraints = view1.trailingAnchor .= relatedView.centerX ~ .high - 1
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1TrailingEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor .= (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor .= 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor .= 3 * relatedView.centerX + 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor .= (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1TrailingGreaterThanOrEqualToCenterX() {
         let constraints = view1.trailingAnchor ≥ relatedView.centerX
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX)
     }
 
-    public func testView1TrailingGreaterThanOrEqualCenterXPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1TrailingGreaterThanOrEqualToCenterXPlusConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.centerX + 10
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, constant: 10)
     }
 
-    public func testView1TrailingGreaterThanOrEqualCenterXMinusConstant() {
+    func testView1TrailingGreaterThanOrEqualToCenterXMinusConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.centerX - 10
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, constant: -10)
     }
 
-    public func testView1TrailingGreaterThanOrEqualCenterXMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1TrailingGreaterThanOrEqualToCenterXMultiplyingConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.centerX * 3
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1TrailingGreaterThanOrEqualCenterXMultipliedByConstant() {
+    func testView1TrailingGreaterThanOrEqualToCenterXMultipliedByConstant() {
         let constraints = view1.trailingAnchor ≥ 3 * relatedView.centerX
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, multiplier: 3)
     }
 
-    public func testView1TrailingGreaterThanOrEqualCenterXDividedByConstant() {
+    func testView1TrailingGreaterThanOrEqualToCenterXDividedByConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.centerX / 2
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
     }
 
-    public func testView1TrailingGreaterThanOrEqualCenterXWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1TrailingGreaterThanOrEqualToCenterXWithPriority() {
         let constraints = view1.trailingAnchor ≥ relatedView.centerX ~ .low
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, priority: .low)
     }
 
-    public func testView1TrailingGreaterThanOrEqualCenterXWithPriorityArithmetic() {
+    func testView1TrailingGreaterThanOrEqualToCenterXWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor ≥ relatedView.centerX ~ 300
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, priority: 300)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToCenterXWithPriorityArithmetic() {
         let constraints = view1.trailingAnchor ≥ relatedView.centerX ~ .high - 1
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, priority: 749)
     }
 
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1TrailingGreaterThanOrEqualToCenterXPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor ≥ (relatedView.centerX + 10) * 3
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToCenterXPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor ≥ 3 * (relatedView.centerX + 10)
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToCenterXMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor ≥ 3 * relatedView.centerX + 10
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingGreaterThanOrEqualToCenterXPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor ≥ (relatedView.centerX + 10) / 2
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // MARK: view1Trailing <=> relatedViewTrailing
-    public func testView1TrailingEqualTrailing() {
-        let constraints = view1.trailingAnchor .= relatedView.trailing
-        constraints.assert(view1, .trailing, .equal, relatedView, .trailing)
-    }
+    // MARK: LessThanOrEqual
 
-    public func testView1TrailingEqualTrailingPlusConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.trailing + 10
-        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10)
-    }
-
-    public func testView1TrailingEqualTrailingMinusConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.trailing - 10
-        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -10)
-    }
-
-    public func testView1TrailingEqualTrailingMultiplyingConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.trailing * 3
-        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 3)
-    }
-
-    public func testView1TrailingEqualTrailingMultipliedByConstant() {
-        let constraints = view1.trailingAnchor .= 3 * relatedView.trailing
-        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 3)
-    }
-
-    public func testView1TrailingEqualTrailingDividedByConstant() {
-        let constraints = view1.trailingAnchor .= relatedView.trailing / 2
-        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 1 / 2)
-    }
-
-    public func testView1TrailingEqualTrailingWithPriority() {
-        let constraints = view1.trailingAnchor .= relatedView.trailing ~ .low
-        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, priority: .low)
-    }
-
-    public func testView1TrailingEqualTrailingWithPriorityArithmetic() {
-        let constraints = view1.trailingAnchor .= relatedView.trailing ~ .high - 1
-        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, priority: 749)
-    }
-
-    public func testView1TrailingLessThanOrEqualTrailing() {
+    func testView1TrailingLessThanOrEqualToTrailing() {
         let constraints = view1.trailingAnchor ≤ relatedView.trailing
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing)
     }
 
-    public func testView1TrailingLessThanOrEqualTrailingPlusConstant() {
+    // MARK: LessThanOrEqual with constant
+    func testView1TrailingLessThanOrEqualToTrailingPlusConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.trailing + 10
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
     }
 
-    public func testView1TrailingLessThanOrEqualTrailingMinusConstant() {
+    func testView1TrailingLessThanOrEqualToTrailingMinusConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.trailing - 10
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
     }
 
-    public func testView1TrailingLessThanOrEqualTrailingMultiplyingConstant() {
+    // MARK: LessThanOrEqual with multiplier
+    func testView1TrailingLessThanOrEqualToTrailingMultiplyingConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.trailing * 3
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1TrailingLessThanOrEqualTrailingMultipliedByConstant() {
+    func testView1TrailingLessThanOrEqualToTrailingMultipliedByConstant() {
         let constraints = view1.trailingAnchor ≤ 3 * relatedView.trailing
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1TrailingLessThanOrEqualTrailingDividedByConstant() {
+    func testView1TrailingLessThanOrEqualToTrailingDividedByConstant() {
         let constraints = view1.trailingAnchor ≤ relatedView.trailing / 2
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
     }
 
-    public func testView1TrailingLessThanOrEqualTrailingWithPriority() {
+    // MARK: LessThanOrEqual Prioritized
+    func testView1TrailingLessThanOrEqualToTrailingWithPriority() {
         let constraints = view1.trailingAnchor ≤ relatedView.trailing ~ .low
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
     }
 
-    public func testView1TrailingLessThanOrEqualTrailingWithPriorityArithmetic() {
+    func testView1TrailingLessThanOrEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor ≤ relatedView.trailing ~ 300
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1TrailingLessThanOrEqualToTrailingWithPriorityArithmetic() {
         let constraints = view1.trailingAnchor ≤ relatedView.trailing ~ .high - 1
         constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
     }
 
-    public func testView1TrailingGreaterThanOrEqualTrailing() {
+    // MARK: LessThanOrEqual with constant + multiplier
+
+    func testView1TrailingLessThanOrEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor ≤ (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingLessThanOrEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor ≤ 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingLessThanOrEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor ≤ 3 * relatedView.trailing + 10
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingLessThanOrEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor ≤ (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: Equal
+
+    func testView1TrailingEqualToTrailing() {
+        let constraints = view1.trailingAnchor .= relatedView.trailing
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing)
+    }
+
+    // MARK: Equal with constant
+    func testView1TrailingEqualToTrailingPlusConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.trailing + 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10)
+    }
+
+    func testView1TrailingEqualToTrailingMinusConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.trailing - 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testView1TrailingEqualToTrailingMultiplyingConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.trailing * 3
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToTrailingMultipliedByConstant() {
+        let constraints = view1.trailingAnchor .= 3 * relatedView.trailing
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToTrailingDividedByConstant() {
+        let constraints = view1.trailingAnchor .= relatedView.trailing / 2
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal Prioritized
+    func testView1TrailingEqualToTrailingWithPriority() {
+        let constraints = view1.trailingAnchor .= relatedView.trailing ~ .low
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, priority: .low)
+    }
+
+    func testView1TrailingEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor .= relatedView.trailing ~ 300
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1TrailingEqualToTrailingWithPriorityArithmetic() {
+        let constraints = view1.trailingAnchor .= relatedView.trailing ~ .high - 1
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, priority: 749)
+    }
+
+    // MARK: Equal with constant + multiplier
+
+    func testView1TrailingEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor .= (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor .= 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor .= 3 * relatedView.trailing + 10
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor .= (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
+    // MARK: GreaterThanOrEqual
+
+    func testView1TrailingGreaterThanOrEqualToTrailing() {
         let constraints = view1.trailingAnchor ≥ relatedView.trailing
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing)
     }
 
-    public func testView1TrailingGreaterThanOrEqualTrailingPlusConstant() {
+    // MARK: GreaterThanOrEqual with constant
+    func testView1TrailingGreaterThanOrEqualToTrailingPlusConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.trailing + 10
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10)
     }
 
-    public func testView1TrailingGreaterThanOrEqualTrailingMinusConstant() {
+    func testView1TrailingGreaterThanOrEqualToTrailingMinusConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.trailing - 10
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: -10)
     }
 
-    public func testView1TrailingGreaterThanOrEqualTrailingMultiplyingConstant() {
+    // MARK: GreaterThanOrEqual with multiplier
+    func testView1TrailingGreaterThanOrEqualToTrailingMultiplyingConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.trailing * 3
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1TrailingGreaterThanOrEqualTrailingMultipliedByConstant() {
+    func testView1TrailingGreaterThanOrEqualToTrailingMultipliedByConstant() {
         let constraints = view1.trailingAnchor ≥ 3 * relatedView.trailing
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, multiplier: 3)
     }
 
-    public func testView1TrailingGreaterThanOrEqualTrailingDividedByConstant() {
+    func testView1TrailingGreaterThanOrEqualToTrailingDividedByConstant() {
         let constraints = view1.trailingAnchor ≥ relatedView.trailing / 2
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
     }
 
-    public func testView1TrailingGreaterThanOrEqualTrailingWithPriority() {
+    // MARK: GreaterThanOrEqual Prioritized
+    func testView1TrailingGreaterThanOrEqualToTrailingWithPriority() {
         let constraints = view1.trailingAnchor ≥ relatedView.trailing ~ .low
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, priority: .low)
     }
 
-    public func testView1TrailingGreaterThanOrEqualTrailingWithPriorityArithmetic() {
+    func testView1TrailingGreaterThanOrEqualToTrailingWithPriorityLiteral() {
+        let constraints = view1.trailingAnchor ≥ relatedView.trailing ~ 300
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToTrailingWithPriorityArithmetic() {
         let constraints = view1.trailingAnchor ≥ relatedView.trailing ~ .high - 1
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, priority: 749)
     }
+
+    // MARK: GreaterThanOrEqual with constant + multiplier
+
+    func testView1TrailingGreaterThanOrEqualToTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1.trailingAnchor ≥ (relatedView.trailing + 10) * 3
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1.trailingAnchor ≥ 3 * (relatedView.trailing + 10)
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1TrailingGreaterThanOrEqualToTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1.trailingAnchor ≥ 3 * relatedView.trailing + 10
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+/*
+    func testView1TrailingGreaterThanOrEqualToTrailingPlusConstantDividedByConstant() {
+        let constraints = view1.trailingAnchor ≥ (relatedView.trailing + 10) / 2
+        constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 1 / 2)
+    }
+*/
 // sourcery:end
 }
-

@@ -72,7 +72,6 @@ class AspectRatioTests: UILayoutKitTestCase {
         aspectRatioConstraint.assert(view1, .width, .equal, view1, .height, multiplier: 9.0/16.0)
     }
 
-
 // sourcery:inline:auto:AspectRatioTests.TemplateName
 // sourcery:end
 }

@@ -361,6 +361,15 @@
 		E44E740021FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E73F621FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift */; };
 		E44E740121FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E73F621FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift */; };
 		E44E740221FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E73F621FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift */; };
+		E44E740521FBA93A0026EEE6 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740421FBA93A0026EEE6 /* Benchmark.swift */; };
+		E44E740621FBA93A0026EEE6 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740421FBA93A0026EEE6 /* Benchmark.swift */; };
+		E44E740721FBA93A0026EEE6 /* Benchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740421FBA93A0026EEE6 /* Benchmark.swift */; };
+		E44E740D21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740B21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift */; };
+		E44E740E21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740B21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift */; };
+		E44E740F21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740B21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift */; };
+		E44E741021FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740C21FBBB110026EEE6 /* LayoutDimensionConstantTests.swift */; };
+		E44E741121FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740C21FBBB110026EEE6 /* LayoutDimensionConstantTests.swift */; };
+		E44E741221FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E740C21FBBB110026EEE6 /* LayoutDimensionConstantTests.swift */; };
 		E458225B21E54FE900B6054C /* ShorthandTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */; };
 		E458225C21E54FE900B6054C /* ShorthandTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */; };
 		E458225D21E54FE900B6054C /* ShorthandTypealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */; };
@@ -583,6 +592,10 @@
 		E44E73F421FB7DEC0026EEE6 /* YAxisAnchorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAxisAnchorTests.swift; sourceTree = "<group>"; };
 		E44E73F521FB7DED0026EEE6 /* LayoutDimensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDimensionTests.swift; sourceTree = "<group>"; };
 		E44E73F621FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDimensionArrayTests.swift; sourceTree = "<group>"; };
+		E44E740421FBA93A0026EEE6 /* Benchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Benchmark.swift; sourceTree = "<group>"; };
+		E44E740A21FBB96D0026EEE6 /* ConstantEquationTests.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = ConstantEquationTests.stencil; sourceTree = "<group>"; };
+		E44E740B21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDimensionArrayConstantTests.swift; sourceTree = "<group>"; };
+		E44E740C21FBBB110026EEE6 /* LayoutDimensionConstantTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDimensionConstantTests.swift; sourceTree = "<group>"; };
 		E458225A21E54FE900B6054C /* ShorthandTypealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShorthandTypealiases.swift; sourceTree = "<group>"; };
 		E458225F21E5553500B6054C /* ConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtensions.swift; sourceTree = "<group>"; };
 		E45822BC21E7F77300B6054C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -747,15 +760,17 @@
 				E44E73D421FA48040026EEE6 /* AspectRatioTests.swift */,
 				E44E73D821FA48880026EEE6 /* CompilationPerformanceTests.swift */,
 				E4DA5C6F21EFE51800A25746 /* ImpliedRelationTests.swift */,
+				E44E740B21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift */,
 				E44E73F621FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift */,
+				E44E740C21FBBB110026EEE6 /* LayoutDimensionConstantTests.swift */,
 				E44E73F521FB7DED0026EEE6 /* LayoutDimensionTests.swift */,
 				D284B1321F7906DA00D94AF3 /* SharedTests.swift */,
-				E4DA5C7A21EFE76200A25746 /* SharedTestUtils.swift */,
 				E4DA5C7621EFE5E500A25746 /* UILayoutKitTestCase.swift */,
 				E44E73EF21FB77020026EEE6 /* XAxisAnchorArrayTests.swift */,
 				E44E73E321FA977B0026EEE6 /* XAxisAnchorTests.swift */,
 				E44E73F321FB7DEC0026EEE6 /* YAxisAnchorArrayTests.swift */,
 				E44E73F421FB7DEC0026EEE6 /* YAxisAnchorTests.swift */,
+				E44E740321FBA8DD0026EEE6 /* Util */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1259,8 +1274,28 @@
 			children = (
 				E44E73E221FA57300026EEE6 /* CompilationTest.stencil */,
 				E44E73EB21FA99B90026EEE6 /* AnchorEquationTests.stencil */,
+				E44E740A21FBB96D0026EEE6 /* ConstantEquationTests.stencil */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		E44E740321FBA8DD0026EEE6 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E4DA5C7A21EFE76200A25746 /* SharedTestUtils.swift */,
+				E44E740421FBA93A0026EEE6 /* Benchmark.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E44E741321FD14230026EEE6 /* ConstantArithmeticOperators */ = {
+			isa = PBXGroup;
+			children = (
+				E4EDA1D221F04FE300F345E8 /* ArrayConstantArithmeticOperators.stencil */,
+				E4EDA1D021F04D0400F345E8 /* ConstantArithmeticOperators.stencil */,
+				E4EDA23B21F05CDB00F345E8 /* PairConstantArithmeticOperators.stencil */,
+			);
+			path = ConstantArithmeticOperators;
 			sourceTree = "<group>";
 		};
 		E458225E21E553E700B6054C /* ConstraintLayout */ = {
@@ -1304,14 +1339,12 @@
 			isa = PBXGroup;
 			children = (
 				E44E73E121FA571D0026EEE6 /* Tests */,
-				E4EDA1D221F04FE300F345E8 /* ArrayConstantArithmeticOperators.stencil */,
+				E44E741321FD14230026EEE6 /* ConstantArithmeticOperators */,
 				E4EDA1D121F04E0F00F345E8 /* ArrayRelationOperators.stencil */,
-				E4EDA1D021F04D0400F345E8 /* ConstantArithmeticOperators.stencil */,
 				E44E70C821F77FCE0026EEE6 /* Equation.stencil */,
 				E44E70D621F7BECC0026EEE6 /* EquationOperators.stencil */,
 				E44E73B221F8EEFA0026EEE6 /* LeftHandExtension.stencil */,
 				E4EDA22A21F05B5C00F345E8 /* PairArrayRelationOperators.stencil */,
-				E4EDA23B21F05CDB00F345E8 /* PairConstantArithmeticOperators.stencil */,
 				E4EDA28021F0F13F00F345E8 /* PairPriorityOperators.stencil */,
 				E4EDA20821F0566700F345E8 /* PairRelationOperators.stencil */,
 				E4EDA21921F05A1B00F345E8 /* PriorityOperators.stencil */,
@@ -2067,10 +2100,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4DA5C7921EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */,
+				E44E740721FBA93A0026EEE6 /* Benchmark.swift in Sources */,
 				D284B1441F7908B100D94AF3 /* SharedTests.swift in Sources */,
 				E4DA5C7321EFE55200A25746 /* ImpliedRelationTests.swift in Sources */,
 				E44E740221FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */,
 				E44E73F221FB77020026EEE6 /* XAxisAnchorArrayTests.swift in Sources */,
+				E44E741221FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */,
+				E44E740F21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift in Sources */,
 				E44E73FC21FB7DED0026EEE6 /* YAxisAnchorTests.swift in Sources */,
 				E44E73E621FA977B0026EEE6 /* XAxisAnchorTests.swift in Sources */,
 				E4DA5C7D21EFE76200A25746 /* SharedTestUtils.swift in Sources */,
@@ -2215,10 +2251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4DA5C7721EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */,
+				E44E740521FBA93A0026EEE6 /* Benchmark.swift in Sources */,
 				D284B1461F7908B300D94AF3 /* SharedTests.swift in Sources */,
 				E4DA5C7521EFE55300A25746 /* ImpliedRelationTests.swift in Sources */,
 				E44E740021FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */,
 				E44E73F021FB77020026EEE6 /* XAxisAnchorArrayTests.swift in Sources */,
+				E44E741021FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */,
+				E44E740D21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift in Sources */,
 				E44E73FA21FB7DED0026EEE6 /* YAxisAnchorTests.swift in Sources */,
 				E44E73E421FA977B0026EEE6 /* XAxisAnchorTests.swift in Sources */,
 				E4DA5C7B21EFE76200A25746 /* SharedTestUtils.swift in Sources */,
@@ -2354,10 +2393,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4DA5C7821EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */,
+				E44E740621FBA93A0026EEE6 /* Benchmark.swift in Sources */,
 				D284B1451F7908B200D94AF3 /* SharedTests.swift in Sources */,
 				E4DA5C7421EFE55200A25746 /* ImpliedRelationTests.swift in Sources */,
 				E44E740121FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */,
 				E44E73F121FB77020026EEE6 /* XAxisAnchorArrayTests.swift in Sources */,
+				E44E741121FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */,
+				E44E740E21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift in Sources */,
 				E44E73FB21FB7DED0026EEE6 /* YAxisAnchorTests.swift in Sources */,
 				E44E73E521FA977B0026EEE6 /* XAxisAnchorTests.swift in Sources */,
 				E4DA5C7C21EFE76200A25746 /* SharedTestUtils.swift in Sources */,
@@ -2618,7 +2660,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=300 -Xfrontend -warn-long-expression-type-checking=250";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2738,6 +2780,7 @@
 				DEVELOPMENT_TEAM = 4B7GH74X7C;
 				INFOPLIST_FILE = "$(SRCROOT)/UILayoutKitTests/Info-iOS-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -warn-long-function-bodies=5 -Xfrontend -warn-long-expression-type-checking=5";
 				PRODUCT_BUNDLE_IDENTIFIER = io.appsaurus.UILayoutKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2757,6 +2800,7 @@
 				DEVELOPMENT_TEAM = 4B7GH74X7C;
 				INFOPLIST_FILE = "$(SRCROOT)/UILayoutKitTests/Info-iOS-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -warn-long-function-bodies=5 -Xfrontend -warn-long-expression-type-checking=5";
 				PRODUCT_BUNDLE_IDENTIFIER = io.appsaurus.UILayoutKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

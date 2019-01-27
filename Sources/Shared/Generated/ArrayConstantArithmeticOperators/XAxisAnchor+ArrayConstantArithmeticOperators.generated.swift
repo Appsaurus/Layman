@@ -34,7 +34,29 @@ public func / (lhs: XAxisAnchors, rhs: LayoutDivisor) -> XAxisAnchorExpressions 
     return lhs.divided(by: rhs)
 }
 
+// MARK: Expressions
+
+@discardableResult
+public func + (lhs: XAxisAnchorExpressions, rhs: LayoutConstant) -> XAxisAnchorExpressions {
+    return lhs.map { $0.with(constant: rhs) }
+}
+
+@discardableResult
+public func - (lhs: XAxisAnchorExpressions, rhs: LayoutConstant) -> XAxisAnchorExpressions {
+    return lhs.map { $0.with(constant: -rhs) }
+}
+
+@discardableResult
+public func * (lhs: XAxisAnchorExpressions, rhs: LayoutMultiplier) -> XAxisAnchorExpressions {
+    return lhs.map { $0.with(multiplier: rhs) }
+}
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: XAxisAnchorExpressions ) -> XAxisAnchorExpressions {
+    return rhs * lhs
+}
+
 @discardableResult
 public func / (lhs: XAxisAnchorExpressions, rhs: LayoutDivisor) -> XAxisAnchorExpressions {
-    return lhs.map { $0.with(multiplier: (1.0 / rhs)) }
+    return lhs * (1.0 / rhs)
 }

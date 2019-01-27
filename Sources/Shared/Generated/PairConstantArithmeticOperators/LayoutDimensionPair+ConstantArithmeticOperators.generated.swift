@@ -29,10 +29,31 @@ public func * (lhs: LayoutMultiplier, rhs: LayoutDimensionPair) -> LayoutDimensi
     return rhs.times(lhs)
 }
 
-
 @discardableResult
 public func / (lhs: LayoutDimensionPair, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {
     return lhs * (1.0 / rhs)
+}
+
+// MARK: Expressions
+
+@discardableResult
+public func + (lhs: LayoutDimensionPairExpression, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
+    return lhs.with(constant: rhs)
+}
+
+@discardableResult
+public func - (lhs: LayoutDimensionPairExpression, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
+    return lhs.with(constant: -rhs)
+}
+
+@discardableResult
+public func * (lhs: LayoutDimensionPairExpression, rhs: LayoutMultiplier) -> LayoutDimensionPairExpression {
+    return lhs.with(multiplier: rhs)
+}
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: LayoutDimensionPairExpression ) -> LayoutDimensionPairExpression {
+    return rhs.with(multiplier: lhs)
 }
 
 @discardableResult

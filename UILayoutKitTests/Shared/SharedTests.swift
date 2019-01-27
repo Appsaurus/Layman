@@ -9,92 +9,39 @@
 @testable import UILayoutKit
 import XCTest
 
-// swiftlint:disable type_body_length file_length
 class SharedTests: UILayoutKitTestCase {
-
-    // MARK: WidthAnchor
-    func testWidthEqualityToConstant() {
-        let constraint = view1.widthAnchor .= 200
-        constraint.assert(view1, .width, .equal, constant: 200)
-    }
-    
-
-    
-    func testWidthGreaterThanConstant() {
-        let constraint = view1.widthAnchor ≥ 200
-        constraint.assert(view1, .width, .greaterThanOrEqual, constant: 200)
-    }
-    
-
-    func testLessThanConstant() {
-        let constraint = view1.widthAnchor ≤ 200
-        constraint.assert(view1, .width, .lessThanOrEqual, constant: 200)
-    }
-
-
-
 
     func testEqualityWithOffsetAndMultiplier() {
         let constraint = view1.widthAnchor .= (relatedView.widthAnchor + 10) / 2.0
-        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10.0, multiplier: 0.5)
+        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10.0 / 2.0, multiplier: 0.5)
     }
-    
 
     func testEqualityWithPriorityConstant() {
         let constraint = view1.widthAnchor .= relatedView.widthAnchor ~ .low
         constraint.assert(view1, .width, .equal, relatedView, .width, priority: .low)
     }
-    
 
-    
-    func testEqualityWithPriorityLiteral() {
-        let constraint = view1.widthAnchor .= relatedView.widthAnchor ~ 750
-        constraint.assert(view1, .width, .equal, relatedView, .width, priority: 750)
-    }
-    
-
-    func testEqualityWithPriorityConstantMath() {
-        let constraint = view1.widthAnchor .= relatedView.widthAnchor ~ .high - 1
-        constraint.assert(view1, .width, .equal, relatedView, .width, priority: LayoutPriority(rawValue: 749))
-    }
-    
-
-    
-    func testEqualityWithPriorityLiteralMath() {
-        let constraint = view1.widthAnchor .= relatedView.widthAnchor ~ LayoutPriority(rawValue: 750 - 1)
-        constraint.assert(view1, .width, .equal, relatedView, .width, priority: LayoutPriority(rawValue: 749))
-    }
-    
-
-    
     func testEqualityWithOffsetAndPriorityMath() {
         let constraint = view1.widthAnchor .= relatedView.widthAnchor + 10 ~ .high - 1.0
         constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, priority: 749)
     }
     
-
-    
     func testEqualityWithOffsetAndMultiplierAndPriorityMath() {
         let constraint = view1.widthAnchor .= (relatedView.widthAnchor + 10) / 2.0 ~ .high - 1
-        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 0.5, priority: 749)
+        constraint.assert(view1, .width, .equal, relatedView, .width, constant: 10.0 / 2.0, multiplier: 0.5, priority: 749)
     }
-    
-
 
     func testXAxisAnchorEqualityWithOffsetAndMultiplier() {
         let constraint = view1.trailingAnchor .= (relatedView.centerXAnchor + 10) / 2.0
-        constraint.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10.0, multiplier: 0.5)
+        constraint.assert(view1, .trailing, .equal, relatedView, .centerX, constant: 10.0 / 2.0, multiplier: 0.5)
     }
 
-
-
     func testXYAxesAnchors() {
-//        let constraints = viewArray.centerAnchors.equal(to: viewArray.centerAnchors.plus(10))        
         let constraints = view1.centerAnchors .= relatedView.centerAnchors
         constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX)
         constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY)
-
     }
+    
     func testArrayXYAxesAnchors() {
         let constraints = viewArray.centerAnchors .= relatedView.centerAnchors
         constraints.map {$0.first}.assert(viewArray, .centerX, .equal, relatedView, .centerX)

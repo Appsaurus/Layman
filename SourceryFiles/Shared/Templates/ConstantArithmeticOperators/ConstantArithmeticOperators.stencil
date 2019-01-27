@@ -33,11 +33,32 @@ public func / (lhs: {{AnchorType}}, rhs: LayoutDivisor) -> {{AnchorType}}Express
     return lhs.divided(by: rhs)
 }
 
+// MARK: Expressions
+
 @discardableResult
-public func / (lhs: {{AnchorType}}Expression, rhs: LayoutDivisor) -> {{AnchorType}}Expression {
-    return lhs.with(multiplier: (1.0 / rhs))
+public func + (lhs: {{AnchorType}}Expression, rhs: LayoutConstant) -> {{AnchorType}}Expression {
+    return lhs.with(constant: rhs)
 }
 
+@discardableResult
+public func - (lhs: {{AnchorType}}Expression, rhs: LayoutConstant) -> {{AnchorType}}Expression {
+    return lhs.with(constant: -rhs)
+}
+
+@discardableResult
+public func * (lhs: {{AnchorType}}Expression, rhs: LayoutMultiplier) -> {{AnchorType}}Expression {
+    return lhs.with(multiplier: rhs)
+}
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: {{AnchorType}}Expression ) -> {{AnchorType}}Expression {
+    return rhs.with(multiplier: lhs)
+}
+
+@discardableResult
+public func / (lhs: {{AnchorType}}Expression, rhs: LayoutDivisor) -> {{AnchorType}}Expression {
+    return lhs.with(multiplier: 1.0 / rhs)
+}
 // sourcery:end
 {% endfor %}
 

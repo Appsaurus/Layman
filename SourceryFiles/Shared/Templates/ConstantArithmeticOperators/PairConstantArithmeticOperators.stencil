@@ -28,16 +28,38 @@ public func * (lhs: LayoutMultiplier, rhs: {{AnchorPairType}}) -> {{AnchorPairTy
     return rhs.times(lhs)
 }
 
-
 @discardableResult
 public func / (lhs: {{AnchorPairType}}, rhs: LayoutDivisor) -> {{AnchorPairType}}Expression {
     return lhs * (1.0 / rhs)
+}
+
+// MARK: Expressions
+
+@discardableResult
+public func + (lhs: {{AnchorPairType}}Expression, rhs: LayoutConstant) -> {{AnchorPairType}}Expression {
+    return lhs.with(constant: rhs)
+}
+
+@discardableResult
+public func - (lhs: {{AnchorPairType}}Expression, rhs: LayoutConstant) -> {{AnchorPairType}}Expression {
+    return lhs.with(constant: -rhs)
+}
+
+@discardableResult
+public func * (lhs: {{AnchorPairType}}Expression, rhs: LayoutMultiplier) -> {{AnchorPairType}}Expression {
+    return lhs.with(multiplier: rhs)
+}
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: {{AnchorPairType}}Expression ) -> {{AnchorPairType}}Expression {
+    return rhs.with(multiplier: lhs)
 }
 
 @discardableResult
 public func / (lhs: {{AnchorPairType}}Expression, rhs: LayoutDivisor) -> {{AnchorPairType}}Expression {
     return lhs.with(multiplier: (1.0 / rhs))
 }
+
 // sourcery:end
 {% endfor %}
 

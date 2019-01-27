@@ -29,10 +29,31 @@ public func * (lhs: LayoutMultiplier, rhs: XYAxesAnchorPair) -> XYAxesAnchorPair
     return rhs.times(lhs)
 }
 
-
 @discardableResult
 public func / (lhs: XYAxesAnchorPair, rhs: LayoutDivisor) -> XYAxesAnchorPairExpression {
     return lhs * (1.0 / rhs)
+}
+
+// MARK: Expressions
+
+@discardableResult
+public func + (lhs: XYAxesAnchorPairExpression, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
+    return lhs.with(constant: rhs)
+}
+
+@discardableResult
+public func - (lhs: XYAxesAnchorPairExpression, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
+    return lhs.with(constant: -rhs)
+}
+
+@discardableResult
+public func * (lhs: XYAxesAnchorPairExpression, rhs: LayoutMultiplier) -> XYAxesAnchorPairExpression {
+    return lhs.with(multiplier: rhs)
+}
+
+@discardableResult
+public func * (lhs: LayoutMultiplier, rhs: XYAxesAnchorPairExpression ) -> XYAxesAnchorPairExpression {
+    return rhs.with(multiplier: lhs)
 }
 
 @discardableResult
