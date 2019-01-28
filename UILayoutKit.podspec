@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.2'
   s.watchos.deployment_target = "3.0"
 
-  s.ios.source_files = 'Sources/{iOS,Shared}/**/*'
+  s.source_files = 'Sources/{iOS,Shared}/**/*'
   s.tvos.source_files = 'Sources/{iOS,tvOS,Shared}/**/*'
   s.osx.source_files = 'Sources/{macOS,Shared}/**/*'
   s.watchos.source_files = 'Sources/{watchOS,Shared}/**/*'

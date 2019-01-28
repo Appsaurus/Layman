@@ -22,10 +22,10 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
 
     public var coefficients: EdgeAnchorsConfiguration = .default
 
-    var topExpression: YAxisAnchorExpression { return top + coefficients.top }
-    var leadingExpression: XAxisAnchorExpression { return leading + coefficients.leading }
-    var bottomExpression: YAxisAnchorExpression { return bottom + coefficients.bottom }
-    var trailingExpression: XAxisAnchorExpression { return trailing + coefficients.trailing }
+    var topExpression: YAxisAnchorExpression { return top .+ coefficients.top }
+    var leadingExpression: XAxisAnchorExpression { return leading .+ coefficients.leading }
+    var bottomExpression: YAxisAnchorExpression { return bottom .+ coefficients.bottom }
+    var trailingExpression: XAxisAnchorExpression { return trailing .+ coefficients.trailing }
 
     public convenience init(variable: EdgeAnchorGroup,
                             coefficients: EdgeAnchorsConfiguration = .default) {
@@ -78,16 +78,16 @@ extension EdgeAnchorGroupExpression: Expression {
 //}
 
 @discardableResult
-private func + (lhs: XAxisAnchor, rhs: LayoutConfiguration) -> XAxisAnchorExpression {
+private func .+ (lhs: XAxisAnchor, rhs: LayoutConfiguration) -> XAxisAnchorExpression {
     return XAxisAnchorExpression(variable: lhs, coefficients: rhs)
 }
 
 @discardableResult
-private func + (lhs: YAxisAnchor, rhs: LayoutConfiguration) -> YAxisAnchorExpression {
+private func .+ (lhs: YAxisAnchor, rhs: LayoutConfiguration) -> YAxisAnchorExpression {
     return YAxisAnchorExpression(variable: lhs, coefficients: rhs)
 }
 
 @discardableResult
-private func + (lhs: LayoutDimension, rhs: LayoutConfiguration) -> LayoutDimensionExpression {
+private func .+ (lhs: LayoutDimension, rhs: LayoutConfiguration) -> LayoutDimensionExpression {
     return LayoutDimensionExpression(variable: lhs, coefficients: rhs)
 }

@@ -22,3 +22,10 @@ infix operator ≤ : RelationPrecedence
 
 infix operator ≥ : RelationPrecedence
 
+infix operator .+ : AdditionPrecedence
+
+infix operator .- : AdditionPrecedence
+
+infix operator .* : MultiplicationPrecedence
+
+infix operator ./ : MultiplicationPrecedence

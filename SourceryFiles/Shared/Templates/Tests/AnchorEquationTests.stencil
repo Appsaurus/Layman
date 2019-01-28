@@ -1,6 +1,12 @@
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
+
 {% set constant 10 %}
 {% set multiplier 3 %}
 {% set divisor 2 %}
+
 {% for type in types.all|annotated:"anchorEquationTest" %}
 // sourcery:inline:auto:{{type.name}}.EquationTests
 {% set lhsItem type.annotations.lhsItem %}
@@ -23,28 +29,28 @@
 
     // MARK: {{operatorName|upperFirstLetter}} with constant
     func {{baseFunctionName}}PlusConstant() {
-        let constraints = {{baseEquation}} + {{constant}}
+        let constraints = {{baseEquation}} {{addition}} {{constant}}
         constraints.assert({{baseAssertion}}, constant: {{constant}})
     }
 
     func {{baseFunctionName}}MinusConstant() {
-        let constraints = {{baseEquation}} - {{constant}}
+        let constraints = {{baseEquation}} {{subtraction}} {{constant}}
         constraints.assert({{baseAssertion}}, constant: -{{constant}})
     }
 
     // MARK: {{operatorName|upperFirstLetter}} with multiplier
     func {{baseFunctionName}}MultiplyingConstant() {
-        let constraints = {{baseEquation}} * {{multiplier}}
+        let constraints = {{baseEquation}} {{multiplication}} {{multiplier}}
         constraints.assert({{baseAssertion}}, multiplier: {{multiplier}})
     }
 
     func {{baseFunctionName}}MultipliedByConstant() {
-        let constraints = {{baseLhs}} {{operator}} {{multiplier}} * {{baseRhs}}
+        let constraints = {{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}}
         constraints.assert({{baseAssertion}}, multiplier: {{multiplier}})
     }
 
     func {{baseFunctionName}}DividedByConstant() {
-        let constraints = {{baseEquation}} / {{divisor}}
+        let constraints = {{baseEquation}} {{division}} {{divisor}}
         constraints.assert({{baseAssertion}}, multiplier: 1 / {{divisor}})
     }
 
@@ -60,32 +66,32 @@
     }
 
     func {{baseFunctionName}}WithPriorityArithmetic() {
-        let constraints = {{baseEquation}} ~ .high - 1
+        let constraints = {{baseEquation}} ~ .high {{subtraction}} 1
         constraints.assert({{baseAssertion}}, priority: 749)
     }
 
-    // MARK: {{operatorName|upperFirstLetter}} with constant + multiplier
+    // MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier
 
     func {{baseFunctionName}}PlusConstantMultiplyingConstant() {
-        let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} + {{constant}}) * {{multiplier}}
+        let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}}
         constraints.assert({{baseAssertion}}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}})
     }
 
     func {{baseFunctionName}}PlusConstantMultipliedByConstant() {
-        let constraints = {{baseLhs}} {{operator}} {{multiplier}} * ({{baseRhs}} + {{constant}})
+        let constraints = {{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}})
         constraints.assert({{baseAssertion}}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}})
     }
 
     func {{baseFunctionName}}MultipliedByConstantPlusConstant() {
-        let constraints = {{baseLhs}} {{operator}} {{multiplier}} * {{baseRhs}} + {{constant}}
+        let constraints = {{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}}
         constraints.assert({{baseAssertion}}, constant: {{constant}}, multiplier: {{multiplier}})
     }
-/*
+
     func {{baseFunctionName}}PlusConstantDividedByConstant() {
-        let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} + {{constant}}) / {{divisor}}
-        constraints.assert({{baseAssertion}}, constant: {{constant}}, multiplier: 1 / {{divisor}})
+        let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}}
+        constraints.assert({{baseAssertion}}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}})
     }
-*/
+
 {% endfor %}
 {% endfor %}
 {% endfor %}

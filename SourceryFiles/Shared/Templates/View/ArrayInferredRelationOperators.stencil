@@ -1,3 +1,10 @@
+{% set equal argument.operators.equal %}
+{% set lessThanOrEqual argument.operators.lessThanOrEqual %}
+{% set greaterThanOrEqual argument.operators.greaterThanOrEqual %}
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
 
 {% for AnchorType in argument.AnchorTypes %}
 {% set Solution %}{{AnchorType}}.Solution{% endset %}
@@ -11,83 +18,80 @@
 //
 // MARK: [View] == Anchor
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: [View], rhs: {{AnchorType}}) -> [{{Solution}}] {
-    return lhs.map { $0 {{argument.EqualityOperator}} rhs }
+public func {{equal}} (lhs: [View], rhs: {{AnchorType}}) -> [{{Solution}}] {
+    return lhs.map { $0 {{equal}} rhs }
 }
 
 // MARK: [View] == Anchors
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: [View], rhs: {{AnchorType}}s) -> [[{{Solution}}]] {
+public func {{equal}} (lhs: [View], rhs: {{AnchorType}}s) -> [[{{Solution}}]] {
     return lhs.map { element in
-        rhs.map({element {{argument.EqualityOperator}} $0})
+        rhs.map({element {{equal}} $0})
     }
 }
 
 // MARK: [View] == Expression
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: [View], rhs: {{AnchorType}}Expression) -> [{{Solution}}] {
-    return lhs.map { $0 {{argument.EqualityOperator}} rhs }
+public func {{equal}} (lhs: [View], rhs: {{AnchorType}}Expression) -> [{{Solution}}] {
+    return lhs.map { $0 {{equal}} rhs }
 }
 
 // MARK: [View] == Expressions
 @discardableResult
-public func {{argument.EqualityOperator}} (lhs: [View], rhs: {{AnchorType}}Expressions) -> [[{{Solution}}]] {
-    return lhs.map { $0 {{argument.EqualityOperator}} rhs }
+public func {{equal}} (lhs: [View], rhs: {{AnchorType}}Expressions) -> [[{{Solution}}]] {
+    return lhs.map { $0 {{equal}} rhs }
 }
 
 // MARK: - LessThanOrEqual
 
 // MARK: [View] <= Anchor
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: [View], rhs: {{AnchorType}}) -> [{{Solution}}] {
-    return lhs.map { $0 {{argument.LessThanOrEqualToOperator}} rhs }
+public func {{lessThanOrEqual}} (lhs: [View], rhs: {{AnchorType}}) -> [{{Solution}}] {
+    return lhs.map { $0 {{lessThanOrEqual}} rhs }
 }
 
 // MARK: [View] <= Anchors
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: [View], rhs: {{AnchorType}}s) -> [[{{Solution}}]] {
-    return lhs.map { $0 {{argument.LessThanOrEqualToOperator}} rhs }
+public func {{lessThanOrEqual}} (lhs: [View], rhs: {{AnchorType}}s) -> [[{{Solution}}]] {
+    return lhs.map { $0 {{lessThanOrEqual}} rhs }
 }
 
 // MARK: [View] <= Expression
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: [View], rhs: {{AnchorType}}Expression) -> [{{Solution}}] {
-    return lhs.map { $0 {{argument.LessThanOrEqualToOperator}} rhs }
+public func {{lessThanOrEqual}} (lhs: [View], rhs: {{AnchorType}}Expression) -> [{{Solution}}] {
+    return lhs.map { $0 {{lessThanOrEqual}} rhs }
 }
 
 // MARK: [View] <= Expressions
 @discardableResult
-public func {{argument.LessThanOrEqualToOperator}} (lhs: [View], rhs: {{AnchorType}}Expressions) -> [[{{Solution}}]] {
-    return lhs.map { $0 {{argument.LessThanOrEqualToOperator}} rhs }
+public func {{lessThanOrEqual}} (lhs: [View], rhs: {{AnchorType}}Expressions) -> [[{{Solution}}]] {
+    return lhs.map { $0 {{lessThanOrEqual}} rhs }
 }
 
 // MARK: - GreaterThanOrEqual
 
 // MARK: [View] >= Anchor
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: [View], rhs: {{AnchorType}}) -> [{{Solution}}] {
-    return lhs.map { $0 {{argument.GreaterThanOrEqualToOperator}} rhs }
+public func {{greaterThanOrEqual}} (lhs: [View], rhs: {{AnchorType}}) -> [{{Solution}}] {
+    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
 }
 
 // MARK: [View] >= Anchors
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: [View], rhs: {{AnchorType}}s) -> [[{{Solution}}]] {
-    return lhs.map { $0 {{argument.GreaterThanOrEqualToOperator}} rhs }
+public func {{greaterThanOrEqual}} (lhs: [View], rhs: {{AnchorType}}s) -> [[{{Solution}}]] {
+    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
 }
 
 // MARK: [View] >= Expression
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: [View], rhs: {{AnchorType}}Expression) -> [{{Solution}}] {
-    return lhs.map { $0 {{argument.GreaterThanOrEqualToOperator}} rhs }
+public func {{greaterThanOrEqual}} (lhs: [View], rhs: {{AnchorType}}Expression) -> [{{Solution}}] {
+    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
 }
 
 // MARK: [View] >= Expressions
 @discardableResult
-public func {{argument.GreaterThanOrEqualToOperator}} (lhs: [View], rhs: {{AnchorType}}Expressions) -> [[{{Solution}}]] {
-    return lhs.map { $0 {{argument.GreaterThanOrEqualToOperator}} rhs }
+public func {{greaterThanOrEqual}} (lhs: [View], rhs: {{AnchorType}}Expressions) -> [[{{Solution}}]] {
+    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
 }
 // sourcery:end
 {% endfor %}
-
-
-

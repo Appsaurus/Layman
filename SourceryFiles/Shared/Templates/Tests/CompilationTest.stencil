@@ -1,12 +1,15 @@
-{% set EqualityOperator %}{{argument.EqualityOperator}}{% endset %}
-{% set LessThanOrEqualToOperator %}{{argument.LessThanOrEqualToOperator}}{% endset %}
-{% set GreaterThanOrEqualToOperator %}{{argument.GreaterThanOrEqualToOperator}}{% endset %}
-
+{% set equal argument.operators.equal %}
+{% set lessThanOrEqual argument.operators.lessThanOrEqual %}
+{% set greaterThanOrEqual argument.operators.greaterThanOrEqual %}
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
 {% for type in types.all|annotated:"compilationTest" %}
 // sourcery:inline:auto:{{ type.name }}.TemplateName
 {% for value in type.annotations.functionName %}
     func {{value}}() {
-        {% set BodyLine %}{{type.annotations.body[forloop.counter0]|replace:'==',EqualityOperator|replace:'<=',LessThanOrEqualToOperator|replace:'>=',GreaterThanOrEqualToOperator}}{% endset %}
+        {% set BodyLine %}{{type.annotations.body[forloop.counter0]|replace:'==',equal|replace:'<=',lessThanOrEqual|replace:'>=',greaterThanOrEqual|replace:'+',addition|replace:'-',subtraction|replace:'*',multiplication|replace:'/',division}}{% endset %}
         {{BodyLine}}
         {{BodyLine}}
         {{BodyLine}}

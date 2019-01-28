@@ -1,3 +1,7 @@
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
 {% set constant 200 %}
 {% for type in types.all|annotated:"constantEquationTest" %}
 // sourcery:inline:auto:{{type.name}}.ConstantEquationTests
@@ -21,7 +25,7 @@
     }
 
     func {{baseFunctionName}}WithPriorityArithmetic() {
-        let constraints = {{baseEquation}} ~ .high - 1
+        let constraints = {{baseEquation}} ~ .high {{subtraction}} 1
         constraints.assert({{baseAssertion}}, priority: 749)
     }
 
@@ -29,4 +33,3 @@
 {% endfor %}
 // sourcery:end
 {% endfor %}
-

@@ -51,5 +51,10 @@ args:
     equal: ".="
     lessThanOrEqual: "≤"
     greaterThanOrEqual: "≥"
+  arithmeticOperators:
+    addition: ".+"
+    subtraction: ".-"
+    multiplication: ".*"
+    division: "./"
 
 output: Sources/Shared/Generated

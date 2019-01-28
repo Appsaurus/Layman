@@ -22,14 +22,14 @@ public func .= (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatioConfiguration)
             let ambiguityMessage = "You must horizontally constrain (width or leading/left + trailing/right) a view an inverse aspect ratio constraint."
             precondition(!view.hasAmbiguousWidth, ambiguityMessage)
         }
-        return view.heightAnchor.equal(to: view.widthAnchor * rhs.aspectRatio.ratio ~ rhs.priority)
+        return view.heightAnchor.equal(to: view.widthAnchor.times(rhs.aspectRatio.ratio) ~ rhs.priority)
     case .inverse(let view):
         if isTestOrDebug {
             let ambiguityMessage = "You must vertically constrain (height or top+bottom) a view an inverse aspect ratio constraint."
             precondition(!view.hasAmbiguousHeight, ambiguityMessage)
         }
         let inverseRatio = 1 / rhs.aspectRatio.ratio
-        return view.widthAnchor.equal(to: view.heightAnchor * inverseRatio ~ rhs.priority)
+        return view.widthAnchor.equal(to: view.heightAnchor.times(inverseRatio) ~ rhs.priority)
     }
 }
 

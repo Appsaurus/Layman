@@ -141,20 +141,17 @@ extension Coeficient {
     }
 }
 
-//extension Array where Element: LayoutExpression<CoefficientMutating> {
-//
-////    public func with(constant: Element.Constant) -> [Element] {
-////        forEach{ $0.set(constant: constant) }
-////        return self
-////    }
-//
-//    public func with(multiplier: Element.Multiplier) -> [Element] {
-//        forEach { $0.set(multiplier: multiplier)}
-//        return self
+extension Array where Element: Expression {
+
+    public func with(constant: Element.C.Constant) -> [Element] {
+        return map { $0.with(constant: constant) }
+    }
+
+//    public func with(multiplier: Element.C.Multiplier) -> [Element] {
+//        return map  { $0.with(multiplier: multiplier)}
 //    }
 //
-////    public func with(priority: Element.Priority) -> [Element] {
-////        forEach{ $0.set(priority: priority) }
-////        return self
-////    }
-//}
+//    public func with(priority: Element.C.Priority) -> [Element] {
+//        return map { $0.with(priority: priority) }
+//    }
+}
