@@ -14,19 +14,19 @@ import XCTest
 // sourcery: lhsItem = viewArray
 class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
 // sourcery:inline:auto:LayoutDimensionArrayConstantTests.ConstantEquationTests
-    func testViewArrayWidthLessThanOrEqualToConstant() {
-        let constraints = viewArray.widthAnchor ≤ 200
-        constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200)
+    func testViewArrayWidthGreaterThanOrEqualToConstant() {
+        let constraints = viewArray.widthAnchor ≥ 200
+        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200)
     }
 
-    func testViewArrayWidthLessThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.widthAnchor ≤ 200 ~ .low
-        constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200, priority: .low)
+    func testViewArrayWidthGreaterThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.widthAnchor ≥ 200 ~ .low
+        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testViewArrayWidthLessThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.widthAnchor ≤ 200 ~ .high .- 1
-        constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200, priority: 749)
+    func testViewArrayWidthGreaterThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.widthAnchor ≥ 200 ~ .high .- 1
+        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: 749)
     }
 
     func testViewArrayWidthEqualToConstant() {
@@ -44,34 +44,34 @@ class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
         constraints.assert(viewArray, .width, .equal, constant: 200, priority: 749)
     }
 
-    func testViewArrayWidthGreaterThanOrEqualToConstant() {
-        let constraints = viewArray.widthAnchor ≥ 200
-        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200)
+    func testViewArrayWidthLessThanOrEqualToConstant() {
+        let constraints = viewArray.widthAnchor ≤ 200
+        constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200)
     }
 
-    func testViewArrayWidthGreaterThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.widthAnchor ≥ 200 ~ .low
-        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: .low)
+    func testViewArrayWidthLessThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.widthAnchor ≤ 200 ~ .low
+        constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testViewArrayWidthGreaterThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.widthAnchor ≥ 200 ~ .high .- 1
-        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: 749)
+    func testViewArrayWidthLessThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.widthAnchor ≤ 200 ~ .high .- 1
+        constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200, priority: 749)
     }
 
-    func testViewArrayHeightLessThanOrEqualToConstant() {
-        let constraints = viewArray.heightAnchor ≤ 200
-        constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200)
+    func testViewArrayHeightGreaterThanOrEqualToConstant() {
+        let constraints = viewArray.heightAnchor ≥ 200
+        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200)
     }
 
-    func testViewArrayHeightLessThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.heightAnchor ≤ 200 ~ .low
-        constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200, priority: .low)
+    func testViewArrayHeightGreaterThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.heightAnchor ≥ 200 ~ .low
+        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testViewArrayHeightLessThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.heightAnchor ≤ 200 ~ .high .- 1
-        constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200, priority: 749)
+    func testViewArrayHeightGreaterThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.heightAnchor ≥ 200 ~ .high .- 1
+        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200, priority: 749)
     }
 
     func testViewArrayHeightEqualToConstant() {
@@ -89,19 +89,19 @@ class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
         constraints.assert(viewArray, .height, .equal, constant: 200, priority: 749)
     }
 
-    func testViewArrayHeightGreaterThanOrEqualToConstant() {
-        let constraints = viewArray.heightAnchor ≥ 200
-        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200)
+    func testViewArrayHeightLessThanOrEqualToConstant() {
+        let constraints = viewArray.heightAnchor ≤ 200
+        constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200)
     }
 
-    func testViewArrayHeightGreaterThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.heightAnchor ≥ 200 ~ .low
-        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200, priority: .low)
+    func testViewArrayHeightLessThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.heightAnchor ≤ 200 ~ .low
+        constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testViewArrayHeightGreaterThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.heightAnchor ≥ 200 ~ .high .- 1
-        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200, priority: 749)
+    func testViewArrayHeightLessThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.heightAnchor ≤ 200 ~ .high .- 1
+        constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200, priority: 749)
     }
 // sourcery:end
 }
