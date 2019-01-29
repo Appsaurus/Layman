@@ -17,7 +17,7 @@
 {% set operator %}{{argument.operators[operatorName]}}{% endset %}
 {% set baseFunctionName %}test{{lhsItem|upperFirstLetter}}{{lhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}To{{rhsAttribute|upperFirstLetter}}{% endset %}
 {% set baseLhs %}{{lhsItem}}.{{lhsAttribute}}Anchor{% endset %}
-{% set baseRhs %}relatedView.{{rhsAttribute}}{% endset %}
+{% set baseRhs %}relatedView.{{rhsAttribute}}Anchor{% endset %}
 {% set baseEquation %}{{baseLhs}} {{operator}} {{baseRhs}}{% endset %}
 {% set baseAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, relatedView, .{{rhsAttribute}}{% endset %}
     // MARK: {{operatorName|upperFirstLetter}}
@@ -54,7 +54,7 @@
         constraints.assert({{baseAssertion}}, multiplier: 1 / {{divisor}})
     }
 
-    // MARK: {{operatorName|upperFirstLetter}} Prioritized
+    // MARK: {{operatorName|upperFirstLetter}} prioritized
     func {{baseFunctionName}}WithPriority() {
         let constraints = {{baseEquation}} ~ .low
         constraints.assert({{baseAssertion}}, priority: .low)
@@ -90,6 +90,50 @@
     func {{baseFunctionName}}PlusConstantDividedByConstant() {
         let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}}
         constraints.assert({{baseAssertion}}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}})
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier and priority
+
+    func {{baseFunctionName}}PlusConstantMultiplyingConstantWithPriority() {
+        let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}} ~ .low
+        constraints.assert({{baseAssertion}}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: .low)
+    }
+
+    func {{baseFunctionName}}PlusConstantMultipliedByConstantWithPriority() {
+        let constraints = {{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}}) ~ .low
+        constraints.assert({{baseAssertion}}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: .low)
+    }
+
+    func {{baseFunctionName}}MultipliedByConstantPlusConstantWithPriority() {
+        let constraints = {{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}} ~ .low
+        constraints.assert({{baseAssertion}}, constant: {{constant}}, multiplier: {{multiplier}}, priority: .low)
+    }
+
+    func {{baseFunctionName}}PlusConstantDividedByConstantWithPriority() {
+        let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}} ~ .low
+        constraints.assert({{baseAssertion}}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}}, priority: .low)
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier and priority arithmetic
+
+    func {{baseFunctionName}}PlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}}  ~ .high {{subtraction}} 1
+        constraints.assert({{baseAssertion}}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: 749)
+    }
+
+    func {{baseFunctionName}}PlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = {{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}})  ~ .high {{subtraction}} 1
+        constraints.assert({{baseAssertion}}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: 749)
+    }
+
+    func {{baseFunctionName}}MultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = {{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}}  ~ .high {{subtraction}} 1
+        constraints.assert({{baseAssertion}}, constant: {{constant}}, multiplier: {{multiplier}}, priority: 749)
+    }
+
+    func {{baseFunctionName}}PlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = {{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}}  ~ .high {{subtraction}} 1
+        constraints.assert({{baseAssertion}}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}}, priority: 749)
     }
 
 {% endfor %}

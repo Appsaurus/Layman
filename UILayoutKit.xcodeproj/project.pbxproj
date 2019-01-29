@@ -25,6 +25,9 @@
 		D5B2E8AA1C3A780C00C0327D /* UILayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2E89F1C3A780C00C0327D /* UILayoutKit.framework */; };
 		D5C6294A1C3A7FAA007F7B7C /* UILayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5C629401C3A7FAA007F7B7C /* UILayoutKit.framework */; };
 		D784C94D26C73BD13F186EC6 /* Pods_UILayoutKit_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C7C361865716A3053A0E59 /* Pods_UILayoutKit_macOS.framework */; };
+		E414320E2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414320D2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift */; };
+		E414320F2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414320D2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift */; };
+		E41432102200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414320D2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift */; };
 		E44E732621F8174A0026EEE6 /* LayoutConfigurationPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutConfigurationPair.swift */; };
 		E44E732721F8174A0026EEE6 /* LayoutConfigurationPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutConfigurationPair.swift */; };
 		E44E732821F8174A0026EEE6 /* LayoutConfigurationPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutConfigurationPair.swift */; };
@@ -469,6 +472,8 @@
 		D8DE4ABB6495C370AB7A6398 /* Pods_UILayoutKit_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UILayoutKit_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDDC65758795020D69BC1A9 /* Pods-UILayoutKit-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKit-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKit-macOS/Pods-UILayoutKit-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E1F1E47608A8B424EBA38EB7 /* Pods-UILayoutKit-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKit-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKit-tvOS/Pods-UILayoutKit-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E414320C2200A130007626D0 /* AnchorEquationCompilationBenchmark.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnchorEquationCompilationBenchmark.stencil; sourceTree = "<group>"; };
+		E414320D2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDimensionCompilationBenchmark.swift; sourceTree = "<group>"; };
 		E44E70C821F77FCE0026EEE6 /* Equation.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Equation.stencil; sourceTree = "<group>"; };
 		E44E70D621F7BECC0026EEE6 /* EquationOperators.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = EquationOperators.stencil; sourceTree = "<group>"; };
 		E44E72EE21F8174A0026EEE6 /* LayoutConfigurationPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfigurationPair.swift; sourceTree = "<group>"; };
@@ -736,15 +741,16 @@
 				E4DA5C6F21EFE51800A25746 /* ImpliedRelationTests.swift */,
 				E44E740B21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift */,
 				E44E73F621FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift */,
+				E414320D2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift */,
 				E44E740C21FBBB110026EEE6 /* LayoutDimensionConstantTests.swift */,
 				E44E73F521FB7DED0026EEE6 /* LayoutDimensionTests.swift */,
 				D284B1321F7906DA00D94AF3 /* SharedTests.swift */,
 				E4DA5C7621EFE5E500A25746 /* UILayoutKitTestCase.swift */,
+				E44E740321FBA8DD0026EEE6 /* Util */,
 				E44E73EF21FB77020026EEE6 /* XAxisAnchorArrayTests.swift */,
 				E44E73E321FA977B0026EEE6 /* XAxisAnchorTests.swift */,
 				E44E73F321FB7DEC0026EEE6 /* YAxisAnchorArrayTests.swift */,
 				E44E73F421FB7DEC0026EEE6 /* YAxisAnchorTests.swift */,
-				E44E740321FBA8DD0026EEE6 /* Util */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1026,6 +1032,7 @@
 				E44E73E221FA57300026EEE6 /* CompilationTest.stencil */,
 				E44E73EB21FA99B90026EEE6 /* AnchorEquationTests.stencil */,
 				E44E740A21FBB96D0026EEE6 /* ConstantEquationTests.stencil */,
+				E414320C2200A130007626D0 /* AnchorEquationCompilationBenchmark.stencil */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -2076,6 +2083,7 @@
 				E44E73FF21FB7DED0026EEE6 /* LayoutDimensionTests.swift in Sources */,
 				D284B13E1F7907AD00D94AF3 /* tvOSTests.swift in Sources */,
 				E44E73D721FA48040026EEE6 /* AspectRatioTests.swift in Sources */,
+				E41432102200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift in Sources */,
 				E44E73F921FB7DED0026EEE6 /* YAxisAnchorArrayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2225,6 +2233,7 @@
 				E44E73FD21FB7DED0026EEE6 /* LayoutDimensionTests.swift in Sources */,
 				D284B1471F7908B800D94AF3 /* iOSTests.swift in Sources */,
 				E44E73D521FA48040026EEE6 /* AspectRatioTests.swift in Sources */,
+				E414320E2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift in Sources */,
 				E44E73F721FB7DED0026EEE6 /* YAxisAnchorArrayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2365,6 +2374,7 @@
 				E44E73FE21FB7DED0026EEE6 /* LayoutDimensionTests.swift in Sources */,
 				D284B1481F7908BB00D94AF3 /* macOSTests.swift in Sources */,
 				E44E73D621FA48040026EEE6 /* AspectRatioTests.swift in Sources */,
+				E414320F2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift in Sources */,
 				E44E73F821FB7DED0026EEE6 /* YAxisAnchorArrayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2618,7 +2628,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=50";
 				SDKROOT = iphoneos;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2673,7 +2683,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_SWIFT_FLAGS = "";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=50";
 				SDKROOT = iphoneos;
 				SWIFT_DISABLE_SAFETY_CHECKS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -2739,7 +2749,7 @@
 				DEVELOPMENT_TEAM = 4B7GH74X7C;
 				INFOPLIST_FILE = "$(SRCROOT)/UILayoutKitTests/Info-iOS-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -warn-long-function-bodies=5 -Xfrontend -warn-long-expression-type-checking=5";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = io.appsaurus.UILayoutKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2759,7 +2769,7 @@
 				DEVELOPMENT_TEAM = 4B7GH74X7C;
 				INFOPLIST_FILE = "$(SRCROOT)/UILayoutKitTests/Info-iOS-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(FRAMEWORK_SEARCH_PATHS)";
-				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -warn-long-function-bodies=5 -Xfrontend -warn-long-expression-type-checking=5";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = io.appsaurus.UILayoutKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

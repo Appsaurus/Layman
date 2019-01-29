@@ -1,0 +1,147 @@
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
+
+{% set constant 10 %}
+{% set multiplier 3 %}
+{% set divisor 2 %}
+
+{% macro repeat equation %}
+        {% for i in 1...20 %}
+        {{equation}}
+        {% endfor %}
+{% endmacro %}
+{% for type in types.all|annotated:"anchorEquationCompilationBenchmark" %}
+    // sourcery:inline:auto:{{type.name}}.AnchorEquationCompilationBenchmark
+{% set lhsItem type.annotations.lhsItem %}
+{% set lhsAttribute type.annotations.lhsAttribute %}
+{% set rhsAttribute type.annotations.rhsAttribute %}
+
+    // MARK: {{lhsItem}}{{lhsAttribute|upperFirstLetter}} <=> relatedView{{rhsAttribute|upperFirstLetter}}
+{% for operatorName in argument.operators %}
+{% set operator %}{{argument.operators[operatorName]}}{% endset %}
+{% set baseFunctionName %}compile{{lhsItem|upperFirstLetter}}{{lhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}To{{rhsAttribute|upperFirstLetter}}{% endset %}
+{% set baseLhs %}{{lhsItem}}.{{lhsAttribute}}Anchor{% endset %}
+{% set baseRhs %}relatedView.{{rhsAttribute}}Anchor{% endset %}
+{% set baseEquation %}{{baseLhs}} {{operator}} {{baseRhs}}{% endset %}
+{% set baseAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, relatedView, .{{rhsAttribute}}{% endset %}
+
+    // MARK: {{operatorName|upperFirstLetter}}
+
+    func {{baseFunctionName}}() {
+        {% call repeat baseEquation %}
+
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant
+    func {{baseFunctionName}}PlusConstant() {
+        {% set equation %}{{baseEquation}} {{addition}} {{constant}}{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}MinusConstant() {
+        {% set equation %}{{baseEquation}} {{subtraction}} {{constant}}{% endset %}
+        {% call repeat equation %}
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with multiplier
+    func {{baseFunctionName}}MultiplyingConstant() {
+        {% set equation %}{{baseEquation}} {{multiplication}} {{multiplier}}{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}MultipliedByConstant() {
+        {% set equation %}{{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}}{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}DividedByConstant() {
+        {% set equation %}{{baseEquation}} {{division}} {{divisor}}{% endset %}
+        {% call repeat equation %}
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} Prioritized
+    func {{baseFunctionName}}WithPriority() {
+        {% set equation %}{{baseEquation}} ~ .low{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}WithPriorityLiteral() {
+        {% set equation %}{{baseEquation}} ~ 300{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}WithPriorityArithmetic() {
+        {% set equation %}{{baseEquation}} ~ .high {{subtraction}} 1{% endset %}
+        {% call repeat equation %}
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier
+
+    func {{baseFunctionName}}PlusConstantMultiplyingConstant() {
+        {% set equation %}{{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}}{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}PlusConstantMultipliedByConstant() {
+        {% set equation %}{{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}}){% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}MultipliedByConstantPlusConstant() {
+        {% set equation %}{{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}}{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}PlusConstantDividedByConstant() {
+        {% set equation %}{{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}}{% endset %}
+        {% call repeat equation %}
+    }
+
+// MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier and priority
+
+    func {{baseFunctionName}}PlusConstantMultiplyingConstantWithPriority() {
+        {% set equation %}{{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}} ~ .low{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}PlusConstantMultipliedByConstantWithPriority() {
+        {% set equation %}{{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}}) ~ .low{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}MultipliedByConstantPlusConstantWithPriority() {
+        {% set equation %}{{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}} ~ .low{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}PlusConstantDividedByConstantWithPriority() {
+        {% set equation %}{{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}} ~ .low{% endset %}
+        {% call repeat equation %}
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier and priority arithmetic
+
+    func {{baseFunctionName}}PlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        {% set equation %}{{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}}  ~ .high {{subtraction}} 1{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}PlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        {% set equation %}{{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}})  ~ .high {{subtraction}} 1{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}MultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        {% set equation %}{{baseLhs}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}}  ~ .high {{subtraction}} 1{% endset %}
+        {% call repeat equation %}
+    }
+
+    func {{baseFunctionName}}PlusConstantDividedByConstantWithPriorityArithmetic() {
+        {% set equation %}{{baseLhs}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}}  ~ .high {{subtraction}} 1{% endset %}
+        {% call repeat equation %}
+    }
+{% endfor %}
+// sourcery:end
+{% endfor %}
