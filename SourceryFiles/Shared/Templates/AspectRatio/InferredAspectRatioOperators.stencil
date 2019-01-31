@@ -1,0 +1,20 @@
+//  sourcery:file:InferredAspectRatioOperators
+//
+//  InferredAspectRatioOperators.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/17/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+{% set equal argument.operators.equal %}
+
+// MARK: View == AspectRatio
+@discardableResult
+public func {{equal}} (lhs: View, rhs: LayoutAspectRatio) -> Constraint {
+    return lhs.aspectRatioAnchor {{equal}} rhs
+}
+
+@discardableResult
+public func {{equal}} (lhs: View, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
+    return lhs.aspectRatioAnchor {{equal}} rhs
+}

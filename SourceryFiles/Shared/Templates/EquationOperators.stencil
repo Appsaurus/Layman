@@ -6,17 +6,17 @@
 {% set multiplication argument.arithmeticOperators.multiplication %}
 {% set division argument.arithmeticOperators.division %}
 
-{% for EquationProtocol in argument.EquationProtocols %}
-{% set RelationshipType %}{{argument.EquationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
-{% for LeftHandType in argument.EquationProtocols[EquationProtocol]["LeftHandTypes"] %}
-// sourcery:file:EquationProtocols/{{EquationProtocol}}/Operators/{{LeftHandType}}+{{EquationProtocol}}
+{% for EquationProtocol in argument.equationProtocols %}
+{% set RelationshipType %}{{argument.equationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
+{% for LeftHandType in argument.equationProtocols[EquationProtocol]["LeftHandTypes"] %}
+// sourcery:file:equationProtocols/{{EquationProtocol}}/Operators/{{LeftHandType}}+{{EquationProtocol}}
 //
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/22/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
-{% for RightHandType in argument.EquationProtocols[EquationProtocol]["RightHandTypes"] %}
+{% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"] %}
 // MARK: {{LeftHandType}} <=> {{RightHandType}}
 
 // MARK: - Equal

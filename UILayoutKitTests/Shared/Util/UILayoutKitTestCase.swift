@@ -57,6 +57,18 @@ class UILayoutKitTestCase: XCTestCase {
         return benchmarker.measure(key, block: block)
     }
 
-// sourcery:inline:auto:UILayoutKitTestCase.TemplateName
-// sourcery:end
+    internal func invertRelationIfNeeded(_ attribute: ConstraintAttribute,
+                                         _ relation: Constraint.Relation) -> Constraint.Relation {
+        guard attribute.isCategory(.trailing) else { return relation }
+        return relation.inverted
+    }
+
+    internal func invertConstantIfNeeded(_ attribute: ConstraintAttribute,
+                                         _ constant: LayoutConstant) -> LayoutConstant{
+        guard attribute.isCategory(.trailing) else { return constant }
+        return -constant
+    }
+
+    // sourcery:inline:auto:UILayoutKitTestCase.TemplateName
+    // sourcery:end
 }

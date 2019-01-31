@@ -19,8 +19,6 @@ internal extension Set {
         return Array(self)
     }
 
-// sourcery:inline:auto:Set.TemplateName
-// sourcery:end
 }
 
 public typealias Attributes = [ConstraintAttribute]

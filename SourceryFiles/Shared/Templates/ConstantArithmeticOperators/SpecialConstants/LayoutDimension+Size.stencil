@@ -29,5 +29,5 @@ public func {{addition}} (lhs: LayoutDimensionPairs, rhs: LayoutSize) -> LayoutD
 
 @discardableResult
 public func {{subtraction}} (lhs: LayoutDimensionPairs, rhs: LayoutSize) -> LayoutDimensionPairExpressions {
-    return lhs.map { $0 {{substraction}} rhs }
+    return lhs.map { $0 {{subtraction}} rhs }
 }

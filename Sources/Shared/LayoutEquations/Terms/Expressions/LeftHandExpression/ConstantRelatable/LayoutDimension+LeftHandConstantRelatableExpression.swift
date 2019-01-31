@@ -15,6 +15,4 @@ extension LayoutDimension: LeftHandConstantRelatableExpression {
         return LayoutDimensionRelationship(self, relation, rhs)
     }
 
-// sourcery:inline:auto:NSLayoutDimension.TemplateName
-// sourcery:end
 }

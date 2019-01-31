@@ -8,41 +8,41 @@
 
 import Foundation
 
-// MARK: AspectRatioAnchor == AspectRatio
-@discardableResult
-public func .= (lhs: AspectRatioAnchor, rhs: LayoutAspectRatio) -> Constraint {
-    return lhs .= AutoLayoutAspectRatioConfiguration(rhs)
-}
-
-@discardableResult
-public func .= (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
-    switch lhs {
-    case .standard(let view):
-        if isTestOrDebug {
-            let ambiguityMessage = "You must horizontally constrain (width or leading/left + trailing/right) a view an inverse aspect ratio constraint."
-            precondition(!view.hasAmbiguousWidth, ambiguityMessage)
-        }
-        return view.heightAnchor.equal(to: view.widthAnchor.times(rhs.aspectRatio.ratio) ~ rhs.priority)
-    case .inverse(let view):
-        if isTestOrDebug {
-            let ambiguityMessage = "You must vertically constrain (height or top+bottom) a view an inverse aspect ratio constraint."
-            precondition(!view.hasAmbiguousHeight, ambiguityMessage)
-        }
-        let inverseRatio = 1 / rhs.aspectRatio.ratio
-        return view.widthAnchor.equal(to: view.heightAnchor.times(inverseRatio) ~ rhs.priority)
-    }
-}
-
-// MARK: View == AspectRatio
-@discardableResult
-public func .= (lhs: View, rhs: LayoutAspectRatio) -> Constraint {
-    return lhs.aspectRatioAnchor .= rhs
-}
-
-@discardableResult
-public func .= (lhs: View, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
-    return lhs.aspectRatioAnchor .= rhs
-}
+//// MARK: AspectRatioAnchor == AspectRatio
+//@discardableResult
+//public func .= (lhs: AspectRatioAnchor, rhs: LayoutAspectRatio) -> Constraint {
+//    return lhs .= AutoLayoutAspectRatioConfiguration(rhs)
+//}
+//
+//@discardableResult
+//public func .= (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
+//    switch lhs {
+//    case .standard(let view):
+//        if isTestOrDebug {
+//            let ambiguityMessage = "You must horizontally constrain (width or leading/left + trailing/right) a view an inverse aspect ratio constraint."
+//            precondition(!view.hasAmbiguousWidth, ambiguityMessage)
+//        }
+//        return view.heightAnchor.equal(to: view.widthAnchor.times(rhs.aspectRatio.ratio) ~ rhs.priority)
+//    case .inverse(let view):
+//        if isTestOrDebug {
+//            let ambiguityMessage = "You must vertically constrain (height or top+bottom) a view an inverse aspect ratio constraint."
+//            precondition(!view.hasAmbiguousHeight, ambiguityMessage)
+//        }
+//        let inverseRatio = 1 / rhs.aspectRatio.ratio
+//        return view.widthAnchor.equal(to: view.heightAnchor.times(inverseRatio) ~ rhs.priority)
+//    }
+//}
+//
+//// MARK: View == AspectRatio
+//@discardableResult
+//public func .= (lhs: View, rhs: LayoutAspectRatio) -> Constraint {
+//    return lhs.aspectRatioAnchor .= rhs
+//}
+//
+//@discardableResult
+//public func .= (lhs: View, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
+//    return lhs.aspectRatioAnchor .= rhs
+//}
 
 public final class AutoLayoutAspectRatioConfiguration {
     public var aspectRatio: LayoutAspectRatio
@@ -52,9 +52,6 @@ public final class AutoLayoutAspectRatioConfiguration {
         self.aspectRatio = aspectRatio
         self.priority = priority
     }
-
-// sourcery:inline:auto:AutoLayoutAspectRatioConfiguration.TemplateName
-// sourcery:end
 }
 
 public func ~ (lhs: LayoutAspectRatio, rhs: LayoutPriority) -> AutoLayoutAspectRatioConfiguration {
@@ -64,9 +61,6 @@ public func ~ (lhs: LayoutAspectRatio, rhs: LayoutPriority) -> AutoLayoutAspectR
 public enum AspectRatioAnchor {
     case standard(View)
     case inverse(View)
-
-// sourcery:inline:auto:AspectRatioAnchor.TemplateName
-// sourcery:end
 }
 
 extension View {
@@ -87,12 +81,9 @@ extension Collection where Element: View {
     public var aspectRatioInverseAnchor: [AspectRatioAnchor] {
         return map {.inverse($0)}
     }
-
-// sourcery:inline:auto:Collection.TemplateName
-// sourcery:end
 }
 
-private var isTestOrDebug: Bool {
+internal var isTestOrDebug: Bool {
     #if DEBUG
         return true
     #endif

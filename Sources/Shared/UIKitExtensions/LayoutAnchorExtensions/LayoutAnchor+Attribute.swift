@@ -14,8 +14,6 @@ extension LayoutAnchor where AnchorType == LayoutDimension {
         return constraint(equalTo: self).firstAttribute
     }
 
-// sourcery:inline:auto:NSLayoutAnchor.TemplateName
-// sourcery:end
 }
 
 extension LayoutAnchor where AnchorType == XAxisAnchor {

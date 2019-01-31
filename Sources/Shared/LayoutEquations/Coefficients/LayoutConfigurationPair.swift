@@ -13,8 +13,6 @@ public final class LayoutConfigurationPair: LayoutModelReferencePair<LayoutConfi
         return LayoutConfigurationPair(.constant(size.width), .constant(size.height))
     }
 
-// sourcery:inline:auto:LayoutConfigurationPair.TemplateName
-// sourcery:end
 }
 
 extension LayoutConfigurationPair: CoefficientMutating {

@@ -27,12 +27,28 @@ public final class LayoutPairExpression<F: AnchorVariable, S: AnchorVariable> {
         return self
     }
 
-// sourcery:inline:auto:LayoutPairExpression.TemplateName
-// sourcery:end
 }
 
 extension LayoutPairExpression: Expression {
     public typealias C = LayoutConfigurationPair
     public typealias V = LayoutAnchorPair<F, S>
 
+    @discardableResult
+    public func with(coefficients: LayoutConfigurationPair) -> Self {
+        self.coefficients = coefficients
+        return self
+    }
+
+    @discardableResult
+    public func with(constant: LayoutConstant) -> Self {
+        coefficients.set(constant: constant)
+        return self
+    }
+
+    @discardableResult
+    public func with(multiplier: LayoutMultiplier) -> Self {
+        coefficients.first.multiplier = multiplier
+        coefficients.second.multiplier = multiplier
+        return with(constant: coefficients.first.constant * multiplier)
+    }
 }

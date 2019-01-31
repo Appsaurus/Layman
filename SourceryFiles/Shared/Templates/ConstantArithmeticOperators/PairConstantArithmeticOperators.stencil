@@ -6,7 +6,7 @@
 {% set multiplication argument.arithmeticOperators.multiplication %}
 {% set division argument.arithmeticOperators.division %}
 
-{% for AnchorPairType in argument.AnchorPairTypes %}
+{% for AnchorPairType in argument.anchorPairTypes %}
 // sourcery:file:ConstantArithmeticOperators/Pair/{{AnchorPairType}}+ConstantArithmeticOperators
 //
 //  {{AnchorPairType}}+ConstantArithmeticOperators.swift

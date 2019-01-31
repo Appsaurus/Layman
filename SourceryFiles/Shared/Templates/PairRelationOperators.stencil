@@ -6,7 +6,7 @@
 {% set multiplication argument.arithmeticOperators.multiplication %}
 {% set division argument.arithmeticOperators.division %}
 
-{% for AnchorPairType in argument.AnchorPairTypes %}
+{% for AnchorPairType in argument.anchorPairTypes %}
 {% set Solution %}{{AnchorPairType}}.Solution{% endset %}
 {% set constraintMethod %}{% if anchortype == 'LayoutDimension' %}constraints{% else %}constraintsInvertedAsInsets{% endif %}{% endset %}
 // sourcery:file:PairRelationOperators/{{AnchorPairType}}+RelationOperators

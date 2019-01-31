@@ -6,7 +6,7 @@
 {% set multiplication argument.arithmeticOperators.multiplication %}
 {% set division argument.arithmeticOperators.division %}
 
-{% for AnchorPairType in argument.AnchorPairTypes %}
+{% for AnchorPairType in argument.anchorPairTypes %}
 {% set Solution %}{{AnchorPairType}}.Solution{% endset %}
 // sourcery:file:View/Operators/ViewArray+{{AnchorPairType}}RelationOperators
 //

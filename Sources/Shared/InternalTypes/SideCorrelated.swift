@@ -65,6 +65,4 @@ public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated {
         self.trailing = trailing
     }
 
-// sourcery:inline:auto:SidesTuple.TemplateName
-// sourcery:end
 }

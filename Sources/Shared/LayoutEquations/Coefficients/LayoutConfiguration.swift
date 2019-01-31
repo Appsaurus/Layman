@@ -15,8 +15,6 @@ public final class LayoutConfiguration {
 
     public init() {}
 
-// sourcery:inline:auto:LayoutConfiguration.TemplateName
-// sourcery:end
 }
 
 extension LayoutConfiguration {

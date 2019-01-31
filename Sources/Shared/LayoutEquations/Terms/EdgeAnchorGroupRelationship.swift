@@ -44,8 +44,6 @@ public final class EdgeAnchorGroupRelationship {
         )
     }
 
-// sourcery:inline:auto:EdgeAnchorGroupRelationship.TemplateName
-// sourcery:end
 }
 
 extension EdgeAnchorGroupRelationship: LinearEquation {

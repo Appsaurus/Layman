@@ -28,8 +28,6 @@ public final class LayoutExpression<A: AnchorType> {
         return self
     }
 
-// sourcery:inline:auto:LayoutExpression.TemplateName
-// sourcery:end
 }
 
 extension LayoutExpression: Expression where A: Variable {

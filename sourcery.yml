@@ -5,29 +5,17 @@ templates:
   - SourceryFiles/Shared/Templates
   - SourceryFiles/Shared/Templates
 args:
-  BasicAnchorTypes:
-    - "XAxisAnchor"
-    - "YAxisAnchor"
-    - "LayoutDimension"
-  AnchorTypes:
+  anchorTypes:
     - "XAxisAnchor"
     - "YAxisAnchor"
     - "LayoutDimension"
     - "EdgeAnchorGroup"
-  AnchorPairTypes:
+  anchorPairTypes:
     - "XAxisAnchorPair"
     - "YAxisAnchorPair"
     - "LayoutDimensionPair"
     - "XYAxesAnchorPair"
-  InferrableAnchorTypes:
-    - "XAxisAnchor"
-    - "YAxisAnchor"
-    - "LayoutDimension"
-    - "XAxisAnchorPair"
-    - "YAxisAnchorPair"
-    - "LayoutDimensionPair"
-    - "XYAxesAnchorPair"
-  EquationProtocols:
+  equationProtocols:
     LeftHandSizeRelatableExpression:
         LeftHandTypes:
             - 'LayoutDimensionPair'
@@ -44,9 +32,6 @@ args:
             - 'LayoutConstant'
             - 'LayoutConfiguration'
         RelationshipType: LayoutDimensionRelationship
-  EqualityOperator: ".="
-  LessThanOrEqualToOperator: "≤"
-  GreaterThanOrEqualToOperator: "≥"
   operators:
     equal: ".="
     lessThanOrEqual: "≤"
@@ -56,5 +41,4 @@ args:
     subtraction: ".-"
     multiplication: ".*"
     division: "./"
-
 output: Sources/Shared/Generated

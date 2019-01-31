@@ -1,6 +1,6 @@
-{% for EquationProtocol in argument.EquationProtocols %}
-{% set RelationshipType %}{{argument.EquationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
-// sourcery:file:EquationProtocols/{{EquationProtocol}}/{{EquationProtocol}}
+{% for EquationProtocol in argument.equationProtocols %}
+{% set RelationshipType %}{{argument.equationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
+// sourcery:file:equationProtocols/{{EquationProtocol}}/{{EquationProtocol}}
 //
 //  UILayoutKit
 //
@@ -9,11 +9,11 @@
 //
 
 public protocol {{EquationProtocol}} {
-{% for RightHandType in argument.EquationProtocols[EquationProtocol]["RightHandTypes"] %}
+{% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"] %}
     func relation(_ relation: Constraint.Relation, _ rhs: {{RightHandType}}) -> {{RelationshipType}}
 {% endfor %}
 }
-{% for RightHandType in argument.EquationProtocols[EquationProtocol]["RightHandTypes"]  %}
+{% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"]  %}
 // MARK: Anchor <=> {{RightHandType}}
 extension {{EquationProtocol}} {
 

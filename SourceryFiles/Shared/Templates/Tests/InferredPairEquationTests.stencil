@@ -1,0 +1,161 @@
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
+
+{% set constant 10 %}
+{% set multiplier 3 %}
+{% set divisor 2 %}
+
+{% for type in types.all|annotated:"inferredPairEquationTest" %}
+// sourcery:inline:auto:{{type.name}}.InferredPairAnchorEquationTest
+{% for lhsItem in type.annotations.lhsItems %}
+{% for rhsAttribute in type.annotations.rhsAttributes %}
+// MARK: {{lhsItem}}{{rhsAttribute|upperFirstLetter}} <=> relatedView{{rhsAttribute|upperFirstLetter}}
+{% for operatorName in argument.operators %}
+{% set operator %}{{argument.operators[operatorName]}}{% endset %}
+{% set baseFunctionName %}testInferred{{lhsItem|upperFirstLetter}}{{rhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}To{{rhsAttribute|upperFirstLetter}}{% endset %}
+{% set baseRhs %}relatedView.{{rhsAttribute}}{% endset %}
+{% set baseEquation %}{{lhsItem}} {{operator}} {{baseRhs}}{% endset %}
+{% macro baseAssertion rhs %}{{lhsItem}}, .{{rhs}}, .{{operatorName}}, relatedView, .{{rhs}}{% endmacro %}
+    // MARK: {{operatorName|upperFirstLetter}}
+    func {{baseFunctionName}}() {
+        let constraints = {{baseEquation}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, invertTrailing: true)
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant
+    func {{baseFunctionName}}PlusConstant() {
+        let constraints = {{baseEquation}} {{addition}} {{constant}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}}, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}MinusConstant() {
+        let constraints = {{baseEquation}} {{subtraction}} {{constant}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: -{{constant}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: -{{constant}}, invertTrailing: true)
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with multiplier
+    func {{baseFunctionName}}MultiplyingConstant() {
+        let constraints = {{baseEquation}} {{multiplication}} {{multiplier}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, multiplier: {{multiplier}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, multiplier: {{multiplier}}, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}MultipliedByConstant() {
+        let constraints = {{lhsItem}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, multiplier: {{multiplier}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, multiplier: {{multiplier}}, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}DividedByConstant() {
+        let constraints = {{baseEquation}} {{division}} {{divisor}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, multiplier: 1 / {{divisor}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, multiplier: 1 / {{divisor}}, invertTrailing: true)
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} prioritized
+    func {{baseFunctionName}}WithPriority() {
+        let constraints = {{baseEquation}} ~ .low
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, priority: .low)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, priority: .low, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}WithPriorityLiteral() {
+        let constraints = {{baseEquation}} ~ 300
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, priority: 300)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, priority: 300, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}WithPriorityArithmetic() {
+        let constraints = {{baseEquation}} ~ .high {{subtraction}} 1
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, priority: 749)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, priority: 749, invertTrailing: true)
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier
+
+    func {{baseFunctionName}}PlusConstantMultiplyingConstant() {
+        let constraints = {{lhsItem}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}PlusConstantMultipliedByConstant() {
+        let constraints = {{lhsItem}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}})
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}MultipliedByConstantPlusConstant() {
+        let constraints = {{lhsItem}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}}, multiplier: {{multiplier}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}}, multiplier: {{multiplier}}, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}PlusConstantDividedByConstant() {
+        let constraints = {{lhsItem}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}}
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}})
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}}, invertTrailing: true)
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier and priority
+
+    func {{baseFunctionName}}PlusConstantMultiplyingConstantWithPriority() {
+        let constraints = {{lhsItem}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}} ~ .low
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: .low)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: .low, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}PlusConstantMultipliedByConstantWithPriority() {
+        let constraints = {{lhsItem}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}}) ~ .low
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: .low)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: .low, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}MultipliedByConstantPlusConstantWithPriority() {
+        let constraints = {{lhsItem}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}} ~ .low
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}}, multiplier: {{multiplier}}, priority: .low)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}}, multiplier: {{multiplier}}, priority: .low, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}PlusConstantDividedByConstantWithPriority() {
+        let constraints = {{lhsItem}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}} ~ .low
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}}, priority: .low)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}}, priority: .low, invertTrailing: true)
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with constant {{addition}} multiplier and priority arithmetic
+
+    func {{baseFunctionName}}PlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = {{lhsItem}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{multiplication}} {{multiplier}}  ~ .high {{subtraction}} 1
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: 749)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: 749, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}PlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = {{lhsItem}} {{operator}} {{multiplier}} {{multiplication}} ({{baseRhs}} {{addition}} {{constant}})  ~ .high {{subtraction}} 1
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: 749)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} * {{multiplier}}, multiplier: {{multiplier}}, priority: 749, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}MultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = {{lhsItem}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}} {{addition}} {{constant}}  ~ .high {{subtraction}} 1
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}}, multiplier: {{multiplier}}, priority: 749)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}}, multiplier: {{multiplier}}, priority: 749, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}PlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = {{lhsItem}} {{operator}} ({{baseRhs}} {{addition}} {{constant}}) {{division}} {{divisor}}  ~ .high {{subtraction}} 1
+        constraints.first.assert({% call baseAssertion type.annotations[rhsAttribute][0] %}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}}, priority: 749)
+        constraints.second.assert({% call baseAssertion type.annotations[rhsAttribute][1] %}, constant: {{constant}} / {{divisor}}, multiplier: 1 / {{divisor}}, priority: 749, invertTrailing: true)
+    }
+{% endfor %}
+{% endfor %}
+{% endfor %}
+// sourcery:end
+{% endfor %}
+

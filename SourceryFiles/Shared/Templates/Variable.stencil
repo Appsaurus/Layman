@@ -1,4 +1,4 @@
-{% for AnchorType in argument.AnchorTypes %}
+{% for AnchorType in argument.anchorTypes %}
 // sourcery:file:Variables/{{AnchorType}}+Variable
 //
 //  {{AnchorType}}+Variable.swift

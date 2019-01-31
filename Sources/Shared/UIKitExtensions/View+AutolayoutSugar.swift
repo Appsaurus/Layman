@@ -84,8 +84,6 @@ private extension Dictionary where Key == ConstraintAttribute, Value == Constrai
         return keys.map { self[$0] }.compactMap {$0}
     }
 
-// sourcery:inline:auto:Dictionary.TemplateName
-// sourcery:end
 }
 extension View {
     public var constraintMap: ConstraintAttributeMap {

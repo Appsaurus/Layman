@@ -1,4 +1,4 @@
-{% for AnchorType in argument.AnchorTypes %}
+{% for AnchorType in argument.anchorTypes %}
 // sourcery:file:PriorityOperators/{{AnchorType}}+PriorityOperators
 //
 //  {{AnchorType}}+PriorityOperators.swift

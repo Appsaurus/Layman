@@ -14,21 +14,6 @@ import XCTest
 // sourcery: lhsItem = viewArray
 class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
 // sourcery:inline:auto:LayoutDimensionArrayConstantTests.ConstantEquationTests
-    func testViewArrayWidthGreaterThanOrEqualToConstant() {
-        let constraints = viewArray.widthAnchor ≥ 200
-        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200)
-    }
-
-    func testViewArrayWidthGreaterThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.widthAnchor ≥ 200 ~ .low
-        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: .low)
-    }
-
-    func testViewArrayWidthGreaterThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.widthAnchor ≥ 200 ~ .high .- 1
-        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: 749)
-    }
-
     func testViewArrayWidthEqualToConstant() {
         let constraints = viewArray.widthAnchor .= 200
         constraints.assert(viewArray, .width, .equal, constant: 200)
@@ -59,19 +44,19 @@ class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
         constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200, priority: 749)
     }
 
-    func testViewArrayHeightGreaterThanOrEqualToConstant() {
-        let constraints = viewArray.heightAnchor ≥ 200
-        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200)
+    func testViewArrayWidthGreaterThanOrEqualToConstant() {
+        let constraints = viewArray.widthAnchor ≥ 200
+        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200)
     }
 
-    func testViewArrayHeightGreaterThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.heightAnchor ≥ 200 ~ .low
-        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200, priority: .low)
+    func testViewArrayWidthGreaterThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.widthAnchor ≥ 200 ~ .low
+        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testViewArrayHeightGreaterThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.heightAnchor ≥ 200 ~ .high .- 1
-        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200, priority: 749)
+    func testViewArrayWidthGreaterThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.widthAnchor ≥ 200 ~ .high .- 1
+        constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: 749)
     }
 
     func testViewArrayHeightEqualToConstant() {
@@ -102,6 +87,21 @@ class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
     func testViewArrayHeightLessThanOrEqualToConstantWithPriorityArithmetic() {
         let constraints = viewArray.heightAnchor ≤ 200 ~ .high .- 1
         constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200, priority: 749)
+    }
+
+    func testViewArrayHeightGreaterThanOrEqualToConstant() {
+        let constraints = viewArray.heightAnchor ≥ 200
+        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200)
+    }
+
+    func testViewArrayHeightGreaterThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.heightAnchor ≥ 200 ~ .low
+        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200, priority: .low)
+    }
+
+    func testViewArrayHeightGreaterThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.heightAnchor ≥ 200 ~ .high .- 1
+        constraints.assert(viewArray, .height, .greaterThanOrEqual, constant: 200, priority: 749)
     }
 // sourcery:end
 }

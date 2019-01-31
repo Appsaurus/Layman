@@ -30,5 +30,5 @@ public func .+ (lhs: LayoutDimensionPairs, rhs: LayoutSize) -> LayoutDimensionPa
 
 @discardableResult
 public func .- (lhs: LayoutDimensionPairs, rhs: LayoutSize) -> LayoutDimensionPairExpressions {
-    return lhs.map { $0  rhs }
+    return lhs.map { $0 .- rhs }
 }
