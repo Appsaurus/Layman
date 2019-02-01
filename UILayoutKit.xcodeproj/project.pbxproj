@@ -253,9 +253,9 @@
 		E414348A2200CDDD007626D0 /* InferredAspectRatioOperators.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41433AB2200CDDD007626D0 /* InferredAspectRatioOperators.generated.swift */; };
 		E414348B2200CDDD007626D0 /* InferredAspectRatioOperators.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41433AB2200CDDD007626D0 /* InferredAspectRatioOperators.generated.swift */; };
 		E414348C2200CDDD007626D0 /* InferredAspectRatioOperators.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41433AB2200CDDD007626D0 /* InferredAspectRatioOperators.generated.swift */; };
-		E41434902200E02D007626D0 /* InferredRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414348F2200E02D007626D0 /* InferredRelationTests.swift */; };
-		E41434912200E02D007626D0 /* InferredRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414348F2200E02D007626D0 /* InferredRelationTests.swift */; };
-		E41434922200E02D007626D0 /* InferredRelationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414348F2200E02D007626D0 /* InferredRelationTests.swift */; };
+		E41434902200E02D007626D0 /* InferredAnchorEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414348F2200E02D007626D0 /* InferredAnchorEquationTests.swift */; };
+		E41434912200E02D007626D0 /* InferredAnchorEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414348F2200E02D007626D0 /* InferredAnchorEquationTests.swift */; };
+		E41434922200E02D007626D0 /* InferredAnchorEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414348F2200E02D007626D0 /* InferredAnchorEquationTests.swift */; };
 		E44E732621F8174A0026EEE6 /* LayoutConfigurationPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutConfigurationPair.swift */; };
 		E44E732721F8174A0026EEE6 /* LayoutConfigurationPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutConfigurationPair.swift */; };
 		E44E732821F8174A0026EEE6 /* LayoutConfigurationPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutConfigurationPair.swift */; };
@@ -428,9 +428,9 @@
 		E4DA5C6821EFD35600A25746 /* LayoutAnchor+KeyPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6721EFD35500A25746 /* LayoutAnchor+KeyPaths.swift */; };
 		E4DA5C6921EFD35600A25746 /* LayoutAnchor+KeyPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6721EFD35500A25746 /* LayoutAnchor+KeyPaths.swift */; };
 		E4DA5C6A21EFD35600A25746 /* LayoutAnchor+KeyPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6721EFD35500A25746 /* LayoutAnchor+KeyPaths.swift */; };
-		E4DA5C7321EFE55200A25746 /* InferredPairEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6F21EFE51800A25746 /* InferredPairEquationTests.swift */; };
-		E4DA5C7421EFE55200A25746 /* InferredPairEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6F21EFE51800A25746 /* InferredPairEquationTests.swift */; };
-		E4DA5C7521EFE55300A25746 /* InferredPairEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6F21EFE51800A25746 /* InferredPairEquationTests.swift */; };
+		E4DA5C7321EFE55200A25746 /* InferredAnchorPairEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6F21EFE51800A25746 /* InferredAnchorPairEquationTests.swift */; };
+		E4DA5C7421EFE55200A25746 /* InferredAnchorPairEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6F21EFE51800A25746 /* InferredAnchorPairEquationTests.swift */; };
+		E4DA5C7521EFE55300A25746 /* InferredAnchorPairEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C6F21EFE51800A25746 /* InferredAnchorPairEquationTests.swift */; };
 		E4DA5C7721EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C7621EFE5E500A25746 /* UILayoutKitTestCase.swift */; };
 		E4DA5C7821EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C7621EFE5E500A25746 /* UILayoutKitTestCase.swift */; };
 		E4DA5C7921EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DA5C7621EFE5E500A25746 /* UILayoutKitTestCase.swift */; };
@@ -587,9 +587,10 @@
 		E41433AB2200CDDD007626D0 /* InferredAspectRatioOperators.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InferredAspectRatioOperators.generated.swift; sourceTree = "<group>"; };
 		E414348D2200CECF007626D0 /* AspectRatioTests.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AspectRatioTests.stencil; sourceTree = "<group>"; };
 		E414348E2200DF2A007626D0 /* InferredEquationTests.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = InferredEquationTests.stencil; sourceTree = "<group>"; };
-		E414348F2200E02D007626D0 /* InferredRelationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferredRelationTests.swift; sourceTree = "<group>"; };
+		E414348F2200E02D007626D0 /* InferredAnchorEquationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferredAnchorEquationTests.swift; sourceTree = "<group>"; };
 		E41434932200E931007626D0 /* InferredPairEquationTests.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = InferredPairEquationTests.stencil; sourceTree = "<group>"; };
 		E41434942201074F007626D0 /* InferredPairArrayEquationTests.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = InferredPairArrayEquationTests.stencil; sourceTree = "<group>"; };
+		E414349C2203644D007626D0 /* Base.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Base.stencil; sourceTree = "<group>"; };
 		E44E70C821F77FCE0026EEE6 /* Equation.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Equation.stencil; sourceTree = "<group>"; };
 		E44E70D621F7BECC0026EEE6 /* EquationOperators.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = EquationOperators.stencil; sourceTree = "<group>"; };
 		E44E72EE21F8174A0026EEE6 /* LayoutConfigurationPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfigurationPair.swift; sourceTree = "<group>"; };
@@ -631,7 +632,6 @@
 		E44E73D021F90AB70026EEE6 /* Array+Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Variable.swift"; sourceTree = "<group>"; };
 		E44E73D421FA48040026EEE6 /* AspectRatioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectRatioTests.swift; sourceTree = "<group>"; };
 		E44E73DC21FA4E000026EEE6 /* OperatorDefinitions.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = OperatorDefinitions.stencil; sourceTree = "<group>"; };
-		E44E73E221FA57300026EEE6 /* CompilationTest.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = CompilationTest.stencil; sourceTree = "<group>"; };
 		E44E73E321FA977B0026EEE6 /* XAxisAnchorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisAnchorTests.swift; sourceTree = "<group>"; };
 		E44E73EB21FA99B90026EEE6 /* AnchorEquationTests.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnchorEquationTests.stencil; sourceTree = "<group>"; };
 		E44E73EF21FB77020026EEE6 /* XAxisAnchorArrayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisAnchorArrayTests.swift; sourceTree = "<group>"; };
@@ -668,7 +668,7 @@
 		E4DA5C5E21EF099900A25746 /* SideCorrelated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideCorrelated.swift; sourceTree = "<group>"; };
 		E4DA5C6321EFBEFF00A25746 /* LayoutInset+Initializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutInset+Initializers.swift"; sourceTree = "<group>"; };
 		E4DA5C6721EFD35500A25746 /* LayoutAnchor+KeyPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutAnchor+KeyPaths.swift"; sourceTree = "<group>"; };
-		E4DA5C6F21EFE51800A25746 /* InferredPairEquationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferredPairEquationTests.swift; sourceTree = "<group>"; };
+		E4DA5C6F21EFE51800A25746 /* InferredAnchorPairEquationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferredAnchorPairEquationTests.swift; sourceTree = "<group>"; };
 		E4DA5C7621EFE5E500A25746 /* UILayoutKitTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutKitTestCase.swift; sourceTree = "<group>"; };
 		E4DA5C7A21EFE76200A25746 /* SharedTestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestUtils.swift; sourceTree = "<group>"; };
 		E4DA5CA321F0228100A25746 /* sourcery.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = sourcery.yml; sourceTree = "<group>"; };
@@ -788,19 +788,12 @@
 			isa = PBXGroup;
 			children = (
 				E44E73D421FA48040026EEE6 /* AspectRatioTests.swift */,
-				E4DA5C6F21EFE51800A25746 /* InferredPairEquationTests.swift */,
-				E414348F2200E02D007626D0 /* InferredRelationTests.swift */,
-				E44E740B21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift */,
-				E44E73F621FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift */,
+				E414349A22036055007626D0 /* InferredAnchorEquationTests */,
+				E414349B22036067007626D0 /* ConstantEquationTests */,
 				E414320D2200A278007626D0 /* LayoutDimensionCompilationBenchmark.swift */,
-				E44E740C21FBBB110026EEE6 /* LayoutDimensionConstantTests.swift */,
-				E44E73F521FB7DED0026EEE6 /* LayoutDimensionTests.swift */,
+				E414349922035FB9007626D0 /* AnchorEquationTests */,
 				D284B1321F7906DA00D94AF3 /* EdgeAnchorsTests.swift */,
 				E44E740321FBA8DD0026EEE6 /* Util */,
-				E44E73EF21FB77020026EEE6 /* XAxisAnchorArrayTests.swift */,
-				E44E73E321FA977B0026EEE6 /* XAxisAnchorTests.swift */,
-				E44E73F321FB7DEC0026EEE6 /* YAxisAnchorArrayTests.swift */,
-				E44E73F421FB7DEC0026EEE6 /* YAxisAnchorTests.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1125,6 +1118,37 @@
 			path = Operators;
 			sourceTree = "<group>";
 		};
+		E414349922035FB9007626D0 /* AnchorEquationTests */ = {
+			isa = PBXGroup;
+			children = (
+				E44E73F621FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift */,
+				E44E73F521FB7DED0026EEE6 /* LayoutDimensionTests.swift */,
+				E44E73EF21FB77020026EEE6 /* XAxisAnchorArrayTests.swift */,
+				E44E73E321FA977B0026EEE6 /* XAxisAnchorTests.swift */,
+				E44E73F321FB7DEC0026EEE6 /* YAxisAnchorArrayTests.swift */,
+				E44E73F421FB7DEC0026EEE6 /* YAxisAnchorTests.swift */,
+			);
+			path = AnchorEquationTests;
+			sourceTree = "<group>";
+		};
+		E414349A22036055007626D0 /* InferredAnchorEquationTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4DA5C6F21EFE51800A25746 /* InferredAnchorPairEquationTests.swift */,
+				E414348F2200E02D007626D0 /* InferredAnchorEquationTests.swift */,
+			);
+			path = InferredAnchorEquationTests;
+			sourceTree = "<group>";
+		};
+		E414349B22036067007626D0 /* ConstantEquationTests */ = {
+			isa = PBXGroup;
+			children = (
+				E44E740B21FBBB110026EEE6 /* LayoutDimensionArrayConstantTests.swift */,
+				E44E740C21FBBB110026EEE6 /* LayoutDimensionConstantTests.swift */,
+			);
+			path = ConstantEquationTests;
+			sourceTree = "<group>";
+		};
 		E44E6FA921F6EDC30026EEE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1290,7 +1314,6 @@
 		E44E73E121FA571D0026EEE6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E44E73E221FA57300026EEE6 /* CompilationTest.stencil */,
 				E44E73EB21FA99B90026EEE6 /* AnchorEquationTests.stencil */,
 				E44E740A21FBB96D0026EEE6 /* ConstantEquationTests.stencil */,
 				E414320C2200A130007626D0 /* AnchorEquationCompilationBenchmark.stencil */,
@@ -1383,6 +1406,7 @@
 		E4DA5CA421F0228100A25746 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				E414349C2203644D007626D0 /* Base.stencil */,
 				E44E73E121FA571D0026EEE6 /* Tests */,
 				E44E741321FD14230026EEE6 /* ConstantArithmeticOperators */,
 				E4EDA1D121F04E0F00F345E8 /* ArrayRelationOperators.stencil */,
@@ -1757,19 +1781,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UILayoutKit-iOS-Tests/Pods-UILayoutKit-iOS-Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Swiftest-iOS/Swiftest.framework",
 				"${BUILT_PRODUCTS_DIR}/CwlCatchException-iOS/CwlCatchException.framework",
 				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting-iOS/CwlPreconditionTesting.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTestUtils-iOS/SwiftTestUtils.framework",
+				"${BUILT_PRODUCTS_DIR}/Swiftest-iOS/Swiftest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlCatchException.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlPreconditionTesting.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTestUtils.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1895,15 +1919,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UILayoutKit-tvOS-Tests/Pods-UILayoutKit-tvOS-Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Swiftest-tvOS/Swiftest.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTestUtils-tvOS/SwiftTestUtils.framework",
+				"${BUILT_PRODUCTS_DIR}/Swiftest-tvOS/Swiftest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTestUtils.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1966,8 +1990,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "\n";
 		};
 		EAE50391C3D2FF9929688A85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2000,19 +2023,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UILayoutKit-macOS-Tests/Pods-UILayoutKit-macOS-Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Swiftest-macOS/Swiftest.framework",
 				"${BUILT_PRODUCTS_DIR}/CwlCatchException-macOS/CwlCatchException.framework",
 				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting-macOS/CwlPreconditionTesting.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTestUtils-macOS/SwiftTestUtils.framework",
+				"${BUILT_PRODUCTS_DIR}/Swiftest-macOS/Swiftest.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftest.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlCatchException.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CwlPreconditionTesting.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTestUtils.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swiftest.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2159,7 +2182,7 @@
 				E4DA5C7921EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */,
 				E44E740721FBA93A0026EEE6 /* Benchmark.swift in Sources */,
 				D284B1441F7908B100D94AF3 /* EdgeAnchorsTests.swift in Sources */,
-				E4DA5C7321EFE55200A25746 /* InferredPairEquationTests.swift in Sources */,
+				E4DA5C7321EFE55200A25746 /* InferredAnchorPairEquationTests.swift in Sources */,
 				E44E740221FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */,
 				E44E73F221FB77020026EEE6 /* XAxisAnchorArrayTests.swift in Sources */,
 				E44E741221FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */,
@@ -2167,7 +2190,7 @@
 				E44E73FC21FB7DED0026EEE6 /* YAxisAnchorTests.swift in Sources */,
 				E44E73E621FA977B0026EEE6 /* XAxisAnchorTests.swift in Sources */,
 				E4DA5C7D21EFE76200A25746 /* SharedTestUtils.swift in Sources */,
-				E41434922200E02D007626D0 /* InferredRelationTests.swift in Sources */,
+				E41434922200E02D007626D0 /* InferredAnchorEquationTests.swift in Sources */,
 				E44E73FF21FB7DED0026EEE6 /* LayoutDimensionTests.swift in Sources */,
 				D284B13E1F7907AD00D94AF3 /* tvOSTests.swift in Sources */,
 				E44E73D721FA48040026EEE6 /* AspectRatioTests.swift in Sources */,
@@ -2320,7 +2343,7 @@
 				E4DA5C7721EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */,
 				E44E740521FBA93A0026EEE6 /* Benchmark.swift in Sources */,
 				D284B1461F7908B300D94AF3 /* EdgeAnchorsTests.swift in Sources */,
-				E4DA5C7521EFE55300A25746 /* InferredPairEquationTests.swift in Sources */,
+				E4DA5C7521EFE55300A25746 /* InferredAnchorPairEquationTests.swift in Sources */,
 				E44E740021FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */,
 				E44E73F021FB77020026EEE6 /* XAxisAnchorArrayTests.swift in Sources */,
 				E44E741021FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */,
@@ -2328,7 +2351,7 @@
 				E44E73FA21FB7DED0026EEE6 /* YAxisAnchorTests.swift in Sources */,
 				E44E73E421FA977B0026EEE6 /* XAxisAnchorTests.swift in Sources */,
 				E4DA5C7B21EFE76200A25746 /* SharedTestUtils.swift in Sources */,
-				E41434902200E02D007626D0 /* InferredRelationTests.swift in Sources */,
+				E41434902200E02D007626D0 /* InferredAnchorEquationTests.swift in Sources */,
 				E44E73FD21FB7DED0026EEE6 /* LayoutDimensionTests.swift in Sources */,
 				D284B1471F7908B800D94AF3 /* iOSTests.swift in Sources */,
 				E44E73D521FA48040026EEE6 /* AspectRatioTests.swift in Sources */,
@@ -2472,7 +2495,7 @@
 				E4DA5C7821EFE5E500A25746 /* UILayoutKitTestCase.swift in Sources */,
 				E44E740621FBA93A0026EEE6 /* Benchmark.swift in Sources */,
 				D284B1451F7908B200D94AF3 /* EdgeAnchorsTests.swift in Sources */,
-				E4DA5C7421EFE55200A25746 /* InferredPairEquationTests.swift in Sources */,
+				E4DA5C7421EFE55200A25746 /* InferredAnchorPairEquationTests.swift in Sources */,
 				E44E740121FB7DED0026EEE6 /* LayoutDimensionArrayTests.swift in Sources */,
 				E44E73F121FB77020026EEE6 /* XAxisAnchorArrayTests.swift in Sources */,
 				E44E741121FBBB110026EEE6 /* LayoutDimensionConstantTests.swift in Sources */,
@@ -2480,7 +2503,7 @@
 				E44E73FB21FB7DED0026EEE6 /* YAxisAnchorTests.swift in Sources */,
 				E44E73E521FA977B0026EEE6 /* XAxisAnchorTests.swift in Sources */,
 				E4DA5C7C21EFE76200A25746 /* SharedTestUtils.swift in Sources */,
-				E41434912200E02D007626D0 /* InferredRelationTests.swift in Sources */,
+				E41434912200E02D007626D0 /* InferredAnchorEquationTests.swift in Sources */,
 				E44E73FE21FB7DED0026EEE6 /* LayoutDimensionTests.swift in Sources */,
 				D284B1481F7908BB00D94AF3 /* macOSTests.swift in Sources */,
 				E44E73D621FA48040026EEE6 /* AspectRatioTests.swift in Sources */,

@@ -40,10 +40,25 @@ public final class LayoutRelationship<A: AnchorVariable> {
             return constraintRelated(to: relatedAnchor).configured(with: coefficients)
         }
 
-        if let anchor = variable as? LayoutDimension {
-            return sizeConstraint(for: anchor).configured(with: coefficients)
+        if let layoutDimension = variable as? LayoutDimension {
+            return sizeConstraint(for: layoutDimension).configured(with: coefficients)
         }
-        preconditionFailure("LayoutRelationship must contain two anchors or one anchor of type LayoutDimension")
+
+        if let xAxisAnchor = variable as? XAxisAnchor, let otherAnchor = xAxisAnchor.view?.superview?[keyPath: ...xAxisAnchor]  {
+            return LayoutRelationship<XAxisAnchor>(xAxisAnchor, relation, otherAnchor, coefficients).inactiveConstraint
+        }
+
+        if let yAxisAnchor = variable as? YAxisAnchor, let otherAnchor = yAxisAnchor.view?.superview?[keyPath: ...yAxisAnchor] {
+            return LayoutRelationship<YAxisAnchor>(yAxisAnchor, relation, otherAnchor, coefficients).inactiveConstraint
+        }
+
+        preconditionFailure("""
+                            LayoutRelationship must contain one of the following:
+                            1. Two anchors
+                            2. One view's anchor and a constant
+                            """)
+
+
     }
 
     internal func constraintRelated(to relatedAnchor: LayoutAnchor<A>) -> Constraint {

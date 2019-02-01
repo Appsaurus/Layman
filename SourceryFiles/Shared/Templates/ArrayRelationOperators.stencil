@@ -1,10 +1,5 @@
-{% set equal argument.operators.equal %}
-{% set lessThanOrEqual argument.operators.lessThanOrEqual %}
-{% set greaterThanOrEqual argument.operators.greaterThanOrEqual %}
-{% set addition argument.arithmeticOperators.addition %}
-{% set subtraction argument.arithmeticOperators.subtraction %}
-{% set multiplication argument.arithmeticOperators.multiplication %}
-{% set division argument.arithmeticOperators.division %}
+{% extends "Base.stencil" %}
+{{block.super arguments}}
 
 {% for AnchorType in argument.anchorTypes %}
 {% set Solution %}{{AnchorType}}.Solution{% endset %}

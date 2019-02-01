@@ -7,7 +7,6 @@
 //
 
 // Somewhat hacky way to resolve the owning view from an NSLayoutAnchor
-
 extension LayoutAnchor where AnchorType == LayoutDimension {
 
     public var view: View? {

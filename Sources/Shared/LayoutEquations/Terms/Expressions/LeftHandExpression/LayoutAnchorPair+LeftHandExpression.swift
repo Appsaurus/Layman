@@ -6,7 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutAnchorPair: LeftHandExpression {
+extension LayoutAnchorPair: LeftHandLayoutExpression {
+
     public typealias LinearEquation = LayoutPairRelationship<FA, SA>
 
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutAnchorPair<FA, SA>) -> LinearEquation {
@@ -14,6 +15,14 @@ extension LayoutAnchorPair: LeftHandExpression {
     }
 
     public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression ) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C.Constant) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }

@@ -7,13 +7,14 @@
 //
 
 public protocol LinearEquationSolving {
-
+    associatedtype E: Expression
     associatedtype Solution
     var solution: Solution { get }
+
 }
 
 extension Array: LinearEquationSolving where Element: LinearEquationSolving {
-
+    public typealias E = Element.E
     public typealias Solution = [Element.Solution]
 
     public var solution: Solution {
@@ -21,16 +22,12 @@ extension Array: LinearEquationSolving where Element: LinearEquationSolving {
     }
 }
 
-public protocol SingleVariableLinearEquation: Expression, LinearEquationSolving {
+public protocol LinearEquation: Expression, LinearEquationSolving where E.V == V, E.C == C {
     associatedtype Relation
     var relation: Relation { get set }
-
-}
-
-public protocol LinearEquation: SingleVariableLinearEquation {
     var relatedAnchor: V? { get set }
-    associatedtype E: Expression where E.V == V, E.C == C
     init(_ variable: V, _ relation: Relation, _ relatedAnchor: V?, _ coefficients: C )
+    init(_ variable: V, _ relation: Relation, _ constant: C.Constant)
 }
 
 extension LinearEquation {
@@ -46,6 +43,12 @@ extension LinearEquation {
 
     public init(_ anchor: V, _ relation: Relation, _ coefficients: C) {
         self.init(anchor, relation, nil, coefficients)
+    }
+
+    public init(_ variable: V,
+                _ relation: Relation,
+                _ constant: C.Constant) {
+        self.init(variable, relation, .constant(constant))
     }
 }
 

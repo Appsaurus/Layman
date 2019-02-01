@@ -9,7 +9,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutDimension: LeftHandExpression {
+extension LayoutDimension: LeftHandLayoutExpression {
     public typealias LinearEquation = LayoutDimensionRelationship
 
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutDimension) -> LinearEquation {

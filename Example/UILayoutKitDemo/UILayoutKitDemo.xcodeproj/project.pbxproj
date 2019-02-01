@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4D255C47D69B2A9DD487B6D /* Pods_UILayoutKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09CF268869790F575A847A7C /* Pods_UILayoutKitDemo.framework */; };
 		D5C7F74E1C3BC9CE008CDDBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5C7F74C1C3BC9CE008CDDBA /* LaunchScreen.storyboard */; };
 		D5C7F75B1C3BCA1E008CDDBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5C7F7571C3BCA1E008CDDBA /* Assets.xcassets */; };
 		D5C7F75C1C3BCA1E008CDDBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C7F7591C3BCA1E008CDDBA /* AppDelegate.swift */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09CF268869790F575A847A7C /* Pods_UILayoutKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UILayoutKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AF39E45E5879985E8EC7170 /* Pods-UILayoutKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKitDemo/Pods-UILayoutKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		8C95A98F9F17063CBA928033 /* Pods-UILayoutKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UILayoutKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UILayoutKitDemo/Pods-UILayoutKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D5C7F7401C3BC9CE008CDDBA /* UILayoutKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UILayoutKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C7F74D1C3BC9CE008CDDBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5C7F74F1C3BC9CE008CDDBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,17 +31,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D255C47D69B2A9DD487B6D /* Pods_UILayoutKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADEB2AF64BBECEDE222E0816 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09CF268869790F575A847A7C /* Pods_UILayoutKitDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D5C7F7371C3BC9CE008CDDBA = {
 			isa = PBXGroup;
 			children = (
 				D5C7F7421C3BC9CE008CDDBA /* UILayoutKitDemo */,
 				D5C7F7411C3BC9CE008CDDBA /* Products */,
+				FEEC86D1B771B960D9489824 /* Pods */,
+				ADEB2AF64BBECEDE222E0816 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +100,15 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		FEEC86D1B771B960D9489824 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C95A98F9F17063CBA928033 /* Pods-UILayoutKitDemo.debug.xcconfig */,
+				2AF39E45E5879985E8EC7170 /* Pods-UILayoutKitDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5C7F7521C3BC9CE008CDDBA /* Build configuration list for PBXNativeTarget "UILayoutKitDemo" */;
 			buildPhases = (
+				97D5C0CAC3EE27EA540A306B /* [CP] Check Pods Manifest.lock */,
 				D5C7F73C1C3BC9CE008CDDBA /* Sources */,
 				D5C7F73D1C3BC9CE008CDDBA /* Frameworks */,
 				D5C7F73E1C3BC9CE008CDDBA /* Resources */,
+				6E844347747D8E9C7A0F3FB3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -112,12 +138,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Hyper Interaktiv AS";
 				TargetAttributes = {
 					D5C7F73F1C3BC9CE008CDDBA = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0800;
+						DevelopmentTeam = 4B7GH74X7C;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -150,6 +177,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E844347747D8E9C7A0F3FB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UILayoutKitDemo/Pods-UILayoutKitDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UILayoutKit/UILayoutKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UILayoutKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UILayoutKitDemo/Pods-UILayoutKitDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97D5C0CAC3EE27EA540A306B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UILayoutKitDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D5C7F73C1C3BC9CE008CDDBA /* Sources */ = {
@@ -187,12 +261,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -240,12 +316,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -277,23 +355,29 @@
 		};
 		D5C7F7531C3BC9CE008CDDBA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C95A98F9F17063CBA928033 /* Pods-UILayoutKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4B7GH74X7C;
 				INFOPLIST_FILE = UILayoutKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.appsaurus.UILayoutKit.demo.UILayoutKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		D5C7F7541C3BC9CE008CDDBA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AF39E45E5879985E8EC7170 /* Pods-UILayoutKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4B7GH74X7C;
 				INFOPLIST_FILE = UILayoutKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.appsaurus.UILayoutKit.demo.UILayoutKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

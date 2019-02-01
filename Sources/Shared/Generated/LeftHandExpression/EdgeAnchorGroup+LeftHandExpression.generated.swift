@@ -9,13 +9,21 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension EdgeAnchorGroup: LeftHandExpression {
+extension EdgeAnchorGroup: LeftHandLayoutExpression {
     public typealias LinearEquation = EdgeAnchorGroupRelationship
 
     public func relation(_ relation: Constraint.Relation, _ rhs: EdgeAnchorGroup) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
     public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C.Constant) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }

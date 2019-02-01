@@ -27,6 +27,7 @@ args:
         RelationshipType: LayoutDimensionPairRelationship
     LeftHandConstantRelatableExpression:
         LeftHandTypes:
+            - 'XAxisAnchor'
             - 'LayoutDimension'
         RightHandTypes:
             - 'LayoutConstant'

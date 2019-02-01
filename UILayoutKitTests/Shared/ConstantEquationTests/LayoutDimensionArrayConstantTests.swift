@@ -14,21 +14,6 @@ import XCTest
 // sourcery: lhsItem = viewArray
 class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
 // sourcery:inline:auto:LayoutDimensionArrayConstantTests.ConstantEquationTests
-    func testViewArrayWidthEqualToConstant() {
-        let constraints = viewArray.widthAnchor .= 200
-        constraints.assert(viewArray, .width, .equal, constant: 200)
-    }
-
-    func testViewArrayWidthEqualToConstantWithPriority() {
-        let constraints = viewArray.widthAnchor .= 200 ~ .low
-        constraints.assert(viewArray, .width, .equal, constant: 200, priority: .low)
-    }
-
-    func testViewArrayWidthEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.widthAnchor .= 200 ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, constant: 200, priority: 749)
-    }
-
     func testViewArrayWidthLessThanOrEqualToConstant() {
         let constraints = viewArray.widthAnchor ≤ 200
         constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200)
@@ -42,6 +27,21 @@ class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
     func testViewArrayWidthLessThanOrEqualToConstantWithPriorityArithmetic() {
         let constraints = viewArray.widthAnchor ≤ 200 ~ .high .- 1
         constraints.assert(viewArray, .width, .lessThanOrEqual, constant: 200, priority: 749)
+    }
+
+    func testViewArrayWidthEqualToConstant() {
+        let constraints = viewArray.widthAnchor .= 200
+        constraints.assert(viewArray, .width, .equal, constant: 200)
+    }
+
+    func testViewArrayWidthEqualToConstantWithPriority() {
+        let constraints = viewArray.widthAnchor .= 200 ~ .low
+        constraints.assert(viewArray, .width, .equal, constant: 200, priority: .low)
+    }
+
+    func testViewArrayWidthEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.widthAnchor .= 200 ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, constant: 200, priority: 749)
     }
 
     func testViewArrayWidthGreaterThanOrEqualToConstant() {
@@ -59,21 +59,6 @@ class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
         constraints.assert(viewArray, .width, .greaterThanOrEqual, constant: 200, priority: 749)
     }
 
-    func testViewArrayHeightEqualToConstant() {
-        let constraints = viewArray.heightAnchor .= 200
-        constraints.assert(viewArray, .height, .equal, constant: 200)
-    }
-
-    func testViewArrayHeightEqualToConstantWithPriority() {
-        let constraints = viewArray.heightAnchor .= 200 ~ .low
-        constraints.assert(viewArray, .height, .equal, constant: 200, priority: .low)
-    }
-
-    func testViewArrayHeightEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.heightAnchor .= 200 ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, constant: 200, priority: 749)
-    }
-
     func testViewArrayHeightLessThanOrEqualToConstant() {
         let constraints = viewArray.heightAnchor ≤ 200
         constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200)
@@ -87,6 +72,21 @@ class LayoutDimensionArrayConstantTests: UILayoutKitTestCase {
     func testViewArrayHeightLessThanOrEqualToConstantWithPriorityArithmetic() {
         let constraints = viewArray.heightAnchor ≤ 200 ~ .high .- 1
         constraints.assert(viewArray, .height, .lessThanOrEqual, constant: 200, priority: 749)
+    }
+
+    func testViewArrayHeightEqualToConstant() {
+        let constraints = viewArray.heightAnchor .= 200
+        constraints.assert(viewArray, .height, .equal, constant: 200)
+    }
+
+    func testViewArrayHeightEqualToConstantWithPriority() {
+        let constraints = viewArray.heightAnchor .= 200 ~ .low
+        constraints.assert(viewArray, .height, .equal, constant: 200, priority: .low)
+    }
+
+    func testViewArrayHeightEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.heightAnchor .= 200 ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, constant: 200, priority: 749)
     }
 
     func testViewArrayHeightGreaterThanOrEqualToConstant() {

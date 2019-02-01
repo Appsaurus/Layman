@@ -9,7 +9,9 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension YAxisAnchor: LeftHandExpression {
+extension YAxisAnchor: LeftHandLayoutExpression {
+
+
     public typealias LinearEquation = YAxisAnchorRelationship
 
     public func relation(_ relation: Constraint.Relation, _ rhs: YAxisAnchor) -> LinearEquation {
@@ -18,4 +20,18 @@ extension YAxisAnchor: LeftHandExpression {
     public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: LinearEquation.E.C.Constant) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Constraint.Relation, _ rhs: LinearEquation.E.C) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+//    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C.Constant) -> LinearEquation {
+//        return LinearEquation(self, relation, rhs)
+//    }
+//    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C) -> LinearEquation {
+//        return LinearEquation(self, relation, rhs)
+//    }
 }

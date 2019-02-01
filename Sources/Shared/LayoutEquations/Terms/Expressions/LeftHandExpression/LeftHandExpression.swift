@@ -8,14 +8,72 @@
 
 public protocol LeftHandExpression {
     associatedtype RightHandExpression
-    associatedtype LinearEquation: LinearEquationSolving
+    associatedtype LinearEquation: UILayoutKit.LinearEquation
     typealias Solution = LinearEquation.Solution
 
-    func relation(_ relation: Constraint.Relation, _ rhs: Self) -> LinearEquation
-    func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression) -> LinearEquation
+    func relation(_ relation: LinearEquation.Relation, _ rhs: Self) -> LinearEquation
+    func relation(_ relation: LinearEquation.Relation, _ rhs: RightHandExpression) -> LinearEquation
+    func relation(_ relation: LinearEquation.Relation, _ rhs: LinearEquation.E.C.Constant) -> LinearEquation
+    func relation(_ relation: LinearEquation.Relation, _ rhs: LinearEquation.E.C) -> LinearEquation
 }
 
-extension LeftHandExpression {
+extension LeftHandExpression where Self == LinearEquation.V{
+
+//    func relation(_ relation: LinearEquation.Relation, _ rhs: Self) -> LinearEquation {
+//        return LinearEquation.init(self, relation, rhs)
+//    }
+//
+//    func relation(_ relation: LinearEquation.Relation, _ rhs: RightHandExpression) -> LinearEquation {
+//        return LinearEquation.init(self, relation, rhs)
+//    }
+
+    func relation(_ relation: LinearEquation.Relation, _ rhs: LinearEquation.E.C.Constant) -> LinearEquation {
+        return LinearEquation.init(self, relation, rhs)
+    }
+
+    func relation(_ relation: LinearEquation.Relation, _ rhs: LinearEquation.E.C) -> LinearEquation {
+        return LinearEquation.init(self, relation, rhs)
+    }
+
+}
+
+
+//extension LeftHandExpression where
+//    LinearEquation.E.V == RightHandExpression.V,
+//    LinearEquation.E.C == RightHandExpression.C,
+//    LinearEquation.E.V == Self
+//{
+//
+//    func relation(_ relation: Constraint.Relation, _ rhs: Self) -> LinearEquation{
+//        return LinearEquation.init(self, relation, rhs)
+//    }
+//    func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression) -> LinearEquation{
+//        return LinearEquation.init(self, relation, rhs)
+//    }
+//    func relation(_ relation: Constraint.Relation, _ rhs: LinearEquation.E.C.Constant) -> LinearEquation{
+//        return LinearEquation.init(self, relation, rhs)
+//    }
+//    func relation(_ relation: Constraint.Relation, _ rhs: LinearEquation.E.C) -> LinearEquation{
+//        return LinearEquation.init(self, relation, rhs)
+//    }
+////    public func relation(_ relation: Constraint.Relation, _ rhs: Self) -> LinearEquation {
+////
+////    }
+////    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression) -> LinearEquation {
+////        return LinearEquation.init(self, relation, rhs)
+////    }
+////
+////    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C.Constant) -> LinearEquation {
+////        return LinearEquation.init(self, relation, rhs)
+////    }
+////
+////    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C) -> LinearEquation {
+////        return LinearEquation.init(self, relation, rhs)
+////    }
+//}
+
+public protocol LeftHandLayoutExpression: LeftHandExpression where LinearEquation.Relation == Constraint.Relation {}
+extension LeftHandLayoutExpression {
 
     @discardableResult
     public func equal(to rhs: Self) -> Solution {

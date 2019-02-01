@@ -18,7 +18,7 @@ import SwiftTestUtils
 
 class UILayoutKitTestCase: XCTestCase {
 
-    lazy var benchmarker: BenchmarkGroup = BenchmarkGroup()
+//    lazy var benchmarker: BenchmarkGroup = BenchmarkGroup()
 
     let parentView = View()
     let view1 = View()
@@ -46,16 +46,16 @@ class UILayoutKitTestCase: XCTestCase {
 
     }
 
-    override func tearDown() {
-        super.tearDown()
-        guard benchmarker.benchmarks.count > 0 else { return }
-        print(benchmarker.formattedTimeReport)
-    }
+//    override func tearDown() {
+//        super.tearDown()
+//        guard benchmarker.benchmarks.count > 0 else { return }
+//        print(benchmarker.formattedTimeReport)
+//    }
 
-    @discardableResult
-    public func benchmark(_ key: String = #function, block: () -> Void) -> Benchmark {
-        return benchmarker.measure(key, block: block)
-    }
+//    @discardableResult
+//    public func benchmark(_ key: String = #function, block: () -> Void) -> Benchmark {
+//        return benchmarker.measure(key, block: block)
+//    }
 
     internal func invertRelationIfNeeded(_ attribute: ConstraintAttribute,
                                          _ relation: Constraint.Relation) -> Constraint.Relation {
@@ -68,7 +68,4 @@ class UILayoutKitTestCase: XCTestCase {
         guard attribute.isCategory(.trailing) else { return constant }
         return -constant
     }
-
-    // sourcery:inline:auto:UILayoutKitTestCase.TemplateName
-    // sourcery:end
 }

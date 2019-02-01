@@ -37,12 +37,9 @@ extension Constraint {
         isActive = true
 
         #if DEBUG
-        let views = items.filtered(as: UIView.self)
+        let views = [firstView, secondView].compactMap { $0 }
         if views.count == 2 {
-            guard let commonSuperview = views[0].nearestCommonSuperviewWith(other: views[1]) else {
-                assertionFailure("Views that share constraints must share a common superview.")
-                return constraint
-            }
+            assert(views[0].nearestCommonSuperviewWith(other: views[1]) != nil, "Views that share constraints must share a common superview.")            
         }
         #endif
         return self

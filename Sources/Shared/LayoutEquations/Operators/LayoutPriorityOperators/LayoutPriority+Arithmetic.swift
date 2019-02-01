@@ -8,7 +8,7 @@
 
 extension LayoutPriority {
     public func plus(_ rhs: LayoutConstant) -> LayoutPriority {
-        return LayoutPriority(rawValue: rawValue + rhs.float)
+        return LayoutPriority(rawValue: rawValue + Float(rhs))
     }
 
     public func minus(_ rhs: LayoutConstant) -> LayoutPriority {
