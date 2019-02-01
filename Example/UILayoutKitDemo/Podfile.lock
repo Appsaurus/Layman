@@ -1,0 +1,16 @@
+PODS:
+  - UILayoutKit (0.0.6)
+
+DEPENDENCIES:
+  - UILayoutKit (from `../../`)
+
+EXTERNAL SOURCES:
+  UILayoutKit:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  UILayoutKit: aa310dbbbe9f8775941ae60790f647c3d929089c
+
+PODFILE CHECKSUM: 8943574b3a9c9900893fd7e1324e289a174d61ad
+
+COCOAPODS: 1.5.3

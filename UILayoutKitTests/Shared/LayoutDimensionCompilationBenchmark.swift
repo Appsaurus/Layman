@@ -22,6 +22,983 @@ class LayoutDimensionCompilationBenchmark: UILayoutKitTestCase {
 
     // MARK: view1Width <=> relatedViewWidth
 
+    // MARK: GreaterThanOrEqual
+
+    func compileView1WidthGreaterThanOrEqualToWidth() {
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+        view1.width ≥ relatedView.width
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidth() {
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+    }
+
+    // MARK: GreaterThanOrEqual with constant
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstant() {
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+        view1.width ≥ relatedView.width .+ 10
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstant() {
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthMinusConstant() {
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+        view1.width ≥ relatedView.width .- 10
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthMinusConstant() {
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+    }
+
+    // MARK: GreaterThanOrEqual with multiplier
+    func compileView1WidthGreaterThanOrEqualToWidthMultiplyingConstant() {
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+        view1.width ≥ relatedView.width .* 3
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultiplyingConstant() {
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthMultipliedByConstant() {
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+        view1.width ≥ 3 .* relatedView.width
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultipliedByConstant() {
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthDividedByConstant() {
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+        view1.width ≥ relatedView.width ./ 2
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthDividedByConstant() {
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+    }
+
+    // MARK: GreaterThanOrEqual Prioritized
+    func compileView1WidthGreaterThanOrEqualToWidthWithPriority() {
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+        view1.width ≥ relatedView.width ~ .low
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthWithPriority() {
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthWithPriorityLiteral() {
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+        view1.width ≥ relatedView.width ~ 300
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthWithPriorityLiteral() {
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthWithPriorityArithmetic() {
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+        view1.width ≥ relatedView.width ~ .high .- 1
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthWithPriorityArithmetic() {
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+    }
+
+    // MARK: GreaterThanOrEqual with constant .+ multiplier
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstant() {
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+        view1.width ≥ (relatedView.width .+ 10) .* 3
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstant() {
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstant() {
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+        view1.width ≥ 3 .* (relatedView.width .+ 10)
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstant() {
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstant() {
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+        view1.width ≥ 3 .* relatedView.width .+ 10
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstant() {
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstant() {
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+        view1.width ≥ (relatedView.width .+ 10) ./ 2
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstant() {
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+    }
+
+// MARK: GreaterThanOrEqual with constant .+ multiplier and priority
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriority() {
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriority() {
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+    }
+
+    // MARK: GreaterThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+    }
+
+    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+    }
+
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+    }
+
     // MARK: LessThanOrEqual
 
     func compileView1WidthLessThanOrEqualToWidth() {
@@ -1976,984 +2953,984 @@ class LayoutDimensionCompilationBenchmark: UILayoutKitTestCase {
         view1 .= (relatedView.width .+ 10) ./ 2  ~ .high .- 1
     }
 
+    // MARK: view1Width <=> relatedViewWidthAnchor
+
     // MARK: GreaterThanOrEqual
 
-    func compileView1WidthGreaterThanOrEqualToWidth() {
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
-        view1.width ≥ relatedView.width
+    func compileView1WidthGreaterThanOrEqualToWidthAnchor() {
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
+        view1.width ≥ relatedView.widthAnchor
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidth() {
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchor() {
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
     }
 
     // MARK: GreaterThanOrEqual with constant
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstant() {
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
-        view1.width ≥ relatedView.width .+ 10
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstant() {
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
+        view1.width ≥ relatedView.widthAnchor .+ 10
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstant() {
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstant() {
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthMinusConstant() {
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
-        view1.width ≥ relatedView.width .- 10
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorMinusConstant() {
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
+        view1.width ≥ relatedView.widthAnchor .- 10
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthMinusConstant() {
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMinusConstant() {
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
     }
 
     // MARK: GreaterThanOrEqual with multiplier
-    func compileView1WidthGreaterThanOrEqualToWidthMultiplyingConstant() {
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
-        view1.width ≥ relatedView.width .* 3
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultiplyingConstant() {
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
+        view1.width ≥ relatedView.widthAnchor .* 3
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultiplyingConstant() {
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultiplyingConstant() {
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthMultipliedByConstant() {
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
-        view1.width ≥ 3 .* relatedView.width
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstant() {
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
+        view1.width ≥ 3 .* relatedView.widthAnchor
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultipliedByConstant() {
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstant() {
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthDividedByConstant() {
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
-        view1.width ≥ relatedView.width ./ 2
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorDividedByConstant() {
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
+        view1.width ≥ relatedView.widthAnchor ./ 2
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthDividedByConstant() {
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorDividedByConstant() {
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
     }
 
     // MARK: GreaterThanOrEqual Prioritized
-    func compileView1WidthGreaterThanOrEqualToWidthWithPriority() {
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
-        view1.width ≥ relatedView.width ~ .low
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorWithPriority() {
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
+        view1.width ≥ relatedView.widthAnchor ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthWithPriority() {
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorWithPriority() {
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthWithPriorityLiteral() {
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
-        view1.width ≥ relatedView.width ~ 300
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorWithPriorityLiteral() {
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
+        view1.width ≥ relatedView.widthAnchor ~ 300
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthWithPriorityLiteral() {
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorWithPriorityLiteral() {
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthWithPriorityArithmetic() {
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
-        view1.width ≥ relatedView.width ~ .high .- 1
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorWithPriorityArithmetic() {
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthWithPriorityArithmetic() {
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorWithPriorityArithmetic() {
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
     }
 
     // MARK: GreaterThanOrEqual with constant .+ multiplier
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstant() {
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
-        view1.width ≥ (relatedView.width .+ 10) .* 3
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstant() {
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstant() {
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstant() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstant() {
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
-        view1.width ≥ 3 .* (relatedView.width .+ 10)
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstant() {
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstant() {
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstant() {
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstant() {
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
-        view1.width ≥ 3 .* relatedView.width .+ 10
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstant() {
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstant() {
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstant() {
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstant() {
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
-        view1.width ≥ (relatedView.width .+ 10) ./ 2
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstant() {
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstant() {
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstant() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
     }
 
 // MARK: GreaterThanOrEqual with constant .+ multiplier and priority
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) .* 3 ~ .low
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriority() {
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriority() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.width .+ 10) ~ .low
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriority() {
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriority() {
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.width .+ 10 ~ .low
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriority() {
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriority() {
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriority() {
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriority() {
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriority() {
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriority() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
     }
 
     // MARK: GreaterThanOrEqual with constant .+ multiplier and priority arithmetic
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriorityArithmetic() {
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriorityArithmetic() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
     }
-
-    // MARK: view1Width <=> relatedViewWidthAnchor
 
     // MARK: LessThanOrEqual
 
@@ -4909,984 +5886,984 @@ class LayoutDimensionCompilationBenchmark: UILayoutKitTestCase {
         view1 .= (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
     }
 
+    // MARK: view1WidthAnchor <=> relatedViewWidth
+
     // MARK: GreaterThanOrEqual
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchor() {
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
-        view1.width ≥ relatedView.widthAnchor
+    func compileView1WidthAnchorGreaterThanOrEqualToWidth() {
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
+        view1.widthAnchor ≥ relatedView.width
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchor() {
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidth() {
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
+        view1 ≥ relatedView.width
     }
 
     // MARK: GreaterThanOrEqual with constant
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstant() {
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
-        view1.width ≥ relatedView.widthAnchor .+ 10
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstant() {
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
+        view1.widthAnchor ≥ relatedView.width .+ 10
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstant() {
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstant() {
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
+        view1 ≥ relatedView.width .+ 10
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorMinusConstant() {
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
-        view1.width ≥ relatedView.widthAnchor .- 10
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthMinusConstant() {
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
+        view1.widthAnchor ≥ relatedView.width .- 10
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMinusConstant() {
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMinusConstant() {
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
+        view1 ≥ relatedView.width .- 10
     }
 
     // MARK: GreaterThanOrEqual with multiplier
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultiplyingConstant() {
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
-        view1.width ≥ relatedView.widthAnchor .* 3
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultiplyingConstant() {
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
+        view1.widthAnchor ≥ relatedView.width .* 3
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultiplyingConstant() {
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultiplyingConstant() {
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
+        view1 ≥ relatedView.width .* 3
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstant() {
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
-        view1.width ≥ 3 .* relatedView.widthAnchor
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstant() {
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
+        view1.widthAnchor ≥ 3 .* relatedView.width
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstant() {
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstant() {
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
+        view1 ≥ 3 .* relatedView.width
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorDividedByConstant() {
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
-        view1.width ≥ relatedView.widthAnchor ./ 2
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthDividedByConstant() {
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
+        view1.widthAnchor ≥ relatedView.width ./ 2
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorDividedByConstant() {
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthDividedByConstant() {
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
+        view1 ≥ relatedView.width ./ 2
     }
 
     // MARK: GreaterThanOrEqual Prioritized
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorWithPriority() {
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
-        view1.width ≥ relatedView.widthAnchor ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthWithPriority() {
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
+        view1.widthAnchor ≥ relatedView.width ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorWithPriority() {
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthWithPriority() {
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
+        view1 ≥ relatedView.width ~ .low
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorWithPriorityLiteral() {
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
-        view1.width ≥ relatedView.widthAnchor ~ 300
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthWithPriorityLiteral() {
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
+        view1.widthAnchor ≥ relatedView.width ~ 300
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorWithPriorityLiteral() {
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthWithPriorityLiteral() {
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
+        view1 ≥ relatedView.width ~ 300
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorWithPriorityArithmetic() {
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.width ≥ relatedView.widthAnchor ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthWithPriorityArithmetic() {
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorWithPriorityArithmetic() {
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthWithPriorityArithmetic() {
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
+        view1 ≥ relatedView.width ~ .high .- 1
     }
 
     // MARK: GreaterThanOrEqual with constant .+ multiplier
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstant() {
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstant() {
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstant() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstant() {
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
+        view1 ≥ (relatedView.width .+ 10) .* 3
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstant() {
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstant() {
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstant() {
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstant() {
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
+        view1 ≥ 3 .* (relatedView.width .+ 10)
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstant() {
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstant() {
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstant() {
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstant() {
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
+        view1 ≥ 3 .* relatedView.width .+ 10
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstant() {
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstant() {
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstant() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstant() {
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
+        view1 ≥ (relatedView.width .+ 10) ./ 2
     }
 
 // MARK: GreaterThanOrEqual with constant .+ multiplier and priority
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriority() {
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriority() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriority() {
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriority() {
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriority() {
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriority() {
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriority() {
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriority() {
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriority() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriority() {
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
     }
 
     // MARK: GreaterThanOrEqual with constant .+ multiplier and priority arithmetic
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.width ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.width ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
     }
 
-    func compileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriorityArithmetic() {
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriorityArithmetic() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
     }
-
-    // MARK: view1WidthAnchor <=> relatedViewWidth
 
     // MARK: LessThanOrEqual
 
@@ -7842,984 +8819,984 @@ class LayoutDimensionCompilationBenchmark: UILayoutKitTestCase {
         view1 .= (relatedView.width .+ 10) ./ 2  ~ .high .- 1
     }
 
+    // MARK: view1WidthAnchor <=> relatedViewWidthAnchor
+
     // MARK: GreaterThanOrEqual
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidth() {
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
-        view1.widthAnchor ≥ relatedView.width
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchor() {
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
+        view1.widthAnchor ≥ relatedView.widthAnchor
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidth() {
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
-        view1 ≥ relatedView.width
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchor() {
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
+        view1 ≥ relatedView.widthAnchor
     }
 
     // MARK: GreaterThanOrEqual with constant
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstant() {
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
-        view1.widthAnchor ≥ relatedView.width .+ 10
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstant() {
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstant() {
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
-        view1 ≥ relatedView.width .+ 10
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstant() {
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
+        view1 ≥ relatedView.widthAnchor .+ 10
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthMinusConstant() {
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
-        view1.widthAnchor ≥ relatedView.width .- 10
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMinusConstant() {
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
+        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMinusConstant() {
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
-        view1 ≥ relatedView.width .- 10
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMinusConstant() {
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
+        view1 ≥ relatedView.widthAnchor .- 10
     }
 
     // MARK: GreaterThanOrEqual with multiplier
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultiplyingConstant() {
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
-        view1.widthAnchor ≥ relatedView.width .* 3
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultiplyingConstant() {
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
+        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultiplyingConstant() {
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
-        view1 ≥ relatedView.width .* 3
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultiplyingConstant() {
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
+        view1 ≥ relatedView.widthAnchor .* 3
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstant() {
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
-        view1.widthAnchor ≥ 3 .* relatedView.width
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstant() {
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstant() {
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
-        view1 ≥ 3 .* relatedView.width
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstant() {
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
+        view1 ≥ 3 .* relatedView.widthAnchor
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthDividedByConstant() {
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
-        view1.widthAnchor ≥ relatedView.width ./ 2
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorDividedByConstant() {
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
+        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthDividedByConstant() {
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
-        view1 ≥ relatedView.width ./ 2
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorDividedByConstant() {
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
+        view1 ≥ relatedView.widthAnchor ./ 2
     }
 
     // MARK: GreaterThanOrEqual Prioritized
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthWithPriority() {
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
-        view1.widthAnchor ≥ relatedView.width ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriority() {
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthWithPriority() {
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
-        view1 ≥ relatedView.width ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriority() {
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
+        view1 ≥ relatedView.widthAnchor ~ .low
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthWithPriorityLiteral() {
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
-        view1.widthAnchor ≥ relatedView.width ~ 300
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriorityLiteral() {
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthWithPriorityLiteral() {
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
-        view1 ≥ relatedView.width ~ 300
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriorityLiteral() {
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
+        view1 ≥ relatedView.widthAnchor ~ 300
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthWithPriorityArithmetic() {
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.width ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriorityArithmetic() {
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
+        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthWithPriorityArithmetic() {
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
-        view1 ≥ relatedView.width ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriorityArithmetic() {
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
+        view1 ≥ relatedView.widthAnchor ~ .high .- 1
     }
 
     // MARK: GreaterThanOrEqual with constant .+ multiplier
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstant() {
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstant() {
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstant() {
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
-        view1 ≥ (relatedView.width .+ 10) .* 3
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstant() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstant() {
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstant() {
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstant() {
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
-        view1 ≥ 3 .* (relatedView.width .+ 10)
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstant() {
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstant() {
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstant() {
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstant() {
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
-        view1 ≥ 3 .* relatedView.width .+ 10
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstant() {
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstant() {
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstant() {
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstant() {
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
-        view1 ≥ (relatedView.width .+ 10) ./ 2
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstant() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
     }
 
 // MARK: GreaterThanOrEqual with constant .+ multiplier and priority
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3 ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriority() {
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.width .+ 10) .* 3 ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriority() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10) ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriority() {
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.width .+ 10) ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriority() {
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10 ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriority() {
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.width .+ 10 ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriority() {
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriority() {
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriority() {
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriority() {
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.width .+ 10) ./ 2 ~ .low
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriority() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
     }
 
     // MARK: GreaterThanOrEqual with constant .+ multiplier and priority arithmetic
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) .* 3  ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.width .+ 10)  ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.width .+ 10  ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
     }
 
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriorityArithmetic() {
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
     }
 
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.width .+ 10) ./ 2  ~ .high .- 1
+    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriorityArithmetic() {
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
     }
-
-    // MARK: view1WidthAnchor <=> relatedViewWidthAnchor
 
     // MARK: LessThanOrEqual
 
@@ -10773,983 +11750,6 @@ class LayoutDimensionCompilationBenchmark: UILayoutKitTestCase {
         view1 .= (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
         view1 .= (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
         view1 .= (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-    }
-
-    // MARK: GreaterThanOrEqual
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchor() {
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-        view1.widthAnchor ≥ relatedView.widthAnchor
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchor() {
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-        view1 ≥ relatedView.widthAnchor
-    }
-
-    // MARK: GreaterThanOrEqual with constant
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstant() {
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .+ 10
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstant() {
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-        view1 ≥ relatedView.widthAnchor .+ 10
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMinusConstant() {
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-        view1.widthAnchor ≥ relatedView.widthAnchor .- 10
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMinusConstant() {
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-        view1 ≥ relatedView.widthAnchor .- 10
-    }
-
-    // MARK: GreaterThanOrEqual with multiplier
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultiplyingConstant() {
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-        view1.widthAnchor ≥ relatedView.widthAnchor .* 3
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultiplyingConstant() {
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-        view1 ≥ relatedView.widthAnchor .* 3
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstant() {
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstant() {
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-        view1 ≥ 3 .* relatedView.widthAnchor
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorDividedByConstant() {
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-        view1.widthAnchor ≥ relatedView.widthAnchor ./ 2
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorDividedByConstant() {
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-        view1 ≥ relatedView.widthAnchor ./ 2
-    }
-
-    // MARK: GreaterThanOrEqual Prioritized
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriority() {
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .low
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriority() {
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-        view1 ≥ relatedView.widthAnchor ~ .low
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriorityLiteral() {
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ 300
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriorityLiteral() {
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-        view1 ≥ relatedView.widthAnchor ~ 300
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriorityArithmetic() {
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-        view1.widthAnchor ≥ relatedView.widthAnchor ~ .high .- 1
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorWithPriorityArithmetic() {
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-        view1 ≥ relatedView.widthAnchor ~ .high .- 1
-    }
-
-    // MARK: GreaterThanOrEqual with constant .+ multiplier
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstant() {
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstant() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstant() {
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstant() {
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstant() {
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstant() {
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstant() {
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstant() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2
-    }
-
-// MARK: GreaterThanOrEqual with constant .+ multiplier and priority
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriority() {
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriority() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriority() {
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriority() {
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriority() {
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriority() {
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10 ~ .low
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriority() {
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriority() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-    }
-
-    // MARK: GreaterThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        view1 ≥ 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1.widthAnchor ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        view1 ≥ 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-    }
-
-    func compileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriorityArithmetic() {
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1.widthAnchor ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-    }
-
-    func impliedcompileView1WidthAnchorGreaterThanOrEqualToWidthAnchorPlusConstantDividedByConstantWithPriorityArithmetic() {
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        view1 ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
     }
 // sourcery:end
 }

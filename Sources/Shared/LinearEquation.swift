@@ -15,7 +15,7 @@ public protocol LinearEquationSolving {
 
 extension Array: LinearEquationSolving where Element: LinearEquationSolving {
     public typealias E = Element.E
-    public typealias Solution = [Element.Solution]
+    public typealias Solution = [Element.Solution]    
 
     public var solution: Solution {
         return map { $0.solution }
@@ -26,7 +26,9 @@ public protocol LinearEquation: Expression, LinearEquationSolving where E.V == V
     associatedtype Relation
     var relation: Relation { get set }
     var relatedAnchor: V? { get set }
-    init(_ variable: V, _ relation: Relation, _ relatedAnchor: V?, _ coefficients: C )
+    init(_ variable: V, _ relation: Relation, _ relatedExpression: E)
+    init(_ variable: V, _ relation: Relation, _ relatedAnchor: V)
+    init(_ variable: V, _ relation: Relation, _ relatedAnchor: V?, _ coefficients: C)
     init(_ variable: V, _ relation: Relation, _ constant: C.Constant)
 }
 
@@ -39,6 +41,10 @@ extension LinearEquation {
                   relation,
                   relatedExpression.variable,
                   relatedExpression.coefficients)
+    }
+
+    public init(_ variable: V, _ relation: Relation, _ relatedAnchor: V) {
+        self.init(variable, relation, relatedAnchor, .default)
     }
 
     public init(_ anchor: V, _ relation: Relation, _ coefficients: C) {
@@ -104,6 +110,8 @@ public protocol CoefficientMutating {
     static func constant(_ constant: Constant) -> Self
     static func multiplier(_ multiplier: Multiplier) -> Self
     static func priority(_ priority: Priority) -> Self
+    static var `default`: Self { get }
+
 }
 
 extension CoefficientMutating {

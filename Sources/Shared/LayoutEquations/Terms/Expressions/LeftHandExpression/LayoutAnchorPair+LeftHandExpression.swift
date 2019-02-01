@@ -6,23 +6,23 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutAnchorPair: LeftHandLayoutExpression {
+extension LayoutAnchorPair: LeftHandLayoutExpression, LeftHandConstantRelatableExpression {
 
     public typealias LinearEquation = LayoutPairRelationship<FA, SA>
 
-    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutAnchorPair<FA, SA>) -> LinearEquation {
+    public func relation(_ relation: Relation, _ rhs: LayoutAnchorPair<FA, SA>) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression ) -> LinearEquation {
+    public func relation(_ relation: Relation, _ rhs: RightHandExpression) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C.Constant) -> LinearEquation {
+    public func relation(_ relation: Relation, _ rhs: Constant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Constraint.Relation, _ rhs: RightHandExpression.C) -> LinearEquation {
+    public func relation(_ relation: Relation, _ rhs: Coefficient) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }

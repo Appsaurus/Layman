@@ -21,18 +21,22 @@ args:
             - 'LayoutDimensionPair'
             - 'View'
         RightHandTypes:
-            - 'LayoutConstant'
             - 'LayoutSize'
             - 'LayoutConfigurationPair'
-        RelationshipType: LayoutDimensionPairRelationship
+            - 'LayoutConstant'
+        RightHandIsProtocol: false
     LeftHandConstantRelatableExpression:
         LeftHandTypes:
-            - 'XAxisAnchor'
-            - 'LayoutDimension'
+            - "XAxisAnchor"
+            - "YAxisAnchor"
+            - "LayoutDimension"
+            - "EdgeAnchorGroup"
+            - "XAxisAnchorPair"
+            - "YAxisAnchorPair"
         RightHandTypes:
-            - 'LayoutConstant'
-            - 'LayoutConfiguration'
-        RelationshipType: LayoutDimensionRelationship
+            - 'Constant'
+            - 'Coefficient'
+        RightHandIsProtocol: true
   operators:
     equal: ".="
     lessThanOrEqual: "≤"

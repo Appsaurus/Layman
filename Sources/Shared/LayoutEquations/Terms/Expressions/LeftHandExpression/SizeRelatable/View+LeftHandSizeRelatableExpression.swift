@@ -11,12 +11,26 @@ extension View: LeftHandSizeRelatableExpression {
         return LayoutDimensionPairRelationship(sizeAnchors, relation, rhs)
     }
 
-    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutConstant) -> LayoutDimensionPairRelationship {
-        return self.relation(relation, LayoutSize(width: rhs, height: rhs))
-    }
+//    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutConstant) -> LayoutDimensionPairRelationship {
+//        return self.relation(relation, LayoutSize(width: rhs, height: rhs))
+//    }
 
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutSize) -> LayoutDimensionPairRelationship {
         let sizeConfiguration = LayoutConfigurationPair(.constant(rhs.width), .constant(rhs.height))
         return LayoutDimensionPairRelationship(sizeAnchors, relation, sizeConfiguration)
     }
+}
+
+extension View: LeftHandConstantRelatableExpression {
+    public func relation(_ relation: Relation, _ rhs: Constant) -> LayoutDimensionPairRelationship {
+        return self.relation(relation, LayoutSize(width: rhs, height: rhs))
+    }
+
+//    public func relation(_ relation: Relation, _ rhs: Coefficient) -> LayoutDimensionPairRelationship {
+//
+//    }
+
+    public typealias LinearEquation = LayoutDimensionPairRelationship
+
+
 }

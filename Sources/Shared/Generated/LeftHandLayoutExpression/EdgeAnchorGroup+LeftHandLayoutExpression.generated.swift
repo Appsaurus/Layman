@@ -1,17 +1,18 @@
-{% for AnchorType in argument.anchorTypes %}
-// sourcery:file:LeftHandLayoutExpression/{{AnchorType}}+LeftHandLayoutExpression
+// Generated using Sourcery 0.15.0 — https://github.com/krzysztofzablocki/Sourcery
+// DO NOT EDIT
+
 //
-//  {{AnchorType}}+LeftHandLayoutExpression.swift
+//  EdgeAnchorGroup+LeftHandLayoutExpression.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension {{AnchorType}}: LeftHandLayoutExpression, LeftHandConstantRelatableExpression {
-    public typealias LinearEquation = {{AnchorType}}Relationship
+extension EdgeAnchorGroup: LeftHandLayoutExpression, LeftHandConstantRelatableExpression {
+    public typealias LinearEquation = EdgeAnchorGroupRelationship
 
-    public func relation(_ relation: Relation, _ rhs: {{AnchorType}}) -> LinearEquation {
+    public func relation(_ relation: Relation, _ rhs: EdgeAnchorGroup) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
@@ -27,7 +28,3 @@ extension {{AnchorType}}: LeftHandLayoutExpression, LeftHandConstantRelatableExp
         return LinearEquation(self, relation, rhs)
     }
 }
-// sourcery:end
-{% endfor %}
-
-
