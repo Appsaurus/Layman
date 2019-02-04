@@ -7,7 +7,7 @@
 {% set multiplier 3 %}
 {% set divisor 2 %}
 
-{% for type in types.all|annotated:"inferredAnchorEquationTest" %}
+{% for type in types.all|annotated:"test" %}
 // sourcery:inline:auto:{{type.name}}.InferredAnchorEquationTest
 {% for lhsItem in type.annotations.lhsItems %}
 {% for rhsAttribute in type.annotations.rhsAttributes %}

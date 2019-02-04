@@ -1,9 +1,0 @@
-{% block arguments %}
-{% set equal argument.operators.equal %}
-{% set lessThanOrEqual argument.operators.lessThanOrEqual %}
-{% set greaterThanOrEqual argument.operators.greaterThanOrEqual %}
-{% set addition argument.arithmeticOperators.addition %}
-{% set subtraction argument.arithmeticOperators.subtraction %}
-{% set multiplication argument.arithmeticOperators.multiplication %}
-{% set division argument.arithmeticOperators.division %}
-{% endblock %}

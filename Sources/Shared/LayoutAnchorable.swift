@@ -206,8 +206,8 @@ extension Array where Element: XYAxisAnchorable {
     public var topAnchor: [YAxisAnchor] { return map {$0.topAnchor } }
     public var bottomAnchor: [YAxisAnchor] { return map {$0.bottomAnchor } }
 
-    public var horizontalAnchors: XAxisAnchorPairs { return map { $0.horizontalEdgeAnchors } }
-    public var verticalAnchors: YAxisAnchorPairs { return map { $0.verticalEdgeAnchors } }
+    public var horizontalEdgeAnchors: XAxisAnchorPairs { return map { $0.horizontalEdgeAnchors } }
+    public var verticalEdgeAnchors: YAxisAnchorPairs { return map { $0.verticalEdgeAnchors } }
     public var edgeAnchors: EdgeAnchorGroups { return map { $0.edgeAnchors } }
 
     public var centerXAnchor: XAxisAnchors { return map { $0.centerXAnchor } }

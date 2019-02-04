@@ -7,16 +7,20 @@
 {% set multiplier 3 %}
 {% set divisor 2 %}
 
-{% for type in types.all|annotated:"inferredPairEquationTest" %}
-// sourcery:inline:auto:{{type.name}}.InferredPairAnchorEquationTest
+{% for type in types.all|annotated:"pairEquationTest" %}
+    // sourcery:inline:auto:{{type.name}}.AnchorPairEquationTest
+
+{% macro generateTests inferred %}
 {% for lhsItem in type.annotations.lhsItems %}
 {% for rhsAttribute in type.annotations.rhsAttributes %}
-// MARK: {{lhsItem}}{{rhsAttribute|upperFirstLetter}} <=> relatedView{{rhsAttribute|upperFirstLetter}}
+{% set lhs %}{% if inferred %}{{lhsItem}}{% else %}{{lhsItem}}.{{rhsAttribute}}{% endif %}{% endset %}
+{% set functionNamePrefix %}{% if inferred %}Inferred{% else %}{% endif %}{% endset %}
+    // MARK: {{lhs}}{{rhsAttribute|upperFirstLetter}} <=> relatedView{{rhsAttribute|upperFirstLetter}}
 {% for operatorName in argument.operators %}
 {% set operator %}{{argument.operators[operatorName]}}{% endset %}
-{% set baseFunctionName %}testInferred{{lhsItem|upperFirstLetter}}{{rhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}To{{rhsAttribute|upperFirstLetter}}{% endset %}
+{% set baseFunctionName %}test{{functionNamePrefix}}{{lhsItem|upperFirstLetter}}{{operatorName|upperFirstLetter}}To{{rhsAttribute|upperFirstLetter}}{% endset %}
 {% set baseRhs %}relatedView.{{rhsAttribute}}{% endset %}
-{% set baseEquation %}{{lhsItem}} {{operator}} {{baseRhs}}{% endset %}
+{% set baseEquation %}{{lhs}} {{operator}} {{baseRhs}}{% endset %}
 {% macro baseAssertion rhs %}{{lhsItem}}, .{{rhs}}, .{{operatorName}}, relatedView, .{{rhs}}{% endmacro %}
     // MARK: {{operatorName|upperFirstLetter}}
     func {{baseFunctionName}}() {
@@ -156,6 +160,13 @@
 {% endfor %}
 {% endfor %}
 {% endfor %}
+{% endmacro %}
+{% call generateTests false %}
+// sourcery:end
+{% for inferredType in types.all|annotated:"inferredPairEquationTest" %}
+// sourcery:inline:auto:{{inferredType.name}}.InferredAnchorPairEquationTest
+
+{% call generateTests true %}
 // sourcery:end
 {% endfor %}
-
+{% endfor %}

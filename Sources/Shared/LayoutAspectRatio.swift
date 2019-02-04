@@ -30,5 +30,4 @@ public enum LayoutAspectRatio {
             return ratio
         }
     }
-
 }
