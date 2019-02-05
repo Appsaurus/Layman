@@ -41,15 +41,18 @@ public final class LayoutRelationship<A: AnchorVariable> {
         }
 
         if let layoutDimension = variable as? LayoutDimension {
-            return sizeConstraint(for: layoutDimension).configured(with: coefficients)
+            guard coefficients.multiplier != nil, let parentAnchor = layoutDimension.matchingParentAnchor else {
+                return sizeConstraint(for: layoutDimension).configured(with: coefficients)
+            }
+            return LayoutRelationship<LayoutDimension>(layoutDimension, relation, parentAnchor, coefficients).inactiveConstraint
         }
 
-        if let xAxisAnchor = variable as? XAxisAnchor, let otherAnchor = xAxisAnchor.view?.superview?[keyPath: ...xAxisAnchor]  {
-            return LayoutRelationship<XAxisAnchor>(xAxisAnchor, relation, otherAnchor, coefficients).inactiveConstraint
+        if let xAxisAnchor = variable as? XAxisAnchor, let parentAnchor = xAxisAnchor.matchingParentAnchor {
+            return LayoutRelationship<XAxisAnchor>(xAxisAnchor, relation, parentAnchor, coefficients).inactiveConstraint
         }
 
-        if let yAxisAnchor = variable as? YAxisAnchor, let otherAnchor = yAxisAnchor.view?.superview?[keyPath: ...yAxisAnchor] {
-            return LayoutRelationship<YAxisAnchor>(yAxisAnchor, relation, otherAnchor, coefficients).inactiveConstraint
+        if let yAxisAnchor = variable as? YAxisAnchor, let parentAnchor = yAxisAnchor.matchingParentAnchor {
+            return LayoutRelationship<YAxisAnchor>(yAxisAnchor, relation, parentAnchor, coefficients).inactiveConstraint
         }
 
         preconditionFailure("""
@@ -57,7 +60,6 @@ public final class LayoutRelationship<A: AnchorVariable> {
                             1. Two anchors
                             2. One view's anchor and a constant
                             """)
-
 
     }
 

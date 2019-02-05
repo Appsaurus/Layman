@@ -6,9 +6,18 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+extension Coeficient where Multiplier == LayoutMultiplier {
+    public static func multiplier(_ multiplier: LayoutConstant) -> Self {
+        return Self().with(multiplier: LayoutMultiplier(multiplier))
+    }
+}
 extension CoefficientMutating where Multiplier == LayoutMultiplier {
     public func with(divisor: LayoutDivisor) -> Self {
         return with(multiplier: (1.0 / divisor))
+    }
+
+    public func with(multiplier: LayoutConstant) -> Self {
+        return with(multiplier: LayoutMultiplier(multiplier))
     }
 }
 
@@ -21,6 +30,7 @@ public protocol LinearEquationTyped {
     typealias Expression = LinearEquation.E
     typealias Coefficient = Expression.C
     typealias Constant = Coefficient.Constant
+    typealias Multiplier = Coefficient.Multiplier
 }
 
 extension LeftHandSizeRelatableExpression {
@@ -28,7 +38,6 @@ extension LeftHandSizeRelatableExpression {
     public typealias LayoutConfigurationPair = UILayoutKit.LayoutConfigurationPair
     public typealias LayoutConstant = UILayoutKit.LayoutConstant
 }
-
 
 extension LeftHandLayoutExpression where Variable == Self {
     public func relation(_ relation: Relation, _ rhs: Self) -> LinearEquation {

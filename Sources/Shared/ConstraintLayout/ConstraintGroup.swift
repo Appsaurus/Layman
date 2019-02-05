@@ -154,7 +154,7 @@ extension ConstraintAttribute: AttributeRepresentable {
 
 extension Array: AttributeRepresentable where Element == AttributeRepresentable {
     public var flatAttributes: [ConstraintAttribute] {
-        return self.compactMap {$0.flatAttributes }.flatMap{ $0 }
+        return self.compactMap {$0.flatAttributes }.flatMap { $0 }
     }
 }
 

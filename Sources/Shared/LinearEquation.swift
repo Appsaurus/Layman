@@ -134,7 +134,7 @@ extension CoefficientMutating {
 
 public protocol Coeficient: CoefficientMutating {
     var constant: Constant { get set }
-    var multiplier: Multiplier { get set }
+    var multiplier: Multiplier? { get set }
     var priority: Priority { get set }
     init()
 }

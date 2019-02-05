@@ -1,0 +1,62 @@
+{% set equal argument.operators.equal %}
+{% set lessThanOrEqual argument.operators.lessThanOrEqual %}
+{% set greaterThanOrEqual argument.operators.greaterThanOrEqual %}
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
+
+{% for AnchorType in argument.anchorTypes %}
+{% set Solution %}{{AnchorType}}.Solution{% endset %}
+//  sourcery:file:Sources/Shared/RelationOperators/{{AnchorType}}+RelationOperators
+//
+//  {{AnchorType}}+RelationOperators.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+// MARK: - Equal
+
+// MARK: Anchor == Anchor
+@discardableResult
+public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
+    return lhs.equal(to: rhs)
+}
+
+// MARK: Anchor == Expression
+@discardableResult
+public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
+    return lhs.equal(to: rhs)
+}
+
+// MARK: - LessThanOrEqual
+
+// MARK: Anchor <= Anchor
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor <= Expression
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+// MARK: - GreaterThanOrEqual
+
+// MARK: Anchor >= Anchor
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor >= Expression
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+// sourcery:end
+{% endfor %}

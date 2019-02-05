@@ -42,14 +42,24 @@ extension LayoutExpression: Expression where A: Variable {
 
     @discardableResult
     public func with(constant: LayoutConstant) -> Self {
-        coefficients.constant = constant
+        coefficients.set(constant: constant)
         return self
     }
 
     @discardableResult
     public func with(multiplier: LayoutMultiplier) -> Self {
-        coefficients.multiplier = multiplier
-        coefficients.constant *= multiplier
+        coefficients.set(multiplier: multiplier)
+        return self
+    }
+
+    @discardableResult
+    public func with(multiplier: LayoutConstant) -> Self {
+        return with(multiplier: LayoutMultiplier(multiplier))
+    }
+
+    @discardableResult
+    public func with(divisor: LayoutDivisor) -> Self {
+        coefficients.set(divisor: divisor)
         return self
     }
 }

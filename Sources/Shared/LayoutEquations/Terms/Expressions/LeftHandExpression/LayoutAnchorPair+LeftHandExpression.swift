@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutAnchorPair: LeftHandLayoutExpression, LeftHandConstantRelatableExpression {
+extension LayoutAnchorPair: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
 
     public typealias LinearEquation = LayoutPairRelationship<FA, SA>
 
@@ -20,6 +20,10 @@ extension LayoutAnchorPair: LeftHandLayoutExpression, LeftHandConstantRelatableE
 
     public func relation(_ relation: Relation, _ rhs: Constant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Relation, _ rhs: Multiplier) -> LinearEquation {
+        return LinearEquation(self, relation, .multiplier(rhs))
     }
 
     public func relation(_ relation: Relation, _ rhs: Coefficient) -> LinearEquation {

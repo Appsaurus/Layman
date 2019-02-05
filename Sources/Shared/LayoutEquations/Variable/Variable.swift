@@ -18,7 +18,11 @@ extension Variable {
     public func minus(_ constant: LayoutConstant) -> RightHandExpression {
         return plus(-constant)
     }
+
+    public func times(_ multiplier: LayoutConstant) -> RightHandExpression {
+        return times(LayoutMultiplier(multiplier))
+    }
     public func divided(by divisor: LayoutDivisor) -> RightHandExpression {
-        return times(1.0 / divisor)
+        return times(LayoutMultiplier(1.0 / divisor))
     }
 }

@@ -64,7 +64,7 @@ class UILayoutKitTestCase: XCTestCase {
     }
 
     internal func invertConstantIfNeeded(_ attribute: ConstraintAttribute,
-                                         _ constant: LayoutConstant) -> LayoutConstant{
+                                         _ constant: LayoutConstant) -> LayoutConstant {
         guard attribute.isCategory(.trailing) else { return constant }
         return -constant
     }

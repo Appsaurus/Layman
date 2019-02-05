@@ -61,7 +61,19 @@ extension EdgeAnchorGroupExpression: Expression {
 
     @discardableResult
     public func divided(by rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
-        return with(multiplier: (1.0 / rhs))
+        return with(divisor: rhs)
+    }
+}
+extension EdgeAnchorGroupExpression {
+    @discardableResult
+    public func with(multiplier: LayoutConstant) -> EdgeAnchorGroupExpression {
+        return with(multiplier: LayoutMultiplier(multiplier))
+    }
+
+    @discardableResult
+    public func with(divisor: LayoutDivisor) -> Self {
+        coefficients.set(divisor: divisor)
+        return self
     }
 }
 

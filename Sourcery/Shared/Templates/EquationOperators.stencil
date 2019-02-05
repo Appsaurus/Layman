@@ -1,0 +1,105 @@
+{% set equal argument.operators.equal %}
+{% set lessThanOrEqual argument.operators.lessThanOrEqual %}
+{% set greaterThanOrEqual argument.operators.greaterThanOrEqual %}
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
+
+{% for EquationProtocol in argument.equationProtocols %}
+{% set RelationshipType %}{{argument.equationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
+{% for LeftHandType in argument.equationProtocols[EquationProtocol]["LeftHandTypes"] %}
+//  sourcery:file:Sources/Shared/equationProtocols/{{EquationProtocol}}/Operators/{{LeftHandType}}+{{EquationProtocol}}
+//
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/22/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+{% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"] %}
+// MARK: {{LeftHandType}} <=> {{LeftHandType}}.{{RightHandType}}
+
+// MARK: - Equal
+
+@discardableResult
+public func {{equal}} (lhs: {{LeftHandType}}, rhs: {{LeftHandType}}.{{RightHandType}}) -> {{LeftHandType}}.Solution {
+    return lhs.equal(to: rhs)
+}
+
+@discardableResult
+public func {{equal}} (lhs: {{LeftHandType}}, rhs: [{{LeftHandType}}.{{RightHandType}}]) -> [{{LeftHandType}}.Solution] {
+    return lhs.equal(to: rhs)
+}
+
+// MARK: - LessThanOrEqual
+
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{LeftHandType}}, rhs: {{LeftHandType}}.{{RightHandType}}) -> {{LeftHandType}}.Solution {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{LeftHandType}}, rhs: [{{LeftHandType}}.{{RightHandType}}]) -> [{{LeftHandType}}.Solution] {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+// MARK: - GreaterThanOrEqual
+
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{LeftHandType}}, rhs: {{LeftHandType}}.{{RightHandType}}) -> {{LeftHandType}}.Solution {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{LeftHandType}}, rhs: [{{LeftHandType}}.{{RightHandType}}]) -> [{{LeftHandType}}.Solution] {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: {{LeftHandType}} Array <=> {{LeftHandType}}.{{RightHandType}}
+
+// MARK: - Equal
+
+// MARK: Collection == Expression
+@discardableResult
+public func {{equal}} (lhs: [{{LeftHandType}}], rhs: {{LeftHandType}}.{{RightHandType}}) -> [{{LeftHandType}}.Solution] {
+    return lhs.map { $0.equal(to: rhs) }
+}
+
+// MARK: Collection == Expression Array
+@discardableResult
+public func {{equal}} (lhs: [{{LeftHandType}}], rhs: [{{LeftHandType}}.{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
+    return lhs.map { $0.equal(to: rhs) }
+}
+
+// MARK: - LessThanOrEqual
+
+// MARK: Collection <= Expression
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{LeftHandType}}.{{RightHandType}}) -> [{{LeftHandType}}.Solution] {
+    return lhs.map { $0.lessThanOrEqual(to: rhs) }
+}
+
+// MARK: Collection <= Expression Array
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: [{{LeftHandType}}.{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
+    return lhs.map { $0.lessThanOrEqual(to: rhs) }
+}
+
+// MARK: - GreaterThanOrEqual
+
+// MARK: Collection >= Expression
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{LeftHandType}}.{{RightHandType}}) -> [{{LeftHandType}}.Solution] {
+    return lhs.map { $0.greaterThanOrEqual(to: rhs) }
+}
+
+// MARK: Collection >= Expression Array
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: [{{LeftHandType}}.{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
+    return lhs.map { $0.greaterThanOrEqual(to: rhs) }
+}
+{% endfor %}
+// sourcery:end
+{% endfor %}
+{% endfor %}
+

@@ -2,8 +2,8 @@ sources:
   - Sources/Shared/
   - UILayoutKitTests/Shared/
 templates:
-  - SourceryFiles/Shared/Templates
-  - SourceryFiles/Shared/Templates
+  - Sourcery/Shared/Templates
+  - Sourcery/Shared/Templates
 args:
   anchorTypes:
     - "XAxisAnchor"
@@ -24,7 +24,6 @@ args:
             - 'LayoutSize'
             - 'LayoutConfigurationPair'
             - 'LayoutConstant'
-        RightHandIsProtocol: false
     LeftHandConstantRelatableExpression:
         LeftHandTypes:
             - "XAxisAnchor"
@@ -36,7 +35,13 @@ args:
         RightHandTypes:
             - 'Constant'
             - 'Coefficient'
-        RightHandIsProtocol: true
+    LeftHandMultiplierRelatableExpression:
+        LeftHandTypes:
+            - 'LayoutDimension'
+            - 'LayoutDimensionPair'
+            - 'View'
+        RightHandTypes:
+            - 'Multiplier'
   operators:
     equal: ".="
     lessThanOrEqual: "≤"
@@ -46,4 +51,4 @@ args:
     subtraction: ".-"
     multiplication: ".*"
     division: "./"
-output: Sources/Shared/Generated
+output: Sourcery/Generated

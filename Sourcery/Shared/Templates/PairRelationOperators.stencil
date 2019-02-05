@@ -1,0 +1,63 @@
+{% set equal argument.operators.equal %}
+{% set lessThanOrEqual argument.operators.lessThanOrEqual %}
+{% set greaterThanOrEqual argument.operators.greaterThanOrEqual %}
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
+
+{% for AnchorPairType in argument.anchorPairTypes %}
+{% set Solution %}{{AnchorPairType}}.Solution{% endset %}
+{% set constraintMethod %}{% if anchortype == 'LayoutDimension' %}constraints{% else %}constraintsInvertedAsInsets{% endif %}{% endset %}
+//  sourcery:file:Sources/Shared/PairRelationOperators/{{AnchorPairType}}+RelationOperators
+//
+//  {{AnchorType}}+RelationOperators.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/4/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+// NOTE: Paired edge constraints are inverted as insets because it is more common and easier
+// to reason about layouts in terms of insets from edges rather than shifted value offsets.
+
+// MARK: Equal
+// MARK: Anchors == Expression
+@discardableResult
+public func {{equal}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> {{Solution}} {
+    return lhs.equal(to: rhs)
+}
+
+// MARK: Anchors == Anchors
+@discardableResult
+public func {{equal}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> {{Solution}} {
+    return lhs.equal(to: rhs)
+}
+
+// MARK: LessThanOrEqual
+// MARK: Anchors <= Expression
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> {{Solution}} {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+// MARK: Anchors <= Anchors
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> {{Solution}} {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+// MARK: GreaterThanOrEqual
+// MARK: Anchors >= Expression
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}Expression) -> {{Solution}} {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: Anchors >= Anchors
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorPairType}}, rhs: {{AnchorPairType}}) -> {{Solution}} {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+// sourcery:end
+{% endfor %}

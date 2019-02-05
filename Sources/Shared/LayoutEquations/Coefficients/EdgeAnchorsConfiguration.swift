@@ -24,14 +24,18 @@ extension EdgeAnchorsConfiguration: CoefficientMutating {
     }
     
     public func set(constant: LayoutConstant) {
-        all.forEach {$0.constant = constant}
+        all.forEach { $0.set(constant: constant) }
     }
 
     public func set(multiplier: LayoutMultiplier) {
-        all.forEach {$0.multiplier = multiplier}
+        all.forEach { $0.set(multiplier: multiplier) }
     }
 
     public func set(priority: LayoutPriority) {
-        all.forEach {$0.priority = priority}
+        all.forEach { $0.set(priority: priority) }
+    }
+
+    public func set(divisor: LayoutDivisor) {
+        all.forEach { $0.set(divisor: divisor) }
     }
 }

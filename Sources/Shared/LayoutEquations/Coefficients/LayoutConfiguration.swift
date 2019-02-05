@@ -9,7 +9,7 @@
 public final class LayoutConfiguration {
 
     public var constant: LayoutConstant = 0.0
-    public var multiplier: LayoutMultiplier = 1.0
+    public var multiplier: LayoutMultiplier?
     public var priority: LayoutPriority = .required
     public var active: Bool = true
 
@@ -36,9 +36,16 @@ extension LayoutConfiguration: CoefficientMutating & Coeficient {
 
     public func set(multiplier: LayoutMultiplier) {
         self.multiplier = multiplier
+        constant *= multiplier.value
     }
 
     public func set(priority: LayoutPriority) {
         self.priority = priority
+    }
+}
+
+extension Coeficient where Multiplier == LayoutMultiplier {
+    public func set(divisor: LayoutDivisor) {
+        set(multiplier: multiplier?.divided(by: divisor) ?? LayoutMultiplier(1.0 / divisor))
     }
 }

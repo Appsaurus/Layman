@@ -35,8 +35,8 @@ extension TuplePairBacked {
 }
 
 open class LayoutModelReferencePair<T>: MixedLayoutModelReferencePair<T, T> {
-    public convenience init(_ duplicatedItem: T) {
-        self.init(duplicatedItem, duplicatedItem)
+    public convenience init(_ duplicatedItem: @autoclosure () -> T) {
+        self.init(duplicatedItem(), duplicatedItem())
     }
 
 }

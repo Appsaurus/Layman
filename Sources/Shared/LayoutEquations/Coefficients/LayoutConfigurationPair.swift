@@ -24,22 +24,31 @@ extension LayoutConfigurationPair: CoefficientMutating {
         return LayoutConfigurationPair(.multiplier(multiplier))
     }
 
+    public static func multiplier(_ multiplier: LayoutConstant) -> LayoutConfigurationPair {
+        return .multiplier(LayoutMultiplier(multiplier))
+    }
+
     public static func priority(_ priority: LayoutPriority) -> LayoutConfigurationPair {
         return LayoutConfigurationPair(.priority(priority))
     }
 
     public func set(constant: LayoutConstant) {
-        first.constant = constant
-        second.constant = constant
+        first.set(constant: constant)
+        second.set(constant: constant)
     }
 
     public func set(multiplier: LayoutMultiplier) {
-        first.multiplier = multiplier
-        second.multiplier = multiplier
+        first.set(multiplier: multiplier)
+        second.set(multiplier: multiplier)
     }
 
     public func set(priority: LayoutPriority) {
-        first.priority = priority
-        second.priority = priority
+        first.set(priority: priority)
+        second.set(priority: priority)
+    }
+
+    public func set(divisor: LayoutDivisor) {
+        first.set(divisor: divisor)
+        second.set(divisor: divisor)
     }
 }

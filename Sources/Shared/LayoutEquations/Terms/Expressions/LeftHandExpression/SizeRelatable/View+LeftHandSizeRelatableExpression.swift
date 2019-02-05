@@ -31,6 +31,10 @@ extension View: LeftHandConstantRelatableExpression {
 //    }
 
     public typealias LinearEquation = LayoutDimensionPairRelationship
+}
 
-
+extension View: LeftHandMultiplierRelatableExpression {
+    public func relation(_ relation: Constraint.Relation, _ rhs: Multiplier) -> LinearEquation {
+        return self.relation(relation, .multiplier(rhs))
+    }
 }

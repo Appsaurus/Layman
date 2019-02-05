@@ -60,7 +60,7 @@ extension Constraint {
                                     relatedBy: relation,
                                     toItem: secondItem,
                                     attribute: secondAttribute,
-                                    multiplier: coefficients.multiplier,
+                                    multiplier: coefficients.multiplier?.value ?? 1.0,
                                     constant: coefficients.constant)
 
         return constraint.with(priority: coefficients.priority)

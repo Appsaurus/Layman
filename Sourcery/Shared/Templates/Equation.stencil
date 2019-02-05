@@ -1,0 +1,103 @@
+{% for EquationProtocol in argument.equationProtocols %}
+{% set RelationshipType %}{{argument.equationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
+//  sourcery:file:Sources/Shared/EquationProtocols/{{EquationProtocol}}/{{EquationProtocol}}
+//
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/22/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+
+public protocol {{EquationProtocol}}: LinearEquationTyped where LinearEquation.Relation == Constraint.Relation{
+{% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"] %}
+    func relation(_ relation: Constraint.Relation, _ rhs: {{RightHandType}}) -> LinearEquation
+{% endfor %}
+}
+{% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"]  %}
+// MARK: Anchor <=> {{RightHandType}}
+extension {{EquationProtocol}} {
+
+    // MARK: - Equal
+
+    @discardableResult
+    public func equal(to rhs: {{RightHandType}}) -> Solution {
+        return relation(.equal, rhs).solution
+    }
+
+    @discardableResult
+    public func equal(to rhs: [{{RightHandType}}]) -> [Solution] {
+        return rhs.map { relation(.equal, $0).solution }
+    }
+
+    // MARK: - LessThanOrEqual
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: {{RightHandType}}) -> Solution {
+        return relation(.lessThanOrEqual, rhs).solution
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [{{RightHandType}}]) -> [Solution] {
+        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: {{RightHandType}}) -> Solution {
+        return relation(.greaterThanOrEqual, rhs).solution
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [{{RightHandType}}]) -> [Solution] {
+        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+    }
+}
+
+// MARK: Collection <=> {{RightHandType}}
+
+extension Collection where Element: {{EquationProtocol}} {
+    // MARK: - Equal
+    // MARK: Collection == Expression
+    @discardableResult
+    public func equal(to rhs: Element.{{RightHandType}}) -> [Element.Solution] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: Collection == Expression Array
+    @discardableResult
+    public func equal(to rhs: [Element.{{RightHandType}}]) -> [[Element.Solution]] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: - LessThanOrEqual
+
+    // MARK: Collection <= Expression
+    @discardableResult
+    public func lessThanOrEqual(to rhs: Element.{{RightHandType}}) -> [Element.Solution] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: Collection <= Expression Array
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [Element.{{RightHandType}}]) -> [[Element.Solution]] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    // MARK: Collection >= Expression
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: Element.{{RightHandType}}) -> [Element.Solution] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    // MARK: Collection >= Expression Array
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [Element.{{RightHandType}}]) -> [[Element.Solution]] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+}
+{% endfor %}
+// sourcery:end
+{% endfor %}

@@ -1,0 +1,52 @@
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
+{% set constant 200 %}
+{% for type in types.all|annotated:"constantEquationTest" %}
+// sourcery:inline:auto:{{type.name}}.ConstantEquationTests
+{% set lhsItem type.annotations.lhsItem %}
+{% for lhsAttribute in type.annotations.lhsAttributes %}
+{% for operatorName in argument.operators %}
+{% set operator %}{{argument.operators[operatorName]}}{% endset %}
+{% set baseFunctionName %}test{{lhsItem|upperFirstLetter}}{{lhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}{% endset %}
+{% set baseLhs %}{{lhsItem}}.{{lhsAttribute}}Anchor{% endset %}
+{% set baseRhs %}{{constant}}{% endset %}
+{% set baseEquation %}{{baseLhs}} {{operator}} {{baseRhs}}{% endset %}
+{% set baseAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, constant: {{constant}}{% endset %}
+    func {{baseFunctionName}}ToConstant() {
+        let constraints = {{baseEquation}}
+        constraints.assert({{baseAssertion}})
+    }
+
+    func {{baseFunctionName}}ToConstantWithPriority() {
+        let constraints = {{baseEquation}} ~ .low
+        constraints.assert({{baseAssertion}}, priority: .low)
+    }
+
+    func {{baseFunctionName}}ToConstantWithPriorityArithmetic() {
+        let constraints = {{baseEquation}} ~ .high {{subtraction}} 1
+        constraints.assert({{baseAssertion}}, priority: 749)
+    }
+{% set basePercentEquation %}{{baseLhs}} {{operator}} 75%{% endset %}
+{% set basePercentAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, parentView, .{{lhsAttribute}}, multiplier: 0.75{% endset %}
+
+    func {{baseFunctionName}}ToPercentage() {
+        let constraints = {{basePercentEquation}}
+        constraints.assert({{basePercentAssertion}})
+    }
+
+    func {{baseFunctionName}}ToPercentageWithPriority() {
+        let constraints = {{basePercentEquation}} ~ .low
+        constraints.assert({{basePercentAssertion}}, priority: .low)
+    }
+
+    func {{baseFunctionName}}ToPercentageWithPriorityArithmetic() {
+        let constraints = {{basePercentEquation}} ~ .high {{subtraction}} 1
+        constraints.assert({{basePercentAssertion}}, priority: 749)
+    }
+
+{% endfor %}
+{% endfor %}
+// sourcery:end
+{% endfor %}

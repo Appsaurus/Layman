@@ -10,7 +10,6 @@
 import XCTest
 import CwlPreconditionTesting
 
-// sourcery: aspectRatioTest
 class AspectRatioTests: UILayoutKitTestCase {
 
 // sourcery:inline:auto:AspectRatioTests.AspectRatioTestsTemplate
@@ -74,5 +73,6 @@ func testAmbiguityCheckValidSize() {
         let aspectRatioConstraint = view1.aspectRatioInverseAnchor .= .wide
         aspectRatioConstraint.assert(view1, .width, .equal, view1, .height, multiplier: 9.0/16.0)
     }
+
 // sourcery:end
 }
