@@ -18,5 +18,5 @@ let view4 = UIView()
 parent.addSubview(view1)
 let constraint = view1 .= CGFloat(50)%
 
-let con = view1.centerXAnchor .= 2 .* parent.trailingAnchor ./ 3
-print("cont: \(con)")
+let con = view1.edges .= 0.5
+print("cont: \(con.all)")

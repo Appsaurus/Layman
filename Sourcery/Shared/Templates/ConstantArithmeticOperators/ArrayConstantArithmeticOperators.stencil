@@ -37,6 +37,16 @@ public func {{multiplication}} (lhs: LayoutConstant, rhs: {{AnchorType}}s ) -> {
 }
 
 @discardableResult
+public func {{multiplication}} (lhs: {{AnchorType}}s, rhs: LayoutMultiplier) -> {{AnchorType}}Expressions {
+    return lhs.times(rhs)
+}
+
+@discardableResult
+public func {{multiplication}} (lhs: LayoutMultiplier, rhs: {{AnchorType}}s ) -> {{AnchorType}}Expressions {
+    return rhs.times(lhs)
+}
+
+@discardableResult
 public func {{division}} (lhs: {{AnchorType}}s, rhs: LayoutDivisor) -> {{AnchorType}}Expressions {
     return lhs.divided(by: rhs)
 }
@@ -60,6 +70,16 @@ public func {{multiplication}} (lhs: {{AnchorType}}Expressions, rhs: LayoutConst
 
 @discardableResult
 public func {{multiplication}} (lhs: LayoutConstant, rhs: {{AnchorType}}Expressions) -> {{AnchorType}}Expressions {
+    return rhs {{multiplication}} lhs
+}
+
+@discardableResult
+public func {{multiplication}} (lhs: {{AnchorType}}Expressions, rhs: LayoutMultiplier) -> {{AnchorType}}Expressions {
+    return lhs.map { $0.with(multiplier: rhs) }
+}
+
+@discardableResult
+public func {{multiplication}} (lhs: LayoutMultiplier, rhs: {{AnchorType}}Expressions) -> {{AnchorType}}Expressions {
     return rhs {{multiplication}} lhs
 }
 

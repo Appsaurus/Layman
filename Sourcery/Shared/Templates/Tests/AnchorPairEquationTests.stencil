@@ -6,7 +6,8 @@
 {% set constant 10 %}
 {% set multiplier 3 %}
 {% set divisor 2 %}
-
+{% set percentage 75 %}
+{% set percentageMultiplier %}0.{{percentage}}{% endset %}
 {% set explicitType type.AnchorPairEquationTests %}
     // sourcery:inline:auto:{{explicitType.name}}.AnchorPairEquationTest
 
@@ -53,6 +54,19 @@
         let constraints = {{lhsItem}} {{operator}} {{multiplier}} {{multiplication}} {{baseRhs}}
         constraints.first.assert({% call baseAssertion explicitType.annotations[rhsAttribute][0] %}, multiplier: {{multiplier}})
         constraints.second.assert({% call baseAssertion explicitType.annotations[rhsAttribute][1] %}, multiplier: {{multiplier}}, invertTrailing: true)
+    }
+
+    // MARK: {{operatorName|upperFirstLetter}} with percentage multiplier
+    func {{baseFunctionName}}MultiplyingPercent() {
+        let constraints = {{lhsItem}} {{operator}} {{baseRhs}} {{multiplication}} {{percentage}}%
+        constraints.first.assert({% call baseAssertion explicitType.annotations[rhsAttribute][0] %}, multiplier: {{percentageMultiplier}})
+        constraints.second.assert({% call baseAssertion explicitType.annotations[rhsAttribute][1] %}, multiplier: {{percentageMultiplier}}, invertTrailing: true)
+    }
+
+    func {{baseFunctionName}}MultipliedByPercent() {
+        let constraints = {{lhsItem}} {{operator}} {{percentage}}% {{multiplication}} {{baseRhs}}
+        constraints.first.assert({% call baseAssertion explicitType.annotations[rhsAttribute][0] %}, multiplier: {{percentageMultiplier}})
+        constraints.second.assert({% call baseAssertion explicitType.annotations[rhsAttribute][1] %}, multiplier: {{percentageMultiplier}}, invertTrailing: true)
     }
 
     func {{baseFunctionName}}DividedByConstant() {

@@ -3,6 +3,7 @@
 {% set multiplication argument.arithmeticOperators.multiplication %}
 {% set division argument.arithmeticOperators.division %}
 {% set constant 200 %}
+{% set percentage 75 %}
 {% for type in types.all|annotated:"constantEquationTest" %}
 // sourcery:inline:auto:{{type.name}}.ConstantEquationTests
 {% set lhsItem type.annotations.lhsItem %}
@@ -28,8 +29,8 @@
         let constraints = {{baseEquation}} ~ .high {{subtraction}} 1
         constraints.assert({{baseAssertion}}, priority: 749)
     }
-{% set basePercentEquation %}{{baseLhs}} {{operator}} 75%{% endset %}
-{% set basePercentAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, parentView, .{{lhsAttribute}}, multiplier: 0.75{% endset %}
+{% set basePercentEquation %}{{baseLhs}} {{operator}} {{percentage}}%{% endset %}
+{% set basePercentAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, parentView, .{{lhsAttribute}}, multiplier: 0.{{percentage}}{% endset %}
 
     func {{baseFunctionName}}ToPercentage() {
         let constraints = {{basePercentEquation}}
