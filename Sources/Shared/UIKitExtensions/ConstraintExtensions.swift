@@ -66,7 +66,7 @@ extension Constraint {
         return constraint.priority(coefficients.priority)
     }
 
-    public func with(multiplier: CGFloat) -> Constraint {
+    public func times(_ multiplier: CGFloat) -> Constraint {
 
         return Constraint(item: firstItem as Any,
                           attribute: firstAttribute,

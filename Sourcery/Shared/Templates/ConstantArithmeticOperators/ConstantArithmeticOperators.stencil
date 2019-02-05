@@ -65,27 +65,27 @@ public func {{subtraction}} (lhs: {{AnchorType}}Expression, rhs: LayoutConstant)
 
 @discardableResult
 public func {{multiplication}} (lhs: {{AnchorType}}Expression, rhs: LayoutConstant) -> {{AnchorType}}Expression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func {{multiplication}} (lhs: LayoutConstant, rhs: {{AnchorType}}Expression ) -> {{AnchorType}}Expression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func {{multiplication}} (lhs: {{AnchorType}}Expression, rhs: LayoutMultiplier) -> {{AnchorType}}Expression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func {{multiplication}} (lhs: LayoutMultiplier, rhs: {{AnchorType}}Expression ) -> {{AnchorType}}Expression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func {{division}} (lhs: {{AnchorType}}Expression, rhs: LayoutDivisor) -> {{AnchorType}}Expression {
-    return lhs.with(divisor: rhs)
+    return lhs.divided(by: rhs)
 }
 // sourcery:end
 {% endfor %}

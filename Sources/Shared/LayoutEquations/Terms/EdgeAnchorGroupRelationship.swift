@@ -48,7 +48,7 @@ public final class EdgeAnchorGroupRelationship {
 
 extension EdgeAnchorGroupRelationship: LinearEquation {
 
-    public typealias E = EdgeAnchorGroupExpression
+    public typealias Expression = EdgeAnchorGroupExpression
 
     public var solution: SideConstraints {
         return constraint

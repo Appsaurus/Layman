@@ -8,26 +8,26 @@
 
 extension Coeficient where Multiplier == LayoutMultiplier {
     public static func multiplier(_ multiplier: LayoutConstant) -> Self {
-        return Self().with(multiplier: LayoutMultiplier(multiplier))
+        return Self().times(LayoutMultiplier(multiplier))
     }
 }
 extension CoefficientMutating where Multiplier == LayoutMultiplier {
-    public func with(divisor: LayoutDivisor) -> Self {
-        return with(multiplier: (1.0 / divisor))
+    public func divided(by divisor: LayoutDivisor) -> Self {
+        return times((1.0 / divisor))
     }
 
-    public func with(multiplier: LayoutConstant) -> Self {
-        return with(multiplier: LayoutMultiplier(multiplier))
+    public func times(_ multiplier: LayoutConstant) -> Self {
+        return times(LayoutMultiplier(multiplier))
     }
 }
 
 public protocol LinearEquationTyped {
     associatedtype LinearEquation: UILayoutKit.LinearEquation
-    typealias RightHandExpression = LinearEquation.E
+    typealias RightHandExpression = LinearEquation.Expression
     typealias Solution = LinearEquation.Solution
     typealias Variable = LinearEquation.V
     typealias Relation = LinearEquation.Relation
-    typealias Expression = LinearEquation.E
+    typealias Expression = LinearEquation.Expression
     typealias Coefficient = Expression.C
     typealias Constant = Coefficient.Constant
     typealias Multiplier = Coefficient.Multiplier

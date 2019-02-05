@@ -65,7 +65,7 @@ public func {{subtraction}} (lhs: {{AnchorType}}Expressions, rhs: LayoutConstant
 
 @discardableResult
 public func {{multiplication}} (lhs: {{AnchorType}}Expressions, rhs: LayoutConstant) -> {{AnchorType}}Expressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -75,7 +75,7 @@ public func {{multiplication}} (lhs: LayoutConstant, rhs: {{AnchorType}}Expressi
 
 @discardableResult
 public func {{multiplication}} (lhs: {{AnchorType}}Expressions, rhs: LayoutMultiplier) -> {{AnchorType}}Expressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -85,7 +85,7 @@ public func {{multiplication}} (lhs: LayoutMultiplier, rhs: {{AnchorType}}Expres
 
 @discardableResult
 public func {{division}} (lhs: {{AnchorType}}Expressions, rhs: LayoutDivisor) -> {{AnchorType}}Expressions {
-        return lhs.map { $0.with(divisor: rhs) }
+        return lhs.map { $0.divided(by: rhs) }
 }
 
 // sourcery:end

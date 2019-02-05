@@ -58,25 +58,25 @@ public func .- (lhs: LayoutDimensionExpression, rhs: LayoutConstant) -> LayoutDi
 
 @discardableResult
 public func .* (lhs: LayoutDimensionExpression, rhs: LayoutConstant) -> LayoutDimensionExpression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutConstant, rhs: LayoutDimensionExpression ) -> LayoutDimensionExpression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutDimensionExpression, rhs: LayoutMultiplier) -> LayoutDimensionExpression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutMultiplier, rhs: LayoutDimensionExpression ) -> LayoutDimensionExpression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func ./ (lhs: LayoutDimensionExpression, rhs: LayoutDivisor) -> LayoutDimensionExpression {
-    return lhs.with(divisor: rhs)
+    return lhs.divided(by: rhs)
 }

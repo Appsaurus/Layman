@@ -58,7 +58,7 @@ public func .- (lhs: LayoutDimensionExpressions, rhs: LayoutConstant) -> LayoutD
 
 @discardableResult
 public func .* (lhs: LayoutDimensionExpressions, rhs: LayoutConstant) -> LayoutDimensionExpressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -68,7 +68,7 @@ public func .* (lhs: LayoutConstant, rhs: LayoutDimensionExpressions) -> LayoutD
 
 @discardableResult
 public func .* (lhs: LayoutDimensionExpressions, rhs: LayoutMultiplier) -> LayoutDimensionExpressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -78,5 +78,5 @@ public func .* (lhs: LayoutMultiplier, rhs: LayoutDimensionExpressions) -> Layou
 
 @discardableResult
 public func ./ (lhs: LayoutDimensionExpressions, rhs: LayoutDivisor) -> LayoutDimensionExpressions {
-        return lhs.map { $0.with(divisor: rhs) }
+        return lhs.map { $0.divided(by: rhs) }
 }

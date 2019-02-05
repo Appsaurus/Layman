@@ -58,25 +58,25 @@ public func .- (lhs: EdgeAnchorGroupExpression, rhs: LayoutConstant) -> EdgeAnch
 
 @discardableResult
 public func .* (lhs: EdgeAnchorGroupExpression, rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutConstant, rhs: EdgeAnchorGroupExpression ) -> EdgeAnchorGroupExpression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func .* (lhs: EdgeAnchorGroupExpression, rhs: LayoutMultiplier) -> EdgeAnchorGroupExpression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutMultiplier, rhs: EdgeAnchorGroupExpression ) -> EdgeAnchorGroupExpression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func ./ (lhs: EdgeAnchorGroupExpression, rhs: LayoutDivisor) -> EdgeAnchorGroupExpression {
-    return lhs.with(divisor: rhs)
+    return lhs.divided(by: rhs)
 }

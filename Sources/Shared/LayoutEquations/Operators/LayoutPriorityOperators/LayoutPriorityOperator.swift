@@ -21,7 +21,7 @@ public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutConfiguration 
 
 @discardableResult
 public func ~ (lhs: LayoutMultiplier, rhs: LayoutPriority) -> LayoutConfiguration {
-    return LayoutConfiguration().with(multiplier: lhs).priority(rhs)
+    return LayoutConfiguration().times(lhs).priority(rhs)
 }
 
 @discardableResult

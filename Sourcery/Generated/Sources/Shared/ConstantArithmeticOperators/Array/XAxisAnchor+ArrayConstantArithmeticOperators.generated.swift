@@ -58,7 +58,7 @@ public func .- (lhs: XAxisAnchorExpressions, rhs: LayoutConstant) -> XAxisAnchor
 
 @discardableResult
 public func .* (lhs: XAxisAnchorExpressions, rhs: LayoutConstant) -> XAxisAnchorExpressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -68,7 +68,7 @@ public func .* (lhs: LayoutConstant, rhs: XAxisAnchorExpressions) -> XAxisAnchor
 
 @discardableResult
 public func .* (lhs: XAxisAnchorExpressions, rhs: LayoutMultiplier) -> XAxisAnchorExpressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -78,5 +78,5 @@ public func .* (lhs: LayoutMultiplier, rhs: XAxisAnchorExpressions) -> XAxisAnch
 
 @discardableResult
 public func ./ (lhs: XAxisAnchorExpressions, rhs: LayoutDivisor) -> XAxisAnchorExpressions {
-        return lhs.map { $0.with(divisor: rhs) }
+        return lhs.map { $0.divided(by: rhs) }
 }

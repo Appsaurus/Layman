@@ -58,7 +58,7 @@ public func .- (lhs: EdgeAnchorGroupExpressions, rhs: LayoutConstant) -> EdgeAnc
 
 @discardableResult
 public func .* (lhs: EdgeAnchorGroupExpressions, rhs: LayoutConstant) -> EdgeAnchorGroupExpressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -68,7 +68,7 @@ public func .* (lhs: LayoutConstant, rhs: EdgeAnchorGroupExpressions) -> EdgeAnc
 
 @discardableResult
 public func .* (lhs: EdgeAnchorGroupExpressions, rhs: LayoutMultiplier) -> EdgeAnchorGroupExpressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -78,5 +78,5 @@ public func .* (lhs: LayoutMultiplier, rhs: EdgeAnchorGroupExpressions) -> EdgeA
 
 @discardableResult
 public func ./ (lhs: EdgeAnchorGroupExpressions, rhs: LayoutDivisor) -> EdgeAnchorGroupExpressions {
-        return lhs.map { $0.with(divisor: rhs) }
+        return lhs.map { $0.divided(by: rhs) }
 }

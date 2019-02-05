@@ -58,25 +58,25 @@ public func .- (lhs: XAxisAnchorPairExpression, rhs: LayoutConstant) -> XAxisAnc
 
 @discardableResult
 public func .* (lhs: XAxisAnchorPairExpression, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutConstant, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPairExpression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func .* (lhs: XAxisAnchorPairExpression, rhs: LayoutMultiplier) -> XAxisAnchorPairExpression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutMultiplier, rhs: XAxisAnchorPairExpression) -> XAxisAnchorPairExpression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func ./ (lhs: XAxisAnchorPairExpression, rhs: LayoutDivisor) -> XAxisAnchorPairExpression {
-    return lhs.with(divisor: rhs)
+    return lhs.divided(by: rhs)
 }

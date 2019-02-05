@@ -58,7 +58,7 @@ public func .- (lhs: YAxisAnchorExpressions, rhs: LayoutConstant) -> YAxisAnchor
 
 @discardableResult
 public func .* (lhs: YAxisAnchorExpressions, rhs: LayoutConstant) -> YAxisAnchorExpressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -68,7 +68,7 @@ public func .* (lhs: LayoutConstant, rhs: YAxisAnchorExpressions) -> YAxisAnchor
 
 @discardableResult
 public func .* (lhs: YAxisAnchorExpressions, rhs: LayoutMultiplier) -> YAxisAnchorExpressions {
-    return lhs.map { $0.with(multiplier: rhs) }
+    return lhs.map { $0.times(rhs) }
 }
 
 @discardableResult
@@ -78,5 +78,5 @@ public func .* (lhs: LayoutMultiplier, rhs: YAxisAnchorExpressions) -> YAxisAnch
 
 @discardableResult
 public func ./ (lhs: YAxisAnchorExpressions, rhs: LayoutDivisor) -> YAxisAnchorExpressions {
-        return lhs.map { $0.with(divisor: rhs) }
+        return lhs.map { $0.divided(by: rhs) }
 }

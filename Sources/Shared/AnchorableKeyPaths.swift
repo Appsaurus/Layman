@@ -147,7 +147,7 @@
 //    }
 //
 //    @discardableResult
-//    public func with(multiplier: LayoutMultiplier) -> Self {
+//    public func times(_ multiplier: LayoutMultiplier) -> Self {
 //        coefficients.multiplier = multiplier
 //        return self
 //    }

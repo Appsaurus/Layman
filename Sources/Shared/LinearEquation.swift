@@ -7,14 +7,14 @@
 //
 
 public protocol LinearEquationSolving {
-    associatedtype E: Expression
+    associatedtype Expression: UILayoutKit.Expression
     associatedtype Solution
     var solution: Solution { get }
 
 }
 
 extension Array: LinearEquationSolving where Element: LinearEquationSolving {
-    public typealias E = Element.E
+    public typealias Expression = Element.Expression
     public typealias Solution = [Element.Solution]    
 
     public var solution: Solution {
@@ -22,11 +22,11 @@ extension Array: LinearEquationSolving where Element: LinearEquationSolving {
     }
 }
 
-public protocol LinearEquation: Expression, LinearEquationSolving where E.V == V, E.C == C {
+public protocol LinearEquation: Expression, LinearEquationSolving where Expression.V == V, Expression.C == C {
     associatedtype Relation
     var relation: Relation { get set }
     var relatedAnchor: V? { get set }
-    init(_ variable: V, _ relation: Relation, _ relatedExpression: E)
+    init(_ variable: V, _ relation: Relation, _ relatedExpression: Expression)
     init(_ variable: V, _ relation: Relation, _ relatedAnchor: V)
     init(_ variable: V, _ relation: Relation, _ relatedAnchor: V?, _ coefficients: C)
     init(_ variable: V, _ relation: Relation, _ constant: C.Constant)
@@ -36,7 +36,7 @@ extension LinearEquation {
 
     public init(_ variable: V,
                 _ relation: Relation,
-                _ relatedExpression: E) {
+                _ relatedExpression: Expression) {
         self.init(variable,
                   relation,
                   relatedExpression.variable,
@@ -68,7 +68,7 @@ public protocol Expression: class {
     //    init(anchor: V, coefficients: C)
     func with(coefficients: C) -> Self
     func with(constant: C.Constant) -> Self
-    func with(multiplier: C.Multiplier) -> Self
+    func times(_ multiplier: C.Multiplier) -> Self
     func priority(_ priority: C.Priority) -> Self
 }
 
@@ -93,7 +93,7 @@ extension Expression {
     }
 
     @discardableResult
-    public func with(multiplier: C.Multiplier) -> Self {
+    public func times(_ multiplier: C.Multiplier) -> Self {
         coefficients.set(multiplier: multiplier)
         return self
     }
@@ -121,7 +121,7 @@ extension CoefficientMutating {
         return self
     }
 
-    public func with(multiplier: Multiplier) -> Self {
+    public func times(_ multiplier: Multiplier) -> Self {
         set(multiplier: multiplier)
         return self
     }
@@ -145,7 +145,7 @@ extension Coeficient {
         return Self().with(constant: constant)
     }
     public static func multiplier(_ multiplier: Multiplier) -> Self {
-        return Self().with(multiplier: multiplier)
+        return Self().times(multiplier)
     }
     public static func priority(_ priority: Priority) -> Self {
         return Self().priority(priority)
@@ -154,12 +154,12 @@ extension Coeficient {
 
 extension Array where Element: Expression {
 
-    public func with(constant: Element.C.Constant) -> [Element] {
-        return map { $0.with(constant: constant) }
-    }
+//    public func with(constant: Element.C.Constant) -> [Element] {
+//        return map { $0.with(constant: constant) }
+//    }
 
-//    public func with(multiplier: Element.C.Multiplier) -> [Element] {
-//        return map  { $0.with(multiplier: multiplier)}
+//    public func times(_ multiplier: Element.C.Multiplier) -> [Element] {
+//        return map  { $0.times(multiplier)}
 //    }
 //
 //    public func priority(_ priority: Element.C.Priority) -> [Element] {

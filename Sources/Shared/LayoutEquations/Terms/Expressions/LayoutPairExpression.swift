@@ -46,18 +46,18 @@ extension LayoutPairExpression: Expression {
     }
 
     @discardableResult
-    public func with(multiplier: LayoutMultiplier) -> Self {
+    public func times(_ multiplier: LayoutMultiplier) -> Self {
         coefficients.set(multiplier: multiplier)
         return self
     }
 
     @discardableResult
-    public func with(multiplier: LayoutConstant) -> Self {
-        return with(multiplier: LayoutMultiplier(multiplier))
+    public func times(_ multiplier: LayoutConstant) -> Self {
+        return times(LayoutMultiplier(multiplier))
     }
 
     @discardableResult
-    public func with(divisor: LayoutDivisor) -> Self {
+    public func divided(by divisor: LayoutDivisor) -> Self {
         coefficients.set(divisor: divisor)
         return self
     }

@@ -48,7 +48,7 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
 //    }
 //
 //    @discardableResult
-//    public func with(multiplier: LayoutMultiplier) -> Self {
+//    public func times(_ multiplier: LayoutMultiplier) -> Self {
 //        coefficients.all.forEach {$0.multiplier = multiplier}
 //        return self
 //    }
@@ -59,19 +59,19 @@ extension EdgeAnchorGroupExpression: Expression {
     public typealias C = EdgeAnchorsConfiguration
     public typealias V = EdgeAnchorGroup
 
-    @discardableResult
-    public func divided(by rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
-        return with(divisor: rhs)
-    }
+//    @discardableResult
+//    public func divided(by rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
+//        return divided(by: rhs)
+//    }
 }
 extension EdgeAnchorGroupExpression {
     @discardableResult
-    public func with(multiplier: LayoutConstant) -> EdgeAnchorGroupExpression {
-        return with(multiplier: LayoutMultiplier(multiplier))
+    public func times(_ multiplier: LayoutConstant) -> EdgeAnchorGroupExpression {
+        return times(LayoutMultiplier(multiplier))
     }
 
     @discardableResult
-    public func with(divisor: LayoutDivisor) -> Self {
+    public func divided(by divisor: LayoutDivisor) -> Self {
         coefficients.set(divisor: divisor)
         return self
     }

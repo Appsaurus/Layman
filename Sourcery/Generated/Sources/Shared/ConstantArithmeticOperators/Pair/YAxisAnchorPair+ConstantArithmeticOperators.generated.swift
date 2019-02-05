@@ -58,25 +58,25 @@ public func .- (lhs: YAxisAnchorPairExpression, rhs: LayoutConstant) -> YAxisAnc
 
 @discardableResult
 public func .* (lhs: YAxisAnchorPairExpression, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutConstant, rhs: YAxisAnchorPairExpression) -> YAxisAnchorPairExpression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func .* (lhs: YAxisAnchorPairExpression, rhs: LayoutMultiplier) -> YAxisAnchorPairExpression {
-    return lhs.with(multiplier: rhs)
+    return lhs.times(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutMultiplier, rhs: YAxisAnchorPairExpression) -> YAxisAnchorPairExpression {
-    return rhs.with(multiplier: lhs)
+    return rhs.times(lhs)
 }
 
 @discardableResult
 public func ./ (lhs: YAxisAnchorPairExpression, rhs: LayoutDivisor) -> YAxisAnchorPairExpression {
-    return lhs.with(divisor: rhs)
+    return lhs.divided(by: rhs)
 }
