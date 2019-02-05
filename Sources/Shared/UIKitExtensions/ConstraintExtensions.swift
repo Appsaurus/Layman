@@ -63,7 +63,7 @@ extension Constraint {
                                     multiplier: coefficients.multiplier?.value ?? 1.0,
                                     constant: coefficients.constant)
 
-        return constraint.with(priority: coefficients.priority)
+        return constraint.priority(coefficients.priority)
     }
 
     public func with(multiplier: CGFloat) -> Constraint {
@@ -78,7 +78,7 @@ extension Constraint {
     }
 
     @discardableResult
-    public func with(priority: LayoutPriority) -> Self {
+    public func priority(_ priority: LayoutPriority) -> Self {
         self.priority = priority
         return self
     }
@@ -182,7 +182,7 @@ extension Constraint {
                           toItem: secondItem,
                           attribute: secondAttribute,
                           multiplier: multiplier,
-                          constant: constant).with(priority: priority)
+                          constant: constant).priority(priority)
     }
     public var invertedAsInset: Constraint {
         guard firstAttribute.isCategory(.trailing), secondAttribute.isCategory(.trailing) else { return self }

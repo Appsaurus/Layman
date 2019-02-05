@@ -8,12 +8,12 @@
 
 extension LayoutInset {
     @discardableResult
-    public func with(priority: LayoutPriority) -> EdgeAnchorsConfiguration {
+    public func priority(_ priority: LayoutPriority) -> EdgeAnchorsConfiguration {
         return EdgeAnchorsConfiguration(
-            LayoutConfiguration().with(constant: top).with(priority: priority),
-            LayoutConfiguration().with(constant: left).with(priority: priority),
-            LayoutConfiguration().with(constant: bottom).with(priority: priority),
-            LayoutConfiguration().with(constant: right).with(priority: priority)
+            LayoutConfiguration().with(constant: top).priority(priority),
+            LayoutConfiguration().with(constant: left).priority(priority),
+            LayoutConfiguration().with(constant: bottom).priority(priority),
+            LayoutConfiguration().with(constant: right).priority(priority)
         )
     }
 }

@@ -8,5 +8,5 @@
 
 @discardableResult
 public func ~ (lhs: LayoutInset, rhs: LayoutPriority) -> EdgeAnchorsConfiguration {
-    return lhs.with(priority: rhs)
+    return lhs.priority(rhs)
 }

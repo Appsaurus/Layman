@@ -17,6 +17,8 @@ let view4 = UIView()
 
 parent.addSubview(view1)
 let constraint = view1 .= CGFloat(50)%
+let rhs = parent.horizontalEdges .* 10% ~ .low
 
-let con = view1.edges .= 0.5
-print("cont: \(con.all)")
+let con = view1.greaterThanOrEqual(to: 10%)
+print("cont: \(con.first)")
+print("cont: \(con.second)")

@@ -16,19 +16,19 @@ infix operator ~ : PriorityPrecedence
 
 @discardableResult
 public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutConfiguration {
-    return LayoutConfiguration().with(constant: lhs).with(priority: rhs)
+    return LayoutConfiguration().with(constant: lhs).priority(rhs)
 }
 
 @discardableResult
 public func ~ (lhs: LayoutMultiplier, rhs: LayoutPriority) -> LayoutConfiguration {
-    return LayoutConfiguration().with(multiplier: lhs).with(priority: rhs)
+    return LayoutConfiguration().with(multiplier: lhs).priority(rhs)
 }
 
 @discardableResult
 public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutConfigurationPair {
     return LayoutConfigurationPair(
-        LayoutConfiguration().with(constant: lhs.width).with(priority: rhs),
-        LayoutConfiguration().with(constant: lhs.height).with(priority: rhs)
+        LayoutConfiguration().with(constant: lhs.width).priority(rhs),
+        LayoutConfiguration().with(constant: lhs.height).priority(rhs)
     )
 }
 

@@ -9,7 +9,7 @@
 {% for EquationProtocol in argument.equationProtocols %}
 {% set RelationshipType %}{{argument.equationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
 {% for LeftHandType in argument.equationProtocols[EquationProtocol]["LeftHandTypes"] %}
-//  sourcery:file:Sources/Shared/equationProtocols/{{EquationProtocol}}/Operators/{{LeftHandType}}+{{EquationProtocol}}
+//  sourcery:file:Sources/Shared/EquationProtocols/{{EquationProtocol}}/Operators/{{LeftHandType}}+{{EquationProtocol}}
 //
 //  UILayoutKit
 //

@@ -85,7 +85,7 @@ public func {{multiplication}} (lhs: LayoutMultiplier, rhs: {{AnchorType}}Expres
 
 @discardableResult
 public func {{division}} (lhs: {{AnchorType}}Expressions, rhs: LayoutDivisor) -> {{AnchorType}}Expressions {
-    return lhs {{multiplication}} (1.0 / rhs)
+        return lhs.map { $0.with(divisor: rhs) }
 }
 
 // sourcery:end

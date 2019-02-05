@@ -44,9 +44,7 @@ public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayo
 
 }
 // MARK: Typed Anchor Group
-public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {
-
-}
+public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
 
 // MARK: Layout Configuration
 //public typealias LayoutMultiplier = CGFloat

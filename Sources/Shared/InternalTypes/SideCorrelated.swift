@@ -43,8 +43,8 @@ extension SideCorrelated where HorizontalSideType == VerticalSideType {
         return [top, leading, bottom, trailing]
     }
 
-    public init(_ allSides: SideType) {
-        self.init(allSides, allSides, allSides, allSides)
+    public init(_ allSides: @autoclosure () -> SideType) {
+        self.init(allSides(), allSides(), allSides(), allSides())
     }
 }
 

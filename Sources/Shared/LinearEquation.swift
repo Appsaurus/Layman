@@ -69,7 +69,7 @@ public protocol Expression: class {
     func with(coefficients: C) -> Self
     func with(constant: C.Constant) -> Self
     func with(multiplier: C.Multiplier) -> Self
-    func with(priority: C.Priority) -> Self
+    func priority(_ priority: C.Priority) -> Self
 }
 
 extension Expression {
@@ -81,7 +81,7 @@ extension Expression {
     }
 
     @discardableResult
-    public func with(priority: C.Priority) -> Self {
+    public func priority(_ priority: C.Priority) -> Self {
         coefficients.set(priority: priority)
         return self
     }
@@ -126,7 +126,7 @@ extension CoefficientMutating {
         return self
     }
 
-    public func with(priority: Priority) -> Self {
+    public func priority(_ priority: Priority) -> Self {
         set(priority: priority)
         return self
     }
@@ -148,7 +148,7 @@ extension Coeficient {
         return Self().with(multiplier: multiplier)
     }
     public static func priority(_ priority: Priority) -> Self {
-        return Self().with(priority: priority)
+        return Self().priority(priority)
     }
 }
 
@@ -162,7 +162,7 @@ extension Array where Element: Expression {
 //        return map  { $0.with(multiplier: multiplier)}
 //    }
 //
-//    public func with(priority: Element.C.Priority) -> [Element] {
-//        return map { $0.with(priority: priority) }
+//    public func priority(_ priority: Element.C.Priority) -> [Element] {
+//        return map { $0.priority(priority) }
 //    }
 }

@@ -153,7 +153,7 @@
 //    }
 //
 //    @discardableResult
-//    public func with(priority: LayoutPriority) -> Self {
+//    public func priority(_ priority: LayoutPriority) -> Self {
 //        coefficients.priority = priority
 //        return self
 //    }

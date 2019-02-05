@@ -48,7 +48,7 @@ public func {{multiplication}} (lhs: LayoutMultiplier, rhs: {{AnchorPairType}}) 
 
 @discardableResult
 public func {{division}} (lhs: {{AnchorPairType}}, rhs: LayoutDivisor) -> {{AnchorPairType}}Expression {
-    return lhs {{multiplication}} (1.0 / rhs)
+    return lhs.divided(by: rhs)
 }
 
 // MARK: Expressions
@@ -85,7 +85,7 @@ public func {{multiplication}} (lhs: LayoutMultiplier, rhs: {{AnchorPairType}}Ex
 
 @discardableResult
 public func {{division}} (lhs: {{AnchorPairType}}Expression, rhs: LayoutDivisor) -> {{AnchorPairType}}Expression {
-    return lhs.with(multiplier: (1.0 / rhs))
+    return lhs.with(divisor: rhs)
 }
 
 // sourcery:end

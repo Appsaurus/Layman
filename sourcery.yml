@@ -22,26 +22,43 @@ args:
             - 'View'
         RightHandTypes:
             - 'LayoutSize'
-            - 'LayoutConfigurationPair'
-            - 'LayoutConstant'
     LeftHandConstantRelatableExpression:
         LeftHandTypes:
-            - "XAxisAnchor"
-            - "YAxisAnchor"
-            - "LayoutDimension"
-            - "EdgeAnchorGroup"
-            - "XAxisAnchorPair"
-            - "YAxisAnchorPair"
+            - 'XAxisAnchor'
+            - 'YAxisAnchor'
+            - 'LayoutDimension'
+            - 'EdgeAnchorGroup'
+            - 'XAxisAnchorPair'
+            - 'YAxisAnchorPair'
+            - 'LayoutDimensionPair'
+            - 'XYAxesAnchorPair'
+            - 'View'
         RightHandTypes:
             - 'Constant'
             - 'Coefficient'
     LeftHandMultiplierRelatableExpression:
         LeftHandTypes:
+            - 'XAxisAnchor'
+            - 'YAxisAnchor'
             - 'LayoutDimension'
+            - 'EdgeAnchorGroup'
+            - 'XAxisAnchorPair'
+            - 'YAxisAnchorPair'
             - 'LayoutDimensionPair'
+            - 'XYAxesAnchorPair'
             - 'View'
         RightHandTypes:
             - 'Multiplier'
+    LeftHandLayoutConfigurationRelatableExpression:
+        LeftHandTypes:
+            - 'EdgeAnchorGroup'
+            - 'XAxisAnchorPair'
+            - 'YAxisAnchorPair'
+            - 'LayoutDimensionPair'
+            - 'XYAxesAnchorPair'
+            - 'View'
+        RightHandTypes:
+            - 'CoefficientGroupElement'
   operators:
     equal: ".="
     lessThanOrEqual: "≤"

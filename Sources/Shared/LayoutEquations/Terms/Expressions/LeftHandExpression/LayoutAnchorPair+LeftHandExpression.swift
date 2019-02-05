@@ -29,4 +29,5 @@ extension LayoutAnchorPair: LeftHandLayoutExpression, LeftHandConstantRelatableE
     public func relation(_ relation: Relation, _ rhs: Coefficient) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
+
 }

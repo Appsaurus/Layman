@@ -17,4 +17,8 @@ extension Array: Variable where Element: Variable {
     public func times(_ multiplier: LayoutMultiplier) -> [Element.RightHandExpression] {
         return self.map { $0.times(multiplier) }
     }
+
+//    public func divided(by divisor: LayoutDivisor) -> [Element.RightHandExpression] {
+//        return self.map { $0.divided(by: divisor) }
+//    }
 }

@@ -22,7 +22,14 @@ extension Variable {
     public func times(_ multiplier: LayoutConstant) -> RightHandExpression {
         return times(LayoutMultiplier(multiplier))
     }
+
     public func divided(by divisor: LayoutDivisor) -> RightHandExpression {
-        return times(LayoutMultiplier(1.0 / divisor))
+        return times(1.0 / divisor)
     }
 }
+
+//extension Variable where RightHandExpression: Expression, RightHandExpression.C: Coeficient, RightHandExpression.C.Multiplier == LayoutMultiplier{
+//    func divided(by divisor: LayoutDivisor) -> RightHandExpression{
+//        times(LayoutMultiplier)
+//    }
+//}
