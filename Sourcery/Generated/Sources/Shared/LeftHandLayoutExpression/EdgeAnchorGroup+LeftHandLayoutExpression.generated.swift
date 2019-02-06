@@ -10,7 +10,7 @@
 //
 
 extension EdgeAnchorGroup: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
-    public typealias LinearEquation = EdgeAnchorGroupRelationship
+    public typealias LinearEquation = EdgeAnchorGroupEquation
 
     public func relation(_ relation: Relation, _ rhs: EdgeAnchorGroup) -> LinearEquation {
         return LinearEquation(self, relation, rhs)

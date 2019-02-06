@@ -16,6 +16,6 @@ public func .= (lhs: View, rhs: LayoutAspectRatio) -> Constraint {
 }
 
 @discardableResult
-public func .= (lhs: View, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
+public func .= (lhs: View, rhs: LayoutAspectRatioConfiguration) -> Constraint {
     return lhs.aspectRatioAnchor .= rhs
 }

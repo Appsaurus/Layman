@@ -8,7 +8,6 @@
 
 public final class EdgeAnchorsGroupCoefficients: SidesTuple<LayoutCoefficient, LayoutCoefficient> {
     public static var `default`: EdgeAnchorsGroupCoefficients { return .init(.default) }
-
 }
 
 extension EdgeAnchorsGroupCoefficients: CoefficientMutating {

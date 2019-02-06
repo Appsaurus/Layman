@@ -12,7 +12,6 @@ public final class LayoutCoefficientPair: LayoutModelReferencePair<LayoutCoeffic
     public static func size(_ size: LayoutSize) -> LayoutCoefficientPair {
         return LayoutCoefficientPair(.constant(size.width), .constant(size.height))
     }
-
 }
 
 extension LayoutCoefficientPair: CoefficientMutating {

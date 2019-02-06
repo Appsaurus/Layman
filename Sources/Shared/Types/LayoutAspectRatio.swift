@@ -31,3 +31,18 @@ public enum LayoutAspectRatio {
         }
     }
 }
+
+public final class LayoutAspectRatioConfiguration {
+    public var aspectRatio: LayoutAspectRatio
+    public var priority: LayoutPriority
+
+    public init(_ aspectRatio: LayoutAspectRatio, _ priority: LayoutPriority = .required) {
+        self.aspectRatio = aspectRatio
+        self.priority = priority
+    }
+}
+
+public enum AspectRatioAnchor {
+    case standard(View)
+    case inverse(View)
+}

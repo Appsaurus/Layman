@@ -10,7 +10,7 @@
 //
 
 extension XAxisAnchor: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
-    public typealias LinearEquation = XAxisAnchorRelationship
+    public typealias LinearEquation = XAxisAnchorEquation
 
     public func relation(_ relation: Relation, _ rhs: XAxisAnchor) -> LinearEquation {
         return LinearEquation(self, relation, rhs)

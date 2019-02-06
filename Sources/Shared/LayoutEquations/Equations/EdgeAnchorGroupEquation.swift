@@ -1,12 +1,12 @@
 //
-//  EdgeAnchorGroupRelationship.swift
+//  EdgeAnchorGroupEquation.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/22/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class EdgeAnchorGroupRelationship {
+public final class EdgeAnchorGroupEquation {
 
     public var variable: EdgeAnchorGroup
     public var relation: Constraint.Relation
@@ -46,7 +46,7 @@ public final class EdgeAnchorGroupRelationship {
 
 }
 
-extension EdgeAnchorGroupRelationship: LinearEquation {
+extension EdgeAnchorGroupEquation: LinearEquation {
 
     public typealias Expression = EdgeAnchorGroupExpression
 

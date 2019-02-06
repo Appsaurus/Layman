@@ -56,8 +56,8 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
 }
 
 extension EdgeAnchorGroupExpression: Expression {
-    public typealias C = EdgeAnchorsGroupCoefficients
-    public typealias V = EdgeAnchorGroup
+    public typealias Coefficients = EdgeAnchorsGroupCoefficients
+    public typealias Variable = EdgeAnchorGroup
 
 //    @discardableResult
 //    public func divided(by rhs: LayoutConstant) -> EdgeAnchorGroupExpression {
@@ -78,8 +78,8 @@ extension EdgeAnchorGroupExpression {
 }
 
 //@discardableResult
-//private func + <A>(lhs: LayoutAnchor<A>, rhs: LayoutCoefficient) -> LayoutExpression<A> {
-//    return LayoutExpression(anchor: lhs, coefficients: rhs)
+//private func + <A>(lhs: LayoutAnchor<A>, rhs: LayoutCoefficient) -> LayoutAnchorExpression<A> {
+//    return LayoutAnchorExpression(anchor: lhs, coefficients: rhs)
 //}
 
 //extension EdgeAnchorGroupExpression {

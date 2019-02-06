@@ -32,8 +32,8 @@ public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutCoefficientPair {
     )
 }
 
-public func ~ (lhs: LayoutAspectRatio, rhs: LayoutPriority) -> AutoLayoutAspectRatioConfiguration {
-    return AutoLayoutAspectRatioConfiguration(lhs, rhs)
+public func ~ (lhs: LayoutAspectRatio, rhs: LayoutPriority) -> LayoutAspectRatioConfiguration {
+    return LayoutAspectRatioConfiguration(lhs, rhs)
 }
 
 @discardableResult

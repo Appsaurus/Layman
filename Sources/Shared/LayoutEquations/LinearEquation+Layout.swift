@@ -21,25 +21,6 @@ extension CoefficientMutating where Multiplier == LayoutMultiplier {
     }
 }
 
-public protocol CoefficientTyped {
-    associatedtype Coefficient: CoefficientMutating
-    typealias Constant = Coefficient.Constant
-    typealias Multiplier = Coefficient.Multiplier
-    typealias Divisor = Coefficient.Constant
-}
-
-public protocol LinearEquationTyped {
-    associatedtype LinearEquation: UILayoutKit.LinearEquation
-    typealias RightHandExpression = LinearEquation.Expression
-    typealias Solution = LinearEquation.Solution
-    typealias LayoutVariable = LinearEquation.V
-    typealias Relation = LinearEquation.Relation
-    typealias Expression = LinearEquation.Expression
-    typealias Coefficient = Expression.C
-    typealias Constant = Coefficient.Constant
-    typealias Multiplier = Coefficient.Multiplier
-}
-
 extension LeftHandSizeRelatableExpression {
     public typealias LayoutSize = UILayoutKit.LayoutSize
     public typealias LayoutCoefficientPair = UILayoutKit.LayoutCoefficientPair

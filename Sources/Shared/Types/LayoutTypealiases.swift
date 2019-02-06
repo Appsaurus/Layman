@@ -47,9 +47,9 @@ public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayo
 public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
 
 // MARK: Layout Configuration
-//public typealias LayoutMultiplier = CGFloat
-public typealias LayoutDivisor = CGFloat
 public typealias LayoutConstant = CGFloat
+public typealias LayoutMultiplier = LayoutConstantWrapper
+public typealias LayoutDivisor = LayoutConstant
 
 #if canImport(AppKit)
 public typealias LayoutPriority = Constraint.Priority
@@ -89,9 +89,9 @@ public typealias LayoutDimensionPairs = [LayoutDimensionPair]
 public typealias EdgeAnchorGroups = [EdgeAnchorGroup]
 
 // MARK: Expressions
-public typealias XAxisAnchorExpression = LayoutExpression<XAxisAnchor>
-public typealias YAxisAnchorExpression = LayoutExpression<YAxisAnchor>
-public typealias LayoutDimensionExpression = LayoutExpression<LayoutDimension>
+public typealias XAxisAnchorExpression = LayoutAnchorExpression<XAxisAnchor>
+public typealias YAxisAnchorExpression = LayoutAnchorExpression<YAxisAnchor>
+public typealias LayoutDimensionExpression = LayoutAnchorExpression<LayoutDimension>
 
 // MARK: Anchor Expressions Arrays
 public typealias XAxisAnchorExpressions = [XAxisAnchorExpression]
@@ -99,10 +99,10 @@ public typealias YAxisAnchorExpressions = [YAxisAnchorExpression]
 public typealias LayoutDimensionExpressions = [LayoutDimensionExpression]
 
 // MARK: Anchor Pair Expressions
-public typealias XAxisAnchorPairExpression = LayoutPairExpression<XAxisAnchor, XAxisAnchor>
-public typealias YAxisAnchorPairExpression = LayoutPairExpression<YAxisAnchor, YAxisAnchor>
-public typealias XYAxesAnchorPairExpression = LayoutPairExpression<XAxisAnchor, YAxisAnchor>
-public typealias LayoutDimensionPairExpression = LayoutPairExpression<LayoutDimension, LayoutDimension>
+public typealias XAxisAnchorPairExpression = LayoutAnchorPairExpression<XAxisAnchor, XAxisAnchor>
+public typealias YAxisAnchorPairExpression = LayoutAnchorPairExpression<YAxisAnchor, YAxisAnchor>
+public typealias XYAxesAnchorPairExpression = LayoutAnchorPairExpression<XAxisAnchor, YAxisAnchor>
+public typealias LayoutDimensionPairExpression = LayoutAnchorPairExpression<LayoutDimension, LayoutDimension>
 
 // MARK: Anchor Pair Expressions Arrays
 public typealias XAxisAnchorPairExpressions = [XAxisAnchorPairExpression]
@@ -113,12 +113,12 @@ public typealias XYAxesAnchorPairExpressions = [XYAxesAnchorPairExpression]
 public typealias EdgeAnchorGroupExpressions = [EdgeAnchorGroupExpression]
 
 // MARK: Typed Relationships
-public typealias XAxisAnchorRelationship = LayoutRelationship<XAxisAnchor>
-public typealias YAxisAnchorRelationship = LayoutRelationship<YAxisAnchor>
-public typealias LayoutDimensionRelationship = LayoutRelationship<LayoutDimension>
+public typealias XAxisAnchorEquation = LayoutAnchorEquation<XAxisAnchor>
+public typealias YAxisAnchorEquation = LayoutAnchorEquation<YAxisAnchor>
+public typealias LayoutDimensionEquation = LayoutAnchorEquation<LayoutDimension>
 
 // MARK: Typed Anchor Pair Relationships
-public typealias XAxisAnchorPairRelationship = LayoutPairRelationship<XAxisAnchor, XAxisAnchor>
-public typealias YAxisAnchorPairRelationship = LayoutPairRelationship<YAxisAnchor, YAxisAnchor>
-public typealias LayoutDimensionPairRelationship = LayoutPairRelationship<LayoutDimension, LayoutDimension>
-public typealias XYAxesAnchorPairRelationship = LayoutPairRelationship<XAxisAnchor, YAxisAnchor>
+public typealias XAxisAnchorPairRelationship = LayoutAnchorPairEquation<XAxisAnchor, XAxisAnchor>
+public typealias YAxisAnchorPairRelationship = LayoutAnchorPairEquation<YAxisAnchor, YAxisAnchor>
+public typealias LayoutDimensionPairRelationship = LayoutAnchorPairEquation<LayoutDimension, LayoutDimension>
+public typealias XYAxesAnchorPairRelationship = LayoutAnchorPairEquation<XAxisAnchor, YAxisAnchor>

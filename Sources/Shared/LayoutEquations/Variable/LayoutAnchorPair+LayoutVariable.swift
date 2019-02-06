@@ -10,7 +10,7 @@
 extension LayoutAnchorPair: LayoutVariable {
 
     // MARK: LayoutVariable
-    public typealias RightHandExpression = LayoutPairExpression<FA, SA>
+    public typealias RightHandExpression = LayoutAnchorPairExpression<FA, SA>
 
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         let config = LayoutCoefficientPair(.constant(constant))

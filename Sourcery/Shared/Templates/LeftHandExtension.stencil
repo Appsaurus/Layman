@@ -9,7 +9,7 @@
 //
 
 extension {{AnchorType}}: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
-    public typealias LinearEquation = {{AnchorType}}Relationship
+    public typealias LinearEquation = {{AnchorType}}Equation
 
     public func relation(_ relation: Relation, _ rhs: {{AnchorType}}) -> LinearEquation {
         return LinearEquation(self, relation, rhs)

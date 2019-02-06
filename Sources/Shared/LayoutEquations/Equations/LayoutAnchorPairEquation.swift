@@ -1,12 +1,12 @@
 //
-//  LayoutPairRelationship.swift
+//  LayoutAnchorPairEquation.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class LayoutPairRelationship<F: AnchorVariable, S: AnchorVariable> {
+public final class LayoutAnchorPairEquation<F: AnchorVariable, S: AnchorVariable> {
 
     public var variable: LayoutAnchorPair<F, S>
     public var relation: Constraint.Relation
@@ -28,13 +28,13 @@ public final class LayoutPairRelationship<F: AnchorVariable, S: AnchorVariable> 
         return ConstraintPair(relationships.0.constraint, relationships.1.constraintInvertedAsInset)
     }
 
-    private var layoutRelationships: (LayoutRelationship<F>, LayoutRelationship<S>) {
-        return (LayoutRelationship(variable.first, relation, relatedVariable?.first, coefficients.first),
-                LayoutRelationship(variable.second, relation, relatedVariable?.second, coefficients.second))
+    private var layoutRelationships: (LayoutAnchorEquation<F>, LayoutAnchorEquation<S>) {
+        return (LayoutAnchorEquation(variable.first, relation, relatedVariable?.first, coefficients.first),
+                LayoutAnchorEquation(variable.second, relation, relatedVariable?.second, coefficients.second))
     }
 
 }
 
-extension LayoutPairRelationship: LinearEquation {
-    public typealias Expression = LayoutPairExpression<F, S>
+extension LayoutAnchorPairEquation: LinearEquation {
+    public typealias Expression = LayoutAnchorPairExpression<F, S>
 }

@@ -6,6 +6,18 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+public protocol LinearEquationTyped {
+    associatedtype LinearEquation: UILayoutKit.LinearEquation
+    typealias RightHandExpression = LinearEquation.Expression
+    typealias Solution = LinearEquation.Solution
+    typealias LayoutVariable = LinearEquation.Variable
+    typealias Relation = LinearEquation.Relation
+    typealias Expression = LinearEquation.Expression
+    typealias Coefficient = Expression.Coefficients
+    typealias Constant = Coefficient.Constant
+    typealias Multiplier = Coefficient.Multiplier
+}
+
 public protocol LinearEquationSolving {
     associatedtype Expression: UILayoutKit.Expression
     associatedtype Solution
@@ -22,19 +34,19 @@ extension Array: LinearEquationSolving where Element: LinearEquationSolving {
     }
 }
 
-public protocol LinearEquation: Expression, LinearEquationSolving where Expression.V == V, Expression.C == C {
+public protocol LinearEquation: Expression, LinearEquationSolving where Expression.Variable == Variable, Expression.Coefficients == Coefficients {
     associatedtype Relation
     var relation: Relation { get set }
-    var relatedVariable: V? { get set }
-    init(_ variable: V, _ relation: Relation, _ relatedExpression: Expression)
-    init(_ variable: V, _ relation: Relation, _ relatedVariable: V)
-    init(_ variable: V, _ relation: Relation, _ relatedVariable: V?, _ coefficients: C)
-    init(_ variable: V, _ relation: Relation, _ constant: C.Constant)
+    var relatedVariable: Variable? { get set }
+    init(_ variable: Variable, _ relation: Relation, _ relatedExpression: Expression)
+    init(_ variable: Variable, _ relation: Relation, _ relatedVariable: Variable)
+    init(_ variable: Variable, _ relation: Relation, _ relatedVariable: Variable?, _ coefficients: Coefficients)
+    init(_ variable: Variable, _ relation: Relation, _ constant: Coefficients.Constant)
 }
 
 extension LinearEquation {
 
-    public init(_ variable: V,
+    public init(_ variable: Variable,
                 _ relation: Relation,
                 _ relatedExpression: Expression) {
         self.init(variable,
@@ -43,57 +55,56 @@ extension LinearEquation {
                   relatedExpression.coefficients)
     }
 
-    public init(_ variable: V, _ relation: Relation, _ relatedVariable: V) {
+    public init(_ variable: Variable, _ relation: Relation, _ relatedVariable: Variable) {
         self.init(variable, relation, relatedVariable, .default)
     }
 
-    public init(_ anchor: V, _ relation: Relation, _ coefficients: C) {
-        self.init(anchor, relation, nil, coefficients)
+    public init(_ variable: Variable, _ relation: Relation, _ coefficients: Coefficients) {
+        self.init(variable, relation, nil, coefficients)
     }
 
-    public init(_ variable: V,
+    public init(_ variable: Variable,
                 _ relation: Relation,
-                _ constant: C.Constant) {
+                _ constant: Coefficients.Constant) {
         self.init(variable, relation, .constant(constant))
     }
 }
 
 public protocol Expression: class {
 
-    associatedtype V
-    var variable: V { get set }
+    associatedtype Variable
+    var variable: Variable { get set }
 
-    associatedtype C: CoefficientMutating
-    var coefficients: C { get set } //coefficients
-    //    init(anchor: V, coefficients: C)
-    func with(coefficients: C) -> Self
-    func with(constant: C.Constant) -> Self
-    func times(_ multiplier: C.Multiplier) -> Self
-    func priority(_ priority: C.Priority) -> Self
+    associatedtype Coefficients: CoefficientMutating
+    var coefficients: Coefficients { get set }
+    func with(coefficients: Coefficients) -> Self
+    func with(constant: Coefficients.Constant) -> Self
+    func times(_ multiplier: Coefficients.Multiplier) -> Self
+    func priority(_ priority: Coefficients.Priority) -> Self
 }
 
 extension Expression {
 
     @discardableResult
-    public func with(coefficients: C) -> Self {
+    public func with(coefficients: Coefficients) -> Self {
         self.coefficients = coefficients
         return self
     }
 
     @discardableResult
-    public func priority(_ priority: C.Priority) -> Self {
+    public func priority(_ priority: Coefficients.Priority) -> Self {
         coefficients.set(priority: priority)
         return self
     }
 
     @discardableResult
-    public func with(constant: C.Constant) -> Self {
+    public func with(constant: Coefficients.Constant) -> Self {
         coefficients.set(constant: constant)
         return self
     }
 
     @discardableResult
-    public func times(_ multiplier: C.Multiplier) -> Self {
+    public func times(_ multiplier: Coefficients.Multiplier) -> Self {
         coefficients.set(multiplier: multiplier)
         return self
     }
@@ -151,3 +162,10 @@ extension CoefficientReferencing {
         return Self().priority(priority)
     }
 }
+
+//public protocol CoefficientTyped {
+//    associatedtype Coefficient: CoefficientMutating
+//    typealias Constant = Coefficient.Constant
+//    typealias Multiplier = Coefficient.Multiplier
+//    typealias Divisor = Coefficient.Constant
+//}

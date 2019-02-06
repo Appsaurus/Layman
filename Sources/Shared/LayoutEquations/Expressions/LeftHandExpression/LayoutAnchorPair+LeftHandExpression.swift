@@ -8,7 +8,7 @@
 
 extension LayoutAnchorPair: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
 
-    public typealias LinearEquation = LayoutPairRelationship<FA, SA>
+    public typealias LinearEquation = LayoutAnchorPairEquation<FA, SA>
 
     public func relation(_ relation: Relation, _ rhs: LayoutAnchorPair<FA, SA>) -> LinearEquation {
         return LinearEquation(self, relation, rhs)

@@ -15,6 +15,154 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
 // sourcery:inline:auto:InferredAnchorPairEquationTests.InferredAnchorPairEquationTests
 
     // MARK: view1CenterAnchors <=> relatedViewCenterAnchors
+    // MARK: Equal
+    func testInferredView1EqualToCenterAnchors() {
+        let constraints = view1 .= relatedView.centerAnchors
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, invertTrailing: true)
+    }
+
+    // MARK: Equal with constant
+    func testInferredView1EqualToCenterAnchorsPlusConstant() {
+        let constraints = view1 .= relatedView.centerAnchors .+ 10
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsMinusConstant() {
+        let constraints = view1 .= relatedView.centerAnchors .- 10
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: -10)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: -10, invertTrailing: true)
+    }
+
+    // MARK: Equal with multiplier
+    func testInferredView1EqualToCenterAnchorsMultiplyingConstant() {
+        let constraints = view1 .= relatedView.centerAnchors .* 3
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 3, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsMultipliedByConstant() {
+        let constraints = view1 .= 3 .* relatedView.centerAnchors
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 3, invertTrailing: true)
+    }
+
+    // MARK: Equal with percentage multiplier
+    func testInferredView1EqualToCenterAnchorsMultiplyingPercent() {
+        let constraints = view1 .= relatedView.centerAnchors .* 75%
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 0.75)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 0.75, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsMultipliedByPercent() {
+        let constraints = view1 .= 75% .* relatedView.centerAnchors
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 0.75)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 0.75, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsDividedByConstant() {
+        let constraints = view1 .= relatedView.centerAnchors ./ 2
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 1 / 2)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 1 / 2, invertTrailing: true)
+    }
+
+    // MARK: Equal prioritized
+    func testInferredView1EqualToCenterAnchorsWithPriority() {
+        let constraints = view1 .= relatedView.centerAnchors ~ .low
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, priority: .low)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, priority: .low, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsWithPriorityLiteral() {
+        let constraints = view1 .= relatedView.centerAnchors ~ 300
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, priority: 300)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, priority: 300, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsWithPriorityArithmetic() {
+        let constraints = view1 .= relatedView.centerAnchors ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, priority: 749)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, priority: 749, invertTrailing: true)
+    }
+
+    // MARK: Equal with constant .+ multiplier
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantMultiplyingConstant() {
+        let constraints = view1 .= (relatedView.centerAnchors .+ 10) .* 3
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantMultipliedByConstant() {
+        let constraints = view1 .= 3 .* (relatedView.centerAnchors .+ 10)
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsMultipliedByConstantPlusConstant() {
+        let constraints = view1 .= 3 .* relatedView.centerAnchors .+ 10
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantDividedByConstant() {
+        let constraints = view1 .= (relatedView.centerAnchors .+ 10) ./ 2
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
+    }
+
+    // MARK: Equal with constant .+ multiplier and priority
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 .= (relatedView.centerAnchors .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 .= 3 .* (relatedView.centerAnchors .+ 10) ~ .low
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 .= 3 .* relatedView.centerAnchors .+ 10 ~ .low
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 .= (relatedView.centerAnchors .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
+    }
+
+    // MARK: Equal with constant .+ multiplier and priority arithmetic
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 .= (relatedView.centerAnchors .+ 10) .* 3  ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 .= 3 .* (relatedView.centerAnchors .+ 10)  ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 .= 3 .* relatedView.centerAnchors .+ 10  ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
+    }
+
+    func testInferredView1EqualToCenterAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 .= (relatedView.centerAnchors .+ 10) ./ 2  ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
+    }
     // MARK: LessThanOrEqual
     func testInferredView1LessThanOrEqualToCenterAnchors() {
         let constraints = view1 ≤ relatedView.centerAnchors
@@ -311,155 +459,155 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
         constraints.first.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .centerY, .greaterThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
+    // MARK: view1HorizontalEdgeAnchors <=> relatedViewHorizontalEdgeAnchors
     // MARK: Equal
-    func testInferredView1EqualToCenterAnchors() {
-        let constraints = view1 .= relatedView.centerAnchors
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchors() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, invertTrailing: true)
     }
 
     // MARK: Equal with constant
-    func testInferredView1EqualToCenterAnchorsPlusConstant() {
-        let constraints = view1 .= relatedView.centerAnchors .+ 10
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstant() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors .+ 10
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsMinusConstant() {
-        let constraints = view1 .= relatedView.centerAnchors .- 10
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: -10)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: -10, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsMinusConstant() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors .- 10
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: -10)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -10, invertTrailing: true)
     }
 
     // MARK: Equal with multiplier
-    func testInferredView1EqualToCenterAnchorsMultiplyingConstant() {
-        let constraints = view1 .= relatedView.centerAnchors .* 3
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsMultiplyingConstant() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors .* 3
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsMultipliedByConstant() {
-        let constraints = view1 .= 3 .* relatedView.centerAnchors
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByConstant() {
+        let constraints = view1 .= 3 .* relatedView.horizontalEdgeAnchors
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 3, invertTrailing: true)
     }
 
     // MARK: Equal with percentage multiplier
-    func testInferredView1EqualToCenterAnchorsMultiplyingPercent() {
-        let constraints = view1 .= relatedView.centerAnchors .* 75%
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 0.75)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 0.75, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsMultiplyingPercent() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors .* 75%
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsMultipliedByPercent() {
-        let constraints = view1 .= 75% .* relatedView.centerAnchors
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 0.75)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 0.75, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByPercent() {
+        let constraints = view1 .= 75% .* relatedView.horizontalEdgeAnchors
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsDividedByConstant() {
-        let constraints = view1 .= relatedView.centerAnchors ./ 2
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, multiplier: 1 / 2)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsDividedByConstant() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors ./ 2
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 1 / 2)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal prioritized
-    func testInferredView1EqualToCenterAnchorsWithPriority() {
-        let constraints = view1 .= relatedView.centerAnchors ~ .low
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, priority: .low)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsWithPriority() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors ~ .low
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, priority: .low)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsWithPriorityLiteral() {
-        let constraints = view1 .= relatedView.centerAnchors ~ 300
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, priority: 300)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, priority: 300, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsWithPriorityLiteral() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors ~ 300
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, priority: 300)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, priority: 300, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsWithPriorityArithmetic() {
-        let constraints = view1 .= relatedView.centerAnchors ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, priority: 749)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsWithPriorityArithmetic() {
+        let constraints = view1 .= relatedView.horizontalEdgeAnchors ~ .high .- 1
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, priority: 749)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, priority: 749, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantMultiplyingConstant() {
-        let constraints = view1 .= (relatedView.centerAnchors .+ 10) .* 3
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstant() {
+        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantMultipliedByConstant() {
-        let constraints = view1 .= 3 .* (relatedView.centerAnchors .+ 10)
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstant() {
+        let constraints = view1 .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10)
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsMultipliedByConstantPlusConstant() {
-        let constraints = view1 .= 3 .* relatedView.centerAnchors .+ 10
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstant() {
+        let constraints = view1 .= 3 .* relatedView.horizontalEdgeAnchors .+ 10
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantDividedByConstant() {
-        let constraints = view1 .= (relatedView.centerAnchors .+ 10) ./ 2
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantDividedByConstant() {
+        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 .= (relatedView.centerAnchors .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 .= 3 .* (relatedView.centerAnchors .+ 10) ~ .low
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10) ~ .low
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 .= 3 .* relatedView.centerAnchors .+ 10 ~ .low
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 .= 3 .* relatedView.horizontalEdgeAnchors .+ 10 ~ .low
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 .= (relatedView.centerAnchors .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 .= (relatedView.centerAnchors .+ 10) .* 3  ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3  ~ .high .- 1
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 .= 3 .* (relatedView.centerAnchors .+ 10)  ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10)  ~ .high .- 1
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 .= 3 .* relatedView.centerAnchors .+ 10  ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 .= 3 .* relatedView.horizontalEdgeAnchors .+ 10  ~ .high .- 1
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToCenterAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 .= (relatedView.centerAnchors .+ 10) ./ 2  ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2  ~ .high .- 1
+        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
-    // MARK: view1HorizontalEdgeAnchors <=> relatedViewHorizontalEdgeAnchors
     // MARK: LessThanOrEqual
     func testInferredView1LessThanOrEqualToHorizontalEdgeAnchors() {
         let constraints = view1 ≤ relatedView.horizontalEdgeAnchors
@@ -756,155 +904,155 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
         constraints.first.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
+    // MARK: view1VerticalEdgeAnchors <=> relatedViewVerticalEdgeAnchors
     // MARK: Equal
-    func testInferredView1EqualToHorizontalEdgeAnchors() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchors() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors
+        constraints.first.assert(view1, .top, .equal, relatedView, .top)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, invertTrailing: true)
     }
 
     // MARK: Equal with constant
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstant() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors .+ 10
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstant() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors .+ 10
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsMinusConstant() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors .- 10
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: -10)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: -10, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsMinusConstant() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors .- 10
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: -10)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: -10, invertTrailing: true)
     }
 
     // MARK: Equal with multiplier
-    func testInferredView1EqualToHorizontalEdgeAnchorsMultiplyingConstant() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors .* 3
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsMultiplyingConstant() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors .* 3
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByConstant() {
-        let constraints = view1 .= 3 .* relatedView.horizontalEdgeAnchors
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByConstant() {
+        let constraints = view1 .= 3 .* relatedView.verticalEdgeAnchors
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 3, invertTrailing: true)
     }
 
     // MARK: Equal with percentage multiplier
-    func testInferredView1EqualToHorizontalEdgeAnchorsMultiplyingPercent() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors .* 75%
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 0.75, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsMultiplyingPercent() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors .* 75%
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByPercent() {
-        let constraints = view1 .= 75% .* relatedView.horizontalEdgeAnchors
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 0.75, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByPercent() {
+        let constraints = view1 .= 75% .* relatedView.verticalEdgeAnchors
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsDividedByConstant() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors ./ 2
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, multiplier: 1 / 2)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsDividedByConstant() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors ./ 2
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal prioritized
-    func testInferredView1EqualToHorizontalEdgeAnchorsWithPriority() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors ~ .low
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, priority: .low)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsWithPriority() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors ~ .low
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, priority: .low)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsWithPriorityLiteral() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors ~ 300
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, priority: 300)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, priority: 300, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsWithPriorityLiteral() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors ~ 300
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, priority: 300)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, priority: 300, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsWithPriorityArithmetic() {
-        let constraints = view1 .= relatedView.horizontalEdgeAnchors ~ .high .- 1
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, priority: 749)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsWithPriorityArithmetic() {
+        let constraints = view1 .= relatedView.verticalEdgeAnchors ~ .high .- 1
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, priority: 749)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, priority: 749, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstant() {
-        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstant() {
+        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) .* 3
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstant() {
-        let constraints = view1 .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10)
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstant() {
+        let constraints = view1 .= 3 .* (relatedView.verticalEdgeAnchors .+ 10)
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstant() {
-        let constraints = view1 .= 3 .* relatedView.horizontalEdgeAnchors .+ 10
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstant() {
+        let constraints = view1 .= 3 .* relatedView.verticalEdgeAnchors .+ 10
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantDividedByConstant() {
-        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantDividedByConstant() {
+        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10) ~ .low
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 .= 3 .* (relatedView.verticalEdgeAnchors .+ 10) ~ .low
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 .= 3 .* relatedView.horizontalEdgeAnchors .+ 10 ~ .low
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 .= 3 .* relatedView.verticalEdgeAnchors .+ 10 ~ .low
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3  ~ .high .- 1
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) .* 3  ~ .high .- 1
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10)  ~ .high .- 1
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 .= 3 .* (relatedView.verticalEdgeAnchors .+ 10)  ~ .high .- 1
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 .= 3 .* relatedView.horizontalEdgeAnchors .+ 10  ~ .high .- 1
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 .= 3 .* relatedView.verticalEdgeAnchors .+ 10  ~ .high .- 1
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToHorizontalEdgeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2  ~ .high .- 1
-        constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2  ~ .high .- 1
+        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
-    // MARK: view1VerticalEdgeAnchors <=> relatedViewVerticalEdgeAnchors
     // MARK: LessThanOrEqual
     func testInferredView1LessThanOrEqualToVerticalEdgeAnchors() {
         let constraints = view1 ≤ relatedView.verticalEdgeAnchors
@@ -1201,155 +1349,155 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
         constraints.first.assert(view1, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
+    // MARK: view1SizeAnchors <=> relatedViewSizeAnchors
     // MARK: Equal
-    func testInferredView1EqualToVerticalEdgeAnchors() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors
-        constraints.first.assert(view1, .top, .equal, relatedView, .top)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchors() {
+        let constraints = view1 .= relatedView.sizeAnchors
+        constraints.first.assert(view1, .width, .equal, relatedView, .width)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, invertTrailing: true)
     }
 
     // MARK: Equal with constant
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstant() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors .+ 10
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstant() {
+        let constraints = view1 .= relatedView.sizeAnchors .+ 10
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsMinusConstant() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors .- 10
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: -10)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: -10, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsMinusConstant() {
+        let constraints = view1 .= relatedView.sizeAnchors .- 10
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: -10)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: -10, invertTrailing: true)
     }
 
     // MARK: Equal with multiplier
-    func testInferredView1EqualToVerticalEdgeAnchorsMultiplyingConstant() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors .* 3
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsMultiplyingConstant() {
+        let constraints = view1 .= relatedView.sizeAnchors .* 3
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 3)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByConstant() {
-        let constraints = view1 .= 3 .* relatedView.verticalEdgeAnchors
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsMultipliedByConstant() {
+        let constraints = view1 .= 3 .* relatedView.sizeAnchors
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 3)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 3, invertTrailing: true)
     }
 
     // MARK: Equal with percentage multiplier
-    func testInferredView1EqualToVerticalEdgeAnchorsMultiplyingPercent() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors .* 75%
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 0.75, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsMultiplyingPercent() {
+        let constraints = view1 .= relatedView.sizeAnchors .* 75%
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 0.75)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByPercent() {
-        let constraints = view1 .= 75% .* relatedView.verticalEdgeAnchors
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 0.75, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsMultipliedByPercent() {
+        let constraints = view1 .= 75% .* relatedView.sizeAnchors
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 0.75)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsDividedByConstant() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors ./ 2
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsDividedByConstant() {
+        let constraints = view1 .= relatedView.sizeAnchors ./ 2
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 1 / 2)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal prioritized
-    func testInferredView1EqualToVerticalEdgeAnchorsWithPriority() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors ~ .low
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, priority: .low)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsWithPriority() {
+        let constraints = view1 .= relatedView.sizeAnchors ~ .low
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, priority: .low)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsWithPriorityLiteral() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors ~ 300
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, priority: 300)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, priority: 300, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsWithPriorityLiteral() {
+        let constraints = view1 .= relatedView.sizeAnchors ~ 300
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, priority: 300)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, priority: 300, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsWithPriorityArithmetic() {
-        let constraints = view1 .= relatedView.verticalEdgeAnchors ~ .high .- 1
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, priority: 749)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsWithPriorityArithmetic() {
+        let constraints = view1 .= relatedView.sizeAnchors ~ .high .- 1
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, priority: 749)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, priority: 749, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstant() {
-        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) .* 3
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantMultiplyingConstant() {
+        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) .* 3
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstant() {
-        let constraints = view1 .= 3 .* (relatedView.verticalEdgeAnchors .+ 10)
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantMultipliedByConstant() {
+        let constraints = view1 .= 3 .* (relatedView.sizeAnchors .+ 10)
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstant() {
-        let constraints = view1 .= 3 .* relatedView.verticalEdgeAnchors .+ 10
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsMultipliedByConstantPlusConstant() {
+        let constraints = view1 .= 3 .* relatedView.sizeAnchors .+ 10
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantDividedByConstant() {
-        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantDividedByConstant() {
+        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) ./ 2
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 .= 3 .* (relatedView.verticalEdgeAnchors .+ 10) ~ .low
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 .= 3 .* (relatedView.sizeAnchors .+ 10) ~ .low
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 .= 3 .* relatedView.verticalEdgeAnchors .+ 10 ~ .low
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 .= 3 .* relatedView.sizeAnchors .+ 10 ~ .low
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) .* 3  ~ .high .- 1
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) .* 3  ~ .high .- 1
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 .= 3 .* (relatedView.verticalEdgeAnchors .+ 10)  ~ .high .- 1
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 .= 3 .* (relatedView.sizeAnchors .+ 10)  ~ .high .- 1
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 .= 3 .* relatedView.verticalEdgeAnchors .+ 10  ~ .high .- 1
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 .= 3 .* relatedView.sizeAnchors .+ 10  ~ .high .- 1
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToVerticalEdgeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2  ~ .high .- 1
-        constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
+    func testInferredView1EqualToSizeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) ./ 2  ~ .high .- 1
+        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
-    // MARK: view1SizeAnchors <=> relatedViewSizeAnchors
     // MARK: LessThanOrEqual
     func testInferredView1LessThanOrEqualToSizeAnchors() {
         let constraints = view1 ≤ relatedView.sizeAnchors
@@ -1646,155 +1794,155 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
         constraints.first.assert(view1, .width, .greaterThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .height, .greaterThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
+    // MARK: viewArrayCenterAnchors <=> relatedViewCenterAnchors
     // MARK: Equal
-    func testInferredView1EqualToSizeAnchors() {
-        let constraints = view1 .= relatedView.sizeAnchors
-        constraints.first.assert(view1, .width, .equal, relatedView, .width)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchors() {
+        let constraints = viewArray .= relatedView.centerAnchors
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, invertTrailing: true)
     }
 
     // MARK: Equal with constant
-    func testInferredView1EqualToSizeAnchorsPlusConstant() {
-        let constraints = view1 .= relatedView.sizeAnchors .+ 10
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstant() {
+        let constraints = viewArray .= relatedView.centerAnchors .+ 10
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsMinusConstant() {
-        let constraints = view1 .= relatedView.sizeAnchors .- 10
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: -10)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: -10, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsMinusConstant() {
+        let constraints = viewArray .= relatedView.centerAnchors .- 10
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: -10)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: -10, invertTrailing: true)
     }
 
     // MARK: Equal with multiplier
-    func testInferredView1EqualToSizeAnchorsMultiplyingConstant() {
-        let constraints = view1 .= relatedView.sizeAnchors .* 3
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 3)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsMultiplyingConstant() {
+        let constraints = viewArray .= relatedView.centerAnchors .* 3
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsMultipliedByConstant() {
-        let constraints = view1 .= 3 .* relatedView.sizeAnchors
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 3)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsMultipliedByConstant() {
+        let constraints = viewArray .= 3 .* relatedView.centerAnchors
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 3, invertTrailing: true)
     }
 
     // MARK: Equal with percentage multiplier
-    func testInferredView1EqualToSizeAnchorsMultiplyingPercent() {
-        let constraints = view1 .= relatedView.sizeAnchors .* 75%
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 0.75)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 0.75, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsMultiplyingPercent() {
+        let constraints = viewArray .= relatedView.centerAnchors .* 75%
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 0.75)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsMultipliedByPercent() {
-        let constraints = view1 .= 75% .* relatedView.sizeAnchors
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 0.75)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 0.75, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsMultipliedByPercent() {
+        let constraints = viewArray .= 75% .* relatedView.centerAnchors
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 0.75)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsDividedByConstant() {
-        let constraints = view1 .= relatedView.sizeAnchors ./ 2
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, multiplier: 1 / 2)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsDividedByConstant() {
+        let constraints = viewArray .= relatedView.centerAnchors ./ 2
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal prioritized
-    func testInferredView1EqualToSizeAnchorsWithPriority() {
-        let constraints = view1 .= relatedView.sizeAnchors ~ .low
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, priority: .low)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsWithPriority() {
+        let constraints = viewArray .= relatedView.centerAnchors ~ .low
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsWithPriorityLiteral() {
-        let constraints = view1 .= relatedView.sizeAnchors ~ 300
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, priority: 300)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, priority: 300, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsWithPriorityLiteral() {
+        let constraints = viewArray .= relatedView.centerAnchors ~ 300
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, priority: 300)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, priority: 300, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsWithPriorityArithmetic() {
-        let constraints = view1 .= relatedView.sizeAnchors ~ .high .- 1
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, priority: 749)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsWithPriorityArithmetic() {
+        let constraints = viewArray .= relatedView.centerAnchors ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, priority: 749, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantMultiplyingConstant() {
-        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) .* 3
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultiplyingConstant() {
+        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) .* 3
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantMultipliedByConstant() {
-        let constraints = view1 .= 3 .* (relatedView.sizeAnchors .+ 10)
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultipliedByConstant() {
+        let constraints = viewArray .= 3 .* (relatedView.centerAnchors .+ 10)
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsMultipliedByConstantPlusConstant() {
-        let constraints = view1 .= 3 .* relatedView.sizeAnchors .+ 10
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsMultipliedByConstantPlusConstant() {
+        let constraints = viewArray .= 3 .* relatedView.centerAnchors .+ 10
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantDividedByConstant() {
-        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) ./ 2
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantDividedByConstant() {
+        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) ./ 2
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 .= 3 .* (relatedView.sizeAnchors .+ 10) ~ .low
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray .= 3 .* (relatedView.centerAnchors .+ 10) ~ .low
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 .= 3 .* relatedView.sizeAnchors .+ 10 ~ .low
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray .= 3 .* relatedView.centerAnchors .+ 10 ~ .low
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) .* 3  ~ .high .- 1
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) .* 3  ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 .= 3 .* (relatedView.sizeAnchors .+ 10)  ~ .high .- 1
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= 3 .* (relatedView.centerAnchors .+ 10)  ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 .= 3 .* relatedView.sizeAnchors .+ 10  ~ .high .- 1
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= 3 .* relatedView.centerAnchors .+ 10  ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredView1EqualToSizeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 .= (relatedView.sizeAnchors .+ 10) ./ 2  ~ .high .- 1
-        constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToCenterAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) ./ 2  ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
-    // MARK: viewArrayCenterAnchors <=> relatedViewCenterAnchors
     // MARK: LessThanOrEqual
     func testInferredViewArrayLessThanOrEqualToCenterAnchors() {
         let constraints = viewArray ≤ relatedView.centerAnchors
@@ -2091,155 +2239,155 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
         constraints.first.assert(viewArray, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .centerY, .greaterThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
+    // MARK: viewArrayHorizontalEdgeAnchors <=> relatedViewHorizontalEdgeAnchors
     // MARK: Equal
-    func testInferredViewArrayEqualToCenterAnchors() {
-        let constraints = viewArray .= relatedView.centerAnchors
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchors() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, invertTrailing: true)
     }
 
     // MARK: Equal with constant
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstant() {
-        let constraints = viewArray .= relatedView.centerAnchors .+ 10
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstant() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors .+ 10
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsMinusConstant() {
-        let constraints = viewArray .= relatedView.centerAnchors .- 10
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: -10)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: -10, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMinusConstant() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors .- 10
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: -10)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: -10, invertTrailing: true)
     }
 
     // MARK: Equal with multiplier
-    func testInferredViewArrayEqualToCenterAnchorsMultiplyingConstant() {
-        let constraints = viewArray .= relatedView.centerAnchors .* 3
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultiplyingConstant() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors .* 3
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsMultipliedByConstant() {
-        let constraints = viewArray .= 3 .* relatedView.centerAnchors
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByConstant() {
+        let constraints = viewArray .= 3 .* relatedView.horizontalEdgeAnchors
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 3, invertTrailing: true)
     }
 
     // MARK: Equal with percentage multiplier
-    func testInferredViewArrayEqualToCenterAnchorsMultiplyingPercent() {
-        let constraints = viewArray .= relatedView.centerAnchors .* 75%
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 0.75)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 0.75, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultiplyingPercent() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors .* 75%
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsMultipliedByPercent() {
-        let constraints = viewArray .= 75% .* relatedView.centerAnchors
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 0.75)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 0.75, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByPercent() {
+        let constraints = viewArray .= 75% .* relatedView.horizontalEdgeAnchors
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsDividedByConstant() {
-        let constraints = viewArray .= relatedView.centerAnchors ./ 2
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsDividedByConstant() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors ./ 2
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal prioritized
-    func testInferredViewArrayEqualToCenterAnchorsWithPriority() {
-        let constraints = viewArray .= relatedView.centerAnchors ~ .low
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsWithPriority() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors ~ .low
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsWithPriorityLiteral() {
-        let constraints = viewArray .= relatedView.centerAnchors ~ 300
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, priority: 300)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, priority: 300, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsWithPriorityLiteral() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors ~ 300
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, priority: 300)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, priority: 300, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsWithPriorityArithmetic() {
-        let constraints = viewArray .= relatedView.centerAnchors ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsWithPriorityArithmetic() {
+        let constraints = viewArray .= relatedView.horizontalEdgeAnchors ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, priority: 749, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultiplyingConstant() {
-        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) .* 3
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstant() {
+        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultipliedByConstant() {
-        let constraints = viewArray .= 3 .* (relatedView.centerAnchors .+ 10)
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstant() {
+        let constraints = viewArray .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10)
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsMultipliedByConstantPlusConstant() {
-        let constraints = viewArray .= 3 .* relatedView.centerAnchors .+ 10
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstant() {
+        let constraints = viewArray .= 3 .* relatedView.horizontalEdgeAnchors .+ 10
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantDividedByConstant() {
-        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) ./ 2
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantDividedByConstant() {
+        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray .= 3 .* (relatedView.centerAnchors .+ 10) ~ .low
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10) ~ .low
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray .= 3 .* relatedView.centerAnchors .+ 10 ~ .low
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray .= 3 .* relatedView.horizontalEdgeAnchors .+ 10 ~ .low
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) .* 3  ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3  ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= 3 .* (relatedView.centerAnchors .+ 10)  ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10)  ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= 3 .* relatedView.centerAnchors .+ 10  ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= 3 .* relatedView.horizontalEdgeAnchors .+ 10  ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToCenterAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= (relatedView.centerAnchors .+ 10) ./ 2  ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2  ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
-    // MARK: viewArrayHorizontalEdgeAnchors <=> relatedViewHorizontalEdgeAnchors
     // MARK: LessThanOrEqual
     func testInferredViewArrayLessThanOrEqualToHorizontalEdgeAnchors() {
         let constraints = viewArray ≤ relatedView.horizontalEdgeAnchors
@@ -2536,155 +2684,155 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
         constraints.first.assert(viewArray, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
+    // MARK: viewArrayVerticalEdgeAnchors <=> relatedViewVerticalEdgeAnchors
     // MARK: Equal
-    func testInferredViewArrayEqualToHorizontalEdgeAnchors() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchors() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, invertTrailing: true)
     }
 
     // MARK: Equal with constant
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstant() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors .+ 10
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstant() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors .+ 10
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMinusConstant() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors .- 10
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: -10)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: -10, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsMinusConstant() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors .- 10
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: -10)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: -10, invertTrailing: true)
     }
 
     // MARK: Equal with multiplier
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultiplyingConstant() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors .* 3
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultiplyingConstant() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors .* 3
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByConstant() {
-        let constraints = viewArray .= 3 .* relatedView.horizontalEdgeAnchors
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByConstant() {
+        let constraints = viewArray .= 3 .* relatedView.verticalEdgeAnchors
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 3, invertTrailing: true)
     }
 
     // MARK: Equal with percentage multiplier
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultiplyingPercent() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors .* 75%
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 0.75, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultiplyingPercent() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors .* 75%
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByPercent() {
-        let constraints = viewArray .= 75% .* relatedView.horizontalEdgeAnchors
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 0.75, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByPercent() {
+        let constraints = viewArray .= 75% .* relatedView.verticalEdgeAnchors
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsDividedByConstant() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors ./ 2
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsDividedByConstant() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors ./ 2
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal prioritized
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsWithPriority() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors ~ .low
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsWithPriority() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors ~ .low
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsWithPriorityLiteral() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors ~ 300
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, priority: 300)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, priority: 300, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsWithPriorityLiteral() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors ~ 300
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, priority: 300)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, priority: 300, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsWithPriorityArithmetic() {
-        let constraints = viewArray .= relatedView.horizontalEdgeAnchors ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsWithPriorityArithmetic() {
+        let constraints = viewArray .= relatedView.verticalEdgeAnchors ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, priority: 749, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstant() {
-        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstant() {
+        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) .* 3
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstant() {
-        let constraints = viewArray .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10)
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstant() {
+        let constraints = viewArray .= 3 .* (relatedView.verticalEdgeAnchors .+ 10)
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstant() {
-        let constraints = viewArray .= 3 .* relatedView.horizontalEdgeAnchors .+ 10
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstant() {
+        let constraints = viewArray .= 3 .* relatedView.verticalEdgeAnchors .+ 10
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantDividedByConstant() {
-        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantDividedByConstant() {
+        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10) ~ .low
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray .= 3 .* (relatedView.verticalEdgeAnchors .+ 10) ~ .low
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray .= 3 .* relatedView.horizontalEdgeAnchors .+ 10 ~ .low
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray .= 3 .* relatedView.verticalEdgeAnchors .+ 10 ~ .low
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) .* 3  ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) .* 3  ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= 3 .* (relatedView.horizontalEdgeAnchors .+ 10)  ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= 3 .* (relatedView.verticalEdgeAnchors .+ 10)  ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= 3 .* relatedView.horizontalEdgeAnchors .+ 10  ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= 3 .* relatedView.verticalEdgeAnchors .+ 10  ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToHorizontalEdgeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= (relatedView.horizontalEdgeAnchors .+ 10) ./ 2  ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2  ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
-    // MARK: viewArrayVerticalEdgeAnchors <=> relatedViewVerticalEdgeAnchors
     // MARK: LessThanOrEqual
     func testInferredViewArrayLessThanOrEqualToVerticalEdgeAnchors() {
         let constraints = viewArray ≤ relatedView.verticalEdgeAnchors
@@ -2981,155 +3129,155 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
         constraints.first.assert(viewArray, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
+    // MARK: viewArraySizeAnchors <=> relatedViewSizeAnchors
     // MARK: Equal
-    func testInferredViewArrayEqualToVerticalEdgeAnchors() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchors() {
+        let constraints = viewArray .= relatedView.sizeAnchors
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, invertTrailing: true)
     }
 
     // MARK: Equal with constant
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstant() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors .+ 10
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstant() {
+        let constraints = viewArray .= relatedView.sizeAnchors .+ 10
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsMinusConstant() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors .- 10
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: -10)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: -10, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsMinusConstant() {
+        let constraints = viewArray .= relatedView.sizeAnchors .- 10
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: -10)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: -10, invertTrailing: true)
     }
 
     // MARK: Equal with multiplier
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultiplyingConstant() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors .* 3
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsMultiplyingConstant() {
+        let constraints = viewArray .= relatedView.sizeAnchors .* 3
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByConstant() {
-        let constraints = viewArray .= 3 .* relatedView.verticalEdgeAnchors
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsMultipliedByConstant() {
+        let constraints = viewArray .= 3 .* relatedView.sizeAnchors
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 3, invertTrailing: true)
     }
 
     // MARK: Equal with percentage multiplier
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultiplyingPercent() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors .* 75%
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 0.75, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsMultiplyingPercent() {
+        let constraints = viewArray .= relatedView.sizeAnchors .* 75%
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 0.75)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByPercent() {
-        let constraints = viewArray .= 75% .* relatedView.verticalEdgeAnchors
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 0.75, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsMultipliedByPercent() {
+        let constraints = viewArray .= 75% .* relatedView.sizeAnchors
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 0.75)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 0.75, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsDividedByConstant() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors ./ 2
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsDividedByConstant() {
+        let constraints = viewArray .= relatedView.sizeAnchors ./ 2
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal prioritized
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsWithPriority() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors ~ .low
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsWithPriority() {
+        let constraints = viewArray .= relatedView.sizeAnchors ~ .low
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, priority: .low)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsWithPriorityLiteral() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors ~ 300
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, priority: 300)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, priority: 300, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsWithPriorityLiteral() {
+        let constraints = viewArray .= relatedView.sizeAnchors ~ 300
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, priority: 300)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, priority: 300, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsWithPriorityArithmetic() {
-        let constraints = viewArray .= relatedView.verticalEdgeAnchors ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsWithPriorityArithmetic() {
+        let constraints = viewArray .= relatedView.sizeAnchors ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, priority: 749)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, priority: 749, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstant() {
-        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) .* 3
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultiplyingConstant() {
+        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) .* 3
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstant() {
-        let constraints = viewArray .= 3 .* (relatedView.verticalEdgeAnchors .+ 10)
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultipliedByConstant() {
+        let constraints = viewArray .= 3 .* (relatedView.sizeAnchors .+ 10)
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstant() {
-        let constraints = viewArray .= 3 .* relatedView.verticalEdgeAnchors .+ 10
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsMultipliedByConstantPlusConstant() {
+        let constraints = viewArray .= 3 .* relatedView.sizeAnchors .+ 10
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantDividedByConstant() {
-        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantDividedByConstant() {
+        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) ./ 2
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray .= 3 .* (relatedView.verticalEdgeAnchors .+ 10) ~ .low
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray .= 3 .* (relatedView.sizeAnchors .+ 10) ~ .low
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray .= 3 .* relatedView.verticalEdgeAnchors .+ 10 ~ .low
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray .= 3 .* relatedView.sizeAnchors .+ 10 ~ .low
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) .* 3  ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) .* 3  ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= 3 .* (relatedView.verticalEdgeAnchors .+ 10)  ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= 3 .* (relatedView.sizeAnchors .+ 10)  ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= 3 .* relatedView.verticalEdgeAnchors .+ 10  ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= 3 .* relatedView.sizeAnchors .+ 10  ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
     }
 
-    func testInferredViewArrayEqualToVerticalEdgeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= (relatedView.verticalEdgeAnchors .+ 10) ./ 2  ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
+    func testInferredViewArrayEqualToSizeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) ./ 2  ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
-    // MARK: viewArraySizeAnchors <=> relatedViewSizeAnchors
     // MARK: LessThanOrEqual
     func testInferredViewArrayLessThanOrEqualToSizeAnchors() {
         let constraints = viewArray ≤ relatedView.sizeAnchors
@@ -3425,154 +3573,6 @@ class InferredAnchorPairEquationTests: UILayoutKitTestCase {
         let constraints = viewArray ≥ (relatedView.sizeAnchors .+ 10) ./ 2  ~ .high .- 1
         constraints.first.assert(viewArray, .width, .greaterThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .height, .greaterThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
-    }
-    // MARK: Equal
-    func testInferredViewArrayEqualToSizeAnchors() {
-        let constraints = viewArray .= relatedView.sizeAnchors
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, invertTrailing: true)
-    }
-
-    // MARK: Equal with constant
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstant() {
-        let constraints = viewArray .= relatedView.sizeAnchors .+ 10
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsMinusConstant() {
-        let constraints = viewArray .= relatedView.sizeAnchors .- 10
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: -10)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: -10, invertTrailing: true)
-    }
-
-    // MARK: Equal with multiplier
-    func testInferredViewArrayEqualToSizeAnchorsMultiplyingConstant() {
-        let constraints = viewArray .= relatedView.sizeAnchors .* 3
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 3, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsMultipliedByConstant() {
-        let constraints = viewArray .= 3 .* relatedView.sizeAnchors
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 3, invertTrailing: true)
-    }
-
-    // MARK: Equal with percentage multiplier
-    func testInferredViewArrayEqualToSizeAnchorsMultiplyingPercent() {
-        let constraints = viewArray .= relatedView.sizeAnchors .* 75%
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 0.75)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 0.75, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsMultipliedByPercent() {
-        let constraints = viewArray .= 75% .* relatedView.sizeAnchors
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 0.75)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 0.75, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsDividedByConstant() {
-        let constraints = viewArray .= relatedView.sizeAnchors ./ 2
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 1 / 2, invertTrailing: true)
-    }
-
-    // MARK: Equal prioritized
-    func testInferredViewArrayEqualToSizeAnchorsWithPriority() {
-        let constraints = viewArray .= relatedView.sizeAnchors ~ .low
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, priority: .low)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, priority: .low, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsWithPriorityLiteral() {
-        let constraints = viewArray .= relatedView.sizeAnchors ~ 300
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, priority: 300)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, priority: 300, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsWithPriorityArithmetic() {
-        let constraints = viewArray .= relatedView.sizeAnchors ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, priority: 749)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, priority: 749, invertTrailing: true)
-    }
-
-    // MARK: Equal with constant .+ multiplier
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultiplyingConstant() {
-        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) .* 3
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultipliedByConstant() {
-        let constraints = viewArray .= 3 .* (relatedView.sizeAnchors .+ 10)
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsMultipliedByConstantPlusConstant() {
-        let constraints = viewArray .= 3 .* relatedView.sizeAnchors .+ 10
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantDividedByConstant() {
-        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) ./ 2
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, invertTrailing: true)
-    }
-
-    // MARK: Equal with constant .+ multiplier and priority
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray .= 3 .* (relatedView.sizeAnchors .+ 10) ~ .low
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray .= 3 .* relatedView.sizeAnchors .+ 10 ~ .low
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: .low, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low, invertTrailing: true)
-    }
-
-    // MARK: Equal with constant .+ multiplier and priority arithmetic
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) .* 3  ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= 3 .* (relatedView.sizeAnchors .+ 10)  ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= 3 .* relatedView.sizeAnchors .+ 10  ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: 749, invertTrailing: true)
-    }
-
-    func testInferredViewArrayEqualToSizeAnchorsPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray .= (relatedView.sizeAnchors .+ 10) ./ 2  ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749, invertTrailing: true)
     }
 // sourcery:end
 }

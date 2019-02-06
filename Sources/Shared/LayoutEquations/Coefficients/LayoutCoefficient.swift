@@ -14,7 +14,6 @@ public final class LayoutCoefficient {
     public var active: Bool = true
 
     public init() {}
-
 }
 
 extension LayoutCoefficient {
@@ -46,6 +45,7 @@ extension LayoutCoefficient: CoefficientMutating & CoefficientReferencing {
 
 extension CoefficientReferencing where Multiplier == LayoutMultiplier {
     public func set(divisor: LayoutDivisor) {
-        set(multiplier: multiplier?.divided(by: divisor) ?? LayoutMultiplier(1.0 / divisor))
+        let dividend = multiplier?.value ?? 1.0
+        set(multiplier: LayoutMultiplier(dividend / divisor))
     }
 }

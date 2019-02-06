@@ -101,10 +101,3 @@ extension LayoutPriority {
     }
 
 }
-
-extension LayoutPriority: ExpressibleByIntegerLiteral {
-    public typealias IntegerLiteralType = Int
-    public init(integerLiteral value: Int) {
-        self.init(Float(value))
-    }
-}

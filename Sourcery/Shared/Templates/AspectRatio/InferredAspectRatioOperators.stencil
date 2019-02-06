@@ -15,7 +15,7 @@ public func {{equal}} (lhs: View, rhs: LayoutAspectRatio) -> Constraint {
 }
 
 @discardableResult
-public func {{equal}} (lhs: View, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
+public func {{equal}} (lhs: View, rhs: LayoutAspectRatioConfiguration) -> Constraint {
     return lhs.aspectRatioAnchor {{equal}} rhs
 }
 // sourcery:end

@@ -1,12 +1,12 @@
 //
-//  LayoutRelationship.swift
+//  LayoutAnchorEquation.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class LayoutRelationship<A: AnchorVariable> {
+public final class LayoutAnchorEquation<A: AnchorVariable> {
 
     public var variable: LayoutAnchor<A>
     public var relation: Constraint.Relation
@@ -44,19 +44,19 @@ public final class LayoutRelationship<A: AnchorVariable> {
             guard coefficients.multiplier != nil, let parentAnchor = layoutDimension.matchingParentAnchor else {
                 return sizeConstraint(for: layoutDimension).configured(with: coefficients)
             }
-            return LayoutRelationship<LayoutDimension>(layoutDimension, relation, parentAnchor, coefficients).inactiveConstraint
+            return LayoutAnchorEquation<LayoutDimension>(layoutDimension, relation, parentAnchor, coefficients).inactiveConstraint
         }
 
         if let xAxisAnchor = variable as? XAxisAnchor, let parentAnchor = xAxisAnchor.matchingParentAnchor {
-            return LayoutRelationship<XAxisAnchor>(xAxisAnchor, relation, parentAnchor, coefficients).inactiveConstraint
+            return LayoutAnchorEquation<XAxisAnchor>(xAxisAnchor, relation, parentAnchor, coefficients).inactiveConstraint
         }
 
         if let yAxisAnchor = variable as? YAxisAnchor, let parentAnchor = yAxisAnchor.matchingParentAnchor {
-            return LayoutRelationship<YAxisAnchor>(yAxisAnchor, relation, parentAnchor, coefficients).inactiveConstraint
+            return LayoutAnchorEquation<YAxisAnchor>(yAxisAnchor, relation, parentAnchor, coefficients).inactiveConstraint
         }
 
         preconditionFailure("""
-                            LayoutRelationship must contain one of the following:
+                            LayoutAnchorEquation must contain one of the following:
                             1. Two anchors
                             2. One view's anchor and a constant
                             """)
@@ -90,8 +90,8 @@ public final class LayoutRelationship<A: AnchorVariable> {
 
 }
 
-extension LayoutRelationship: LinearEquation {
-    public typealias Expression = LayoutExpression<A>
+extension LayoutAnchorEquation: LinearEquation {
+    public typealias Expression = LayoutAnchorExpression<A>
 
     public typealias Solution = Constraint
 

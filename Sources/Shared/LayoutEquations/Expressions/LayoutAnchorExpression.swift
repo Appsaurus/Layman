@@ -1,40 +1,41 @@
 //
-//  LayoutPairExpression.swift
+//  LayoutAnchorExpression.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class LayoutPairExpression<F: AnchorVariable, S: AnchorVariable> {
+public final class LayoutAnchorExpression<A: AnchorType> {
 
-    public var variable: LayoutAnchorPair<F, S>
-    public var coefficients: LayoutCoefficientPair
+    public var variable: LayoutAnchor<A>
+    public var coefficients: LayoutCoefficient
 
-    public init(variable: LayoutAnchorPair<F, S>, coefficients: LayoutCoefficientPair = .default) {
+    public init(variable: LayoutAnchor<A>, coefficients: LayoutCoefficient = .default) {
         self.variable = variable
         self.coefficients = coefficients
     }
 
-//    public init(anchor: LayoutAnchorPair<F, S>, coefficients: LayoutCoefficient) {
-//        self.anchor = anchor
-//        self.coefficients = LayoutCoefficientPair(coefficients, coefficients)
+//    @discardableResult
+//    public func priority(_ priority: LayoutPriority) -> Self {
+//        coefficients.priority = priority
+//        return self
 //    }
 
     @discardableResult
-    public func with(coefficients: LayoutCoefficient) -> Self {
-        self.coefficients = LayoutCoefficientPair(coefficients, coefficients)
+    public func with(active: Bool) -> Self {
+        coefficients.active = active
         return self
     }
 
 }
 
-extension LayoutPairExpression: Expression {
-    public typealias C = LayoutCoefficientPair
-    public typealias V = LayoutAnchorPair<F, S>
+extension LayoutAnchorExpression: Expression where A: LayoutVariable {
+    public typealias Coefficients = LayoutCoefficient
+    public typealias Variable = LayoutAnchor<A>
 
     @discardableResult
-    public func with(coefficients: LayoutCoefficientPair) -> Self {
+    public func with(coefficients: LayoutCoefficient) -> Self {
         self.coefficients = coefficients
         return self
     }

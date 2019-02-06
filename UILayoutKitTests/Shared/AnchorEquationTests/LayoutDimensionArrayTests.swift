@@ -19,6 +19,121 @@ class LayoutDimensionArrayTests: UILayoutKitTestCase {
 
 // sourcery:inline:auto:LayoutDimensionArrayTests.EquationTests
     // MARK: viewArray.widthWidth <=> relatedViewWidth
+    // MARK: Equal
+
+    func testViewArrayWidthEqualToWidth() {
+        let constraints = viewArray.width .= relatedView.widthAnchor
+        constraints.assert(viewArray, .width, .equal, relatedView, .width)
+    }
+
+    // MARK: Equal with constant
+    func testViewArrayWidthEqualToWidthPlusConstant() {
+        let constraints = viewArray.width .= relatedView.widthAnchor .+ 10
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10)
+    }
+
+    func testViewArrayWidthEqualToWidthMinusConstant() {
+        let constraints = viewArray.width .= relatedView.widthAnchor .- 10
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: -10)
+    }
+
+    // MARK: Equal with multiplier
+    func testViewArrayWidthEqualToWidthMultiplyingConstant() {
+        let constraints = viewArray.width .= relatedView.widthAnchor .* 3
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 3)
+    }
+
+    func testViewArrayWidthEqualToWidthMultipliedByConstant() {
+        let constraints = viewArray.width .= 3 .* relatedView.widthAnchor
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 3)
+    }
+
+    func testViewArrayWidthEqualToWidthDividedByConstant() {
+        let constraints = viewArray.width .= relatedView.widthAnchor ./ 2
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal prioritized
+    func testViewArrayWidthEqualToWidthWithPriority() {
+        let constraints = viewArray.width .= relatedView.widthAnchor ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, priority: .low)
+    }
+
+    func testViewArrayWidthEqualToWidthWithPriorityLiteral() {
+        let constraints = viewArray.width .= relatedView.widthAnchor ~ 300
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, priority: 300)
+    }
+
+    func testViewArrayWidthEqualToWidthWithPriorityArithmetic() {
+        let constraints = viewArray.width .= relatedView.widthAnchor ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, priority: 749)
+    }
+
+    // MARK: Equal with constant .+ multiplier
+
+    func testViewArrayWidthEqualToWidthPlusConstantMultiplyingConstant() {
+        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) .* 3
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayWidthEqualToWidthPlusConstantMultipliedByConstant() {
+        let constraints = viewArray.width .= 3 .* (relatedView.widthAnchor .+ 10)
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayWidthEqualToWidthMultipliedByConstantPlusConstant() {
+        let constraints = viewArray.width .= 3 .* relatedView.widthAnchor .+ 10
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayWidthEqualToWidthPlusConstantDividedByConstant() {
+        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) ./ 2
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: Equal with constant .+ multiplier and priority
+
+    func testViewArrayWidthEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayWidthEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray.width .= 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayWidthEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray.width .= 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayWidthEqualToWidthPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: Equal with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayWidthEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayWidthEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray.width .= 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayWidthEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray.width .= 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayWidthEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
     // MARK: LessThanOrEqual
 
     func testViewArrayWidthLessThanOrEqualToWidth() {
@@ -249,122 +364,122 @@ class LayoutDimensionArrayTests: UILayoutKitTestCase {
         let constraints = viewArray.width ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
         constraints.assert(viewArray, .width, .greaterThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
+    // MARK: viewArray.widthWidth <=> relatedViewHeight
     // MARK: Equal
 
-    func testViewArrayWidthEqualToWidth() {
-        let constraints = viewArray.width .= relatedView.widthAnchor
-        constraints.assert(viewArray, .width, .equal, relatedView, .width)
+    func testViewArrayWidthEqualToHeight() {
+        let constraints = viewArray.width .= relatedView.heightAnchor
+        constraints.assert(viewArray, .width, .equal, relatedView, .height)
     }
 
     // MARK: Equal with constant
-    func testViewArrayWidthEqualToWidthPlusConstant() {
-        let constraints = viewArray.width .= relatedView.widthAnchor .+ 10
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10)
+    func testViewArrayWidthEqualToHeightPlusConstant() {
+        let constraints = viewArray.width .= relatedView.heightAnchor .+ 10
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10)
     }
 
-    func testViewArrayWidthEqualToWidthMinusConstant() {
-        let constraints = viewArray.width .= relatedView.widthAnchor .- 10
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: -10)
+    func testViewArrayWidthEqualToHeightMinusConstant() {
+        let constraints = viewArray.width .= relatedView.heightAnchor .- 10
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: -10)
     }
 
     // MARK: Equal with multiplier
-    func testViewArrayWidthEqualToWidthMultiplyingConstant() {
-        let constraints = viewArray.width .= relatedView.widthAnchor .* 3
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 3)
+    func testViewArrayWidthEqualToHeightMultiplyingConstant() {
+        let constraints = viewArray.width .= relatedView.heightAnchor .* 3
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToWidthMultipliedByConstant() {
-        let constraints = viewArray.width .= 3 .* relatedView.widthAnchor
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 3)
+    func testViewArrayWidthEqualToHeightMultipliedByConstant() {
+        let constraints = viewArray.width .= 3 .* relatedView.heightAnchor
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToWidthDividedByConstant() {
-        let constraints = viewArray.width .= relatedView.widthAnchor ./ 2
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, multiplier: 1 / 2)
+    func testViewArrayWidthEqualToHeightDividedByConstant() {
+        let constraints = viewArray.width .= relatedView.heightAnchor ./ 2
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, multiplier: 1 / 2)
     }
 
     // MARK: Equal prioritized
-    func testViewArrayWidthEqualToWidthWithPriority() {
-        let constraints = viewArray.width .= relatedView.widthAnchor ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, priority: .low)
+    func testViewArrayWidthEqualToHeightWithPriority() {
+        let constraints = viewArray.width .= relatedView.heightAnchor ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, priority: .low)
     }
 
-    func testViewArrayWidthEqualToWidthWithPriorityLiteral() {
-        let constraints = viewArray.width .= relatedView.widthAnchor ~ 300
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, priority: 300)
+    func testViewArrayWidthEqualToHeightWithPriorityLiteral() {
+        let constraints = viewArray.width .= relatedView.heightAnchor ~ 300
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, priority: 300)
     }
 
-    func testViewArrayWidthEqualToWidthWithPriorityArithmetic() {
-        let constraints = viewArray.width .= relatedView.widthAnchor ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, priority: 749)
+    func testViewArrayWidthEqualToHeightWithPriorityArithmetic() {
+        let constraints = viewArray.width .= relatedView.heightAnchor ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, priority: 749)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testViewArrayWidthEqualToWidthPlusConstantMultiplyingConstant() {
-        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) .* 3
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+    func testViewArrayWidthEqualToHeightPlusConstantMultiplyingConstant() {
+        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) .* 3
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToWidthPlusConstantMultipliedByConstant() {
-        let constraints = viewArray.width .= 3 .* (relatedView.widthAnchor .+ 10)
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+    func testViewArrayWidthEqualToHeightPlusConstantMultipliedByConstant() {
+        let constraints = viewArray.width .= 3 .* (relatedView.heightAnchor .+ 10)
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToWidthMultipliedByConstantPlusConstant() {
-        let constraints = viewArray.width .= 3 .* relatedView.widthAnchor .+ 10
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3)
+    func testViewArrayWidthEqualToHeightMultipliedByConstantPlusConstant() {
+        let constraints = viewArray.width .= 3 .* relatedView.heightAnchor .+ 10
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToWidthPlusConstantDividedByConstant() {
-        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) ./ 2
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
+    func testViewArrayWidthEqualToHeightPlusConstantDividedByConstant() {
+        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) ./ 2
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testViewArrayWidthEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+    func testViewArrayWidthEqualToHeightPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) .* 3 ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayWidthEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray.width .= 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+    func testViewArrayWidthEqualToHeightPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray.width .= 3 .* (relatedView.heightAnchor .+ 10) ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayWidthEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray.width .= 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
+    func testViewArrayWidthEqualToHeightMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray.width .= 3 .* relatedView.heightAnchor .+ 10 ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayWidthEqualToWidthPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    func testViewArrayWidthEqualToHeightPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) ./ 2 ~ .low
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testViewArrayWidthEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+    func testViewArrayWidthEqualToHeightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) .* 3  ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayWidthEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray.width .= 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+    func testViewArrayWidthEqualToHeightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray.width .= 3 .* (relatedView.heightAnchor .+ 10)  ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayWidthEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray.width .= 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
+    func testViewArrayWidthEqualToHeightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray.width .= 3 .* relatedView.heightAnchor .+ 10  ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayWidthEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray.width .= (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    func testViewArrayWidthEqualToHeightPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) ./ 2  ~ .high .- 1
+        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: viewArray.widthWidth <=> relatedViewHeight
     // MARK: LessThanOrEqual
 
     func testViewArrayWidthLessThanOrEqualToHeight() {
@@ -595,122 +710,122 @@ class LayoutDimensionArrayTests: UILayoutKitTestCase {
         let constraints = viewArray.width ≥ (relatedView.heightAnchor .+ 10) ./ 2  ~ .high .- 1
         constraints.assert(viewArray, .width, .greaterThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
+    // MARK: viewArray.heightHeight <=> relatedViewWidth
     // MARK: Equal
 
-    func testViewArrayWidthEqualToHeight() {
-        let constraints = viewArray.width .= relatedView.heightAnchor
-        constraints.assert(viewArray, .width, .equal, relatedView, .height)
+    func testViewArrayHeightEqualToWidth() {
+        let constraints = viewArray.height .= relatedView.widthAnchor
+        constraints.assert(viewArray, .height, .equal, relatedView, .width)
     }
 
     // MARK: Equal with constant
-    func testViewArrayWidthEqualToHeightPlusConstant() {
-        let constraints = viewArray.width .= relatedView.heightAnchor .+ 10
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10)
+    func testViewArrayHeightEqualToWidthPlusConstant() {
+        let constraints = viewArray.height .= relatedView.widthAnchor .+ 10
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10)
     }
 
-    func testViewArrayWidthEqualToHeightMinusConstant() {
-        let constraints = viewArray.width .= relatedView.heightAnchor .- 10
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: -10)
+    func testViewArrayHeightEqualToWidthMinusConstant() {
+        let constraints = viewArray.height .= relatedView.widthAnchor .- 10
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: -10)
     }
 
     // MARK: Equal with multiplier
-    func testViewArrayWidthEqualToHeightMultiplyingConstant() {
-        let constraints = viewArray.width .= relatedView.heightAnchor .* 3
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, multiplier: 3)
+    func testViewArrayHeightEqualToWidthMultiplyingConstant() {
+        let constraints = viewArray.height .= relatedView.widthAnchor .* 3
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToHeightMultipliedByConstant() {
-        let constraints = viewArray.width .= 3 .* relatedView.heightAnchor
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, multiplier: 3)
+    func testViewArrayHeightEqualToWidthMultipliedByConstant() {
+        let constraints = viewArray.height .= 3 .* relatedView.widthAnchor
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToHeightDividedByConstant() {
-        let constraints = viewArray.width .= relatedView.heightAnchor ./ 2
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, multiplier: 1 / 2)
+    func testViewArrayHeightEqualToWidthDividedByConstant() {
+        let constraints = viewArray.height .= relatedView.widthAnchor ./ 2
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, multiplier: 1 / 2)
     }
 
     // MARK: Equal prioritized
-    func testViewArrayWidthEqualToHeightWithPriority() {
-        let constraints = viewArray.width .= relatedView.heightAnchor ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, priority: .low)
+    func testViewArrayHeightEqualToWidthWithPriority() {
+        let constraints = viewArray.height .= relatedView.widthAnchor ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, priority: .low)
     }
 
-    func testViewArrayWidthEqualToHeightWithPriorityLiteral() {
-        let constraints = viewArray.width .= relatedView.heightAnchor ~ 300
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, priority: 300)
+    func testViewArrayHeightEqualToWidthWithPriorityLiteral() {
+        let constraints = viewArray.height .= relatedView.widthAnchor ~ 300
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, priority: 300)
     }
 
-    func testViewArrayWidthEqualToHeightWithPriorityArithmetic() {
-        let constraints = viewArray.width .= relatedView.heightAnchor ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, priority: 749)
+    func testViewArrayHeightEqualToWidthWithPriorityArithmetic() {
+        let constraints = viewArray.height .= relatedView.widthAnchor ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, priority: 749)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testViewArrayWidthEqualToHeightPlusConstantMultiplyingConstant() {
-        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) .* 3
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3)
+    func testViewArrayHeightEqualToWidthPlusConstantMultiplyingConstant() {
+        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) .* 3
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToHeightPlusConstantMultipliedByConstant() {
-        let constraints = viewArray.width .= 3 .* (relatedView.heightAnchor .+ 10)
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3)
+    func testViewArrayHeightEqualToWidthPlusConstantMultipliedByConstant() {
+        let constraints = viewArray.height .= 3 .* (relatedView.widthAnchor .+ 10)
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToHeightMultipliedByConstantPlusConstant() {
-        let constraints = viewArray.width .= 3 .* relatedView.heightAnchor .+ 10
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10, multiplier: 3)
+    func testViewArrayHeightEqualToWidthMultipliedByConstantPlusConstant() {
+        let constraints = viewArray.height .= 3 .* relatedView.widthAnchor .+ 10
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10, multiplier: 3)
     }
 
-    func testViewArrayWidthEqualToHeightPlusConstantDividedByConstant() {
-        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) ./ 2
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2)
+    func testViewArrayHeightEqualToWidthPlusConstantDividedByConstant() {
+        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) ./ 2
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testViewArrayWidthEqualToHeightPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) .* 3 ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
+    func testViewArrayHeightEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) .* 3 ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayWidthEqualToHeightPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray.width .= 3 .* (relatedView.heightAnchor .+ 10) ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
+    func testViewArrayHeightEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray.height .= 3 .* (relatedView.widthAnchor .+ 10) ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayWidthEqualToHeightMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray.width .= 3 .* relatedView.heightAnchor .+ 10 ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: .low)
+    func testViewArrayHeightEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray.height .= 3 .* relatedView.widthAnchor .+ 10 ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayWidthEqualToHeightPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) ./ 2 ~ .low
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    func testViewArrayHeightEqualToWidthPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testViewArrayWidthEqualToHeightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) .* 3  ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
+    func testViewArrayHeightEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayWidthEqualToHeightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray.width .= 3 .* (relatedView.heightAnchor .+ 10)  ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
+    func testViewArrayHeightEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray.height .= 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayWidthEqualToHeightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray.width .= 3 .* relatedView.heightAnchor .+ 10  ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: 749)
+    func testViewArrayHeightEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray.height .= 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayWidthEqualToHeightPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray.width .= (relatedView.heightAnchor .+ 10) ./ 2  ~ .high .- 1
-        constraints.assert(viewArray, .width, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    func testViewArrayHeightEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: viewArray.heightHeight <=> relatedViewWidth
     // MARK: LessThanOrEqual
 
     func testViewArrayHeightLessThanOrEqualToWidth() {
@@ -941,122 +1056,122 @@ class LayoutDimensionArrayTests: UILayoutKitTestCase {
         let constraints = viewArray.height ≥ (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
         constraints.assert(viewArray, .height, .greaterThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
+    // MARK: viewArray.heightHeight <=> relatedViewHeight
     // MARK: Equal
 
-    func testViewArrayHeightEqualToWidth() {
-        let constraints = viewArray.height .= relatedView.widthAnchor
-        constraints.assert(viewArray, .height, .equal, relatedView, .width)
+    func testViewArrayHeightEqualToHeight() {
+        let constraints = viewArray.height .= relatedView.heightAnchor
+        constraints.assert(viewArray, .height, .equal, relatedView, .height)
     }
 
     // MARK: Equal with constant
-    func testViewArrayHeightEqualToWidthPlusConstant() {
-        let constraints = viewArray.height .= relatedView.widthAnchor .+ 10
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10)
+    func testViewArrayHeightEqualToHeightPlusConstant() {
+        let constraints = viewArray.height .= relatedView.heightAnchor .+ 10
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10)
     }
 
-    func testViewArrayHeightEqualToWidthMinusConstant() {
-        let constraints = viewArray.height .= relatedView.widthAnchor .- 10
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: -10)
+    func testViewArrayHeightEqualToHeightMinusConstant() {
+        let constraints = viewArray.height .= relatedView.heightAnchor .- 10
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: -10)
     }
 
     // MARK: Equal with multiplier
-    func testViewArrayHeightEqualToWidthMultiplyingConstant() {
-        let constraints = viewArray.height .= relatedView.widthAnchor .* 3
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, multiplier: 3)
+    func testViewArrayHeightEqualToHeightMultiplyingConstant() {
+        let constraints = viewArray.height .= relatedView.heightAnchor .* 3
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 3)
     }
 
-    func testViewArrayHeightEqualToWidthMultipliedByConstant() {
-        let constraints = viewArray.height .= 3 .* relatedView.widthAnchor
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, multiplier: 3)
+    func testViewArrayHeightEqualToHeightMultipliedByConstant() {
+        let constraints = viewArray.height .= 3 .* relatedView.heightAnchor
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 3)
     }
 
-    func testViewArrayHeightEqualToWidthDividedByConstant() {
-        let constraints = viewArray.height .= relatedView.widthAnchor ./ 2
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, multiplier: 1 / 2)
+    func testViewArrayHeightEqualToHeightDividedByConstant() {
+        let constraints = viewArray.height .= relatedView.heightAnchor ./ 2
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 1 / 2)
     }
 
     // MARK: Equal prioritized
-    func testViewArrayHeightEqualToWidthWithPriority() {
-        let constraints = viewArray.height .= relatedView.widthAnchor ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, priority: .low)
+    func testViewArrayHeightEqualToHeightWithPriority() {
+        let constraints = viewArray.height .= relatedView.heightAnchor ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, priority: .low)
     }
 
-    func testViewArrayHeightEqualToWidthWithPriorityLiteral() {
-        let constraints = viewArray.height .= relatedView.widthAnchor ~ 300
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, priority: 300)
+    func testViewArrayHeightEqualToHeightWithPriorityLiteral() {
+        let constraints = viewArray.height .= relatedView.heightAnchor ~ 300
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, priority: 300)
     }
 
-    func testViewArrayHeightEqualToWidthWithPriorityArithmetic() {
-        let constraints = viewArray.height .= relatedView.widthAnchor ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, priority: 749)
+    func testViewArrayHeightEqualToHeightWithPriorityArithmetic() {
+        let constraints = viewArray.height .= relatedView.heightAnchor ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, priority: 749)
     }
 
     // MARK: Equal with constant .+ multiplier
 
-    func testViewArrayHeightEqualToWidthPlusConstantMultiplyingConstant() {
-        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) .* 3
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+    func testViewArrayHeightEqualToHeightPlusConstantMultiplyingConstant() {
+        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) .* 3
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3)
     }
 
-    func testViewArrayHeightEqualToWidthPlusConstantMultipliedByConstant() {
-        let constraints = viewArray.height .= 3 .* (relatedView.widthAnchor .+ 10)
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3)
+    func testViewArrayHeightEqualToHeightPlusConstantMultipliedByConstant() {
+        let constraints = viewArray.height .= 3 .* (relatedView.heightAnchor .+ 10)
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3)
     }
 
-    func testViewArrayHeightEqualToWidthMultipliedByConstantPlusConstant() {
-        let constraints = viewArray.height .= 3 .* relatedView.widthAnchor .+ 10
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10, multiplier: 3)
+    func testViewArrayHeightEqualToHeightMultipliedByConstantPlusConstant() {
+        let constraints = viewArray.height .= 3 .* relatedView.heightAnchor .+ 10
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3)
     }
 
-    func testViewArrayHeightEqualToWidthPlusConstantDividedByConstant() {
-        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) ./ 2
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
+    func testViewArrayHeightEqualToHeightPlusConstantDividedByConstant() {
+        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) ./ 2
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2)
     }
 
     // MARK: Equal with constant .+ multiplier and priority
 
-    func testViewArrayHeightEqualToWidthPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) .* 3 ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+    func testViewArrayHeightEqualToHeightPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) .* 3 ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayHeightEqualToWidthPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray.height .= 3 .* (relatedView.widthAnchor .+ 10) ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+    func testViewArrayHeightEqualToHeightPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray.height .= 3 .* (relatedView.heightAnchor .+ 10) ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayHeightEqualToWidthMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray.height .= 3 .* relatedView.widthAnchor .+ 10 ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
+    func testViewArrayHeightEqualToHeightMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray.height .= 3 .* relatedView.heightAnchor .+ 10 ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: .low)
     }
 
-    func testViewArrayHeightEqualToWidthPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) ./ 2 ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    func testViewArrayHeightEqualToHeightPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) ./ 2 ~ .low
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
     }
 
     // MARK: Equal with constant .+ multiplier and priority arithmetic
 
-    func testViewArrayHeightEqualToWidthPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) .* 3  ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+    func testViewArrayHeightEqualToHeightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) .* 3  ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayHeightEqualToWidthPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray.height .= 3 .* (relatedView.widthAnchor .+ 10)  ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+    func testViewArrayHeightEqualToHeightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray.height .= 3 .* (relatedView.heightAnchor .+ 10)  ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayHeightEqualToWidthMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray.height .= 3 .* relatedView.widthAnchor .+ 10  ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
+    func testViewArrayHeightEqualToHeightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray.height .= 3 .* relatedView.heightAnchor .+ 10  ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: 749)
     }
 
-    func testViewArrayHeightEqualToWidthPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray.height .= (relatedView.widthAnchor .+ 10) ./ 2  ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    func testViewArrayHeightEqualToHeightPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) ./ 2  ~ .high .- 1
+        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: viewArray.heightHeight <=> relatedViewHeight
     // MARK: LessThanOrEqual
 
     func testViewArrayHeightLessThanOrEqualToHeight() {
@@ -1286,121 +1401,6 @@ class LayoutDimensionArrayTests: UILayoutKitTestCase {
     func testViewArrayHeightGreaterThanOrEqualToHeightPlusConstantDividedByConstantWithPriorityArithmetic() {
         let constraints = viewArray.height ≥ (relatedView.heightAnchor .+ 10) ./ 2  ~ .high .- 1
         constraints.assert(viewArray, .height, .greaterThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
-    // MARK: Equal
-
-    func testViewArrayHeightEqualToHeight() {
-        let constraints = viewArray.height .= relatedView.heightAnchor
-        constraints.assert(viewArray, .height, .equal, relatedView, .height)
-    }
-
-    // MARK: Equal with constant
-    func testViewArrayHeightEqualToHeightPlusConstant() {
-        let constraints = viewArray.height .= relatedView.heightAnchor .+ 10
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10)
-    }
-
-    func testViewArrayHeightEqualToHeightMinusConstant() {
-        let constraints = viewArray.height .= relatedView.heightAnchor .- 10
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: -10)
-    }
-
-    // MARK: Equal with multiplier
-    func testViewArrayHeightEqualToHeightMultiplyingConstant() {
-        let constraints = viewArray.height .= relatedView.heightAnchor .* 3
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 3)
-    }
-
-    func testViewArrayHeightEqualToHeightMultipliedByConstant() {
-        let constraints = viewArray.height .= 3 .* relatedView.heightAnchor
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 3)
-    }
-
-    func testViewArrayHeightEqualToHeightDividedByConstant() {
-        let constraints = viewArray.height .= relatedView.heightAnchor ./ 2
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, multiplier: 1 / 2)
-    }
-
-    // MARK: Equal prioritized
-    func testViewArrayHeightEqualToHeightWithPriority() {
-        let constraints = viewArray.height .= relatedView.heightAnchor ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, priority: .low)
-    }
-
-    func testViewArrayHeightEqualToHeightWithPriorityLiteral() {
-        let constraints = viewArray.height .= relatedView.heightAnchor ~ 300
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, priority: 300)
-    }
-
-    func testViewArrayHeightEqualToHeightWithPriorityArithmetic() {
-        let constraints = viewArray.height .= relatedView.heightAnchor ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, priority: 749)
-    }
-
-    // MARK: Equal with constant .+ multiplier
-
-    func testViewArrayHeightEqualToHeightPlusConstantMultiplyingConstant() {
-        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) .* 3
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayHeightEqualToHeightPlusConstantMultipliedByConstant() {
-        let constraints = viewArray.height .= 3 .* (relatedView.heightAnchor .+ 10)
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayHeightEqualToHeightMultipliedByConstantPlusConstant() {
-        let constraints = viewArray.height .= 3 .* relatedView.heightAnchor .+ 10
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayHeightEqualToHeightPlusConstantDividedByConstant() {
-        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) ./ 2
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: Equal with constant .+ multiplier and priority
-
-    func testViewArrayHeightEqualToHeightPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) .* 3 ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayHeightEqualToHeightPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray.height .= 3 .* (relatedView.heightAnchor .+ 10) ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayHeightEqualToHeightMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray.height .= 3 .* relatedView.heightAnchor .+ 10 ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayHeightEqualToHeightPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) ./ 2 ~ .low
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: Equal with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayHeightEqualToHeightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) .* 3  ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayHeightEqualToHeightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray.height .= 3 .* (relatedView.heightAnchor .+ 10)  ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayHeightEqualToHeightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray.height .= 3 .* relatedView.heightAnchor .+ 10  ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayHeightEqualToHeightPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray.height .= (relatedView.heightAnchor .+ 10) ./ 2  ~ .high .- 1
-        constraints.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
 // sourcery:end
 }

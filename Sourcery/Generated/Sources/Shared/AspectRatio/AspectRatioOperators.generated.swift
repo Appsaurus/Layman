@@ -14,11 +14,11 @@ import Foundation
 // MARK: AspectRatioAnchor == AspectRatio
 @discardableResult
 public func .= (lhs: AspectRatioAnchor, rhs: LayoutAspectRatio) -> Constraint {
-    return lhs .= AutoLayoutAspectRatioConfiguration(rhs)
+    return lhs .= LayoutAspectRatioConfiguration(rhs)
 }
 
 @discardableResult
-public func .= (lhs: AspectRatioAnchor, rhs: AutoLayoutAspectRatioConfiguration) -> Constraint {
+public func .= (lhs: AspectRatioAnchor, rhs: LayoutAspectRatioConfiguration) -> Constraint {
     switch lhs {
     case .standard(let view):
         if isTestOrDebug {
