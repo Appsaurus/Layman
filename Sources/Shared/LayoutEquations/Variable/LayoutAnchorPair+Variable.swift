@@ -13,12 +13,12 @@ extension LayoutAnchorPair: Variable {
     public typealias RightHandExpression = LayoutPairExpression<FA, SA>
 
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
-        let config = LayoutConfigurationPair(.constant(constant))
+        let config = LayoutCoefficientPair(.constant(constant))
         return RightHandExpression(variable: self, coefficients: config)
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
-        let config = LayoutConfigurationPair(.multiplier(multiplier))
+        let config = LayoutCoefficientPair(.multiplier(multiplier))
         return RightHandExpression(variable: self, coefficients: config)
     }
 }

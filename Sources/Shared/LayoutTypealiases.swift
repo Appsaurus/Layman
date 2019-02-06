@@ -25,7 +25,7 @@ public typealias LayoutGuide = UILayoutGuide
 // MARK: Constraint
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
-public typealias ConstraintPair = (first: Constraint, second: Constraint)
+public typealias ConstraintPair = LayoutModelReferencePair<Constraint>
 public typealias ConstraintPairs = [ConstraintPair]
 public typealias SideConstraints = SidesTuple<Constraint, Constraint>
 
@@ -122,8 +122,3 @@ public typealias XAxisAnchorPairRelationship = LayoutPairRelationship<XAxisAncho
 public typealias YAxisAnchorPairRelationship = LayoutPairRelationship<YAxisAnchor, YAxisAnchor>
 public typealias LayoutDimensionPairRelationship = LayoutPairRelationship<LayoutDimension, LayoutDimension>
 public typealias XYAxesAnchorPairRelationship = LayoutPairRelationship<XAxisAnchor, YAxisAnchor>
-
-//@discardableResult
-//public func / (lhs: Double, rhs: Int) -> CGFloat {
-//    return CGFloat(lhs / rhs.double)
-//}

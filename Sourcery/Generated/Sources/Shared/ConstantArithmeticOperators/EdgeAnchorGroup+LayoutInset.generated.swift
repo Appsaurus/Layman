@@ -26,16 +26,16 @@ extension EdgeAnchorGroupExpression {
     var trailingExpression: XAxisAnchorExpression { return trailing .+ coefficients.trailing }
 }
 @discardableResult
-private func .+ (lhs: XAxisAnchor, rhs: LayoutConfiguration) -> XAxisAnchorExpression {
+private func .+ (lhs: XAxisAnchor, rhs: LayoutCoefficient) -> XAxisAnchorExpression {
     return XAxisAnchorExpression(variable: lhs, coefficients: rhs)
 }
 
 @discardableResult
-private func .+ (lhs: YAxisAnchor, rhs: LayoutConfiguration) -> YAxisAnchorExpression {
+private func .+ (lhs: YAxisAnchor, rhs: LayoutCoefficient) -> YAxisAnchorExpression {
     return YAxisAnchorExpression(variable: lhs, coefficients: rhs)
 }
 
 @discardableResult
-private func .+ (lhs: LayoutDimension, rhs: LayoutConfiguration) -> LayoutDimensionExpression {
+private func .+ (lhs: LayoutDimension, rhs: LayoutCoefficient) -> LayoutDimensionExpression {
     return LayoutDimensionExpression(variable: lhs, coefficients: rhs)
 }

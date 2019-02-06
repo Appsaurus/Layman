@@ -20,10 +20,10 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
         }
     }
 
-    public var coefficients: EdgeAnchorsConfiguration = .default
+    public var coefficients: EdgeAnchorsGroupCoefficients = .default
 
     public convenience init(variable: EdgeAnchorGroup,
-                            coefficients: EdgeAnchorsConfiguration = .default) {
+                            coefficients: EdgeAnchorsGroupCoefficients = .default) {
         self.init(variable)
         self.coefficients = coefficients
     }
@@ -36,8 +36,8 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
     }
 
     @discardableResult
-    public func with(coefficients: LayoutConfiguration) -> Self {
-        self.coefficients = EdgeAnchorsConfiguration(coefficients)
+    public func with(coefficients: LayoutCoefficient) -> Self {
+        self.coefficients = EdgeAnchorsGroupCoefficients(coefficients)
         return self
     }
 
@@ -56,7 +56,7 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
 }
 
 extension EdgeAnchorGroupExpression: Expression {
-    public typealias C = EdgeAnchorsConfiguration
+    public typealias C = EdgeAnchorsGroupCoefficients
     public typealias V = EdgeAnchorGroup
 
 //    @discardableResult
@@ -78,7 +78,7 @@ extension EdgeAnchorGroupExpression {
 }
 
 //@discardableResult
-//private func + <A>(lhs: LayoutAnchor<A>, rhs: LayoutConfiguration) -> LayoutExpression<A> {
+//private func + <A>(lhs: LayoutAnchor<A>, rhs: LayoutCoefficient) -> LayoutExpression<A> {
 //    return LayoutExpression(anchor: lhs, coefficients: rhs)
 //}
 
@@ -89,16 +89,16 @@ extension EdgeAnchorGroupExpression {
 //    var trailingExpression: XAxisAnchorExpression { return trailing + coefficients.trailing }
 //}
 //@discardableResult
-//private func .+ (lhs: XAxisAnchor, rhs: LayoutConfiguration) -> XAxisAnchorExpression {
+//private func .+ (lhs: XAxisAnchor, rhs: LayoutCoefficient) -> XAxisAnchorExpression {
 //    return XAxisAnchorExpression(variable: lhs, coefficients: rhs)
 //}
 //
 //@discardableResult
-//private func .+ (lhs: YAxisAnchor, rhs: LayoutConfiguration) -> YAxisAnchorExpression {
+//private func .+ (lhs: YAxisAnchor, rhs: LayoutCoefficient) -> YAxisAnchorExpression {
 //    return YAxisAnchorExpression(variable: lhs, coefficients: rhs)
 //}
 //
 //@discardableResult
-//private func .+ (lhs: LayoutDimension, rhs: LayoutConfiguration) -> LayoutDimensionExpression {
+//private func .+ (lhs: LayoutDimension, rhs: LayoutCoefficient) -> LayoutDimensionExpression {
 //    return LayoutDimensionExpression(variable: lhs, coefficients: rhs)
 //}

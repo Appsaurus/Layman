@@ -11,12 +11,12 @@ public final class LayoutRelationship<A: AnchorVariable> {
     public var variable: LayoutAnchor<A>
     public var relation: Constraint.Relation
     public var relatedAnchor: LayoutAnchor<A>?
-    public var coefficients: LayoutConfiguration
+    public var coefficients: LayoutCoefficient
 
     public init(_ variable: LayoutAnchor<A>,
                 _ relation: Constraint.Relation,
                 _ relatedAnchor: LayoutAnchor<A>?,
-                _ coefficients: LayoutConfiguration = .default) {
+                _ coefficients: LayoutCoefficient = .default) {
         self.variable = variable
         self.relation = relation
         self.relatedAnchor = relatedAnchor

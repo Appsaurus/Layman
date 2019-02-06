@@ -11,12 +11,12 @@ public final class EdgeAnchorGroupRelationship {
     public var variable: EdgeAnchorGroup
     public var relation: Constraint.Relation
     public var relatedAnchor: EdgeAnchorGroup?
-    public var coefficients: EdgeAnchorsConfiguration
+    public var coefficients: EdgeAnchorsGroupCoefficients
 
     public init(_ variable: EdgeAnchorGroup,
                 _ relation: Constraint.Relation,
                 _ relatedAnchor: EdgeAnchorGroup?,
-                _ coefficients: EdgeAnchorsConfiguration = .default) {
+                _ coefficients: EdgeAnchorsGroupCoefficients = .default) {
         self.variable = variable
         self.relation = relation
         self.relatedAnchor = relatedAnchor

@@ -8,12 +8,12 @@
 
 extension LayoutInset {
     @discardableResult
-    public func priority(_ priority: LayoutPriority) -> EdgeAnchorsConfiguration {
-        return EdgeAnchorsConfiguration(
-            LayoutConfiguration().with(constant: top).priority(priority),
-            LayoutConfiguration().with(constant: left).priority(priority),
-            LayoutConfiguration().with(constant: bottom).priority(priority),
-            LayoutConfiguration().with(constant: right).priority(priority)
+    public func priority(_ priority: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
+        return EdgeAnchorsGroupCoefficients(
+            LayoutCoefficient().with(constant: top).priority(priority),
+            LayoutCoefficient().with(constant: left).priority(priority),
+            LayoutCoefficient().with(constant: bottom).priority(priority),
+            LayoutCoefficient().with(constant: right).priority(priority)
         )
     }
 }

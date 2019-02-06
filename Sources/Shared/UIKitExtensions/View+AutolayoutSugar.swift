@@ -126,3 +126,16 @@ internal extension View {
     }
 
 }
+
+internal extension Collection where Element: Equatable & Hashable {
+    var set: Set<Element> {
+        return Set<Element>(self)
+    }
+}
+
+internal extension Set {
+    var array: [Element] {
+        return Array(self)
+    }
+
+}

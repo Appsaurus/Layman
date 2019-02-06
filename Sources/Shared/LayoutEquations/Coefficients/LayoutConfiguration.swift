@@ -1,12 +1,12 @@
 //
-//  LayoutConfiguration.swift
+//  LayoutCoefficient.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/3/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class LayoutConfiguration {
+public final class LayoutCoefficient {
 
     public var constant: LayoutConstant = 0.0
     public var multiplier: LayoutMultiplier?
@@ -17,18 +17,18 @@ public final class LayoutConfiguration {
 
 }
 
-extension LayoutConfiguration {
-    public static var `default`: LayoutConfiguration {
+extension LayoutCoefficient {
+    public static var `default`: LayoutCoefficient {
         return .init()
     }
 
-    public func with(active: Bool) -> LayoutConfiguration {
+    public func with(active: Bool) -> LayoutCoefficient {
         self.active = active
         return self
     }
 }
 
-extension LayoutConfiguration: CoefficientMutating & Coeficient {
+extension LayoutCoefficient: CoefficientMutating & CoefficientReferencing {
 
     public func set(constant: LayoutConstant) {
         self.constant = constant
@@ -44,7 +44,7 @@ extension LayoutConfiguration: CoefficientMutating & Coeficient {
     }
 }
 
-extension Coeficient where Multiplier == LayoutMultiplier {
+extension CoefficientReferencing where Multiplier == LayoutMultiplier {
     public func set(divisor: LayoutDivisor) {
         set(multiplier: multiplier?.divided(by: divisor) ?? LayoutMultiplier(1.0 / divisor))
     }

@@ -6,8 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-#if canImport(Cocoa)
-import Cocoa
+#if canImport(AppKit)
+import AppKit
 #else
 import UIKit
 #endif
@@ -27,7 +27,7 @@ extension Constraint {
     }
 
     @discardableResult
-    public func activated(with coefficients: LayoutConfiguration) -> Constraint {
+    public func activated(with coefficients: LayoutCoefficient) -> Constraint {
         return configured(with: coefficients).activated()
     }
 
@@ -52,9 +52,9 @@ extension Constraint {
 
 }
 
-// MARK: Constraint + LayoutConfiguration
+// MARK: Constraint + LayoutCoefficient
 extension Constraint {
-    public func configured(with coefficients: LayoutConfiguration) -> Constraint {
+    public func configured(with coefficients: LayoutCoefficient) -> Constraint {
         let constraint = Constraint(item: firstItem as Any,
                                     attribute: firstAttribute,
                                     relatedBy: relation,

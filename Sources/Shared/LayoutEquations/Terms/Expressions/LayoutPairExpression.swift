@@ -9,32 +9,32 @@
 public final class LayoutPairExpression<F: AnchorVariable, S: AnchorVariable> {
 
     public var variable: LayoutAnchorPair<F, S>
-    public var coefficients: LayoutConfigurationPair
+    public var coefficients: LayoutCoefficientPair
 
-    public init(variable: LayoutAnchorPair<F, S>, coefficients: LayoutConfigurationPair = .default) {
+    public init(variable: LayoutAnchorPair<F, S>, coefficients: LayoutCoefficientPair = .default) {
         self.variable = variable
         self.coefficients = coefficients
     }
 
-//    public init(anchor: LayoutAnchorPair<F, S>, coefficients: LayoutConfiguration) {
+//    public init(anchor: LayoutAnchorPair<F, S>, coefficients: LayoutCoefficient) {
 //        self.anchor = anchor
-//        self.coefficients = LayoutConfigurationPair(coefficients, coefficients)
+//        self.coefficients = LayoutCoefficientPair(coefficients, coefficients)
 //    }
 
     @discardableResult
-    public func with(coefficients: LayoutConfiguration) -> Self {
-        self.coefficients = LayoutConfigurationPair(coefficients, coefficients)
+    public func with(coefficients: LayoutCoefficient) -> Self {
+        self.coefficients = LayoutCoefficientPair(coefficients, coefficients)
         return self
     }
 
 }
 
 extension LayoutPairExpression: Expression {
-    public typealias C = LayoutConfigurationPair
+    public typealias C = LayoutCoefficientPair
     public typealias V = LayoutAnchorPair<F, S>
 
     @discardableResult
-    public func with(coefficients: LayoutConfigurationPair) -> Self {
+    public func with(coefficients: LayoutCoefficientPair) -> Self {
         self.coefficients = coefficients
         return self
     }

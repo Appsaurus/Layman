@@ -26,17 +26,17 @@ extension EdgeAnchorGroupExpression {
     var trailingExpression: XAxisAnchorExpression { return trailing {{addition}} coefficients.trailing }
 }
 @discardableResult
-private func {{addition}} (lhs: XAxisAnchor, rhs: LayoutConfiguration) -> XAxisAnchorExpression {
+private func {{addition}} (lhs: XAxisAnchor, rhs: LayoutCoefficient) -> XAxisAnchorExpression {
     return XAxisAnchorExpression(variable: lhs, coefficients: rhs)
 }
 
 @discardableResult
-private func {{addition}} (lhs: YAxisAnchor, rhs: LayoutConfiguration) -> YAxisAnchorExpression {
+private func {{addition}} (lhs: YAxisAnchor, rhs: LayoutCoefficient) -> YAxisAnchorExpression {
     return YAxisAnchorExpression(variable: lhs, coefficients: rhs)
 }
 
 @discardableResult
-private func {{addition}} (lhs: LayoutDimension, rhs: LayoutConfiguration) -> LayoutDimensionExpression {
+private func {{addition}} (lhs: LayoutDimension, rhs: LayoutCoefficient) -> LayoutDimensionExpression {
     return LayoutDimensionExpression(variable: lhs, coefficients: rhs)
 }
 // sourcery:end

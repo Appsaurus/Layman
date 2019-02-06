@@ -7,7 +7,7 @@
 //
 
 extension LayoutAnchorPair: LeftHandSizeRelatableExpression where FA == LayoutDimension, SA == LayoutDimension {
-    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutConfigurationPair) -> LayoutDimensionPairRelationship {
+    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutCoefficientPair) -> LayoutDimensionPairRelationship {
         return LayoutDimensionPairRelationship(self, relation, rhs)
     }
 
@@ -16,7 +16,7 @@ extension LayoutAnchorPair: LeftHandSizeRelatableExpression where FA == LayoutDi
 //    }
 
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutSize) -> LayoutDimensionPairRelationship {
-        let sizeConfiguration = LayoutConfigurationPair(.constant(rhs.width), .constant(rhs.height))
+        let sizeConfiguration = LayoutCoefficientPair(.constant(rhs.width), .constant(rhs.height))
         return LayoutDimensionPairRelationship(self, relation, sizeConfiguration)
     }
 }

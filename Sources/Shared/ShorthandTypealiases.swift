@@ -6,7 +6,11 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+#if canImport(AppKit)
+import AppKit
+#else
 import UIKit
+#endif
 
 extension XYAxisAnchorable {
     public var leading: XAxisAnchor { return leadingAnchor }

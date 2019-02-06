@@ -9,7 +9,7 @@
 extension View: LeftHandSizeRelatableExpression {
 
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutSize) -> LayoutDimensionPairRelationship {
-        let sizeConfiguration = LayoutConfigurationPair(.constant(rhs.width), .constant(rhs.height))
+        let sizeConfiguration = LayoutCoefficientPair(.constant(rhs.width), .constant(rhs.height))
         return LayoutDimensionPairRelationship(sizeAnchors, relation, sizeConfiguration)
     }
 }
@@ -21,7 +21,7 @@ extension View: LeftHandConstantRelatableExpression {
         return self.relation(relation, LayoutSize(width: rhs, height: rhs))
     }
 
-    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutConfigurationPair) -> LayoutDimensionPairRelationship {
+    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutCoefficientPair) -> LayoutDimensionPairRelationship {
         return LayoutDimensionPairRelationship(sizeAnchors, relation, rhs)
     }
 }
@@ -32,8 +32,8 @@ extension View: LeftHandMultiplierRelatableExpression {
     }
 }
 
-extension View: LeftHandLayoutConfigurationRelatableExpression {
-    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutConfiguration) -> LayoutDimensionPairRelationship {
-        return self.relation(relation, LayoutConfigurationPair(rhs.copy()))
+extension View: LeftHandLayoutCoefficientRelatableExpression {
+    public func relation(_ relation: Constraint.Relation, _ rhs: LayoutCoefficient) -> LayoutDimensionPairRelationship {
+        return self.relation(relation, LayoutCoefficientPair(rhs.copy()))
     }
 }

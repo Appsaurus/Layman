@@ -6,17 +6,17 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LeftHandLayoutConfigurationRelatableExpression {
-    public typealias CoefficientGroupElement = LayoutConfiguration
+extension LeftHandLayoutCoefficientRelatableExpression {
+    public typealias CoefficientGroupElement = LayoutCoefficient
 }
 
-extension Expression where C: Coeficient, C.Multiplier == LayoutMultiplier {
+extension Expression where C: CoefficientReferencing, C.Multiplier == LayoutMultiplier {
     public func set(divisor: LayoutDivisor) {
         coefficients.set(divisor: divisor)
     }
 }
 
-//extension Collection where Element: LayoutExpression, Element.C: Coeficient, Element.C.Multiplier == LayoutMultiplier {
+//extension Collection where Element: LayoutExpression, Element.C: CoefficientReferencing, Element.C.Multiplier == LayoutMultiplier {
 //    public func divided(by divisor: LayoutDivisor) -> Self {
 //        forEach { $0.coefficients.set(divisor: divisor) }
 //        return self
@@ -24,22 +24,22 @@ extension Expression where C: Coeficient, C.Multiplier == LayoutMultiplier {
 //}
 
 // MARK: LayoutAnchorPair
-extension LayoutAnchorPair: LeftHandLayoutConfigurationRelatableExpression {
-    public func relation(_ relation: Relation, _ rhs: LayoutConfiguration) -> LinearEquation {
-        return LinearEquation(self, relation, LayoutConfigurationPair(rhs.copy()))
+extension LayoutAnchorPair: LeftHandLayoutCoefficientRelatableExpression {
+    public func relation(_ relation: Relation, _ rhs: LayoutCoefficient) -> LinearEquation {
+        return LinearEquation(self, relation, LayoutCoefficientPair(rhs.copy()))
     }
 }
 
 // MARK: EdgeAnchorGroup
-extension EdgeAnchorGroup: LeftHandLayoutConfigurationRelatableExpression {
-    public func relation(_ relation: Relation, _ rhs: LayoutConfiguration) -> LinearEquation {
-        return LinearEquation (self, relation, EdgeAnchorsConfiguration(rhs.copy()))
+extension EdgeAnchorGroup: LeftHandLayoutCoefficientRelatableExpression {
+    public func relation(_ relation: Relation, _ rhs: LayoutCoefficient) -> LinearEquation {
+        return LinearEquation (self, relation, EdgeAnchorsGroupCoefficients(rhs.copy()))
     }
 }
 
-extension LayoutConfiguration {
-    internal func copy() -> LayoutConfiguration {
-        let config = LayoutConfiguration()
+extension LayoutCoefficient {
+    internal func copy() -> LayoutCoefficient {
+        let config = LayoutCoefficient()
         config.active = active
         config.constant = constant
         config.multiplier = multiplier

@@ -9,9 +9,9 @@
 public final class LayoutExpression<A: AnchorType> {
 
     public var variable: LayoutAnchor<A>
-    public var coefficients: LayoutConfiguration
+    public var coefficients: LayoutCoefficient
 
-    public init(variable: LayoutAnchor<A>, coefficients: LayoutConfiguration = .default) {
+    public init(variable: LayoutAnchor<A>, coefficients: LayoutCoefficient = .default) {
         self.variable = variable
         self.coefficients = coefficients
     }
@@ -31,11 +31,11 @@ public final class LayoutExpression<A: AnchorType> {
 }
 
 extension LayoutExpression: Expression where A: Variable {
-    public typealias C = LayoutConfiguration
+    public typealias C = LayoutCoefficient
     public typealias V = LayoutAnchor<A>
 
     @discardableResult
-    public func with(coefficients: LayoutConfiguration) -> Self {
+    public func with(coefficients: LayoutCoefficient) -> Self {
         self.coefficients = coefficients
         return self
     }

@@ -6,30 +6,30 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class LayoutConfigurationPair: LayoutModelReferencePair<LayoutConfiguration> {
-    public static var `default`: LayoutConfigurationPair { return .init(.default) }
+public final class LayoutCoefficientPair: LayoutModelReferencePair<LayoutCoefficient> {
+    public static var `default`: LayoutCoefficientPair { return .init(.default) }
 
-    public static func size(_ size: LayoutSize) -> LayoutConfigurationPair {
-        return LayoutConfigurationPair(.constant(size.width), .constant(size.height))
+    public static func size(_ size: LayoutSize) -> LayoutCoefficientPair {
+        return LayoutCoefficientPair(.constant(size.width), .constant(size.height))
     }
 
 }
 
-extension LayoutConfigurationPair: CoefficientMutating {
-    public static func constant(_ constant: LayoutConstant) -> LayoutConfigurationPair {
-        return LayoutConfigurationPair(.constant(constant))
+extension LayoutCoefficientPair: CoefficientMutating {
+    public static func constant(_ constant: LayoutConstant) -> LayoutCoefficientPair {
+        return LayoutCoefficientPair(.constant(constant))
     }
 
-    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutConfigurationPair {
-        return LayoutConfigurationPair(.multiplier(multiplier))
+    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutCoefficientPair {
+        return LayoutCoefficientPair(.multiplier(multiplier))
     }
 
-    public static func multiplier(_ multiplier: LayoutConstant) -> LayoutConfigurationPair {
+    public static func multiplier(_ multiplier: LayoutConstant) -> LayoutCoefficientPair {
         return .multiplier(LayoutMultiplier(multiplier))
     }
 
-    public static func priority(_ priority: LayoutPriority) -> LayoutConfigurationPair {
-        return LayoutConfigurationPair(.priority(priority))
+    public static func priority(_ priority: LayoutPriority) -> LayoutCoefficientPair {
+        return LayoutCoefficientPair(.priority(priority))
     }
 
     public func set(constant: LayoutConstant) {

@@ -8,11 +8,11 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol LeftHandLayoutConfigurationRelatableExpression: LinearEquationTyped where LinearEquation.Relation == Constraint.Relation {
+public protocol LeftHandLayoutCoefficientRelatableExpression: LinearEquationTyped where LinearEquation.Relation == Constraint.Relation {
     func relation(_ relation: Constraint.Relation, _ rhs: CoefficientGroupElement) -> LinearEquation
 }
 // MARK: Anchor <=> CoefficientGroupElement
-extension LeftHandLayoutConfigurationRelatableExpression {
+extension LeftHandLayoutCoefficientRelatableExpression {
 
     // MARK: - Equal
 
@@ -53,7 +53,7 @@ extension LeftHandLayoutConfigurationRelatableExpression {
 
 // MARK: Collection <=> CoefficientGroupElement
 
-extension Collection where Element: LeftHandLayoutConfigurationRelatableExpression {
+extension Collection where Element: LeftHandLayoutCoefficientRelatableExpression {
     // MARK: - Equal
     // MARK: Collection == Expression
     @discardableResult

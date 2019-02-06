@@ -1,26 +1,26 @@
 //
-//  EdgeAnchorsConfiguration.swift
+//  EdgeAnchorsGroupCoefficients.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public final class EdgeAnchorsConfiguration: SidesTuple<LayoutConfiguration, LayoutConfiguration> {
-    public static var `default`: EdgeAnchorsConfiguration { return .init(.default) }
+public final class EdgeAnchorsGroupCoefficients: SidesTuple<LayoutCoefficient, LayoutCoefficient> {
+    public static var `default`: EdgeAnchorsGroupCoefficients { return .init(.default) }
 
 }
 
-extension EdgeAnchorsConfiguration: CoefficientMutating {
+extension EdgeAnchorsGroupCoefficients: CoefficientMutating {
 
-    public static func constant(_ constant: LayoutConstant) -> EdgeAnchorsConfiguration {
-        return EdgeAnchorsConfiguration(.constant(constant))
+    public static func constant(_ constant: LayoutConstant) -> EdgeAnchorsGroupCoefficients {
+        return EdgeAnchorsGroupCoefficients(.constant(constant))
     }
-    public static func multiplier(_ multiplier: LayoutMultiplier) -> EdgeAnchorsConfiguration {
-        return EdgeAnchorsConfiguration(.multiplier(multiplier))
+    public static func multiplier(_ multiplier: LayoutMultiplier) -> EdgeAnchorsGroupCoefficients {
+        return EdgeAnchorsGroupCoefficients(.multiplier(multiplier))
     }
-    public static func priority(_ priority: LayoutPriority) -> EdgeAnchorsConfiguration {
-        return EdgeAnchorsConfiguration(.priority(priority))
+    public static func priority(_ priority: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
+        return EdgeAnchorsGroupCoefficients(.priority(priority))
     }
     
     public func set(constant: LayoutConstant) {

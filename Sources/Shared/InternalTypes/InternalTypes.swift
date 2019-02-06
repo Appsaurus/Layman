@@ -7,7 +7,7 @@
 //
 
 // swiftlint:disable type_name
-internal protocol TuplePairBacked {
+public protocol TuplePairBacked {
     associatedtype F
     associatedtype S
     var values: (F, S) { get set }

@@ -15,20 +15,20 @@ precedencegroup PriorityPrecedence {
 infix operator ~ : PriorityPrecedence
 
 @discardableResult
-public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutConfiguration {
-    return LayoutConfiguration().with(constant: lhs).priority(rhs)
+public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutCoefficient {
+    return LayoutCoefficient().with(constant: lhs).priority(rhs)
 }
 
 @discardableResult
-public func ~ (lhs: LayoutMultiplier, rhs: LayoutPriority) -> LayoutConfiguration {
-    return LayoutConfiguration().times(lhs).priority(rhs)
+public func ~ (lhs: LayoutMultiplier, rhs: LayoutPriority) -> LayoutCoefficient {
+    return LayoutCoefficient().times(lhs).priority(rhs)
 }
 
 @discardableResult
-public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutConfigurationPair {
-    return LayoutConfigurationPair(
-        LayoutConfiguration().with(constant: lhs.width).priority(rhs),
-        LayoutConfiguration().with(constant: lhs.height).priority(rhs)
+public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutCoefficientPair {
+    return LayoutCoefficientPair(
+        LayoutCoefficient().with(constant: lhs.width).priority(rhs),
+        LayoutCoefficient().with(constant: lhs.height).priority(rhs)
     )
 }
 

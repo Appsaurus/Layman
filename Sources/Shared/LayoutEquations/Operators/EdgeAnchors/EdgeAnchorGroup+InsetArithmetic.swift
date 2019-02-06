@@ -12,7 +12,7 @@ extension EdgeAnchorGroup {
     // MARK: UIEdgeInset Constant
     @discardableResult
     public func plus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
-        let coefficients = EdgeAnchorsConfiguration(
+        let coefficients = EdgeAnchorsGroupCoefficients(
             .constant(inset.top),
             .constant(inset.left),
             .constant(inset.bottom),

@@ -49,7 +49,7 @@ args:
             - 'View'
         RightHandTypes:
             - 'Multiplier'
-    LeftHandLayoutConfigurationRelatableExpression:
+    LeftHandLayoutCoefficientRelatableExpression:
         LeftHandTypes:
             - 'EdgeAnchorGroup'
             - 'XAxisAnchorPair'

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-import Foundation
-
 postfix operator %
 
 extension LayoutConstant {
@@ -35,20 +33,3 @@ public struct LayoutMultiplier {
         return LayoutMultiplier(value / divisor)
     }
 }
-//extension LayoutConstant : ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
-//    public init(integerLiteral value: Int) {
-//        self = YGValue(value: Float(value), unit: .point)
-//    }
-//
-//    public init(floatLiteral value: Float) {
-//        self = YGValue(value: value, unit: .point)
-//    }
-//
-//    public init(_ value: Float) {
-//        self = YGValue(value: value, unit: .point)
-//    }
-//
-//    public init(_ value: CGFloat) {
-//        self = YGValue(value: Float(value), unit: .point)
-//    }
-//}

@@ -132,14 +132,14 @@ extension CoefficientMutating {
     }
 }
 
-public protocol Coeficient: CoefficientMutating {
+public protocol CoefficientReferencing: CoefficientMutating {
     var constant: Constant { get set }
     var multiplier: Multiplier? { get set }
     var priority: Priority { get set }
     init()
 }
 
-extension Coeficient {
+extension CoefficientReferencing {
 
     public static func constant(_ constant: Constant) -> Self {
         return Self().with(constant: constant)
@@ -150,19 +150,4 @@ extension Coeficient {
     public static func priority(_ priority: Priority) -> Self {
         return Self().priority(priority)
     }
-}
-
-extension Array where Element: Expression {
-
-//    public func with(constant: Element.C.Constant) -> [Element] {
-//        return map { $0.with(constant: constant) }
-//    }
-
-//    public func times(_ multiplier: Element.C.Multiplier) -> [Element] {
-//        return map  { $0.times(multiplier)}
-//    }
-//
-//    public func priority(_ priority: Element.C.Priority) -> [Element] {
-//        return map { $0.priority(priority) }
-//    }
 }

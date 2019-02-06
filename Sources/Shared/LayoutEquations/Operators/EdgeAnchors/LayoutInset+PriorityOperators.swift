@@ -7,6 +7,6 @@
 //
 
 @discardableResult
-public func ~ (lhs: LayoutInset, rhs: LayoutPriority) -> EdgeAnchorsConfiguration {
+public func ~ (lhs: LayoutInset, rhs: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
     return lhs.priority(rhs)
 }
