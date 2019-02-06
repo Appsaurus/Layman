@@ -10,22 +10,22 @@ public final class EdgeAnchorGroupRelationship {
 
     public var variable: EdgeAnchorGroup
     public var relation: Constraint.Relation
-    public var relatedAnchor: EdgeAnchorGroup?
+    public var relatedVariable: EdgeAnchorGroup?
     public var coefficients: EdgeAnchorsGroupCoefficients
 
     public init(_ variable: EdgeAnchorGroup,
                 _ relation: Constraint.Relation,
-                _ relatedAnchor: EdgeAnchorGroup?,
+                _ relatedVariable: EdgeAnchorGroup?,
                 _ coefficients: EdgeAnchorsGroupCoefficients = .default) {
         self.variable = variable
         self.relation = relation
-        self.relatedAnchor = relatedAnchor
+        self.relatedVariable = relatedVariable
         self.coefficients = coefficients
     }
 
     public var constraint: SideConstraints {
-        if let relatedAnchor = relatedAnchor {
-            return constraintRelated(to: relatedAnchor)
+        if let relatedVariable = relatedVariable {
+            return constraintRelated(to: relatedVariable)
         }
 
         guard let superview = variable.top.view?.superview else {
@@ -35,12 +35,12 @@ public final class EdgeAnchorGroupRelationship {
         return constraintRelated(to: superview.edgeAnchors)
     }
 
-    internal func constraintRelated(to relatedAnchor: EdgeAnchorGroup) -> SideConstraints {
+    internal func constraintRelated(to relatedVariable: EdgeAnchorGroup) -> SideConstraints {
         return SideConstraints(
-            variable.top.relation(relation, relatedAnchor.top).with(coefficients: coefficients.top).constraint,
-            variable.leading.relation(relation, relatedAnchor.leading).with(coefficients: coefficients.leading).constraint,
-            variable.bottom.relation(relation, relatedAnchor.bottom).with(coefficients: coefficients.bottom).constraintInvertedAsInset,
-            variable.trailing.relation(relation, relatedAnchor.trailing).with(coefficients: coefficients.trailing).constraintInvertedAsInset
+            variable.top.relation(relation, relatedVariable.top).with(coefficients: coefficients.top).constraint,
+            variable.leading.relation(relation, relatedVariable.leading).with(coefficients: coefficients.leading).constraint,
+            variable.bottom.relation(relation, relatedVariable.bottom).with(coefficients: coefficients.bottom).constraintInvertedAsInset,
+            variable.trailing.relation(relation, relatedVariable.trailing).with(coefficients: coefficients.trailing).constraintInvertedAsInset
         )
     }
 

@@ -1,5 +1,5 @@
 //
-//  LayoutAnchorPair+Variable.swift
+//  LayoutAnchorPair+LayoutVariable.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/23/19.
@@ -7,9 +7,9 @@
 //
 
 // MARK: - Anchor Pair
-extension LayoutAnchorPair: Variable {
+extension LayoutAnchorPair: LayoutVariable {
 
-    // MARK: Variable
+    // MARK: LayoutVariable
     public typealias RightHandExpression = LayoutPairExpression<FA, SA>
 
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {

@@ -2,14 +2,14 @@
 // DO NOT EDIT
 
 //
-//  LayoutDimension+Variable.swift
+//  LayoutDimension+LayoutVariable.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutDimension: Variable {
+extension LayoutDimension: LayoutVariable {
 
     public typealias RightHandExpression = LayoutDimensionExpression
 

@@ -36,7 +36,7 @@ public typealias ConstraintAttributes = [ConstraintAttribute]
 // MARK: Anchor
 public typealias LayoutAnchor = NSLayoutAnchor
 public typealias AnchorType = AnyObject
-public typealias AnchorVariable = AnchorType & Variable
+public typealias AnchorVariable = AnchorType & LayoutVariable
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 
 // MARK: Layout Anchor Pair

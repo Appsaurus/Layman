@@ -2,14 +2,14 @@
 // DO NOT EDIT
 
 //
-//  EdgeAnchorGroup+Variable.swift
+//  EdgeAnchorGroup+LayoutVariable.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension EdgeAnchorGroup: Variable {
+extension EdgeAnchorGroup: LayoutVariable {
 
     public typealias RightHandExpression = EdgeAnchorGroupExpression
 

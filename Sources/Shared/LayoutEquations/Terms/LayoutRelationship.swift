@@ -10,16 +10,16 @@ public final class LayoutRelationship<A: AnchorVariable> {
 
     public var variable: LayoutAnchor<A>
     public var relation: Constraint.Relation
-    public var relatedAnchor: LayoutAnchor<A>?
+    public var relatedVariable: LayoutAnchor<A>?
     public var coefficients: LayoutCoefficient
 
     public init(_ variable: LayoutAnchor<A>,
                 _ relation: Constraint.Relation,
-                _ relatedAnchor: LayoutAnchor<A>?,
+                _ relatedVariable: LayoutAnchor<A>?,
                 _ coefficients: LayoutCoefficient = .default) {
         self.variable = variable
         self.relation = relation
-        self.relatedAnchor = relatedAnchor
+        self.relatedVariable = relatedVariable
         self.coefficients = coefficients
     }
 
@@ -36,8 +36,8 @@ public final class LayoutRelationship<A: AnchorVariable> {
     }
 
     internal var inactiveConstraint: Constraint {
-        if let relatedAnchor = relatedAnchor {
-            return constraintRelated(to: relatedAnchor).configured(with: coefficients)
+        if let relatedVariable = relatedVariable {
+            return constraintRelated(to: relatedVariable).configured(with: coefficients)
         }
 
         if let layoutDimension = variable as? LayoutDimension {
@@ -63,14 +63,14 @@ public final class LayoutRelationship<A: AnchorVariable> {
 
     }
 
-    internal func constraintRelated(to relatedAnchor: LayoutAnchor<A>) -> Constraint {
+    internal func constraintRelated(to relatedVariable: LayoutAnchor<A>) -> Constraint {
         switch relation {
         case .lessThanOrEqual:
-            return variable.constraint(lessThanOrEqualTo: relatedAnchor)
+            return variable.constraint(lessThanOrEqualTo: relatedVariable)
         case .equal:
-            return variable.constraint(equalTo: relatedAnchor)
+            return variable.constraint(equalTo: relatedVariable)
         case .greaterThanOrEqual:
-            return variable.constraint(greaterThanOrEqualTo: relatedAnchor)
+            return variable.constraint(greaterThanOrEqualTo: relatedVariable)
         }
     }
 

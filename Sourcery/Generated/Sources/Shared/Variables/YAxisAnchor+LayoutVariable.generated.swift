@@ -2,14 +2,14 @@
 // DO NOT EDIT
 
 //
-//  YAxisAnchor+Variable.swift
+//  YAxisAnchor+LayoutVariable.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension YAxisAnchor: Variable {
+extension YAxisAnchor: LayoutVariable {
 
     public typealias RightHandExpression = YAxisAnchorExpression
 

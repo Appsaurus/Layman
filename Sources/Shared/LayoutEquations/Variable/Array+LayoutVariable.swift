@@ -1,12 +1,12 @@
 //
-//  Array+Variable.swift
+//  Array+LayoutVariable.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/23/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension Array: Variable where Element: Variable {
+extension Array: LayoutVariable where Element: LayoutVariable {
 
     public typealias RightHandExpression = [Element.RightHandExpression]
 

@@ -30,7 +30,7 @@ public final class LayoutExpression<A: AnchorType> {
 
 }
 
-extension LayoutExpression: Expression where A: Variable {
+extension LayoutExpression: Expression where A: LayoutVariable {
     public typealias C = LayoutCoefficient
     public typealias V = LayoutAnchor<A>
 

@@ -25,10 +25,10 @@ extension Array: LinearEquationSolving where Element: LinearEquationSolving {
 public protocol LinearEquation: Expression, LinearEquationSolving where Expression.V == V, Expression.C == C {
     associatedtype Relation
     var relation: Relation { get set }
-    var relatedAnchor: V? { get set }
+    var relatedVariable: V? { get set }
     init(_ variable: V, _ relation: Relation, _ relatedExpression: Expression)
-    init(_ variable: V, _ relation: Relation, _ relatedAnchor: V)
-    init(_ variable: V, _ relation: Relation, _ relatedAnchor: V?, _ coefficients: C)
+    init(_ variable: V, _ relation: Relation, _ relatedVariable: V)
+    init(_ variable: V, _ relation: Relation, _ relatedVariable: V?, _ coefficients: C)
     init(_ variable: V, _ relation: Relation, _ constant: C.Constant)
 }
 
@@ -43,8 +43,8 @@ extension LinearEquation {
                   relatedExpression.coefficients)
     }
 
-    public init(_ variable: V, _ relation: Relation, _ relatedAnchor: V) {
-        self.init(variable, relation, relatedAnchor, .default)
+    public init(_ variable: V, _ relation: Relation, _ relatedVariable: V) {
+        self.init(variable, relation, relatedVariable, .default)
     }
 
     public init(_ anchor: V, _ relation: Relation, _ coefficients: C) {

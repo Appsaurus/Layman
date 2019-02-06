@@ -32,7 +32,7 @@ public protocol LinearEquationTyped {
     associatedtype LinearEquation: UILayoutKit.LinearEquation
     typealias RightHandExpression = LinearEquation.Expression
     typealias Solution = LinearEquation.Solution
-    typealias Variable = LinearEquation.V
+    typealias LayoutVariable = LinearEquation.V
     typealias Relation = LinearEquation.Relation
     typealias Expression = LinearEquation.Expression
     typealias Coefficient = Expression.C
@@ -46,7 +46,7 @@ extension LeftHandSizeRelatableExpression {
     public typealias LayoutConstant = UILayoutKit.LayoutConstant
 }
 
-extension LeftHandLayoutExpression where Variable == Self {
+extension LeftHandLayoutExpression where LayoutVariable == Self {
     public func relation(_ relation: Relation, _ rhs: Self) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
