@@ -21,6 +21,13 @@ extension CoefficientMutating where Multiplier == LayoutMultiplier {
     }
 }
 
+public protocol CoefficientTyped {
+    associatedtype Coefficient: CoefficientMutating
+    typealias Constant = Coefficient.Constant
+    typealias Multiplier = Coefficient.Multiplier
+    typealias Divisor = Coefficient.Constant
+}
+
 public protocol LinearEquationTyped {
     associatedtype LinearEquation: UILayoutKit.LinearEquation
     typealias RightHandExpression = LinearEquation.Expression

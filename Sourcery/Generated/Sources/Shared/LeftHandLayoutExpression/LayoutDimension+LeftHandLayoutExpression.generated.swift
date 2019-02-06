@@ -10,6 +10,7 @@
 //
 
 extension LayoutDimension: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
+
     public typealias LinearEquation = LayoutDimensionRelationship
 
     public func relation(_ relation: Relation, _ rhs: LayoutDimension) -> LinearEquation {

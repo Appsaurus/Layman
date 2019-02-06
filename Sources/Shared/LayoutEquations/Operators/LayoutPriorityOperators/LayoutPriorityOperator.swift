@@ -32,6 +32,16 @@ public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutCoefficientPair {
     )
 }
 
+public func ~ (lhs: LayoutAspectRatio, rhs: LayoutPriority) -> AutoLayoutAspectRatioConfiguration {
+    return AutoLayoutAspectRatioConfiguration(lhs, rhs)
+}
+
+@discardableResult
+public func ~ (lhs: LayoutInset, rhs: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
+    return lhs.priority(rhs)
+}
+
+// MARK: Equality
 public func == (lhs: LayoutPriority, rhs: LayoutPriority) -> Bool {
     return lhs.rawValue == rhs.rawValue
 }

@@ -82,10 +82,7 @@ extension LayoutDebugLabeled {
         self.layoutDebugInfo = LayoutDebugInfo(name: name, file: file, line: line)
     }
 
-
 }
-
-
 
 extension View: LayoutDebugLabeled {}
 extension Constraint: LayoutDebugLabeled {}

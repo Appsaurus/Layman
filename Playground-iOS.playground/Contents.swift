@@ -4,12 +4,9 @@ import UIKit
 import UILayoutKit
 import XCTest
 
-
-
 var str = "Hello, playground"
 
 let parent = UIView().labeled("parent")
-
 
 let view1 = UIView().labeled("view1")
 
@@ -27,4 +24,3 @@ let con = view2.greaterThanOrEqual(to: 10%)
 con.first.labeled("conman")
 print(con.first)
 print(con.second)
-

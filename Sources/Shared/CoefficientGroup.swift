@@ -10,11 +10,13 @@ extension LeftHandLayoutCoefficientRelatableExpression {
     public typealias CoefficientGroupElement = LayoutCoefficient
 }
 
-extension Expression where C: CoefficientReferencing, C.Multiplier == LayoutMultiplier {
-    public func set(divisor: LayoutDivisor) {
-        coefficients.set(divisor: divisor)
-    }
-}
+//extension Expression where C: CoefficientReferencing, C.Multiplier == LayoutMultiplier {
+//    @discardableResult
+//    public func divided(by divisor: LayoutDivisor) -> Self {
+//        coefficients.set(divisor: divisor)
+//        return self
+//    }
+//}
 
 //extension Collection where Element: LayoutExpression, Element.C: CoefficientReferencing, Element.C.Multiplier == LayoutMultiplier {
 //    public func divided(by divisor: LayoutDivisor) -> Self {
