@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutAnchorPair: LeftHandSizeRelatableExpression where FA == LayoutDimension, SA == LayoutDimension {
+extension LayoutAnchorPair: LayoutSizeEquatable where FA == LayoutDimension, SA == LayoutDimension {
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutCoefficientPair) -> LayoutDimensionPairRelationship {
         return LayoutDimensionPairRelationship(self, relation, rhs)
     }

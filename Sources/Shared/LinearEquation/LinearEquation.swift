@@ -22,7 +22,6 @@ public protocol LinearEquationSolving {
     associatedtype Expression: UILayoutKit.Expression
     associatedtype Solution
     var solution: Solution { get }
-
 }
 
 extension Array: LinearEquationSolving where Element: LinearEquationSolving {
@@ -67,99 +66,6 @@ extension LinearEquation {
                 _ relation: Relation,
                 _ constant: Coefficients.Constant) {
         self.init(variable, relation, .constant(constant))
-    }
-}
-
-public protocol Expression: class {
-
-    associatedtype Variable
-    var variable: Variable { get set }
-
-    associatedtype Coefficients: CoefficientMutating
-    var coefficients: Coefficients { get set }
-    func with(coefficients: Coefficients) -> Self
-    func with(constant: Coefficients.Constant) -> Self
-    func times(_ multiplier: Coefficients.Multiplier) -> Self
-    func priority(_ priority: Coefficients.Priority) -> Self
-}
-
-extension Expression {
-
-    @discardableResult
-    public func with(coefficients: Coefficients) -> Self {
-        self.coefficients = coefficients
-        return self
-    }
-
-    @discardableResult
-    public func priority(_ priority: Coefficients.Priority) -> Self {
-        coefficients.set(priority: priority)
-        return self
-    }
-
-    @discardableResult
-    public func with(constant: Coefficients.Constant) -> Self {
-        coefficients.set(constant: constant)
-        return self
-    }
-
-    @discardableResult
-    public func times(_ multiplier: Coefficients.Multiplier) -> Self {
-        coefficients.set(multiplier: multiplier)
-        return self
-    }
-}
-
-public protocol CoefficientMutating {
-    associatedtype Constant
-    associatedtype Multiplier
-    associatedtype Priority
-    func set(constant: Constant)
-    func set(multiplier: Multiplier)
-    func set(priority: Priority)
-
-    static func constant(_ constant: Constant) -> Self
-    static func multiplier(_ multiplier: Multiplier) -> Self
-    static func priority(_ priority: Priority) -> Self
-    static var `default`: Self { get }
-
-}
-
-extension CoefficientMutating {
-
-    public func with(constant: Constant) -> Self {
-        set(constant: constant)
-        return self
-    }
-
-    public func times(_ multiplier: Multiplier) -> Self {
-        set(multiplier: multiplier)
-        return self
-    }
-
-    public func priority(_ priority: Priority) -> Self {
-        set(priority: priority)
-        return self
-    }
-}
-
-public protocol CoefficientReferencing: CoefficientMutating {
-    var constant: Constant { get set }
-    var multiplier: Multiplier? { get set }
-    var priority: Priority { get set }
-    init()
-}
-
-extension CoefficientReferencing {
-
-    public static func constant(_ constant: Constant) -> Self {
-        return Self().with(constant: constant)
-    }
-    public static func multiplier(_ multiplier: Multiplier) -> Self {
-        return Self().times(multiplier)
-    }
-    public static func priority(_ priority: Priority) -> Self {
-        return Self().priority(priority)
     }
 }
 

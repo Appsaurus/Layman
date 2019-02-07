@@ -9,7 +9,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension XAxisAnchor: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
+extension XAxisAnchor: LeftHandLayoutExpression, CoefficientsEquatable {
     public typealias LinearEquation = XAxisAnchorEquation
 
     public func relation(_ relation: Relation, _ rhs: XAxisAnchor) -> LinearEquation {

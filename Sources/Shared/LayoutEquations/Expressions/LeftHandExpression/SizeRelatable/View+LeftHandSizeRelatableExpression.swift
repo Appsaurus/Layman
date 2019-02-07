@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension View: LeftHandSizeRelatableExpression {
+extension View: LayoutSizeEquatable {
 
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutSize) -> LayoutDimensionPairRelationship {
         let sizeConfiguration = LayoutCoefficientPair(.constant(rhs.width), .constant(rhs.height))
@@ -14,7 +14,7 @@ extension View: LeftHandSizeRelatableExpression {
     }
 }
 
-extension View: LeftHandConstantRelatableExpression {
+extension View: CoefficientsEquatable {
     public typealias LinearEquation = LayoutDimensionPairRelationship
 
     public func relation(_ relation: Relation, _ rhs: Constant) -> LayoutDimensionPairRelationship {
@@ -24,15 +24,13 @@ extension View: LeftHandConstantRelatableExpression {
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutCoefficientPair) -> LayoutDimensionPairRelationship {
         return LayoutDimensionPairRelationship(sizeAnchors, relation, rhs)
     }
-}
 
-extension View: LeftHandMultiplierRelatableExpression {
     public func relation(_ relation: Constraint.Relation, _ rhs: Multiplier) -> LinearEquation {
         return self.relation(relation, .multiplier(rhs))
     }
 }
 
-extension View: LeftHandLayoutCoefficientRelatableExpression {
+extension View: CoefficientsGroupEquatable {
     public func relation(_ relation: Constraint.Relation, _ rhs: LayoutCoefficient) -> LayoutDimensionPairRelationship {
         return self.relation(relation, LayoutCoefficientPair(rhs.copy()))
     }

@@ -8,8 +8,6 @@
 
 postfix operator %
 
-extension LayoutConstant {
-    public static postfix func % (value: LayoutConstant) -> LayoutMultiplier {
-        return LayoutMultiplier(value / 100.0)
-    }
+public postfix func % (value: LayoutConstant) -> LayoutMultiplier {
+    return LayoutMultiplier(value / 100.0)
 }

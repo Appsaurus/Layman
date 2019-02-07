@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension Array: LayoutVariable where Element: LayoutVariable {
+extension Array: Variable, LayoutVariable where Element: LayoutVariable {
 
     public typealias RightHandExpression = [Element.RightHandExpression]
 

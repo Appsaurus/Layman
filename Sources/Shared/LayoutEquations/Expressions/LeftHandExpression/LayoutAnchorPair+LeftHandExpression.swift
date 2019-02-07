@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutAnchorPair: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
+extension LayoutAnchorPair: LeftHandLayoutExpression, CoefficientsEquatable {
 
     public typealias LinearEquation = LayoutAnchorPairEquation<FA, SA>
 
@@ -29,5 +29,4 @@ extension LayoutAnchorPair: LeftHandLayoutExpression, LeftHandConstantRelatableE
     public func relation(_ relation: Relation, _ rhs: Coefficient) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
-
 }

@@ -9,7 +9,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutDimension: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
+extension LayoutDimension: LeftHandLayoutExpression, CoefficientsEquatable {
     public typealias LinearEquation = LayoutDimensionEquation
 
     public func relation(_ relation: Relation, _ rhs: LayoutDimension) -> LinearEquation {

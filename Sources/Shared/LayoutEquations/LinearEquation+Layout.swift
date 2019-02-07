@@ -21,7 +21,7 @@ extension CoefficientMutating where Multiplier == LayoutMultiplier {
     }
 }
 
-extension LeftHandSizeRelatableExpression {
+extension LayoutSizeEquatable {
     public typealias LayoutSize = UILayoutKit.LayoutSize
     public typealias LayoutCoefficientPair = UILayoutKit.LayoutCoefficientPair
     public typealias LayoutConstant = UILayoutKit.LayoutConstant

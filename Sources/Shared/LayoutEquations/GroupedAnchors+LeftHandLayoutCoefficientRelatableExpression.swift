@@ -6,19 +6,19 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LeftHandLayoutCoefficientRelatableExpression {
+extension CoefficientsGroupEquatable {
     public typealias CoefficientGroupElement = LayoutCoefficient
 }
 
 // MARK: LayoutAnchorPair
-extension LayoutAnchorPair: LeftHandLayoutCoefficientRelatableExpression {
+extension LayoutAnchorPair: CoefficientsGroupEquatable {
     public func relation(_ relation: Relation, _ rhs: LayoutCoefficient) -> LinearEquation {
         return LinearEquation(self, relation, LayoutCoefficientPair(rhs.copy()))
     }
 }
 
 // MARK: EdgeAnchorGroup
-extension EdgeAnchorGroup: LeftHandLayoutCoefficientRelatableExpression {
+extension EdgeAnchorGroup: CoefficientsGroupEquatable {
     public func relation(_ relation: Relation, _ rhs: LayoutCoefficient) -> LinearEquation {
         return LinearEquation (self, relation, EdgeAnchorsGroupCoefficients(rhs.copy()))
     }

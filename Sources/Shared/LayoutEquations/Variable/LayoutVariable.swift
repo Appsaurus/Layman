@@ -6,13 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol LayoutVariable {
-    associatedtype RightHandExpression
-    func plus(_ constant: LayoutConstant) -> RightHandExpression
-    func minus(_ constant: LayoutConstant) -> RightHandExpression
-    func times(_ multiplier: LayoutMultiplier) -> RightHandExpression
-    func divided(by divisor: LayoutDivisor) -> RightHandExpression
-}
+public protocol LayoutVariable: Variable
+where Multiplier == LayoutMultiplier, Constant == LayoutConstant, Divisor == LayoutDivisor {}
 
 extension LayoutVariable {
     public func minus(_ constant: LayoutConstant) -> RightHandExpression {

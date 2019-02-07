@@ -99,5 +99,4 @@ extension LayoutPriority {
     public static var fittingSize: UILayoutPriority {
         return .fittingSizeLevel
     }
-
 }

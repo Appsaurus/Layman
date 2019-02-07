@@ -2,8 +2,8 @@ sources:
   - Sources/Shared/
   - UILayoutKitTests/Shared/
 templates:
-  - Sourcery/Shared/Templates
-  - Sourcery/Shared/Templates
+  - Sourcery/Templates/Shared/
+  - Sourcery/Templates/Shared/
 args:
   anchorTypes:
     - "XAxisAnchor"
@@ -16,13 +16,13 @@ args:
     - "LayoutDimensionPair"
     - "XYAxesAnchorPair"
   equationProtocols:
-    LeftHandSizeRelatableExpression:
+    LayoutSizeEquatable:
         LeftHandTypes:
             - 'LayoutDimensionPair'
             - 'View'
         RightHandTypes:
             - 'LayoutSize'
-    LeftHandConstantRelatableExpression:
+    CoefficientsEquatable:
         LeftHandTypes:
             - 'XAxisAnchor'
             - 'YAxisAnchor'
@@ -36,20 +36,8 @@ args:
         RightHandTypes:
             - 'Constant'
             - 'Coefficient'
-    LeftHandMultiplierRelatableExpression:
-        LeftHandTypes:
-            - 'XAxisAnchor'
-            - 'YAxisAnchor'
-            - 'LayoutDimension'
-            - 'EdgeAnchorGroup'
-            - 'XAxisAnchorPair'
-            - 'YAxisAnchorPair'
-            - 'LayoutDimensionPair'
-            - 'XYAxesAnchorPair'
-            - 'View'
-        RightHandTypes:
             - 'Multiplier'
-    LeftHandLayoutCoefficientRelatableExpression:
+    CoefficientsGroupEquatable:
         LeftHandTypes:
             - 'EdgeAnchorGroup'
             - 'XAxisAnchorPair'

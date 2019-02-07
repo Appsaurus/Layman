@@ -9,7 +9,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension YAxisAnchor: LeftHandLayoutExpression, LeftHandConstantRelatableExpression, LeftHandMultiplierRelatableExpression {
+extension YAxisAnchor: LeftHandLayoutExpression, CoefficientsEquatable {
     public typealias LinearEquation = YAxisAnchorEquation
 
     public func relation(_ relation: Relation, _ rhs: YAxisAnchor) -> LinearEquation {
