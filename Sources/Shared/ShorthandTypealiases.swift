@@ -28,7 +28,7 @@ extension XYAxisAnchorable {
 
     public var centerX: XAxisAnchor { return centerXAnchor }
     public var centerY: YAxisAnchor { return centerYAnchor }
-    public var center: XYAxesAnchorPair { return centerAnchors }
+    public var centerXY: XYAxesAnchorPair { return centerAnchors }
 
     public var topLeft: XYAxesAnchorPair { return topLeftAnchors }
     public var topRight: XYAxesAnchorPair { return topRightAnchors }
@@ -63,7 +63,7 @@ extension Array where Element: XYAxisAnchorable {
 
     public var centerX: XAxisAnchors { return map { $0.centerX } }
     public var centerY: YAxisAnchors { return map { $0.centerY } }
-    public var center: XYAxesAnchorPairs { return map { $0.center } }
+    public var centerXY: XYAxesAnchorPairs { return map { $0.centerXY } }
 
     public var topLeft: XYAxesAnchorPairs { return map { $0.topLeft } }
     public var topRight: XYAxesAnchorPairs { return map { $0.topRight } }

@@ -8,7 +8,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension {{AnchorType}}: LeftHandLayoutExpression, CoefficientsEquatable {
+extension {{AnchorType}}: LeftHandLayoutExpression, CoefficientEquatable {
     public typealias LinearEquation = {{AnchorType}}Equation
 
     public func relation(_ relation: Relation, _ rhs: {{AnchorType}}) -> LinearEquation {

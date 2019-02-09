@@ -16,12 +16,6 @@ public final class LayoutAnchorExpression<A: AnchorType> {
         self.coefficients = coefficients
     }
 
-//    @discardableResult
-//    public func priority(_ priority: LayoutPriority) -> Self {
-//        coefficients.priority = priority
-//        return self
-//    }
-
     @discardableResult
     public func with(active: Bool) -> Self {
         coefficients.active = active
@@ -30,7 +24,7 @@ public final class LayoutAnchorExpression<A: AnchorType> {
 
 }
 
-extension LayoutAnchorExpression: Expression where A: LayoutVariable {
+extension LayoutAnchorExpression: Expression, CoefficientsReferencing where A: LayoutVariable {
     public typealias Coefficients = LayoutCoefficient
     public typealias Variable = LayoutAnchor<A>
 

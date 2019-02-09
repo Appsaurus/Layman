@@ -7,7 +7,9 @@
 //
 
 public protocol LayoutVariable: Variable
-where Multiplier == LayoutMultiplier, Constant == LayoutConstant, Divisor == LayoutDivisor {}
+where Multiplier == LayoutMultiplier,
+Constant == LayoutConstant,
+Divisor == LayoutDivisor {}
 
 extension LayoutVariable {
     public func minus(_ constant: LayoutConstant) -> RightHandExpression {
@@ -21,4 +23,12 @@ extension LayoutVariable {
     public func divided(by divisor: LayoutDivisor) -> RightHandExpression {
         return times(1.0 / divisor)
     }
+
+//    public func priority(_ priority: LayoutPriority) -> RightHandExpression {
+//
+//    }
 }
+
+//public protocol ExpressionInitable {
+//    public init(variable: LayoutAnchor<A>, coefficients: LayoutCoefficient = .default)
+//}

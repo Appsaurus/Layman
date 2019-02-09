@@ -118,6 +118,7 @@ private func descriptionForAttribute(_ attribute: Constraint.Attribute) -> Strin
     case .trailingMargin:       return "trailingMargin"
     case .centerXWithinMargins: return "centerXWithinMargins"
     case .centerYWithinMargins: return "centerYWithinMargins"
+    default: return "Unknown"
     }
     #endif
 

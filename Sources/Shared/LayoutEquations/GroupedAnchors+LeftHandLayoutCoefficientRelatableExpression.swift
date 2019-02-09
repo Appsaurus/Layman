@@ -6,19 +6,37 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension CoefficientsGroupEquatable {
-    public typealias CoefficientGroupElement = LayoutCoefficient
+extension CoefficientsEquatable {
+    public typealias LayoutCoefficient = UILayoutKit.LayoutCoefficient
+    public typealias LayoutConstantTuple = UILayoutKit.LayoutConstantTuple
+    public typealias LayoutCoefficientTuple = (first: LayoutCoefficient, second: LayoutCoefficient)
 }
 
 // MARK: LayoutAnchorPair
-extension LayoutAnchorPair: CoefficientsGroupEquatable {
+extension LayoutAnchorPair: CoefficientsEquatable {
+    public func relation(_ relation: Relation, _ rhs: LayoutCoefficientTuple) -> LayoutAnchorPairEquation<FA, SA> {
+        return LinearEquation(self, relation, LayoutCoefficientPair(rhs.first, rhs.second))
+    }
+
+    public func relation(_ relation: Relation, _ rhs: LayoutConstantTuple) -> LayoutAnchorPairEquation<FA, SA> {
+        return LinearEquation(self, relation, LayoutCoefficientPair(.constant(rhs.first), .constant(rhs.second)))
+    }
+
     public func relation(_ relation: Relation, _ rhs: LayoutCoefficient) -> LinearEquation {
         return LinearEquation(self, relation, LayoutCoefficientPair(rhs.copy()))
     }
 }
 
 // MARK: EdgeAnchorGroup
-extension EdgeAnchorGroup: CoefficientsGroupEquatable {
+extension EdgeAnchorGroup: CoefficientsEquatable {
+    public func relation(_ relation: Relation, _ rhs: LayoutCoefficientTuple) -> EdgeAnchorGroupEquation {
+         return LinearEquation(self, relation, EdgeAnchorsGroupCoefficients(rhs.first, rhs.second))
+    }
+
+    public func relation(_ relation: Relation, _ rhs: LayoutConstantTuple) -> EdgeAnchorGroupEquation {
+        return LinearEquation(self, relation, EdgeAnchorsGroupCoefficients(.constant(rhs.first), .constant(rhs.second)))
+    }
+
     public func relation(_ relation: Relation, _ rhs: LayoutCoefficient) -> LinearEquation {
         return LinearEquation (self, relation, EdgeAnchorsGroupCoefficients(rhs.copy()))
     }

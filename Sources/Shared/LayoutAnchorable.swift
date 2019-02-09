@@ -54,6 +54,12 @@ public protocol LayoutAnchorable: XYAxisAnchorable, SizeAnchorable {}
 
 public protocol BaselineLayoutAnchorable: LayoutAnchorable, BaselineAnchorable {}
 
+public enum LayoutSideAttribute {
+    case top
+    case leading
+    case bottom
+    case trailing
+}
 extension XYAxisAnchorable {
 
     public var horizontalEdgeAnchors: XAxisAnchorPair {
@@ -80,33 +86,24 @@ extension XYAxisAnchorable {
     public var bottomRightAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, bottomAnchor) }
     public var bottomLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, bottomAnchor) }
 
-    public func edgesExcluding(_ edge: XAxisAnchor) -> EdgeAnchorGroupExpression {
+    public func edgesExcluding(_ edge: LayoutSideAttribute) -> EdgeAnchorGroupExpression {
         let edgeExpression = EdgeAnchorGroupExpression(variable: edgeAnchors)
-        switch edge.attribute {
+        switch edge {
+        case .top:
+            edgeExpression.topExpression.coefficients.active = false
         case .leading:
             edgeExpression.leadingExpression.coefficients.active = false
         case .trailing:
             edgeExpression.trailingExpression.coefficients.active = false
-        default:
-            invalidEdgePreconditionFailure(edge)
-        }
-        return edgeExpression
-    }
-
-    public func edgesExcluding(_ edge: YAxisAnchor) -> EdgeAnchorGroupExpression {
-        let edgeExpression = EdgeAnchorGroupExpression(variable: edgeAnchors)
-        switch edge.attribute {
-        case .top:
-            edgeExpression.topExpression.coefficients.active = false
         case .bottom:
             edgeExpression.bottomExpression.coefficients.active = false
         default:
-            invalidEdgePreconditionFailure(edge)
+            if isTestOrDebug {
+                preconditionFailure("EdgeAnchorGroup only includes top, leading, bottom and trailing edges. Cannot exclude \(edge)")
+            }
+            return edgeExpression
         }
         return edgeExpression
-    }
-    private func invalidEdgePreconditionFailure<A: AnchorType>(_ edge: LayoutAnchor<A>) {
-        preconditionFailure("EdgeAnchorGroup only includes top, leading, bottom and trailing edges. Cannot exclude \(edge)")
     }
 }
 

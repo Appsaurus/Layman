@@ -14,10 +14,14 @@ extension LayoutDimension: LayoutVariable {
     public typealias RightHandExpression = LayoutDimensionExpression
 
     public func plus(_ constant: LayoutConstant) -> LayoutDimensionExpression {
-        return LayoutDimensionExpression(variable: self, coefficients: .constant(constant))
+        return LayoutDimensionExpression(variable: self).with(constant: constant)
     }
 
     public func times(_ multiplier: LayoutMultiplier) -> LayoutDimensionExpression {
-        return LayoutDimensionExpression(variable: self, coefficients: .multiplier(multiplier))
+        return LayoutDimensionExpression(variable: self).times(multiplier)
+    }
+
+    public func priority(_ priority: LayoutPriority) -> LayoutDimensionExpression {
+        return LayoutDimensionExpression(variable: self).priority(priority)
     }
 }

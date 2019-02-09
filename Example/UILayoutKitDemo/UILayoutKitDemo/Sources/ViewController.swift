@@ -2,6 +2,33 @@ import UIKit
 import UILayoutKit
 
 class ViewController: NavigationalMenuTableViewController {
+
+    override func createRows() -> [RowDataSource] {
+        return LayoutExample.allCases.map { row($0) }
+    }
+
+    func row(_ example: LayoutExample) -> RowDataSource {
+        return .row("\(example)".uppercased(), LayoutExampleViewController(example))
+    }
+}
+
+public enum LayoutExample: CaseIterable {
+    case size
+    case center
+    case horizontal
+    case vertical
+    case edgesInset
+    case corners
+    case stack
+    case nestedStack
+
+}
+
+extension Constraint {
+
+}
+class LayoutExampleViewController: UIViewController {
+    var layout: LayoutExample
     let container = View()
     lazy var view1 = createView()
     lazy var view2 = createView()
@@ -22,73 +49,52 @@ class ViewController: NavigationalMenuTableViewController {
         view7,
         view8
     ]
-    override func createRows() -> [RowDataSource] {
-        return [
-            row("Test", {
-                vc.view1 .= vc.container.edges .+ 20
-                vc.view2 .= vc.container.center
-                vc.view2.size .= 50
-            }),
-            row("Test", {
 
-            }),
-            row("Test", {
-
-            })
-        ]
-    }
-
-    func row(_ title: String, _ layout: @escaping () -> Void) -> RowDataSource {
-        return .row(title, LayoutExampleViewController(layout: layout))
-    }
-
-    func createView() -> View{
-        let view = View()
-        container.addSubview(view)
-        return view
-    }
-}
-
-class LayoutExampleViewController: UIViewController {
-//    var layout: (LayoutExampleViewController) -> Void
-    let container: View
-//    lazy var view1 = createView()
-//    lazy var view2 = createView()
-//    lazy var view3 = createView()
-//    lazy var view4 = createView()
-//    lazy var view5 = createView()
-//    lazy var view6 = createView()
-//    lazy var view7 = createView()
-//    lazy var view8 = createView()
-//
-//    lazy var views = [
-//        view1,
-//        view2,
-//        view3,
-//        view4,
-//        view5,
-//        view6,
-//        view7,
-//        view8
-//    ]
-//    public required init(layout: @escaping (LayoutExampleViewController) -> Void) {
-//        self.layout = layout
-//        super.init(nibName: nil, bundle: nil)
-//    }
-
-    public required init(container: View) {
-        self.container = container
+    public required init(_ layout: LayoutExample) {
+        self.layout = layout
         super.init(nibName: nil, bundle: nil)
     }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(container)
-        container.edges .= view.edges .+ 50
-//        layout(self)
+        view.backgroundColor = .red
+        container.backgroundColor = .blue
+        container.centerXY .= view.centerXY
+
+        edgesForExtendedLayout = []
+        extendedLayoutIncludesOpaqueBars = false
+        createAutolayoutConstraints()
+    }
+
+    public func createAutolayoutConstraints(){
+        switch layout {
+
+        case .size:
+            view1.size.equal(to: (50, 75))
+//            view1 .= view.width.priority(.low)
+            view1 .= view.width.minus(20)
+        case .center:
+            view1.centerXY .= container.centerXY
+        case .horizontal:
+            view1.centerXY .= container.centerXY
+//        case .vertical:
+//            <#code#>
+//        case .edgesInset:
+//            <#code#>
+//        case .corners:
+//            <#code#>
+//        case .stack:
+//            <#code#>
+//        case .nestedStack:
+//            <#code#>
+        default: break
+        }
     }
 
     func createView() -> View{
@@ -150,5 +156,46 @@ public struct RowDataSource{
 
     public static func row(leftImage: UIImage? = nil, _ title: String, _ createDestinationVC: @escaping @autoclosure () -> UIViewController, modal: Bool = false) -> RowDataSource{
         return RowDataSource(leftImage: leftImage, title: title, createDestinationVC: createDestinationVC, modal: modal)
+    }
+}
+
+
+class DashedBorderView: UIView {
+
+    var cornerRadius: CGFloat = 4
+    var borderColor: UIColor = UIColor.black
+    var dashPaintedSize: Int = 2
+    var dashUnpaintedSize: Int = 2
+
+    let dashedBorder = CAShapeLayer()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        //custom initialization
+        self.layer.addSublayer(dashedBorder)
+        applyDashBorder()
+    }
+
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        applyDashBorder()
+    }
+
+    func applyDashBorder() {
+        dashedBorder.strokeColor = borderColor.cgColor
+        dashedBorder.lineDashPattern = [NSNumber(value: dashPaintedSize), NSNumber(value: dashUnpaintedSize)]
+        dashedBorder.fillColor = nil
+        dashedBorder.cornerRadius = cornerRadius
+        dashedBorder.path = UIBezierPath(rect: self.bounds).cgPath
+        dashedBorder.frame = self.bounds
     }
 }

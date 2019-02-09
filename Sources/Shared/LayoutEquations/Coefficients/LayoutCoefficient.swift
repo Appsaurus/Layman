@@ -27,7 +27,7 @@ extension LayoutCoefficient {
     }
 }
 
-extension LayoutCoefficient: CoefficientMutating & CoefficientReferencing {
+extension LayoutCoefficient: CoefficientReferencing {
 
     public func set(constant: LayoutConstant) {
         self.constant = constant

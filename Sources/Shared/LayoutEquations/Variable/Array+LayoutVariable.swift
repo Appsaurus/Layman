@@ -18,3 +18,9 @@ extension Array: Variable, LayoutVariable where Element: LayoutVariable {
         return self.map { $0.times(multiplier) }
     }
 }
+
+extension Array where Element: Expression {
+//    public init(variable: Element.Variable, coefficients: Element.Coefficients) {
+//        return self.map { $0 (multiplier) }
+//    }
+}

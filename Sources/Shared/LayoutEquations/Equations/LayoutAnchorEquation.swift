@@ -91,6 +91,7 @@ public final class LayoutAnchorEquation<A: AnchorVariable> {
 }
 
 extension LayoutAnchorEquation: LinearEquation {
+
     public typealias Expression = LayoutAnchorExpression<A>
 
     public typealias Solution = Constraint

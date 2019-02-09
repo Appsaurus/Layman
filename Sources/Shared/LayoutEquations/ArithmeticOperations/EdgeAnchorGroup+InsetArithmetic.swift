@@ -12,13 +12,27 @@ extension EdgeAnchorGroup {
     // MARK: UIEdgeInset Constant
     @discardableResult
     public func plus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
+        return EdgeAnchorGroupExpression(self).plus(inset: inset)
+    }
+
+    @discardableResult
+    public func minus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
+        return EdgeAnchorGroupExpression(self).minus(inset: inset)
+    }
+
+}
+extension EdgeAnchorGroupExpression {
+
+    // MARK: UIEdgeInset Constant
+    @discardableResult
+    public func plus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
         let coefficients = EdgeAnchorsGroupCoefficients(
             .constant(inset.top),
             .constant(inset.left),
             .constant(inset.bottom),
             .constant(inset.right)
         )
-        return EdgeAnchorGroupExpression(self).with(coefficients: coefficients)
+        return self.with(coefficients: coefficients)
     }
 
     @discardableResult

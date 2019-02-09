@@ -41,8 +41,3 @@ public final class LayoutAspectRatioConfiguration {
         self.priority = priority
     }
 }
-
-public enum AspectRatioAnchor {
-    case standard(View)
-    case inverse(View)
-}

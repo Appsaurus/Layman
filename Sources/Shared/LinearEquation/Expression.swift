@@ -6,21 +6,24 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol Expression: class {
+public protocol CoefficientsReferencing: class {
+    associatedtype Coefficients: CoefficientMutating
+    var coefficients: Coefficients { get set }
+}
+public protocol Expression: CoefficientsReferencing{
 
     associatedtype Variable
     var variable: Variable { get set }
 
-    associatedtype Coefficients: CoefficientMutating
-    var coefficients: Coefficients { get set }
     func with(coefficients: Coefficients) -> Self
     func with(constant: Coefficients.Constant) -> Self
     func times(_ multiplier: Coefficients.Multiplier) -> Self
     func priority(_ priority: Coefficients.Priority) -> Self
 }
 
-extension Expression {
 
+
+extension Expression {
     @discardableResult
     public func with(coefficients: Coefficients) -> Self {
         self.coefficients = coefficients

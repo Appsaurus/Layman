@@ -36,3 +36,73 @@ extension LeftHandLayoutExpression where LayoutVariable == Self {
         return LinearEquation(self, relation, rhs)
     }
 }
+
+extension LinearEquation where Relation == Constraint.Relation {
+    public init(variable: Variable, coefficients: Coefficients) {
+        self.init(variable, .equal, nil, coefficients)
+    }
+}
+
+
+
+
+//public typealias LayoutExpressionProtocol = Expression & LayoutCoefficientReferencing
+//
+//public protocol LayoutCoefficientReferencing: class, CoefficientMutating & CoefficientReferencing where Constant == LayoutConstant, Multiplier == LayoutMultiplier{
+//    var priority: LayoutPriority { get set }
+//    func set(priority: LayoutPriority)
+//    func priority(_ priority: LayoutPriority) -> Self
+//}
+//
+//extension LayoutCoefficientReferencing {
+//    public static func priority(_ priority: LayoutPriority) -> Self {
+//        return Self().priority(priority)
+//    }
+//
+//    public func priority(_ priority: LayoutPriority) -> Self {
+//        set(priority: priority)
+//        return self
+//    }
+//
+//}
+
+extension Expression where Coefficients == LayoutCoefficient {
+    public func set(priority: LayoutPriority) {
+        self.coefficients.priority = priority
+    }
+
+}
+
+extension LayoutAnchorPairExpression{
+    public func set(priority: LayoutPriority) {
+        self.coefficients.set(priority: priority)
+    }
+
+    public func priority(_ priority: LayoutPriority) -> Self {
+        set(priority: priority)
+        return self
+    }
+}
+
+
+extension EdgeAnchorGroupExpression {
+    public func set(priority: LayoutPriority) {
+        self.coefficients.set(priority: priority)
+    }
+
+    public func priority(_ priority: LayoutPriority) -> Self {
+        set(priority: priority)
+        return self
+    }
+}
+//
+//extension LayoutCoefficient {
+//    public func set(priority: LayoutPriority) {
+//        self.priority = priority
+//    }
+//
+//    public func priority(_ priority: LayoutPriority) -> Self {
+//        set(priority: priority)
+//        return self
+//    }
+//}

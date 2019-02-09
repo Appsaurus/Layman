@@ -1,10 +1,15 @@
 //
-//  View+AspectRatio.swift
+//  View+AspectRatioAnchors.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 1/17/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
+
+public enum AspectRatioAnchor {
+    case standard(View)
+    case inverse(View)
+}
 
 extension View {
     public var aspectRatioAnchor: AspectRatioAnchor {

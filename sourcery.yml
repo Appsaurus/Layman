@@ -16,13 +16,8 @@ args:
     - "LayoutDimensionPair"
     - "XYAxesAnchorPair"
   equationProtocols:
-    LayoutSizeEquatable:
-        LeftHandTypes:
-            - 'LayoutDimensionPair'
-            - 'View'
-        RightHandTypes:
-            - 'LayoutSize'
-    CoefficientsEquatable:
+
+    CoefficientEquatable:
         LeftHandTypes:
             - 'XAxisAnchor'
             - 'YAxisAnchor'
@@ -37,7 +32,7 @@ args:
             - 'Constant'
             - 'Coefficient'
             - 'Multiplier'
-    CoefficientsGroupEquatable:
+    CoefficientsEquatable:
         LeftHandTypes:
             - 'EdgeAnchorGroup'
             - 'XAxisAnchorPair'
@@ -46,7 +41,15 @@ args:
             - 'XYAxesAnchorPair'
             - 'View'
         RightHandTypes:
-            - 'CoefficientGroupElement'
+            - 'LayoutCoefficientTuple'
+            - 'LayoutConstantTuple'
+            - 'LayoutCoefficient'
+    LayoutSizeEquatable:
+        LeftHandTypes:
+            - 'LayoutDimensionPair'
+            - 'View'
+        RightHandTypes:
+            - 'LayoutSize'
   operators:
     equal: ".="
     lessThanOrEqual: "≤"

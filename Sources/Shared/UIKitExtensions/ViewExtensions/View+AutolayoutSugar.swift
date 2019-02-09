@@ -9,24 +9,24 @@
 // MARK: General Convenience Autolayout Extensions
 public extension View {
 
-    public func addActiveConstraints(_ constraints: Constraints) {
-        constraints.forEach {$0.isActive = true}
+    public func addActiveConstraints(_ constraints: Constraints, priority: LayoutPriority? = nil) {
+        constraints.forEach {$0.activated(with: priority)}
         addConstraints(constraints)
     }
 
-    public func autoEnforceContentSize(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
-        autoEnforceContentHugging(priority, forAxes: axes)
-        autoEnforceCompressionResistance(priority, forAxes: axes)
+    public func enforceContentSize(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
+        hugContent(priority, forAxes: axes)
+        resistCompression(priority, forAxes: axes)
     }
 
-    public func autoEnforceContentHugging(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
+    public func hugContent(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
         axes.forEach { (axis) in
             setContentHuggingPriority(priority, for: axis)
         }
 
     }
 
-    public func autoEnforceCompressionResistance(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
+    public func resistCompression(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
         axes.forEach { (axis) in
             setContentCompressionResistancePriority(priority, for: axis)
         }
@@ -61,6 +61,7 @@ public extension View {
 
 public typealias ConstraintAttributeMap = [ConstraintAttribute: Constraints]
 public typealias ConstraintHeirarchy = [View: ConstraintAttributeMap]
+
 extension Collection where Element == Constraint {
     public var heirarchy: ConstraintHeirarchy {
         return reduce(into: ConstraintHeirarchy()) { (result, element) in
@@ -75,6 +76,17 @@ extension Collection where Element == Constraint {
     }
 }
 
+internal extension Dictionary where Key == View, Value == ConstraintAttributeMap {
+    internal func merging(with constraintHeirarchy: ConstraintHeirarchy) -> ConstraintHeirarchy {
+        return self.merging(constraintHeirarchy) { (map, otherMap) -> ConstraintAttributeMap in
+            return map.merging(otherMap, uniquingKeysWith: { (constraints, otherConstraints) -> Constraints in
+                return [constraints, otherConstraints].flatMap {$0}
+            })
+        }
+
+    }
+}
+
 private extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
     subscript (all keys: Key...) -> [Value] {
         return self[all: keys]
@@ -83,8 +95,8 @@ private extension Dictionary where Key == ConstraintAttribute, Value == Constrai
     subscript (all keys: [Key]) -> [Value] {
         return keys.map { self[$0] }.compactMap {$0}
     }
-
 }
+
 extension View {
     public var constraintMap: ConstraintAttributeMap {
         return constraintsRelated(to: self).heirarchy[self] ?? [ : ]
@@ -111,7 +123,7 @@ extension View {
 internal extension View {
 
     func nearestCommonSuperviewWith(other: View) -> View? {
-        return self.viewHierarchy().intersection(other.self.viewHierarchy()).first
+        return self.viewHierarchy().intersection(other.viewHierarchy()).first
     }
 
     func viewHierarchy() -> Set<View> {

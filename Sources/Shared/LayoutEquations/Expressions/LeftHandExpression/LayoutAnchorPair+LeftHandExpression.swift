@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension LayoutAnchorPair: LeftHandLayoutExpression, CoefficientsEquatable {
+extension LayoutAnchorPair: LeftHandLayoutExpression, CoefficientEquatable {
 
     public typealias LinearEquation = LayoutAnchorPairEquation<FA, SA>
 

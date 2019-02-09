@@ -14,6 +14,11 @@ precedencegroup PriorityPrecedence {
 
 infix operator ~ : PriorityPrecedence
 
+// MARK: Equality
+public func == (lhs: LayoutPriority, rhs: LayoutPriority) -> Bool {
+    return lhs.rawValue == rhs.rawValue
+}
+
 @discardableResult
 public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutCoefficient {
     return LayoutCoefficient().with(constant: lhs).priority(rhs)
@@ -41,7 +46,6 @@ public func ~ (lhs: LayoutInset, rhs: LayoutPriority) -> EdgeAnchorsGroupCoeffic
     return lhs.priority(rhs)
 }
 
-// MARK: Equality
-public func == (lhs: LayoutPriority, rhs: LayoutPriority) -> Bool {
-    return lhs.rawValue == rhs.rawValue
+public func ~ (lhs: ContentSizePriorityAnchor, rhs: LayoutPriority) {
+    return lhs.priority(rhs)
 }

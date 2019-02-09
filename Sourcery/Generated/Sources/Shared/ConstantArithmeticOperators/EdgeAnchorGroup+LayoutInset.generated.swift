@@ -19,6 +19,16 @@ public func .- (lhs: EdgeAnchorGroup, rhs: LayoutInset) -> EdgeAnchorGroupExpres
     return lhs.minus(inset: rhs)
 }
 
+@discardableResult
+public func .+ (lhs: EdgeAnchorGroupExpression, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
+    return lhs.plus(inset: rhs)
+}
+
+@discardableResult
+public func .- (lhs: EdgeAnchorGroupExpression, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
+    return lhs.minus(inset: rhs)
+}
+
 extension EdgeAnchorGroupExpression {
     var topExpression: YAxisAnchorExpression { return top .+ coefficients.top }
     var leadingExpression: XAxisAnchorExpression { return leading .+ coefficients.leading }

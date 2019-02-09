@@ -48,6 +48,8 @@ public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
 
 // MARK: Layout Configuration
 public typealias LayoutConstant = CGFloat
+public typealias LayoutConstantTuple = (first: LayoutConstant, second: LayoutConstant)
+
 public typealias LayoutMultiplier = LayoutConstantWrapper
 public typealias LayoutDivisor = LayoutConstant
 

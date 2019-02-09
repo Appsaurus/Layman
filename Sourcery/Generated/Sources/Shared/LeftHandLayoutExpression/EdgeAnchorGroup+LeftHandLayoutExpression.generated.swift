@@ -9,7 +9,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension EdgeAnchorGroup: LeftHandLayoutExpression, CoefficientsEquatable {
+extension EdgeAnchorGroup: LeftHandLayoutExpression, CoefficientEquatable {
     public typealias LinearEquation = EdgeAnchorGroupEquation
 
     public func relation(_ relation: Relation, _ rhs: EdgeAnchorGroup) -> LinearEquation {

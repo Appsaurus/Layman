@@ -36,5 +36,6 @@ public final class LayoutAnchorPairEquation<F: AnchorVariable, S: AnchorVariable
 }
 
 extension LayoutAnchorPairEquation: LinearEquation {
+
     public typealias Expression = LayoutAnchorPairExpression<F, S>
 }

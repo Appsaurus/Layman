@@ -1,5 +1,5 @@
 PODS:
-  - UILayoutKit (0.0.6)
+  - UILayoutKit (0.0.8)
 
 DEPENDENCIES:
   - UILayoutKit (from `../../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  UILayoutKit: aa310dbbbe9f8775941ae60790f647c3d929089c
+  UILayoutKit: 3b5f54d8c25d08cfc722c57f9b73868bf8169dc1
 
-PODFILE CHECKSUM: 8943574b3a9c9900893fd7e1324e289a174d61ad
+PODFILE CHECKSUM: 27f14949f438fa749326d52bed29fcc2d7831ff1
 
 COCOAPODS: 1.5.3
