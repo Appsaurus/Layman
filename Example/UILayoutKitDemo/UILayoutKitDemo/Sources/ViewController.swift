@@ -21,6 +21,7 @@ public enum LayoutExample: CaseIterable {
     case edges
     case edgesInset
     case corners
+    case percentage
     case stack
     case nestedStack
 }
@@ -115,17 +116,28 @@ class LayoutExampleViewController: UIViewController {
         case .edges:
             view1.edges .= container.edges .+ 10
         case .edgesInset:
-            view1.edges .= container.edges .+ LayoutInset(top: 25, left: 50, bottom: 75, right: 100)
+            view1.edges .= container.edges .+ LayoutInset(top: 75, left: 10, bottom: 75, right: 100)
         case .corners:
             [view1, view2, view3, view4].size .= 100
             view1.topLeft .= container.topLeft .+ 10
             view2.topRight .= container.topRight .+ 10
             view3.bottomRight .= container.bottomRight .+ 10
             view4.bottomLeft .= container.bottomLeft .+ 10
+        case .percentage:
+            view1.size .= (100, 100)
+            view2.size .= view1.size .* 50%
+            view3.size .= view2.size .* 50%
+            view4.size .= view3.size .* 50%
+            stackView
+                .stack(view1, view2, view3, view4)
+                .on(.horizontal)
+                .align(.center)
+                .spacing(20)
         case .stack:
             [view1, view2, view3, view4].size .= 100
             stackView.alignment = .center
             stackView.axis = .vertical
+            stackView.distribution = .fill
             print("DIST: \(stackView.distribution.rawValue)")
             stackView.stack(
                 view1,
@@ -137,25 +149,22 @@ class LayoutExampleViewController: UIViewController {
                 view4
             )
         case .nestedStack:
-
-
-
             stackView.alignment = .center
             stackView.axis = .vertical
 
-            view1.size .= 250
-            [view2, view3].size .= 250 / 2.0
-            [view4, view5, view6].size .= 200 / 3.0
-            [view7, view8, view9, view10].size .= 150 / 4.0
+            view1.size .= 300
+            [view2, view3].size .= 140
+            [view4, view5, view6].size .= 80
+            [view7, view8, view9, view10].size .= 45
 
             stackView.stack(
                 view1,
                 20,
-                [view2, 50, view3],
-                20,
-                [view4, 50, view5, 50, view6],
-                20,
-                [view7, 50, view8, 50, view9, 50, view10]
+                [view2, 20, view3],
+                30,
+                [view4, 30, view5, 30, view6],
+                40,
+                [view7, 40, view8, 40, view9, 40, view10]
             )
         }
     }

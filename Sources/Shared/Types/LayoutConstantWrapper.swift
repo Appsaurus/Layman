@@ -16,10 +16,10 @@ public struct LayoutConstantWrapper {
 
 // MARK: Anchor
 public class LayoutAnchorWrapper<A: AnchorType> {
-    var view: View
+    var anchorable: LayoutAnchorable
     var anchor: LayoutAnchor<A>
-    public init(view: View, anchor: LayoutAnchor<A>) {
+    public init(anchorable: LayoutAnchorable, anchor: LayoutAnchor<A>) {
         self.anchor = anchor
-        self.view = view
+        self.anchorable = anchorable
     }
 }

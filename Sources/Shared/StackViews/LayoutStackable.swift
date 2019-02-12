@@ -66,11 +66,13 @@ extension SideConstraints: LayoutStackableBacked {
 
 extension StackView {
 
-    public func stack(_ items: LayoutStackable...) {
-        stack(items)
+    @discardableResult
+    public func stack(_ items: LayoutStackable...) -> StackView {
+        return stack(items)
     }
 
-    public func stack(_ items: [LayoutStackable]) {
+    @discardableResult
+    public func stack(_ items: [LayoutStackable]) -> StackView{
         for item in items {
             switch item {
             case let stackableArray as [LayoutStackable]:
@@ -85,13 +87,14 @@ extension StackView {
             default: break
             }
         }
+        return self
     }
 
 }
 
 extension Array {
     @discardableResult
-    public func stack(_ layout: StackView.Layout? = nil) -> StackView {
+    public func stack(_ layout: StackLayout? = nil) -> StackView {
         let stackView = StackView()
         if let layout = layout { stackView.layout = layout }
         guard let items = self as? [LayoutStackable] else { return stackView }

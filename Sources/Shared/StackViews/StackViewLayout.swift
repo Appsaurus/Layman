@@ -1,91 +1,129 @@
 //
-//  Layout.swift
+//  StackLayout.swift
 //  UILayoutKit
 //
 //  Created by Brian Strobach on 2/11/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension StackView {
-    public class Layout {
+public protocol StackLayoutBuilder {
+    func on(_ axis: Constraint.Axis) -> Self
+    func distribute(_ distribution: StackView.Distribution) -> Self
+    func align(_ alignment: StackView.Alignment) -> Self
+    func spacing(_ spacing: LayoutConstant) -> Self
+}
 
-        public var axis: Constraint.Axis? = .vertical
-        public var distribution: StackView.Distribution? = .fill
-        public var alignment: StackView.Alignment? = .fill
-        public var spacing: LayoutConstant? = defaultSpacing
+extension StackView: StackLayoutBuilder {
+    @discardableResult
+    public func on(_ axis: Constraint.Axis) -> Self {
+        self.axis = axis
+        return self
+    }
 
-        static public var defaultSpacing: LayoutConstant? = 10.0
+    @discardableResult
+    public func distribute(_ distribution: StackView.Distribution) -> Self {
+        self.distribution = distribution
+        return self
+    }
 
-        public static func on(_ axis: Constraint.Axis) -> Layout {
-            return Layout().on(axis)
-        }
-        public static func distribute(_ distribution: StackView.Distribution) -> Layout {
-            return Layout().distribute(distribution)
-        }
-        public static func align(_ alignment: StackView.Alignment) -> Layout {
-            return Layout().align(alignment)
-        }
-        public static func spacing(_ spacing: LayoutConstant) -> Layout {
-            return Layout().spacing(spacing)
-        }
+    @discardableResult
+    public func align(_ alignment: StackView.Alignment) -> Self {
+        self.alignment = alignment
+        return self
+    }
 
-        public func on(_ axis: Constraint.Axis) -> Layout {
-            self.axis = axis
-            return self
-        }
-        public func distribute(_ distribution: StackView.Distribution) -> Layout {
-            self.distribution = distribution
-            return self
-        }
-        public func align(_ alignment: StackView.Alignment) -> Layout {
-            self.alignment = alignment
-            return self
-        }
-        public func spacing(_ spacing: LayoutConstant) -> Layout {
-            self.spacing = spacing
-            return self
-        }
+    @discardableResult
+    public func spacing(_ spacing: LayoutConstant) -> Self {
+        self.spacing = spacing
+        return self
+    }
+}
 
-        //Horizontal
-        static public var fillHorizontal: Layout {
-            return Layout.on(.horizontal).distribute(.fill).align(.fill)
-        }
-        static public var fillEquallyHorizontal: Layout {
-            return Layout.on(.horizontal).distribute(.fillEqually).align(.fill)
-        }
-        static public var fillProportionatelyHorizontal: Layout {
-            return Layout.on(.horizontal).distribute(.fillProportionally).align(.center)
-        }
-        static public var equalSpacingHorizontal: Layout {
-            return Layout.on(.horizontal).distribute(.equalSpacing).align(.leading)
-        }
+public class StackLayout {
 
-        //Vertical
-        static public var fillVertical: Layout {
-            return Layout.on(.vertical).distribute(.fill).align(.fill)
-        }
-        static public var fillEquallyVertical: Layout {
-            return Layout.on(.vertical).distribute(.fillEqually).align(.fill)
-        }
-        static public var fillProportionatelyVertical: Layout {
-            return Layout.on(.vertical).distribute(.fillProportionally).align(.fill)
-        }
-        static public var equalSpacingVertical: Layout {
-            return Layout.on(.vertical).distribute(.equalSpacing).align(.leading)
-        }
+    public var axis: Constraint.Axis? = .vertical
+    public var distribution: StackView.Distribution? = .fill
+    public var alignment: StackView.Alignment? = .fill
+    public var spacing: LayoutConstant? = defaultSpacing
+
+    static public var defaultSpacing: LayoutConstant? = 10.0
+
+    public static func on(_ axis: Constraint.Axis) -> StackLayout {
+        return StackLayout().on(axis)
+    }
+    public static func distribute(_ distribution: StackView.Distribution) -> StackLayout {
+        return StackLayout().distribute(distribution)
+    }
+    public static func align(_ alignment: StackView.Alignment) -> StackLayout {
+        return StackLayout().align(alignment)
+    }
+    public static func spacing(_ spacing: LayoutConstant) -> StackLayout {
+        return StackLayout().spacing(spacing)
+    }
+
+    @discardableResult
+    public func on(_ axis: Constraint.Axis) -> StackLayout {
+        self.axis = axis
+        return self
+    }
+
+    @discardableResult
+    public func distribute(_ distribution: StackView.Distribution) -> StackLayout {
+        self.distribution = distribution
+        return self
+    }
+
+    @discardableResult
+    public func align(_ alignment: StackView.Alignment) -> StackLayout {
+        self.alignment = alignment
+        return self
+    }
+
+    @discardableResult
+    public func spacing(_ spacing: LayoutConstant) -> StackLayout {
+        self.spacing = spacing
+        return self
+    }
+
+    //Horizontal
+    static public var fillHorizontal: StackLayout {
+        return StackLayout.on(.horizontal).distribute(.fill).align(.fill)
+    }
+    static public var fillEquallyHorizontal: StackLayout {
+        return StackLayout.on(.horizontal).distribute(.fillEqually).align(.fill)
+    }
+    static public var fillProportionatelyHorizontal: StackLayout {
+        return StackLayout.on(.horizontal).distribute(.fillProportionally).align(.center)
+    }
+    static public var equalSpacingHorizontal: StackLayout {
+        return StackLayout.on(.horizontal).distribute(.equalSpacing).align(.center)
+    }
+
+    //Vertical
+    static public var fillVertical: StackLayout {
+        return StackLayout.on(.vertical).distribute(.fill).align(.fill)
+    }
+    static public var fillEquallyVertical: StackLayout {
+        return StackLayout.on(.vertical).distribute(.fillEqually).align(.fill)
+    }
+    static public var fillProportionatelyVertical: StackLayout {
+        return StackLayout.on(.vertical).distribute(.fillProportionally).align(.fill)
+    }
+    static public var equalSpacingVertical: StackLayout {
+        return StackLayout.on(.vertical).distribute(.equalSpacing).align(.leading)
     }
 }
 
 extension StackView {
 
-    public convenience init(layout: Layout, arrangedSubviews: [View] = []) {
+    public convenience init(layout: StackLayout, arrangedSubviews: [View] = []) {
         self.init(arrangedSubviews: arrangedSubviews)
         self.layout = layout
     }
 
-    public var layout: Layout {
+    public var layout: StackLayout {
         get {
-            return Layout
+            return StackLayout
                 .on(axis)
                 .align(alignment)
                 .distribute(distribution)

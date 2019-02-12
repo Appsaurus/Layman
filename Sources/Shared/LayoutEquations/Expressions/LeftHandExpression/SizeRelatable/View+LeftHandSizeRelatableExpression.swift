@@ -43,3 +43,13 @@ extension View: CoefficientsEquatable {
         return self.relation(relation, LayoutCoefficientPair(rhs.copy()))
     }
 }
+
+extension View: LeftHandLayoutExpression {
+    public func relation(_ relation: Relation, _ rhs: View) -> LayoutDimensionPairRelationship {
+        return self.relation(relation, LayoutDimensionPairExpression(variable: rhs.sizeAnchors))
+    }
+
+    public func relation(_ relation: Relation, _ rhs: LayoutDimensionPairExpression) -> LayoutDimensionPairRelationship {
+        return self.size.relation(relation, rhs)
+    }
+}
