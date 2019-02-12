@@ -29,18 +29,18 @@ extension Constraint {
                 constant: LayoutConstant = 0.0,
                 multiplier: LayoutConstant = 1.0,
                 priority: LayoutPriority = .required,
-                invertTrailing: Bool = false,
                 file: StaticString = #file,
                 line: UInt = #line) {
         assertIdentical(firstItem, self.firstItem, file: file, line: line)
         XCTAssertEqual(firstAttribute, self.firstAttribute, file: file, line: line)
         let inverted = firstAttribute?.isCategory(.trailing) == true
-        let possiblyInvertedRelation = inverted ? relation.inverted : relation
-        XCTAssertEqual(possiblyInvertedRelation, self.relation, file: file, line: line)
+        let relation = inverted ? relation.inverted : relation
+        let constant = inverted ? -constant : constant
+        XCTAssertEqual(relation, self.relation, file: file, line: line)
         assertIdentical(secondItem, self.secondItem, file: file, line: line)
         XCTAssertEqual(secondAttribute, self.secondAttribute, file: file, line: line)
-        let possiblyInvertedConstant = inverted ? -constant : constant
-        XCTAssertEqual(possiblyInvertedConstant, self.constant, accuracy: cgEpsilon, file: file, line: line)
+
+        XCTAssertEqual(constant, self.constant, accuracy: cgEpsilon, file: file, line: line)
         XCTAssertEqual(multiplier, self.multiplier, accuracy: cgEpsilon, file: file, line: line)
         XCTAssertEqual(priority.rawValue, self.priority.rawValue, accuracy: fEpsilon, file: file, line: line)
         XCTAssertTrue(isActive, file: file, line: line)
@@ -56,7 +56,6 @@ extension Array where Element: Constraint {
                 constant: LayoutConstant = 0.0,
                 multiplier: LayoutConstant = 1.0,
                 priority: LayoutPriority = .required,
-                invertTrailing: Bool = false,
                 file: StaticString = #file,
                 line: UInt = #line) {
         XCTAssertEqual(count, items.count)
@@ -64,7 +63,6 @@ extension Array where Element: Constraint {
                                         constant: constant,
                                         multiplier: multiplier,
                                         priority: priority,
-                                        invertTrailing: invertTrailing,
                                         file: file,
                                         line: line)}
     }
