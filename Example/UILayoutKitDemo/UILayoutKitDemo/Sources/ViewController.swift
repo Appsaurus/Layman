@@ -143,7 +143,7 @@ class LayoutExampleViewController: UIViewController {
             stackView.alignment = .center
             stackView.axis = .vertical
 
-            view1.size .= 300
+            view1.size .= 250
             [view2, view3].size .= 250 / 2.0
             [view4, view5, view6].size .= 200 / 3.0
             [view7, view8, view9, view10].size .= 150 / 4.0

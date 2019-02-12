@@ -26,6 +26,14 @@ extension Constraint {
         return secondItem as? View
     }
 
+    public var firstLayoutGuide: LayoutGuide? {
+        return firstItem as? LayoutGuide
+    }
+
+    public var secondLayoutGuide: LayoutGuide? {
+        return secondItem as? LayoutGuide
+    }
+
     @discardableResult
     public func activated(with coefficients: LayoutCoefficient) -> Constraint {
         return configured(with: coefficients).activated()

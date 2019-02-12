@@ -24,3 +24,7 @@ let con = view2.greaterThanOrEqual(to: 10%)
 con.first.labeled("conman")
 print(con.first)
 print(con.second)
+
+let guideCon = parent.margins.top.equal(to: view1.margins.bottom)
+(guideCon.secondItem as? UILayoutGuide)?.owningView
+print("\(guideCon.firstItem)")

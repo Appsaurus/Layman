@@ -59,6 +59,61 @@ public protocol LayoutAnchorable: XYAxisAnchorable, SizeAnchorable {}
 
 public protocol BaselineLayoutAnchorable: LayoutAnchorable, BaselineAnchorable {}
 
+public protocol LayoutAnchorableBacked: LayoutAnchorable {
+    var backingLayoutAnchorable: LayoutAnchorable { get }
+}
+
+// For chaining multiple calls with inferred receiver
+extension Constraint: LayoutAnchorable {}
+extension ConstraintPair: LayoutAnchorable {}
+extension SideConstraints: LayoutAnchorable {}
+
+extension LayoutAnchorableBacked {
+    public var leadingAnchor: XAxisAnchor {
+        return backingLayoutAnchorable.leadingAnchor
+    }
+
+    public var trailingAnchor: XAxisAnchor {
+        return backingLayoutAnchorable.trailingAnchor
+    }
+
+    public var leftAnchor: XAxisAnchor {
+        return backingLayoutAnchorable.leftAnchor
+    }
+
+    public var rightAnchor: XAxisAnchor {
+        return backingLayoutAnchorable.rightAnchor
+    }
+
+    public var topAnchor: YAxisAnchor {
+        return backingLayoutAnchorable.topAnchor
+    }
+
+    public var bottomAnchor: YAxisAnchor {
+        return backingLayoutAnchorable.bottomAnchor
+    }
+
+    public var widthAnchor: LayoutDimension {
+        return backingLayoutAnchorable.widthAnchor
+    }
+
+    public var heightAnchor: LayoutDimension {
+        return backingLayoutAnchorable.heightAnchor
+    }
+
+    public var centerXAnchor: XAxisAnchor {
+        return backingLayoutAnchorable.centerXAnchor
+    }
+
+    public var centerYAnchor: YAxisAnchor {
+        return backingLayoutAnchorable.centerYAnchor
+    }
+
+    public var layoutMarginsGuide: LayoutGuide {
+        return backingLayoutAnchorable.layoutMarginsGuide
+    }
+}
+
 public enum LayoutSideAttribute {
     case top
     case leading
@@ -121,34 +176,19 @@ extension SizeAnchorable {
 extension View: BaselineLayoutAnchorable {}
 
 extension LayoutGuide: LayoutAnchorable {
+    
     public var layoutMarginsGuide: LayoutGuide {
         return self
     }
 }
 
-extension ViewController: BaselineLayoutAnchorable {
+extension ViewController: BaselineLayoutAnchorable, LayoutAnchorableBacked {
 
-    private var backingLayoutAnchorable: LayoutAnchorable {
+    public var backingLayoutAnchorable: LayoutAnchorable {
         guard #available(iOS 11.0, *) else {
             return view
         }
         return view.safeAreaLayoutGuide
-    }
-
-    public var leadingAnchor: XAxisAnchor {
-        return backingLayoutAnchorable.leadingAnchor
-    }
-
-    public var trailingAnchor: XAxisAnchor {
-        return backingLayoutAnchorable.trailingAnchor
-    }
-
-    public var leftAnchor: XAxisAnchor {
-        return backingLayoutAnchorable.leftAnchor
-    }
-
-    public var rightAnchor: XAxisAnchor {
-        return backingLayoutAnchorable.rightAnchor
     }
 
     public var topAnchor: YAxisAnchor {
@@ -165,22 +205,6 @@ extension ViewController: BaselineLayoutAnchorable {
         return backingLayoutAnchorable.bottomAnchor
     }
 
-    public var widthAnchor: LayoutDimension {
-        return backingLayoutAnchorable.widthAnchor
-    }
-
-    public var heightAnchor: LayoutDimension {
-        return backingLayoutAnchorable.heightAnchor
-    }
-
-    public var centerXAnchor: XAxisAnchor {
-        return backingLayoutAnchorable.centerXAnchor
-    }
-
-    public var centerYAnchor: YAxisAnchor {
-        return backingLayoutAnchorable.centerYAnchor
-    }
-
     public var lastBaselineAnchor: YAxisAnchor {
         return view.lastBaselineAnchor
     }
@@ -188,11 +212,6 @@ extension ViewController: BaselineLayoutAnchorable {
     public var firstBaselineAnchor: YAxisAnchor {
         return view.firstBaselineAnchor
     }
-
-    public var layoutMarginsGuide: LayoutGuide {
-        return view.layoutMarginsGuide
-    }
-
 }
 
 extension Array where Element: XYAxisAnchorable {
