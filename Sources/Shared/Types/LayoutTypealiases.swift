@@ -12,6 +12,7 @@ public typealias View = NSView
 internal typealias Window = NSWindow
 internal typealias ViewController = NSViewController
 public typealias LayoutGuide = NSLayoutGuide
+public typealias StackView = NSStackView
 
 #else
 import UIKit
@@ -19,15 +20,16 @@ public typealias View = UIView
 internal typealias Window = UIWindow
 internal typealias ViewController = UIViewController
 public typealias LayoutGuide = UILayoutGuide
+public typealias StackView = UIStackView
 
 #endif
 
 // MARK: Constraint
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
-public typealias ConstraintPair = LayoutModelReferencePair<Constraint>
+public class ConstraintPair: LayoutModelReferencePair<Constraint> {}
 public typealias ConstraintPairs = [ConstraintPair]
-public typealias SideConstraints = SidesTuple<Constraint, Constraint>
+public class SideConstraints: SidesTuple<Constraint, Constraint> {}
 
 // MARK: Attribute
 public typealias ConstraintAttribute = Constraint.Attribute

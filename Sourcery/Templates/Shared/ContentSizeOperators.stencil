@@ -1,0 +1,22 @@
+//  sourcery:file:Sources/Shared/AspectRatio/ContentSizeOperators
+//
+//  ContentSizeOperators.swift
+//  UILayoutKit
+//
+//  Created by Brian Strobach on 1/17/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+//
+{% set equal argument.operators.equal %}
+
+import Foundation
+
+@discardableResult
+public func {{equal}} (lhs: ContentSizeAnchor, rhs: View) -> Constraint {
+    return lhs {{equal}} ContentSizeConfiguration(rhs)
+}
+
+@discardableResult
+public func {{equal}} (lhs: ContentSizeAnchor, rhs: ContentSizeConfiguration) -> Constraint {
+
+}
+// sourcery:end

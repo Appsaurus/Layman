@@ -34,7 +34,7 @@ extension Constraint {
                 line: UInt = #line) {
         assertIdentical(firstItem, self.firstItem, file: file, line: line)
         XCTAssertEqual(firstAttribute, self.firstAttribute, file: file, line: line)
-        let inverted = invertTrailing && secondAttribute?.isCategory(.trailing) == true
+        let inverted = firstAttribute?.isCategory(.trailing) == true
         let possiblyInvertedRelation = inverted ? relation.inverted : relation
         XCTAssertEqual(possiblyInvertedRelation, self.relation, file: file, line: line)
         assertIdentical(secondItem, self.secondItem, file: file, line: line)

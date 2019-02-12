@@ -30,6 +30,11 @@ extension XYAxisAnchorable {
     public var centerY: YAxisAnchor { return centerYAnchor }
     public var centerXY: XYAxesAnchorPair { return centerAnchors }
 
+    public var topLeading: XYAxesAnchorPair { return topLeadingAnchors }
+    public var topTrailing: XYAxesAnchorPair { return topTrailingAnchors }
+    public var bottomTrailing: XYAxesAnchorPair { return bottomTrailingAnchors }
+    public var bottomLeading: XYAxesAnchorPair { return bottomLeadingAnchors }
+
     public var topLeft: XYAxesAnchorPair { return topLeftAnchors }
     public var topRight: XYAxesAnchorPair { return topRightAnchors }
     public var bottomRight: XYAxesAnchorPair { return bottomRightAnchors }
@@ -64,6 +69,11 @@ extension Array where Element: XYAxisAnchorable {
     public var centerX: XAxisAnchors { return map { $0.centerX } }
     public var centerY: YAxisAnchors { return map { $0.centerY } }
     public var centerXY: XYAxesAnchorPairs { return map { $0.centerXY } }
+
+    public var topLeading: XYAxesAnchorPairs { return map { $0.topLeading } }
+    public var topTrailing: XYAxesAnchorPairs { return map { $0.topTrailing } }
+    public var bottomTrailing: XYAxesAnchorPairs { return map { $0.bottomTrailing } }
+    public var bottomLeading: XYAxesAnchorPairs { return map { $0.bottomLeading } }
 
     public var topLeft: XYAxesAnchorPairs { return map { $0.topLeft } }
     public var topRight: XYAxesAnchorPairs { return map { $0.topRight } }

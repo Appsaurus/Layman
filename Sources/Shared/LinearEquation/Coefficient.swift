@@ -14,14 +14,15 @@ public protocol CoefficientMutating {
     func set(multiplier: Multiplier)
     func set(priority: Priority)
 
-    static func constant(_ constant: Constant) -> Self
-    static func multiplier(_ multiplier: Multiplier) -> Self
-    static func priority(_ priority: Priority) -> Self
-    static var `default`: Self { get }
+//    static func constant(_ constant: Constant) -> Self
+//    static func multiplier(_ multiplier: Multiplier) -> Self
+//    static func priority(_ priority: Priority) -> Self
+    init()
 
 }
 
 extension CoefficientMutating {
+    static public var `default`: Self { return .init() }
 
     public func with(constant: Constant) -> Self {
         set(constant: constant)
@@ -37,16 +38,6 @@ extension CoefficientMutating {
         set(priority: priority)
         return self
     }
-}
-
-public protocol CoefficientReferencing: CoefficientMutating {
-    var constant: Constant { get set }
-    var multiplier: Multiplier? { get set }
-    var priority: Priority { get set }
-    init()
-}
-
-extension CoefficientReferencing {
 
     public static func constant(_ constant: Constant) -> Self {
         return Self().with(constant: constant)
@@ -57,4 +48,11 @@ extension CoefficientReferencing {
     public static func priority(_ priority: Priority) -> Self {
         return Self().priority(priority)
     }
+}
+
+public protocol CoefficientModel: CoefficientMutating {
+    var constant: Constant { get set }
+    var multiplier: Multiplier? { get set }
+    var priority: Priority { get set }
+
 }

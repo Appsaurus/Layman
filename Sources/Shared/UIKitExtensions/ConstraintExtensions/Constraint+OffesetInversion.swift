@@ -30,7 +30,7 @@ extension Constraint {
                           constant: constant).priority(priority)
     }
     public var invertedAsInset: Constraint {
-        guard firstAttribute.isCategory(.trailing), secondAttribute.isCategory(.trailing) else { return self }
+        guard firstAttribute.isCategory(.trailing) else { return self }
         return self.withInvertedRelationship.invertConstant()
     }
 }

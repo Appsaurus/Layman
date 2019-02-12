@@ -25,7 +25,7 @@ public final class LayoutAnchorPairEquation<F: AnchorVariable, S: AnchorVariable
 
     public var solution: ConstraintPair {
         let relationships = layoutRelationships
-        return ConstraintPair(relationships.0.constraint, relationships.1.constraintInvertedAsInset)
+        return ConstraintPair(relationships.0.constraint, relationships.1.constraint)
     }
 
     private var layoutRelationships: (LayoutAnchorEquation<F>, LayoutAnchorEquation<S>) {

@@ -9,30 +9,16 @@
 public protocol CoefficientsReferencing: class {
     associatedtype Coefficients: CoefficientMutating
     var coefficients: Coefficients { get set }
-}
-public protocol Expression: CoefficientsReferencing{
-
-    associatedtype Variable
-    var variable: Variable { get set }
-
     func with(coefficients: Coefficients) -> Self
     func with(constant: Coefficients.Constant) -> Self
     func times(_ multiplier: Coefficients.Multiplier) -> Self
     func priority(_ priority: Coefficients.Priority) -> Self
 }
 
-
-
-extension Expression {
+extension CoefficientsReferencing {
     @discardableResult
     public func with(coefficients: Coefficients) -> Self {
         self.coefficients = coefficients
-        return self
-    }
-
-    @discardableResult
-    public func priority(_ priority: Coefficients.Priority) -> Self {
-        coefficients.set(priority: priority)
         return self
     }
 
@@ -47,4 +33,16 @@ extension Expression {
         coefficients.set(multiplier: multiplier)
         return self
     }
+
+    @discardableResult
+    public func priority(_ priority: Coefficients.Priority) -> Self {
+        coefficients.set(priority: priority)
+        return self
+    }
+}
+
+public protocol Expression: CoefficientsReferencing {
+
+    associatedtype Variable
+    var variable: Variable { get set }
 }

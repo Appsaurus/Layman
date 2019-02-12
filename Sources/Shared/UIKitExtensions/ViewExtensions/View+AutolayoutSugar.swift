@@ -76,6 +76,15 @@ extension Collection where Element == Constraint {
     }
 }
 
+internal extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
+    internal func merging(with constraintHeirarchy: ConstraintAttributeMap) -> ConstraintAttributeMap {
+        return self.merging(constraintHeirarchy) { (constraints, otherConstraints) -> Constraints in
+            return constraints + otherConstraints
+        }
+
+    }
+}
+
 internal extension Dictionary where Key == View, Value == ConstraintAttributeMap {
     internal func merging(with constraintHeirarchy: ConstraintHeirarchy) -> ConstraintHeirarchy {
         return self.merging(constraintHeirarchy) { (map, otherMap) -> ConstraintAttributeMap in

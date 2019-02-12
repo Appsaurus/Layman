@@ -30,6 +30,11 @@ public protocol XYAxisAnchorable {
     var centerYAnchor: YAxisAnchor { get }
     var centerAnchors: XYAxesAnchorPair { get }
 
+    var topLeadingAnchors: XYAxesAnchorPair { get }
+    var topTrailingAnchors: XYAxesAnchorPair { get }
+    var bottomTrailingAnchors: XYAxesAnchorPair { get }
+    var bottomLeadingAnchors: XYAxesAnchorPair { get }
+
     var topLeftAnchors: XYAxesAnchorPair { get }
     var topRightAnchors: XYAxesAnchorPair { get }
     var bottomRightAnchors: XYAxesAnchorPair { get }
@@ -81,6 +86,11 @@ extension XYAxisAnchorable {
         return XYAxesAnchorPair(centerXAnchor, centerYAnchor)
     }
 
+    public var topLeadingAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leadingAnchor, topAnchor) }
+    public var topTrailingAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(trailingAnchor, topAnchor) }
+    public var bottomTrailingAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(trailingAnchor, bottomAnchor) }
+    public var bottomLeadingAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leadingAnchor, bottomAnchor) }
+
     public var topLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, topAnchor) }
     public var topRightAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, topAnchor) }
     public var bottomRightAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, bottomAnchor) }
@@ -97,11 +107,6 @@ extension XYAxisAnchorable {
             edgeExpression.trailingExpression.coefficients.active = false
         case .bottom:
             edgeExpression.bottomExpression.coefficients.active = false
-        default:
-            if isTestOrDebug {
-                preconditionFailure("EdgeAnchorGroup only includes top, leading, bottom and trailing edges. Cannot exclude \(edge)")
-            }
-            return edgeExpression
         }
         return edgeExpression
     }
@@ -113,15 +118,12 @@ extension SizeAnchorable {
     }
 }
 
-extension View: BaselineLayoutAnchorable {
+extension View: BaselineLayoutAnchorable {}
 
-}
-
-extension UILayoutGuide: LayoutAnchorable {
+extension LayoutGuide: LayoutAnchorable {
     public var layoutMarginsGuide: LayoutGuide {
         return self
     }
-
 }
 
 extension ViewController: BaselineLayoutAnchorable {

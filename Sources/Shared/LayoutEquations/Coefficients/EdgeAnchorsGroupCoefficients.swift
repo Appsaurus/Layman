@@ -7,21 +7,21 @@
 //
 
 public final class EdgeAnchorsGroupCoefficients: SidesTuple<LayoutCoefficient, LayoutCoefficient> {
-    public static var `default`: EdgeAnchorsGroupCoefficients { return .init(.default) }
+    public convenience init() { self.init(.default) }
 }
 
 extension EdgeAnchorsGroupCoefficients: CoefficientMutating {
 
-    public static func constant(_ constant: LayoutConstant) -> EdgeAnchorsGroupCoefficients {
-        return EdgeAnchorsGroupCoefficients(.constant(constant))
-    }
-    public static func multiplier(_ multiplier: LayoutMultiplier) -> EdgeAnchorsGroupCoefficients {
-        return EdgeAnchorsGroupCoefficients(.multiplier(multiplier))
-    }
-    public static func priority(_ priority: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
-        return EdgeAnchorsGroupCoefficients(.priority(priority))
-    }
-    
+//    public static func constant(_ constant: LayoutConstant) -> EdgeAnchorsGroupCoefficients {
+//        return EdgeAnchorsGroupCoefficients().with(constant: constant)
+//    }
+//    public static func multiplier(_ multiplier: LayoutMultiplier) -> EdgeAnchorsGroupCoefficients {
+//        return EdgeAnchorsGroupCoefficients().times(multiplier)
+//    }
+//    public static func priority(_ priority: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
+//        return EdgeAnchorsGroupCoefficients().priority(priority)
+//    }
+//    
     public func set(constant: LayoutConstant) {
         all.forEach { $0.set(constant: constant) }
     }

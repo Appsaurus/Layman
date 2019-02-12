@@ -12,6 +12,12 @@ precedencegroup LabelPrecedence {
 }
 
 infix operator ~~ : LabelPrecedence
+
+@discardableResult
+public func ~~ <V: View>(lhs: V, rhs: String) -> V {
+    return lhs.labeled(rhs, nil, nil)
+}
+
 @discardableResult
 public func ~~ (lhs: Constraint, rhs: String) -> Constraint {
     return lhs.labeled(rhs, nil, nil)

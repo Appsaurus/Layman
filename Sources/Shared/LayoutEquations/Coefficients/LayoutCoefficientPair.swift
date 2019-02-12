@@ -7,29 +7,13 @@
 //
 
 public final class LayoutCoefficientPair: LayoutModelReferencePair<LayoutCoefficient> {
-    public static var `default`: LayoutCoefficientPair { return .init(.default) }
-
+    public convenience init() { self.init(.default) }
     public static func size(_ size: LayoutSize) -> LayoutCoefficientPair {
         return LayoutCoefficientPair(.constant(size.width), .constant(size.height))
     }
 }
 
 extension LayoutCoefficientPair: CoefficientMutating {
-    public static func constant(_ constant: LayoutConstant) -> LayoutCoefficientPair {
-        return LayoutCoefficientPair(.constant(constant))
-    }
-
-    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutCoefficientPair {
-        return LayoutCoefficientPair(.multiplier(multiplier))
-    }
-
-    public static func multiplier(_ multiplier: LayoutConstant) -> LayoutCoefficientPair {
-        return .multiplier(LayoutMultiplier(multiplier))
-    }
-
-    public static func priority(_ priority: LayoutPriority) -> LayoutCoefficientPair {
-        return LayoutCoefficientPair(.priority(priority))
-    }
 
     public func set(constant: LayoutConstant) {
         first.set(constant: constant)
@@ -49,5 +33,11 @@ extension LayoutCoefficientPair: CoefficientMutating {
     public func set(divisor: LayoutDivisor) {
         first.set(divisor: divisor)
         second.set(divisor: divisor)
+    }
+}
+
+extension LayoutCoefficientPair {
+    public static func multiplier(_ multiplier: LayoutMultiplier) -> LayoutCoefficientPair {
+        return LayoutCoefficientPair(.multiplier(multiplier))
     }
 }

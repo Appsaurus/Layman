@@ -24,14 +24,15 @@ public final class LayoutAnchorEquation<A: AnchorVariable> {
     }
 
     public var constraint: Constraint {
-        guard coefficients.active else { return inactiveConstraint }
-        return inactiveConstraint.activated()
+        let invertedConstraint = inactiveConstraint.invertedAsInset
+        guard coefficients.active else { return invertedConstraint }
+        return invertedConstraint.activated()
     }
 
     public var constraintInvertedAsInset: Constraint {
-        let invertestConstraint = inactiveConstraint.invertedAsInset
-        guard coefficients.active else { return invertestConstraint }
-        return invertestConstraint.activated()
+        let invertedConstraint = inactiveConstraint.invertedAsInset
+        guard coefficients.active else { return invertedConstraint }
+        return invertedConstraint.activated()
 
     }
 

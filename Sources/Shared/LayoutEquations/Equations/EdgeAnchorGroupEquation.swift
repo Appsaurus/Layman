@@ -29,7 +29,7 @@ public final class EdgeAnchorGroupEquation {
         }
 
         guard let superview = variable.top.view?.superview else {
-            preconditionFailure("Attempted to create an Edge Achor constraint without a related ")
+            preconditionFailure("Attempted to create an Edge Anchor constraint without a related view.")
         }
 
         return constraintRelated(to: superview.edgeAnchors)
@@ -39,8 +39,8 @@ public final class EdgeAnchorGroupEquation {
         return SideConstraints(
             variable.top.relation(relation, relatedVariable.top).with(coefficients: coefficients.top).constraint,
             variable.leading.relation(relation, relatedVariable.leading).with(coefficients: coefficients.leading).constraint,
-            variable.bottom.relation(relation, relatedVariable.bottom).with(coefficients: coefficients.bottom).constraintInvertedAsInset,
-            variable.trailing.relation(relation, relatedVariable.trailing).with(coefficients: coefficients.trailing).constraintInvertedAsInset
+            variable.bottom.relation(relation, relatedVariable.bottom).with(coefficients: coefficients.bottom).constraint,
+            variable.trailing.relation(relation, relatedVariable.trailing).with(coefficients: coefficients.trailing).constraint
         )
     }
 

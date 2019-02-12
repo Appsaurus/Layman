@@ -31,9 +31,14 @@ public func ~ (lhs: LayoutMultiplier, rhs: LayoutPriority) -> LayoutCoefficient 
 
 @discardableResult
 public func ~ (lhs: LayoutSize, rhs: LayoutPriority) -> LayoutCoefficientPair {
+    return (lhs.width, lhs.height) ~ rhs
+}
+
+@discardableResult
+public func ~ (lhs: LayoutConstantTuple, rhs: LayoutPriority) -> LayoutCoefficientPair {
     return LayoutCoefficientPair(
-        LayoutCoefficient().with(constant: lhs.width).priority(rhs),
-        LayoutCoefficient().with(constant: lhs.height).priority(rhs)
+        LayoutCoefficient().with(constant: lhs.first).priority(rhs),
+        LayoutCoefficient().with(constant: lhs.second).priority(rhs)
     )
 }
 

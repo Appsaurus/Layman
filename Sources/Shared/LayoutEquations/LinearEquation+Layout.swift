@@ -6,21 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension CoefficientReferencing where Multiplier == LayoutMultiplier {
-    public static func multiplier(_ multiplier: LayoutConstant) -> Self {
-        return Self().times(LayoutMultiplier(multiplier))
-    }
-}
-extension CoefficientMutating where Multiplier == LayoutMultiplier {
-    public func divided(by divisor: LayoutDivisor) -> Self {
-        return times((1.0 / divisor))
-    }
-
-    public func times(_ multiplier: LayoutConstant) -> Self {
-        return times(LayoutMultiplier(multiplier))
-    }
-}
-
 extension LayoutSizeEquatable {
     public typealias LayoutSize = UILayoutKit.LayoutSize
     public typealias LayoutCoefficientPair = UILayoutKit.LayoutCoefficientPair
@@ -43,58 +28,59 @@ extension LinearEquation where Relation == Constraint.Relation {
     }
 }
 
-
-
-
-//public typealias LayoutExpressionProtocol = Expression & LayoutCoefficientReferencing
-//
-//public protocol LayoutCoefficientReferencing: class, CoefficientMutating & CoefficientReferencing where Constant == LayoutConstant, Multiplier == LayoutMultiplier{
-//    var priority: LayoutPriority { get set }
-//    func set(priority: LayoutPriority)
-//    func priority(_ priority: LayoutPriority) -> Self
-//}
-//
-//extension LayoutCoefficientReferencing {
-//    public static func priority(_ priority: LayoutPriority) -> Self {
-//        return Self().priority(priority)
-//    }
-//
-//    public func priority(_ priority: LayoutPriority) -> Self {
-//        set(priority: priority)
-//        return self
-//    }
-//
-//}
-
-extension Expression where Coefficients == LayoutCoefficient {
+extension Expression where Coefficients: CoefficientModel, Coefficients.Priority == LayoutPriority {
     public func set(priority: LayoutPriority) {
         self.coefficients.priority = priority
     }
-
 }
 
-extension LayoutAnchorPairExpression{
-    public func set(priority: LayoutPriority) {
-        self.coefficients.set(priority: priority)
+extension CoefficientModel where Multiplier == LayoutMultiplier {
+    @discardableResult
+    public func divided(by divisor: LayoutDivisor) -> Self {
+        set(divisor: divisor)
+        return self
     }
 
-    public func priority(_ priority: LayoutPriority) -> Self {
-        set(priority: priority)
+    public func set(divisor: LayoutDivisor) {
+        set(multiplier: LayoutMultiplier(multiplier?.value ?? 1.0 / divisor))
+    }
+}
+
+extension CoefficientMutating where Multiplier == LayoutMultiplier {
+    public static func multiplier(_ multiplier: LayoutConstant) -> Self {
+        return .multiplier(LayoutMultiplier(multiplier))
+    }
+
+//    public func divided(by divisor: LayoutDivisor) -> Self {
+//        return times((1.0 / divisor))
+//    }
+
+//    public func times(_ multiplier: LayoutConstant) -> Self {
+//        return times(LayoutMultiplier(multiplier))
+//    }
+}
+
+extension CoefficientsReferencing where Coefficients.Multiplier == LayoutMultiplier {
+    @discardableResult
+    public func times(_ multiplier: LayoutMultiplier) -> Self {
+        coefficients.set(multiplier: multiplier)
+        return self
+    }
+
+    @discardableResult
+    public func times(_ multiplier: LayoutConstant) -> Self {
+        return times(LayoutMultiplier(multiplier))
+    }
+}
+
+extension CoefficientsReferencing where Coefficients: CoefficientModel, Coefficients.Multiplier == LayoutMultiplier {
+    @discardableResult
+    public func divided(by divisor: LayoutDivisor) -> Self {
+        coefficients.set(divisor: divisor)
         return self
     }
 }
 
-
-extension EdgeAnchorGroupExpression {
-    public func set(priority: LayoutPriority) {
-        self.coefficients.set(priority: priority)
-    }
-
-    public func priority(_ priority: LayoutPriority) -> Self {
-        set(priority: priority)
-        return self
-    }
-}
 //
 //extension LayoutCoefficient {
 //    public func set(priority: LayoutPriority) {

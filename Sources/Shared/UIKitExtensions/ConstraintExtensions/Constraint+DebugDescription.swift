@@ -18,7 +18,11 @@ extension Constraint {
 
         var description = ""
         if let firstItem = self.firstItem {
-            description += "\(descriptionForObject(firstItem))"
+            var itemDescription = "\(descriptionForObject(firstItem))"
+            if firstView == secondView?.superview {
+                itemDescription = "Super\(itemDescription.lowercasingFirstLetter())"
+            }
+            description += itemDescription
         }
 
         if self.firstAttribute != .notAnAttribute {
@@ -28,7 +32,10 @@ extension Constraint {
         description += " \(descriptionForRelation(self.relation))"
 
         if let secondItem = self.secondItem {
-            description += " \(descriptionForObject(secondItem))"
+            var itemDescription = "\(descriptionForObject(secondItem))"
+            if secondView == firstView?.superview {
+                itemDescription = "Super\(itemDescription.lowercasingFirstLetter())"
+            }
         }
 
         if self.secondAttribute != .notAnAttribute {
@@ -138,4 +145,14 @@ private func descriptionForObject(_ object: AnyObject) -> String {
         }()
     }
     return "\(debugInfo.name)"
+}
+
+extension String {
+    func lowercasingFirstLetter() -> String {
+        return prefix(1).lowercased() + self.dropFirst()
+    }
+
+    mutating func lowercaseFirstLetter() {
+        self = self.lowercasingFirstLetter()
+    }
 }

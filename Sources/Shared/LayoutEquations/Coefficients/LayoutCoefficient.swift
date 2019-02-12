@@ -17,9 +17,6 @@ public final class LayoutCoefficient {
 }
 
 extension LayoutCoefficient {
-    public static var `default`: LayoutCoefficient {
-        return .init()
-    }
 
     public func with(active: Bool) -> LayoutCoefficient {
         self.active = active
@@ -27,7 +24,7 @@ extension LayoutCoefficient {
     }
 }
 
-extension LayoutCoefficient: CoefficientReferencing {
+extension LayoutCoefficient: CoefficientModel {
 
     public func set(constant: LayoutConstant) {
         self.constant = constant
@@ -43,7 +40,7 @@ extension LayoutCoefficient: CoefficientReferencing {
     }
 }
 
-extension CoefficientReferencing where Multiplier == LayoutMultiplier {
+extension LayoutCoefficient {
     public func set(divisor: LayoutDivisor) {
         let dividend = multiplier?.value ?? 1.0
         set(multiplier: LayoutMultiplier(dividend / divisor))
