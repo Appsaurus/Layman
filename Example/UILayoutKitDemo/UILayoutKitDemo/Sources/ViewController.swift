@@ -28,7 +28,7 @@ public enum LayoutExample: CaseIterable {
 
 class LayoutExampleViewController: UIViewController {
     var layout: LayoutExample
-    let container = View()
+    let container = DashedBorderView(borderColor: mediumGrayBorder)
     lazy var view1 = createView() ~~ "view1"
     lazy var view2 = createView() ~~ "view2"
     lazy var view3 = createView() ~~ "view3"
@@ -42,7 +42,6 @@ class LayoutExampleViewController: UIViewController {
     lazy var stackView: StackView = {
         let stackView = StackView() ~~ "StackView"
         container.addSubview(stackView)
-        stackView.backgroundColor = .purple
         stackView.centerXY .= container.centerXY
         stackView.enforceContentSize()
         return stackView
@@ -74,8 +73,8 @@ class LayoutExampleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(container)
-        view.backgroundColor = .red
-        container.backgroundColor = .blue
+        view.backgroundColor = .white
+        container.backgroundColor = lightGrayBackground
 
 
         edgesForExtendedLayout = []
@@ -149,7 +148,9 @@ class LayoutExampleViewController: UIViewController {
                 view4
             )
         case .nestedStack:
-            stackView.alignment = .center
+//            stackView.alignment = .center
+            print("ALIGNMENT: \(stackView.alignment)")
+            print("ALIGNMENT: \(stackView.alignment == .fill)")
             stackView.axis = .vertical
 
             view1.size .= 300
@@ -170,11 +171,11 @@ class LayoutExampleViewController: UIViewController {
     }
 
     func createView() -> View{
-        let view = View()
-        view.backgroundColor = .green
+        let view = DashedBorderView()
+//        view.backgroundColor = .green
         container.addSubview(view)
-        view.layer.borderColor = UIColor.orange.cgColor
-        view.layer.borderWidth = 2.0
+//        view.layer.borderColor = UIColor.orange.cgColor
+//        view.layer.borderWidth = 2.0
         return view
     }
 }
@@ -237,15 +238,17 @@ public struct RowDataSource{
 
 class DashedBorderView: UIView {
 
-    var cornerRadius: CGFloat = 4
-    var borderColor: UIColor = UIColor.black
-    var dashPaintedSize: Int = 2
+    var cornerRadius: CGFloat = 5
+    var borderColor: UIColor = slateBlack
+    var dashPaintedSize: Int = 3
     var dashUnpaintedSize: Int = 2
 
     let dashedBorder = CAShapeLayer()
+    let label = UILabel()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    public required init(borderColor: UIColor? = nil) {
+        super.init(frame: .zero)
+        if let borderColor = borderColor { self.borderColor = borderColor }
         commonInit()
     }
 
@@ -258,19 +261,43 @@ class DashedBorderView: UIView {
         //custom initialization
         self.layer.addSublayer(dashedBorder)
         applyDashBorder()
+        addSubview(label)
+        label.topLeading .= topLeading .+ 3
+        label.enforceContentSize()
+        label.backgroundColor = borderColor
+        label.textColor = .white
+        label.clipsToBounds = true
+        label.layer.cornerRadius = cornerRadius
+        label.height .= 20.0
+
+
     }
 
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
         applyDashBorder()
+        label.text = layoutDebugInfo?.name
+//        label.layer.cornerRadius = label.frame.height / 2.0
     }
 
     func applyDashBorder() {
         dashedBorder.strokeColor = borderColor.cgColor
         dashedBorder.lineDashPattern = [NSNumber(value: dashPaintedSize), NSNumber(value: dashUnpaintedSize)]
         dashedBorder.fillColor = nil
-        dashedBorder.cornerRadius = cornerRadius
-        dashedBorder.path = UIBezierPath(rect: self.bounds).cgPath
+        dashedBorder.path = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath
         dashedBorder.frame = self.bounds
+    }
+}
+
+
+
+private let lightGrayBackground: UIColor = UIColor(r: 250, g: 250, b: 250)
+private let lightGrayBorder: UIColor = UIColor(r: 240, g: 240, b: 240)
+private let slateBlack: UIColor = UIColor(r: 51, g: 51, b: 51)
+private let mediumGrayBorder: UIColor = UIColor(r: 214, g: 214, b: 214)
+
+extension UIColor{
+    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 255) {
+        self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: a / 255)
     }
 }

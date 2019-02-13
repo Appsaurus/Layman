@@ -32,7 +32,7 @@ private struct AssociatedKeys {
 }
 
 public struct LayoutDebugInfo {
-    let name: String
+    public let name: String
     var sourceLocation: (file: String, line: UInt)?
 
     public init(name: String, file: String? = nil, line: UInt? = nil) {

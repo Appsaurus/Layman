@@ -41,12 +41,12 @@ extension StackView: StackLayoutBuilder {
 
 public class StackLayout {
 
-    public var axis: Constraint.Axis? = .vertical
-    public var distribution: StackView.Distribution? = .fill
-    public var alignment: StackView.Alignment? = .fill
+    public var axis: Constraint.Axis? // StackView's default: .horizontal
+    public var distribution: StackView.Distribution? // StackView's default: .fill
+    public var alignment: StackView.Alignment? // StackView's default: .fill
     public var spacing: LayoutConstant? = defaultSpacing
 
-    static public var defaultSpacing: LayoutConstant? = 10.0
+    static public var defaultSpacing: LayoutConstant? = nil
 
     public static func on(_ axis: Constraint.Axis) -> StackLayout {
         return StackLayout().on(axis)
@@ -103,14 +103,20 @@ public class StackLayout {
     static public var fillVertical: StackLayout {
         return StackLayout.on(.vertical).distribute(.fill).align(.fill)
     }
+
     static public var fillEquallyVertical: StackLayout {
         return StackLayout.on(.vertical).distribute(.fillEqually).align(.fill)
     }
     static public var fillProportionatelyVertical: StackLayout {
         return StackLayout.on(.vertical).distribute(.fillProportionally).align(.fill)
     }
+
     static public var equalSpacingVertical: StackLayout {
         return StackLayout.on(.vertical).distribute(.equalSpacing).align(.leading)
+    }
+
+    static public var fillVerticalCenter: StackLayout {
+        return StackLayout.on(.vertical).distribute(.fill).align(.center)
     }
 }
 
