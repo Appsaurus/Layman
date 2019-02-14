@@ -3,7 +3,7 @@
 
 //
 //  EdgeAnchorGroup+LayoutVariable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -23,5 +23,9 @@ extension EdgeAnchorGroup: LayoutVariable {
 
     public func priority(_ priority: LayoutPriority) -> EdgeAnchorGroupExpression {
         return EdgeAnchorGroupExpression(variable: self).priority(priority)
+    }
+
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> EdgeAnchorGroupExpression {
+        return EdgeAnchorGroupExpression(variable: self).plus(relativeConstant)
     }
 }

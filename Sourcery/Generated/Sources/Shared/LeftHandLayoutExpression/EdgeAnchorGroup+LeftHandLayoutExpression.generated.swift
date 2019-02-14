@@ -3,7 +3,7 @@
 
 //
 //  EdgeAnchorGroup+LeftHandLayoutExpression.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -29,6 +29,10 @@ extension EdgeAnchorGroup: LeftHandLayoutExpression, CoefficientEquatable {
     }
 
     public func relation(_ relation: Relation, _ rhs: Coefficient) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: Relation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }

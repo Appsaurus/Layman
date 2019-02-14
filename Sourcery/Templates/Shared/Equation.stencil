@@ -2,15 +2,15 @@
 {% set RelationshipType %}{{argument.equationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
 //  sourcery:file:Sources/Shared/EquationProtocols/{{EquationProtocol}}/{{EquationProtocol}}
 //
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/22/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol {{EquationProtocol}}: LinearEquationTyped where LinearEquation.Relation == Constraint.Relation {
+public protocol {{EquationProtocol}}: LinearEquationTyped where LinearEquation.Relation == LayoutRelation {
 {% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"] %}
-    func relation(_ relation: Constraint.Relation, _ rhs: {{RightHandType}}) -> LinearEquation
+    func relation(_ relation: LayoutRelation, _ rhs: {{RightHandType}}) -> LinearEquation
 {% endfor %}
 }
 {% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"]  %}

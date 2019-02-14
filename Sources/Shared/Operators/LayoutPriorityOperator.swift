@@ -1,6 +1,6 @@
 //
 //  LayoutPriorityOperator.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/3/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -47,7 +47,7 @@ public func ~ (lhs: LayoutAspectRatio, rhs: LayoutPriority) -> LayoutAspectRatio
 }
 
 @discardableResult
-public func ~ (lhs: LayoutInset, rhs: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
+public func ~ (lhs: LayoutPadding, rhs: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
     return lhs.priority(rhs)
 }
 

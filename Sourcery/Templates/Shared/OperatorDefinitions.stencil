@@ -1,7 +1,7 @@
 //  sourcery:file:Sources/Shared/OperatorDefinitions
 //
 //  OperatorDefinitions.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -47,4 +47,13 @@ infix operator {{multiplication}} : MultiplicationPrecedence
 {% if division != '/' %}
 infix operator {{division}} : MultiplicationPrecedence
 {% endif %}
+
+// MARK: Group Operators
+
+// Inset Inequality Operator
+infix operator {{greaterThanOrEqual}}{{lessThanOrEqual}}  : RelationPrecedence
+
+
+infix operator {{lessThanOrEqual}}{{greaterThanOrEqual}} : RelationPrecedence
+
 // sourcery:end

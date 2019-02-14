@@ -1,15 +1,15 @@
 //
 //  LayoutLinearEquation.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/23/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
 extension LayoutSizeEquatable {
-    public typealias LayoutSize = UILayoutKit.LayoutSize
-    public typealias LayoutCoefficientPair = UILayoutKit.LayoutCoefficientPair
-    public typealias LayoutConstant = UILayoutKit.LayoutConstant
+    public typealias LayoutSize = Layman.LayoutSize
+    public typealias LayoutCoefficientPair = Layman.LayoutCoefficientPair
+    public typealias LayoutConstant = Layman.LayoutConstant
 }
 
 extension LeftHandLayoutExpression where LayoutVariable == Self {
@@ -22,9 +22,15 @@ extension LeftHandLayoutExpression where LayoutVariable == Self {
     }
 }
 
-extension LinearEquation where Relation == Constraint.Relation {
+extension LinearEquation where Relation == LayoutRelation {
     public init(variable: Variable, coefficients: Coefficients) {
         self.init(variable, .equal, nil, coefficients)
+    }    
+}
+
+extension LinearEquation where Relation == LayoutRelation, Coefficients == LayoutCoefficient {
+    public init(_ variable: Variable, _ relation: Relation, _ relativeConstant: RelativeLayoutConstant) {
+        self.init(variable, relation, nil, Coefficients().with(relativeConstant: relativeConstant))
     }
 }
 
@@ -51,13 +57,6 @@ extension CoefficientMutating where Multiplier == LayoutMultiplier {
         return .multiplier(LayoutMultiplier(multiplier))
     }
 
-//    public func divided(by divisor: LayoutDivisor) -> Self {
-//        return times((1.0 / divisor))
-//    }
-
-//    public func times(_ multiplier: LayoutConstant) -> Self {
-//        return times(LayoutMultiplier(multiplier))
-//    }
 }
 
 extension CoefficientsReferencing where Coefficients.Multiplier == LayoutMultiplier {
@@ -81,14 +80,30 @@ extension CoefficientsReferencing where Coefficients: CoefficientModel, Coeffici
     }
 }
 
-//
-//extension LayoutCoefficient {
-//    public func set(priority: LayoutPriority) {
-//        self.priority = priority
-//    }
-//
-//    public func priority(_ priority: LayoutPriority) -> Self {
-//        set(priority: priority)
-//        return self
-//    }
-//}
+
+extension CoefficientsReferencing where Coefficients: LayoutCoefficient {
+    public typealias RelativeConstant = Relative<Coefficients.Constant>
+
+    @discardableResult
+    public func with(constantRelativity: LayoutConstantRelativity) -> Self {
+        coefficients.constantRelativity = constantRelativity
+        return self
+    }
+
+    public func plus(_ relativeConstant: RelativeConstant) -> Self {
+        coefficients.set(relativeConstant)
+        return self
+    }
+
+    @discardableResult
+    public func inset(_ constant: LayoutConstant) -> Self {
+        coefficients.set(RelativeConstant(relativity: .inset, constant: constant))
+        return self
+    }
+
+    @discardableResult
+    public func outset(_ constant: LayoutConstant) -> Self {
+        coefficients.set(RelativeConstant(relativity: .outset, constant: constant))
+        return self
+    }
+}

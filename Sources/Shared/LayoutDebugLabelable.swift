@@ -1,6 +1,6 @@
 //
 //  LayoutDebugLabelable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 2/6/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -28,7 +28,7 @@ public protocol LayoutDebugLabeled: class, LayoutDebugLabelable {
 }
 
 private struct AssociatedKeys {
-    static var layoutDebugInfo = "UILayoutKit_layoutDebugInfo"
+    static var layoutDebugInfo = "Layman_layoutDebugInfo"
 }
 
 public struct LayoutDebugInfo {

@@ -5,13 +5,15 @@
 {% set subtraction argument.arithmeticOperators.subtraction %}
 {% set multiplication argument.arithmeticOperators.multiplication %}
 {% set division argument.arithmeticOperators.division %}
+{% set insetLessThanOrEqual %}{{greaterThanOrEqual}}{{lessThanOrEqual}}{% endset %}
+{% set outsetGreaterThanOrEqual %}{{lessThanOrEqual}}{{greaterThanOrEqual}}{% endset %}
 
 {% for AnchorType in argument.anchorTypes %}
 {% set Solution %}{{AnchorType}}.Solution{% endset %}
 //  sourcery:file:Sources/Shared/RelationOperators/{{AnchorType}}+RelationOperators
 //
 //  {{AnchorType}}+RelationOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -58,5 +60,31 @@ public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) ->
 public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: Anchor >=< Anchor
+@discardableResult
+public func {{insetLessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
+    return lhs.insetLessThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor >=< Expression
+@discardableResult
+public func {{insetLessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
+    return lhs.insetLessThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor <=> Anchor
+@discardableResult
+public func {{outsetGreaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
+    return lhs.outsetGreaterThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor <=> Expression
+@discardableResult
+public func {{outsetGreaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
+    return lhs.outsetGreaterThanOrEqual(to: rhs)
+}
+
+
 // sourcery:end
 {% endfor %}

@@ -1,6 +1,6 @@
 //
 //  LayoutAnchorEquation.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -9,12 +9,12 @@
 public final class LayoutAnchorEquation<A: AnchorVariable> {
 
     public var variable: LayoutAnchor<A>
-    public var relation: Constraint.Relation
+    public var relation: LayoutRelation
     public var relatedVariable: LayoutAnchor<A>?
     public var coefficients: LayoutCoefficient
 
     public init(_ variable: LayoutAnchor<A>,
-                _ relation: Constraint.Relation,
+                _ relation: LayoutRelation,
                 _ relatedVariable: LayoutAnchor<A>?,
                 _ coefficients: LayoutCoefficient = .default) {
         self.variable = variable
@@ -24,9 +24,8 @@ public final class LayoutAnchorEquation<A: AnchorVariable> {
     }
 
     public var constraint: Constraint {
-        let constraint = inactiveConstraint.invertedAsInset
-        guard coefficients.active else { return constraint }
-        return constraint.activated()
+        guard coefficients.active else { return inactiveConstraint }
+        return inactiveConstraint.activated()
     }
 
     internal var inactiveConstraint: Constraint {
@@ -65,17 +64,21 @@ public final class LayoutAnchorEquation<A: AnchorVariable> {
             return variable.constraint(equalTo: relatedVariable)
         case .greaterThanOrEqual:
             return variable.constraint(greaterThanOrEqualTo: relatedVariable)
+        case .insetLessThanOrEqual:
+           return variable.constraint(greaterThanOrEqualTo: relatedVariable).invertRelationshipIfTrailing
+        case .outsetGreaterThanOrEqual:
+             return variable.constraint(lessThanOrEqualTo: relatedVariable).invertRelationshipIfTrailing
         }
     }
 
     internal func sizeConstraint(for anchor: LayoutDimension) -> Constraint {
         let constraint: Constraint = {
             switch relation {
-            case .lessThanOrEqual:
+            case .lessThanOrEqual, .insetLessThanOrEqual:
                 return anchor.constraint(lessThanOrEqualToConstant: coefficients.constant)
             case .equal:
                 return anchor.constraint(equalToConstant: coefficients.constant)
-            case .greaterThanOrEqual:
+            case .greaterThanOrEqual, .outsetGreaterThanOrEqual:
                 return anchor.constraint(greaterThanOrEqualToConstant: coefficients.constant)
             }
         }()

@@ -1,13 +1,13 @@
 //
 //  LinearEquation.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/20/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
 public protocol LinearEquationTyped {
-    associatedtype LinearEquation: UILayoutKit.LinearEquation
+    associatedtype LinearEquation: Layman.LinearEquation
     typealias RightHandExpression = LinearEquation.Expression
     typealias Solution = LinearEquation.Solution
     typealias LayoutVariable = LinearEquation.Variable
@@ -19,7 +19,7 @@ public protocol LinearEquationTyped {
 }
 
 public protocol LinearEquationSolving {
-    associatedtype Expression: UILayoutKit.Expression
+    associatedtype Expression: Layman.Expression
     associatedtype Solution
     var solution: Solution { get }
 }

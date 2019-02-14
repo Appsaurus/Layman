@@ -1,6 +1,6 @@
 //
 //  Array+LeftHandExpression.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/21/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.

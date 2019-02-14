@@ -3,7 +3,7 @@
 
 //
 //  ViewConstantArithmeticOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -42,4 +42,10 @@ public func .* (lhs: LayoutMultiplier, rhs: View) -> LayoutDimensionPairExpressi
 @discardableResult
 public func ./ (lhs: View, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {
     return lhs.divided(by: rhs)
+}
+
+// MARK: LayoutPadding Constant
+@discardableResult
+public func .+ (lhs: View, rhs: RelativeLayoutPadding) -> EdgeAnchorGroupExpression {
+    return lhs.plus(rhs)
 }

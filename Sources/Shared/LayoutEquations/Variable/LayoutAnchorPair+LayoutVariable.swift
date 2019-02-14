@@ -1,6 +1,6 @@
 //
 //  LayoutAnchorPair+LayoutVariable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/23/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -20,4 +20,9 @@ extension LayoutAnchorPair: LayoutVariable {
         let config = LayoutCoefficientPair(.multiplier(multiplier))
         return RightHandExpression(variable: self, coefficients: config)
     }
+
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression {
+        return RightHandExpression(variable: self).plus(relativeConstant)
+    }
+
 }

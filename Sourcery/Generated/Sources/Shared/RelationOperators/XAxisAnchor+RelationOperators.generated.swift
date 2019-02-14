@@ -3,7 +3,7 @@
 
 //
 //  XAxisAnchor+RelationOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -49,4 +49,28 @@ public func ≥ (lhs: XAxisAnchor, rhs: XAxisAnchor) -> XAxisAnchor.Solution {
 @discardableResult
 public func ≥ (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor >=< Anchor
+@discardableResult
+public func ≥≤ (lhs: XAxisAnchor, rhs: XAxisAnchor) -> XAxisAnchor.Solution {
+    return lhs.insetLessThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor >=< Expression
+@discardableResult
+public func ≥≤ (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
+    return lhs.insetLessThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor <=> Anchor
+@discardableResult
+public func ≤≥ (lhs: XAxisAnchor, rhs: XAxisAnchor) -> XAxisAnchor.Solution {
+    return lhs.outsetGreaterThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor <=> Expression
+@discardableResult
+public func ≤≥ (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
+    return lhs.outsetGreaterThanOrEqual(to: rhs)
 }

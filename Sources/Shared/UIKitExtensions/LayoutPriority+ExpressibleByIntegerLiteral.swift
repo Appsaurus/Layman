@@ -1,6 +1,6 @@
 //
 //  LayoutPriority+ExpressibleByIntegerLiteral.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 2/6/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.

@@ -3,7 +3,7 @@ PODS:
   - CwlPreconditionTesting (1.1.1):
     - CwlCatchException
   - Swiftest (0.0.13)
-  - SwiftLint (0.29.3)
+  - SwiftLint (0.30.1)
   - SwiftTestUtils (0.1.3)
 
 DEPENDENCIES:
@@ -45,9 +45,9 @@ SPEC CHECKSUMS:
   CwlCatchException: 70a52ae44ea5d46db7bd385f801a94942420cd8c
   CwlPreconditionTesting: d33a4e4f285c0b885fddcae5dfedfbb34d4f3961
   Swiftest: c5f3ad14999edc7dda8b8870d7fb05fcb108986a
-  SwiftLint: bfa7ca7b4d170cfaf0d236ca3ffd969e88a2f002
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
   SwiftTestUtils: b8bb7e96dc2e9a356baa42fcee191a049f6f5331
 
-PODFILE CHECKSUM: 175398be27be19e90e218f7b68d6a0379c784c17
+PODFILE CHECKSUM: c084594eef8ab923b0668766d1bc40426fb6ab20
 
 COCOAPODS: 1.5.3

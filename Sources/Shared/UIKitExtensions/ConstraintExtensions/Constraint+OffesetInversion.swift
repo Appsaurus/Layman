@@ -1,6 +1,6 @@
 //
 //  Constraint+OffesetInversion.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 2/6/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -29,7 +29,13 @@ extension Constraint {
                           multiplier: multiplier,
                           constant: constant).priority(priority)
     }
-    public var invertedAsInset: Constraint {
+
+    public var invertRelationshipIfTrailing: Constraint {
+        guard firstAttribute.isCategory(.trailing) else { return self }
+        return self.withInvertedRelationship
+    }
+
+    public var invertedIfTrailing: Constraint {
         guard firstAttribute.isCategory(.trailing) else { return self }
         return self.withInvertedRelationship.invertConstant()
     }

@@ -4,13 +4,13 @@
 import PackageDescription
 
 let package = Package(
-	name: "UILayoutKit",
+	name: "Layman",
 	products: [
-		.library(name: "UILayoutKit", targets: ["UILayoutKit"])
+		.library(name: "Layman", targets: ["Layman"])
 	],
 	dependencies: [],
 	targets: [
-	.target(name: "UILayoutKit", dependencies: [], path: "Sources/Shared"),
-		.testTarget(name: "UILayoutKitTests", dependencies: ["UILayoutKit"], path: "UILayoutKitTests/Shared")
+	.target(name: "Layman", dependencies: [], path: "Sources/Shared"),
+		.testTarget(name: "LaymanTests", dependencies: ["Layman"], path: "LaymanTests/Shared")
 	]
 )

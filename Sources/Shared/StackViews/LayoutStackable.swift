@@ -1,6 +1,6 @@
 //
 //  LayoutStackable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 2/8/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -72,7 +72,7 @@ extension StackView {
     }
 
     @discardableResult
-    public func stack(_ items: [LayoutStackable]) -> StackView{
+    public func stack(_ items: [LayoutStackable]) -> StackView {
         for item in items {
             switch item {
             case let stackableArray as [LayoutStackable]:

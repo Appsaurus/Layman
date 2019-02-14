@@ -26,33 +26,33 @@ extension View {
         return superview!
     }
 
-    public func matchContentSize(of view: View, insets: LayoutInset = .zero) {
+    public func matchContentSize(of view: View, insets: LayoutPadding = .zero) {
 //        return matchContentHeight(of: view).merging(with: matchContentWidth(of: view))
         matchContentHeight(of: view)
         matchContentWidth(of: view)
     }
 
-    public func matchContentWidth(of view: View, insets: LayoutInset = .zero) {
+    public func matchContentWidth(of view: View, insets: LayoutPadding = .zero) {
         view.widthAnchor.greaterThanOrEqual(to: 0.0)
         horizontalEdges.equal(to: view.horizontalEdges)
         view.enforceContentSize()
     }
 
-    public func matchContentHeight(of view: View, insets: LayoutInset = .zero) {
+    public func matchContentHeight(of view: View, insets: LayoutPadding = .zero) {
         view.heightAnchor.greaterThanOrEqual(to: 0.0)
         verticalEdges.equal(to: view.verticalEdges)
         view.enforceContentSize()
     }
 
-    public func forceSuperviewToMatchContentSize(insetBy insets: LayoutInset = .zero) {
+    public func forceSuperviewToMatchContentSize(insetBy insets: LayoutPadding = .zero) {
         assertSuperview().matchContentSize(of: self)
     }
 
-    public func forceSuperviewToMatchContentWidth(insetBy insets: LayoutInset = .zero) {
+    public func forceSuperviewToMatchContentWidth(insetBy insets: LayoutPadding = .zero) {
         assertSuperview().matchContentWidth(of: self)
     }
 
-    public func forceSuperviewToMatchContentHeight(insetBy insets: LayoutInset = .zero) {
+    public func forceSuperviewToMatchContentHeight(insetBy insets: LayoutPadding = .zero) {
         assertSuperview().matchContentHeight(of: self, insets: insets)
     }
 

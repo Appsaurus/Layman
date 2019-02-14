@@ -3,7 +3,7 @@
 
 //
 //  EdgeAnchorGroup+RelationOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -49,4 +49,28 @@ public func ≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.
 @discardableResult
 public func ≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor >=< Anchor
+@discardableResult
+public func ≥≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
+    return lhs.insetLessThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor >=< Expression
+@discardableResult
+public func ≥≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
+    return lhs.insetLessThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor <=> Anchor
+@discardableResult
+public func ≤≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
+    return lhs.outsetGreaterThanOrEqual(to: rhs)
+}
+
+// MARK: Anchor <=> Expression
+@discardableResult
+public func ≤≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
+    return lhs.outsetGreaterThanOrEqual(to: rhs)
 }

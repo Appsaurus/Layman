@@ -2,16 +2,17 @@
 // DO NOT EDIT
 
 //
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/22/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol CoefficientEquatable: LinearEquationTyped where LinearEquation.Relation == Constraint.Relation {
-    func relation(_ relation: Constraint.Relation, _ rhs: Constant) -> LinearEquation
-    func relation(_ relation: Constraint.Relation, _ rhs: Coefficient) -> LinearEquation
-    func relation(_ relation: Constraint.Relation, _ rhs: Multiplier) -> LinearEquation
+public protocol CoefficientEquatable: LinearEquationTyped where LinearEquation.Relation == LayoutRelation {
+    func relation(_ relation: LayoutRelation, _ rhs: Constant) -> LinearEquation
+    func relation(_ relation: LayoutRelation, _ rhs: Coefficient) -> LinearEquation
+    func relation(_ relation: LayoutRelation, _ rhs: Multiplier) -> LinearEquation
+    func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstant) -> LinearEquation
 }
 // MARK: Anchor <=> Constant
 extension CoefficientEquatable {
@@ -262,6 +263,90 @@ extension Collection where Element: CoefficientEquatable {
     // MARK: Collection >= Expression Array
     @discardableResult
     public func greaterThanOrEqual(to rhs: [Element.Multiplier]) -> [[Element.Solution]] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+}
+// MARK: Anchor <=> RelativeLayoutConstant
+extension CoefficientEquatable {
+
+    // MARK: - Equal
+
+    @discardableResult
+    public func equal(to rhs: RelativeLayoutConstant) -> Solution {
+        return relation(.equal, rhs).solution
+    }
+
+    @discardableResult
+    public func equal(to rhs: [RelativeLayoutConstant]) -> [Solution] {
+        return rhs.map { relation(.equal, $0).solution }
+    }
+
+    // MARK: - LessThanOrEqual
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: RelativeLayoutConstant) -> Solution {
+        return relation(.lessThanOrEqual, rhs).solution
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [RelativeLayoutConstant]) -> [Solution] {
+        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: RelativeLayoutConstant) -> Solution {
+        return relation(.greaterThanOrEqual, rhs).solution
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [RelativeLayoutConstant]) -> [Solution] {
+        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+    }
+}
+
+// MARK: Collection <=> RelativeLayoutConstant
+
+extension Collection where Element: CoefficientEquatable {
+    // MARK: - Equal
+    // MARK: Collection == Expression
+    @discardableResult
+    public func equal(to rhs: Element.RelativeLayoutConstant) -> [Element.Solution] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: Collection == Expression Array
+    @discardableResult
+    public func equal(to rhs: [Element.RelativeLayoutConstant]) -> [[Element.Solution]] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: - LessThanOrEqual
+
+    // MARK: Collection <= Expression
+    @discardableResult
+    public func lessThanOrEqual(to rhs: Element.RelativeLayoutConstant) -> [Element.Solution] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: Collection <= Expression Array
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [Element.RelativeLayoutConstant]) -> [[Element.Solution]] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    // MARK: Collection >= Expression
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: Element.RelativeLayoutConstant) -> [Element.Solution] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    // MARK: Collection >= Expression Array
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [Element.RelativeLayoutConstant]) -> [[Element.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }

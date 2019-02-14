@@ -9,7 +9,7 @@
 //  sourcery:file:Sources/Shared/ConstantArithmeticOperators/View+ConstantArithmeticOperators
 //
 //  ViewConstantArithmeticOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -49,4 +49,11 @@ public func {{multiplication}} (lhs: LayoutMultiplier, rhs: View) -> LayoutDimen
 public func {{division}} (lhs: View, rhs: LayoutDivisor) -> LayoutDimensionPairExpression {
     return lhs.divided(by: rhs)
 }
+
+// MARK: LayoutPadding Constant
+@discardableResult
+public func {{addition}} (lhs: View, rhs: RelativeLayoutPadding) -> EdgeAnchorGroupExpression {
+    return lhs.plus(rhs)
+}
+
 // sourcery:end

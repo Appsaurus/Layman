@@ -1,6 +1,6 @@
 //
 //  LayoutAnchorExpression.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -26,4 +26,11 @@ public final class LayoutAnchorExpression<A: AnchorType> {
 extension LayoutAnchorExpression: Expression, CoefficientsReferencing where A: LayoutVariable {
     public typealias Coefficients = LayoutCoefficient
     public typealias Variable = LayoutAnchor<A>
+
+    @discardableResult
+    public func plus(_ relativeConstant: RelativeConstant) -> LayoutAnchorExpression {
+        coefficients.set(relativeConstant)
+        return self
+    }
+
 }

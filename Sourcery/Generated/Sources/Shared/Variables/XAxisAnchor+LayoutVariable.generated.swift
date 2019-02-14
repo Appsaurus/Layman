@@ -3,7 +3,7 @@
 
 //
 //  XAxisAnchor+LayoutVariable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -23,5 +23,9 @@ extension XAxisAnchor: LayoutVariable {
 
     public func priority(_ priority: LayoutPriority) -> XAxisAnchorExpression {
         return XAxisAnchorExpression(variable: self).priority(priority)
+    }
+
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> XAxisAnchorExpression {
+        return XAxisAnchorExpression(variable: self).plus(relativeConstant)
     }
 }

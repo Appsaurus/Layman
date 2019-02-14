@@ -1,6 +1,6 @@
-// UILayoutKit Mac Playground
+// Layman Mac Playground
 
 import Cocoa
-import UILayoutKit
+import Layman
 
 var str = "Hello, playground"

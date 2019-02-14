@@ -3,7 +3,7 @@
 
 //
 //  YAxisAnchor+LayoutVariable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -23,5 +23,9 @@ extension YAxisAnchor: LayoutVariable {
 
     public func priority(_ priority: LayoutPriority) -> YAxisAnchorExpression {
         return YAxisAnchorExpression(variable: self).priority(priority)
+    }
+
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> YAxisAnchorExpression {
+        return YAxisAnchorExpression(variable: self).plus(relativeConstant)
     }
 }

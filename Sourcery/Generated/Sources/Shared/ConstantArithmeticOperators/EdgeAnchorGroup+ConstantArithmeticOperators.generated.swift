@@ -3,7 +3,7 @@
 
 //
 //  EdgeAnchorGroupConstantArithmeticOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -79,4 +79,15 @@ public func .* (lhs: LayoutMultiplier, rhs: EdgeAnchorGroupExpression ) -> EdgeA
 @discardableResult
 public func ./ (lhs: EdgeAnchorGroupExpression, rhs: LayoutDivisor) -> EdgeAnchorGroupExpression {
     return lhs.divided(by: rhs)
+}
+
+// MARK: RelativeConstant
+@discardableResult
+public func .+ (lhs: EdgeAnchorGroup, rhs: RelativeLayoutConstant) -> EdgeAnchorGroupExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func .+ (lhs: EdgeAnchorGroupExpression, rhs: RelativeLayoutConstant) -> EdgeAnchorGroupExpression {
+    return lhs.plus(rhs)
 }

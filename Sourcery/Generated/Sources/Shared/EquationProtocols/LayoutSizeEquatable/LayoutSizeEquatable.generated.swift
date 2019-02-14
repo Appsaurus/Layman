@@ -2,14 +2,14 @@
 // DO NOT EDIT
 
 //
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/22/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol LayoutSizeEquatable: LinearEquationTyped where LinearEquation.Relation == Constraint.Relation {
-    func relation(_ relation: Constraint.Relation, _ rhs: LayoutSize) -> LinearEquation
+public protocol LayoutSizeEquatable: LinearEquationTyped where LinearEquation.Relation == LayoutRelation {
+    func relation(_ relation: LayoutRelation, _ rhs: LayoutSize) -> LinearEquation
 }
 // MARK: Anchor <=> LayoutSize
 extension LayoutSizeEquatable {

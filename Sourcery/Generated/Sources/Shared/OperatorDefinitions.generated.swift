@@ -3,7 +3,7 @@
 
 //
 //  OperatorDefinitions.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -28,3 +28,11 @@ infix operator .- : AdditionPrecedence
 infix operator .* : MultiplicationPrecedence
 
 infix operator ./ : MultiplicationPrecedence
+
+// MARK: Group Operators
+
+// Inset Inequality Operator
+infix operator ≥≤  : RelationPrecedence
+
+
+infix operator ≤≥ : RelationPrecedence

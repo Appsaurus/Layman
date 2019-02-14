@@ -2,7 +2,7 @@
 //  sourcery:file:Sources/Shared/Variables/{{AnchorType}}+LayoutVariable
 //
 //  {{AnchorType}}+LayoutVariable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -22,6 +22,10 @@ extension {{AnchorType}}: LayoutVariable {
 
     public func priority(_ priority: LayoutPriority) -> {{AnchorType}}Expression {
         return {{AnchorType}}Expression(variable: self).priority(priority)
+    }
+
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> {{AnchorType}}Expression {
+        return {{AnchorType}}Expression(variable: self).plus(relativeConstant)
     }
 }
 // sourcery:end

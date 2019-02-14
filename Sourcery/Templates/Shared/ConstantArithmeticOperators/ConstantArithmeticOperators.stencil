@@ -10,7 +10,7 @@
 //  sourcery:file:Sources/Shared/ConstantArithmeticOperators/{{AnchorType}}+ConstantArithmeticOperators
 //
 //  {{AnchorType}}ConstantArithmeticOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -87,6 +87,18 @@ public func {{multiplication}} (lhs: LayoutMultiplier, rhs: {{AnchorType}}Expres
 public func {{division}} (lhs: {{AnchorType}}Expression, rhs: LayoutDivisor) -> {{AnchorType}}Expression {
     return lhs.divided(by: rhs)
 }
+
+// MARK: RelativeConstant
+@discardableResult
+public func .+ (lhs: {{AnchorType}}, rhs: RelativeLayoutConstant) -> {{AnchorType}}Expression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func .+ (lhs: {{AnchorType}}Expression, rhs: RelativeLayoutConstant) -> {{AnchorType}}Expression {
+    return lhs.plus(rhs)
+}
+
 // sourcery:end
 {% endfor %}
 

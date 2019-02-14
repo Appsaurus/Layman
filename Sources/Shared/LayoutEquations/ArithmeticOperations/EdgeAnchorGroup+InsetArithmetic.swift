@@ -1,6 +1,6 @@
 //
 //  EdgeAnchorGroup+ConstantArithmetic.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/19/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -11,37 +11,40 @@ extension EdgeAnchorGroup {
 
     // MARK: UIEdgeInset Constant
     @discardableResult
-    public func plus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
-        return EdgeAnchorGroupExpression(self).plus(inset: inset)
-    }
-
-    @discardableResult
-    public func minus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
-        return EdgeAnchorGroupExpression(self).minus(inset: inset)
+    public func plus(_ relativeLayoutPadding: RelativeLayoutPadding) -> EdgeAnchorGroupExpression {
+        return EdgeAnchorGroupExpression(self).plus(relativeLayoutPadding)
     }
 
 }
+
 extension EdgeAnchorGroupExpression {
 
-    // MARK: UIEdgeInset Constant
     @discardableResult
-    public func plus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
-        let coefficients = EdgeAnchorsGroupCoefficients(
-            .constant(inset.top),
-            .constant(inset.left),
-            .constant(inset.bottom),
-            .constant(inset.right)
-        )
-        return self.with(coefficients: coefficients)
+    public func plus(_ relativeLayoutConstant: RelativeLayoutConstant) -> Self {
+        return plus(LayoutPadding(relativeLayoutConstant.constant).inset)
     }
 
     @discardableResult
-    public func minus(inset: LayoutInset) -> EdgeAnchorGroupExpression {
-        let negatedInset = LayoutInset(top: -inset.top,
-                                       left: -inset.left,
-                                       bottom: -inset.bottom,
-                                       right: -inset.right)
-        return plus(inset: negatedInset)
+    public func plus(_ relativeLayoutPadding: RelativeLayoutPadding) -> Self {
+        coefficients.top.set(constant: relativeLayoutPadding.constant.top)
+        coefficients.top.constantRelativity = relativeLayoutPadding.relativity
+        coefficients.leading.set(constant: relativeLayoutPadding.constant.leading)
+        coefficients.leading.constantRelativity = relativeLayoutPadding.relativity
+        coefficients.bottom.set(constant: relativeLayoutPadding.constant.bottom)
+        coefficients.bottom.constantRelativity = relativeLayoutPadding.relativity
+        coefficients.trailing.set(constant: relativeLayoutPadding.constant.trailing)
+        coefficients.trailing.constantRelativity = relativeLayoutPadding.relativity
+        return self
     }
 
+    @discardableResult
+    public func inset(_ padding: LayoutPadding) -> Self {
+        return self.plus(padding.inset)
+
+    }
+
+    @discardableResult
+    public func outset(_ padding: LayoutPadding) -> Self {
+        return self.plus(padding.outset)
+    }
 }

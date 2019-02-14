@@ -1,6 +1,6 @@
 //
 //  Constraint+LayoutCoefficient.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 2/6/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -14,7 +14,7 @@ extension Constraint {
                                     toItem: secondItem,
                                     attribute: secondAttribute,
                                     multiplier: coefficients.multiplier?.value ?? 1.0,
-                                    constant: coefficients.constant)
+                                    constant: coefficients.relativeConstantValue(for: firstAttribute))
 
         return constraint.priority(coefficients.priority)
     }

@@ -1,6 +1,6 @@
 //
 //  LayoutAnchorPairEquation.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -9,12 +9,12 @@
 public final class LayoutAnchorPairEquation<F: AnchorVariable, S: AnchorVariable> {
 
     public var variable: LayoutAnchorPair<F, S>
-    public var relation: Constraint.Relation
+    public var relation: LayoutRelation
     public var relatedVariable: LayoutAnchorPair<F, S>?
     public var coefficients: LayoutCoefficientPair
 
     public init(_ variable: LayoutAnchorPair<F, S>,
-                _ relation: Constraint.Relation,
+                _ relation: LayoutRelation,
                 _ relatedVariable: LayoutAnchorPair<F, S>?,
                 _ coefficients: LayoutCoefficientPair = .default) {
         self.variable = variable

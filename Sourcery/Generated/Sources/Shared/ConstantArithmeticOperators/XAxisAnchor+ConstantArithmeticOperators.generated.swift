@@ -3,7 +3,7 @@
 
 //
 //  XAxisAnchorConstantArithmeticOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -79,4 +79,15 @@ public func .* (lhs: LayoutMultiplier, rhs: XAxisAnchorExpression ) -> XAxisAnch
 @discardableResult
 public func ./ (lhs: XAxisAnchorExpression, rhs: LayoutDivisor) -> XAxisAnchorExpression {
     return lhs.divided(by: rhs)
+}
+
+// MARK: RelativeConstant
+@discardableResult
+public func .+ (lhs: XAxisAnchor, rhs: RelativeLayoutConstant) -> XAxisAnchorExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func .+ (lhs: XAxisAnchorExpression, rhs: RelativeLayoutConstant) -> XAxisAnchorExpression {
+    return lhs.plus(rhs)
 }

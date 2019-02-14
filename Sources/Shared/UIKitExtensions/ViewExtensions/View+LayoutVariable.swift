@@ -1,6 +1,6 @@
 //
 //  View+LayoutVariable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 2/12/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -20,5 +20,9 @@ extension View: LayoutVariable {
 
     public func priority(_ priority: LayoutPriority) -> RightHandExpression {
         return RightHandExpression(variable: self.size).priority(priority)
+    }
+
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> LayoutDimensionPairExpression {
+        return RightHandExpression(variable: self.size).plus(relativeConstant)
     }
 }

@@ -1,6 +1,6 @@
 //
 //  Utils.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 2/6/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -11,8 +11,9 @@ import Foundation
 internal var isTestOrDebug: Bool {
     #if DEBUG
     return true
-    #endif
+    #else
     return isRunningUnitTests()
+    #endif
 }
 
 // Detect if the app is running unit tests.

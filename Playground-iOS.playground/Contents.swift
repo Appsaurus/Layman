@@ -1,7 +1,7 @@
-// UILayoutKit iOS Playground
+// Layman iOS Playground
 
 import UIKit
-import UILayoutKit
+import Layman
 import XCTest
 
 var str = "Hello, playground"

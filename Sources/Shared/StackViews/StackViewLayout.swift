@@ -1,6 +1,6 @@
 //
 //  StackLayout.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 2/11/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -46,7 +46,7 @@ public class StackLayout {
     public var alignment: StackView.Alignment? // StackView's default: .fill
     public var spacing: LayoutConstant? = defaultSpacing
 
-    static public var defaultSpacing: LayoutConstant? = nil
+    static public var defaultSpacing: LayoutConstant?
 
     public static func on(_ axis: Constraint.Axis) -> StackLayout {
         return StackLayout().on(axis)

@@ -1,6 +1,6 @@
 //
 //  LayoutTypealiases.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/3/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -50,6 +50,7 @@ public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
 
 // MARK: Layout Configuration
 public typealias LayoutConstant = CGFloat
+
 public typealias LayoutConstantTuple = (first: LayoutConstant, second: LayoutConstant)
 
 public typealias LayoutMultiplier = LayoutConstantWrapper
@@ -57,10 +58,8 @@ public typealias LayoutDivisor = LayoutConstant
 
 #if canImport(AppKit)
 public typealias LayoutPriority = Constraint.Priority
-public typealias LayoutInset = NSEdgeInsets
 #else
 public typealias LayoutPriority = UILayoutPriority
-public typealias LayoutInset = UIEdgeInsets
 #endif
 
 // MARK: Layout Constants

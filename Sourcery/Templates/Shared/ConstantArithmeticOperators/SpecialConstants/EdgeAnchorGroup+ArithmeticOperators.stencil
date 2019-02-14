@@ -1,7 +1,7 @@
 //  sourcery:file:Sources/Shared/ConstantArithmeticOperators/EdgeAnchorGroup+LayoutInset
 //
 //  EdgeAnchorGroup+InsetArithmeticOperators.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -10,43 +10,13 @@
 
 // MARK: UIEdgeInset Constant
 @discardableResult
-public func {{addition}} (lhs: EdgeAnchorGroup, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
-    return lhs.plus(inset: rhs)
+public func {{addition}} (lhs: EdgeAnchorGroup, rhs: RelativeLayoutPadding) -> EdgeAnchorGroupExpression {
+    return lhs.plus(rhs)
 }
 
 @discardableResult
-public func {{subtraction}} (lhs: EdgeAnchorGroup, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
-    return lhs.minus(inset: rhs)
+public func {{addition}} (lhs: EdgeAnchorGroupExpression, rhs: RelativeLayoutPadding) -> EdgeAnchorGroupExpression {
+    return lhs.plus(rhs)
 }
 
-@discardableResult
-public func {{addition}} (lhs: EdgeAnchorGroupExpression, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
-    return lhs.plus(inset: rhs)
-}
-
-@discardableResult
-public func {{subtraction}} (lhs: EdgeAnchorGroupExpression, rhs: LayoutInset) -> EdgeAnchorGroupExpression {
-    return lhs.minus(inset: rhs)
-}
-
-extension EdgeAnchorGroupExpression {
-    var topExpression: YAxisAnchorExpression { return top {{addition}} coefficients.top }
-    var leadingExpression: XAxisAnchorExpression { return leading {{addition}} coefficients.leading }
-    var bottomExpression: YAxisAnchorExpression { return bottom {{addition}} coefficients.bottom }
-    var trailingExpression: XAxisAnchorExpression { return trailing {{addition}} coefficients.trailing }
-}
-@discardableResult
-private func {{addition}} (lhs: XAxisAnchor, rhs: LayoutCoefficient) -> XAxisAnchorExpression {
-    return XAxisAnchorExpression(variable: lhs, coefficients: rhs)
-}
-
-@discardableResult
-private func {{addition}} (lhs: YAxisAnchor, rhs: LayoutCoefficient) -> YAxisAnchorExpression {
-    return YAxisAnchorExpression(variable: lhs, coefficients: rhs)
-}
-
-@discardableResult
-private func {{addition}} (lhs: LayoutDimension, rhs: LayoutCoefficient) -> LayoutDimensionExpression {
-    return LayoutDimensionExpression(variable: lhs, coefficients: rhs)
-}
 // sourcery:end

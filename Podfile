@@ -16,13 +16,13 @@ def testShared
     pod 'SwiftTestUtils', :git => 'https://github.com/appsaurus/SwiftTestUtils.git'
 end
 
-target 'UILayoutKit-iOS' do
+target 'Layman-iOS' do
     platform :ios, '9.0'
     shared
     libaryShared
 end
 
-target 'UILayoutKit-iOS-Tests' do
+target 'Layman-iOS-Tests' do
     platform :ios, '9.0'
     shared
     testShared
@@ -30,13 +30,13 @@ target 'UILayoutKit-iOS-Tests' do
     pod 'CwlCatchException', :git => 'https://github.com/mattgallagher/CwlCatchException.git'
 end
 
-target 'UILayoutKit-macOS' do
+target 'Layman-macOS' do
     platform :osx, '10.10'
     shared
     libaryShared
 end
 
-target 'UILayoutKit-macOS-Tests' do
+target 'Layman-macOS-Tests' do
     platform :osx, '10.10'
     shared
     testShared
@@ -44,19 +44,19 @@ target 'UILayoutKit-macOS-Tests' do
     pod 'CwlCatchException', :git => 'https://github.com/mattgallagher/CwlCatchException.git'
 end
 
-target 'UILayoutKit-tvOS' do
+target 'Layman-tvOS' do
     platform :tvos, '11'
     shared
     libaryShared
 end
 
-target 'UILayoutKit-tvOS-Tests' do
+target 'Layman-tvOS-Tests' do
     platform :tvos, '11'
     shared
     testShared
 end
 
-target 'UILayoutKit-watchOS' do
+target 'Layman-watchOS' do
     platform :watchos, '3'
     shared
     libaryShared

@@ -1,6 +1,6 @@
 //
 //  SideCorrelated.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/16/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -63,6 +63,13 @@ public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated {
         self.leading = leading
         self.bottom = bottom
         self.trailing = trailing
+    }
+
+    public convenience init(top: VerticalSideType,
+                            leading: HorizontalSideType,
+                            bottom: VerticalSideType,
+                            trailing: HorizontalSideType) {
+        self.init(top, leading, bottom, trailing)
     }
 
     public init(_ vertical: VerticalSideType,

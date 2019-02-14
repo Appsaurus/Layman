@@ -1,6 +1,6 @@
 //
 //  EdgeAnchorGroupEquation.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/22/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -9,12 +9,12 @@
 public final class EdgeAnchorGroupEquation {
 
     public var variable: EdgeAnchorGroup
-    public var relation: Constraint.Relation
+    public var relation: LayoutRelation
     public var relatedVariable: EdgeAnchorGroup?
     public var coefficients: EdgeAnchorsGroupCoefficients
 
     public init(_ variable: EdgeAnchorGroup,
-                _ relation: Constraint.Relation,
+                _ relation: LayoutRelation,
                 _ relatedVariable: EdgeAnchorGroup?,
                 _ coefficients: EdgeAnchorsGroupCoefficients = .default) {
         self.variable = variable
@@ -24,15 +24,10 @@ public final class EdgeAnchorGroupEquation {
     }
 
     public var constraint: SideConstraints {
-        if let relatedVariable = relatedVariable {
-            return constraintRelated(to: relatedVariable)
-        }
-
-        guard let superview = variable.top.view?.superview else {
+        guard let relatedVariable = relatedVariable ?? variable.top.view?.superview?.edgeAnchors else {
             preconditionFailure("Attempted to create an Edge Anchor constraint without a related view.")
         }
-
-        return constraintRelated(to: superview.edgeAnchors)
+        return constraintRelated(to: relatedVariable)
     }
 
     internal func constraintRelated(to relatedVariable: EdgeAnchorGroup) -> SideConstraints {
@@ -44,6 +39,13 @@ public final class EdgeAnchorGroupEquation {
         )
     }
 
+}
+
+extension EdgeAnchorGroupExpression {
+    var topExpression: YAxisAnchorExpression { return YAxisAnchorExpression(variable: top, coefficients: coefficients.top)}
+    var leadingExpression: XAxisAnchorExpression { return XAxisAnchorExpression(variable: leading, coefficients: coefficients.leading) }
+    var bottomExpression: YAxisAnchorExpression { return YAxisAnchorExpression(variable: bottom, coefficients: coefficients.bottom) }
+    var trailingExpression: XAxisAnchorExpression { return XAxisAnchorExpression(variable: trailing, coefficients: coefficients.trailing) }
 }
 
 extension EdgeAnchorGroupEquation: LinearEquation {

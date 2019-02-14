@@ -3,7 +3,7 @@
 
 //
 //  LayoutDimension+LayoutVariable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -23,5 +23,9 @@ extension LayoutDimension: LayoutVariable {
 
     public func priority(_ priority: LayoutPriority) -> LayoutDimensionExpression {
         return LayoutDimensionExpression(variable: self).priority(priority)
+    }
+
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> LayoutDimensionExpression {
+        return LayoutDimensionExpression(variable: self).plus(relativeConstant)
     }
 }

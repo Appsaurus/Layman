@@ -1,6 +1,6 @@
 //
 //  LayoutVariable.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/21/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -9,7 +9,9 @@
 public protocol LayoutVariable: Variable
 where Multiplier == LayoutMultiplier,
 Constant == LayoutConstant,
-Divisor == LayoutDivisor {}
+Divisor == LayoutDivisor {
+    func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression
+}
 
 extension LayoutVariable {
     public func minus(_ constant: LayoutConstant) -> RightHandExpression {
@@ -24,9 +26,15 @@ extension LayoutVariable {
         return times(1.0 / divisor)
     }
 
-//    public func priority(_ priority: LayoutPriority) -> RightHandExpression {
-//
-//    }
+    public func inset(_ constant: LayoutConstant) -> RightHandExpression {
+        return plus(RelativeLayoutConstant(relativity: .inset, constant: constant))
+    }
+
+    @discardableResult
+    public func outset(_ constant: LayoutConstant) -> RightHandExpression {
+        return plus(RelativeLayoutConstant(relativity: .outset, constant: constant))
+    }
+
 }
 
 //public protocol ExpressionInitable {

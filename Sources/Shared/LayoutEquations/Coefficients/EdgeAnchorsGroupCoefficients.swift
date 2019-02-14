@@ -1,6 +1,6 @@
 //
 //  EdgeAnchorsGroupCoefficients.swift
-//  UILayoutKit
+//  Layman
 //
 //  Created by Brian Strobach on 1/10/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
@@ -21,7 +21,11 @@ extension EdgeAnchorsGroupCoefficients: CoefficientMutating {
 //    public static func priority(_ priority: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
 //        return EdgeAnchorsGroupCoefficients().priority(priority)
 //    }
-//    
+//
+    public func set(constantRelativity: LayoutConstantRelativity) {
+        all.forEach { $0.constantRelativity = constantRelativity }
+    }
+
     public func set(constant: LayoutConstant) {
         all.forEach { $0.set(constant: constant) }
     }
