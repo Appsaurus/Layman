@@ -39,7 +39,6 @@ args:
             - 'YAxisAnchorPair'
             - 'LayoutDimensionPair'
             - 'XYAxesAnchorPair'
-            - 'View'
         RightHandTypes:
             - 'LayoutCoefficientTuple'
             - 'LayoutConstantTuple'

@@ -1,0 +1,16 @@
+PODS:
+  - Layman (0.0.8)
+
+DEPENDENCIES:
+  - Layman (from `../../`)
+
+EXTERNAL SOURCES:
+  Layman:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  Layman: de9e8b36f0e60a87b84d3f24e62a4f200746061c
+
+PODFILE CHECKSUM: 82d625d5a5c2ac3fad71aa87d418b7f588d04f8e
+
+COCOAPODS: 1.5.3

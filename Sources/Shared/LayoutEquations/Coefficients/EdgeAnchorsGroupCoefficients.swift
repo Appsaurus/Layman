@@ -22,9 +22,6 @@ extension EdgeAnchorsGroupCoefficients: CoefficientMutating {
 //        return EdgeAnchorsGroupCoefficients().priority(priority)
 //    }
 //
-    public func set(constantRelativity: LayoutConstantRelativity) {
-        all.forEach { $0.constantRelativity = constantRelativity }
-    }
 
     public func set(constant: LayoutConstant) {
         all.forEach { $0.set(constant: constant) }
@@ -40,5 +37,21 @@ extension EdgeAnchorsGroupCoefficients: CoefficientMutating {
 
     public func set(divisor: LayoutDivisor) {
         all.forEach { $0.set(divisor: divisor) }
+    }
+
+    public func set(relativeConstant: RelativeLayoutConstant) {
+        all.forEach { $0.set(relativeConstant) }
+    }
+
+    public func set(constantRelativity: LayoutConstantRelativity) {
+        all.forEach { $0.constantRelativity = constantRelativity }
+    }
+}
+
+extension EdgeAnchorsGroupCoefficients {
+    @discardableResult
+    public func with(relativeConstant: RelativeLayoutConstant) -> EdgeAnchorsGroupCoefficients {
+        set(relativeConstant: relativeConstant)
+        return self
     }
 }

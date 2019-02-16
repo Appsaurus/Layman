@@ -29,4 +29,13 @@ extension LayoutAnchorPair: LeftHandLayoutExpression, CoefficientEquatable {
     public func relation(_ relation: Relation, _ rhs: Coefficient) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
+
+    public func relation(_ relation: Relation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+}
+
+
+extension LayoutAnchorPair {
+    
 }
