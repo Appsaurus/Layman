@@ -11,11 +11,9 @@ public protocol LinearEquationTyped {
     typealias RightHandExpression = LinearEquation.Expression
     typealias Solution = LinearEquation.Solution
     typealias LayoutVariable = LinearEquation.Variable
-    typealias Relation = LinearEquation.Relation
     typealias Expression = LinearEquation.Expression
     typealias Coefficient = Expression.Coefficients
-    typealias Constant = Coefficient.Constant
-    typealias Multiplier = Coefficient.Multiplier
+    typealias Multiplier = LayoutMultiplier
 }
 
 public protocol LinearEquationSolving {
@@ -34,19 +32,18 @@ extension Array: LinearEquationSolving where Element: LinearEquationSolving {
 }
 
 public protocol LinearEquation: Expression, LinearEquationSolving where Expression.Variable == Variable, Expression.Coefficients == Coefficients {
-    associatedtype Relation
-    var relation: Relation { get set }
+    var relation: LayoutRelation { get set }
     var relatedVariable: Variable? { get set }
-    init(_ variable: Variable, _ relation: Relation, _ relatedExpression: Expression)
-    init(_ variable: Variable, _ relation: Relation, _ relatedVariable: Variable)
-    init(_ variable: Variable, _ relation: Relation, _ relatedVariable: Variable?, _ coefficients: Coefficients)
-    init(_ variable: Variable, _ relation: Relation, _ constant: Coefficients.Constant)
+    init(_ variable: Variable, _ relation: LayoutRelation, _ relatedExpression: Expression)
+    init(_ variable: Variable, _ relation: LayoutRelation, _ relatedVariable: Variable)
+    init(_ variable: Variable, _ relation: LayoutRelation, _ relatedVariable: Variable?, _ coefficients: Coefficients)
+    init(_ variable: Variable, _ relation: LayoutRelation, _ constant: LayoutConstant)
 }
 
 extension LinearEquation {
 
     public init(_ variable: Variable,
-                _ relation: Relation,
+                _ relation: LayoutRelation,
                 _ relatedExpression: Expression) {
         self.init(variable,
                   relation,
@@ -54,24 +51,24 @@ extension LinearEquation {
                   relatedExpression.coefficients)
     }
 
-    public init(_ variable: Variable, _ relation: Relation, _ relatedVariable: Variable) {
+    public init(_ variable: Variable, _ relation: LayoutRelation, _ relatedVariable: Variable) {
         self.init(variable, relation, relatedVariable, .default)
     }
 
-    public init(_ variable: Variable, _ relation: Relation, _ coefficients: Coefficients) {
+    public init(_ variable: Variable, _ relation: LayoutRelation, _ coefficients: Coefficients) {
         self.init(variable, relation, nil, coefficients)
     }
 
     public init(_ variable: Variable,
-                _ relation: Relation,
-                _ constant: Coefficients.Constant) {
+                _ relation: LayoutRelation,
+                _ constant: LayoutConstant) {
         self.init(variable, relation, .constant(constant))
     }
 }
 
 //public protocol CoefficientTyped {
 //    associatedtype Coefficient: CoefficientMutating
-//    typealias Constant = Coefficient.Constant
+//    typealias Constant = LayoutConstant
 //    typealias Multiplier = Coefficient.Multiplier
-//    typealias Divisor = Coefficient.Constant
+//    typealias Divisor = LayoutConstant
 //}

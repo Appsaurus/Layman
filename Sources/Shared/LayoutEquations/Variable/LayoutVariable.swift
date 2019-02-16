@@ -6,10 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol LayoutVariable: Variable
-where Multiplier == LayoutMultiplier,
-Constant == LayoutConstant,
-Divisor == LayoutDivisor {
+public protocol LayoutVariable: Variable {
     func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression
 }
 

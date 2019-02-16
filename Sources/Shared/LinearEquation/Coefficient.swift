@@ -7,12 +7,9 @@
 //
 
 public protocol CoefficientMutating {
-    associatedtype Constant
-    associatedtype Multiplier
-    associatedtype Priority
-    func set(constant: Constant)
-    func set(multiplier: Multiplier)
-    func set(priority: Priority)
+    func set(constant: LayoutConstant)
+    func set(multiplier: LayoutMultiplier)
+    func set(priority: LayoutPriority)
 
 //    static func constant(_ constant: Constant) -> Self
 //    static func multiplier(_ multiplier: Multiplier) -> Self
@@ -24,35 +21,35 @@ public protocol CoefficientMutating {
 extension CoefficientMutating {
     static public var `default`: Self { return .init() }
 
-    public func with(constant: Constant) -> Self {
+    public func with(constant: LayoutConstant) -> Self {
         set(constant: constant)
         return self
     }
 
-    public func times(_ multiplier: Multiplier) -> Self {
+    public func times(_ multiplier: LayoutMultiplier) -> Self {
         set(multiplier: multiplier)
         return self
     }
 
-    public func priority(_ priority: Priority) -> Self {
+    public func priority(_ priority: LayoutPriority) -> Self {
         set(priority: priority)
         return self
     }
 
-    public static func constant(_ constant: Constant) -> Self {
+    public static func constant(_ constant: LayoutConstant) -> Self {
         return Self().with(constant: constant)
     }
-    public static func multiplier(_ multiplier: Multiplier) -> Self {
+    public static func multiplier(_ multiplier: LayoutMultiplier) -> Self {
         return Self().times(multiplier)
     }
-    public static func priority(_ priority: Priority) -> Self {
+    public static func priority(_ priority: LayoutPriority) -> Self {
         return Self().priority(priority)
     }
 }
 
 public protocol CoefficientModel: CoefficientMutating {
-    var constant: Constant { get set }
-    var multiplier: Multiplier? { get set }
-    var priority: Priority { get set }
+    var constant: LayoutConstant { get set }
+    var multiplier: LayoutMultiplier? { get set }
+    var priority: LayoutPriority { get set }
 
 }

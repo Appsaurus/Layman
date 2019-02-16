@@ -10,31 +10,30 @@ extension LayoutAnchorPair: LeftHandLayoutExpression, CoefficientEquatable {
 
     public typealias LinearEquation = LayoutAnchorPairEquation<FA, SA>
 
-    public func relation(_ relation: Relation, _ rhs: LayoutAnchorPair<FA, SA>) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutAnchorPair<FA, SA>) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: RightHandExpression) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: RightHandExpression) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: Constant) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: Multiplier) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutMultiplier) -> LinearEquation {
         return LinearEquation(self, relation, .multiplier(rhs))
     }
 
-    public func relation(_ relation: Relation, _ rhs: Coefficient) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: Coefficient) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }
-
 
 extension LayoutAnchorPair {
     

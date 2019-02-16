@@ -7,57 +7,57 @@
 //  Created by Brian Strobach on 1/22/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
-// MARK: YAxisAnchorPair <=> YAxisAnchorPair.Constant
+// MARK: YAxisAnchorPair <=> LayoutConstant
 
 // MARK: - Equal
 
 @discardableResult
-public func .= (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair.Constant) -> YAxisAnchorPair.Solution {
+public func .= (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPair.Solution {
     return lhs.equal(to: rhs)
 }
 
 @discardableResult
-public func .= (lhs: YAxisAnchorPair, rhs: [YAxisAnchorPair.Constant]) -> [YAxisAnchorPair.Solution] {
+public func .= (lhs: YAxisAnchorPair, rhs: [LayoutConstant]) -> [YAxisAnchorPair.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
 
 @discardableResult
-public func ≤ (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair.Constant) -> YAxisAnchorPair.Solution {
+public func ≤ (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPair.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≤ (lhs: YAxisAnchorPair, rhs: [YAxisAnchorPair.Constant]) -> [YAxisAnchorPair.Solution] {
+public func ≤ (lhs: YAxisAnchorPair, rhs: [LayoutConstant]) -> [YAxisAnchorPair.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
 
 @discardableResult
-public func ≥ (lhs: YAxisAnchorPair, rhs: YAxisAnchorPair.Constant) -> YAxisAnchorPair.Solution {
+public func ≥ (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≥ (lhs: YAxisAnchorPair, rhs: [YAxisAnchorPair.Constant]) -> [YAxisAnchorPair.Solution] {
+public func ≥ (lhs: YAxisAnchorPair, rhs: [LayoutConstant]) -> [YAxisAnchorPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-// MARK: YAxisAnchorPair Array <=> YAxisAnchorPair.Constant
+// MARK: YAxisAnchorPair Array <=> LayoutConstant
 
 // MARK: - Equal
 
 // MARK: Collection == Expression
 @discardableResult
-public func .= (lhs: [YAxisAnchorPair], rhs: YAxisAnchorPair.Constant) -> [YAxisAnchorPair.Solution] {
+public func .= (lhs: [YAxisAnchorPair], rhs: LayoutConstant) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
-public func .= (lhs: [YAxisAnchorPair], rhs: [YAxisAnchorPair.Constant]) -> [[YAxisAnchorPair.Solution]] {
+public func .= (lhs: [YAxisAnchorPair], rhs: [LayoutConstant]) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
@@ -65,13 +65,13 @@ public func .= (lhs: [YAxisAnchorPair], rhs: [YAxisAnchorPair.Constant]) -> [[YA
 
 // MARK: Collection <= Expression
 @discardableResult
-public func ≤ (lhs: [YAxisAnchorPair], rhs: YAxisAnchorPair.Constant) -> [YAxisAnchorPair.Solution] {
+public func ≤ (lhs: [YAxisAnchorPair], rhs: LayoutConstant) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
-public func ≤ (lhs: [YAxisAnchorPair], rhs: [YAxisAnchorPair.Constant]) -> [[YAxisAnchorPair.Solution]] {
+public func ≤ (lhs: [YAxisAnchorPair], rhs: [LayoutConstant]) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
@@ -79,13 +79,13 @@ public func ≤ (lhs: [YAxisAnchorPair], rhs: [YAxisAnchorPair.Constant]) -> [[Y
 
 // MARK: Collection >= Expression
 @discardableResult
-public func ≥ (lhs: [YAxisAnchorPair], rhs: YAxisAnchorPair.Constant) -> [YAxisAnchorPair.Solution] {
+public func ≥ (lhs: [YAxisAnchorPair], rhs: LayoutConstant) -> [YAxisAnchorPair.Solution] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
-public func ≥ (lhs: [YAxisAnchorPair], rhs: [YAxisAnchorPair.Constant]) -> [[YAxisAnchorPair.Solution]] {
+public func ≥ (lhs: [YAxisAnchorPair], rhs: [LayoutConstant]) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 // MARK: YAxisAnchorPair <=> YAxisAnchorPair.Coefficient

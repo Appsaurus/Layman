@@ -7,57 +7,57 @@
 //  Created by Brian Strobach on 1/22/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
-// MARK: EdgeAnchorGroup <=> EdgeAnchorGroup.Constant
+// MARK: EdgeAnchorGroup <=> LayoutConstant
 
 // MARK: - Equal
 
 @discardableResult
-public func .= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup.Constant) -> EdgeAnchorGroup.Solution {
+public func .= (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorGroup.Solution {
     return lhs.equal(to: rhs)
 }
 
 @discardableResult
-public func .= (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroup.Constant]) -> [EdgeAnchorGroup.Solution] {
+public func .= (lhs: EdgeAnchorGroup, rhs: [LayoutConstant]) -> [EdgeAnchorGroup.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
 
 @discardableResult
-public func ≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup.Constant) -> EdgeAnchorGroup.Solution {
+public func ≤ (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorGroup.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≤ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroup.Constant]) -> [EdgeAnchorGroup.Solution] {
+public func ≤ (lhs: EdgeAnchorGroup, rhs: [LayoutConstant]) -> [EdgeAnchorGroup.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
 
 @discardableResult
-public func ≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup.Constant) -> EdgeAnchorGroup.Solution {
+public func ≥ (lhs: EdgeAnchorGroup, rhs: LayoutConstant) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≥ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroup.Constant]) -> [EdgeAnchorGroup.Solution] {
+public func ≥ (lhs: EdgeAnchorGroup, rhs: [LayoutConstant]) -> [EdgeAnchorGroup.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-// MARK: EdgeAnchorGroup Array <=> EdgeAnchorGroup.Constant
+// MARK: EdgeAnchorGroup Array <=> LayoutConstant
 
 // MARK: - Equal
 
 // MARK: Collection == Expression
 @discardableResult
-public func .= (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroup.Constant) -> [EdgeAnchorGroup.Solution] {
+public func .= (lhs: [EdgeAnchorGroup], rhs: LayoutConstant) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
-public func .= (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup.Constant]) -> [[EdgeAnchorGroup.Solution]] {
+public func .= (lhs: [EdgeAnchorGroup], rhs: [LayoutConstant]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
@@ -65,13 +65,13 @@ public func .= (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup.Constant]) -> [[Ed
 
 // MARK: Collection <= Expression
 @discardableResult
-public func ≤ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroup.Constant) -> [EdgeAnchorGroup.Solution] {
+public func ≤ (lhs: [EdgeAnchorGroup], rhs: LayoutConstant) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
-public func ≤ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup.Constant]) -> [[EdgeAnchorGroup.Solution]] {
+public func ≤ (lhs: [EdgeAnchorGroup], rhs: [LayoutConstant]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
@@ -79,13 +79,13 @@ public func ≤ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup.Constant]) -> [[E
 
 // MARK: Collection >= Expression
 @discardableResult
-public func ≥ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroup.Constant) -> [EdgeAnchorGroup.Solution] {
+public func ≥ (lhs: [EdgeAnchorGroup], rhs: LayoutConstant) -> [EdgeAnchorGroup.Solution] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
-public func ≥ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup.Constant]) -> [[EdgeAnchorGroup.Solution]] {
+public func ≥ (lhs: [EdgeAnchorGroup], rhs: [LayoutConstant]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 // MARK: EdgeAnchorGroup <=> EdgeAnchorGroup.Coefficient

@@ -13,34 +13,34 @@ extension LayoutSizeEquatable {
 }
 
 extension LeftHandLayoutExpression where LayoutVariable == Self {
-    public func relation(_ relation: Relation, _ rhs: Self) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: Self) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: RightHandExpression) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: RightHandExpression) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 }
 
-extension LinearEquation where Relation == LayoutRelation {
+extension LinearEquation {
     public init(variable: Variable, coefficients: Coefficients) {
         self.init(variable, .equal, nil, coefficients)
     }    
 }
 
-extension LinearEquation where Relation == LayoutRelation, Coefficients == LayoutCoefficient {
-    public init(_ variable: Variable, _ relation: Relation, _ relativeConstant: RelativeLayoutConstant) {
+extension LinearEquation where Coefficients == LayoutCoefficient {
+    public init(_ variable: Variable, _ relation: LayoutRelation, _ relativeConstant: RelativeLayoutConstant) {
         self.init(variable, relation, nil, Coefficients().with(relativeConstant: relativeConstant))
     }
 }
 
-extension Expression where Coefficients: CoefficientModel, Coefficients.Priority == LayoutPriority {
+extension Expression where Coefficients: CoefficientModel {
     public func set(priority: LayoutPriority) {
         self.coefficients.priority = priority
     }
 }
 
-extension CoefficientModel where Multiplier == LayoutMultiplier {
+extension CoefficientModel {
     @discardableResult
     public func divided(by divisor: LayoutDivisor) -> Self {
         set(divisor: divisor)
@@ -52,19 +52,19 @@ extension CoefficientModel where Multiplier == LayoutMultiplier {
     }
 }
 
-extension CoefficientMutating where Multiplier == LayoutMultiplier {
+extension CoefficientMutating {
     public static func multiplier(_ multiplier: LayoutConstant) -> Self {
         return .multiplier(LayoutMultiplier(multiplier))
     }
 
 }
 
-extension CoefficientsReferencing where Coefficients.Multiplier == LayoutMultiplier {
-    @discardableResult
-    public func times(_ multiplier: LayoutMultiplier) -> Self {
-        coefficients.set(multiplier: multiplier)
-        return self
-    }
+extension CoefficientsReferencing {
+//    @discardableResult
+//    public func times(_ multiplier: LayoutMultiplier) -> Self {
+//        coefficients.set(multiplier: multiplier)
+//        return self
+//    }
 
     @discardableResult
     public func times(_ multiplier: LayoutConstant) -> Self {
@@ -72,7 +72,7 @@ extension CoefficientsReferencing where Coefficients.Multiplier == LayoutMultipl
     }
 }
 
-extension CoefficientsReferencing where Coefficients: CoefficientModel, Coefficients.Multiplier == LayoutMultiplier {
+extension CoefficientsReferencing where Coefficients: CoefficientModel {
     @discardableResult
     public func divided(by divisor: LayoutDivisor) -> Self {
         coefficients.set(divisor: divisor)
@@ -82,7 +82,7 @@ extension CoefficientsReferencing where Coefficients: CoefficientModel, Coeffici
 
 
 extension CoefficientsReferencing where Coefficients: LayoutCoefficient {
-    public typealias RelativeConstant = Relative<Coefficients.Constant>
+    public typealias RelativeConstant = Relative<LayoutConstant>
 
     @discardableResult
     public func with(constantRelativity: LayoutConstantRelativity) -> Self {

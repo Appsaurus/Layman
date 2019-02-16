@@ -8,11 +8,8 @@
 
 public protocol Variable {
     associatedtype RightHandExpression
-    associatedtype Constant
-    associatedtype Multiplier
-    associatedtype Divisor
-    func plus(_ constant: Constant) -> RightHandExpression
-    func minus(_ constant: Constant) -> RightHandExpression
-    func times(_ multiplier: Multiplier) -> RightHandExpression
-    func divided(by divisor: Divisor) -> RightHandExpression
+    func plus(_ constant: LayoutConstant) -> RightHandExpression
+    func minus(_ constant: LayoutConstant) -> RightHandExpression
+    func times(_ multiplier: LayoutMultiplier) -> RightHandExpression
+    func divided(by divisor: LayoutDivisor) -> RightHandExpression
 }

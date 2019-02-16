@@ -8,7 +8,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol LayoutSizeEquatable: LinearEquationTyped where LinearEquation.Relation == LayoutRelation {
+public protocol LayoutSizeEquatable: LinearEquationTyped {
     func relation(_ relation: LayoutRelation, _ rhs: LayoutSize) -> LinearEquation
 }
 // MARK: Anchor <=> LayoutSize

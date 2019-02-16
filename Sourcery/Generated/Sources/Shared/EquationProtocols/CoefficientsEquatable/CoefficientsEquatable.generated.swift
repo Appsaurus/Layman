@@ -8,7 +8,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol CoefficientsEquatable: LinearEquationTyped where LinearEquation.Relation == LayoutRelation {
+public protocol CoefficientsEquatable: LinearEquationTyped {
     func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientTuple) -> LinearEquation
     func relation(_ relation: LayoutRelation, _ rhs: LayoutConstantTuple) -> LinearEquation
     func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficient) -> LinearEquation

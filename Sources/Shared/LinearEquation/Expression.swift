@@ -10,9 +10,9 @@ public protocol CoefficientsReferencing: class {
     associatedtype Coefficients: CoefficientMutating
     var coefficients: Coefficients { get set }
     func with(coefficients: Coefficients) -> Self
-    func with(constant: Coefficients.Constant) -> Self
-    func times(_ multiplier: Coefficients.Multiplier) -> Self
-    func priority(_ priority: Coefficients.Priority) -> Self
+    func with(constant: LayoutConstant) -> Self
+    func times(_ multiplier: LayoutMultiplier) -> Self
+    func priority(_ priority: LayoutPriority) -> Self
 }
 
 extension CoefficientsReferencing {
@@ -23,19 +23,19 @@ extension CoefficientsReferencing {
     }
 
     @discardableResult
-    public func with(constant: Coefficients.Constant) -> Self {
+    public func with(constant: LayoutConstant) -> Self {
         coefficients.set(constant: constant)
         return self
     }
 
     @discardableResult
-    public func times(_ multiplier: Coefficients.Multiplier) -> Self {
+    public func times(_ multiplier: LayoutMultiplier) -> Self {
         coefficients.set(multiplier: multiplier)
         return self
     }
 
     @discardableResult
-    public func priority(_ priority: Coefficients.Priority) -> Self {
+    public func priority(_ priority: LayoutPriority) -> Self {
         coefficients.set(priority: priority)
         return self
     }

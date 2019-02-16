@@ -12,27 +12,27 @@
 extension LayoutDimension: LeftHandLayoutExpression, CoefficientEquatable {
     public typealias LinearEquation = LayoutDimensionEquation
 
-    public func relation(_ relation: Relation, _ rhs: LayoutDimension) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutDimension) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: RightHandExpression) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: RightHandExpression) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: Constant) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: Multiplier) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: Multiplier) -> LinearEquation {
         return LinearEquation(self, relation, .multiplier(rhs))
     }
 
-    public func relation(_ relation: Relation, _ rhs: Coefficient) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: Coefficient) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: Relation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
-        return LinearEquation(self, relation, rhs)
+    public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
+        return LinearEquation(self, relation, rhs.constant)
     }
 }

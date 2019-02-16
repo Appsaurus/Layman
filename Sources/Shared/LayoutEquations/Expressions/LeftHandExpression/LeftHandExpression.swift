@@ -6,14 +6,10 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol LeftHandExpression: LinearEquationTyped {
-
-    func relation(_ relation: Relation, _ rhs: Self) -> LinearEquation
-    func relation(_ relation: Relation, _ rhs: RightHandExpression) -> LinearEquation
-
+public protocol LeftHandLayoutExpression: LinearEquationTyped {
+    func relation(_ relation: LayoutRelation, _ rhs: Self) -> LinearEquation
+    func relation(_ relation: LayoutRelation, _ rhs: RightHandExpression) -> LinearEquation
 }
-
-public protocol LeftHandLayoutExpression: LeftHandExpression where LinearEquation.Relation == LayoutRelation {}
 
 extension LeftHandLayoutExpression {
 
