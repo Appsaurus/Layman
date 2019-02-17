@@ -19,11 +19,11 @@ extension {{AnchorType}}: LeftHandLayoutExpression, CoefficientEquatable {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: Constant) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: Multiplier) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutMultiplier) -> LinearEquation {
         return LinearEquation(self, relation, .multiplier(rhs))
     }
 

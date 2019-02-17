@@ -14,7 +14,7 @@ public enum LayoutRelation: Int {
 
     case greaterThanOrEqual
 
-    case insetLessThanOrEqual
+    case insetFrom
 
-    case outsetGreaterThanOrEqual
+    case outsetFrom
 }

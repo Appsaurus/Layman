@@ -64,9 +64,9 @@ public final class LayoutAnchorEquation<A: AnchorVariable> {
             return variable.constraint(equalTo: relatedVariable)
         case .greaterThanOrEqual:
             return variable.constraint(greaterThanOrEqualTo: relatedVariable)
-        case .insetLessThanOrEqual:
+        case .insetFrom:
            return variable.constraint(greaterThanOrEqualTo: relatedVariable).invertRelationshipIfTrailing
-        case .outsetGreaterThanOrEqual:
+        case .outsetFrom:
              return variable.constraint(lessThanOrEqualTo: relatedVariable).invertRelationshipIfTrailing
         }
     }
@@ -74,11 +74,11 @@ public final class LayoutAnchorEquation<A: AnchorVariable> {
     internal func sizeConstraint(for anchor: LayoutDimension) -> Constraint {
         let constraint: Constraint = {
             switch relation {
-            case .lessThanOrEqual, .insetLessThanOrEqual:
+            case .lessThanOrEqual, .insetFrom:
                 return anchor.constraint(lessThanOrEqualToConstant: coefficients.constant)
             case .equal:
                 return anchor.constraint(equalToConstant: coefficients.constant)
-            case .greaterThanOrEqual, .outsetGreaterThanOrEqual:
+            case .greaterThanOrEqual, .outsetFrom:
                 return anchor.constraint(greaterThanOrEqualToConstant: coefficients.constant)
             }
         }()

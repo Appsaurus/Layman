@@ -24,7 +24,7 @@ extension XAxisAnchor: LeftHandLayoutExpression, CoefficientEquatable {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: Multiplier) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutMultiplier) -> LinearEquation {
         return LinearEquation(self, relation, .multiplier(rhs))
     }
 

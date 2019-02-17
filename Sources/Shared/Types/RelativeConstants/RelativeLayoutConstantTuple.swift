@@ -8,23 +8,32 @@
 
 public typealias RelativeLayoutConstantTuple = Relative<LayoutConstantTuple>
 
-extension Relative where LayoutConstant == LayoutConstantTuple {
+extension Relative where LC == LayoutConstantTuple {
 
-    public static func inset(_ padding: Layman.LayoutConstant) -> RelativeLayoutConstantTuple {
+    public var first: RelativeLayoutConstant {
+        return RelativeLayoutConstant(relativity: relativity, constant: constant.first)
+    }
+
+    public var second: RelativeLayoutConstant {
+        return RelativeLayoutConstant(relativity: relativity, constant: constant.second)
+    }
+
+    public static func inset(_ padding: LayoutConstant) -> RelativeLayoutConstantTuple {
         return inset(padding, padding)
     }
 
-    public static func outset(_ padding: Layman.LayoutConstant) -> RelativeLayoutConstantTuple {
+    public static func outset(_ padding: LayoutConstant) -> RelativeLayoutConstantTuple {
         return outset(padding, padding)
     }
 
-    public static func outset(_ first: Layman.LayoutConstant,
-                              _ second: Layman.LayoutConstant) -> RelativeLayoutConstantTuple {
-        return RelativeLayoutConstantTuple(relativity: .outset, constant: (first, second))
+    public static func outset(_ first: LayoutConstant,
+                              _ second: LayoutConstant) -> RelativeLayoutConstantTuple {
+
+        return RelativeLayoutConstantTuple(relativity: .outset, constant: (first: first, second: second))
     }
 
-    public static func inset(_ first: Layman.LayoutConstant,
-                             _ second: Layman.LayoutConstant) -> RelativeLayoutConstantTuple {
-        return RelativeLayoutConstantTuple(relativity: .inset, constant: (first, second))
+    public static func inset(_ first: LayoutConstant,
+                             _ second: LayoutConstant) -> RelativeLayoutConstantTuple {
+        return RelativeLayoutConstantTuple(relativity: .inset, constant: (first: first, second: second))
     }
 }

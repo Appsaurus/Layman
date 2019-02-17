@@ -23,6 +23,6 @@ extension View: LayoutVariable {
     }
 
     public func plus(_ relativeConstant: RelativeLayoutConstant) -> LayoutDimensionPairExpression {
-        return RightHandExpression(variable: self.size).plus(relativeConstant)
+        return RightHandExpression(variable: self.size).with(relativeConstant: relativeConstant)
     }
 }

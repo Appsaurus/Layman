@@ -6,27 +6,25 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public struct Relative<LayoutConstant> {
+public struct Relative<LC> {
     var relativity: LayoutConstantRelativity
-    var constant: LayoutConstant
+    var constant: LC
 
-    public init(relativity: LayoutConstantRelativity, constant: LayoutConstant) {
+    public init(relativity: LayoutConstantRelativity, constant: LC) {
         self.relativity = relativity
         self.constant = constant
     }
 
-    public static func inset(constant: LayoutConstant) -> Relative<LayoutConstant> {
-        return Relative<LayoutConstant>(relativity: .inset, constant: constant)
+    public static func inset(_ constant: LC) -> Relative<LC> {
+        return Relative<LC>(relativity: .inset, constant: constant)
     }
 
-    public static func outset(constant: LayoutConstant) -> Relative<LayoutConstant> {
-        return Relative<LayoutConstant>(relativity: .outset, constant: constant)
+    public static func outset(_ constant: LC) -> Relative<LC> {
+        return Relative<LC>(relativity: .outset, constant: constant)
     }
 }
 
 public typealias RelativeLayoutConstant = Relative<LayoutConstant>
-
-
 
 extension LayoutConstant {
     public var inset: RelativeLayoutConstant {
@@ -37,5 +35,3 @@ extension LayoutConstant {
         return RelativeLayoutConstant(relativity: .outset, constant: self)
     }
 }
-
-

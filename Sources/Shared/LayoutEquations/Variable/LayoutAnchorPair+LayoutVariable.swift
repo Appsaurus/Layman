@@ -22,7 +22,7 @@ extension LayoutAnchorPair: LayoutVariable {
     }
 
     public func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression {
-        return RightHandExpression(variable: self).plus(relativeConstant)
+        return RightHandExpression(variable: self).with(relativeConstant: relativeConstant)
     }
 
 }

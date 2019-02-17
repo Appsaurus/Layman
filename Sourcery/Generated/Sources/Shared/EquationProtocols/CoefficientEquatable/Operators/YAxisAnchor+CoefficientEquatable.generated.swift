@@ -88,57 +88,57 @@ public func ≥ (lhs: [YAxisAnchor], rhs: LayoutConstant) -> [YAxisAnchor.Soluti
 public func ≥ (lhs: [YAxisAnchor], rhs: [LayoutConstant]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
-// MARK: YAxisAnchor <=> YAxisAnchor.Coefficient
+// MARK: YAxisAnchor <=> LayoutCoefficient
 
 // MARK: - Equal
 
 @discardableResult
-public func .= (lhs: YAxisAnchor, rhs: YAxisAnchor.Coefficient) -> YAxisAnchor.Solution {
+public func .= (lhs: YAxisAnchor, rhs: LayoutCoefficient) -> YAxisAnchor.Solution {
     return lhs.equal(to: rhs)
 }
 
 @discardableResult
-public func .= (lhs: YAxisAnchor, rhs: [YAxisAnchor.Coefficient]) -> [YAxisAnchor.Solution] {
+public func .= (lhs: YAxisAnchor, rhs: [LayoutCoefficient]) -> [YAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
 
 @discardableResult
-public func ≤ (lhs: YAxisAnchor, rhs: YAxisAnchor.Coefficient) -> YAxisAnchor.Solution {
+public func ≤ (lhs: YAxisAnchor, rhs: LayoutCoefficient) -> YAxisAnchor.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≤ (lhs: YAxisAnchor, rhs: [YAxisAnchor.Coefficient]) -> [YAxisAnchor.Solution] {
+public func ≤ (lhs: YAxisAnchor, rhs: [LayoutCoefficient]) -> [YAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
 
 @discardableResult
-public func ≥ (lhs: YAxisAnchor, rhs: YAxisAnchor.Coefficient) -> YAxisAnchor.Solution {
+public func ≥ (lhs: YAxisAnchor, rhs: LayoutCoefficient) -> YAxisAnchor.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≥ (lhs: YAxisAnchor, rhs: [YAxisAnchor.Coefficient]) -> [YAxisAnchor.Solution] {
+public func ≥ (lhs: YAxisAnchor, rhs: [LayoutCoefficient]) -> [YAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-// MARK: YAxisAnchor Array <=> YAxisAnchor.Coefficient
+// MARK: YAxisAnchor Array <=> LayoutCoefficient
 
 // MARK: - Equal
 
 // MARK: Collection == Expression
 @discardableResult
-public func .= (lhs: [YAxisAnchor], rhs: YAxisAnchor.Coefficient) -> [YAxisAnchor.Solution] {
+public func .= (lhs: [YAxisAnchor], rhs: LayoutCoefficient) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
-public func .= (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Coefficient]) -> [[YAxisAnchor.Solution]] {
+public func .= (lhs: [YAxisAnchor], rhs: [LayoutCoefficient]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
@@ -146,13 +146,13 @@ public func .= (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Coefficient]) -> [[YAxisAn
 
 // MARK: Collection <= Expression
 @discardableResult
-public func ≤ (lhs: [YAxisAnchor], rhs: YAxisAnchor.Coefficient) -> [YAxisAnchor.Solution] {
+public func ≤ (lhs: [YAxisAnchor], rhs: LayoutCoefficient) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
-public func ≤ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Coefficient]) -> [[YAxisAnchor.Solution]] {
+public func ≤ (lhs: [YAxisAnchor], rhs: [LayoutCoefficient]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
@@ -160,66 +160,66 @@ public func ≤ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Coefficient]) -> [[YAxisA
 
 // MARK: Collection >= Expression
 @discardableResult
-public func ≥ (lhs: [YAxisAnchor], rhs: YAxisAnchor.Coefficient) -> [YAxisAnchor.Solution] {
+public func ≥ (lhs: [YAxisAnchor], rhs: LayoutCoefficient) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
-public func ≥ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Coefficient]) -> [[YAxisAnchor.Solution]] {
+public func ≥ (lhs: [YAxisAnchor], rhs: [LayoutCoefficient]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
-// MARK: YAxisAnchor <=> YAxisAnchor.Multiplier
+// MARK: YAxisAnchor <=> LayoutMultiplier
 
 // MARK: - Equal
 
 @discardableResult
-public func .= (lhs: YAxisAnchor, rhs: YAxisAnchor.Multiplier) -> YAxisAnchor.Solution {
+public func .= (lhs: YAxisAnchor, rhs: LayoutMultiplier) -> YAxisAnchor.Solution {
     return lhs.equal(to: rhs)
 }
 
 @discardableResult
-public func .= (lhs: YAxisAnchor, rhs: [YAxisAnchor.Multiplier]) -> [YAxisAnchor.Solution] {
+public func .= (lhs: YAxisAnchor, rhs: [LayoutMultiplier]) -> [YAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
 
 @discardableResult
-public func ≤ (lhs: YAxisAnchor, rhs: YAxisAnchor.Multiplier) -> YAxisAnchor.Solution {
+public func ≤ (lhs: YAxisAnchor, rhs: LayoutMultiplier) -> YAxisAnchor.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≤ (lhs: YAxisAnchor, rhs: [YAxisAnchor.Multiplier]) -> [YAxisAnchor.Solution] {
+public func ≤ (lhs: YAxisAnchor, rhs: [LayoutMultiplier]) -> [YAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
 
 @discardableResult
-public func ≥ (lhs: YAxisAnchor, rhs: YAxisAnchor.Multiplier) -> YAxisAnchor.Solution {
+public func ≥ (lhs: YAxisAnchor, rhs: LayoutMultiplier) -> YAxisAnchor.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≥ (lhs: YAxisAnchor, rhs: [YAxisAnchor.Multiplier]) -> [YAxisAnchor.Solution] {
+public func ≥ (lhs: YAxisAnchor, rhs: [LayoutMultiplier]) -> [YAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-// MARK: YAxisAnchor Array <=> YAxisAnchor.Multiplier
+// MARK: YAxisAnchor Array <=> LayoutMultiplier
 
 // MARK: - Equal
 
 // MARK: Collection == Expression
 @discardableResult
-public func .= (lhs: [YAxisAnchor], rhs: YAxisAnchor.Multiplier) -> [YAxisAnchor.Solution] {
+public func .= (lhs: [YAxisAnchor], rhs: LayoutMultiplier) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
-public func .= (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Multiplier]) -> [[YAxisAnchor.Solution]] {
+public func .= (lhs: [YAxisAnchor], rhs: [LayoutMultiplier]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
@@ -227,13 +227,13 @@ public func .= (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Multiplier]) -> [[YAxisAnc
 
 // MARK: Collection <= Expression
 @discardableResult
-public func ≤ (lhs: [YAxisAnchor], rhs: YAxisAnchor.Multiplier) -> [YAxisAnchor.Solution] {
+public func ≤ (lhs: [YAxisAnchor], rhs: LayoutMultiplier) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
-public func ≤ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Multiplier]) -> [[YAxisAnchor.Solution]] {
+public func ≤ (lhs: [YAxisAnchor], rhs: [LayoutMultiplier]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
@@ -241,66 +241,66 @@ public func ≤ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Multiplier]) -> [[YAxisAn
 
 // MARK: Collection >= Expression
 @discardableResult
-public func ≥ (lhs: [YAxisAnchor], rhs: YAxisAnchor.Multiplier) -> [YAxisAnchor.Solution] {
+public func ≥ (lhs: [YAxisAnchor], rhs: LayoutMultiplier) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
-public func ≥ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.Multiplier]) -> [[YAxisAnchor.Solution]] {
+public func ≥ (lhs: [YAxisAnchor], rhs: [LayoutMultiplier]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
-// MARK: YAxisAnchor <=> YAxisAnchor.RelativeLayoutConstant
+// MARK: YAxisAnchor <=> RelativeLayoutConstant
 
 // MARK: - Equal
 
 @discardableResult
-public func .= (lhs: YAxisAnchor, rhs: YAxisAnchor.RelativeLayoutConstant) -> YAxisAnchor.Solution {
+public func .= (lhs: YAxisAnchor, rhs: RelativeLayoutConstant) -> YAxisAnchor.Solution {
     return lhs.equal(to: rhs)
 }
 
 @discardableResult
-public func .= (lhs: YAxisAnchor, rhs: [YAxisAnchor.RelativeLayoutConstant]) -> [YAxisAnchor.Solution] {
+public func .= (lhs: YAxisAnchor, rhs: [RelativeLayoutConstant]) -> [YAxisAnchor.Solution] {
     return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
 
 @discardableResult
-public func ≤ (lhs: YAxisAnchor, rhs: YAxisAnchor.RelativeLayoutConstant) -> YAxisAnchor.Solution {
+public func ≤ (lhs: YAxisAnchor, rhs: RelativeLayoutConstant) -> YAxisAnchor.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≤ (lhs: YAxisAnchor, rhs: [YAxisAnchor.RelativeLayoutConstant]) -> [YAxisAnchor.Solution] {
+public func ≤ (lhs: YAxisAnchor, rhs: [RelativeLayoutConstant]) -> [YAxisAnchor.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
 
 @discardableResult
-public func ≥ (lhs: YAxisAnchor, rhs: YAxisAnchor.RelativeLayoutConstant) -> YAxisAnchor.Solution {
+public func ≥ (lhs: YAxisAnchor, rhs: RelativeLayoutConstant) -> YAxisAnchor.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
 @discardableResult
-public func ≥ (lhs: YAxisAnchor, rhs: [YAxisAnchor.RelativeLayoutConstant]) -> [YAxisAnchor.Solution] {
+public func ≥ (lhs: YAxisAnchor, rhs: [RelativeLayoutConstant]) -> [YAxisAnchor.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-// MARK: YAxisAnchor Array <=> YAxisAnchor.RelativeLayoutConstant
+// MARK: YAxisAnchor Array <=> RelativeLayoutConstant
 
 // MARK: - Equal
 
 // MARK: Collection == Expression
 @discardableResult
-public func .= (lhs: [YAxisAnchor], rhs: YAxisAnchor.RelativeLayoutConstant) -> [YAxisAnchor.Solution] {
+public func .= (lhs: [YAxisAnchor], rhs: RelativeLayoutConstant) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
-public func .= (lhs: [YAxisAnchor], rhs: [YAxisAnchor.RelativeLayoutConstant]) -> [[YAxisAnchor.Solution]] {
+public func .= (lhs: [YAxisAnchor], rhs: [RelativeLayoutConstant]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.equal(to: rhs) }
 }
 
@@ -308,13 +308,13 @@ public func .= (lhs: [YAxisAnchor], rhs: [YAxisAnchor.RelativeLayoutConstant]) -
 
 // MARK: Collection <= Expression
 @discardableResult
-public func ≤ (lhs: [YAxisAnchor], rhs: YAxisAnchor.RelativeLayoutConstant) -> [YAxisAnchor.Solution] {
+public func ≤ (lhs: [YAxisAnchor], rhs: RelativeLayoutConstant) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
-public func ≤ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.RelativeLayoutConstant]) -> [[YAxisAnchor.Solution]] {
+public func ≤ (lhs: [YAxisAnchor], rhs: [RelativeLayoutConstant]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.lessThanOrEqual(to: rhs) }
 }
 
@@ -322,12 +322,12 @@ public func ≤ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.RelativeLayoutConstant]) 
 
 // MARK: Collection >= Expression
 @discardableResult
-public func ≥ (lhs: [YAxisAnchor], rhs: YAxisAnchor.RelativeLayoutConstant) -> [YAxisAnchor.Solution] {
+public func ≥ (lhs: [YAxisAnchor], rhs: RelativeLayoutConstant) -> [YAxisAnchor.Solution] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
-public func ≥ (lhs: [YAxisAnchor], rhs: [YAxisAnchor.RelativeLayoutConstant]) -> [[YAxisAnchor.Solution]] {
+public func ≥ (lhs: [YAxisAnchor], rhs: [RelativeLayoutConstant]) -> [[YAxisAnchor.Solution]] {
     return lhs.map { $0.greaterThanOrEqual(to: rhs) }
 }

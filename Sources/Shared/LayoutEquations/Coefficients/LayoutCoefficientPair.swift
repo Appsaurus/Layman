@@ -20,6 +20,11 @@ extension LayoutCoefficientPair: CoefficientMutating {
         second.set(constant: constant)
     }
 
+    public func set(relativeConstant: RelativeLayoutConstant) {
+        first.set(relativeConstant: relativeConstant)
+        second.set(relativeConstant: relativeConstant)
+    }
+
     public func set(multiplier: LayoutMultiplier) {
         first.set(multiplier: multiplier)
         second.set(multiplier: multiplier)

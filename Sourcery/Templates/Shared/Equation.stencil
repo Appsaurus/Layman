@@ -60,13 +60,13 @@ extension Collection where Element: {{EquationProtocol}} {
     // MARK: - Equal
     // MARK: Collection == Expression
     @discardableResult
-    public func equal(to rhs: Element.{{RightHandType}}) -> [Element.Solution] {
+    public func equal(to rhs: {{RightHandType}}) -> [Element.Solution] {
         return map { $0.equal(to: rhs) }
     }
 
     // MARK: Collection == Expression Array
     @discardableResult
-    public func equal(to rhs: [Element.{{RightHandType}}]) -> [[Element.Solution]] {
+    public func equal(to rhs: [{{RightHandType}}]) -> [[Element.Solution]] {
         return map { $0.equal(to: rhs) }
     }
 
@@ -74,13 +74,13 @@ extension Collection where Element: {{EquationProtocol}} {
 
     // MARK: Collection <= Expression
     @discardableResult
-    public func lessThanOrEqual(to rhs: Element.{{RightHandType}}) -> [Element.Solution] {
+    public func lessThanOrEqual(to rhs: {{RightHandType}}) -> [Element.Solution] {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
     // MARK: Collection <= Expression Array
     @discardableResult
-    public func lessThanOrEqual(to rhs: [Element.{{RightHandType}}]) -> [[Element.Solution]] {
+    public func lessThanOrEqual(to rhs: [{{RightHandType}}]) -> [[Element.Solution]] {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
@@ -88,13 +88,13 @@ extension Collection where Element: {{EquationProtocol}} {
 
     // MARK: Collection >= Expression
     @discardableResult
-    public func greaterThanOrEqual(to rhs: Element.{{RightHandType}}) -> [Element.Solution] {
+    public func greaterThanOrEqual(to rhs: {{RightHandType}}) -> [Element.Solution] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 
     // MARK: Collection >= Expression Array
     @discardableResult
-    public func greaterThanOrEqual(to rhs: [Element.{{RightHandType}}]) -> [[Element.Solution]] {
+    public func greaterThanOrEqual(to rhs: [{{RightHandType}}]) -> [[Element.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }

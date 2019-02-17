@@ -23,7 +23,6 @@ public final class LayoutAnchorPairEquation<F: AnchorVariable, S: AnchorVariable
         self.coefficients = coefficients
     }
 
-
     public convenience init(_ variable: LayoutAnchorPair<F, S>, _ relation: LayoutRelation, _ relativeConstant: RelativeLayoutConstant) {
         let coefficients = LayoutCoefficientPair(LayoutCoefficient().with(relativeConstant: relativeConstant), LayoutCoefficient().with(relativeConstant: relativeConstant))
         self.init(variable, relation, nil, coefficients)

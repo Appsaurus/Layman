@@ -18,7 +18,7 @@ extension LayoutPadding {
     }
 }
 
-extension Relative where LayoutConstant == LayoutPadding {
+extension Relative where LC == LayoutPadding {
     @discardableResult
     public func priority(_ priority: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
         let expression = self.constant.priority(priority)

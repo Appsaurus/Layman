@@ -40,7 +40,7 @@ extension EdgeAnchorsGroupCoefficients: CoefficientMutating {
     }
 
     public func set(relativeConstant: RelativeLayoutConstant) {
-        all.forEach { $0.set(relativeConstant) }
+        all.forEach { $0.set(relativeConstant: relativeConstant) }
     }
 
     public func set(constantRelativity: LayoutConstantRelativity) {

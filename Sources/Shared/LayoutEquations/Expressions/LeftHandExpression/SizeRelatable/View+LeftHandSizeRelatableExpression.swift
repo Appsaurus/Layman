@@ -6,19 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension CoefficientEquatable {
-    public typealias RelativeLayoutConstant = Layman.RelativeLayoutConstant
-}
-extension CoefficientsEquatable {
-    public typealias LayoutCoefficient = Layman.LayoutCoefficient
-    public typealias LayoutConstantTuple = Layman.LayoutConstantTuple
-    public typealias LayoutCoefficientTuple = (first: LayoutCoefficient, second: LayoutCoefficient)
-    public typealias RelativeLayoutConstantTuple = Layman.RelativeLayoutConstantTuple
-}
-
 // MARK: LayoutAnchorPair
 extension LayoutAnchorPair: CoefficientsEquatable {
-
 
     public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientTuple) -> LayoutAnchorPairEquation<FA, SA> {
         return LinearEquation(self, relation, LayoutCoefficientPair(rhs.first, rhs.second))
@@ -40,7 +29,6 @@ extension LayoutAnchorPair: CoefficientsEquatable {
 
 // MARK: EdgeAnchorGroup
 extension EdgeAnchorGroup: CoefficientsEquatable {
-
 
     public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientTuple) -> EdgeAnchorGroupEquation {
         return LinearEquation(self, relation, EdgeAnchorsGroupCoefficients(rhs.first, rhs.second))
@@ -67,8 +55,6 @@ extension View: LayoutSizeEquatable {
         return LayoutDimensionPairRelationship(sizeAnchors, relation, sizeConfiguration)
     }
 }
-
-
 
 extension View: LeftHandLayoutExpression {
     public func relation(_ relation: LayoutRelation, _ rhs: View) -> LayoutDimensionPairRelationship {

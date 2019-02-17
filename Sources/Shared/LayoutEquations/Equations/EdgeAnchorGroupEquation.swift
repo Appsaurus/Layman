@@ -27,6 +27,24 @@ public final class EdgeAnchorGroupEquation {
         self.init(variable, relation, nil, Coefficients().with(relativeConstant: relativeConstant))
     }
 
+
+    public convenience init(_ variable: EdgeAnchorGroup, _ relation: LayoutRelation, _ relativeConstantTuple: RelativeLayoutConstantTuple) {
+        self.init(variable, relation, nil)
+        coefficients.top.set(relativeConstant: relativeConstantTuple.second)
+        coefficients.leading.set(relativeConstant: relativeConstantTuple.first)
+        coefficients.bottom.set(relativeConstant: relativeConstantTuple.second)
+        coefficients.trailing.set(relativeConstant: relativeConstantTuple.first)
+    }
+
+    public convenience init(_ variable: EdgeAnchorGroup, _ relation: LayoutRelation, _ relativeConstant: RelativeLayoutPadding) {
+        self.init(variable, relation, nil)
+        coefficients.top.set(relativeConstant: relativeConstant.top)
+        coefficients.leading.set(relativeConstant: relativeConstant.leading)
+        coefficients.bottom.set(relativeConstant: relativeConstant.bottom)
+        coefficients.trailing.set(relativeConstant: relativeConstant.trailing)
+
+    }
+
     public var constraint: SideConstraints {
         guard let relatedVariable = relatedVariable ?? variable.top.view?.superview?.edgeAnchors else {
             preconditionFailure("Attempted to create an Edge Anchor constraint without a related view.")

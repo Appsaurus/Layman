@@ -54,23 +54,23 @@ public func ≥ (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> XAxisAnchor.So
 // MARK: Anchor >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: XAxisAnchor, rhs: XAxisAnchor) -> XAxisAnchor.Solution {
-    return lhs.insetLessThanOrEqual(to: rhs)
+    return lhs.insetFrom(to: rhs)
 }
 
 // MARK: Anchor >=< Expression
 @discardableResult
 public func ≥≤ (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
-    return lhs.insetLessThanOrEqual(to: rhs)
+    return lhs.insetFrom(to: rhs)
 }
 
 // MARK: Anchor <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: XAxisAnchor, rhs: XAxisAnchor) -> XAxisAnchor.Solution {
-    return lhs.outsetGreaterThanOrEqual(to: rhs)
+    return lhs.outsetFrom(to: rhs)
 }
 
 // MARK: Anchor <=> Expression
 @discardableResult
 public func ≤≥ (lhs: XAxisAnchor, rhs: XAxisAnchorExpression) -> XAxisAnchor.Solution {
-    return lhs.outsetGreaterThanOrEqual(to: rhs)
+    return lhs.outsetFrom(to: rhs)
 }

@@ -22,6 +22,8 @@ public final class LayoutCoefficient {
     public init() {}
 }
 
+public typealias LayoutCoefficientTuple = (first: LayoutCoefficient, second: LayoutCoefficient)
+
 extension LayoutCoefficient {
 
     @discardableResult
@@ -30,17 +32,22 @@ extension LayoutCoefficient {
         return self
     }
 
-    @discardableResult
-    public func with(relativeConstant: RelativeLayoutConstant) -> LayoutCoefficient {
-        self.set(relativeConstant)
-        return self
-    }
+//    @discardableResult
+//    public func with(relativeConstant: RelativeLayoutConstant) -> LayoutCoefficient {
+//        self.set(relativeConstant: relativeConstant)
+//        return self
+//    }
 }
 
 extension LayoutCoefficient: CoefficientModel {
 
     public func set(constant: LayoutConstant) {
         self.constant = constant
+    }
+
+    public func set(relativeConstant: RelativeLayoutConstant) {
+        constant = relativeConstant.constant
+        constantRelativity = relativeConstant.relativity
     }
 
     public func set(multiplier: LayoutMultiplier) {
@@ -52,10 +59,6 @@ extension LayoutCoefficient: CoefficientModel {
         self.priority = priority
     }
 
-    public func set(_ relativeConstant: Relative<LayoutConstant>) {
-        constant = relativeConstant.constant
-        constantRelativity = relativeConstant.relativity
-    }
 }
 
 extension LayoutCoefficient {

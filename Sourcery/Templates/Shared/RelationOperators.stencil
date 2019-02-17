@@ -5,8 +5,8 @@
 {% set subtraction argument.arithmeticOperators.subtraction %}
 {% set multiplication argument.arithmeticOperators.multiplication %}
 {% set division argument.arithmeticOperators.division %}
-{% set insetLessThanOrEqual %}{{greaterThanOrEqual}}{{lessThanOrEqual}}{% endset %}
-{% set outsetGreaterThanOrEqual %}{{lessThanOrEqual}}{{greaterThanOrEqual}}{% endset %}
+{% set insetFrom %}{{greaterThanOrEqual}}{{lessThanOrEqual}}{% endset %}
+{% set outsetFrom %}{{lessThanOrEqual}}{{greaterThanOrEqual}}{% endset %}
 
 {% for AnchorType in argument.anchorTypes %}
 {% set Solution %}{{AnchorType}}.Solution{% endset %}
@@ -63,26 +63,26 @@ public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expr
 
 // MARK: Anchor >=< Anchor
 @discardableResult
-public func {{insetLessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
-    return lhs.insetLessThanOrEqual(to: rhs)
+public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
+    return lhs.insetFrom(to: rhs)
 }
 
 // MARK: Anchor >=< Expression
 @discardableResult
-public func {{insetLessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
-    return lhs.insetLessThanOrEqual(to: rhs)
+public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
+    return lhs.insetFrom(to: rhs)
 }
 
 // MARK: Anchor <=> Anchor
 @discardableResult
-public func {{outsetGreaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
-    return lhs.outsetGreaterThanOrEqual(to: rhs)
+public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
+    return lhs.outsetFrom(to: rhs)
 }
 
 // MARK: Anchor <=> Expression
 @discardableResult
-public func {{outsetGreaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
-    return lhs.outsetGreaterThanOrEqual(to: rhs)
+public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
+    return lhs.outsetFrom(to: rhs)
 }
 
 

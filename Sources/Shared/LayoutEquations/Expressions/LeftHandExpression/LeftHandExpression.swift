@@ -73,41 +73,41 @@ extension LeftHandLayoutExpression {
     }
 
     @discardableResult
-    public func insetLessThanOrEqual(to rhs: Self) -> Solution {
-        return relation(.insetLessThanOrEqual, rhs).solution
+    public func insetFrom(to rhs: Self) -> Solution {
+        return relation(.insetFrom, rhs).solution
     }
 
     @discardableResult
-    public func insetLessThanOrEqual(to rhs: RightHandExpression) -> Solution {
-        return relation(.insetLessThanOrEqual, rhs).solution
+    public func insetFrom(to rhs: RightHandExpression) -> Solution {
+        return relation(.insetFrom, rhs).solution
     }
 
     @discardableResult
-    public func insetLessThanOrEqual(to rhs: [Self]) -> [Solution] {
-        return rhs.map { relation(.insetLessThanOrEqual, $0).solution }
+    public func insetFrom(to rhs: [Self]) -> [Solution] {
+        return rhs.map { relation(.insetFrom, $0).solution }
     }
 
     @discardableResult
-    public func insetLessThanOrEqual(to rhs: [RightHandExpression]) -> [Solution] {
-        return rhs.map { relation(.insetLessThanOrEqual, $0).solution }
+    public func insetFrom(to rhs: [RightHandExpression]) -> [Solution] {
+        return rhs.map { relation(.insetFrom, $0).solution }
     }
 
     @discardableResult
-    public func outsetGreaterThanOrEqual(to rhs: Self) -> Solution {
-        return relation(.outsetGreaterThanOrEqual, rhs).solution
+    public func outsetFrom(to rhs: Self) -> Solution {
+        return relation(.outsetFrom, rhs).solution
     }
 
     @discardableResult
-    public func outsetGreaterThanOrEqual(to rhs: RightHandExpression) -> Solution {
-        return relation(.outsetGreaterThanOrEqual, rhs).solution
+    public func outsetFrom(to rhs: RightHandExpression) -> Solution {
+        return relation(.outsetFrom, rhs).solution
     }
 
     @discardableResult
-    public func outsetGreaterThanOrEqual(to rhs: [Self]) -> [Solution] {
-        return rhs.map { relation(.outsetGreaterThanOrEqual, $0).solution }
+    public func outsetFrom(to rhs: [Self]) -> [Solution] {
+        return rhs.map { relation(.outsetFrom, $0).solution }
     }
     @discardableResult
-    public func outsetGreaterThanOrEqual(to rhs: [RightHandExpression]) -> [Solution] {
-        return rhs.map { relation(.outsetGreaterThanOrEqual, $0).solution }
+    public func outsetFrom(to rhs: [RightHandExpression]) -> [Solution] {
+        return rhs.map { relation(.outsetFrom, $0).solution }
     }
 }

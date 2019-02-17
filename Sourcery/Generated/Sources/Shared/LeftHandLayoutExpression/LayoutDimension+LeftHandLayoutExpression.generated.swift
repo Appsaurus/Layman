@@ -24,7 +24,7 @@ extension LayoutDimension: LeftHandLayoutExpression, CoefficientEquatable {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: Multiplier) -> LinearEquation {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutMultiplier) -> LinearEquation {
         return LinearEquation(self, relation, .multiplier(rhs))
     }
 
@@ -33,6 +33,6 @@ extension LayoutDimension: LeftHandLayoutExpression, CoefficientEquatable {
     }
 
     public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
-        return LinearEquation(self, relation, rhs.constant)
+        return LinearEquation(self, relation, rhs)
     }
 }

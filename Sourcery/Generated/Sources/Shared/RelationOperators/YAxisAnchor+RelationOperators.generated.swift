@@ -54,23 +54,23 @@ public func ≥ (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> YAxisAnchor.So
 // MARK: Anchor >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: YAxisAnchor, rhs: YAxisAnchor) -> YAxisAnchor.Solution {
-    return lhs.insetLessThanOrEqual(to: rhs)
+    return lhs.insetFrom(to: rhs)
 }
 
 // MARK: Anchor >=< Expression
 @discardableResult
 public func ≥≤ (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> YAxisAnchor.Solution {
-    return lhs.insetLessThanOrEqual(to: rhs)
+    return lhs.insetFrom(to: rhs)
 }
 
 // MARK: Anchor <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: YAxisAnchor, rhs: YAxisAnchor) -> YAxisAnchor.Solution {
-    return lhs.outsetGreaterThanOrEqual(to: rhs)
+    return lhs.outsetFrom(to: rhs)
 }
 
 // MARK: Anchor <=> Expression
 @discardableResult
 public func ≤≥ (lhs: YAxisAnchor, rhs: YAxisAnchorExpression) -> YAxisAnchor.Solution {
-    return lhs.outsetGreaterThanOrEqual(to: rhs)
+    return lhs.outsetFrom(to: rhs)
 }

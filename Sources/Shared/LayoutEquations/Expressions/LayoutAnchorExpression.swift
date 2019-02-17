@@ -29,7 +29,7 @@ extension LayoutAnchorExpression: Expression, CoefficientsReferencing where A: L
 
     @discardableResult
     public func plus(_ relativeConstant: RelativeConstant) -> LayoutAnchorExpression {
-        coefficients.set(relativeConstant)
+        coefficients.set(relativeConstant: relativeConstant)
         return self
     }
 

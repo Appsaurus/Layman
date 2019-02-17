@@ -27,18 +27,11 @@ extension LayoutAnchorPairExpression: Expression {
         return self
     }
 
-    @discardableResult
-    public func plus(_ relativeLayoutConstant: RelativeLayoutConstant) -> Self {
-        let tuple = (relativeLayoutConstant.constant, relativeLayoutConstant.constant)
-        return self.plus(RelativeLayoutConstantTuple(relativity: relativeLayoutConstant.relativity, constant: tuple))
-    }
-
+    
     @discardableResult
     public func plus(_ relativeLayoutConstantTuple: RelativeLayoutConstantTuple) -> Self {
-        coefficients.first.set(constant: relativeLayoutConstantTuple.constant.first)
-        coefficients.first.constantRelativity = relativeLayoutConstantTuple.relativity
-        coefficients.second.set(constant: relativeLayoutConstantTuple.constant.second)
-        coefficients.second.constantRelativity = relativeLayoutConstantTuple.relativity
+        coefficients.first.set(relativeConstant: relativeLayoutConstantTuple.first)
+        coefficients.second.set(relativeConstant: relativeLayoutConstantTuple.second)
         return self
     }
 

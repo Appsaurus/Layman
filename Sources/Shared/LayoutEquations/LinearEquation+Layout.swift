@@ -80,7 +80,6 @@ extension CoefficientsReferencing where Coefficients: CoefficientModel {
     }
 }
 
-
 extension CoefficientsReferencing where Coefficients: LayoutCoefficient {
     public typealias RelativeConstant = Relative<LayoutConstant>
 
@@ -91,19 +90,19 @@ extension CoefficientsReferencing where Coefficients: LayoutCoefficient {
     }
 
     public func plus(_ relativeConstant: RelativeConstant) -> Self {
-        coefficients.set(relativeConstant)
+        coefficients.set(relativeConstant: relativeConstant)
         return self
     }
 
     @discardableResult
     public func inset(_ constant: LayoutConstant) -> Self {
-        coefficients.set(RelativeConstant(relativity: .inset, constant: constant))
+        coefficients.set(relativeConstant: .inset(constant))
         return self
     }
 
     @discardableResult
     public func outset(_ constant: LayoutConstant) -> Self {
-        coefficients.set(RelativeConstant(relativity: .outset, constant: constant))
+        coefficients.set(relativeConstant: .outset(constant))
         return self
     }
 }

@@ -8,6 +8,7 @@
 
 public protocol CoefficientMutating {
     func set(constant: LayoutConstant)
+    func set(relativeConstant: RelativeLayoutConstant)
     func set(multiplier: LayoutMultiplier)
     func set(priority: LayoutPriority)
 
@@ -26,6 +27,11 @@ extension CoefficientMutating {
         return self
     }
 
+    public func with(relativeConstant: RelativeLayoutConstant) -> Self {
+        set(relativeConstant: relativeConstant)
+        return self
+    }
+
     public func times(_ multiplier: LayoutMultiplier) -> Self {
         set(multiplier: multiplier)
         return self
@@ -39,6 +45,11 @@ extension CoefficientMutating {
     public static func constant(_ constant: LayoutConstant) -> Self {
         return Self().with(constant: constant)
     }
+
+    public static func relativeConstant(_ constant: LayoutConstant) -> Self {
+        return Self().with(constant: constant)
+    }
+
     public static func multiplier(_ multiplier: LayoutMultiplier) -> Self {
         return Self().times(multiplier)
     }

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
-
 extension LayoutCoefficient {
     internal func copy() -> LayoutCoefficient {
         let config = LayoutCoefficient()

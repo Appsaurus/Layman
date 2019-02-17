@@ -28,9 +28,9 @@ args:
             - 'XYAxesAnchorPair'
             - 'View'
         RightHandTypes:
-            - 'Constant'
-            - 'Coefficient'
-            - 'Multiplier'
+            - 'LayoutConstant'
+            - 'LayoutCoefficient'
+            - 'LayoutMultiplier'
             - 'RelativeLayoutConstant'
     CoefficientsEquatable:
         LeftHandTypes:
@@ -42,7 +42,6 @@ args:
         RightHandTypes:
             - 'LayoutCoefficientTuple'
             - 'LayoutConstantTuple'
-            - 'LayoutCoefficient'
             - 'RelativeLayoutConstantTuple'
     LayoutSizeEquatable:
         LeftHandTypes:

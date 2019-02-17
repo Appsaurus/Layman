@@ -57,13 +57,13 @@ extension Collection where Element: LayoutSizeEquatable {
     // MARK: - Equal
     // MARK: Collection == Expression
     @discardableResult
-    public func equal(to rhs: Element.LayoutSize) -> [Element.Solution] {
+    public func equal(to rhs: LayoutSize) -> [Element.Solution] {
         return map { $0.equal(to: rhs) }
     }
 
     // MARK: Collection == Expression Array
     @discardableResult
-    public func equal(to rhs: [Element.LayoutSize]) -> [[Element.Solution]] {
+    public func equal(to rhs: [LayoutSize]) -> [[Element.Solution]] {
         return map { $0.equal(to: rhs) }
     }
 
@@ -71,13 +71,13 @@ extension Collection where Element: LayoutSizeEquatable {
 
     // MARK: Collection <= Expression
     @discardableResult
-    public func lessThanOrEqual(to rhs: Element.LayoutSize) -> [Element.Solution] {
+    public func lessThanOrEqual(to rhs: LayoutSize) -> [Element.Solution] {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
     // MARK: Collection <= Expression Array
     @discardableResult
-    public func lessThanOrEqual(to rhs: [Element.LayoutSize]) -> [[Element.Solution]] {
+    public func lessThanOrEqual(to rhs: [LayoutSize]) -> [[Element.Solution]] {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
@@ -85,13 +85,13 @@ extension Collection where Element: LayoutSizeEquatable {
 
     // MARK: Collection >= Expression
     @discardableResult
-    public func greaterThanOrEqual(to rhs: Element.LayoutSize) -> [Element.Solution] {
+    public func greaterThanOrEqual(to rhs: LayoutSize) -> [Element.Solution] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 
     // MARK: Collection >= Expression Array
     @discardableResult
-    public func greaterThanOrEqual(to rhs: [Element.LayoutSize]) -> [[Element.Solution]] {
+    public func greaterThanOrEqual(to rhs: [LayoutSize]) -> [[Element.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }

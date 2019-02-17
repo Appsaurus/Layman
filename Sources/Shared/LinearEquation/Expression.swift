@@ -11,6 +11,7 @@ public protocol CoefficientsReferencing: class {
     var coefficients: Coefficients { get set }
     func with(coefficients: Coefficients) -> Self
     func with(constant: LayoutConstant) -> Self
+    func with(relativeConstant: RelativeLayoutConstant) -> Self
     func times(_ multiplier: LayoutMultiplier) -> Self
     func priority(_ priority: LayoutPriority) -> Self
 }
@@ -27,6 +28,13 @@ extension CoefficientsReferencing {
         coefficients.set(constant: constant)
         return self
     }
+
+    @discardableResult
+    public func with(relativeConstant: RelativeLayoutConstant) -> Self {
+        coefficients.set(relativeConstant: relativeConstant)
+        return self
+    }
+
 
     @discardableResult
     public func times(_ multiplier: LayoutMultiplier) -> Self {

@@ -8,7 +8,6 @@
 
 extension View: CoefficientEquatable {
 
-
     public typealias LinearEquation = LayoutDimensionPairRelationship
 
     public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstant) -> LayoutDimensionPairRelationship {
@@ -29,7 +28,6 @@ extension View: CoefficientEquatable {
 }
 
 extension View: CoefficientsEquatable {
-
 
     public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientTuple) -> LayoutDimensionPairRelationship {
         return self.relation(relation, LayoutCoefficientPair(rhs.first, rhs.second))
