@@ -7,44 +7,18 @@
 //
 
 // MARK: LayoutAnchorPair
-extension LayoutAnchorPair: CoefficientsEquatable {
 
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientTuple) -> LayoutAnchorPairEquation<FA, SA> {
-        return LinearEquation(self, relation, LayoutCoefficientPair(rhs.first, rhs.second))
+extension CoefficientsEquatable where LinearEquation: TupleVariableLinearEquation, LinearEquation.Variable == Self {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientTuple) -> LinearEquation {
+        return LinearEquation.init(self, relation, rhs)
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstantTuple) -> LayoutAnchorPairEquation<FA, SA> {
-        return LinearEquation(self, relation, LayoutCoefficientPair(.constant(rhs.first), .constant(rhs.second)))
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstantTuple) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficient) -> LinearEquation {
-        return LinearEquation(self, relation, LayoutCoefficientPair(rhs.copy()))
-    }
-
-    public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstantTuple) -> LayoutAnchorPairEquation<FA, SA> {
-        assertionFailure()
-        return LinearEquation(self, relation, LayoutCoefficientPair(.constant(rhs.constant.first), .constant(rhs.constant.second)))
-    }
-}
-
-// MARK: EdgeAnchorGroup
-extension EdgeAnchorGroup: CoefficientsEquatable {
-
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientTuple) -> EdgeAnchorGroupEquation {
-        return LinearEquation(self, relation, EdgeAnchorsGroupCoefficients(rhs.first, rhs.second))
-    }
-
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstantTuple) -> EdgeAnchorGroupEquation {
-        return LinearEquation(self, relation, EdgeAnchorsGroupCoefficients(.constant(rhs.first), .constant(rhs.second)))
-    }
-
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficient) -> LinearEquation {
-        return LinearEquation (self, relation, EdgeAnchorsGroupCoefficients(rhs.copy()))
-    }
-
-    public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstantTuple) -> EdgeAnchorGroupEquation {
-        assertionFailure()
-        return LinearEquation(self, relation, EdgeAnchorsGroupCoefficients(.constant(rhs.constant.first), .constant(rhs.constant.second)))
+    public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstantTuple) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
     }
 }
 

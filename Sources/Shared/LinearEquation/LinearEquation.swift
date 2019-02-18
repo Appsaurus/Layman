@@ -38,9 +38,15 @@ public protocol LinearEquation: Expression, LinearEquationSolving where Expressi
     init(_ variable: Variable, _ relation: LayoutRelation, _ relatedVariable: Variable)
     init(_ variable: Variable, _ relation: LayoutRelation, _ relatedVariable: Variable?, _ coefficients: Coefficients)
     init(_ variable: Variable, _ relation: LayoutRelation, _ constant: LayoutConstant)
+    init(_ variable: Variable, _ relation: LayoutRelation, _ constant: RelativeLayoutConstant)
+    init(_ variable: Variable, _ relation: LayoutRelation, _ coefficient: LayoutCoefficient)
 }
 
 extension LinearEquation {
+
+    public init(variable: Variable) {
+        self.init(variable: variable, coefficients: .default)
+    }
 
     public init(_ variable: Variable,
                 _ relation: LayoutRelation,
@@ -64,11 +70,12 @@ extension LinearEquation {
                 _ constant: LayoutConstant) {
         self.init(variable, relation, .constant(constant))
     }
-}
 
-//public protocol CoefficientTyped {
-//    associatedtype Coefficient: CoefficientMutating
-//    typealias Constant = LayoutConstant
-//    typealias Multiplier = Coefficient.Multiplier
-//    typealias Divisor = LayoutConstant
-//}
+    public init(variable: Variable, coefficients: Coefficients) {
+        self.init(variable, .equal, nil, coefficients)
+    }
+
+    public init(_ variable: Variable, _ relation: LayoutRelation, _ relativeConstant: RelativeLayoutConstant) {
+        self.init(variable, relation, nil, Coefficients().with(relativeConstant: relativeConstant))
+    }
+}

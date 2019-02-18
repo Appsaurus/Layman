@@ -14,6 +14,7 @@ public protocol CoefficientEquatable: LinearEquationTyped {
     func relation(_ relation: LayoutRelation, _ rhs: LayoutMultiplier) -> LinearEquation
     func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstant) -> LinearEquation
 }
+
 // MARK: Anchor <=> LayoutConstant
 extension CoefficientEquatable {
 

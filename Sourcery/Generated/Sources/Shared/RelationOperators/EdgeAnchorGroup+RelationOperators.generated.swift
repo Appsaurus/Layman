@@ -54,23 +54,23 @@ public func ≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAn
 // MARK: Anchor >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
-    return lhs.insetFrom(to: rhs)
+    return lhs.inset(from: rhs)
 }
 
 // MARK: Anchor >=< Expression
 @discardableResult
 public func ≥≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
-    return lhs.insetFrom(to: rhs)
+    return lhs.inset(from: rhs)
 }
 
 // MARK: Anchor <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
-    return lhs.outsetFrom(to: rhs)
+    return lhs.outset(from: rhs)
 }
 
 // MARK: Anchor <=> Expression
 @discardableResult
 public func ≤≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
-    return lhs.outsetFrom(to: rhs)
+    return lhs.outset(from: rhs)
 }

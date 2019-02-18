@@ -36,4 +36,12 @@ extension Relative where LC == LayoutConstantTuple {
                              _ second: LayoutConstant) -> RelativeLayoutConstantTuple {
         return RelativeLayoutConstantTuple(relativity: .inset, constant: (first: first, second: second))
     }
+
+    public init(_ relativeConstant: RelativeLayoutConstant) {
+        self.init(relativity: relativeConstant.relativity, constant: (first: relativeConstant.constant, second: relativeConstant.constant))
+    }
+
+    public static func constant(_ relativeConstant: RelativeLayoutConstant) -> RelativeLayoutConstantTuple {
+        return .init(relativeConstant)
+    }
 }

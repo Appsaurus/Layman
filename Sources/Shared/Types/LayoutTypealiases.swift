@@ -41,12 +41,6 @@ public typealias AnchorType = AnyObject
 public typealias AnchorVariable = AnchorType & LayoutVariable
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 
-// MARK: Layout Anchor Pair
-public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>> {
-    
-}
-// MARK: Typed Anchor Group
-public class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {}
 
 // MARK: Layout Configuration
 public typealias LayoutConstant = CGFloat

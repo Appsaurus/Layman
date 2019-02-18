@@ -64,25 +64,25 @@ public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expr
 // MARK: Anchor >=< Anchor
 @discardableResult
 public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
-    return lhs.insetFrom(to: rhs)
+    return lhs.inset(from: rhs)
 }
 
 // MARK: Anchor >=< Expression
 @discardableResult
 public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
-    return lhs.insetFrom(to: rhs)
+    return lhs.inset(from: rhs)
 }
 
 // MARK: Anchor <=> Anchor
 @discardableResult
 public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
-    return lhs.outsetFrom(to: rhs)
+    return lhs.outset(from: rhs)
 }
 
 // MARK: Anchor <=> Expression
 @discardableResult
 public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
-    return lhs.outsetFrom(to: rhs)
+    return lhs.outset(from: rhs)
 }
 
 

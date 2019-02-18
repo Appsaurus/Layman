@@ -11,7 +11,11 @@ public final class LayoutAnchorExpression<A: AnchorType> {
     public var variable: LayoutAnchor<A>
     public var coefficients: LayoutCoefficient
 
-    public init(variable: LayoutAnchor<A>, coefficients: LayoutCoefficient = .default) {
+    public convenience init(variable: LayoutAnchor<A>) {
+        self.init(variable: variable, coefficients: .default)
+    }
+
+    public init(variable: LayoutAnchor<A>, coefficients: LayoutCoefficient) {
         self.variable = variable
         self.coefficients = coefficients
     }

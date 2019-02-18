@@ -35,4 +35,8 @@ extension EdgeAnchorGroup: LeftHandLayoutExpression, CoefficientEquatable {
     public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
+
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficient) -> LinearEquation {
+        return LinearEquation(self, relation, Coefficient(rhs.copy()))
+    }
 }

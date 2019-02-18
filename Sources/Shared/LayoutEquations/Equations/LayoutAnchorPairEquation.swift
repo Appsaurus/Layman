@@ -24,8 +24,7 @@ public final class LayoutAnchorPairEquation<F: AnchorVariable, S: AnchorVariable
     }
 
     public convenience init(_ variable: LayoutAnchorPair<F, S>, _ relation: LayoutRelation, _ relativeConstant: RelativeLayoutConstant) {
-        let coefficients = LayoutCoefficientPair(LayoutCoefficient().with(relativeConstant: relativeConstant), LayoutCoefficient().with(relativeConstant: relativeConstant))
-        self.init(variable, relation, nil, coefficients)
+        self.init(variable, relation, .constant(relativeConstant))
     }
 
     public var solution: ConstraintPair {
@@ -40,7 +39,7 @@ public final class LayoutAnchorPairEquation<F: AnchorVariable, S: AnchorVariable
 
 }
 
-extension LayoutAnchorPairEquation: LinearEquation {
+extension LayoutAnchorPairEquation: LinearEquation, TupleVariableLinearEquation {
 
     public typealias Expression = LayoutAnchorPairExpression<F, S>
 }

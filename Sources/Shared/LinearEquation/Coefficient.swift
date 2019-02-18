@@ -42,17 +42,14 @@ extension CoefficientMutating {
         return self
     }
 
-    public static func constant(_ constant: LayoutConstant) -> Self {
-        return Self().with(constant: constant)
-    }
-
-    public static func relativeConstant(_ constant: LayoutConstant) -> Self {
-        return Self().with(constant: constant)
-    }
-
     public static func multiplier(_ multiplier: LayoutMultiplier) -> Self {
         return Self().times(multiplier)
     }
+
+    public static func multiplier(_ multiplier: LayoutConstant) -> Self {
+        return .multiplier(LayoutMultiplier(multiplier))
+    }
+
     public static func priority(_ priority: LayoutPriority) -> Self {
         return Self().priority(priority)
     }
@@ -62,5 +59,16 @@ public protocol CoefficientModel: CoefficientMutating {
     var constant: LayoutConstant { get set }
     var multiplier: LayoutMultiplier? { get set }
     var priority: LayoutPriority { get set }
+}
 
+extension CoefficientModel {
+    @discardableResult
+    public func divided(by divisor: LayoutDivisor) -> Self {
+        set(divisor: divisor)
+        return self
+    }
+
+    public func set(divisor: LayoutDivisor) {
+        set(multiplier: LayoutMultiplier(multiplier?.value ?? 1.0 / divisor))
+    }
 }

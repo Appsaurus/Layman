@@ -11,13 +11,18 @@ public final class LayoutAnchorPairExpression<F: AnchorVariable, S: AnchorVariab
     public var variable: LayoutAnchorPair<F, S>
     public var coefficients: LayoutCoefficientPair
 
-    public init(variable: LayoutAnchorPair<F, S>, coefficients: LayoutCoefficientPair = .default) {
+    public convenience init(variable: LayoutAnchorPair<F, S>) {
+        self.init(variable: variable, coefficients: .default)
+    }
+
+    public init(variable: LayoutAnchorPair<F, S>, coefficients: LayoutCoefficientPair) {
         self.variable = variable
         self.coefficients = coefficients        
     }
 }
 
 extension LayoutAnchorPairExpression: Expression {
+
     public typealias Coefficients = LayoutCoefficientPair
     public typealias Variable = LayoutAnchorPair<F, S>
 
@@ -27,6 +32,12 @@ extension LayoutAnchorPairExpression: Expression {
         return self
     }
 
+    @discardableResult
+    public func plus(_ constant: LayoutConstantTuple) -> Self {
+        coefficients.first.set(constant: constant.first)
+        coefficients.second.set(constant: constant.second)
+        return self
+    }
     
     @discardableResult
     public func plus(_ relativeLayoutConstantTuple: RelativeLayoutConstantTuple) -> Self {

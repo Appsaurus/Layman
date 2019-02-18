@@ -11,6 +11,16 @@ public protocol LeftHandLayoutExpression: LinearEquationTyped {
     func relation(_ relation: LayoutRelation, _ rhs: RightHandExpression) -> LinearEquation
 }
 
+extension LeftHandLayoutExpression where LayoutVariable == Self {
+    public func relation(_ relation: LayoutRelation, _ rhs: Self) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: LayoutRelation, _ rhs: RightHandExpression) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+}
+
 extension LeftHandLayoutExpression {
 
     @discardableResult
@@ -73,41 +83,41 @@ extension LeftHandLayoutExpression {
     }
 
     @discardableResult
-    public func insetFrom(to rhs: Self) -> Solution {
+    public func inset(from rhs: Self) -> Solution {
         return relation(.insetFrom, rhs).solution
     }
 
     @discardableResult
-    public func insetFrom(to rhs: RightHandExpression) -> Solution {
+    public func inset(from rhs: RightHandExpression) -> Solution {
         return relation(.insetFrom, rhs).solution
     }
 
     @discardableResult
-    public func insetFrom(to rhs: [Self]) -> [Solution] {
+    public func inset(from rhs: [Self]) -> [Solution] {
         return rhs.map { relation(.insetFrom, $0).solution }
     }
 
     @discardableResult
-    public func insetFrom(to rhs: [RightHandExpression]) -> [Solution] {
+    public func inset(from rhs: [RightHandExpression]) -> [Solution] {
         return rhs.map { relation(.insetFrom, $0).solution }
     }
 
     @discardableResult
-    public func outsetFrom(to rhs: Self) -> Solution {
+    public func outset(from rhs: Self) -> Solution {
         return relation(.outsetFrom, rhs).solution
     }
 
     @discardableResult
-    public func outsetFrom(to rhs: RightHandExpression) -> Solution {
+    public func outset(from rhs: RightHandExpression) -> Solution {
         return relation(.outsetFrom, rhs).solution
     }
 
     @discardableResult
-    public func outsetFrom(to rhs: [Self]) -> [Solution] {
+    public func outset(from rhs: [Self]) -> [Solution] {
         return rhs.map { relation(.outsetFrom, $0).solution }
     }
     @discardableResult
-    public func outsetFrom(to rhs: [RightHandExpression]) -> [Solution] {
+    public func outset(from rhs: [RightHandExpression]) -> [Solution] {
         return rhs.map { relation(.outsetFrom, $0).solution }
     }
 }

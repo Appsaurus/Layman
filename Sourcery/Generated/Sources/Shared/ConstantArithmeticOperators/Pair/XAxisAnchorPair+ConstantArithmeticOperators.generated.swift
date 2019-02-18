@@ -15,13 +15,23 @@ public func .+ (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExp
 }
 
 @discardableResult
+public func .+ (lhs: XAxisAnchorPair, rhs: LayoutConstantTuple) -> XAxisAnchorPairExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func .+ (lhs: XAxisAnchorPair, rhs: RelativeLayoutConstantTuple) -> XAxisAnchorPairExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
 public func .- (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
-    return XAxisAnchorPairExpression(variable: lhs, coefficients: .constant(-rhs))
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func .* (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
-    return XAxisAnchorPairExpression(variable: lhs, coefficients: .multiplier(rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult
@@ -31,7 +41,7 @@ public func .* (lhs: LayoutConstant, rhs: XAxisAnchorPair) -> XAxisAnchorPairExp
 
 @discardableResult
 public func .* (lhs: XAxisAnchorPair, rhs: LayoutMultiplier) -> XAxisAnchorPairExpression {
-    return XAxisAnchorPairExpression(variable: lhs, coefficients: .multiplier(rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult
@@ -49,6 +59,16 @@ public func ./ (lhs: XAxisAnchorPair, rhs: LayoutDivisor) -> XAxisAnchorPairExpr
 @discardableResult
 public func .+ (lhs: XAxisAnchorPairExpression, rhs: LayoutConstant) -> XAxisAnchorPairExpression {
     return lhs.with(constant: rhs)
+}
+
+@discardableResult
+public func .+ (lhs: XAxisAnchorPairExpression, rhs: LayoutConstantTuple) -> XAxisAnchorPairExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func .+ (lhs: XAxisAnchorPairExpression, rhs: RelativeLayoutConstantTuple) -> XAxisAnchorPairExpression {
+    return lhs.plus(rhs)
 }
 
 @discardableResult

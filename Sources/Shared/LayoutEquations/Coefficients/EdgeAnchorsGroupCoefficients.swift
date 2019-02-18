@@ -12,17 +12,6 @@ public final class EdgeAnchorsGroupCoefficients: SidesTuple<LayoutCoefficient, L
 
 extension EdgeAnchorsGroupCoefficients: CoefficientMutating {
 
-//    public static func constant(_ constant: LayoutConstant) -> EdgeAnchorsGroupCoefficients {
-//        return EdgeAnchorsGroupCoefficients().with(constant: constant)
-//    }
-//    public static func multiplier(_ multiplier: LayoutMultiplier) -> EdgeAnchorsGroupCoefficients {
-//        return EdgeAnchorsGroupCoefficients().times(multiplier)
-//    }
-//    public static func priority(_ priority: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
-//        return EdgeAnchorsGroupCoefficients().priority(priority)
-//    }
-//
-
     public func set(constant: LayoutConstant) {
         all.forEach { $0.set(constant: constant) }
     }
@@ -48,7 +37,23 @@ extension EdgeAnchorsGroupCoefficients: CoefficientMutating {
     }
 }
 
-extension EdgeAnchorsGroupCoefficients {
+extension EdgeAnchorsGroupCoefficients: LayoutConstantTupleInitable {
+    public convenience init(_ relativeConstant: RelativeLayoutConstant) {
+        self.init(.constant(relativeConstant))
+    }
+
+    public convenience init(_ constant: LayoutConstant) {
+        self.init((constant, constant))
+    }
+    
+    public convenience init(_ relativeConstantTuple: RelativeLayoutConstantTuple) {
+        self.init(.constant(relativeConstantTuple.first), .constant(relativeConstantTuple.second))
+    }
+
+    public convenience init(_ constantTuple: LayoutConstantTuple) {
+        self.init(.constant(constantTuple.first), .constant(constantTuple.second))
+    }
+
     @discardableResult
     public func with(relativeConstant: RelativeLayoutConstant) -> EdgeAnchorsGroupCoefficients {
         set(relativeConstant: relativeConstant)

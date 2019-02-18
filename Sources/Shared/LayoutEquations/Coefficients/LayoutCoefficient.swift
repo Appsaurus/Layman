@@ -11,7 +11,7 @@ public enum LayoutConstantRelativity {
     case outset
     case shift
 }
-public final class LayoutCoefficient {
+public final class LayoutCoefficient: LayoutConstantInitable {
 
     public var constant: LayoutConstant = 0.0
     public var multiplier: LayoutMultiplier?
@@ -20,6 +20,26 @@ public final class LayoutCoefficient {
     public var active: Bool = true
 
     public init() {}
+
+    public convenience init(_ constant: LayoutConstant) {
+        self.init()
+        self.set(constant: constant)
+    }
+
+    public convenience init(_ relativeConstant: RelativeLayoutConstant) {
+        self.init()
+        self.set(relativeConstant: relativeConstant)
+    }
+
+    internal func copy() -> LayoutCoefficient {
+        let config = LayoutCoefficient()
+        config.active = active
+        config.constant = constant
+        config.multiplier = multiplier
+        config.priority = priority
+        return config
+    }
+
 }
 
 public typealias LayoutCoefficientTuple = (first: LayoutCoefficient, second: LayoutCoefficient)
@@ -31,12 +51,6 @@ extension LayoutCoefficient {
         self.active = active
         return self
     }
-
-//    @discardableResult
-//    public func with(relativeConstant: RelativeLayoutConstant) -> LayoutCoefficient {
-//        self.set(relativeConstant: relativeConstant)
-//        return self
-//    }
 }
 
 extension LayoutCoefficient: CoefficientModel {

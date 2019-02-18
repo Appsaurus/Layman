@@ -10,19 +10,14 @@
 extension LayoutAnchorPair: LayoutVariable {
 
     public typealias RightHandExpression = LayoutAnchorPairExpression<FA, SA>
-
-    public func plus(_ constant: LayoutConstant) -> RightHandExpression {
-        let config = LayoutCoefficientPair(.constant(constant))
-        return RightHandExpression(variable: self, coefficients: config)
-    }
+//
+//    public func times(_ multiplier: LayoutConstant) -> RightHandExpression {
+//        return times(LayoutMultiplier(multiplier))
+//    }
 
     public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
-        let config = LayoutCoefficientPair(.multiplier(multiplier))
-        return RightHandExpression(variable: self, coefficients: config)
-    }
-
-    public func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression {
-        return RightHandExpression(variable: self).with(relativeConstant: relativeConstant)
+        let coefficients = LayoutCoefficientPair(.multiplier(multiplier))
+        return RightHandExpression(variable: self).with(coefficients: coefficients)
     }
 
 }

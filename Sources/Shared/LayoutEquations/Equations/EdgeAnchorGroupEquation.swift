@@ -27,7 +27,6 @@ public final class EdgeAnchorGroupEquation {
         self.init(variable, relation, nil, Coefficients().with(relativeConstant: relativeConstant))
     }
 
-
     public convenience init(_ variable: EdgeAnchorGroup, _ relation: LayoutRelation, _ relativeConstantTuple: RelativeLayoutConstantTuple) {
         self.init(variable, relation, nil)
         coefficients.top.set(relativeConstant: relativeConstantTuple.second)
@@ -76,5 +75,11 @@ extension EdgeAnchorGroupEquation: LinearEquation {
 
     public var solution: SideConstraints {
         return constraint
+    }
+}
+
+extension EdgeAnchorGroupEquation: TupleVariableLinearEquation {
+    public convenience init(_ variable: EdgeAnchorGroup, _ relation: LayoutRelation, _ coefficients: LayoutCoefficientPair) {
+        self.init(variable, relation, Coefficients(coefficients.first, coefficients.second))
     }
 }

@@ -21,7 +21,16 @@ extension EdgeAnchorGroupExpression {
 
     @discardableResult
     public func plus(_ relativeLayoutConstant: RelativeLayoutConstant) -> Self {
-        return plus(LayoutPadding(relativeLayoutConstant.constant).inset)
+        let padding = LayoutPadding(relativeLayoutConstant.constant)
+        switch relativeLayoutConstant.relativity {
+        case .inset:
+            return plus(padding.inset)
+        case .outset:
+            return plus(padding.outset)
+        case .shift:
+            return with(constant: relativeLayoutConstant.constant)
+        }
+
     }
 
     @discardableResult

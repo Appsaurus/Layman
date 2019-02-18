@@ -15,17 +15,26 @@ public struct Relative<LC> {
         self.constant = constant
     }
 
-    public static func inset(_ constant: LC) -> Relative<LC> {
-        return Relative<LC>(relativity: .inset, constant: constant)
-    }
+//    public static func inset(_ constant: LC) -> Relative<LC> {
+//        return Relative<LC>(relativity: .inset, constant: constant)
+//    }
 
-    public static func outset(_ constant: LC) -> Relative<LC> {
-        return Relative<LC>(relativity: .outset, constant: constant)
-    }
+//    public static func outset(_ constant: LC) -> Relative<LC> {
+//        return Relative<LC>(relativity: .outset, constant: constant)
+//    }
 }
 
 public typealias RelativeLayoutConstant = Relative<LayoutConstant>
 
+extension Relative where LC == LayoutConstant {
+    public static func inset(_ constant: LayoutConstant) -> RelativeLayoutConstant {
+        return RelativeLayoutConstant(relativity: .inset, constant: constant)
+    }
+
+    public static func outset(_ constant: LayoutConstant) -> RelativeLayoutConstant {
+        return RelativeLayoutConstant(relativity: .outset, constant: constant)
+    }
+}
 extension LayoutConstant {
     public var inset: RelativeLayoutConstant {
         return RelativeLayoutConstant(relativity: .inset, constant: self)

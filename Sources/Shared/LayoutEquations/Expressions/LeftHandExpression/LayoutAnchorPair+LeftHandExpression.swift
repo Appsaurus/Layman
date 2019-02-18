@@ -33,8 +33,8 @@ extension LayoutAnchorPair: LeftHandLayoutExpression, CoefficientEquatable {
     public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
-}
 
-extension LayoutAnchorPair {
-    
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficient) -> LinearEquation {
+        return LinearEquation(self, relation, Coefficient(rhs.copy()))
+    }
 }

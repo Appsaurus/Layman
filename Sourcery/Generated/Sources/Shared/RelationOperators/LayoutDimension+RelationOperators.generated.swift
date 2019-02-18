@@ -54,23 +54,23 @@ public func ≥ (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> Layout
 // MARK: Anchor >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: LayoutDimension, rhs: LayoutDimension) -> LayoutDimension.Solution {
-    return lhs.insetFrom(to: rhs)
+    return lhs.inset(from: rhs)
 }
 
 // MARK: Anchor >=< Expression
 @discardableResult
 public func ≥≤ (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> LayoutDimension.Solution {
-    return lhs.insetFrom(to: rhs)
+    return lhs.inset(from: rhs)
 }
 
 // MARK: Anchor <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: LayoutDimension, rhs: LayoutDimension) -> LayoutDimension.Solution {
-    return lhs.outsetFrom(to: rhs)
+    return lhs.outset(from: rhs)
 }
 
 // MARK: Anchor <=> Expression
 @discardableResult
 public func ≤≥ (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> LayoutDimension.Solution {
-    return lhs.outsetFrom(to: rhs)
+    return lhs.outset(from: rhs)
 }

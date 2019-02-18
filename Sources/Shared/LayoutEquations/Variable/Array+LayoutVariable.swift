@@ -10,15 +10,15 @@ extension Array: Variable, LayoutVariable where Element: LayoutVariable {
 
     public typealias RightHandExpression = [Element.RightHandExpression]
 
-    public func plus(_ constant: LayoutConstant) -> [Element.RightHandExpression] {
+    public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         return self.map { $0.plus(constant) }
     }
 
-    public func times(_ multiplier: LayoutMultiplier) -> [Element.RightHandExpression] {
+    public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
         return self.map { $0.times(multiplier) }
     }
 
-    public func inset(_ constant: LayoutConstant) -> [Element.RightHandExpression] {
+    public func inset(_ constant: LayoutConstant) -> RightHandExpression {
         return self.map { $0.inset(constant) }
     }
 
@@ -26,14 +26,7 @@ extension Array: Variable, LayoutVariable where Element: LayoutVariable {
         return self.map { $0.outset(constant) }
     }
 
-    public func plus(_ relativeConstant: RelativeLayoutConstant) -> [Element.RightHandExpression] {
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression {
         return self.map { $0.plus(relativeConstant) }
     }
-
-}
-
-extension Array where Element: Expression {
-//    public init(variable: Element.Variable, coefficients: Element.Coefficients) {
-//        return self.map { $0 (multiplier) }
-//    }
 }

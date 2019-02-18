@@ -14,34 +14,34 @@ import XCTest
 // sourcery: lhsItem = view1
 class LayoutDimensionConstantTests: LaymanTestCase {
 // sourcery:inline:auto:LayoutDimensionConstantTests.ConstantEquationTests
-    func testView1WidthGreaterThanOrEqualToConstant() {
-        let constraints = view1.widthAnchor ≥ 200
-        constraints.assert(view1, .width, .greaterThanOrEqual, constant: 200)
+    func testView1WidthLessThanOrEqualToConstant() {
+        let constraints = view1.widthAnchor ≤ 200
+        constraints.assert(view1, .width, .lessThanOrEqual, constant: 200)
     }
 
-    func testView1WidthGreaterThanOrEqualToConstantWithPriority() {
-        let constraints = view1.widthAnchor ≥ 200 ~ .low
-        constraints.assert(view1, .width, .greaterThanOrEqual, constant: 200, priority: .low)
+    func testView1WidthLessThanOrEqualToConstantWithPriority() {
+        let constraints = view1.widthAnchor ≤ 200 ~ .low
+        constraints.assert(view1, .width, .lessThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testView1WidthGreaterThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = view1.widthAnchor ≥ 200 ~ .high .- 1
-        constraints.assert(view1, .width, .greaterThanOrEqual, constant: 200, priority: 749)
+    func testView1WidthLessThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = view1.widthAnchor ≤ 200 ~ .high .- 1
+        constraints.assert(view1, .width, .lessThanOrEqual, constant: 200, priority: 749)
     }
 
-    func testView1WidthGreaterThanOrEqualToPercentage() {
-        let constraints = view1.widthAnchor ≥ 75%
-        constraints.assert(view1, .width, .greaterThanOrEqual, parentView, .width, multiplier: 0.75)
+    func testView1WidthLessThanOrEqualToPercentage() {
+        let constraints = view1.widthAnchor ≤ 75%
+        constraints.assert(view1, .width, .lessThanOrEqual, parentView, .width, multiplier: 0.75)
     }
 
-    func testView1WidthGreaterThanOrEqualToPercentageWithPriority() {
-        let constraints = view1.widthAnchor ≥ 75% ~ .low
-        constraints.assert(view1, .width, .greaterThanOrEqual, parentView, .width, multiplier: 0.75, priority: .low)
+    func testView1WidthLessThanOrEqualToPercentageWithPriority() {
+        let constraints = view1.widthAnchor ≤ 75% ~ .low
+        constraints.assert(view1, .width, .lessThanOrEqual, parentView, .width, multiplier: 0.75, priority: .low)
     }
 
-    func testView1WidthGreaterThanOrEqualToPercentageWithPriorityArithmetic() {
-        let constraints = view1.widthAnchor ≥ 75% ~ .high .- 1
-        constraints.assert(view1, .width, .greaterThanOrEqual, parentView, .width, multiplier: 0.75, priority: 749)
+    func testView1WidthLessThanOrEqualToPercentageWithPriorityArithmetic() {
+        let constraints = view1.widthAnchor ≤ 75% ~ .high .- 1
+        constraints.assert(view1, .width, .lessThanOrEqual, parentView, .width, multiplier: 0.75, priority: 749)
     }
 
     func testView1WidthEqualToConstant() {
@@ -74,64 +74,64 @@ class LayoutDimensionConstantTests: LaymanTestCase {
         constraints.assert(view1, .width, .equal, parentView, .width, multiplier: 0.75, priority: 749)
     }
 
-    func testView1WidthLessThanOrEqualToConstant() {
-        let constraints = view1.widthAnchor ≤ 200
-        constraints.assert(view1, .width, .lessThanOrEqual, constant: 200)
+    func testView1WidthGreaterThanOrEqualToConstant() {
+        let constraints = view1.widthAnchor ≥ 200
+        constraints.assert(view1, .width, .greaterThanOrEqual, constant: 200)
     }
 
-    func testView1WidthLessThanOrEqualToConstantWithPriority() {
-        let constraints = view1.widthAnchor ≤ 200 ~ .low
-        constraints.assert(view1, .width, .lessThanOrEqual, constant: 200, priority: .low)
+    func testView1WidthGreaterThanOrEqualToConstantWithPriority() {
+        let constraints = view1.widthAnchor ≥ 200 ~ .low
+        constraints.assert(view1, .width, .greaterThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testView1WidthLessThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = view1.widthAnchor ≤ 200 ~ .high .- 1
-        constraints.assert(view1, .width, .lessThanOrEqual, constant: 200, priority: 749)
+    func testView1WidthGreaterThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = view1.widthAnchor ≥ 200 ~ .high .- 1
+        constraints.assert(view1, .width, .greaterThanOrEqual, constant: 200, priority: 749)
     }
 
-    func testView1WidthLessThanOrEqualToPercentage() {
-        let constraints = view1.widthAnchor ≤ 75%
-        constraints.assert(view1, .width, .lessThanOrEqual, parentView, .width, multiplier: 0.75)
+    func testView1WidthGreaterThanOrEqualToPercentage() {
+        let constraints = view1.widthAnchor ≥ 75%
+        constraints.assert(view1, .width, .greaterThanOrEqual, parentView, .width, multiplier: 0.75)
     }
 
-    func testView1WidthLessThanOrEqualToPercentageWithPriority() {
-        let constraints = view1.widthAnchor ≤ 75% ~ .low
-        constraints.assert(view1, .width, .lessThanOrEqual, parentView, .width, multiplier: 0.75, priority: .low)
+    func testView1WidthGreaterThanOrEqualToPercentageWithPriority() {
+        let constraints = view1.widthAnchor ≥ 75% ~ .low
+        constraints.assert(view1, .width, .greaterThanOrEqual, parentView, .width, multiplier: 0.75, priority: .low)
     }
 
-    func testView1WidthLessThanOrEqualToPercentageWithPriorityArithmetic() {
-        let constraints = view1.widthAnchor ≤ 75% ~ .high .- 1
-        constraints.assert(view1, .width, .lessThanOrEqual, parentView, .width, multiplier: 0.75, priority: 749)
+    func testView1WidthGreaterThanOrEqualToPercentageWithPriorityArithmetic() {
+        let constraints = view1.widthAnchor ≥ 75% ~ .high .- 1
+        constraints.assert(view1, .width, .greaterThanOrEqual, parentView, .width, multiplier: 0.75, priority: 749)
     }
 
-    func testView1HeightGreaterThanOrEqualToConstant() {
-        let constraints = view1.heightAnchor ≥ 200
-        constraints.assert(view1, .height, .greaterThanOrEqual, constant: 200)
+    func testView1HeightLessThanOrEqualToConstant() {
+        let constraints = view1.heightAnchor ≤ 200
+        constraints.assert(view1, .height, .lessThanOrEqual, constant: 200)
     }
 
-    func testView1HeightGreaterThanOrEqualToConstantWithPriority() {
-        let constraints = view1.heightAnchor ≥ 200 ~ .low
-        constraints.assert(view1, .height, .greaterThanOrEqual, constant: 200, priority: .low)
+    func testView1HeightLessThanOrEqualToConstantWithPriority() {
+        let constraints = view1.heightAnchor ≤ 200 ~ .low
+        constraints.assert(view1, .height, .lessThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testView1HeightGreaterThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = view1.heightAnchor ≥ 200 ~ .high .- 1
-        constraints.assert(view1, .height, .greaterThanOrEqual, constant: 200, priority: 749)
+    func testView1HeightLessThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = view1.heightAnchor ≤ 200 ~ .high .- 1
+        constraints.assert(view1, .height, .lessThanOrEqual, constant: 200, priority: 749)
     }
 
-    func testView1HeightGreaterThanOrEqualToPercentage() {
-        let constraints = view1.heightAnchor ≥ 75%
-        constraints.assert(view1, .height, .greaterThanOrEqual, parentView, .height, multiplier: 0.75)
+    func testView1HeightLessThanOrEqualToPercentage() {
+        let constraints = view1.heightAnchor ≤ 75%
+        constraints.assert(view1, .height, .lessThanOrEqual, parentView, .height, multiplier: 0.75)
     }
 
-    func testView1HeightGreaterThanOrEqualToPercentageWithPriority() {
-        let constraints = view1.heightAnchor ≥ 75% ~ .low
-        constraints.assert(view1, .height, .greaterThanOrEqual, parentView, .height, multiplier: 0.75, priority: .low)
+    func testView1HeightLessThanOrEqualToPercentageWithPriority() {
+        let constraints = view1.heightAnchor ≤ 75% ~ .low
+        constraints.assert(view1, .height, .lessThanOrEqual, parentView, .height, multiplier: 0.75, priority: .low)
     }
 
-    func testView1HeightGreaterThanOrEqualToPercentageWithPriorityArithmetic() {
-        let constraints = view1.heightAnchor ≥ 75% ~ .high .- 1
-        constraints.assert(view1, .height, .greaterThanOrEqual, parentView, .height, multiplier: 0.75, priority: 749)
+    func testView1HeightLessThanOrEqualToPercentageWithPriorityArithmetic() {
+        let constraints = view1.heightAnchor ≤ 75% ~ .high .- 1
+        constraints.assert(view1, .height, .lessThanOrEqual, parentView, .height, multiplier: 0.75, priority: 749)
     }
 
     func testView1HeightEqualToConstant() {
@@ -164,34 +164,34 @@ class LayoutDimensionConstantTests: LaymanTestCase {
         constraints.assert(view1, .height, .equal, parentView, .height, multiplier: 0.75, priority: 749)
     }
 
-    func testView1HeightLessThanOrEqualToConstant() {
-        let constraints = view1.heightAnchor ≤ 200
-        constraints.assert(view1, .height, .lessThanOrEqual, constant: 200)
+    func testView1HeightGreaterThanOrEqualToConstant() {
+        let constraints = view1.heightAnchor ≥ 200
+        constraints.assert(view1, .height, .greaterThanOrEqual, constant: 200)
     }
 
-    func testView1HeightLessThanOrEqualToConstantWithPriority() {
-        let constraints = view1.heightAnchor ≤ 200 ~ .low
-        constraints.assert(view1, .height, .lessThanOrEqual, constant: 200, priority: .low)
+    func testView1HeightGreaterThanOrEqualToConstantWithPriority() {
+        let constraints = view1.heightAnchor ≥ 200 ~ .low
+        constraints.assert(view1, .height, .greaterThanOrEqual, constant: 200, priority: .low)
     }
 
-    func testView1HeightLessThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = view1.heightAnchor ≤ 200 ~ .high .- 1
-        constraints.assert(view1, .height, .lessThanOrEqual, constant: 200, priority: 749)
+    func testView1HeightGreaterThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = view1.heightAnchor ≥ 200 ~ .high .- 1
+        constraints.assert(view1, .height, .greaterThanOrEqual, constant: 200, priority: 749)
     }
 
-    func testView1HeightLessThanOrEqualToPercentage() {
-        let constraints = view1.heightAnchor ≤ 75%
-        constraints.assert(view1, .height, .lessThanOrEqual, parentView, .height, multiplier: 0.75)
+    func testView1HeightGreaterThanOrEqualToPercentage() {
+        let constraints = view1.heightAnchor ≥ 75%
+        constraints.assert(view1, .height, .greaterThanOrEqual, parentView, .height, multiplier: 0.75)
     }
 
-    func testView1HeightLessThanOrEqualToPercentageWithPriority() {
-        let constraints = view1.heightAnchor ≤ 75% ~ .low
-        constraints.assert(view1, .height, .lessThanOrEqual, parentView, .height, multiplier: 0.75, priority: .low)
+    func testView1HeightGreaterThanOrEqualToPercentageWithPriority() {
+        let constraints = view1.heightAnchor ≥ 75% ~ .low
+        constraints.assert(view1, .height, .greaterThanOrEqual, parentView, .height, multiplier: 0.75, priority: .low)
     }
 
-    func testView1HeightLessThanOrEqualToPercentageWithPriorityArithmetic() {
-        let constraints = view1.heightAnchor ≤ 75% ~ .high .- 1
-        constraints.assert(view1, .height, .lessThanOrEqual, parentView, .height, multiplier: 0.75, priority: 749)
+    func testView1HeightGreaterThanOrEqualToPercentageWithPriorityArithmetic() {
+        let constraints = view1.heightAnchor ≥ 75% ~ .high .- 1
+        constraints.assert(view1, .height, .greaterThanOrEqual, parentView, .height, multiplier: 0.75, priority: 749)
     }
 // sourcery:end
 }

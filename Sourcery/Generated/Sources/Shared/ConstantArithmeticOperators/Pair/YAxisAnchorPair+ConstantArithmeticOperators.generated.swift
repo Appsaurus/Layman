@@ -15,6 +15,16 @@ public func .+ (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPairExp
 }
 
 @discardableResult
+public func .+ (lhs: YAxisAnchorPair, rhs: LayoutConstantTuple) -> YAxisAnchorPairExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func .+ (lhs: YAxisAnchorPair, rhs: RelativeLayoutConstantTuple) -> YAxisAnchorPairExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
 public func .- (lhs: YAxisAnchorPair, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
     return YAxisAnchorPairExpression(variable: lhs, coefficients: .constant(-rhs))
 }
@@ -49,6 +59,16 @@ public func ./ (lhs: YAxisAnchorPair, rhs: LayoutDivisor) -> YAxisAnchorPairExpr
 @discardableResult
 public func .+ (lhs: YAxisAnchorPairExpression, rhs: LayoutConstant) -> YAxisAnchorPairExpression {
     return lhs.with(constant: rhs)
+}
+
+@discardableResult
+public func .+ (lhs: YAxisAnchorPairExpression, rhs: LayoutConstantTuple) -> YAxisAnchorPairExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func .+ (lhs: YAxisAnchorPairExpression, rhs: RelativeLayoutConstantTuple) -> YAxisAnchorPairExpression {
+    return lhs.plus(rhs)
 }
 
 @discardableResult

@@ -22,8 +22,12 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
 
     public var coefficients: EdgeAnchorsGroupCoefficients = .default
 
+    public convenience init(variable: EdgeAnchorGroup) {
+        self.init(variable: variable, coefficients: .default)
+    }
+
     public convenience init(variable: EdgeAnchorGroup,
-                            coefficients: EdgeAnchorsGroupCoefficients = .default) {
+                            coefficients: EdgeAnchorsGroupCoefficients) {
         self.init(variable)
         self.coefficients = coefficients
     }

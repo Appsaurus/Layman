@@ -22,13 +22,23 @@ public func {{addition}} (lhs: {{AnchorPairType}}, rhs: LayoutConstant) -> {{Anc
 }
 
 @discardableResult
+public func {{addition}} (lhs: {{AnchorPairType}}, rhs: LayoutConstantTuple) -> {{AnchorPairType}}Expression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func {{addition}} (lhs: {{AnchorPairType}}, rhs: RelativeLayoutConstantTuple) -> {{AnchorPairType}}Expression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
 public func {{subtraction}} (lhs: {{AnchorPairType}}, rhs: LayoutConstant) -> {{AnchorPairType}}Expression {
-    return {{AnchorPairType}}Expression(variable: lhs, coefficients: .constant(-rhs))
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func {{multiplication}} (lhs: {{AnchorPairType}}, rhs: LayoutConstant) -> {{AnchorPairType}}Expression {
-    return {{AnchorPairType}}Expression(variable: lhs, coefficients: .multiplier(rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult
@@ -38,7 +48,7 @@ public func {{multiplication}} (lhs: LayoutConstant, rhs: {{AnchorPairType}}) ->
 
 @discardableResult
 public func {{multiplication}} (lhs: {{AnchorPairType}}, rhs: LayoutMultiplier) -> {{AnchorPairType}}Expression {
-    return {{AnchorPairType}}Expression(variable: lhs, coefficients: .multiplier(rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult
@@ -56,6 +66,16 @@ public func {{division}} (lhs: {{AnchorPairType}}, rhs: LayoutDivisor) -> {{Anch
 @discardableResult
 public func {{addition}} (lhs: {{AnchorPairType}}Expression, rhs: LayoutConstant) -> {{AnchorPairType}}Expression {
     return lhs.with(constant: rhs)
+}
+
+@discardableResult
+public func {{addition}} (lhs: {{AnchorPairType}}Expression, rhs: LayoutConstantTuple) -> {{AnchorPairType}}Expression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func {{addition}} (lhs: {{AnchorPairType}}Expression, rhs: RelativeLayoutConstantTuple) -> {{AnchorPairType}}Expression {
+    return lhs.plus(rhs)
 }
 
 @discardableResult
