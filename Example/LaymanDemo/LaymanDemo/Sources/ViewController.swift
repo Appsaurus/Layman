@@ -43,8 +43,7 @@ class LayoutExampleViewController: UIViewController {
         let stackView = StackView() ~~ "StackView"
         container.addSubview(stackView)
         stackView.centerXY .= container.centerXY
-        stackView .= container
-        stackView.equal(to: container)
+        stackView.inset(from: container.edges)
         stackView.enforceContentSize()
         return stackView
     }()
@@ -92,83 +91,64 @@ class LayoutExampleViewController: UIViewController {
         switch layout {
         case .sizeConstant:
             view1.size .= 100
-            //            view1.size .= (100, 100)
-            //            view1.size.equal(to: 100)
-            //            view1.size.equal(to: (100, 100))
-            view1.centerXY .= container.centerXY
+            view1.equal(to: container.leading)
         case .size:
             view1.size .= 100
             view2.size .= view1.size
             view1.trailing .= container.centerX .- 10
             view2.leading .= container.centerX .+ 10
             [view1, view2].centerY .= container.centerY
-        //            view2.size.equal(to: view1.size)
+
         case .center:
             view1.size .= 100
             view1.centerXY .= container.centerXY
         case .horizontalEdges:
-            view1.horizontalEdges .= container.horizontalEdges .+ 10
+            view1.horizontalEdges .= container.horizontalEdges .+ .inset(10)
             view1.centerY .= container.centerY
             view1.height .= 100
         case .verticalEdges:
-            view1.verticalEdges .= container.verticalEdges .+ 10
+            view1.verticalEdges .= container.verticalEdges .+ .inset(10)
             view1.centerX .= container.centerX
             view1.width .= 100
         case .edges:
-            view1.edges .= container.edges .+ 40
-
+            view1.edges .= container.edges .+ .inset(10)
         case .edgesInset:
             view1.edges .= container.edges .+ .inset(top: 75, leading: 10, bottom: 75, trailing: 100)
         case .corners:
             [view1, view2, view3, view4].size .= 100
-            view1.topLeft .= container.topLeft .+ 40
-            view2.topRight .= container.topRight .+ 40
-            view3.bottomRight .= container.bottomRight .+ 40
-            view4.bottomLeft .= container.bottomLeft .+ 40
+            view1.topLeft .= container.topLeft .+ .inset(20)
+            view2.topRight .= container.topRight .+ .inset(20)
+            view3.bottomRight .= container.bottomRight .+ .inset(20)
+            view4.bottomLeft .= container.bottomLeft .+ .inset(20)
         case .percentage:
             view1.size .= 150
             view2.size .= view1.size .* 50%
             view3.size .= view2.size .* 50%
             view4.size .= view3.size .* 50%
             stackView
-                .stack(view1, view2, view3, view4)
-                .on(.horizontal)
+                .distribute(.equalSpacing)
                 .align(.center)
                 .spacing(20)
+                .stack(view1, view2, view3, view4)
         case .stack:
             [view1, view2, view3, view4].size .= 100
-            stackView.alignment = .center
-            stackView.axis = .vertical
-            stackView.distribution = .fill
-            print("DIST: \(stackView.distribution.rawValue)")
-            stackView.stack(
-                view1,
-                10,
-                view2,
-                50,
-                view3,
-                100,
-                view4
-            )
+            stackView
+                .align(.center)
+                .stack(view1, 10, view2, 50, view3, 100, view4)
         case .nestedStack:
-//            stackView.alignment = .center
-            print("ALIGNMENT: \(stackView.alignment)")
-            print("ALIGNMENT: \(stackView.alignment == .fill)")
-            stackView.axis = .vertical
 
-            view1.size .= 300
-            [view2, view3].size .= 140
-            [view4, view5, view6].size .= 80
-            [view7, view8, view9, view10].size .= 45
+            view1.size .= 150
+            [view2, view3].size .= 70
+            [view4, view5, view6].size .= 40
 
-            stackView.stack(
-                view1,
-                20,
-                [view2, 20, view3],
-                30,
-                [view4, 30, view5, 30, view6],
-                40,
-                [view7, 40, view8, 40, view9, 40, view10]
+            stackView
+                .on(.vertical)
+                .stack(
+                    view1,
+                    10,
+                    [view2, 10, view3],
+                    15,
+                    [view4, 15, view5, 15, view6]
             )
         }
     }
@@ -176,11 +156,11 @@ class LayoutExampleViewController: UIViewController {
     func createView(label: String) -> View{
         let view = DashedBorderView(label: label)
         view ~~ "View\(label)"
-//        view.backgroundColor = .green
+        //        view.backgroundColor = .green
         container.addSubview(view)
 
-//        view.layer.borderColor = UIColor.orange.cgColor
-//        view.layer.borderWidth = 2.0
+        //        view.layer.borderColor = UIColor.orange.cgColor
+        //        view.layer.borderWidth = 2.0
         return view
     }
 }
@@ -288,7 +268,7 @@ class DashedBorderView: View {
         super.layoutSublayers(of: layer)
         applyDashBorder()
 
-//        label.layer.cornerRadius = label.frame.height / 2.0
+        //        label.layer.cornerRadius = label.frame.height / 2.0
     }
 
     func applyDashBorder() {

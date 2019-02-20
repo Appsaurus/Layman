@@ -42,6 +42,10 @@ extension View {
         return YAxisAnchorEquation(self, relation, rhs)
     }
 
+    public func relation(_ relation: LayoutRelation, _ rhs: XAxisAnchorPair) -> XAxisAnchorPairEquation {
+        return XAxisAnchorPairEquation(self, relation, rhs)
+    }
+
     @discardableResult
     public func equal(to rhs: YAxisAnchor) -> YAxisAnchorEquation.Solution {
         return relation(.equal, rhs).solution

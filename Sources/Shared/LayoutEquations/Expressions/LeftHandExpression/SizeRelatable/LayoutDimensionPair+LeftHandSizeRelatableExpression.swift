@@ -7,12 +7,12 @@
 //
 
 extension LayoutAnchorPair: LayoutSizeEquatable where FA == LayoutDimension, SA == LayoutDimension {
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientPair) -> LayoutDimensionPairRelationship {
-        return LayoutDimensionPairRelationship(self, relation, rhs)
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficientPair) -> LayoutDimensionPairEquation {
+        return LayoutDimensionPairEquation(self, relation, rhs)
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutSize) -> LayoutDimensionPairRelationship {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutSize) -> LayoutDimensionPairEquation {
         let sizeConfiguration = LayoutCoefficientPair(.constant(rhs.width), .constant(rhs.height))
-        return LayoutDimensionPairRelationship(self, relation, sizeConfiguration)
+        return LayoutDimensionPairEquation(self, relation, sizeConfiguration)
     }
 }

@@ -114,7 +114,7 @@ public typealias YAxisAnchorEquation = LayoutAnchorEquation<YAxisAnchor>
 public typealias LayoutDimensionEquation = LayoutAnchorEquation<LayoutDimension>
 
 // MARK: Typed Anchor Pair Relationships
-public typealias XAxisAnchorPairRelationship = LayoutAnchorPairEquation<XAxisAnchor, XAxisAnchor>
-public typealias YAxisAnchorPairRelationship = LayoutAnchorPairEquation<YAxisAnchor, YAxisAnchor>
-public typealias LayoutDimensionPairRelationship = LayoutAnchorPairEquation<LayoutDimension, LayoutDimension>
-public typealias XYAxesAnchorPairRelationship = LayoutAnchorPairEquation<XAxisAnchor, YAxisAnchor>
+public typealias XAxisAnchorPairEquation = LayoutAnchorPairEquation<XAxisAnchor, XAxisAnchor>
+public typealias YAxisAnchorPairEquation = LayoutAnchorPairEquation<YAxisAnchor, YAxisAnchor>
+public typealias LayoutDimensionPairEquation = LayoutAnchorPairEquation<LayoutDimension, LayoutDimension>
+public typealias XYAxesAnchorPairEquation = LayoutAnchorPairEquation<XAxisAnchor, YAxisAnchor>

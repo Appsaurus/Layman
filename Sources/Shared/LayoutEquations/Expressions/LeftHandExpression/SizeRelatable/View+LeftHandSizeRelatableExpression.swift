@@ -24,9 +24,9 @@ extension CoefficientsEquatable where LinearEquation: TupleVariableLinearEquatio
 
 extension View: LayoutSizeEquatable {
 
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutSize) -> LayoutDimensionPairRelationship {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutSize) -> LayoutDimensionPairEquation {
         let sizeConfiguration = LayoutCoefficientPair(.constant(rhs.width), .constant(rhs.height))
-        return LayoutDimensionPairRelationship(sizeAnchors, relation, sizeConfiguration)
+        return LayoutDimensionPairEquation(sizeAnchors, relation, sizeConfiguration)
     }
 }
 
@@ -35,11 +35,11 @@ extension View: LeftHandLayoutExpression {
         return view.sizeAnchors
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: View) -> LayoutDimensionPairRelationship {
+    public func relation(_ relation: LayoutRelation, _ rhs: View) -> LayoutDimensionPairEquation {
         return self.relation(relation, LayoutDimensionPairExpression(variable: rhs.sizeAnchors))
     }
 
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutDimensionPairExpression) -> LayoutDimensionPairRelationship {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutDimensionPairExpression) -> LayoutDimensionPairEquation {
         return self.size.relation(relation, rhs)
     }
 }
