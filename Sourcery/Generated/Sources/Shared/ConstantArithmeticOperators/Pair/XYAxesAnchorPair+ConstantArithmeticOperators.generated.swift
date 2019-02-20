@@ -26,12 +26,12 @@ public func .+ (lhs: XYAxesAnchorPair, rhs: RelativeLayoutConstantTuple) -> XYAx
 
 @discardableResult
 public func .- (lhs: XYAxesAnchorPair, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
-    return XYAxesAnchorPairExpression(variable: lhs, coefficients: .constant(-rhs))
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func .* (lhs: XYAxesAnchorPair, rhs: LayoutConstant) -> XYAxesAnchorPairExpression {
-    return XYAxesAnchorPairExpression(variable: lhs, coefficients: .multiplier(rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult
@@ -41,7 +41,7 @@ public func .* (lhs: LayoutConstant, rhs: XYAxesAnchorPair) -> XYAxesAnchorPairE
 
 @discardableResult
 public func .* (lhs: XYAxesAnchorPair, rhs: LayoutMultiplier) -> XYAxesAnchorPairExpression {
-    return XYAxesAnchorPairExpression(variable: lhs, coefficients: .multiplier(rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult

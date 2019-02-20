@@ -8,7 +8,9 @@
 
 {% for EquationProtocol in argument.equationProtocols %}
 {% set RelationshipType %}{{argument.equationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
-{% for LeftHandType in argument.equationProtocols[EquationProtocol]["LeftHandTypes"] %}
+{% set LeftHandTypeGroup argument.equationProtocols[EquationProtocol]["LeftHandTypes"] %}
+{% for LeftHandTypes in argument[LeftHandTypeGroup] %}
+{% for LeftHandType in argument[LeftHandTypes] %}
 //  sourcery:file:Sources/Shared/EquationProtocols/{{EquationProtocol}}/Operators/{{LeftHandType}}+{{EquationProtocol}}
 //
 //  Layman
@@ -100,6 +102,7 @@ public func {{greaterThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandTy
 }
 {% endfor %}
 // sourcery:end
+{% endfor %}
 {% endfor %}
 {% endfor %}
 

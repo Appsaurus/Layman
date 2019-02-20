@@ -69,7 +69,14 @@ extension EdgeAnchorGroupExpression {
     var trailingExpression: XAxisAnchorExpression { return XAxisAnchorExpression(variable: trailing, coefficients: coefficients.trailing) }
 }
 
-extension EdgeAnchorGroupEquation: LinearEquation {
+extension EdgeAnchorGroupEquation: LinearEquationProtocol {
+    public static func inferred(variable: EdgeAnchorGroup, for view: View) -> EdgeAnchorGroup {
+        return view.edgeAnchors
+    }
+
+    public convenience init(_ view: View, _ relation: LayoutRelation, _ variable: EdgeAnchorGroup) {
+        self.init(view.edgeAnchors, relation, variable)
+    }
 
     public typealias Expression = EdgeAnchorGroupExpression
 

@@ -8,8 +8,13 @@
 {% set insetFrom %}{{greaterThanOrEqual}}{{lessThanOrEqual}}{% endset %}
 {% set outsetFrom %}{{lessThanOrEqual}}{{greaterThanOrEqual}}{% endset %}
 
-{% for AnchorType in argument.anchorTypes %}
+{% for anchorTypeGroup in argument.allAnchorTypes %}
+{% for AnchorType in argument[anchorTypeGroup] %}
+{% set AnchorTypeExpression %}{{AnchorType}}Expression{% endset %}
 {% set Solution %}{{AnchorType}}.Solution{% endset %}
+{% set SolutionArray %}[{{Solution}}]{% endset %}
+{% set AnchorTypeArray %}[{{AnchorType}}]{% endset %}
+{% set AnchorTypeExpressionArray %}[{{AnchorTypeExpression}}]{% endset %}
 //  sourcery:file:Sources/Shared/RelationOperators/{{AnchorType}}+RelationOperators
 //
 //  {{AnchorType}}+RelationOperators.swift
@@ -19,72 +24,266 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-// MARK: - Equal
 
-// MARK: Anchor == Anchor
+// MARK: {{AnchorType}} attribute inferred from Anchor
+
+// MARK: {{AnchorType}} == Anchor
 @discardableResult
 public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
     return lhs.equal(to: rhs)
 }
 
-// MARK: Anchor == Expression
-@discardableResult
-public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: - LessThanOrEqual
-
-// MARK: Anchor <= Anchor
+// MARK: {{AnchorType}} <= Anchor
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Anchor <= Expression
-@discardableResult
-public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-// MARK: - GreaterThanOrEqual
-
-// MARK: Anchor >= Anchor
+// MARK: {{AnchorType}} >= Anchor
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-// MARK: Anchor >= Expression
-@discardableResult
-public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Anchor >=< Anchor
+// MARK: {{AnchorType}} >=< Anchor
 @discardableResult
 public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
     return lhs.inset(from: rhs)
 }
 
-// MARK: Anchor >=< Expression
-@discardableResult
-public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
-    return lhs.inset(from: rhs)
-}
-
-// MARK: Anchor <=> Anchor
+// MARK: {{AnchorType}} <=> Anchor
 @discardableResult
 public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{Solution}} {
     return lhs.outset(from: rhs)
 }
 
-// MARK: Anchor <=> Expression
+// MARK: {{AnchorType}} attribute inferred from Anchor collection
+
+// MARK: {{AnchorType}} == [Anchor]
 @discardableResult
-public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}Expression) -> {{Solution}} {
+public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{equal}} $0})
+}
+
+// MARK: {{AnchorType}} <= [Anchor]
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{lessThanOrEqual}} $0})
+}
+
+// MARK: {{AnchorType}} >= [Anchor]
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{greaterThanOrEqual}} $0})
+}
+
+// MARK: {{AnchorType}} >=< [Anchor]
+@discardableResult
+public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{insetFrom}} $0})
+}
+
+// MARK: {{AnchorType}} <=> [Anchor]
+@discardableResult
+public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{outsetFrom}} $0})
+}
+
+// MARK: {{AnchorType}} array attributes inferred from Anchor
+
+// MARK: {{AnchorTypeArray}} == Anchor
+@discardableResult
+public func {{equal}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{equal}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} <= Anchor
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{lessThanOrEqual}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} >= Anchor
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} >=< Anchor
+@discardableResult
+public func {{insetFrom}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{insetFrom}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} <=> Anchor
+@discardableResult
+public func {{outsetFrom}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{outsetFrom}} rhs }
+}
+
+// MARK: {{AnchorType}} array attributes inferred from Anchor collection
+
+// MARK: {{AnchorTypeArray}} == [Anchor]
+@discardableResult
+public func {{equal}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{equal}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} <= [Anchor]
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{lessThanOrEqual}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} >= [Anchor]
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} >=< [Anchor]
+@discardableResult
+public func {{insetFrom}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{insetFrom}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} <=> [Anchor]
+@discardableResult
+public func {{outsetFrom}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{outsetFrom}} rhs }
+}
+
+{% if AnchorType != '{{AnchorType}}' %}
+
+// MARK: {{AnchorType}} attribute inferred from expression
+
+// MARK: {{AnchorType}} == Expression
+@discardableResult
+public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpression}}) -> {{Solution}} {
+    return lhs.equal(to: rhs)
+}
+
+// MARK: {{AnchorType}} <= Expression
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpression}}) -> {{Solution}} {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+// MARK: {{AnchorType}} >= Expression
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpression}}) -> {{Solution}} {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: {{AnchorType}} >=< Expression
+@discardableResult
+public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpression}}) -> {{Solution}} {
+    return lhs.inset(from: rhs)
+}
+
+// MARK: {{AnchorType}} <=> Expression
+@discardableResult
+public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpression}}) -> {{Solution}} {
     return lhs.outset(from: rhs)
 }
 
+// MARK: {{AnchorType}} attribute inferred from expression collection
+
+// MARK: {{AnchorType}} == Expressions
+@discardableResult
+public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{equal}} $0})
+}
+
+// MARK: {{AnchorType}} <= Expressions
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{lessThanOrEqual}} $0})
+}
+
+// MARK: {{AnchorType}} >= Expressions
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{greaterThanOrEqual}} $0})
+}
+
+// MARK: {{AnchorType}} >=< Expression
+@discardableResult
+public func {{insetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{insetFrom}} $0})
+}
+
+// MARK: {{AnchorType}} <=> Expression
+@discardableResult
+public func {{outsetFrom}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
+    return rhs.map({lhs {{outsetFrom}} $0})
+}
+
+// MARK: {{AnchorType}} array attributes inferred from Expression
+
+// MARK: {{AnchorTypeArray}} == Expression
+@discardableResult
+public func {{equal}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{equal}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} <= Expression
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{lessThanOrEqual}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} >= Expression
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} >=< Expression
+@discardableResult
+public func {{insetFrom}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{insetFrom}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} <=> Expression
+@discardableResult
+public func {{outsetFrom}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
+    return lhs.map { $0 {{outsetFrom}} rhs }
+}
+
+// MARK: {{AnchorType}} array attributes inferred from expression collection
+
+// MARK: {{AnchorTypeArray}} == [Expression]
+@discardableResult
+public func {{equal}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{equal}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} <= [Expression]
+@discardableResult
+public func {{lessThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{lessThanOrEqual}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} >= [Expression]
+@discardableResult
+public func {{greaterThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} >=< [Expression]
+@discardableResult
+public func {{insetFrom}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{insetFrom}} rhs }
+}
+
+// MARK: {{AnchorTypeArray}} <=> [Expression]
+@discardableResult
+public func {{outsetFrom}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
+    return lhs.map { $0 {{outsetFrom}} rhs }
+}
+{% endif %}
 
 // sourcery:end
+{% endfor %}
 {% endfor %}

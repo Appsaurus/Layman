@@ -13,19 +13,20 @@ extension XAxisAnchor: LayoutVariable {
 
     public typealias RightHandExpression = XAxisAnchorExpression
 
-    public func plus(_ constant: LayoutConstant) -> XAxisAnchorExpression {
-        return XAxisAnchorExpression(variable: self).with(constant: constant)
+
+    public func plus(_ constant: LayoutConstant) -> RightHandExpression {
+        return RightHandExpression(variable: self).with(constant: constant)
     }
 
-    public func times(_ multiplier: LayoutMultiplier) -> XAxisAnchorExpression {
-        return XAxisAnchorExpression(variable: self).times(multiplier)
+    public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
+        return RightHandExpression(variable: self).times(multiplier)
     }
 
-    public func priority(_ priority: LayoutPriority) -> XAxisAnchorExpression {
-        return XAxisAnchorExpression(variable: self).priority(priority)
+    public func priority(_ priority: LayoutPriority) -> RightHandExpression {
+        return RightHandExpression(variable: self).priority(priority)
     }
 
-    public func plus(_ relativeConstant: RelativeLayoutConstant) -> XAxisAnchorExpression {
-        return XAxisAnchorExpression(variable: self).plus(relativeConstant)
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression {
+        return RightHandExpression(variable: self).plus(relativeConstant)
     }
 }

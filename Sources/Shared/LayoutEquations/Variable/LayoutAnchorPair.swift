@@ -7,7 +7,10 @@
 //
 
 public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayoutModelReferencePair<LayoutAnchor<FA>, LayoutAnchor<SA>> {
-    
+
+    public func relation(_ relation: LayoutRelation, _ rhs: Coefficient) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
 }
 
-extension LayoutAnchorPair: LayoutVariableTuple, CoefficientsEquatable{}
+extension LayoutAnchorPair: LayoutVariableTuple, CoefficientsEquatable {}

@@ -7,7 +7,7 @@
 //
 
 public protocol LinearEquationTyped {
-    associatedtype LinearEquation: Layman.LinearEquation
+    associatedtype LinearEquation: LinearEquationProtocol
     typealias RightHandExpression = LinearEquation.Expression
     typealias Solution = LinearEquation.Solution
     typealias LayoutVariable = LinearEquation.Variable
@@ -31,7 +31,7 @@ extension Array: LinearEquationSolving where Element: LinearEquationSolving {
     }
 }
 
-public protocol LinearEquation: Expression, LinearEquationSolving where Expression.Variable == Variable, Expression.Coefficients == Coefficients {
+public protocol LinearEquationProtocol: Expression, LinearEquationSolving where Expression.Variable == Variable, Expression.Coefficients == Coefficients {
     var relation: LayoutRelation { get set }
     var relatedVariable: Variable? { get set }
     init(_ variable: Variable, _ relation: LayoutRelation, _ relatedExpression: Expression)
@@ -40,9 +40,13 @@ public protocol LinearEquation: Expression, LinearEquationSolving where Expressi
     init(_ variable: Variable, _ relation: LayoutRelation, _ constant: LayoutConstant)
     init(_ variable: Variable, _ relation: LayoutRelation, _ constant: RelativeLayoutConstant)
     init(_ variable: Variable, _ relation: LayoutRelation, _ coefficient: LayoutCoefficient)
+    init(_ view: View, _ relation: LayoutRelation, _ variable: Variable)
+    init(_ variable: Variable, _ relation: LayoutRelation, _ view: View)
+    init(_ view: View, _ relation: LayoutRelation, _ expression: Expression)
+    static func inferred(variable: Variable, for view: View) -> Variable
 }
 
-extension LinearEquation {
+extension LinearEquationProtocol {
 
     public init(variable: Variable) {
         self.init(variable: variable, coefficients: .default)
@@ -78,4 +82,17 @@ extension LinearEquation {
     public init(_ variable: Variable, _ relation: LayoutRelation, _ relativeConstant: RelativeLayoutConstant) {
         self.init(variable, relation, nil, Coefficients().with(relativeConstant: relativeConstant))
     }
+
+    public init(_ variable: Variable, _ relation: LayoutRelation, _ view: View) {
+        self.init(variable, relation, Self.inferred(variable: variable, for: view))
+    }
+
+    public init(_ view: View, _ relation: LayoutRelation, _ variable: Variable) {
+        self.init(Self.inferred(variable: variable, for: view), relation, variable)
+    }
+
+    public init(_ view: View, _ relation: LayoutRelation, _ expression: Expression) {
+        self.init(Self.inferred(variable: expression.variable, for: view), relation, expression)
+    }
+
 }

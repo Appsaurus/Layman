@@ -39,7 +39,10 @@ public final class LayoutAnchorPairEquation<F: AnchorVariable, S: AnchorVariable
 
 }
 
-extension LayoutAnchorPairEquation: LinearEquation, TupleVariableLinearEquation {
+extension LayoutAnchorPairEquation: LinearEquationProtocol, TupleVariableLinearEquation {
+    public static func inferred(variable: LayoutAnchorPair<F, S>, for view: View) -> LayoutAnchorPair<F, S> {
+        return view[keyPath: ...variable]
+    }
 
     public typealias Expression = LayoutAnchorPairExpression<F, S>
 }

@@ -26,12 +26,12 @@ public func .+ (lhs: LayoutDimensionPair, rhs: RelativeLayoutConstantTuple) -> L
 
 @discardableResult
 public func .- (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
-    return LayoutDimensionPairExpression(variable: lhs, coefficients: .constant(-rhs))
+    return lhs.minus(rhs)
 }
 
 @discardableResult
 public func .* (lhs: LayoutDimensionPair, rhs: LayoutConstant) -> LayoutDimensionPairExpression {
-    return LayoutDimensionPairExpression(variable: lhs, coefficients: .multiplier(rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult
@@ -41,7 +41,7 @@ public func .* (lhs: LayoutConstant, rhs: LayoutDimensionPair) -> LayoutDimensio
 
 @discardableResult
 public func .* (lhs: LayoutDimensionPair, rhs: LayoutMultiplier) -> LayoutDimensionPairExpression {
-    return LayoutDimensionPairExpression(variable: lhs, coefficients: .multiplier(rhs))
+    return lhs.times(rhs)
 }
 
 @discardableResult

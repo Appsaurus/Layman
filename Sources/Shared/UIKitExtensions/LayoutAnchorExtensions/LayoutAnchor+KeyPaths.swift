@@ -81,6 +81,26 @@ internal class LayoutDimensionKeyPathExctractor: AnchorKeyPathExtracting {
 
 }
 
+internal prefix func ... <A>(_ anchor: LayoutAnchor<A>) -> KeyPath<LayoutAnchorable, LayoutAnchor<A>> {
+    let keyPath: AnyKeyPath = {
+        switch anchor {
+        case let xAnchor as XAxisAnchor:
+            return ...xAnchor
+        case let yAnchor as YAxisAnchor:
+            return ...yAnchor
+        case let dimensionAnchor as LayoutDimension:
+            return ...dimensionAnchor
+        default:
+            preconditionFailure()
+        }
+    }()
+
+    guard let typedKeyPath = keyPath as? KeyPath<LayoutAnchorable, LayoutAnchor<A>> else {
+        preconditionFailure()
+    }
+    return typedKeyPath
+}
+
 // MARK: XAxisAnchor
 
 internal prefix func ... (_ anchor: LayoutAnchor<XAxisAnchor>) -> KeyPath<LayoutAnchorable, XAxisAnchor> {
@@ -111,6 +131,27 @@ internal prefix func ... (_ anchorExpression: LayoutDimensionExpression) -> KeyP
     return ...anchorExpression.variable
 }
 
+internal prefix func ... <F, S>(_ anchorPair: LayoutAnchorPair<F, S>) -> KeyPath<LayoutAnchorable, LayoutAnchorPair<F, S>> {
+    let keyPath: AnyKeyPath = {
+        switch anchorPair {
+        case let xPair as XAxisAnchorPair:
+            return ...xPair
+        case let yPair as YAxisAnchorPair:
+            return ...yPair
+        case let xyPair as XYAxesAnchorPair:
+            return ...xyPair
+        case let sizePair as LayoutDimensionPair:
+            return ...sizePair
+        default:
+            preconditionFailure()
+        }
+    }()
+
+    guard let typedKeyPath = keyPath as? KeyPath<LayoutAnchorable, LayoutAnchorPair<F, S>> else {
+        preconditionFailure()
+    }
+    return typedKeyPath
+}
 // MARK: XAxisAnchorPair
 internal prefix func ... (_ anchorPair: XAxisAnchorPair) -> KeyPath<LayoutAnchorable, XAxisAnchorPair> {
     let firstAnchorAttribute = anchorPair.first.attribute

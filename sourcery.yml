@@ -6,56 +6,57 @@ templates:
   - Sourcery/Templates/Shared/
 args:
   anchorTypes:
-    - "XAxisAnchor"
-    - "YAxisAnchor"
-    - "LayoutDimension"
-    - "EdgeAnchorGroup"
+    - 'XAxisAnchor'
+    - 'YAxisAnchor'
+    - 'LayoutDimension'
+    - 'EdgeAnchorGroup'
   anchorPairTypes:
-    - "XAxisAnchorPair"
-    - "YAxisAnchorPair"
-    - "LayoutDimensionPair"
-    - "XYAxesAnchorPair"
+    - 'XAxisAnchorPair'
+    - 'YAxisAnchorPair'
+    - 'LayoutDimensionPair'
+    - 'XYAxesAnchorPair'
+  anchorGroupTypes:
+    - 'EdgeAnchorGroup'
+  inferrableAnchorTypes:
+    - 'View'
+  anchorSizeTypes:
+    - 'LayoutDimensionPair'
+    - 'View'
+  allAnchorTypes:
+    - 'anchorTypes'
+    - 'anchorPairTypes'
+  allVariableTypes:
+    - 'anchorTypes'
+    - 'anchorPairTypes'
+    - 'inferrableAnchorTypes'
+  multiAnchorTypes:
+    - 'anchorPairTypes'
+    - 'anchorGroupTypes'
   equationProtocols:
     CoefficientEquatable:
-        LeftHandTypes:
-            - 'XAxisAnchor'
-            - 'YAxisAnchor'
-            - 'LayoutDimension'
-            - 'EdgeAnchorGroup'
-            - 'XAxisAnchorPair'
-            - 'YAxisAnchorPair'
-            - 'LayoutDimensionPair'
-            - 'XYAxesAnchorPair'
-            - 'View'
+        LeftHandTypes: 'allAnchorTypes'
         RightHandTypes:
             - 'LayoutConstant'
             - 'LayoutCoefficient'
             - 'LayoutMultiplier'
             - 'RelativeLayoutConstant'
     CoefficientsEquatable:
-        LeftHandTypes:
-            - 'EdgeAnchorGroup'
-            - 'XAxisAnchorPair'
-            - 'YAxisAnchorPair'
-            - 'LayoutDimensionPair'
-            - 'XYAxesAnchorPair'
+        LeftHandTypes: 'multiAnchorTypes'
         RightHandTypes:
             - 'LayoutCoefficientTuple'
             - 'LayoutConstantTuple'
             - 'RelativeLayoutConstantTuple'
     LayoutSizeEquatable:
-        LeftHandTypes:
-            - 'LayoutDimensionPair'
-            - 'View'
+        LeftHandTypes: 'anchorSizeTypes'
         RightHandTypes:
             - 'LayoutSize'
   operators:
-    equal: ".="
-    lessThanOrEqual: "≤"
-    greaterThanOrEqual: "≥"
+    equal: '.='
+    lessThanOrEqual: '≤'
+    greaterThanOrEqual: '≥'
   arithmeticOperators:
-    addition: ".+"
-    subtraction: ".-"
-    multiplication: ".*"
-    division: "./"
+    addition: '.+'
+    subtraction: '.-'
+    multiplication: '.*'
+    division: './'
 output: Sourcery/Generated

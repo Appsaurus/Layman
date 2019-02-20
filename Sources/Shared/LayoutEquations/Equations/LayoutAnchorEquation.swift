@@ -87,7 +87,10 @@ public final class LayoutAnchorEquation<A: AnchorVariable> {
 
 }
 
-extension LayoutAnchorEquation: LinearEquation {
+extension LayoutAnchorEquation: LinearEquationProtocol {
+    public static func inferred(variable: LayoutAnchor<A>, for view: View) -> LayoutAnchor<A> {
+        return view[keyPath: ...variable]
+    }
 
     public typealias Expression = LayoutAnchorExpression<A>
 

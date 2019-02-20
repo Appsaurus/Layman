@@ -130,7 +130,7 @@ extension LayoutConstantTupleInitable {
 
 }
 
-public protocol TupleVariableLinearEquation: LinearEquation where Coefficients: LayoutConstantTupleInitable {
+public protocol TupleVariableLinearEquation: LinearEquationProtocol where Coefficients: LayoutConstantTupleInitable {
     init(_ variable: Variable, _ relation: LayoutRelation, _ constant: LayoutConstantTuple)
     init(_ variable: Variable, _ relation: LayoutRelation, _ constant: RelativeLayoutConstantTuple)
     init(_ variable: Variable, _ relation: LayoutRelation, _ coefficients: LayoutCoefficientTuple)

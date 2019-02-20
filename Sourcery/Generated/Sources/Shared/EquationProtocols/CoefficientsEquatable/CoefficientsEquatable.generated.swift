@@ -13,8 +13,6 @@ public protocol CoefficientsEquatable: LinearEquationTyped {
     func relation(_ relation: LayoutRelation, _ rhs: LayoutConstantTuple) -> LinearEquation
     func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstantTuple) -> LinearEquation
 }
-
-
 // MARK: Anchor <=> LayoutCoefficientTuple
 extension CoefficientsEquatable {
 

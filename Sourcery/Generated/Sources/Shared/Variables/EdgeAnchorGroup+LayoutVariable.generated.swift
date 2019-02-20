@@ -13,19 +13,20 @@ extension EdgeAnchorGroup: LayoutVariable {
 
     public typealias RightHandExpression = EdgeAnchorGroupExpression
 
-//    public func plus(_ constant: LayoutConstant) -> EdgeAnchorGroupExpression {
-//        return EdgeAnchorGroupExpression(variable: self).with(constant: constant)
-//    }
 
-    public func times(_ multiplier: LayoutMultiplier) -> EdgeAnchorGroupExpression {
-        return EdgeAnchorGroupExpression(variable: self).times(multiplier)
+    public func plus(_ constant: LayoutConstant) -> RightHandExpression {
+        return RightHandExpression(variable: self).with(constant: constant)
     }
 
-    public func priority(_ priority: LayoutPriority) -> EdgeAnchorGroupExpression {
-        return EdgeAnchorGroupExpression(variable: self).priority(priority)
+    public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
+        return RightHandExpression(variable: self).times(multiplier)
     }
 
-//    public func plus(_ relativeConstant: RelativeLayoutConstant) -> EdgeAnchorGroupExpression {
-//        return EdgeAnchorGroupExpression(variable: self).plus(relativeConstant)
-//    }
+    public func priority(_ priority: LayoutPriority) -> RightHandExpression {
+        return RightHandExpression(variable: self).priority(priority)
+    }
+
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression {
+        return RightHandExpression(variable: self).plus(relativeConstant)
+    }
 }

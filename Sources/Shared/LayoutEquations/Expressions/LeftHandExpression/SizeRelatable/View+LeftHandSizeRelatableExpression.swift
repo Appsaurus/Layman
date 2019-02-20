@@ -31,6 +31,10 @@ extension View: LayoutSizeEquatable {
 }
 
 extension View: LeftHandLayoutExpression {
+    public func inferredVariable(from view: View) -> LinearEquation.Variable {
+        return view.sizeAnchors
+    }
+
     public func relation(_ relation: LayoutRelation, _ rhs: View) -> LayoutDimensionPairRelationship {
         return self.relation(relation, LayoutDimensionPairExpression(variable: rhs.sizeAnchors))
     }

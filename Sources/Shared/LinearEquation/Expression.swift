@@ -6,7 +6,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
 public protocol Expression: CoefficientsReferencing {
 
     associatedtype Variable
@@ -14,7 +13,6 @@ public protocol Expression: CoefficientsReferencing {
 
     init(variable: Variable)
 }
-
 
 extension Expression where Coefficients: CoefficientModel {
     public func set(priority: LayoutPriority) {

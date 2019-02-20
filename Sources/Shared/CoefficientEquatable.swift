@@ -6,6 +6,25 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+extension CoefficientEquatable where LinearEquation.Variable == Self {
+
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstant) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutMultiplier) -> LinearEquation {
+        return LinearEquation(self, relation, .multiplier(rhs))
+    }
+
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutCoefficient) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+
+    public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutConstant) -> LinearEquation {
+        return LinearEquation(self, relation, rhs)
+    }
+}
+
 extension View: CoefficientEquatable {
 
     public typealias LinearEquation = LayoutDimensionPairRelationship

@@ -82,4 +82,56 @@ extension Array where Element: LeftHandLayoutExpression {
     public func greaterThanOrEqual(to rhs: [Element.RightHandExpression]) -> [[Element.LinearEquation.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
+
+    // MARK: - InsetFrom
+
+    // MARK: Anchor Array >=< Anchor
+    @discardableResult
+    public func inset(from rhs: Element) -> [Element.LinearEquation.Solution] {
+        return map { $0.inset(from: rhs) }
+    }
+
+    // MARK: Anchor Array >=< Anchor Array
+    @discardableResult
+    public func inset(from rhs: [Element]) -> [[Element.LinearEquation.Solution]] {
+        return map { $0.inset(from: rhs) }
+    }
+
+    // MARK: Anchor Array >=< Expression
+    @discardableResult
+    public func inset(from rhs: Element.RightHandExpression) -> [Element.LinearEquation.Solution] {
+        return map { $0.inset(from: rhs) }
+    }
+
+    // MARK: Anchor Array >=< Expression Array
+    @discardableResult
+    public func inset(from rhs: [Element.RightHandExpression]) -> [[Element.LinearEquation.Solution]] {
+        return map { $0.inset(from: rhs) }
+    }
+
+    // MARK: - OutsetFrom
+
+    // MARK: Anchor Array <=> Anchor
+    @discardableResult
+    public func outset(from rhs: Element) -> [Element.LinearEquation.Solution] {
+        return map { $0.outset(from: rhs) }
+    }
+
+    // MARK: Anchor Array <=> Anchor Array
+    @discardableResult
+    public func outset(from rhs: [Element]) -> [[Element.LinearEquation.Solution]] {
+        return map { $0.outset(from: rhs) }
+    }
+
+    // MARK: Anchor Array <=> Expression
+    @discardableResult
+    public func outset(from rhs: Element.RightHandExpression) -> [Element.LinearEquation.Solution] {
+        return map { $0.outset(from: rhs) }
+    }
+
+    // MARK: Anchor Array <=> Expression Array
+    @discardableResult
+    public func outset(from rhs: [Element.RightHandExpression]) -> [[Element.LinearEquation.Solution]] {
+        return map { $0.outset(from: rhs) }
+    }
 }

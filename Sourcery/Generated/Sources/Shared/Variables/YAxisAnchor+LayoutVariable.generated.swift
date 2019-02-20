@@ -13,19 +13,20 @@ extension YAxisAnchor: LayoutVariable {
 
     public typealias RightHandExpression = YAxisAnchorExpression
 
-    public func plus(_ constant: LayoutConstant) -> YAxisAnchorExpression {
-        return YAxisAnchorExpression(variable: self).with(constant: constant)
+
+    public func plus(_ constant: LayoutConstant) -> RightHandExpression {
+        return RightHandExpression(variable: self).with(constant: constant)
     }
 
-    public func times(_ multiplier: LayoutMultiplier) -> YAxisAnchorExpression {
-        return YAxisAnchorExpression(variable: self).times(multiplier)
+    public func times(_ multiplier: LayoutMultiplier) -> RightHandExpression {
+        return RightHandExpression(variable: self).times(multiplier)
     }
 
-    public func priority(_ priority: LayoutPriority) -> YAxisAnchorExpression {
-        return YAxisAnchorExpression(variable: self).priority(priority)
+    public func priority(_ priority: LayoutPriority) -> RightHandExpression {
+        return RightHandExpression(variable: self).priority(priority)
     }
 
-    public func plus(_ relativeConstant: RelativeLayoutConstant) -> YAxisAnchorExpression {
-        return YAxisAnchorExpression(variable: self).plus(relativeConstant)
+    public func plus(_ relativeConstant: RelativeLayoutConstant) -> RightHandExpression {
+        return RightHandExpression(variable: self).plus(relativeConstant)
     }
 }

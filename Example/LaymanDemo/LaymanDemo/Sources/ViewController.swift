@@ -43,7 +43,8 @@ class LayoutExampleViewController: UIViewController {
         let stackView = StackView() ~~ "StackView"
         container.addSubview(stackView)
         stackView.centerXY .= container.centerXY
-        stackView.edges ≥≤ container.edges
+        stackView .= container
+        stackView.equal(to: container)
         stackView.enforceContentSize()
         return stackView
     }()
@@ -115,6 +116,7 @@ class LayoutExampleViewController: UIViewController {
             view1.width .= 100
         case .edges:
             view1.edges .= container.edges .+ 40
+
         case .edgesInset:
             view1.edges .= container.edges .+ .inset(top: 75, leading: 10, bottom: 75, trailing: 100)
         case .corners:

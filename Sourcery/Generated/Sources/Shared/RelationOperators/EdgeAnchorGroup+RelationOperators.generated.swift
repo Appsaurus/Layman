@@ -9,68 +9,260 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-// MARK: - Equal
 
-// MARK: Anchor == Anchor
+// MARK: EdgeAnchorGroup attribute inferred from Anchor
+
+// MARK: EdgeAnchorGroup == Anchor
 @discardableResult
 public func .= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs.equal(to: rhs)
 }
 
-// MARK: Anchor == Expression
-@discardableResult
-public func .= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: - LessThanOrEqual
-
-// MARK: Anchor <= Anchor
+// MARK: EdgeAnchorGroup <= Anchor
 @discardableResult
 public func ≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Anchor <= Expression
-@discardableResult
-public func ≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-// MARK: - GreaterThanOrEqual
-
-// MARK: Anchor >= Anchor
+// MARK: EdgeAnchorGroup >= Anchor
 @discardableResult
 public func ≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 
-// MARK: Anchor >= Expression
-@discardableResult
-public func ≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Anchor >=< Anchor
+// MARK: EdgeAnchorGroup >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs.inset(from: rhs)
 }
 
-// MARK: Anchor >=< Expression
-@discardableResult
-public func ≥≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
-    return lhs.inset(from: rhs)
-}
-
-// MARK: Anchor <=> Anchor
+// MARK: EdgeAnchorGroup <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroup) -> EdgeAnchorGroup.Solution {
     return lhs.outset(from: rhs)
 }
 
-// MARK: Anchor <=> Expression
+// MARK: EdgeAnchorGroup attribute inferred from Anchor collection
+
+// MARK: EdgeAnchorGroup == [Anchor]
+@discardableResult
+public func .= (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroup]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs .= $0})
+}
+
+// MARK: EdgeAnchorGroup <= [Anchor]
+@discardableResult
+public func ≤ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroup]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs ≤ $0})
+}
+
+// MARK: EdgeAnchorGroup >= [Anchor]
+@discardableResult
+public func ≥ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroup]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs ≥ $0})
+}
+
+// MARK: EdgeAnchorGroup >=< [Anchor]
+@discardableResult
+public func ≥≤ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroup]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs ≥≤ $0})
+}
+
+// MARK: EdgeAnchorGroup <=> [Anchor]
+@discardableResult
+public func ≤≥ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroup]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs ≤≥ $0})
+}
+
+// MARK: EdgeAnchorGroup array attributes inferred from Anchor
+
+// MARK: [EdgeAnchorGroup] == Anchor
+@discardableResult
+public func .= (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroup) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 .= rhs }
+}
+
+// MARK: [EdgeAnchorGroup] <= Anchor
+@discardableResult
+public func ≤ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroup) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 ≤ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] >= Anchor
+@discardableResult
+public func ≥ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroup) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 ≥ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] >=< Anchor
+@discardableResult
+public func ≥≤ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroup) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 ≥≤ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] <=> Anchor
+@discardableResult
+public func ≤≥ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroup) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 ≤≥ rhs }
+}
+
+// MARK: EdgeAnchorGroup array attributes inferred from Anchor collection
+
+// MARK: [EdgeAnchorGroup] == [Anchor]
+@discardableResult
+public func .= (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 .= rhs }
+}
+
+// MARK: [EdgeAnchorGroup] <= [Anchor]
+@discardableResult
+public func ≤ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 ≤ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] >= [Anchor]
+@discardableResult
+public func ≥ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 ≥ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] >=< [Anchor]
+@discardableResult
+public func ≥≤ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 ≥≤ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] <=> [Anchor]
+@discardableResult
+public func ≤≥ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 ≤≥ rhs }
+}
+
+
+// MARK: EdgeAnchorGroup attribute inferred from expression
+
+// MARK: EdgeAnchorGroup == Expression
+@discardableResult
+public func .= (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
+    return lhs.equal(to: rhs)
+}
+
+// MARK: EdgeAnchorGroup <= Expression
+@discardableResult
+public func ≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
+    return lhs.lessThanOrEqual(to: rhs)
+}
+
+// MARK: EdgeAnchorGroup >= Expression
+@discardableResult
+public func ≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
+    return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: EdgeAnchorGroup >=< Expression
+@discardableResult
+public func ≥≤ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
+    return lhs.inset(from: rhs)
+}
+
+// MARK: EdgeAnchorGroup <=> Expression
 @discardableResult
 public func ≤≥ (lhs: EdgeAnchorGroup, rhs: EdgeAnchorGroupExpression) -> EdgeAnchorGroup.Solution {
     return lhs.outset(from: rhs)
+}
+
+// MARK: EdgeAnchorGroup attribute inferred from expression collection
+
+// MARK: EdgeAnchorGroup == Expressions
+@discardableResult
+public func .= (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroupExpression]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs .= $0})
+}
+
+// MARK: EdgeAnchorGroup <= Expressions
+@discardableResult
+public func ≤ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroupExpression]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs ≤ $0})
+}
+
+// MARK: EdgeAnchorGroup >= Expressions
+@discardableResult
+public func ≥ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroupExpression]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs ≥ $0})
+}
+
+// MARK: EdgeAnchorGroup >=< Expression
+@discardableResult
+public func ≥≤ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroupExpression]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs ≥≤ $0})
+}
+
+// MARK: EdgeAnchorGroup <=> Expression
+@discardableResult
+public func ≤≥ (lhs: EdgeAnchorGroup, rhs: [EdgeAnchorGroupExpression]) -> [EdgeAnchorGroup.Solution] {
+    return rhs.map({lhs ≤≥ $0})
+}
+
+// MARK: EdgeAnchorGroup array attributes inferred from Expression
+
+// MARK: [EdgeAnchorGroup] == Expression
+@discardableResult
+public func .= (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroupExpression) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 .= rhs }
+}
+
+// MARK: [EdgeAnchorGroup] <= Expression
+@discardableResult
+public func ≤ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroupExpression) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 ≤ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] >= Expression
+@discardableResult
+public func ≥ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroupExpression) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 ≥ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] >=< Expression
+@discardableResult
+public func ≥≤ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroupExpression) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 ≥≤ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] <=> Expression
+@discardableResult
+public func ≤≥ (lhs: [EdgeAnchorGroup], rhs: EdgeAnchorGroupExpression) -> [EdgeAnchorGroup.Solution] {
+    return lhs.map { $0 ≤≥ rhs }
+}
+
+// MARK: EdgeAnchorGroup array attributes inferred from expression collection
+
+// MARK: [EdgeAnchorGroup] == [Expression]
+@discardableResult
+public func .= (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroupExpression]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 .= rhs }
+}
+
+// MARK: [EdgeAnchorGroup] <= [Expression]
+@discardableResult
+public func ≤ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroupExpression]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 ≤ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] >= [Expression]
+@discardableResult
+public func ≥ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroupExpression]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 ≥ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] >=< [Expression]
+@discardableResult
+public func ≥≤ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroupExpression]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 ≥≤ rhs }
+}
+
+// MARK: [EdgeAnchorGroup] <=> [Expression]
+@discardableResult
+public func ≤≥ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroupExpression]) -> [[EdgeAnchorGroup.Solution]] {
+    return lhs.map { $0 ≤≥ rhs }
 }
