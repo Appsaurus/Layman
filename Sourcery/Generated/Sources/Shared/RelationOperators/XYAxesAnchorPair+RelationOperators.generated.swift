@@ -9,7 +9,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
 // MARK: XYAxesAnchorPair attribute inferred from Anchor
 
 // MARK: XYAxesAnchorPair == Anchor
@@ -137,7 +136,6 @@ public func ≥≤ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPair]) -> [[XYAxe
 public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPair]) -> [[XYAxesAnchorPair.Solution]] {
     return lhs.map { $0 ≤≥ rhs }
 }
-
 
 // MARK: XYAxesAnchorPair attribute inferred from expression
 

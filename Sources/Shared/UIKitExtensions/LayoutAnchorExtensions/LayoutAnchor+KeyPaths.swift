@@ -81,25 +81,6 @@ internal class LayoutDimensionKeyPathExctractor: AnchorKeyPathExtracting {
 
 }
 
-internal prefix func ... <A>(_ anchor: LayoutAnchor<A>) -> KeyPath<LayoutAnchorable, LayoutAnchor<A>> {
-    let keyPath: AnyKeyPath = {
-        switch anchor {
-        case let xAnchor as XAxisAnchor:
-            return ...xAnchor
-        case let yAnchor as YAxisAnchor:
-            return ...yAnchor
-        case let dimensionAnchor as LayoutDimension:
-            return ...dimensionAnchor
-        default:
-            preconditionFailure()
-        }
-    }()
-
-    guard let typedKeyPath = keyPath as? KeyPath<LayoutAnchorable, LayoutAnchor<A>> else {
-        preconditionFailure()
-    }
-    return typedKeyPath
-}
 
 // MARK: XAxisAnchor
 

@@ -108,11 +108,6 @@ public typealias LayoutDimensionPairExpressions = [LayoutDimensionPairExpression
 public typealias XYAxesAnchorPairExpressions = [XYAxesAnchorPairExpression]
 public typealias EdgeAnchorGroupExpressions = [EdgeAnchorGroupExpression]
 
-// MARK: Typed Relationships
-public typealias XAxisAnchorEquation = LayoutAnchorEquation<XAxisAnchor>
-public typealias YAxisAnchorEquation = LayoutAnchorEquation<YAxisAnchor>
-public typealias LayoutDimensionEquation = LayoutAnchorEquation<LayoutDimension>
-
 // MARK: Typed Anchor Pair Relationships
 public typealias XAxisAnchorPairEquation = LayoutAnchorPairEquation<XAxisAnchor, XAxisAnchor>
 public typealias YAxisAnchorPairEquation = LayoutAnchorPairEquation<YAxisAnchor, YAxisAnchor>

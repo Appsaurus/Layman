@@ -13,7 +13,6 @@ extension EdgeAnchorGroup: LayoutVariable {
 
     public typealias RightHandExpression = EdgeAnchorGroupExpression
 
-
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         return RightHandExpression(variable: self).with(constant: constant)
     }

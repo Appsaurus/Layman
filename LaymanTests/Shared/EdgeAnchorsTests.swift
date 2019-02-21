@@ -12,18 +12,6 @@ import XCTest
 class EdgeAnchorsTests: LaymanTestCase {
 
     func testEdgeAnchors() {
-        view1.leadingAnchor .= relatedView.leadingAnchor .+ .inset(10)
-        view1.leadingAnchor .= relatedView.leadingAnchor.inset(10)
-
-        view1.horizontalEdges .= relatedView.horizontalEdges .+ .inset(10)
-        view1.horizontalEdges .= relatedView.horizontalEdges.inset(10)
-        view1.horizontalEdges .= relatedView.horizontalEdges .+ .inset(10, 20)
-        view1.horizontalEdges .= relatedView.horizontalEdges.inset(10, 20)
-
-        view1.edges .= relatedView.edges  .+ .inset(10)
-        view1.edges .= relatedView.edges.inset(10)
-        view1.edges .= relatedView.edges .+ .inset(top: 10, leading: 5, bottom: 5, trailing: 10)
-        view1.edges .= relatedView.edges .+ .inset(top: 10, leading: 5, bottom: 5, trailing: 10)
         let constraints = view1.edgeAnchors .= relatedView.edgeAnchors .+ 10  ~ .high .- 1
         constraints.top.assert(view1, .top, .equal, relatedView, .top, constant: 10, priority: 749)
         constraints.leading.assert(view1, .leading, .equal, relatedView, .leading, constant: 10, priority: 749)
@@ -68,7 +56,6 @@ class EdgeAnchorsTests: LaymanTestCase {
     }
 
     func testArrayEdgeAnchorsWithOutset() {
-
         let constraints = viewArray.edgeAnchors .= relatedView.edgeAnchors .+ .outset(top: 10, leading: 5, bottom: 15, trailing: 20) ~ .high .- 1
         constraints.map {$0.top}.assert(viewArray, .top, .equal, relatedView, .top, constant: -10, priority: 749)
         constraints.map {$0.leading}.assert(viewArray, .leading, .equal, relatedView, .leading, constant: -5, priority: 749)

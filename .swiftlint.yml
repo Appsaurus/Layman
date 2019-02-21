@@ -8,6 +8,7 @@ excluded:
 - Carthage
 - Pods
 - .build
+- LaymanTests/Shared/CompilationBenchmarks
 line_length:
   warning: 180
   ignores_comments: true

@@ -167,7 +167,7 @@ public func ≥ (lhs: [XYAxesAnchorPair], rhs: LayoutConstantTuple) -> [XYAxesAn
 // MARK: Collection >= Expression Array
 @discardableResult
 public func ≥ (lhs: [XYAxesAnchorPair], rhs: [LayoutConstantTuple]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0.greaterThanOrEqual(to: rhs) }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 // MARK: XYAxesAnchorPair <=> RelativeLayoutConstantTuple
 

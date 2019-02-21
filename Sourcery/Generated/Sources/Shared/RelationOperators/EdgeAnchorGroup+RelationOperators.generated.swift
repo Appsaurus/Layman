@@ -9,7 +9,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
 // MARK: EdgeAnchorGroup attribute inferred from Anchor
 
 // MARK: EdgeAnchorGroup == Anchor
@@ -137,7 +136,6 @@ public func ≥≤ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup]) -> [[EdgeAnc
 public func ≤≥ (lhs: [EdgeAnchorGroup], rhs: [EdgeAnchorGroup]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.map { $0 ≤≥ rhs }
 }
-
 
 // MARK: EdgeAnchorGroup attribute inferred from expression
 

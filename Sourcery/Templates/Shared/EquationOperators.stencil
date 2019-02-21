@@ -64,13 +64,13 @@ public func {{greaterThanOrEqual}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType
 // MARK: Collection == Expression
 @discardableResult
 public func {{equal}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{LeftHandType}}.Solution] {
-    return lhs.map { $0.equal(to: rhs) }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: Collection == Expression Array
 @discardableResult
 public func {{equal}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
-    return lhs.map { $0.equal(to: rhs) }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: - LessThanOrEqual
@@ -78,13 +78,13 @@ public func {{equal}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{
 // MARK: Collection <= Expression
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{LeftHandType}}.Solution] {
-    return lhs.map { $0.lessThanOrEqual(to: rhs) }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: Collection <= Expression Array
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
-    return lhs.map { $0.lessThanOrEqual(to: rhs) }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: - GreaterThanOrEqual
@@ -92,13 +92,13 @@ public func {{lessThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}
 // MARK: Collection >= Expression
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{LeftHandType}}.Solution] {
-    return lhs.map { $0.greaterThanOrEqual(to: rhs) }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: Collection >= Expression Array
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
-    return lhs.map { $0.greaterThanOrEqual(to: rhs) }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 {% endfor %}
 // sourcery:end

@@ -13,7 +13,6 @@ extension XAxisAnchor: LayoutVariable {
 
     public typealias RightHandExpression = XAxisAnchorExpression
 
-
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         return RightHandExpression(variable: self).with(constant: constant)
     }

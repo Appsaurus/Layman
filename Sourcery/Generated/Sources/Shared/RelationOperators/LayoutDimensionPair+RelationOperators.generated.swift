@@ -9,7 +9,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
 // MARK: LayoutDimensionPair attribute inferred from Anchor
 
 // MARK: LayoutDimensionPair == Anchor
@@ -137,7 +136,6 @@ public func ≥≤ (lhs: [LayoutDimensionPair], rhs: [LayoutDimensionPair]) -> [
 public func ≤≥ (lhs: [LayoutDimensionPair], rhs: [LayoutDimensionPair]) -> [[LayoutDimensionPair.Solution]] {
     return lhs.map { $0 ≤≥ rhs }
 }
-
 
 // MARK: LayoutDimensionPair attribute inferred from expression
 

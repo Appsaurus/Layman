@@ -9,7 +9,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
 // MARK: YAxisAnchorPair attribute inferred from Anchor
 
 // MARK: YAxisAnchorPair == Anchor
@@ -137,7 +136,6 @@ public func ≥≤ (lhs: [YAxisAnchorPair], rhs: [YAxisAnchorPair]) -> [[YAxisAn
 public func ≤≥ (lhs: [YAxisAnchorPair], rhs: [YAxisAnchorPair]) -> [[YAxisAnchorPair.Solution]] {
     return lhs.map { $0 ≤≥ rhs }
 }
-
 
 // MARK: YAxisAnchorPair attribute inferred from expression
 

@@ -17,9 +17,9 @@
 {% set AnchorTypeArray %}[{{AnchorType}}]{% endset %}
 {% set AnchorTypeExpressionArray %}[{{AnchorTypeExpression}}]{% endset %}
 {% set lhs %}{% if AnchorType == 'View' %}lhs{% else %}lhs[keyPath: ...rhs]{% endif %}{% endset %}
-//  sourcery:file:Sources/Shared/RelationOperators/{{AnchorType}}+ViewRelationOperators
+//  sourcery:file:Sources/Shared/InferredAnchorRelatable/View+{{AnchorType}}RelationOperators
 //
-//  {{AnchorType}}+ViewRelationOperators.swift
+//  View+{{AnchorType}}RelationOperators.swift
 //  Layman
 //
 //  Created by Brian Strobach on 1/4/19.

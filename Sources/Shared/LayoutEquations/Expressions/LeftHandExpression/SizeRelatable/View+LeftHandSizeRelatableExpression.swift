@@ -38,8 +38,8 @@ extension View: LeftHandLayoutExpression {
     public func relation(_ relation: LayoutRelation, _ rhs: View) -> LayoutDimensionPairEquation {
         return self.relation(relation, LayoutDimensionPairExpression(variable: rhs.sizeAnchors))
     }
-
-    public func relation(_ relation: LayoutRelation, _ rhs: LayoutDimensionPairExpression) -> LayoutDimensionPairEquation {
-        return self.size.relation(relation, rhs)
-    }
+//
+//    public func relation(_ relation: LayoutRelation, _ rhs: LayoutDimensionPairExpression) -> LayoutDimensionPairEquation {
+//        return self.size.relation(relation, rhs)
+//    }
 }

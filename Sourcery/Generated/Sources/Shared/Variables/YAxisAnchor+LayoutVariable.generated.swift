@@ -13,7 +13,6 @@ extension YAxisAnchor: LayoutVariable {
 
     public typealias RightHandExpression = YAxisAnchorExpression
 
-
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         return RightHandExpression(variable: self).with(constant: constant)
     }

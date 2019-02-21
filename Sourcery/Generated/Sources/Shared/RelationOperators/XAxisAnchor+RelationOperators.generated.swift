@@ -9,7 +9,6 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-
 // MARK: XAxisAnchor attribute inferred from Anchor
 
 // MARK: XAxisAnchor == Anchor
@@ -137,7 +136,6 @@ public func ≥≤ (lhs: [XAxisAnchor], rhs: [XAxisAnchor]) -> [[XAxisAnchor.Sol
 public func ≤≥ (lhs: [XAxisAnchor], rhs: [XAxisAnchor]) -> [[XAxisAnchor.Solution]] {
     return lhs.map { $0 ≤≥ rhs }
 }
-
 
 // MARK: XAxisAnchor attribute inferred from expression
 

@@ -32,7 +32,7 @@ extension LayoutAnchor where AnchorType == XAxisAnchor {
         return view?.superview
     }
 
-    public var matchingParentAnchor: XAxisAnchor? {
+    public var matchingParentAnchor: XAxisAnchor? {        
         return superview?[keyPath: ...self]
     }
 }

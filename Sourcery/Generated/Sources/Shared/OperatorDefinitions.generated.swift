@@ -34,5 +34,4 @@ infix operator ./ : MultiplicationPrecedence
 // Inset Inequality Operator
 infix operator ≥≤  : RelationPrecedence
 
-
 infix operator ≤≥ : RelationPrecedence
