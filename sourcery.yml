@@ -1,9 +1,8 @@
 sources:
-  - Sources/Shared/
-  - LaymanTests/Shared/
+  - Sources/Core/
+  - LaymanTests/
 templates:
-  - Sourcery/Templates/Shared/
-  - Sourcery/Templates/Shared/
+  - Sourcery/Templates/
 args:
   anchorTypes:
     - 'XAxisAnchor'

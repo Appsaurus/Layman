@@ -1,0 +1,22 @@
+//  sourcery:file:Sources/Operators/ConstantArithmeticOperators/EdgeAnchorGroup+LayoutInset
+//
+//  EdgeAnchorGroup+InsetArithmeticOperators.swift
+//  Layman
+//
+//  Created by Brian Strobach on 1/10/19.
+//  Copyright © 2019 Brian Strobach. All rights reserved.
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+
+// MARK: UIEdgeInset Constant
+@discardableResult
+public func {{addition}} (lhs: EdgeAnchorGroup, rhs: RelativeLayoutPadding) -> EdgeAnchorGroupExpression {
+    return lhs.plus(rhs)
+}
+
+@discardableResult
+public func {{addition}} (lhs: EdgeAnchorGroupExpression, rhs: RelativeLayoutPadding) -> EdgeAnchorGroupExpression {
+    return lhs.plus(rhs)
+}
+
+// sourcery:end

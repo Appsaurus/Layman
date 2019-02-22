@@ -29,6 +29,12 @@ public enum LayoutExample: CaseIterable {
 class LayoutExampleViewController: UIViewController {
     var layout: LayoutExample
     let container = DashedBorderView(borderColor: mediumGrayBorder)
+    let snapshotView: View = {
+        let view = View()
+        view.accessibilityIdentifier = "snapshotview"
+        return view
+    }()
+
     lazy var view1 = createView(label: "1")
     lazy var view2 = createView(label: "2")
     lazy var view3 = createView(label: "3")
@@ -75,6 +81,7 @@ class LayoutExampleViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(container)
         view.backgroundColor = .white
+        container.accessibilityIdentifier = "container"
         container.backgroundColor = lightGrayBackground
 
 
@@ -251,12 +258,12 @@ class DashedBorderView: View {
         addSubview(label)
         backgroundColor = .white
         label.textAlignment = .center
-        label.topLeading .= topLeading .+ 2
+        label .= centerXY
         label.enforceContentSize()
         label.backgroundColor = borderColor
         label.textColor = .white
         label.clipsToBounds = true
-        label.layer.cornerRadius = cornerRadius
+
         label.height .= 14
         label.width ≥ label.height
         label.font = UIFont.init(name: label.font.fontName, size: 9.0)
@@ -267,7 +274,7 @@ class DashedBorderView: View {
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
         applyDashBorder()
-
+        label.layer.cornerRadius = label.frame.size.width / 2.0
         //        label.layer.cornerRadius = label.frame.height / 2.0
     }
 

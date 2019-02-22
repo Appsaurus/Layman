@@ -14,6 +14,8 @@
 		D8262F69243A6A882BC11050 /* Pods_LaymanDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ABC03A50697AC1F24AD5422 /* Pods_LaymanDemo.framework */; };
 		E4980C9A221E7778001EECEE /* LaymanDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4980C99221E7778001EECEE /* LaymanDemoUITests.swift */; };
 		E4980CA2221E7918001EECEE /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4980CA1221E7918001EECEE /* SnapshotHelper.swift */; };
+		E4980CA6221F92EA001EECEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C7F75A1C3BCA1E008CDDBA /* ViewController.swift */; };
+		E54FACF4E8328FB6F568ABEA /* Pods_LaymanDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A7C50D568FF3CD75B12F58 /* Pods_LaymanDemoUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BC188BD9471181068F7CC8A /* Pods-LaymanDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaymanDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LaymanDemoUITests/Pods-LaymanDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		133004ABF607F31E4CE2C632 /* Pods-LaymanDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaymanDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-LaymanDemo/Pods-LaymanDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3ABC03A50697AC1F24AD5422 /* Pods_LaymanDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaymanDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C3DF7C3D9BBD2DA598E76E8 /* Pods-LaymanDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaymanDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LaymanDemoUITests/Pods-LaymanDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BEE2AE7154DBFF2E07A3E680 /* Pods-LaymanDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LaymanDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LaymanDemo/Pods-LaymanDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D5C7F7401C3BC9CE008CDDBA /* LaymanDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaymanDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C7F74D1C3BC9CE008CDDBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 		E4980CA3221E7B39001EECEE /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		E4980CA4221E7B39001EECEE /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		E4980CA5221E7B39001EECEE /* Snapfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Snapfile; path = fastlane/Snapfile; sourceTree = "<group>"; };
+		F8A7C50D568FF3CD75B12F58 /* Pods_LaymanDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LaymanDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E54FACF4E8328FB6F568ABEA /* Pods_LaymanDemoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				3ABC03A50697AC1F24AD5422 /* Pods_LaymanDemo.framework */,
+				F8A7C50D568FF3CD75B12F58 /* Pods_LaymanDemoUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,6 +153,8 @@
 			children = (
 				BEE2AE7154DBFF2E07A3E680 /* Pods-LaymanDemo.debug.xcconfig */,
 				133004ABF607F31E4CE2C632 /* Pods-LaymanDemo.release.xcconfig */,
+				5C3DF7C3D9BBD2DA598E76E8 /* Pods-LaymanDemoUITests.debug.xcconfig */,
+				0BC188BD9471181068F7CC8A /* Pods-LaymanDemoUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -176,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4980CA0221E7778001EECEE /* Build configuration list for PBXNativeTarget "LaymanDemoUITests" */;
 			buildPhases = (
+				99804B338F76E51F3259E353 /* [CP] Check Pods Manifest.lock */,
 				E4980C93221E7778001EECEE /* Sources */,
 				E4980C94221E7778001EECEE /* Frameworks */,
 				E4980C95221E7778001EECEE /* Resources */,
+				279E8C4A5527F435B96919A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +263,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		279E8C4A5527F435B96919A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LaymanDemoUITests/Pods-LaymanDemoUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Layman/Layman.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Layman.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LaymanDemoUITests/Pods-LaymanDemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		97D5C0CAC3EE27EA540A306B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +301,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-LaymanDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99804B338F76E51F3259E353 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LaymanDemoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -312,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4980CA6221F92EA001EECEE /* ViewController.swift in Sources */,
 				E4980C9A221E7778001EECEE /* LaymanDemoUITests.swift in Sources */,
 				E4980CA2221E7918001EECEE /* SnapshotHelper.swift in Sources */,
 			);
@@ -475,6 +531,7 @@
 		};
 		E4980C9E221E7778001EECEE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C3DF7C3D9BBD2DA598E76E8 /* Pods-LaymanDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -502,6 +559,7 @@
 		};
 		E4980C9F221E7778001EECEE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BC188BD9471181068F7CC8A /* Pods-LaymanDemoUITests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;

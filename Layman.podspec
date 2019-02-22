@@ -17,13 +17,20 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
   s.tvos.deployment_target = '9.2'
-  s.watchos.deployment_target = '3.0'
 
+  s.source_files = 'Sources/{Core, Operators, Shorthand}/**/*', 'Sourcery/Generated/Sources/{Core, Operators}/**/*'
 
-  s.ios.source_files = 'Sources/{iOS,Shared}/**/*', 'Sourcery/Generated/Sources/{iOS,Shared}/**/*'
-  s.tvos.source_files = 'Sources/{tvOS,Shared}/**/*', 'Sourcery/Generated/Sources/{tvOS,Shared}/**/*'
-  s.osx.source_files = 'Sources/{macOS,Shared}/**/*', 'Sourcery/Generated/Sources/{macOS,Shared}/**/*'
-  s.watchos.source_files = 'Sources/{watchOS,Shared}/**/*', 'Sourcery/Generated/Sources/{watchOS,Shared}/**/*'
+  s.subspec 'Core' do |core|
+      core.source_files = 'Sources/Core/**/*', 'Sourcery/Generated/Sources/Core/**/*'
+  end
+
+  s.subspec 'Operators' do |core|
+      core.source_files = 'Sourcery/Generated/Sources/Operators/**/*'
+  end
+
+  s.subspec 'Shorthand' do |core|
+      core.source_files = 'Sources/Shorthand/**/*'
+  end
 
   s.ios.frameworks = 'UIKit', 'Foundation'
   s.tvos.frameworks = 'UIKit', 'Foundation'

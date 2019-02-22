@@ -55,9 +55,3 @@ target 'Layman-tvOS-Tests' do
     shared
     testShared
 end
-
-target 'Layman-watchOS' do
-    platform :watchos, '3'
-    shared
-    libaryShared
-end
