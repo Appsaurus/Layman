@@ -15,13 +15,14 @@ class ViewController: NavigationalMenuTableViewController {
 public enum LayoutExample: CaseIterable {
     case sizeConstant
     case size
+    case sizeMultiplier
+    case sizePercentage
     case center
     case horizontalEdges
     case verticalEdges
     case edges
     case edgesInset
     case corners
-    case percentage
     case stack
     case nestedStack
 }
@@ -49,7 +50,7 @@ class LayoutExampleViewController: UIViewController {
         let stackView = StackView() ~~ "StackView"
         container.addSubview(stackView)
         stackView.centerXY .= container.centerXY
-        stackView.inset(from: container.edges)
+        stackView.insetOrEqual(to: container.edges)
         stackView.enforceContentSize()
         return stackView
     }()
@@ -105,7 +106,34 @@ class LayoutExampleViewController: UIViewController {
             view1.trailing .= container.centerX .- 10
             view2.leading .= container.centerX .+ 10
             [view1, view2].centerY .= container.centerY
-
+        case .sizeMultiplier:
+            let allViews = [view1, view2, view3, view4, view5, view6]
+            allViews.contentSizePriorityAnchor ~ .required
+//            allViews.size .= 100
+            view1.size .= 100
+            view2.size .= view1.size ~ .required// .* 50%
+            view3.size .= view2.size  ~ .required// ./ 2
+            view4.size .= view3.size  ~ .required// .* 0.5
+            view5.size .= view4.size  ~ .required// .+ (10, 20)
+            view6.size .= view5.size  ~ .required// .- 50
+            stackView
+                .on(.vertical)
+                .distribute(.equalSpacing)
+                .spacing(20)
+                .stack(
+                    [view1, view2, view3],
+                    [view4, view5, view6]
+            )
+        case .sizePercentage:
+            view1.size .= 150
+            view2.size .= view1.size .* 50%
+            view3.size .= view2.size .* 50%
+            view4.size .= view3.size .* 50%
+            stackView
+                .distribute(.equalSpacing)
+                .align(.center)
+                .spacing(20)
+                .stack(view1, view2, view3, view4)
         case .center:
             view1.size .= 100
             view1.centerXY .= container.centerXY
@@ -127,16 +155,7 @@ class LayoutExampleViewController: UIViewController {
             view2.topRight .= container.topRight .+ .inset(20)
             view3.bottomRight .= container.bottomRight .+ .inset(20)
             view4.bottomLeft .= container.bottomLeft .+ .inset(20)
-        case .percentage:
-            view1.size .= 150
-            view2.size .= view1.size .* 50%
-            view3.size .= view2.size .* 50%
-            view4.size .= view3.size .* 50%
-            stackView
-                .distribute(.equalSpacing)
-                .align(.center)
-                .spacing(20)
-                .stack(view1, view2, view3, view4)
+
         case .stack:
             [view1, view2, view3, view4].size .= 100
             stackView

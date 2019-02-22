@@ -1,5 +1,11 @@
 PODS:
-  - Layman (0.0.8)
+  - Layman (0.0.8):
+    - Layman/Core (= 0.0.8)
+    - Layman/Operators (= 0.0.8)
+    - Layman/Shorthand (= 0.0.8)
+  - Layman/Core (0.0.8)
+  - Layman/Operators (0.0.8)
+  - Layman/Shorthand (0.0.8)
 
 DEPENDENCIES:
   - Layman (from `../../`)
@@ -9,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Layman: de9e8b36f0e60a87b84d3f24e62a4f200746061c
+  Layman: e3a500bb1bfb0bf86b937b46daff6f9a24c565e1
 
 PODFILE CHECKSUM: f9e616fe612209cf7e30b60b632705dd5e70f126
 

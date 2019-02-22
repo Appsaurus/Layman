@@ -96,7 +96,7 @@ extension Array where Element: View {
 
 extension LayoutPriority {
     /// Shorthand syntax for UILayoutPriority.defaultHigh
-    public static var high: UILayoutPriority {
+    public static var high: UILayoutPriority {        
         return .defaultHigh
     }
 

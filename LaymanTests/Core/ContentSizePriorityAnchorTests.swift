@@ -1,5 +1,5 @@
 //
-//  ContentSizePriorityAnchorTests.swift
+//  ContentSizeAnchorTests.swift
 //  Layman
 //
 //  Created by Brian Strobach on 2/7/19.
@@ -9,49 +9,49 @@
 @testable import Layman
 import XCTest
 
-class ContentSizePriorityAnchorTests: LaymanTestCase {
+class ContentSizeAnchorTests: LaymanTestCase {
 
-    func testContentSizePriorityAnchor() {
-        view1.contentSizePriorityAnchor ~ .low
+    func testContentSizePriority() {
+        view1.contentSizePriority ~ .low
         XCTAssertEqual(view1.contentHuggingPriority(for: .vertical), .low)
         XCTAssertEqual(view1.contentCompressionResistancePriority(for: .vertical), .low)
         XCTAssertEqual(view1.contentHuggingPriority(for: .horizontal), .low)
         XCTAssertEqual(view1.contentCompressionResistancePriority(for: .horizontal), .low)
     }
-    func testVerticalContentSizePriorityAnchor() {
-        view1.verticalContentSizePriorityAnchor ~ .low
+    func testVerticalContentSizePriority() {
+        view1.verticalContentSizePriority ~ .low
         XCTAssertEqual(view1.contentHuggingPriority(for: .vertical), .low)
         XCTAssertEqual(view1.contentCompressionResistancePriority(for: .vertical), .low)
     }
-    func testHorizontalContentSizePriorityAnchor() {
-        view1.horizontalContentSizePriorityAnchor ~ .low
+    func testHorizontalContentSizePriority() {
+        view1.horizontalContentSizePriority ~ .low
         XCTAssertEqual(view1.contentHuggingPriority(for: .horizontal), .low)
         XCTAssertEqual(view1.contentCompressionResistancePriority(for: .horizontal), .low)
     }
-    func testContentHuggingAnchor() {
-        view1.contentHuggingAnchor ~ .low
+    func testContentHuggingPriority() {
+        view1.contentHuggingPriority ~ .low
         XCTAssertEqual(view1.contentHuggingPriority(for: .horizontal), .low)
         XCTAssertEqual(view1.contentHuggingPriority(for: .vertical), .low)
     }
-    func testVerticalContentHuggingAnchor() {
-        view1.verticalContentHuggingAnchor ~ .low
+    func testVerticalContentHuggingPriority() {
+        view1.verticalContentHuggingPriority ~ .low
         XCTAssertEqual(view1.contentHuggingPriority(for: .vertical), .low)
     }
-    func testHorizontalContentHuggingAnchor() {
-        view1.horizontalContentHuggingAnchor ~ .low
+    func testHorizontalContentHuggingPriority() {
+        view1.horizontalContentHuggingPriority ~ .low
         XCTAssertEqual(view1.contentHuggingPriority(for: .horizontal), .low)
     }
-    func testCompressionResistanceAnchor() {
-        view1.compressionResistanceAnchor ~ .low
+    func testCompressionResistancePriority() {
+        view1.compressionResistancePriority ~ .low
         XCTAssertEqual(view1.contentCompressionResistancePriority(for: .vertical), .low)
         XCTAssertEqual(view1.contentCompressionResistancePriority(for: .horizontal), .low)
     }
-    func testVerticalCompressionResistanceAnchor() {
-        view1.verticalCompressionResistanceAnchor ~ .low
+    func testVerticalCompressionResistancePriority() {
+        view1.verticalCompressionResistancePriority ~ .low
         XCTAssertEqual(view1.contentCompressionResistancePriority(for: .vertical), .low)
     }
-    func testHorizontalCompressionResistanceAnchor() {
-        view1.horizontalCompressionResistanceAnchor ~ .low
+    func testHorizontalCompressionResistancePriority() {
+        view1.horizontalCompressionResistancePriority ~ .low
         XCTAssertEqual(view1.contentCompressionResistancePriority(for: .horizontal), .low)
     }
 

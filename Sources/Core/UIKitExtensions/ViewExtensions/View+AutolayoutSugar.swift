@@ -13,23 +13,29 @@ public extension View {
         constraints.forEach {$0.activated(with: priority)}
         addConstraints(constraints)
     }
-
-    public func enforceContentSize(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
+    @discardableResult
+    public func enforceContentSize(_ priority: LayoutPriority = .required,
+                                   forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
         hugContent(priority, forAxes: axes)
         resistCompression(priority, forAxes: axes)
+        return self
     }
 
-    public func hugContent(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
+    @discardableResult
+    public func hugContent(_ priority: LayoutPriority = .required,
+                           forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
         axes.forEach { (axis) in
             setContentHuggingPriority(priority, for: axis)
         }
-
+        return self
     }
-
-    public func resistCompression(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) {
+    @discardableResult
+    public func resistCompression(_ priority: LayoutPriority = .required,
+                                  forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
         axes.forEach { (axis) in
             setContentCompressionResistancePriority(priority, for: axis)
         }
+        return self
     }
 
     public func forceAutolayoutPass() {

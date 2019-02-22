@@ -51,6 +51,12 @@ public func ~ (lhs: LayoutPadding, rhs: LayoutPriority) -> EdgeAnchorsGroupCoeff
     return lhs.priority(rhs)
 }
 
-public func ~ (lhs: ContentSizePriorityAnchor, rhs: LayoutPriority) {
+@discardableResult
+public func ~ (lhs: ContentSizeAnchor, rhs: LayoutPriority) -> View {
     return lhs.priority(rhs)
+}
+
+@discardableResult
+public func ~ (lhs: [ContentSizeAnchor], rhs: LayoutPriority) -> [View] {
+    return lhs.map { $0.priority(rhs) }
 }

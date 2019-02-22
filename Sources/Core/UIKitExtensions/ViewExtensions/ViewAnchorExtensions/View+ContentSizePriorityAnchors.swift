@@ -1,105 +1,105 @@
 //
-//  View+ContentSizePriorityAnchors.swift
+//  View+ContentSizeAnchors.swift
 //  Layman
 //
 //  Created by Brian Strobach on 2/7/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public enum ContentSizePriorityAnchor {
-    case contentSizePriorityAnchor(View)
-    case verticalContentSizePriorityAnchor(View)
-    case horizontalContentSizePriorityAnchor(View)
+public enum ContentSizeAnchor {
+    case contentSizePriority(View)
+    case verticalContentSizePriority(View)
+    case horizontalContentSizePriority(View)
 
-    case contentHuggingAnchor(View)
-    case verticalContentHuggingAnchor(View)
-    case horizontalContentHuggingAnchor(View)
+    case contentHuggingPriority(View)
+    case verticalContentHuggingPriority(View)
+    case horizontalContentHuggingPriority(View)
 
-    case compressionResistanceAnchor(View)
-    case verticalCompressionResistanceAnchor(View)
-    case horizontalCompressionResistanceAnchor(View)
+    case compressionResistancePriority(View)
+    case verticalCompressionResistancePriority(View)
+    case horizontalCompressionResistancePriority(View)
 
-    func priority(_ priority: LayoutPriority) {
+    @discardableResult
+    public func priority(_ priority: LayoutPriority) -> View {
         switch self {
-
-        case .contentSizePriorityAnchor(let view):
-            view.enforceContentSize(priority)
-        case .verticalContentSizePriorityAnchor(let view):
-            view.enforceContentSize(priority, forAxes: [.vertical])
-        case .horizontalContentSizePriorityAnchor(let view):
-            view.enforceContentSize(priority, forAxes: [.horizontal])
-        case .contentHuggingAnchor(let view):
-             view.hugContent(priority)
-        case .verticalContentHuggingAnchor(let view):
-            view.hugContent(priority, forAxes: [.vertical])
-        case .horizontalContentHuggingAnchor(let view):
-            view.hugContent(priority, forAxes: [.horizontal])
-        case .compressionResistanceAnchor(let view):
-            view.resistCompression(priority)
-        case .verticalCompressionResistanceAnchor(let view):
-            view.resistCompression(priority, forAxes: [.vertical])
-        case .horizontalCompressionResistanceAnchor(let view):
-            view.resistCompression(priority, forAxes: [.horizontal])
+        case .contentSizePriority(let view):
+            return view.enforceContentSize(priority)            
+        case .verticalContentSizePriority(let view):
+            return view.enforceContentSize(priority, forAxes: [.vertical])            
+        case .horizontalContentSizePriority(let view):
+            return view.enforceContentSize(priority, forAxes: [.horizontal])            
+        case .contentHuggingPriority(let view):
+             return view.hugContent(priority)            
+        case .verticalContentHuggingPriority(let view):
+            return view.hugContent(priority, forAxes: [.vertical])            
+        case .horizontalContentHuggingPriority(let view):
+            return view.hugContent(priority, forAxes: [.horizontal])            
+        case .compressionResistancePriority(let view):
+            return view.resistCompression(priority)            
+        case .verticalCompressionResistancePriority(let view):
+            return view.resistCompression(priority, forAxes: [.vertical])            
+        case .horizontalCompressionResistancePriority(let view):
+            return view.resistCompression(priority, forAxes: [.horizontal])            
         }
     }
 }
 
 extension View {
-    public var contentSizePriorityAnchor: ContentSizePriorityAnchor {
-        return .contentSizePriorityAnchor(self)
+    public var contentSizePriority: ContentSizeAnchor {
+        return .contentSizePriority(self)
     }
-    public var verticalContentSizePriorityAnchor: ContentSizePriorityAnchor {
-        return .verticalContentSizePriorityAnchor(self)
+    public var verticalContentSizePriority: ContentSizeAnchor {
+        return .verticalContentSizePriority(self)
     }
-    public var horizontalContentSizePriorityAnchor: ContentSizePriorityAnchor {
-        return .horizontalContentSizePriorityAnchor(self)
+    public var horizontalContentSizePriority: ContentSizeAnchor {
+        return .horizontalContentSizePriority(self)
     }
-    public var contentHuggingAnchor: ContentSizePriorityAnchor {
-        return .contentHuggingAnchor(self)
+    public var contentHuggingPriority: ContentSizeAnchor {
+        return .contentHuggingPriority(self)
     }
-    public var verticalContentHuggingAnchor: ContentSizePriorityAnchor {
-        return .verticalContentHuggingAnchor(self)
+    public var verticalContentHuggingPriority: ContentSizeAnchor {
+        return .verticalContentHuggingPriority(self)
     }
-    public var horizontalContentHuggingAnchor: ContentSizePriorityAnchor {
-        return .horizontalContentHuggingAnchor(self)
+    public var horizontalContentHuggingPriority: ContentSizeAnchor {
+        return .horizontalContentHuggingPriority(self)
     }
-    public var compressionResistanceAnchor: ContentSizePriorityAnchor {
-        return .compressionResistanceAnchor(self)
+    public var compressionResistancePriority: ContentSizeAnchor {
+        return .compressionResistancePriority(self)
     }
-    public var verticalCompressionResistanceAnchor: ContentSizePriorityAnchor {
-        return .verticalCompressionResistanceAnchor(self)
+    public var verticalCompressionResistancePriority: ContentSizeAnchor {
+        return .verticalCompressionResistancePriority(self)
     }
-    public var horizontalCompressionResistanceAnchor: ContentSizePriorityAnchor {
-        return .horizontalCompressionResistanceAnchor(self)
+    public var horizontalCompressionResistancePriority: ContentSizeAnchor {
+        return .horizontalCompressionResistancePriority(self)
     }
 }
 
 extension Collection where Element: View {
-    public var contentSizePriorityAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.contentSizePriorityAnchor }
+    public var contentSizePriority: [ContentSizeAnchor] {
+        return map { $0.contentSizePriority }
     }
-    public var verticalContentSizePriorityAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.verticalContentSizePriorityAnchor }
+    public var verticalContentSizePriority: [ContentSizeAnchor] {
+        return map { $0.verticalContentSizePriority }
     }
-    public var horizontalContentSizePriorityAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.horizontalContentSizePriorityAnchor }
+    public var horizontalContentSizePriority: [ContentSizeAnchor] {
+        return map { $0.horizontalContentSizePriority }
     }
-    public var contentHuggingAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.contentHuggingAnchor }
+    public var contentHuggingPriority: [ContentSizeAnchor] {
+        return map { $0.contentHuggingPriority }
     }
-    public var verticalContentHuggingAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.verticalContentHuggingAnchor }
+    public var verticalContentHuggingPriority: [ContentSizeAnchor] {
+        return map { $0.verticalContentHuggingPriority }
     }
-    public var horizontalContentHuggingAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.horizontalContentHuggingAnchor }
+    public var horizontalContentHuggingPriority: [ContentSizeAnchor] {
+        return map { $0.horizontalContentHuggingPriority }
     }
-    public var compressionResistanceAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.compressionResistanceAnchor }
+    public var compressionResistancePriority: [ContentSizeAnchor] {
+        return map { $0.compressionResistancePriority }
     }
-    public var verticalCompressionResistanceAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.verticalCompressionResistanceAnchor }
+    public var verticalCompressionResistancePriority: [ContentSizeAnchor] {
+        return map { $0.verticalCompressionResistancePriority }
     }
-    public var horizontalCompressionResistanceAnchor: [ContentSizePriorityAnchor] {
-        return map { $0.horizontalCompressionResistanceAnchor }
+    public var horizontalCompressionResistancePriority: [ContentSizeAnchor] {
+        return map { $0.horizontalCompressionResistancePriority }
     }
 }
