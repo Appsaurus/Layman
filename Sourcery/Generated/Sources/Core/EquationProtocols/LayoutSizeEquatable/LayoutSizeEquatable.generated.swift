@@ -23,7 +23,7 @@ extension LayoutSizeEquatable {
 
     @discardableResult
     public func equal(to rhs: [LayoutSize]) -> [Solution] {
-        return rhs.map { relation(.equal, $0).solution }
+        return rhs.map { equal(to: $0) }
     }
 
     // MARK: - LessThanOrEqual
@@ -35,7 +35,7 @@ extension LayoutSizeEquatable {
 
     @discardableResult
     public func lessThanOrEqual(to rhs: [LayoutSize]) -> [Solution] {
-        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -47,7 +47,7 @@ extension LayoutSizeEquatable {
 
     @discardableResult
     public func greaterThanOrEqual(to rhs: [LayoutSize]) -> [Solution] {
-        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+        return rhs.map { greaterThanOrEqual(to: $0) }
     }
 }
 

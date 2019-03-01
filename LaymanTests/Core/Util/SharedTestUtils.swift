@@ -47,7 +47,7 @@ extension Constraint {
     }
 }
 
-extension Array where Element: Constraint {
+extension Collection where Element: Constraint {
     func assert(_ items: [(AnyObject & LayoutAnchorable)],
                 _ firstAttribute: ConstraintAttribute?,
                 _ relation: Constraint.Relation,
@@ -68,7 +68,7 @@ extension Array where Element: Constraint {
     }
 }
 
-internal extension Array where Element == ConstraintPair {
+internal extension Collection where Element == ConstraintPair {
     internal var first: [Constraint] {
         return self.map { $0.first }
     }

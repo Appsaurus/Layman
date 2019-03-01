@@ -21,7 +21,7 @@ extension YAxisAnchor {
     }
     @discardableResult
     public func equal(to rhs: [View]) -> [YAxisAnchorEquation.Solution] {
-        return rhs.map { relation(.equal, $0).solution }
+        return rhs.map { equal(to: $0) }
     }
     @discardableResult
     public func lessThanOrEqual(to rhs: View) -> YAxisAnchorEquation.Solution {
@@ -29,7 +29,7 @@ extension YAxisAnchor {
     }
     @discardableResult
     public func lessThanOrEqual(to rhs: [View]) -> [YAxisAnchorEquation.Solution] {
-        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     @discardableResult
@@ -38,7 +38,7 @@ extension YAxisAnchor {
     }
     @discardableResult
     public func greaterThanOrEqual(to rhs: [View]) -> [YAxisAnchorEquation.Solution] {
-        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+        return rhs.map { greaterThanOrEqual(to: $0) }
     }
     @discardableResult
     public func insetOrEqual(to rhs: View) -> YAxisAnchorEquation.Solution {
@@ -46,7 +46,7 @@ extension YAxisAnchor {
     }
     @discardableResult
     public func insetOrEqual(to rhs: [View]) -> [YAxisAnchorEquation.Solution] {
-        return rhs.map { relation(.insetOrEqual, $0).solution }
+        return rhs.map { insetOrEqual(to: $0) }
     }
     @discardableResult
     public func outsetOrEqual(to rhs: View) -> YAxisAnchorEquation.Solution {

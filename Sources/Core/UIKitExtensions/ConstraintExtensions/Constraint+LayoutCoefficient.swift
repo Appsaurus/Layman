@@ -29,10 +29,4 @@ extension Constraint {
                           multiplier: multiplier,
                           constant: constant)
     }
-
-    @discardableResult
-    public func priority(_ priority: LayoutPriority) -> Self {
-        self.priority = priority
-        return self
-    }
 }

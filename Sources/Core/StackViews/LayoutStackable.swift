@@ -76,7 +76,9 @@ extension StackView {
         for item in items {
             switch item {
             case let stackableArray as [LayoutStackable]:
-                addArrangedSubview(stackableArray.stack(self.layout.on(axis == .vertical ? .horizontal : .vertical)))
+                let nestedStackView = stackableArray.stack(self.layout.on(axis == .vertical ? .horizontal : .vertical))
+                nestedStackView.enforceContentSize()
+                addArrangedSubview(nestedStackView)
             case let constant as LayoutConstantConvertible:
                 guard #available(iOS 11.0, *), let lastView = arrangedSubviews.last else { continue }
                 setCustomSpacing(constant.layoutConstant, after: lastView)
@@ -101,4 +103,71 @@ extension Array {
         stackView.stack(items)
         return stackView
     }
+
+}
+
+extension Array {
+    @discardableResult
+    public func stack(_ direction: LayoutDirection) -> ConstraintHeirarchy {
+        var spacing: LayoutConstant = 0
+        var previousView: View?
+        var currentView: View?
+        var constraints: ConstraintHeirarchy = [:]
+        for item in self {
+            switch item {
+            case let constant as LayoutConstantConvertible:
+                spacing = constant.layoutConstant
+            case let viewProvider as LayoutStackableBacked:
+                currentView = viewProvider.view
+            case let view as View:
+                currentView = view
+            default: break
+            }
+            defer {
+                previousView = currentView
+            }
+            guard let currentView = currentView, let previousView = previousView else {
+                continue
+            }
+            var map: ConstraintAttributeMap = [:]
+            switch direction {
+            case .topToBottom:
+                map[.top] = [currentView.topAnchor.equal(to: previousView.bottomAnchor.plus(spacing))]
+            case .leadingToTrailing:
+                map[.leading] = [currentView.leadingAnchor.equal(to: previousView.trailingAnchor.plus(spacing))]
+            case .leftToRight:
+                map[.left] = [currentView.leftAnchor.equal(to: previousView.rightAnchor.plus(spacing))]
+            }
+            constraints[currentView] = map
+        }
+        return constraints
+    }
+}
+
+public enum LayoutDirection {
+    case leftToRight
+    case leadingToTrailing
+    case topToBottom
+}
+
+public enum LayoutInequalityDirection {
+    case lessThanOrEqual
+    case greaterThanOrEqual
+}
+
+public struct LayoutInequalityConstant: LayoutStackable {
+    var constant: LayoutConstant
+    var direction: LayoutInequalityDirection
+}
+
+prefix operator ≤
+
+public prefix func ≤ (rhs: LayoutConstant) -> LayoutInequalityConstant {
+    return LayoutInequalityConstant(constant: rhs, direction: .lessThanOrEqual)
+}
+
+prefix operator ≥
+
+public prefix func ≥ (rhs: LayoutConstant) -> LayoutInequalityConstant {
+    return LayoutInequalityConstant(constant: rhs, direction: .greaterThanOrEqual)
 }

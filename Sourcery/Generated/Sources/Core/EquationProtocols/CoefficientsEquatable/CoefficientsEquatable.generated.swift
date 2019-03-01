@@ -25,7 +25,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func equal(to rhs: [LayoutCoefficientTuple]) -> [Solution] {
-        return rhs.map { relation(.equal, $0).solution }
+        return rhs.map { equal(to: $0) }
     }
 
     // MARK: - LessThanOrEqual
@@ -37,7 +37,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func lessThanOrEqual(to rhs: [LayoutCoefficientTuple]) -> [Solution] {
-        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -49,7 +49,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func greaterThanOrEqual(to rhs: [LayoutCoefficientTuple]) -> [Solution] {
-        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+        return rhs.map { greaterThanOrEqual(to: $0) }
     }
 }
 
@@ -109,7 +109,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func equal(to rhs: [LayoutConstantTuple]) -> [Solution] {
-        return rhs.map { relation(.equal, $0).solution }
+        return rhs.map { equal(to: $0) }
     }
 
     // MARK: - LessThanOrEqual
@@ -121,7 +121,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func lessThanOrEqual(to rhs: [LayoutConstantTuple]) -> [Solution] {
-        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -133,7 +133,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func greaterThanOrEqual(to rhs: [LayoutConstantTuple]) -> [Solution] {
-        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+        return rhs.map { greaterThanOrEqual(to: $0) }
     }
 }
 
@@ -193,7 +193,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func equal(to rhs: [RelativeLayoutConstantTuple]) -> [Solution] {
-        return rhs.map { relation(.equal, $0).solution }
+        return rhs.map { equal(to: $0) }
     }
 
     // MARK: - LessThanOrEqual
@@ -205,7 +205,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func lessThanOrEqual(to rhs: [RelativeLayoutConstantTuple]) -> [Solution] {
-        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -217,7 +217,7 @@ extension CoefficientsEquatable {
 
     @discardableResult
     public func greaterThanOrEqual(to rhs: [RelativeLayoutConstantTuple]) -> [Solution] {
-        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+        return rhs.map { greaterThanOrEqual(to: $0) }
     }
 }
 

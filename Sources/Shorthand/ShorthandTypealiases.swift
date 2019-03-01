@@ -53,7 +53,7 @@ extension View {
     public var aspectRatioInverse: AspectRatioAnchor { return aspectRatioInverseAnchor}
 }
 
-extension Array where Element: XYAxisAnchorable {
+extension Collection where Element: XYAxisAnchorable {
     public var leading: XAxisAnchors { return map {$0.leading } }
     public var trailing: XAxisAnchors { return map {$0.trailing } }
     public var left: XAxisAnchors { return map {$0.left } }
@@ -83,13 +83,13 @@ extension Array where Element: XYAxisAnchorable {
     public var margins: [LayoutGuide] { return map { $0.margins } }
 }
 
-extension Array where Element: SizeAnchorable {
+extension Collection where Element: SizeAnchorable {
     public var width: LayoutDimensions { return map { $0.width } }
     public var height: LayoutDimensions { return map { $0.height } }
     public var size: LayoutDimensionPairs { return map { $0.size } }
 }
 
-extension Array where Element: View {
+extension Collection where Element: View {
     public var aspectRatio: AspectRatioAnchors { return map { $0.aspectRatio } }
     public var aspectRatioInverse: AspectRatioAnchors { return map { $0.aspectRatioInverse } }
 }

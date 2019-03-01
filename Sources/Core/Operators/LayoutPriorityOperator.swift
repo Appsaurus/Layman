@@ -60,3 +60,35 @@ public func ~ (lhs: ContentSizeAnchor, rhs: LayoutPriority) -> View {
 public func ~ (lhs: [ContentSizeAnchor], rhs: LayoutPriority) -> [View] {
     return lhs.map { $0.priority(rhs) }
 }
+
+// MARK: Constraints
+
+@discardableResult
+public func ~ (lhs: Constraint, rhs: LayoutPriority) -> Constraint {
+    return lhs.priority(rhs)
+}
+
+@discardableResult
+public func ~ (lhs: Constraints, rhs: LayoutPriority) -> Constraints {
+    return lhs.map { $0.priority(rhs) }
+}
+
+@discardableResult
+public func ~ (lhs: ConstraintPair, rhs: LayoutPriority) -> ConstraintPair {
+    return lhs.priority(rhs)
+}
+
+@discardableResult
+public func ~ (lhs: ConstraintPairs, rhs: LayoutPriority) -> ConstraintPairs {
+    return lhs.map { $0.priority(rhs) }
+}
+
+@discardableResult
+public func ~ (lhs: SideConstraints, rhs: LayoutPriority) -> SideConstraints {
+    return lhs.priority(rhs)
+}
+
+@discardableResult
+public func ~ (lhs: [SideConstraints], rhs: LayoutPriority) -> [SideConstraints] {
+    return lhs.map { $0.priority(rhs) }
+}

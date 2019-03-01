@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-extension Array where Element: LeftHandLayoutExpression {
+extension Collection where Element: LeftHandLayoutExpression {
     // MARK: Anchor Array == Anchor
     @discardableResult
     public func equal(to rhs: Element) -> [Element.LinearEquation.Solution] {

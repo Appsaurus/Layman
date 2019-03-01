@@ -20,7 +20,7 @@ extension View {
     }
     @discardableResult
     public func equal(to rhs: [XAxisAnchorPair]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.equal, $0).solution }
+        return rhs.map { equal(to: $0) }
     }
     @discardableResult
     public func lessThanOrEqual(to rhs: XAxisAnchorPair) -> XAxisAnchorPairEquation.Solution {
@@ -28,7 +28,7 @@ extension View {
     }
     @discardableResult
     public func lessThanOrEqual(to rhs: [XAxisAnchorPair]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     @discardableResult
@@ -37,7 +37,7 @@ extension View {
     }
     @discardableResult
     public func greaterThanOrEqual(to rhs: [XAxisAnchorPair]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+        return rhs.map { greaterThanOrEqual(to: $0) }
     }
     @discardableResult
     public func insetOrEqual(to rhs: XAxisAnchorPair) -> XAxisAnchorPairEquation.Solution {
@@ -45,7 +45,7 @@ extension View {
     }
     @discardableResult
     public func insetOrEqual(to rhs: [XAxisAnchorPair]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.insetOrEqual, $0).solution }
+        return rhs.map { insetOrEqual(to: $0) }
     }
     @discardableResult
     public func outsetOrEqual(to rhs: XAxisAnchorPair) -> XAxisAnchorPairEquation.Solution {
@@ -53,7 +53,7 @@ extension View {
     }
     @discardableResult
     public func outsetOrEqual(to rhs: [XAxisAnchorPair]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.outsetOrEqual, $0).solution }
+        return rhs.map { outsetOrEqual(to: $0) }
     }
 }
 
@@ -68,7 +68,7 @@ extension View {
     }
     @discardableResult
     public func equal(to rhs: [XAxisAnchorPairEquation.Expression]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.equal, $0).solution }
+        return rhs.map { equal(to: $0) }
     }
     @discardableResult
     public func lessThanOrEqual(to rhs: XAxisAnchorPairEquation.Expression) -> XAxisAnchorPairEquation.Solution {
@@ -76,7 +76,7 @@ extension View {
     }
     @discardableResult
     public func lessThanOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     @discardableResult
@@ -85,7 +85,7 @@ extension View {
     }
     @discardableResult
     public func greaterThanOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+        return rhs.map { greaterThanOrEqual(to: $0) }
     }
     @discardableResult
     public func insetOrEqual(to rhs: XAxisAnchorPairEquation.Expression) -> XAxisAnchorPairEquation.Solution {
@@ -93,7 +93,7 @@ extension View {
     }
     @discardableResult
     public func insetOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.insetOrEqual, $0).solution }
+        return rhs.map { insetOrEqual(to: $0) }
     }
     @discardableResult
     public func outsetOrEqual(to rhs: XAxisAnchorPairEquation.Expression) -> XAxisAnchorPairEquation.Solution {
@@ -101,6 +101,6 @@ extension View {
     }
     @discardableResult
     public func outsetOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [XAxisAnchorPairEquation.Solution] {
-        return rhs.map { relation(.outsetOrEqual, $0).solution }
+        return rhs.map { outsetOrEqual(to: $0) }
     }
 }

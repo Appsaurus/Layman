@@ -27,9 +27,7 @@ public typealias StackView = UIStackView
 // MARK: Constraint
 public typealias Constraint = NSLayoutConstraint
 public typealias Constraints = [Constraint]
-public class ConstraintPair: LayoutModelReferencePair<Constraint> {}
 public typealias ConstraintPairs = [ConstraintPair]
-public class SideConstraints: SidesTuple<Constraint, Constraint> {}
 
 // MARK: Attribute
 public typealias ConstraintAttribute = Constraint.Attribute

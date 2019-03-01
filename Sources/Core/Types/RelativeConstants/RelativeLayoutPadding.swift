@@ -25,13 +25,20 @@ extension Relative where LC == LayoutPadding {
     public var trailing: RelativeLayoutConstant {
         return RelativeLayoutConstant(relativity: relativity, constant: constant.trailing)
     }
-//    public static func inset(_ padding: LayoutConstant) -> RelativeLayoutPadding {
-//        return RelativeLayoutPadding(relativity: .inset, constant: .constant(padding))
-//    }
 
-//    public static func outset(_ padding: LayoutConstant) -> RelativeLayoutPadding {
-//        return RelativeLayoutPadding(relativity: .outset, constant: .constant(padding))
-//    }
+    public static func outset(_ top: LayoutConstant,
+                              _ leading: LayoutConstant,
+                              _ bottom: LayoutConstant,
+                              _ trailing: LayoutConstant) -> RelativeLayoutPadding {
+        return outset(top: top, leading: leading, bottom: bottom, trailing: trailing)
+    }
+
+    public static func inset(_ top: LayoutConstant,
+                             _ leading: LayoutConstant,
+                             _ bottom: LayoutConstant,
+                             _ trailing: LayoutConstant) -> RelativeLayoutPadding {
+        return inset(top: top, leading: leading, bottom: bottom, trailing: trailing)
+    }
 
     public static func outset(top: LayoutConstant,
                               leading: LayoutConstant,
@@ -45,6 +52,22 @@ extension Relative where LC == LayoutPadding {
                              bottom: LayoutConstant,
                              trailing: LayoutConstant) -> RelativeLayoutPadding {
         return RelativeLayoutPadding(relativity: .inset, constant: .init(top, leading, bottom, trailing))
+    }
+
+    public static func inset(_ vertical: LayoutConstant, _ horizontal: LayoutConstant) -> RelativeLayoutPadding {
+        return inset(vertical, horizontal, vertical, horizontal)
+    }
+
+    public static func outset(_ vertical: LayoutConstant, _ horizontal: LayoutConstant) -> RelativeLayoutPadding {
+        return outset(vertical, horizontal, vertical, horizontal)
+    }
+
+    public static func inset(vertical: LayoutConstant, horizontal: LayoutConstant) -> RelativeLayoutPadding {
+        return inset(vertical, horizontal)
+    }
+
+    public static func outset(vertical: LayoutConstant, horizontal: LayoutConstant) -> RelativeLayoutPadding {
+        return outset(vertical, horizontal)
     }
 
 }

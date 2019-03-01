@@ -8,33 +8,39 @@ class ViewController: NavigationalMenuTableViewController {
     }
 
     func row(_ example: LayoutExample) -> RowDataSource {
-        return .row("\(example)".uppercased(), LayoutExampleViewController(example))
+        return .row("\(example)".titleCase, LayoutExampleViewController(example))
     }
 }
 
 public enum LayoutExample: CaseIterable {
-    case sizeConstant
     case size
-    case sizeMultiplier
-    case sizePercentage
-    case center
+    case sizeCoefficients
+    case XYAxisPositioning
+    case XYAxisPairs
     case horizontalEdges
     case verticalEdges
     case edges
-    case edgesInset
-    case corners
+    case insetsAndOffsets
+    case multipleViewSizes
     case stack
     case nestedStack
 }
 
+enum LayoutAPI {
+    case `operator`
+    case core
+}
 class LayoutExampleViewController: UIViewController {
+
     var layout: LayoutExample
+    var api: LayoutAPI = .core
     let container = DashedBorderView(borderColor: mediumGrayBorder)
     let snapshotView: View = {
         let view = View()
         view.accessibilityIdentifier = "snapshotview"
         return view
     }()
+    let stackViewBackground = View()
 
     lazy var view1 = createView(label: "1")
     lazy var view2 = createView(label: "2")
@@ -45,10 +51,13 @@ class LayoutExampleViewController: UIViewController {
     lazy var view7 = createView(label: "7")
     lazy var view8 = createView(label: "8")
     lazy var view9 = createView(label: "9")
-    lazy var view10 = createView(label: "10")
+
     lazy var stackView: StackView = {
         let stackView = StackView() ~~ "StackView"
         container.addSubview(stackView)
+        container.addSubview(stackViewBackground)
+        stackViewBackground.edges .= stackView.edges
+        container.bringSubviewToFront(stackView)
         stackView.centerXY .= container.centerXY
         stackView.insetOrEqual(to: container.edges)
         stackView.enforceContentSize()
@@ -64,8 +73,7 @@ class LayoutExampleViewController: UIViewController {
         view6,
         view7,
         view8,
-        view9,
-        view10
+        view9
     ]
 
     public required init(_ layout: LayoutExample) {
@@ -91,102 +99,186 @@ class LayoutExampleViewController: UIViewController {
         createAutolayoutConstraints()
     }
 
+    func horizontalStack(views: View...) {
+        stackView
+            .on(.horizontal)
+            .align(.center)
+            .distribute(.equalSpacing)
+            .spacing(30)
+        views.forEach { stackView.addArrangedSubview($0)}
+        stackView.arrangedSubviews.forEach({$0.enforceContentSize()})
+    }
     public func createAutolayoutConstraints(){
 
         container.centerXY .= view.centerXY
         container.edges .= edges .+ .inset(10)
 
         switch layout {
-        case .sizeConstant:
-            view1.size .= 100
-            view1.equal(to: container.leading)
         case .size:
-            view1.size .= 100
-            view2.size .= view1.size
-            view1.trailing .= container.centerX .- 10
-            view2.leading .= container.centerX .+ 10
-            [view1, view2].centerY .= container.centerY
-        case .sizeMultiplier:
-            let allViews = [view1, view2, view3, view4, view5, view6]
-            allViews.contentSizePriorityAnchor ~ .required
-//            allViews.size .= 100
-            view1.size .= 100
-            view2.size .= view1.size ~ .required// .* 50%
-            view3.size .= view2.size  ~ .required// ./ 2
-            view4.size .= view3.size  ~ .required// .* 0.5
-            view5.size .= view4.size  ~ .required// .+ (10, 20)
-            view6.size .= view5.size  ~ .required// .- 50
-            stackView
-                .on(.vertical)
-                .distribute(.equalSpacing)
-                .spacing(20)
-                .stack(
-                    [view1, view2, view3],
-                    [view4, view5, view6]
-            )
-        case .sizePercentage:
-            view1.size .= 150
-            view2.size .= view1.size .* 50%
-            view3.size .= view2.size .* 50%
-            view4.size .= view3.size .* 50%
-            stackView
-                .distribute(.equalSpacing)
-                .align(.center)
-                .spacing(20)
-                .stack(view1, view2, view3, view4)
-        case .center:
-            view1.size .= 100
-            view1.centerXY .= container.centerXY
+            horizontalStack(views: view1, view2, view3, view4, view5)
+            switch api {
+            case .core:
+                view1.height.equal(to: 100)
+                view1.width.equal(to: 50)
+                view2.size.equal(to: 100)
+                view3.size.equal(to: (25, 100))
+                view4.height.equal(to: view1.width)
+                view4.width.equal(to: view1.height)
+                view5.size.equal(to: view1.size)
+            case .operator:
+                view1.height .= 100
+                view1.width .= 50
+                view2.size .= 100
+                view3.size .= (25, 100)
+                view4.height .= view1.width
+                view4.width .= view1.height
+                view5.size .= view1.size
+            }
+
+        case .sizeCoefficients:
+            horizontalStack(views: view1, view2, view3, view4, view5, view6)
+            switch api {
+            case .core:
+                view1.size.equal(to: 100)
+                view2.size.equal(to: view1.size.plus((15, 30)))
+                view3.size.equal(to: view1.size.minus(50))
+                view4.size.equal(to: view1.size.times(1.25))
+                view5.size.equal(to: view1.size.times(50%))
+                view6.size.equal(to: view1.size.divided(by: 2))
+            case .operator:
+                view1.size .= 100
+                view2.size .= view1.size .+ (15, 30)
+                view3.size .= view1.size .- 50
+                view4.size .= view1.size .* 1.25
+                view5.size .= view1.size .* 50%
+                view6.size .= view1.size ./ 2
+            }
+        case .XYAxisPositioning:
+            [view1, view2, view3, view4].size .= 75
+            switch api {
+                case .core:
+                    view1.top.equal(to: container.top)
+                    view2.leading.equal(to: container.leading)
+                    view3.trailing.equal(to: container.trailing)
+                    view4.bottom.equal(to: container.bottom)
+                    [view1, view4].centerX.equal(to: container.centerX)
+                    [view2, view3].centerY.equal(to: container.centerY)
+                case .operator:
+                    view1.top .= container.top
+                    view2.leading .= container.leading
+                    view3.trailing .= container.trailing
+                    view4.bottom .= container.bottom
+                    [view1, view4].centerX .= container.centerX
+                    [view2, view3].centerY .= container.centerY
+            }
+
+        case .XYAxisPairs:
+            [view1, view2, view3, view4].size .= 75
+            switch api {
+            case .core:
+                view1.topLeading.equal(to: container.topLeading)
+                view2.topTrailing.equal(to: container.topTrailing)
+                view3.bottomLeading.equal(to: container.bottomLeading)
+                view4.bottomTrailing.equal(to: container.bottomTrailing)
+            case .operator:
+                view1.topLeading .= container.topLeading
+                view2.topTrailing .= container.topTrailing
+                view3.bottomLeading .= container.bottomLeading
+                view4.bottomTrailing .= container.bottomTrailing
+            }
         case .horizontalEdges:
-            view1.horizontalEdges .= container.horizontalEdges .+ .inset(10)
-            view1.centerY .= container.centerY
             view1.height .= 100
+            view1.centerY .= container.centerY
+            switch api {
+            case .core:
+                view1.horizontalEdges.equal(to: container.horizontalEdges)
+            case .operator:
+                view1.horizontalEdges .= container.horizontalEdges
+            }
         case .verticalEdges:
-            view1.verticalEdges .= container.verticalEdges .+ .inset(10)
             view1.centerX .= container.centerX
             view1.width .= 100
+            switch api {
+            case .core:
+                view1.verticalEdges.equal(to: container.verticalEdges)
+            case .operator:
+                view1.verticalEdges .= container.verticalEdges
+            }
         case .edges:
-            view1.edges .= container.edges .+ .inset(10)
-        case .edgesInset:
-            view1.edges .= container.edges .+ .inset(top: 75, leading: 10, bottom: 75, trailing: 100)
-        case .corners:
-            [view1, view2, view3, view4].size .= 100
-            view1.topLeft .= container.topLeft .+ .inset(20)
-            view2.topRight .= container.topRight .+ .inset(20)
-            view3.bottomRight .= container.bottomRight .+ .inset(20)
-            view4.bottomLeft .= container.bottomLeft .+ .inset(20)
-
+            [view2, view3].width .= 50
+            switch api {
+            case .core:
+                view1.edges.equal(to: container.edges)
+                view2.edges.equal(to: view1.edgesExcluding(.trailing))
+                view3.edges.equal(to: view1.edgesExcluding(.leading))
+            case .operator:
+                view1.edges .= container.edges
+                view2.edges .= view1.edgesExcluding(.trailing)
+                view3.edges .= view1.edgesExcluding(.leading)
+            }
+            [view2, view3].forEach{ container.bringSubviewToFront($0)}
+        case .insetsAndOffsets:
+            [view1, view3].forEach{ $0.layoutLabel(position: .topLeading) }
+            view2.centerXY.equal(to: container.centerXY)
+            view2.size.equal(to: 75)
+            [view4, view5, view6, view7].size.equal(to: 75)
+            switch api {
+            case .core:
+                view1.edges.equal(to: container.edges.inset(25))
+                view3.edges.equal(to: view2.edges.outset(50))
+                view4.topLeading.equal(to: view1.topLeading.inset(25))
+                view5.topTrailing.equal(to: view1.topTrailing.inset(25))
+                view6.bottomLeading.equal(to: view1.bottomLeading.inset(25))
+                view7.bottomTrailing.equal(to: view1.bottomTrailing.inset(25))
+            case .operator:
+                view1.edges .= container.edges .+ .inset(25)
+                view3.edges .= view2.edges .+ .outset(50)
+                view4.topLeading .= view1.topLeading .+ .inset(25)
+                view5.topTrailing .= view1.topTrailing .+ .inset(25)
+                view6.bottomLeading .= view1.bottomLeading .+ .inset(25)
+                view7.bottomTrailing .= view1.bottomTrailing .+ .inset(25)
+            }
+        case .multipleViewSizes:
+            [view2, view3].size .= 50
+            horizontalStack(views: view1, view2, view3, view4, view5, view6, view7)
+            switch api {
+            case .core:
+                view1.size.greaterThanOrEqual(to: [view2, view3].size)
+                [view4, view5].size.equal(to: view1.size)
+                [view6, view7].size.lessThanOrEqual(to: [view2, view3].size)
+                [view6, view7].size.equal(to: 25) ~ .low
+            case .operator:
+                view1.size ≥ [view2, view3].size
+                [view4, view5].size .= view1.size
+                [view6, view7].size ≤ [view2, view3].size
+                [view6, view7].size .= 25 ~ .low
+            }
         case .stack:
             [view1, view2, view3, view4].size .= 100
             stackView
                 .align(.center)
                 .stack(view1, 10, view2, 50, view3, 100, view4)
         case .nestedStack:
-
-            view1.size .= 150
-            [view2, view3].size .= 70
-            [view4, view5, view6].size .= 40
-
+            view1.size .= 100
+            [view2, view3].size .= 75
+            [view4, view5, view6].size .= 50
             stackView
                 .on(.vertical)
+                .align(.center)
                 .stack(
                     view1,
-                    10,
-                    [view2, 10, view3],
-                    15,
-                    [view4, 15, view5, 15, view6]
+                    40,
+                    [view2, 25, view3],
+                    40,
+                    [view4, 50, view5, 50, view6]
             )
         }
     }
 
-    func createView(label: String) -> View{
+    func createView(label: String) -> DashedBorderView{
         let view = DashedBorderView(label: label)
         view ~~ "View\(label)"
-        //        view.backgroundColor = .green
         container.addSubview(view)
-
-        //        view.layer.borderColor = UIColor.orange.cgColor
-        //        view.layer.borderWidth = 2.0
         return view
     }
 }
@@ -211,7 +303,6 @@ open class NavigationalMenuTableViewController: UITableViewController {
         let cellData = self.rows[indexPath.row]
         cell.layoutMargins = UIEdgeInsets.zero
         cell.separatorInset = UIEdgeInsets.zero
-        //        cell.textLabel?.font = .regular(15.0)
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         cell.textLabel?.text = cellData.title
         cell.imageView?.image = cellData.leftImage
@@ -247,6 +338,10 @@ public struct RowDataSource{
 }
 
 
+enum LabelPosition {
+    case center
+    case topLeading
+}
 class DashedBorderView: View {
 
     var cornerRadius: CGFloat = 5
@@ -277,19 +372,39 @@ class DashedBorderView: View {
         addSubview(label)
         backgroundColor = .white
         label.textAlignment = .center
-        label .= centerXY
-        label.enforceContentSize()
+
+        label.hugContent()
         label.backgroundColor = borderColor
         label.textColor = .white
         label.clipsToBounds = true
 
         label.height .= 14
-        label.width ≥ label.height
+//        label.width ≥ label.height
+        label.width .= label.height
         label.font = UIFont.init(name: label.font.fontName, size: 9.0)
-
-
+        layoutLabel(position: .center)
     }
 
+    var labelPositionConstraints: ConstraintPair?
+    public func layoutLabel(position: LabelPosition){
+        let constraints = [
+            label.constraint(for: .centerX),
+            label.constraint(for: .centerY),
+            label.constraint(for: .leading),
+            label.constraint(for: .top)
+            ].compactMap{$0}
+        print("Constraints: \(constraints)")
+        if let constraints = labelPositionConstraints {
+            Constraint.deactivate([constraints.first, constraints.second])
+        }
+        switch position {
+        case .center:
+            labelPositionConstraints = label .= centerXY
+        case .topLeading:
+            labelPositionConstraints = label.topLeading .= 5
+        }
+        label.forceAutolayoutPass()
+    }
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
         applyDashBorder()
@@ -316,5 +431,15 @@ private let mediumGrayBorder: UIColor = UIColor(r: 214, g: 214, b: 214)
 extension UIColor{
     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 255) {
         self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: a / 255)
+    }
+}
+
+extension String {
+    var titleCase: String {
+        return (self as NSString)
+            .replacingOccurrences(of: "([A-Z])", with: " $1", options:
+                .regularExpression, range: NSRange(location: 0, length: count))
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .capitalized
     }
 }

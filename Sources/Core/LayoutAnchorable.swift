@@ -214,7 +214,7 @@ extension ViewController: BaselineLayoutAnchorable, LayoutAnchorableBacked {
     }
 }
 
-extension Array where Element: XYAxisAnchorable {
+extension Collection where Element: XYAxisAnchorable {
     public var leadingAnchor: XAxisAnchors { return map {$0.leadingAnchor } }
     public var trailingAnchor: XAxisAnchors { return map {$0.trailingAnchor } }
 
@@ -238,16 +238,26 @@ extension Array where Element: XYAxisAnchorable {
     public var bottomLeftAnchors: XYAxesAnchorPairs { return map { $0.bottomLeftAnchors } }
 
     public var layoutMarginsGuide: [LayoutGuide] { return map { $0.layoutMarginsGuide } }
-
 }
 
-extension Array where Element: SizeAnchorable {
+extension Collection where Element: SizeAnchorable {
     public var widthAnchor: LayoutDimensions { return map { $0.widthAnchor } }
     public var heightAnchor: LayoutDimensions { return map { $0.heightAnchor } }
     public var sizeAnchors: LayoutDimensionPairs { return map { $0.sizeAnchors } }
 }
 
-extension Array where Element: View {
+extension View {
+    public var aspectRatioAnchor: AspectRatioAnchor {
+
+        return .standard(self)
+    }
+
+    public var aspectRatioInverseAnchor: AspectRatioAnchor {
+        return .inverse(self)
+    }
+}
+
+extension Collection where Element: View {
     public var aspectRatioAnchor: AspectRatioAnchors { return map { $0.aspectRatioAnchor } }
     public var aspectRatioInverseAnchor: AspectRatioAnchors { return map { $0.aspectRatioInverseAnchor } }
 }

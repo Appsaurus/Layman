@@ -42,8 +42,15 @@ public extension View {
         setNeedsLayout()
         layoutIfNeeded()
     }
+}
 
-    public func constraint(for attribute: ConstraintAttribute, relatedTo item: AnyObject? = nil) -> Constraint? {
+// Constraint lookup
+extension View {
+    public func constraints(relatedTo item: AnyObject? = nil, for attributes: ConstraintAttribute...) -> Constraints {
+        return attributes.compactMap { constraint(relatedTo: item, for: $0) }
+    }
+
+    public func constraint(relatedTo item: AnyObject? = nil, for attribute: ConstraintAttribute) -> Constraint? {
         let allConstraints = constraints + (superview?.constraints ?? [])
         let contraintsToCheck = item != nil ? constraintsRelated(to: item!) : allConstraints
         for constraint in contraintsToCheck {
@@ -68,15 +75,17 @@ public extension View {
 public typealias ConstraintAttributeMap = [ConstraintAttribute: Constraints]
 public typealias ConstraintHeirarchy = [View: ConstraintAttributeMap]
 
-extension Collection where Element == Constraint {
+extension Collection where Element: ConstraintReferencing {
     public var heirarchy: ConstraintHeirarchy {
-        return reduce(into: ConstraintHeirarchy()) { (result, element) in
-            for view in [element.firstView, element.secondView].compactMap({$0}) {
-                var viewContraints = result[view, default: [:]]
-                var viewConstraintMap = viewContraints[element.firstAttribute, default: []]
-                viewConstraintMap.append(element)
-                viewContraints[element.firstAttribute] = viewConstraintMap
-                result[view] = viewContraints
+        return reduce(into: ConstraintHeirarchy()) { (result, constraints) in
+            for element in constraints.all {
+                for view in [element.firstView, element.secondView].compactMap({$0}) {
+                    var viewContraints = result[view, default: [:]]
+                    var viewConstraintMap = viewContraints[element.firstAttribute, default: []]
+                    viewConstraintMap.append(element)
+                    viewContraints[element.firstAttribute] = viewConstraintMap
+                    result[view] = viewContraints
+                }
             }
         }
     }
@@ -87,7 +96,12 @@ internal extension Dictionary where Key == ConstraintAttribute, Value == Constra
         return self.merging(constraintHeirarchy) { (constraints, otherConstraints) -> Constraints in
             return constraints + otherConstraints
         }
+    }
 
+    internal mutating func update(with constraint: Constraint) {
+        var array = self[constraint.firstAttribute] ?? []
+        array.append(constraint)
+        self[constraint.firstAttribute] = array
     }
 }
 

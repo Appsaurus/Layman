@@ -29,13 +29,14 @@ extension Constraint {
             description += ".\(descriptionForAttribute(self.firstAttribute))"
         }
 
-        description += " \(descriptionForRelation(self.relation))"
+        description += " \(descriptionForRelation(self.relation)) "
 
         if let secondItem = self.secondItem {
             var itemDescription = "\(descriptionForObject(secondItem))"
             if secondView == firstView?.superview {
                 itemDescription = "Super\(itemDescription.lowercasingFirstLetter())"
             }
+            description += itemDescription
         }
 
         if self.secondAttribute != .notAnAttribute {

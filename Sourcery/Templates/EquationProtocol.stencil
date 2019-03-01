@@ -26,7 +26,7 @@ extension {{EquationProtocol}} {
 
     @discardableResult
     public func equal(to rhs: [{{RightHandType}}]) -> [Solution] {
-        return rhs.map { relation(.equal, $0).solution }
+        return rhs.map { equal(to: $0) }
     }
 
     // MARK: - LessThanOrEqual
@@ -38,7 +38,7 @@ extension {{EquationProtocol}} {
 
     @discardableResult
     public func lessThanOrEqual(to rhs: [{{RightHandType}}]) -> [Solution] {
-        return rhs.map { relation(.lessThanOrEqual, $0).solution }
+        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -50,7 +50,7 @@ extension {{EquationProtocol}} {
 
     @discardableResult
     public func greaterThanOrEqual(to rhs: [{{RightHandType}}]) -> [Solution] {
-        return rhs.map { relation(.greaterThanOrEqual, $0).solution }
+        return rhs.map { greaterThanOrEqual(to: $0) }
     }
 }
 
