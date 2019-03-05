@@ -11,7 +11,7 @@
 
 @discardableResult
 public func ~ (lhs: EdgeAnchorGroup, rhs: LayoutPriority) -> EdgeAnchorGroupExpression {
-    return EdgeAnchorGroupExpression(variable: lhs).priority(rhs)
+    return lhs.priority(rhs)
 }
 
 @discardableResult

@@ -10,7 +10,7 @@
 
 @discardableResult
 public func ~ (lhs: {{AnchorType}}, rhs: LayoutPriority) -> {{AnchorType}}Expression {
-    return {{AnchorType}}Expression(variable: lhs).priority(rhs)
+    return lhs.priority(rhs)
 }
 
 @discardableResult

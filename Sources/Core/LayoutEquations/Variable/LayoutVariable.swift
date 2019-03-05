@@ -33,10 +33,10 @@ extension LayoutVariable {
         return plus(RelativeLayoutConstant(relativity: .inset, constant: constant))
     }
 
-    @discardableResult
     public func outset(_ constant: LayoutConstant) -> RightHandExpression {
         return plus(RelativeLayoutConstant(relativity: .outset, constant: constant))
     }
+
 }
 
 extension LayoutVariable where RightHandExpression: Expression, RightHandExpression.Variable == Self {
@@ -48,7 +48,10 @@ extension LayoutVariable where RightHandExpression: Expression, RightHandExpress
     public func plus(_ constant: LayoutConstant) -> RightHandExpression {
         return RightHandExpression(variable: self).with(constant: constant)
     }
-    
+
+    public func priority(_ priority: LayoutPriority) -> RightHandExpression {
+        return RightHandExpression(variable: self).priority(priority)
+    }
 }
 
 public protocol LayoutVariableTuple: LayoutVariable {

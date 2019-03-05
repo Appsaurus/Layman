@@ -11,7 +11,7 @@
 
 @discardableResult
 public func ~ (lhs: YAxisAnchor, rhs: LayoutPriority) -> YAxisAnchorExpression {
-    return YAxisAnchorExpression(variable: lhs).priority(rhs)
+    return lhs.priority(rhs)
 }
 
 @discardableResult

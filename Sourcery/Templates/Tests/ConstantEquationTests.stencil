@@ -14,7 +14,7 @@
 {% set baseLhs %}{{lhsItem}}.{{lhsAttribute}}Anchor{% endset %}
 {% set baseRhs %}{{constant}}{% endset %}
 {% set baseEquation %}{{baseLhs}} {{operator}} {{baseRhs}}{% endset %}
-{% set baseAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, constant: {{constant}}{% endset %}
+{% set baseAssertion %}{% if type.name|hasPrefix:"LayoutDimension" %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, constant: {{constant}}{% else %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, parentView, .{{lhsAttribute}}, constant: {{constant}}{% endif %}{% endset %}
     func {{baseFunctionName}}ToConstant() {
         let constraints = {{baseEquation}}
         constraints.assert({{baseAssertion}})
