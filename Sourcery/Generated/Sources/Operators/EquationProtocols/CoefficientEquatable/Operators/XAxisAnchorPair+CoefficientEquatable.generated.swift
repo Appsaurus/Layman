@@ -16,20 +16,10 @@ public func .= (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPair.So
     return lhs.equal(to: rhs)
 }
 
-@discardableResult
-public func .= (lhs: XAxisAnchorPair, rhs: [LayoutConstant]) -> [XAxisAnchorPair.Solution] {
-    return lhs.equal(to: rhs)
-}
-
 // MARK: - LessThanOrEqual
 
 @discardableResult
 public func ≤ (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPair.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-@discardableResult
-public func ≤ (lhs: XAxisAnchorPair, rhs: [LayoutConstant]) -> [XAxisAnchorPair.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -39,12 +29,6 @@ public func ≤ (lhs: XAxisAnchorPair, rhs: [LayoutConstant]) -> [XAxisAnchorPai
 public func ≥ (lhs: XAxisAnchorPair, rhs: LayoutConstant) -> XAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
-@discardableResult
-public func ≥ (lhs: XAxisAnchorPair, rhs: [LayoutConstant]) -> [XAxisAnchorPair.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
 // MARK: XAxisAnchorPair Array <=> LayoutConstant
 
 // MARK: - Equal
@@ -52,12 +36,6 @@ public func ≥ (lhs: XAxisAnchorPair, rhs: [LayoutConstant]) -> [XAxisAnchorPai
 // MARK: Collection == Expression
 @discardableResult
 public func .= (lhs: [XAxisAnchorPair], rhs: LayoutConstant) -> [XAxisAnchorPair.Solution] {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: Collection == Expression Array
-@discardableResult
-public func .= (lhs: [XAxisAnchorPair], rhs: [LayoutConstant]) -> [[XAxisAnchorPair.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -69,23 +47,11 @@ public func ≤ (lhs: [XAxisAnchorPair], rhs: LayoutConstant) -> [XAxisAnchorPai
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Collection <= Expression Array
-@discardableResult
-public func ≤ (lhs: [XAxisAnchorPair], rhs: [LayoutConstant]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
 // MARK: - GreaterThanOrEqual
 
 // MARK: Collection >= Expression
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: LayoutConstant) -> [XAxisAnchorPair.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Collection >= Expression Array
-@discardableResult
-public func ≥ (lhs: [XAxisAnchorPair], rhs: [LayoutConstant]) -> [[XAxisAnchorPair.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 // MARK: XAxisAnchorPair <=> LayoutCoefficient
@@ -97,20 +63,10 @@ public func .= (lhs: XAxisAnchorPair, rhs: LayoutCoefficient) -> XAxisAnchorPair
     return lhs.equal(to: rhs)
 }
 
-@discardableResult
-public func .= (lhs: XAxisAnchorPair, rhs: [LayoutCoefficient]) -> [XAxisAnchorPair.Solution] {
-    return lhs.equal(to: rhs)
-}
-
 // MARK: - LessThanOrEqual
 
 @discardableResult
 public func ≤ (lhs: XAxisAnchorPair, rhs: LayoutCoefficient) -> XAxisAnchorPair.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-@discardableResult
-public func ≤ (lhs: XAxisAnchorPair, rhs: [LayoutCoefficient]) -> [XAxisAnchorPair.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -120,12 +76,6 @@ public func ≤ (lhs: XAxisAnchorPair, rhs: [LayoutCoefficient]) -> [XAxisAnchor
 public func ≥ (lhs: XAxisAnchorPair, rhs: LayoutCoefficient) -> XAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
-@discardableResult
-public func ≥ (lhs: XAxisAnchorPair, rhs: [LayoutCoefficient]) -> [XAxisAnchorPair.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
 // MARK: XAxisAnchorPair Array <=> LayoutCoefficient
 
 // MARK: - Equal
@@ -133,12 +83,6 @@ public func ≥ (lhs: XAxisAnchorPair, rhs: [LayoutCoefficient]) -> [XAxisAnchor
 // MARK: Collection == Expression
 @discardableResult
 public func .= (lhs: [XAxisAnchorPair], rhs: LayoutCoefficient) -> [XAxisAnchorPair.Solution] {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: Collection == Expression Array
-@discardableResult
-public func .= (lhs: [XAxisAnchorPair], rhs: [LayoutCoefficient]) -> [[XAxisAnchorPair.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -150,23 +94,11 @@ public func ≤ (lhs: [XAxisAnchorPair], rhs: LayoutCoefficient) -> [XAxisAnchor
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Collection <= Expression Array
-@discardableResult
-public func ≤ (lhs: [XAxisAnchorPair], rhs: [LayoutCoefficient]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
 // MARK: - GreaterThanOrEqual
 
 // MARK: Collection >= Expression
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: LayoutCoefficient) -> [XAxisAnchorPair.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Collection >= Expression Array
-@discardableResult
-public func ≥ (lhs: [XAxisAnchorPair], rhs: [LayoutCoefficient]) -> [[XAxisAnchorPair.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 // MARK: XAxisAnchorPair <=> LayoutMultiplier
@@ -178,20 +110,10 @@ public func .= (lhs: XAxisAnchorPair, rhs: LayoutMultiplier) -> XAxisAnchorPair.
     return lhs.equal(to: rhs)
 }
 
-@discardableResult
-public func .= (lhs: XAxisAnchorPair, rhs: [LayoutMultiplier]) -> [XAxisAnchorPair.Solution] {
-    return lhs.equal(to: rhs)
-}
-
 // MARK: - LessThanOrEqual
 
 @discardableResult
 public func ≤ (lhs: XAxisAnchorPair, rhs: LayoutMultiplier) -> XAxisAnchorPair.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-@discardableResult
-public func ≤ (lhs: XAxisAnchorPair, rhs: [LayoutMultiplier]) -> [XAxisAnchorPair.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -201,12 +123,6 @@ public func ≤ (lhs: XAxisAnchorPair, rhs: [LayoutMultiplier]) -> [XAxisAnchorP
 public func ≥ (lhs: XAxisAnchorPair, rhs: LayoutMultiplier) -> XAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
-@discardableResult
-public func ≥ (lhs: XAxisAnchorPair, rhs: [LayoutMultiplier]) -> [XAxisAnchorPair.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
 // MARK: XAxisAnchorPair Array <=> LayoutMultiplier
 
 // MARK: - Equal
@@ -214,12 +130,6 @@ public func ≥ (lhs: XAxisAnchorPair, rhs: [LayoutMultiplier]) -> [XAxisAnchorP
 // MARK: Collection == Expression
 @discardableResult
 public func .= (lhs: [XAxisAnchorPair], rhs: LayoutMultiplier) -> [XAxisAnchorPair.Solution] {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: Collection == Expression Array
-@discardableResult
-public func .= (lhs: [XAxisAnchorPair], rhs: [LayoutMultiplier]) -> [[XAxisAnchorPair.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -231,23 +141,11 @@ public func ≤ (lhs: [XAxisAnchorPair], rhs: LayoutMultiplier) -> [XAxisAnchorP
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Collection <= Expression Array
-@discardableResult
-public func ≤ (lhs: [XAxisAnchorPair], rhs: [LayoutMultiplier]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
 // MARK: - GreaterThanOrEqual
 
 // MARK: Collection >= Expression
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: LayoutMultiplier) -> [XAxisAnchorPair.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Collection >= Expression Array
-@discardableResult
-public func ≥ (lhs: [XAxisAnchorPair], rhs: [LayoutMultiplier]) -> [[XAxisAnchorPair.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 // MARK: XAxisAnchorPair <=> RelativeLayoutConstant
@@ -259,20 +157,10 @@ public func .= (lhs: XAxisAnchorPair, rhs: RelativeLayoutConstant) -> XAxisAncho
     return lhs.equal(to: rhs)
 }
 
-@discardableResult
-public func .= (lhs: XAxisAnchorPair, rhs: [RelativeLayoutConstant]) -> [XAxisAnchorPair.Solution] {
-    return lhs.equal(to: rhs)
-}
-
 // MARK: - LessThanOrEqual
 
 @discardableResult
 public func ≤ (lhs: XAxisAnchorPair, rhs: RelativeLayoutConstant) -> XAxisAnchorPair.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-@discardableResult
-public func ≤ (lhs: XAxisAnchorPair, rhs: [RelativeLayoutConstant]) -> [XAxisAnchorPair.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -282,12 +170,6 @@ public func ≤ (lhs: XAxisAnchorPair, rhs: [RelativeLayoutConstant]) -> [XAxisA
 public func ≥ (lhs: XAxisAnchorPair, rhs: RelativeLayoutConstant) -> XAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
-@discardableResult
-public func ≥ (lhs: XAxisAnchorPair, rhs: [RelativeLayoutConstant]) -> [XAxisAnchorPair.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
 // MARK: XAxisAnchorPair Array <=> RelativeLayoutConstant
 
 // MARK: - Equal
@@ -295,12 +177,6 @@ public func ≥ (lhs: XAxisAnchorPair, rhs: [RelativeLayoutConstant]) -> [XAxisA
 // MARK: Collection == Expression
 @discardableResult
 public func .= (lhs: [XAxisAnchorPair], rhs: RelativeLayoutConstant) -> [XAxisAnchorPair.Solution] {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: Collection == Expression Array
-@discardableResult
-public func .= (lhs: [XAxisAnchorPair], rhs: [RelativeLayoutConstant]) -> [[XAxisAnchorPair.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -312,22 +188,10 @@ public func ≤ (lhs: [XAxisAnchorPair], rhs: RelativeLayoutConstant) -> [XAxisA
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Collection <= Expression Array
-@discardableResult
-public func ≤ (lhs: [XAxisAnchorPair], rhs: [RelativeLayoutConstant]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
 // MARK: - GreaterThanOrEqual
 
 // MARK: Collection >= Expression
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: RelativeLayoutConstant) -> [XAxisAnchorPair.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Collection >= Expression Array
-@discardableResult
-public func ≥ (lhs: [XAxisAnchorPair], rhs: [RelativeLayoutConstant]) -> [[XAxisAnchorPair.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }

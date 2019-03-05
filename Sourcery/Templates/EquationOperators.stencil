@@ -28,20 +28,10 @@ public func {{equal}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{LeftH
     return lhs.equal(to: rhs)
 }
 
-@discardableResult
-public func {{equal}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType}}]) -> [{{LeftHandType}}.Solution] {
-    return lhs.equal(to: rhs)
-}
-
 // MARK: - LessThanOrEqual
 
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{LeftHandType}}.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-@discardableResult
-public func {{lessThanOrEqual}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType}}]) -> [{{LeftHandType}}.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -51,12 +41,6 @@ public func {{lessThanOrEqual}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType}}]
 public func {{greaterThanOrEqual}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{LeftHandType}}.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
-@discardableResult
-public func {{greaterThanOrEqual}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType}}]) -> [{{LeftHandType}}.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
 // MARK: {{LeftHandType}} Array <=> {{RightHandType}}
 
 // MARK: - Equal
@@ -64,12 +48,6 @@ public func {{greaterThanOrEqual}} (lhs: {{LeftHandType}}, rhs: [{{RightHandType
 // MARK: Collection == Expression
 @discardableResult
 public func {{equal}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{LeftHandType}}.Solution] {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: Collection == Expression Array
-@discardableResult
-public func {{equal}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -81,23 +59,11 @@ public func {{lessThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Collection <= Expression Array
-@discardableResult
-public func {{lessThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
 // MARK: - GreaterThanOrEqual
 
 // MARK: Collection >= Expression
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{LeftHandType}}.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Collection >= Expression Array
-@discardableResult
-public func {{greaterThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: [{{RightHandType}}]) -> [[{{LeftHandType}}.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 {% endfor %}

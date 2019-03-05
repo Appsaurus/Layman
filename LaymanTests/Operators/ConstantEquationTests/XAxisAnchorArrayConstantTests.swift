@@ -14,7 +14,6 @@ import XCTest
 // sourcery: lhsItem = viewArray
 class XAxisAnchorArrayConstantTests: LaymanTestCase {
 
-
 // sourcery:inline:auto:XAxisAnchorArrayConstantTests.ConstantEquationTests
     func testViewArrayLeadingEqualToConstant() {
         let constraints = viewArray.leadingAnchor .= 200
@@ -45,37 +44,6 @@ class XAxisAnchorArrayConstantTests: LaymanTestCase {
         let constraints = viewArray.leadingAnchor .= 75% ~ .high .- 1
         constraints.assert(viewArray, .leading, .equal, parentView, .leading, multiplier: 0.75, priority: 749)
     }
-
-    func testViewArrayLeadingLessThanOrEqualToConstant() {
-        let constraints = viewArray.leadingAnchor ≤ 200
-        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, constant: 200)
-    }
-
-    func testViewArrayLeadingLessThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.leadingAnchor ≤ 200 ~ .low
-        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, constant: 200, priority: .low)
-    }
-
-    func testViewArrayLeadingLessThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.leadingAnchor ≤ 200 ~ .high .- 1
-        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, constant: 200, priority: 749)
-    }
-
-    func testViewArrayLeadingLessThanOrEqualToPercentage() {
-        let constraints = viewArray.leadingAnchor ≤ 75%
-        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, multiplier: 0.75)
-    }
-
-    func testViewArrayLeadingLessThanOrEqualToPercentageWithPriority() {
-        let constraints = viewArray.leadingAnchor ≤ 75% ~ .low
-        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, multiplier: 0.75, priority: .low)
-    }
-
-    func testViewArrayLeadingLessThanOrEqualToPercentageWithPriorityArithmetic() {
-        let constraints = viewArray.leadingAnchor ≤ 75% ~ .high .- 1
-        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, multiplier: 0.75, priority: 749)
-    }
-
     func testViewArrayLeadingGreaterThanOrEqualToConstant() {
         let constraints = viewArray.leadingAnchor ≥ 200
         constraints.assert(viewArray, .leading, .greaterThanOrEqual, parentView, .leading, constant: 200)
@@ -105,7 +73,35 @@ class XAxisAnchorArrayConstantTests: LaymanTestCase {
         let constraints = viewArray.leadingAnchor ≥ 75% ~ .high .- 1
         constraints.assert(viewArray, .leading, .greaterThanOrEqual, parentView, .leading, multiplier: 0.75, priority: 749)
     }
+    func testViewArrayLeadingLessThanOrEqualToConstant() {
+        let constraints = viewArray.leadingAnchor ≤ 200
+        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, constant: 200)
+    }
 
+    func testViewArrayLeadingLessThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.leadingAnchor ≤ 200 ~ .low
+        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, constant: 200, priority: .low)
+    }
+
+    func testViewArrayLeadingLessThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.leadingAnchor ≤ 200 ~ .high .- 1
+        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, constant: 200, priority: 749)
+    }
+
+    func testViewArrayLeadingLessThanOrEqualToPercentage() {
+        let constraints = viewArray.leadingAnchor ≤ 75%
+        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, multiplier: 0.75)
+    }
+
+    func testViewArrayLeadingLessThanOrEqualToPercentageWithPriority() {
+        let constraints = viewArray.leadingAnchor ≤ 75% ~ .low
+        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, multiplier: 0.75, priority: .low)
+    }
+
+    func testViewArrayLeadingLessThanOrEqualToPercentageWithPriorityArithmetic() {
+        let constraints = viewArray.leadingAnchor ≤ 75% ~ .high .- 1
+        constraints.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, multiplier: 0.75, priority: 749)
+    }
     func testViewArrayCenterXEqualToConstant() {
         let constraints = viewArray.centerXAnchor .= 200
         constraints.assert(viewArray, .centerX, .equal, parentView, .centerX, constant: 200)
@@ -135,37 +131,6 @@ class XAxisAnchorArrayConstantTests: LaymanTestCase {
         let constraints = viewArray.centerXAnchor .= 75% ~ .high .- 1
         constraints.assert(viewArray, .centerX, .equal, parentView, .centerX, multiplier: 0.75, priority: 749)
     }
-
-    func testViewArrayCenterXLessThanOrEqualToConstant() {
-        let constraints = viewArray.centerXAnchor ≤ 200
-        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, constant: 200)
-    }
-
-    func testViewArrayCenterXLessThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.centerXAnchor ≤ 200 ~ .low
-        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, constant: 200, priority: .low)
-    }
-
-    func testViewArrayCenterXLessThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.centerXAnchor ≤ 200 ~ .high .- 1
-        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, constant: 200, priority: 749)
-    }
-
-    func testViewArrayCenterXLessThanOrEqualToPercentage() {
-        let constraints = viewArray.centerXAnchor ≤ 75%
-        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, multiplier: 0.75)
-    }
-
-    func testViewArrayCenterXLessThanOrEqualToPercentageWithPriority() {
-        let constraints = viewArray.centerXAnchor ≤ 75% ~ .low
-        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, multiplier: 0.75, priority: .low)
-    }
-
-    func testViewArrayCenterXLessThanOrEqualToPercentageWithPriorityArithmetic() {
-        let constraints = viewArray.centerXAnchor ≤ 75% ~ .high .- 1
-        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, multiplier: 0.75, priority: 749)
-    }
-
     func testViewArrayCenterXGreaterThanOrEqualToConstant() {
         let constraints = viewArray.centerXAnchor ≥ 200
         constraints.assert(viewArray, .centerX, .greaterThanOrEqual, parentView, .centerX, constant: 200)
@@ -195,7 +160,35 @@ class XAxisAnchorArrayConstantTests: LaymanTestCase {
         let constraints = viewArray.centerXAnchor ≥ 75% ~ .high .- 1
         constraints.assert(viewArray, .centerX, .greaterThanOrEqual, parentView, .centerX, multiplier: 0.75, priority: 749)
     }
+    func testViewArrayCenterXLessThanOrEqualToConstant() {
+        let constraints = viewArray.centerXAnchor ≤ 200
+        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, constant: 200)
+    }
 
+    func testViewArrayCenterXLessThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.centerXAnchor ≤ 200 ~ .low
+        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, constant: 200, priority: .low)
+    }
+
+    func testViewArrayCenterXLessThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.centerXAnchor ≤ 200 ~ .high .- 1
+        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, constant: 200, priority: 749)
+    }
+
+    func testViewArrayCenterXLessThanOrEqualToPercentage() {
+        let constraints = viewArray.centerXAnchor ≤ 75%
+        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, multiplier: 0.75)
+    }
+
+    func testViewArrayCenterXLessThanOrEqualToPercentageWithPriority() {
+        let constraints = viewArray.centerXAnchor ≤ 75% ~ .low
+        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, multiplier: 0.75, priority: .low)
+    }
+
+    func testViewArrayCenterXLessThanOrEqualToPercentageWithPriorityArithmetic() {
+        let constraints = viewArray.centerXAnchor ≤ 75% ~ .high .- 1
+        constraints.assert(viewArray, .centerX, .lessThanOrEqual, parentView, .centerX, multiplier: 0.75, priority: 749)
+    }
     func testViewArrayTrailingEqualToConstant() {
         let constraints = viewArray.trailingAnchor .= 200
         constraints.assert(viewArray, .trailing, .equal, parentView, .trailing, constant: 200)
@@ -225,37 +218,6 @@ class XAxisAnchorArrayConstantTests: LaymanTestCase {
         let constraints = viewArray.trailingAnchor .= 75% ~ .high .- 1
         constraints.assert(viewArray, .trailing, .equal, parentView, .trailing, multiplier: 0.75, priority: 749)
     }
-
-    func testViewArrayTrailingLessThanOrEqualToConstant() {
-        let constraints = viewArray.trailingAnchor ≤ 200
-        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, constant: 200)
-    }
-
-    func testViewArrayTrailingLessThanOrEqualToConstantWithPriority() {
-        let constraints = viewArray.trailingAnchor ≤ 200 ~ .low
-        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, constant: 200, priority: .low)
-    }
-
-    func testViewArrayTrailingLessThanOrEqualToConstantWithPriorityArithmetic() {
-        let constraints = viewArray.trailingAnchor ≤ 200 ~ .high .- 1
-        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, constant: 200, priority: 749)
-    }
-
-    func testViewArrayTrailingLessThanOrEqualToPercentage() {
-        let constraints = viewArray.trailingAnchor ≤ 75%
-        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, multiplier: 0.75)
-    }
-
-    func testViewArrayTrailingLessThanOrEqualToPercentageWithPriority() {
-        let constraints = viewArray.trailingAnchor ≤ 75% ~ .low
-        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, multiplier: 0.75, priority: .low)
-    }
-
-    func testViewArrayTrailingLessThanOrEqualToPercentageWithPriorityArithmetic() {
-        let constraints = viewArray.trailingAnchor ≤ 75% ~ .high .- 1
-        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, multiplier: 0.75, priority: 749)
-    }
-
     func testViewArrayTrailingGreaterThanOrEqualToConstant() {
         let constraints = viewArray.trailingAnchor ≥ 200
         constraints.assert(viewArray, .trailing, .greaterThanOrEqual, parentView, .trailing, constant: 200)
@@ -285,6 +247,34 @@ class XAxisAnchorArrayConstantTests: LaymanTestCase {
         let constraints = viewArray.trailingAnchor ≥ 75% ~ .high .- 1
         constraints.assert(viewArray, .trailing, .greaterThanOrEqual, parentView, .trailing, multiplier: 0.75, priority: 749)
     }
+    func testViewArrayTrailingLessThanOrEqualToConstant() {
+        let constraints = viewArray.trailingAnchor ≤ 200
+        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, constant: 200)
+    }
+
+    func testViewArrayTrailingLessThanOrEqualToConstantWithPriority() {
+        let constraints = viewArray.trailingAnchor ≤ 200 ~ .low
+        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, constant: 200, priority: .low)
+    }
+
+    func testViewArrayTrailingLessThanOrEqualToConstantWithPriorityArithmetic() {
+        let constraints = viewArray.trailingAnchor ≤ 200 ~ .high .- 1
+        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, constant: 200, priority: 749)
+    }
+
+    func testViewArrayTrailingLessThanOrEqualToPercentage() {
+        let constraints = viewArray.trailingAnchor ≤ 75%
+        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, multiplier: 0.75)
+    }
+
+    func testViewArrayTrailingLessThanOrEqualToPercentageWithPriority() {
+        let constraints = viewArray.trailingAnchor ≤ 75% ~ .low
+        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, multiplier: 0.75, priority: .low)
+    }
+
+    func testViewArrayTrailingLessThanOrEqualToPercentageWithPriorityArithmetic() {
+        let constraints = viewArray.trailingAnchor ≤ 75% ~ .high .- 1
+        constraints.assert(viewArray, .trailing, .lessThanOrEqual, parentView, .trailing, multiplier: 0.75, priority: 749)
+    }
 // sourcery:end
 }
-

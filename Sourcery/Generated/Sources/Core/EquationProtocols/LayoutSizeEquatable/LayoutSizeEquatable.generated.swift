@@ -21,21 +21,11 @@ extension LayoutSizeEquatable {
         return relation(.equal, rhs).solution
     }
 
-    @discardableResult
-    public func equal(to rhs: [LayoutSize]) -> [Solution] {
-        return rhs.map { equal(to: $0) }
-    }
-
     // MARK: - LessThanOrEqual
 
     @discardableResult
     public func lessThanOrEqual(to rhs: LayoutSize) -> Solution {
         return relation(.lessThanOrEqual, rhs).solution
-    }
-
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [LayoutSize]) -> [Solution] {
-        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -45,25 +35,14 @@ extension LayoutSizeEquatable {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [LayoutSize]) -> [Solution] {
-        return rhs.map { greaterThanOrEqual(to: $0) }
-    }
 }
 
 // MARK: Collection <=> LayoutSize
-
 extension Collection where Element: LayoutSizeEquatable {
     // MARK: - Equal
     // MARK: Collection == Expression
     @discardableResult
     public func equal(to rhs: LayoutSize) -> [Element.Solution] {
-        return map { $0.equal(to: rhs) }
-    }
-
-    // MARK: Collection == Expression Array
-    @discardableResult
-    public func equal(to rhs: [LayoutSize]) -> [[Element.Solution]] {
         return map { $0.equal(to: rhs) }
     }
 
@@ -75,23 +54,11 @@ extension Collection where Element: LayoutSizeEquatable {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
-    // MARK: Collection <= Expression Array
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [LayoutSize]) -> [[Element.Solution]] {
-        return map { $0.lessThanOrEqual(to: rhs) }
-    }
-
     // MARK: - GreaterThanOrEqual
 
     // MARK: Collection >= Expression
     @discardableResult
     public func greaterThanOrEqual(to rhs: LayoutSize) -> [Element.Solution] {
-        return map { $0.greaterThanOrEqual(to: rhs) }
-    }
-
-    // MARK: Collection >= Expression Array
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [LayoutSize]) -> [[Element.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }

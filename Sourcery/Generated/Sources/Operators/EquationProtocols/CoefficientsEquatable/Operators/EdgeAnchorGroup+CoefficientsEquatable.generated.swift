@@ -16,20 +16,10 @@ public func .= (lhs: EdgeAnchorGroup, rhs: LayoutCoefficientTuple) -> EdgeAnchor
     return lhs.equal(to: rhs)
 }
 
-@discardableResult
-public func .= (lhs: EdgeAnchorGroup, rhs: [LayoutCoefficientTuple]) -> [EdgeAnchorGroup.Solution] {
-    return lhs.equal(to: rhs)
-}
-
 // MARK: - LessThanOrEqual
 
 @discardableResult
 public func ≤ (lhs: EdgeAnchorGroup, rhs: LayoutCoefficientTuple) -> EdgeAnchorGroup.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-@discardableResult
-public func ≤ (lhs: EdgeAnchorGroup, rhs: [LayoutCoefficientTuple]) -> [EdgeAnchorGroup.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -39,12 +29,6 @@ public func ≤ (lhs: EdgeAnchorGroup, rhs: [LayoutCoefficientTuple]) -> [EdgeAn
 public func ≥ (lhs: EdgeAnchorGroup, rhs: LayoutCoefficientTuple) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
-@discardableResult
-public func ≥ (lhs: EdgeAnchorGroup, rhs: [LayoutCoefficientTuple]) -> [EdgeAnchorGroup.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
 // MARK: EdgeAnchorGroup Array <=> LayoutCoefficientTuple
 
 // MARK: - Equal
@@ -52,12 +36,6 @@ public func ≥ (lhs: EdgeAnchorGroup, rhs: [LayoutCoefficientTuple]) -> [EdgeAn
 // MARK: Collection == Expression
 @discardableResult
 public func .= (lhs: [EdgeAnchorGroup], rhs: LayoutCoefficientTuple) -> [EdgeAnchorGroup.Solution] {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: Collection == Expression Array
-@discardableResult
-public func .= (lhs: [EdgeAnchorGroup], rhs: [LayoutCoefficientTuple]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -69,23 +47,11 @@ public func ≤ (lhs: [EdgeAnchorGroup], rhs: LayoutCoefficientTuple) -> [EdgeAn
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Collection <= Expression Array
-@discardableResult
-public func ≤ (lhs: [EdgeAnchorGroup], rhs: [LayoutCoefficientTuple]) -> [[EdgeAnchorGroup.Solution]] {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
 // MARK: - GreaterThanOrEqual
 
 // MARK: Collection >= Expression
 @discardableResult
 public func ≥ (lhs: [EdgeAnchorGroup], rhs: LayoutCoefficientTuple) -> [EdgeAnchorGroup.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Collection >= Expression Array
-@discardableResult
-public func ≥ (lhs: [EdgeAnchorGroup], rhs: [LayoutCoefficientTuple]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 // MARK: EdgeAnchorGroup <=> LayoutConstantTuple
@@ -97,20 +63,10 @@ public func .= (lhs: EdgeAnchorGroup, rhs: LayoutConstantTuple) -> EdgeAnchorGro
     return lhs.equal(to: rhs)
 }
 
-@discardableResult
-public func .= (lhs: EdgeAnchorGroup, rhs: [LayoutConstantTuple]) -> [EdgeAnchorGroup.Solution] {
-    return lhs.equal(to: rhs)
-}
-
 // MARK: - LessThanOrEqual
 
 @discardableResult
 public func ≤ (lhs: EdgeAnchorGroup, rhs: LayoutConstantTuple) -> EdgeAnchorGroup.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-@discardableResult
-public func ≤ (lhs: EdgeAnchorGroup, rhs: [LayoutConstantTuple]) -> [EdgeAnchorGroup.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -120,12 +76,6 @@ public func ≤ (lhs: EdgeAnchorGroup, rhs: [LayoutConstantTuple]) -> [EdgeAncho
 public func ≥ (lhs: EdgeAnchorGroup, rhs: LayoutConstantTuple) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
-@discardableResult
-public func ≥ (lhs: EdgeAnchorGroup, rhs: [LayoutConstantTuple]) -> [EdgeAnchorGroup.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
 // MARK: EdgeAnchorGroup Array <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -133,12 +83,6 @@ public func ≥ (lhs: EdgeAnchorGroup, rhs: [LayoutConstantTuple]) -> [EdgeAncho
 // MARK: Collection == Expression
 @discardableResult
 public func .= (lhs: [EdgeAnchorGroup], rhs: LayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: Collection == Expression Array
-@discardableResult
-public func .= (lhs: [EdgeAnchorGroup], rhs: [LayoutConstantTuple]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -150,23 +94,11 @@ public func ≤ (lhs: [EdgeAnchorGroup], rhs: LayoutConstantTuple) -> [EdgeAncho
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Collection <= Expression Array
-@discardableResult
-public func ≤ (lhs: [EdgeAnchorGroup], rhs: [LayoutConstantTuple]) -> [[EdgeAnchorGroup.Solution]] {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
 // MARK: - GreaterThanOrEqual
 
 // MARK: Collection >= Expression
 @discardableResult
 public func ≥ (lhs: [EdgeAnchorGroup], rhs: LayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Collection >= Expression Array
-@discardableResult
-public func ≥ (lhs: [EdgeAnchorGroup], rhs: [LayoutConstantTuple]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
 // MARK: EdgeAnchorGroup <=> RelativeLayoutConstantTuple
@@ -178,20 +110,10 @@ public func .= (lhs: EdgeAnchorGroup, rhs: RelativeLayoutConstantTuple) -> EdgeA
     return lhs.equal(to: rhs)
 }
 
-@discardableResult
-public func .= (lhs: EdgeAnchorGroup, rhs: [RelativeLayoutConstantTuple]) -> [EdgeAnchorGroup.Solution] {
-    return lhs.equal(to: rhs)
-}
-
 // MARK: - LessThanOrEqual
 
 @discardableResult
 public func ≤ (lhs: EdgeAnchorGroup, rhs: RelativeLayoutConstantTuple) -> EdgeAnchorGroup.Solution {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
-@discardableResult
-public func ≤ (lhs: EdgeAnchorGroup, rhs: [RelativeLayoutConstantTuple]) -> [EdgeAnchorGroup.Solution] {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
@@ -201,12 +123,6 @@ public func ≤ (lhs: EdgeAnchorGroup, rhs: [RelativeLayoutConstantTuple]) -> [E
 public func ≥ (lhs: EdgeAnchorGroup, rhs: RelativeLayoutConstantTuple) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
-
-@discardableResult
-public func ≥ (lhs: EdgeAnchorGroup, rhs: [RelativeLayoutConstantTuple]) -> [EdgeAnchorGroup.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
 // MARK: EdgeAnchorGroup Array <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -214,12 +130,6 @@ public func ≥ (lhs: EdgeAnchorGroup, rhs: [RelativeLayoutConstantTuple]) -> [E
 // MARK: Collection == Expression
 @discardableResult
 public func .= (lhs: [EdgeAnchorGroup], rhs: RelativeLayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
-    return lhs.equal(to: rhs)
-}
-
-// MARK: Collection == Expression Array
-@discardableResult
-public func .= (lhs: [EdgeAnchorGroup], rhs: [RelativeLayoutConstantTuple]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.equal(to: rhs)
 }
 
@@ -231,22 +141,10 @@ public func ≤ (lhs: [EdgeAnchorGroup], rhs: RelativeLayoutConstantTuple) -> [E
     return lhs.lessThanOrEqual(to: rhs)
 }
 
-// MARK: Collection <= Expression Array
-@discardableResult
-public func ≤ (lhs: [EdgeAnchorGroup], rhs: [RelativeLayoutConstantTuple]) -> [[EdgeAnchorGroup.Solution]] {
-    return lhs.lessThanOrEqual(to: rhs)
-}
-
 // MARK: - GreaterThanOrEqual
 
 // MARK: Collection >= Expression
 @discardableResult
 public func ≥ (lhs: [EdgeAnchorGroup], rhs: RelativeLayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
-    return lhs.greaterThanOrEqual(to: rhs)
-}
-
-// MARK: Collection >= Expression Array
-@discardableResult
-public func ≥ (lhs: [EdgeAnchorGroup], rhs: [RelativeLayoutConstantTuple]) -> [[EdgeAnchorGroup.Solution]] {
     return lhs.greaterThanOrEqual(to: rhs)
 }

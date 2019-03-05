@@ -46,7 +46,6 @@
         let constraints = {{basePercentEquation}} ~ .high {{subtraction}} 1
         constraints.assert({{basePercentAssertion}}, priority: 749)
     }
-
 {% endfor %}
 {% endfor %}
 // sourcery:end

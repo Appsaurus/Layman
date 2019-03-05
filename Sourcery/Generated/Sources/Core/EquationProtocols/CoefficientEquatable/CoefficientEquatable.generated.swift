@@ -24,21 +24,11 @@ extension CoefficientEquatable {
         return relation(.equal, rhs).solution
     }
 
-    @discardableResult
-    public func equal(to rhs: [LayoutConstant]) -> [Solution] {
-        return rhs.map { equal(to: $0) }
-    }
-
     // MARK: - LessThanOrEqual
 
     @discardableResult
     public func lessThanOrEqual(to rhs: LayoutConstant) -> Solution {
         return relation(.lessThanOrEqual, rhs).solution
-    }
-
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [LayoutConstant]) -> [Solution] {
-        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -48,25 +38,14 @@ extension CoefficientEquatable {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [LayoutConstant]) -> [Solution] {
-        return rhs.map { greaterThanOrEqual(to: $0) }
-    }
 }
 
 // MARK: Collection <=> LayoutConstant
-
 extension Collection where Element: CoefficientEquatable {
     // MARK: - Equal
     // MARK: Collection == Expression
     @discardableResult
     public func equal(to rhs: LayoutConstant) -> [Element.Solution] {
-        return map { $0.equal(to: rhs) }
-    }
-
-    // MARK: Collection == Expression Array
-    @discardableResult
-    public func equal(to rhs: [LayoutConstant]) -> [[Element.Solution]] {
         return map { $0.equal(to: rhs) }
     }
 
@@ -78,23 +57,11 @@ extension Collection where Element: CoefficientEquatable {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
-    // MARK: Collection <= Expression Array
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [LayoutConstant]) -> [[Element.Solution]] {
-        return map { $0.lessThanOrEqual(to: rhs) }
-    }
-
     // MARK: - GreaterThanOrEqual
 
     // MARK: Collection >= Expression
     @discardableResult
     public func greaterThanOrEqual(to rhs: LayoutConstant) -> [Element.Solution] {
-        return map { $0.greaterThanOrEqual(to: rhs) }
-    }
-
-    // MARK: Collection >= Expression Array
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [LayoutConstant]) -> [[Element.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }
@@ -108,21 +75,11 @@ extension CoefficientEquatable {
         return relation(.equal, rhs).solution
     }
 
-    @discardableResult
-    public func equal(to rhs: [LayoutCoefficient]) -> [Solution] {
-        return rhs.map { equal(to: $0) }
-    }
-
     // MARK: - LessThanOrEqual
 
     @discardableResult
     public func lessThanOrEqual(to rhs: LayoutCoefficient) -> Solution {
         return relation(.lessThanOrEqual, rhs).solution
-    }
-
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [LayoutCoefficient]) -> [Solution] {
-        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -132,25 +89,14 @@ extension CoefficientEquatable {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [LayoutCoefficient]) -> [Solution] {
-        return rhs.map { greaterThanOrEqual(to: $0) }
-    }
 }
 
 // MARK: Collection <=> LayoutCoefficient
-
 extension Collection where Element: CoefficientEquatable {
     // MARK: - Equal
     // MARK: Collection == Expression
     @discardableResult
     public func equal(to rhs: LayoutCoefficient) -> [Element.Solution] {
-        return map { $0.equal(to: rhs) }
-    }
-
-    // MARK: Collection == Expression Array
-    @discardableResult
-    public func equal(to rhs: [LayoutCoefficient]) -> [[Element.Solution]] {
         return map { $0.equal(to: rhs) }
     }
 
@@ -162,23 +108,11 @@ extension Collection where Element: CoefficientEquatable {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
-    // MARK: Collection <= Expression Array
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [LayoutCoefficient]) -> [[Element.Solution]] {
-        return map { $0.lessThanOrEqual(to: rhs) }
-    }
-
     // MARK: - GreaterThanOrEqual
 
     // MARK: Collection >= Expression
     @discardableResult
     public func greaterThanOrEqual(to rhs: LayoutCoefficient) -> [Element.Solution] {
-        return map { $0.greaterThanOrEqual(to: rhs) }
-    }
-
-    // MARK: Collection >= Expression Array
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [LayoutCoefficient]) -> [[Element.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }
@@ -192,21 +126,11 @@ extension CoefficientEquatable {
         return relation(.equal, rhs).solution
     }
 
-    @discardableResult
-    public func equal(to rhs: [LayoutMultiplier]) -> [Solution] {
-        return rhs.map { equal(to: $0) }
-    }
-
     // MARK: - LessThanOrEqual
 
     @discardableResult
     public func lessThanOrEqual(to rhs: LayoutMultiplier) -> Solution {
         return relation(.lessThanOrEqual, rhs).solution
-    }
-
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [LayoutMultiplier]) -> [Solution] {
-        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -216,25 +140,14 @@ extension CoefficientEquatable {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [LayoutMultiplier]) -> [Solution] {
-        return rhs.map { greaterThanOrEqual(to: $0) }
-    }
 }
 
 // MARK: Collection <=> LayoutMultiplier
-
 extension Collection where Element: CoefficientEquatable {
     // MARK: - Equal
     // MARK: Collection == Expression
     @discardableResult
     public func equal(to rhs: LayoutMultiplier) -> [Element.Solution] {
-        return map { $0.equal(to: rhs) }
-    }
-
-    // MARK: Collection == Expression Array
-    @discardableResult
-    public func equal(to rhs: [LayoutMultiplier]) -> [[Element.Solution]] {
         return map { $0.equal(to: rhs) }
     }
 
@@ -246,23 +159,11 @@ extension Collection where Element: CoefficientEquatable {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
-    // MARK: Collection <= Expression Array
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [LayoutMultiplier]) -> [[Element.Solution]] {
-        return map { $0.lessThanOrEqual(to: rhs) }
-    }
-
     // MARK: - GreaterThanOrEqual
 
     // MARK: Collection >= Expression
     @discardableResult
     public func greaterThanOrEqual(to rhs: LayoutMultiplier) -> [Element.Solution] {
-        return map { $0.greaterThanOrEqual(to: rhs) }
-    }
-
-    // MARK: Collection >= Expression Array
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [LayoutMultiplier]) -> [[Element.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }
@@ -276,21 +177,11 @@ extension CoefficientEquatable {
         return relation(.equal, rhs).solution
     }
 
-    @discardableResult
-    public func equal(to rhs: [RelativeLayoutConstant]) -> [Solution] {
-        return rhs.map { equal(to: $0) }
-    }
-
     // MARK: - LessThanOrEqual
 
     @discardableResult
     public func lessThanOrEqual(to rhs: RelativeLayoutConstant) -> Solution {
         return relation(.lessThanOrEqual, rhs).solution
-    }
-
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [RelativeLayoutConstant]) -> [Solution] {
-        return rhs.map { lessThanOrEqual(to: $0) }
     }
 
     // MARK: - GreaterThanOrEqual
@@ -300,25 +191,14 @@ extension CoefficientEquatable {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [RelativeLayoutConstant]) -> [Solution] {
-        return rhs.map { greaterThanOrEqual(to: $0) }
-    }
 }
 
 // MARK: Collection <=> RelativeLayoutConstant
-
 extension Collection where Element: CoefficientEquatable {
     // MARK: - Equal
     // MARK: Collection == Expression
     @discardableResult
     public func equal(to rhs: RelativeLayoutConstant) -> [Element.Solution] {
-        return map { $0.equal(to: rhs) }
-    }
-
-    // MARK: Collection == Expression Array
-    @discardableResult
-    public func equal(to rhs: [RelativeLayoutConstant]) -> [[Element.Solution]] {
         return map { $0.equal(to: rhs) }
     }
 
@@ -330,23 +210,11 @@ extension Collection where Element: CoefficientEquatable {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
-    // MARK: Collection <= Expression Array
-    @discardableResult
-    public func lessThanOrEqual(to rhs: [RelativeLayoutConstant]) -> [[Element.Solution]] {
-        return map { $0.lessThanOrEqual(to: rhs) }
-    }
-
     // MARK: - GreaterThanOrEqual
 
     // MARK: Collection >= Expression
     @discardableResult
     public func greaterThanOrEqual(to rhs: RelativeLayoutConstant) -> [Element.Solution] {
-        return map { $0.greaterThanOrEqual(to: rhs) }
-    }
-
-    // MARK: Collection >= Expression Array
-    @discardableResult
-    public func greaterThanOrEqual(to rhs: [RelativeLayoutConstant]) -> [[Element.Solution]] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 }
