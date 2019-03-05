@@ -61,31 +61,31 @@ public func {{outsetOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorType}}) -> {{So
 // MARK: {{AnchorType}} == [Anchor]
 @discardableResult
 public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{equal}} $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: {{AnchorType}} <= [Anchor]
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{lessThanOrEqual}} $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} >= [Anchor]
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{greaterThanOrEqual}} $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} >=< [Anchor]
 @discardableResult
 public func {{insetOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{insetOrEqual}} $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} <=> [Anchor]
 @discardableResult
 public func {{outsetOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{outsetOrEqual}} $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} array attributes inferred from Anchor
@@ -93,31 +93,31 @@ public func {{outsetOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeArray}}) ->
 // MARK: {{AnchorTypeArray}} == Anchor
 @discardableResult
 public func {{equal}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{equal}} rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} <= Anchor
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{lessThanOrEqual}} rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} >= Anchor
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} >=< Anchor
 @discardableResult
 public func {{insetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{insetOrEqual}} rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} <=> Anchor
 @discardableResult
 public func {{outsetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{outsetOrEqual}} rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} array attributes inferred from Anchor collection
@@ -125,31 +125,31 @@ public func {{outsetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorType}}) ->
 // MARK: {{AnchorTypeArray}} == [Anchor]
 @discardableResult
 public func {{equal}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{equal}} rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} <= [Anchor]
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{lessThanOrEqual}} rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} >= [Anchor]
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} >=< [Anchor]
 @discardableResult
 public func {{insetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{insetOrEqual}} rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} <=> [Anchor]
 @discardableResult
 public func {{outsetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{outsetOrEqual}} rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 {% if AnchorType != '{{AnchorType}}' %}
@@ -190,31 +190,31 @@ public func {{outsetOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpression}
 // MARK: {{AnchorType}} == Expressions
 @discardableResult
 public func {{equal}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{equal}} $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: {{AnchorType}} <= Expressions
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{lessThanOrEqual}} $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} >= Expressions
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{greaterThanOrEqual}} $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} >=< Expression
 @discardableResult
 public func {{insetOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{insetOrEqual}} $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} <=> Expression
 @discardableResult
 public func {{outsetOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionArray}}) -> {{SolutionArray}} {
-    return rhs.map({lhs {{outsetOrEqual}} $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} array attributes inferred from Expression
@@ -222,31 +222,31 @@ public func {{outsetOrEqual}} (lhs: {{AnchorType}}, rhs: {{AnchorTypeExpressionA
 // MARK: {{AnchorTypeArray}} == Expression
 @discardableResult
 public func {{equal}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{equal}} rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} <= Expression
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{lessThanOrEqual}} rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} >= Expression
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} >=< Expression
 @discardableResult
 public func {{insetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{insetOrEqual}} rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} <=> Expression
 @discardableResult
 public func {{outsetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpression}}) -> {{SolutionArray}} {
-    return lhs.map { $0 {{outsetOrEqual}} rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorType}} array attributes inferred from expression collection
@@ -254,31 +254,31 @@ public func {{outsetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpres
 // MARK: {{AnchorTypeArray}} == [Expression]
 @discardableResult
 public func {{equal}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{equal}} rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} <= [Expression]
 @discardableResult
 public func {{lessThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{lessThanOrEqual}} rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} >= [Expression]
 @discardableResult
 public func {{greaterThanOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{greaterThanOrEqual}} rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} >=< [Expression]
 @discardableResult
 public func {{insetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{insetOrEqual}} rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: {{AnchorTypeArray}} <=> [Expression]
 @discardableResult
 public func {{outsetOrEqual}} (lhs: {{AnchorTypeArray}}, rhs: {{AnchorTypeExpressionArray}}) -> [{{SolutionArray}}] {
-    return lhs.map { $0 {{outsetOrEqual}} rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 {% endif %}
 // sourcery:end

@@ -46,31 +46,31 @@ public func ≤≥ (lhs: View, rhs: View) -> View.Solution {
 // MARK: View == [Anchor]
 @discardableResult
 public func .= (lhs: View, rhs: [View]) -> [View.Solution] {
-    return rhs.map({lhs .= $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: View <= [Anchor]
 @discardableResult
 public func ≤ (lhs: View, rhs: [View]) -> [View.Solution] {
-    return rhs.map({lhs ≤ $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: View >= [Anchor]
 @discardableResult
 public func ≥ (lhs: View, rhs: [View]) -> [View.Solution] {
-    return rhs.map({lhs ≥ $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: View >=< [Anchor]
 @discardableResult
 public func ≥≤ (lhs: View, rhs: [View]) -> [View.Solution] {
-    return rhs.map({lhs ≥≤ $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: View <=> [Anchor]
 @discardableResult
 public func ≤≥ (lhs: View, rhs: [View]) -> [View.Solution] {
-    return rhs.map({lhs ≤≥ $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: View array attributes inferred from Anchor
@@ -78,31 +78,31 @@ public func ≤≥ (lhs: View, rhs: [View]) -> [View.Solution] {
 // MARK: [View] == Anchor
 @discardableResult
 public func .= (lhs: [View], rhs: View) -> [View.Solution] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [View] <= Anchor
 @discardableResult
 public func ≤ (lhs: [View], rhs: View) -> [View.Solution] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [View] >= Anchor
 @discardableResult
 public func ≥ (lhs: [View], rhs: View) -> [View.Solution] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [View] >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: [View], rhs: View) -> [View.Solution] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [View] <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: [View], rhs: View) -> [View.Solution] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: View array attributes inferred from Anchor collection
@@ -110,29 +110,29 @@ public func ≤≥ (lhs: [View], rhs: View) -> [View.Solution] {
 // MARK: [View] == [Anchor]
 @discardableResult
 public func .= (lhs: [View], rhs: [View]) -> [[View.Solution]] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [View] <= [Anchor]
 @discardableResult
 public func ≤ (lhs: [View], rhs: [View]) -> [[View.Solution]] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [View] >= [Anchor]
 @discardableResult
 public func ≥ (lhs: [View], rhs: [View]) -> [[View.Solution]] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [View] >=< [Anchor]
 @discardableResult
 public func ≥≤ (lhs: [View], rhs: [View]) -> [[View.Solution]] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [View] <=> [Anchor]
 @discardableResult
 public func ≤≥ (lhs: [View], rhs: [View]) -> [[View.Solution]] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }

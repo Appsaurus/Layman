@@ -8,7 +8,6 @@
 //  Created by Brian Strobach on 1/4/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
-
 extension XAxisAnchor {
 
     public func relation(_ relation: LayoutRelation, _ rhs: View) -> XAxisAnchorEquation {
@@ -55,5 +54,63 @@ extension XAxisAnchor {
     @discardableResult
     public func outsetOrEqual(to rhs: [View]) -> [XAxisAnchorEquation.Solution] {
         return rhs.map { outsetOrEqual(to: $0) }
+    }
+}
+
+extension Collection where Element == XAxisAnchor {
+    @discardableResult
+    public func equal(to rhs: View) -> [XAxisAnchorEquation.Solution] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    @discardableResult
+    public func equal(to rhs: [View]) -> [[XAxisAnchorEquation.Solution]] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: - LessThanOrEqual
+    @discardableResult
+    public func lessThanOrEqual(to rhs: View) -> [XAxisAnchorEquation.Solution] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [View]) -> [[XAxisAnchorEquation.Solution]] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: View) -> [XAxisAnchorEquation.Solution] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [View]) -> [[XAxisAnchorEquation.Solution]] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - InsetFrom
+    @discardableResult
+    public func insetOrEqual(to rhs: View) -> [XAxisAnchorEquation.Solution] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func insetOrEqual(to rhs: [View]) -> [[XAxisAnchorEquation.Solution]] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    // MARK: - OutsetFrom
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: View) -> [XAxisAnchorEquation.Solution] {
+        return map { $0.outsetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: [View]) -> [[XAxisAnchorEquation.Solution]] {
+        return map { $0.outsetOrEqual(to: rhs) }
     }
 }

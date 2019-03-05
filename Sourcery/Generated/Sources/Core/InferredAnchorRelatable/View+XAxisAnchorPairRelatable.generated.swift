@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 //
-//  XAxisAnchorPair+ViewEquatable.swift
+//  View+XAxisAnchorPairRelatable.swift
 //  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -57,6 +57,64 @@ extension View {
     }
 }
 
+extension Collection where Element: View {
+    @discardableResult
+    public func equal(to rhs: XAxisAnchorPair) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    @discardableResult
+    public func equal(to rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: - LessThanOrEqual
+    @discardableResult
+    public func lessThanOrEqual(to rhs: XAxisAnchorPair) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: XAxisAnchorPair) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - InsetFrom
+    @discardableResult
+    public func insetOrEqual(to rhs: XAxisAnchorPair) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func insetOrEqual(to rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    // MARK: - OutsetFrom
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: XAxisAnchorPair) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.outsetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.outsetOrEqual(to: rhs) }
+    }
+}
+
 extension View {
     public func relation(_ relation: LayoutRelation, _ rhs: XAxisAnchorPairEquation.Expression) -> XAxisAnchorPairEquation {
         return XAxisAnchorPairEquation(self, relation, rhs)
@@ -102,5 +160,63 @@ extension View {
     @discardableResult
     public func outsetOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [XAxisAnchorPairEquation.Solution] {
         return rhs.map { outsetOrEqual(to: $0) }
+    }
+}
+
+extension Collection where Element: View {
+    @discardableResult
+    public func equal(to rhs: XAxisAnchorPairEquation.Expression) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    @discardableResult
+    public func equal(to rhs: [XAxisAnchorPairEquation.Expression]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: - LessThanOrEqual
+    @discardableResult
+    public func lessThanOrEqual(to rhs: XAxisAnchorPairEquation.Expression) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: XAxisAnchorPairEquation.Expression) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - InsetFrom
+    @discardableResult
+    public func insetOrEqual(to rhs: XAxisAnchorPairEquation.Expression) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func insetOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    // MARK: - OutsetFrom
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: XAxisAnchorPairEquation.Expression) -> [XAxisAnchorPairEquation.Solution] {
+        return map { $0.outsetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: [XAxisAnchorPairEquation.Expression]) -> [[XAxisAnchorPairEquation.Solution]] {
+        return map { $0.outsetOrEqual(to: rhs) }
     }
 }

@@ -11,6 +11,12 @@
 
 import Foundation
 
+// MARK: AspectRatioAnchor == LayoutContant
+@discardableResult
+public func .= (lhs: AspectRatioAnchor, rhs: LayoutConstant) -> Constraint {
+    return lhs.equal(to: rhs)
+}
+
 // MARK: AspectRatioAnchor == AspectRatio
 @discardableResult
 public func .= (lhs: AspectRatioAnchor, rhs: LayoutAspectRatio) -> Constraint {

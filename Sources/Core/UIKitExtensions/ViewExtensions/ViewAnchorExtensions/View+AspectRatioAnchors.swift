@@ -10,6 +10,10 @@ public enum AspectRatioAnchor {
     case standard(View)
     case inverse(View)
 
+    public func equal(to rhs: LayoutConstant) -> Constraint {
+        return equal(to: LayoutAspectRatioConfiguration(.customRatio(ratio: rhs)))
+    }
+    
     public func equal(to rhs: LayoutAspectRatio) -> Constraint {
         return equal(to: LayoutAspectRatioConfiguration(rhs))
     }

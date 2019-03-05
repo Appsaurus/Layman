@@ -46,31 +46,31 @@ public func ≤≥ (lhs: LayoutDimension, rhs: LayoutDimension) -> LayoutDimensi
 // MARK: LayoutDimension == [Anchor]
 @discardableResult
 public func .= (lhs: LayoutDimension, rhs: [LayoutDimension]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs .= $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: LayoutDimension <= [Anchor]
 @discardableResult
 public func ≤ (lhs: LayoutDimension, rhs: [LayoutDimension]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs ≤ $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension >= [Anchor]
 @discardableResult
 public func ≥ (lhs: LayoutDimension, rhs: [LayoutDimension]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs ≥ $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension >=< [Anchor]
 @discardableResult
 public func ≥≤ (lhs: LayoutDimension, rhs: [LayoutDimension]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs ≥≤ $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension <=> [Anchor]
 @discardableResult
 public func ≤≥ (lhs: LayoutDimension, rhs: [LayoutDimension]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs ≤≥ $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension array attributes inferred from Anchor
@@ -78,31 +78,31 @@ public func ≤≥ (lhs: LayoutDimension, rhs: [LayoutDimension]) -> [LayoutDime
 // MARK: [LayoutDimension] == Anchor
 @discardableResult
 public func .= (lhs: [LayoutDimension], rhs: LayoutDimension) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [LayoutDimension] <= Anchor
 @discardableResult
 public func ≤ (lhs: [LayoutDimension], rhs: LayoutDimension) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] >= Anchor
 @discardableResult
 public func ≥ (lhs: [LayoutDimension], rhs: LayoutDimension) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: [LayoutDimension], rhs: LayoutDimension) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: [LayoutDimension], rhs: LayoutDimension) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension array attributes inferred from Anchor collection
@@ -110,31 +110,31 @@ public func ≤≥ (lhs: [LayoutDimension], rhs: LayoutDimension) -> [LayoutDime
 // MARK: [LayoutDimension] == [Anchor]
 @discardableResult
 public func .= (lhs: [LayoutDimension], rhs: [LayoutDimension]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [LayoutDimension] <= [Anchor]
 @discardableResult
 public func ≤ (lhs: [LayoutDimension], rhs: [LayoutDimension]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] >= [Anchor]
 @discardableResult
 public func ≥ (lhs: [LayoutDimension], rhs: [LayoutDimension]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] >=< [Anchor]
 @discardableResult
 public func ≥≤ (lhs: [LayoutDimension], rhs: [LayoutDimension]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] <=> [Anchor]
 @discardableResult
 public func ≤≥ (lhs: [LayoutDimension], rhs: [LayoutDimension]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension attribute inferred from expression
@@ -174,31 +174,31 @@ public func ≤≥ (lhs: LayoutDimension, rhs: LayoutDimensionExpression) -> Lay
 // MARK: LayoutDimension == Expressions
 @discardableResult
 public func .= (lhs: LayoutDimension, rhs: [LayoutDimensionExpression]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs .= $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: LayoutDimension <= Expressions
 @discardableResult
 public func ≤ (lhs: LayoutDimension, rhs: [LayoutDimensionExpression]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs ≤ $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension >= Expressions
 @discardableResult
 public func ≥ (lhs: LayoutDimension, rhs: [LayoutDimensionExpression]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs ≥ $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension >=< Expression
 @discardableResult
 public func ≥≤ (lhs: LayoutDimension, rhs: [LayoutDimensionExpression]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs ≥≤ $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension <=> Expression
 @discardableResult
 public func ≤≥ (lhs: LayoutDimension, rhs: [LayoutDimensionExpression]) -> [LayoutDimension.Solution] {
-    return rhs.map({lhs ≤≥ $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension array attributes inferred from Expression
@@ -206,31 +206,31 @@ public func ≤≥ (lhs: LayoutDimension, rhs: [LayoutDimensionExpression]) -> [
 // MARK: [LayoutDimension] == Expression
 @discardableResult
 public func .= (lhs: [LayoutDimension], rhs: LayoutDimensionExpression) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [LayoutDimension] <= Expression
 @discardableResult
 public func ≤ (lhs: [LayoutDimension], rhs: LayoutDimensionExpression) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] >= Expression
 @discardableResult
 public func ≥ (lhs: [LayoutDimension], rhs: LayoutDimensionExpression) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] >=< Expression
 @discardableResult
 public func ≥≤ (lhs: [LayoutDimension], rhs: LayoutDimensionExpression) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] <=> Expression
 @discardableResult
 public func ≤≥ (lhs: [LayoutDimension], rhs: LayoutDimensionExpression) -> [LayoutDimension.Solution] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: LayoutDimension array attributes inferred from expression collection
@@ -238,29 +238,29 @@ public func ≤≥ (lhs: [LayoutDimension], rhs: LayoutDimensionExpression) -> [
 // MARK: [LayoutDimension] == [Expression]
 @discardableResult
 public func .= (lhs: [LayoutDimension], rhs: [LayoutDimensionExpression]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [LayoutDimension] <= [Expression]
 @discardableResult
 public func ≤ (lhs: [LayoutDimension], rhs: [LayoutDimensionExpression]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] >= [Expression]
 @discardableResult
 public func ≥ (lhs: [LayoutDimension], rhs: [LayoutDimensionExpression]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] >=< [Expression]
 @discardableResult
 public func ≥≤ (lhs: [LayoutDimension], rhs: [LayoutDimensionExpression]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [LayoutDimension] <=> [Expression]
 @discardableResult
 public func ≤≥ (lhs: [LayoutDimension], rhs: [LayoutDimensionExpression]) -> [[LayoutDimension.Solution]] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }

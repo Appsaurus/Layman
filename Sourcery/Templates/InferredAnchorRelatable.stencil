@@ -2,7 +2,7 @@
 {% for AnchorType in argument[anchorTypeGroup] %}
 //  sourcery:file:Sources/Core/InferredAnchorRelatable/View+{{AnchorType}}Relatable
 //
-//  {{AnchorType}}+ViewEquatable.swift
+//  View+{{AnchorType}}Relatable.swift
 //  Layman
 //
 //  Created by Brian Strobach on 1/4/19.
@@ -58,6 +58,64 @@ extension View {
     }
 }
 
+extension Collection where Element: View {
+    @discardableResult
+    public func equal(to rhs: {{AnchorType}}) -> [{{Solution}}] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    @discardableResult
+    public func equal(to rhs: [{{AnchorType}}]) -> [[{{Solution}}]] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: - LessThanOrEqual
+    @discardableResult
+    public func lessThanOrEqual(to rhs: {{AnchorType}}) -> [{{Solution}}] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [{{AnchorType}}]) -> [[{{Solution}}]] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: {{AnchorType}}) -> [{{Solution}}] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [{{AnchorType}}]) -> [[{{Solution}}]] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - InsetFrom
+    @discardableResult
+    public func insetOrEqual(to rhs: {{AnchorType}}) -> [{{Solution}}] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func insetOrEqual(to rhs: [{{AnchorType}}]) -> [[{{Solution}}]] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    // MARK: - OutsetFrom
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: {{AnchorType}}) -> [{{Solution}}] {
+        return map { $0.outsetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: [{{AnchorType}}]) -> [[{{Solution}}]] {
+        return map { $0.outsetOrEqual(to: rhs) }
+    }
+}
+
 {% set Expression %}{{AnchorType}}Equation.Expression{% endset %}
 extension View {
     public func relation(_ relation: LayoutRelation, _ rhs: {{AnchorType}}Equation.Expression) -> {{AnchorType}}Equation {
@@ -107,6 +165,63 @@ extension View {
     }
 }
 
+extension Collection where Element: View {
+    @discardableResult
+    public func equal(to rhs: {{Expression}}) -> [{{Solution}}] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    @discardableResult
+    public func equal(to rhs: [{{Expression}}]) -> [[{{Solution}}]] {
+        return map { $0.equal(to: rhs) }
+    }
+
+    // MARK: - LessThanOrEqual
+    @discardableResult
+    public func lessThanOrEqual(to rhs: {{Expression}}) -> [{{Solution}}] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func lessThanOrEqual(to rhs: [{{Expression}}]) -> [[{{Solution}}]] {
+        return map { $0.lessThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - GreaterThanOrEqual
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: {{Expression}}) -> [{{Solution}}] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func greaterThanOrEqual(to rhs: [{{Expression}}]) -> [[{{Solution}}]] {
+        return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - InsetFrom
+    @discardableResult
+    public func insetOrEqual(to rhs: {{Expression}}) -> [{{Solution}}] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func insetOrEqual(to rhs: [{{Expression}}]) -> [[{{Solution}}]] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    // MARK: - OutsetFrom
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: {{Expression}}) -> [{{Solution}}] {
+        return map { $0.outsetOrEqual(to: rhs) }
+    }
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: [{{Expression}}]) -> [[{{Solution}}]] {
+        return map { $0.outsetOrEqual(to: rhs) }
+    }
+}
 // sourcery:end
 {% endfor %}
 {% endfor %}

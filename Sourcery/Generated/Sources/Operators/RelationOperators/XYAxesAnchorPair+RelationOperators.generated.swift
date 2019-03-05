@@ -46,31 +46,31 @@ public func ≤≥ (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPair) -> XYAxesAncho
 // MARK: XYAxesAnchorPair == [Anchor]
 @discardableResult
 public func .= (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPair]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs .= $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair <= [Anchor]
 @discardableResult
 public func ≤ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPair]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs ≤ $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair >= [Anchor]
 @discardableResult
 public func ≥ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPair]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs ≥ $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair >=< [Anchor]
 @discardableResult
 public func ≥≤ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPair]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs ≥≤ $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair <=> [Anchor]
 @discardableResult
 public func ≤≥ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPair]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs ≤≥ $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair array attributes inferred from Anchor
@@ -78,31 +78,31 @@ public func ≤≥ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPair]) -> [XYAxesAn
 // MARK: [XYAxesAnchorPair] == Anchor
 @discardableResult
 public func .= (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] <= Anchor
 @discardableResult
 public func ≤ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] >= Anchor
 @discardableResult
 public func ≥ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPair) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair array attributes inferred from Anchor collection
@@ -110,31 +110,31 @@ public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPair) -> [XYAxesAn
 // MARK: [XYAxesAnchorPair] == [Anchor]
 @discardableResult
 public func .= (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPair]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] <= [Anchor]
 @discardableResult
 public func ≤ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPair]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] >= [Anchor]
 @discardableResult
 public func ≥ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPair]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] >=< [Anchor]
 @discardableResult
 public func ≥≤ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPair]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] <=> [Anchor]
 @discardableResult
 public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPair]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair attribute inferred from expression
@@ -174,31 +174,31 @@ public func ≤≥ (lhs: XYAxesAnchorPair, rhs: XYAxesAnchorPairExpression) -> X
 // MARK: XYAxesAnchorPair == Expressions
 @discardableResult
 public func .= (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPairExpression]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs .= $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair <= Expressions
 @discardableResult
 public func ≤ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPairExpression]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs ≤ $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair >= Expressions
 @discardableResult
 public func ≥ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPairExpression]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs ≥ $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair >=< Expression
 @discardableResult
 public func ≥≤ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPairExpression]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs ≥≤ $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair <=> Expression
 @discardableResult
 public func ≤≥ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPairExpression]) -> [XYAxesAnchorPair.Solution] {
-    return rhs.map({lhs ≤≥ $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair array attributes inferred from Expression
@@ -206,31 +206,31 @@ public func ≤≥ (lhs: XYAxesAnchorPair, rhs: [XYAxesAnchorPairExpression]) ->
 // MARK: [XYAxesAnchorPair] == Expression
 @discardableResult
 public func .= (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] <= Expression
 @discardableResult
 public func ≤ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] >= Expression
 @discardableResult
 public func ≥ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] >=< Expression
 @discardableResult
 public func ≥≤ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] <=> Expression
 @discardableResult
 public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPairExpression) -> [XYAxesAnchorPair.Solution] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XYAxesAnchorPair array attributes inferred from expression collection
@@ -238,29 +238,29 @@ public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: XYAxesAnchorPairExpression) ->
 // MARK: [XYAxesAnchorPair] == [Expression]
 @discardableResult
 public func .= (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPairExpression]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] <= [Expression]
 @discardableResult
 public func ≤ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPairExpression]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] >= [Expression]
 @discardableResult
 public func ≥ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPairExpression]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] >=< [Expression]
 @discardableResult
 public func ≥≤ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPairExpression]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [XYAxesAnchorPair] <=> [Expression]
 @discardableResult
 public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: [XYAxesAnchorPairExpression]) -> [[XYAxesAnchorPair.Solution]] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }

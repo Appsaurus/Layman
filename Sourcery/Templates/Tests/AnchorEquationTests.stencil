@@ -23,6 +23,12 @@
         constraints.assert({{baseAssertion}})
     }
 
+{% if lhsAttribute == rhsAttribute %}
+    func {{baseFunctionName}}InversedInference() {
+        let constraints = {{lhsItem}}.{{rhsAttribute}}Anchor {{operator}} relatedView
+        constraints.assert({{baseAssertion}})
+    }
+{% endif %}
     // MARK: {{operatorName|upperFirstLetter}} with constant
     func {{baseFunctionName}}PlusConstant() {
         let constraints = {{baseEquation}} {{addition}} {{constant}}

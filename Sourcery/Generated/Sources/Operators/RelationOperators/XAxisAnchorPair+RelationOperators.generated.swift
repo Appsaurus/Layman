@@ -46,31 +46,31 @@ public func ≤≥ (lhs: XAxisAnchorPair, rhs: XAxisAnchorPair) -> XAxisAnchorPa
 // MARK: XAxisAnchorPair == [Anchor]
 @discardableResult
 public func .= (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPair]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs .= $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: XAxisAnchorPair <= [Anchor]
 @discardableResult
 public func ≤ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPair]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs ≤ $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair >= [Anchor]
 @discardableResult
 public func ≥ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPair]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs ≥ $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair >=< [Anchor]
 @discardableResult
 public func ≥≤ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPair]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs ≥≤ $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair <=> [Anchor]
 @discardableResult
 public func ≤≥ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPair]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs ≤≥ $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair array attributes inferred from Anchor
@@ -78,31 +78,31 @@ public func ≤≥ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPair]) -> [XAxisAncho
 // MARK: [XAxisAnchorPair] == Anchor
 @discardableResult
 public func .= (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPair) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] <= Anchor
 @discardableResult
 public func ≤ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPair) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] >= Anchor
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPair) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] >=< Anchor
 @discardableResult
 public func ≥≤ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPair) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] <=> Anchor
 @discardableResult
 public func ≤≥ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPair) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair array attributes inferred from Anchor collection
@@ -110,31 +110,31 @@ public func ≤≥ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPair) -> [XAxisAncho
 // MARK: [XAxisAnchorPair] == [Anchor]
 @discardableResult
 public func .= (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] <= [Anchor]
 @discardableResult
 public func ≤ (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] >= [Anchor]
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] >=< [Anchor]
 @discardableResult
 public func ≥≤ (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] <=> [Anchor]
 @discardableResult
 public func ≤≥ (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPair]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair attribute inferred from expression
@@ -174,31 +174,31 @@ public func ≤≥ (lhs: XAxisAnchorPair, rhs: XAxisAnchorPairExpression) -> XAx
 // MARK: XAxisAnchorPair == Expressions
 @discardableResult
 public func .= (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPairExpression]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs .= $0})
+    return lhs.equal(to: rhs)
 }
 
 // MARK: XAxisAnchorPair <= Expressions
 @discardableResult
 public func ≤ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPairExpression]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs ≤ $0})
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair >= Expressions
 @discardableResult
 public func ≥ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPairExpression]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs ≥ $0})
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair >=< Expression
 @discardableResult
 public func ≥≤ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPairExpression]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs ≥≤ $0})
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair <=> Expression
 @discardableResult
 public func ≤≥ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPairExpression]) -> [XAxisAnchorPair.Solution] {
-    return rhs.map({lhs ≤≥ $0})
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair array attributes inferred from Expression
@@ -206,31 +206,31 @@ public func ≤≥ (lhs: XAxisAnchorPair, rhs: [XAxisAnchorPairExpression]) -> [
 // MARK: [XAxisAnchorPair] == Expression
 @discardableResult
 public func .= (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPairExpression) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] <= Expression
 @discardableResult
 public func ≤ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPairExpression) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] >= Expression
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPairExpression) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] >=< Expression
 @discardableResult
 public func ≥≤ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPairExpression) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] <=> Expression
 @discardableResult
 public func ≤≥ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPairExpression) -> [XAxisAnchorPair.Solution] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
 
 // MARK: XAxisAnchorPair array attributes inferred from expression collection
@@ -238,29 +238,29 @@ public func ≤≥ (lhs: [XAxisAnchorPair], rhs: XAxisAnchorPairExpression) -> [
 // MARK: [XAxisAnchorPair] == [Expression]
 @discardableResult
 public func .= (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPairExpression]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 .= rhs }
+    return lhs.equal(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] <= [Expression]
 @discardableResult
 public func ≤ (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPairExpression]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 ≤ rhs }
+    return lhs.lessThanOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] >= [Expression]
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPairExpression]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 ≥ rhs }
+    return lhs.greaterThanOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] >=< [Expression]
 @discardableResult
 public func ≥≤ (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPairExpression]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 ≥≤ rhs }
+    return lhs.insetOrEqual(to: rhs)
 }
 
 // MARK: [XAxisAnchorPair] <=> [Expression]
 @discardableResult
 public func ≤≥ (lhs: [XAxisAnchorPair], rhs: [XAxisAnchorPairExpression]) -> [[XAxisAnchorPair.Solution]] {
-    return lhs.map { $0 ≤≥ rhs }
+    return lhs.outsetOrEqual(to: rhs)
 }
