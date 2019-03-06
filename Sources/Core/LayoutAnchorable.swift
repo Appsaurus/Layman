@@ -232,6 +232,11 @@ extension Collection where Element: XYAxisAnchorable {
     public var centerYAnchor: YAxisAnchors { return map { $0.centerYAnchor } }
     public var centerAnchors: XYAxesAnchorPairs { return map { $0.centerAnchors } }
 
+    public var topLeadingAnchors: XYAxesAnchorPairs { return map { $0.topLeadingAnchors} }
+    public var topTrailingAnchors: XYAxesAnchorPairs { return map { $0.topTrailingAnchors} }
+    public var bottomTrailingAnchors: XYAxesAnchorPairs { return map { $0.bottomTrailingAnchors} }
+    public var bottomLeadingAnchors: XYAxesAnchorPairs { return map { $0.bottomLeadingAnchors} }
+
     public var topLeftAnchors: XYAxesAnchorPairs { return map { $0.topLeftAnchors } }
     public var topRightAnchors: XYAxesAnchorPairs { return map { $0.topRightAnchors } }
     public var bottomRightAnchors: XYAxesAnchorPairs { return map { $0.bottomRightAnchors } }

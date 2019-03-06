@@ -277,6 +277,5 @@ class YAxisAnchorArrayConstantTests: LaymanTestCase {
         constraints.assert(viewArray, .bottom, .greaterThanOrEqual, parentView, .bottom, multiplier: 0.75, priority: 749)
     }
 // sourcery:end
-
     
 }

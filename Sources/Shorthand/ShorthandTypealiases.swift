@@ -54,33 +54,33 @@ extension View {
 }
 
 extension Collection where Element: XYAxisAnchorable {
-    public var leading: XAxisAnchors { return map {$0.leading } }
-    public var trailing: XAxisAnchors { return map {$0.trailing } }
-    public var left: XAxisAnchors { return map {$0.left } }
-    public var right: XAxisAnchors { return map {$0.right } }
+    public var leading: XAxisAnchors { return leadingAnchor }
+    public var trailing: XAxisAnchors { return trailingAnchor }
+    public var left: XAxisAnchors { return leftAnchor }
+    public var right: XAxisAnchors { return rightAnchor }
 
-    public var top: [YAxisAnchor] { return map {$0.top } }
-    public var bottom: [YAxisAnchor] { return map {$0.bottom } }
+    public var top: [YAxisAnchor] { return topAnchor }
+    public var bottom: [YAxisAnchor] { return bottomAnchor }
 
-    public var horizontalEdges: XAxisAnchorPairs { return map { $0.horizontalEdges } }
-    public var verticalEdges: YAxisAnchorPairs { return map { $0.verticalEdges } }
-    public var edges: EdgeAnchorGroups { return map { $0.edges } }
+    public var horizontalEdges: XAxisAnchorPairs { return horizontalEdgeAnchors }
+    public var verticalEdges: YAxisAnchorPairs { return verticalEdgeAnchors }
+    public var edges: EdgeAnchorGroups { return edgeAnchors }
 
-    public var centerX: XAxisAnchors { return map { $0.centerX } }
-    public var centerY: YAxisAnchors { return map { $0.centerY } }
-    public var centerXY: XYAxesAnchorPairs { return map { $0.centerXY } }
+    public var centerX: XAxisAnchors { return centerXAnchor }
+    public var centerY: YAxisAnchors { return centerYAnchor }
+    public var centerXY: XYAxesAnchorPairs { return centerAnchors }
 
-    public var topLeading: XYAxesAnchorPairs { return map { $0.topLeading } }
-    public var topTrailing: XYAxesAnchorPairs { return map { $0.topTrailing } }
-    public var bottomTrailing: XYAxesAnchorPairs { return map { $0.bottomTrailing } }
-    public var bottomLeading: XYAxesAnchorPairs { return map { $0.bottomLeading } }
+    public var topLeading: XYAxesAnchorPairs { return topLeadingAnchors }
+    public var topTrailing: XYAxesAnchorPairs { return topTrailingAnchors }
+    public var bottomTrailing: XYAxesAnchorPairs { return bottomTrailingAnchors }
+    public var bottomLeading: XYAxesAnchorPairs { return bottomLeadingAnchors }
 
-    public var topLeft: XYAxesAnchorPairs { return map { $0.topLeft } }
-    public var topRight: XYAxesAnchorPairs { return map { $0.topRight } }
-    public var bottomRight: XYAxesAnchorPairs { return map { $0.bottomRight } }
-    public var bottomLeft: XYAxesAnchorPairs { return map { $0.bottomLeft } }
+    public var topLeft: XYAxesAnchorPairs { return topLeftAnchors }
+    public var topRight: XYAxesAnchorPairs { return topRightAnchors }
+    public var bottomRight: XYAxesAnchorPairs { return bottomRightAnchors }
+    public var bottomLeft: XYAxesAnchorPairs { return bottomLeftAnchors }
 
-    public var margins: [LayoutGuide] { return map { $0.margins } }
+    public var margins: [LayoutGuide] { return layoutMarginsGuide }
 }
 
 extension Collection where Element: SizeAnchorable {

@@ -11,7 +11,7 @@ import XCTest
 
 class RelativeLayoutRelationshipTests: LaymanTestCase {
 
-    // MARK - YAxis Inset/Outset relationship
+    // MARK: - YAxis Inset/Outset relationship
     func testView1TopInsetFromTop() {
         let constraints = view1.top ≥≤ relatedView.topAnchor
         constraints.assert(view1, .top, .greaterThanOrEqual, relatedView, .top)
@@ -32,7 +32,7 @@ class RelativeLayoutRelationshipTests: LaymanTestCase {
         constraints.assert(view1, .bottom, .greaterThanOrEqual, relatedView, .bottom)
     }
 
-    // MARK - XAxis Inset/Outset relationship
+    // MARK: - XAxis Inset/Outset relationship
     func testView1LeadingInsetFromLeading() {
         let constraints = view1.leading ≥≤ relatedView.leadingAnchor
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading)
@@ -53,7 +53,7 @@ class RelativeLayoutRelationshipTests: LaymanTestCase {
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing)
     }
 
-    // MARK - XAxisArray Inset/Outset relationship
+    // MARK: - XAxisArray Inset/Outset relationship
     func testViewArrayLeadingInsetFromLeading() {
         let constraints = viewArray.leading ≥≤ relatedView.leadingAnchor
         constraints.assert(viewArray, .leading, .greaterThanOrEqual, relatedView, .leading)
@@ -74,7 +74,7 @@ class RelativeLayoutRelationshipTests: LaymanTestCase {
         constraints.assert(viewArray, .trailing, .greaterThanOrEqual, relatedView, .trailing)
     }
 
-    // MARK - YAxisArray Inset/Outset relationship
+    // MARK: - YAxisArray Inset/Outset relationship
     func testViewArrayTopInsetFromTop() {
         let constraints = viewArray.top ≥≤ relatedView.topAnchor
         constraints.assert(viewArray, .top, .greaterThanOrEqual, relatedView, .top)
@@ -95,9 +95,9 @@ class RelativeLayoutRelationshipTests: LaymanTestCase {
         constraints.assert(viewArray, .bottom, .greaterThanOrEqual, relatedView, .bottom)
     }
 
-    // MARK - Inferred Anchor Inset/Outset relationship
+    // MARK: - Inferred Anchor Inset/Outset relationship
 
-    //MARK: Inferred XAxisAnchor
+    // MARK: Inferred XAxisAnchor
     func testInferredView1LeadingInsetFromLeading() {
         let constraints = view1 ≥≤ relatedView.leadingAnchor
         constraints.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading)
@@ -138,7 +138,7 @@ class RelativeLayoutRelationshipTests: LaymanTestCase {
         constraints.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing)
     }
 
-    //MARK - Inferred YAxisAnchor
+    // MARK: - Inferred YAxisAnchor
     func testInferredView1TopInsetFromTop() {
         let constraints = view1 ≥≤ relatedView.topAnchor
         constraints.assert(view1, .top, .greaterThanOrEqual, relatedView, .top)
@@ -179,7 +179,7 @@ class RelativeLayoutRelationshipTests: LaymanTestCase {
         constraints.assert(view1, .bottom, .greaterThanOrEqual, relatedView, .bottom)
     }
 
-    // MARK - Inferred Array
+    // MARK: - Inferred Array
     func testInferredViewArrayTopInsetFromTop() {
         let constraints = viewArray ≥≤ relatedView.topAnchor
         constraints.assert(viewArray, .top, .greaterThanOrEqual, relatedView, .top)

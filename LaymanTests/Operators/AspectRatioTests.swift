@@ -74,5 +74,17 @@ func testAmbiguityCheckValidSize() {
         aspectRatioConstraint.assert(view1, .width, .equal, view1, .height, multiplier: 9.0/16.0)
     }
 
+    func testInferredAspectRatio() {
+        view1.widthAnchor .= 160
+        let aspectRatioConstraint = view1 .= .wide
+        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 16.0/9.0)
+    }
+
+    func testInferredAspectRatioConfiguration() {
+        view1.widthAnchor .= 160
+        let aspectRatioConstraint = view1 .= .wide ~ .low
+        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 16.0/9.0, priority: .low)
+    }
+
 // sourcery:end
 }

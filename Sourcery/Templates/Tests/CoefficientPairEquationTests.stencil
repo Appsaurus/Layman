@@ -1,0 +1,46 @@
+{% set addition argument.arithmeticOperators.addition %}
+{% set subtraction argument.arithmeticOperators.subtraction %}
+{% set multiplication argument.arithmeticOperators.multiplication %}
+{% set division argument.arithmeticOperators.division %}
+{% set firstConstant 100 %}
+{% set secondConstant 200 %}
+{% set percentage 75 %}
+{% for type in types.all|annotated:"coefficientPairEquatableTest" %}
+// sourcery:inline:auto:{{type.name}}.CoefficientPairEquatableTest
+{% for lhsItem in type.annotations.lhsItems %}
+{% for lhsAttribute in type.annotations.lhsAttributes %}
+{% for operatorName in argument.operators %}
+{% set operator %}{{argument.operators[operatorName]}}{% endset %}
+{% set baseFunctionName %}test{{lhsItem|upperFirstLetter}}{{lhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}{% endset %}
+{% set baseLhs %}{{lhsItem}}.{{lhsAttribute}}{% endset %}
+{% set baseRhs %}({{firstConstant}}, {{secondConstant}}){% endset %}
+{% set baseEquation %}{{baseLhs}} {{operator}} {{baseRhs}}{% endset %}
+{% set firstAttribute type.annotations[lhsAttribute][0] %}
+{% set secondAttribute type.annotations[lhsAttribute][1] %}
+    func {{baseFunctionName}}ToConstantPair() {
+        let constraints = {{baseLhs}} {{operator}} ({{firstConstant}}, {{secondConstant}})
+        {% if lhsAttribute == "size" %}
+        constraints.first.assert({{lhsItem}}, .{{firstAttribute}}, .{{operatorName}}, constant: {{firstConstant}})
+        constraints.second.assert({{lhsItem}}, .{{secondAttribute}}, .{{operatorName}}, constant: {{secondConstant}})
+        {% else %}
+        constraints.first.assert({{lhsItem}}, .{{firstAttribute}}, .{{operatorName}}, parentView, .{{firstAttribute}}, constant: {{firstConstant}})
+        constraints.second.assert({{lhsItem}}, .{{secondAttribute}}, .{{operatorName}}, parentView, .{{secondAttribute}}, constant: {{secondConstant}})
+        {% endif %}
+    }
+
+    func {{baseFunctionName}}ToCoefficientPair() {
+        let constraints = {{baseLhs}} {{operator}} ({{firstConstant}} ~ .low, {{secondConstant}} ~ .high)
+        {% if lhsAttribute == "size" %}
+        constraints.first.assert({{lhsItem}}, .{{firstAttribute}}, .{{operatorName}}, constant: {{firstConstant}}, priority: .low)
+        constraints.second.assert({{lhsItem}}, .{{secondAttribute}}, .{{operatorName}}, constant: {{secondConstant}}, priority: .high)
+        {% else %}
+        constraints.first.assert({{lhsItem}}, .{{firstAttribute}}, .{{operatorName}}, parentView, .{{firstAttribute}}, constant: {{firstConstant}}, priority: .low)
+        constraints.second.assert({{lhsItem}}, .{{secondAttribute}}, .{{operatorName}}, parentView, .{{secondAttribute}}, constant: {{secondConstant}}, priority: .high)
+        {% endif %}
+    }
+{% endfor %}
+{% endfor %}
+{% endfor %}
+// sourcery:end
+{% endfor %}
+

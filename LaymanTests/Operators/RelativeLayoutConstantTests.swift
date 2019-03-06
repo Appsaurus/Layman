@@ -11,7 +11,7 @@ import XCTest
 
 class RelativeLayoutConstantTests: LaymanTestCase {
 
-    // MARK - XAxis == Inset/Outset
+    // MARK: - XAxis == Inset/Outset
     func testView1LeadingEqualToConstantInset() {
         let constraints = view1.leadingAnchor .= .inset(200)
         constraints.assert(view1, .leading, .equal, parentView, .leading, constant: 200)
@@ -32,7 +32,7 @@ class RelativeLayoutConstantTests: LaymanTestCase {
         constraints.assert(view1, .trailing, .equal, parentView, .trailing, constant: 200)
     }
 
-    // MARK - YAxis == Inset/Outset
+    // MARK: - YAxis == Inset/Outset
 
     func testView1TopEqualToConstantInset() {
         let constraints = view1.topAnchor .= .inset(200)
@@ -54,7 +54,7 @@ class RelativeLayoutConstantTests: LaymanTestCase {
         constraints.assert(view1, .bottom, .equal, parentView, .bottom, constant: 200)
     }
 
-    // MARK - XAxisArray == Inset/Outset
+    // MARK: - XAxisArray == Inset/Outset
     func testViewArrayLeadingEqualToConstantInset() {
         let constraints = view1.leadingAnchor .= .inset(200)
         constraints.assert(view1, .leading, .equal, parentView, .leading, constant: 200)
@@ -75,7 +75,7 @@ class RelativeLayoutConstantTests: LaymanTestCase {
         constraints.assert(view1, .trailing, .equal, parentView, .trailing, constant: 200)
     }
 
-    // MARK - YAxisArray == Inset/Outset
+    // MARK: - YAxisArray == Inset/Outset
     func testViewArrayTopEqualToConstantInset() {
         let constraints = viewArray.topAnchor .= .inset(200)
         constraints.assert(viewArray, .top, .equal, parentView, .top, constant: 200)

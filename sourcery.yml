@@ -45,7 +45,7 @@ args:
     CoefficientsEquatable:
         LeftHandTypes:
             - 'anchorPairTypes'
-            - 'anchorGroupTypes'
+            - 'inferrableAnchorTypes'
         RightHandTypes:
             - 'LayoutCoefficientTuple'
             - 'LayoutConstantTuple'
