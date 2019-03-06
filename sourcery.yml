@@ -33,22 +33,33 @@ args:
     - 'anchorGroupTypes'
   equationProtocols:
     CoefficientEquatable:
-        LeftHandTypes: 'allAnchorTypes'
+        LeftHandTypes:
+            - 'anchorTypes'
+            - 'anchorPairTypes'
         RightHandTypes:
             - 'LayoutConstant'
             - 'LayoutCoefficient'
             - 'LayoutMultiplier'
             - 'RelativeLayoutConstant'
+        Equation: 'LinearEquation'
     CoefficientsEquatable:
-        LeftHandTypes: 'multiAnchorTypes'
+        LeftHandTypes:
+            - 'anchorPairTypes'
+            - 'anchorGroupTypes'
         RightHandTypes:
             - 'LayoutCoefficientTuple'
             - 'LayoutConstantTuple'
             - 'RelativeLayoutConstantTuple'
     LayoutSizeEquatable:
-        LeftHandTypes: 'anchorSizeTypes'
+        LeftHandTypes:
+            - 'anchorSizeTypes'
         RightHandTypes:
             - 'LayoutSize'
+    EdgeAnchorsGroupCoefficientsEquatable:
+        LeftHandTypes:
+            - 'anchorGroupTypes'
+        RightHandTypes:
+            - 'EdgeAnchorsGroupCoefficients'
   operators:
     equal: '.='
     lessThanOrEqual: '≤'

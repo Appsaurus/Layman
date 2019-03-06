@@ -8,83 +8,83 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol LayoutSizeEquatable: LinearEquationTyped {
-    func relation(_ relation: LayoutRelation, _ rhs: LayoutSize) -> LinearEquation
+public protocol EdgeAnchorsGroupCoefficientsEquatable: LinearEquationTyped {
+    func relation(_ relation: LayoutRelation, _ rhs: EdgeAnchorsGroupCoefficients) -> LinearEquation
 }
-// MARK: Anchor <=> LayoutSize
-extension LayoutSizeEquatable {
+// MARK: Anchor <=> EdgeAnchorsGroupCoefficients
+extension EdgeAnchorsGroupCoefficientsEquatable {
 
     // MARK: - Equal
 
     @discardableResult
-    public func equal(to rhs: LayoutSize) -> Solution {
+    public func equal(to rhs: EdgeAnchorsGroupCoefficients) -> Solution {
         return relation(.equal, rhs).solution
     }
 
     // MARK: - LessThanOrEqual
 
     @discardableResult
-    public func lessThanOrEqual(to rhs: LayoutSize) -> Solution {
+    public func lessThanOrEqual(to rhs: EdgeAnchorsGroupCoefficients) -> Solution {
         return relation(.lessThanOrEqual, rhs).solution
     }
 
     // MARK: - GreaterThanOrEqual
 
     @discardableResult
-    public func greaterThanOrEqual(to rhs: LayoutSize) -> Solution {
+    public func greaterThanOrEqual(to rhs: EdgeAnchorsGroupCoefficients) -> Solution {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
     // MARK: - InsetOrEqual
 
     @discardableResult
-    public func insetOrEqual(to rhs: LayoutSize) -> Solution {
+    public func insetOrEqual(to rhs: EdgeAnchorsGroupCoefficients) -> Solution {
         return relation(.insetOrEqual, rhs).solution
     }
 
     // MARK: - OutsetOrEqual
 
     @discardableResult
-    public func outsetOrEqual(to rhs: LayoutSize) -> Solution {
+    public func outsetOrEqual(to rhs: EdgeAnchorsGroupCoefficients) -> Solution {
         return relation(.outsetOrEqual, rhs).solution
     }
 }
 
-// MARK: Collection <=> LayoutSize
-extension Collection where Element: LayoutSizeEquatable {
+// MARK: Collection <=> EdgeAnchorsGroupCoefficients
+extension Collection where Element: EdgeAnchorsGroupCoefficientsEquatable {
 
     // MARK: - Equal
 
     @discardableResult
-    public func equal(to rhs: LayoutSize) -> [Element.Solution] {
+    public func equal(to rhs: EdgeAnchorsGroupCoefficients) -> [Element.Solution] {
         return map { $0.equal(to: rhs) }
     }
 
     // MARK: - LessThanOrEqual
 
     @discardableResult
-    public func lessThanOrEqual(to rhs: LayoutSize) -> [Element.Solution] {
+    public func lessThanOrEqual(to rhs: EdgeAnchorsGroupCoefficients) -> [Element.Solution] {
         return map { $0.lessThanOrEqual(to: rhs) }
     }
 
     // MARK: - GreaterThanOrEqual
 
     @discardableResult
-    public func greaterThanOrEqual(to rhs: LayoutSize) -> [Element.Solution] {
+    public func greaterThanOrEqual(to rhs: EdgeAnchorsGroupCoefficients) -> [Element.Solution] {
         return map { $0.greaterThanOrEqual(to: rhs) }
     }
 
     // MARK: - InsetOrEqual
 
     @discardableResult
-    public func insetOrEqual(to rhs: LayoutSize) -> [Element.Solution] {
+    public func insetOrEqual(to rhs: EdgeAnchorsGroupCoefficients) -> [Element.Solution] {
         return map { $0.insetOrEqual(to: rhs) }
     }
 
     // MARK: - OutsetOrEqual
 
     @discardableResult
-    public func outsetOrEqual(to rhs: LayoutSize) -> [Element.Solution] {
+    public func outsetOrEqual(to rhs: EdgeAnchorsGroupCoefficients) -> [Element.Solution] {
         return map { $0.outsetOrEqual(to: rhs) }
     }
 }

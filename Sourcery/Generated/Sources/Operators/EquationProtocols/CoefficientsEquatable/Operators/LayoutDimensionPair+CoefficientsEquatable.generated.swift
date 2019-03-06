@@ -29,6 +29,19 @@ public func ≤ (lhs: LayoutDimensionPair, rhs: LayoutCoefficientTuple) -> Layou
 public func ≥ (lhs: LayoutDimensionPair, rhs: LayoutCoefficientTuple) -> LayoutDimensionPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: LayoutDimensionPair, rhs: LayoutCoefficientTuple) -> LayoutDimensionPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: LayoutDimensionPair, rhs: LayoutCoefficientTuple) -> LayoutDimensionPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: LayoutDimensionPair Array <=> LayoutCoefficientTuple
 
 // MARK: - Equal
@@ -54,6 +67,18 @@ public func ≤ (lhs: [LayoutDimensionPair], rhs: LayoutCoefficientTuple) -> [La
 public func ≥ (lhs: [LayoutDimensionPair], rhs: LayoutCoefficientTuple) -> [LayoutDimensionPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [LayoutDimensionPair], rhs: LayoutCoefficientTuple) -> [LayoutDimensionPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [LayoutDimensionPair], rhs: LayoutCoefficientTuple) -> [LayoutDimensionPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 // MARK: LayoutDimensionPair <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -76,6 +101,19 @@ public func ≤ (lhs: LayoutDimensionPair, rhs: LayoutConstantTuple) -> LayoutDi
 public func ≥ (lhs: LayoutDimensionPair, rhs: LayoutConstantTuple) -> LayoutDimensionPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: LayoutDimensionPair, rhs: LayoutConstantTuple) -> LayoutDimensionPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: LayoutDimensionPair, rhs: LayoutConstantTuple) -> LayoutDimensionPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: LayoutDimensionPair Array <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -101,6 +139,18 @@ public func ≤ (lhs: [LayoutDimensionPair], rhs: LayoutConstantTuple) -> [Layou
 public func ≥ (lhs: [LayoutDimensionPair], rhs: LayoutConstantTuple) -> [LayoutDimensionPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [LayoutDimensionPair], rhs: LayoutConstantTuple) -> [LayoutDimensionPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [LayoutDimensionPair], rhs: LayoutConstantTuple) -> [LayoutDimensionPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 // MARK: LayoutDimensionPair <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -123,6 +173,19 @@ public func ≤ (lhs: LayoutDimensionPair, rhs: RelativeLayoutConstantTuple) -> 
 public func ≥ (lhs: LayoutDimensionPair, rhs: RelativeLayoutConstantTuple) -> LayoutDimensionPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: LayoutDimensionPair, rhs: RelativeLayoutConstantTuple) -> LayoutDimensionPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: LayoutDimensionPair, rhs: RelativeLayoutConstantTuple) -> LayoutDimensionPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: LayoutDimensionPair Array <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -147,4 +210,16 @@ public func ≤ (lhs: [LayoutDimensionPair], rhs: RelativeLayoutConstantTuple) -
 @discardableResult
 public func ≥ (lhs: [LayoutDimensionPair], rhs: RelativeLayoutConstantTuple) -> [LayoutDimensionPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [LayoutDimensionPair], rhs: RelativeLayoutConstantTuple) -> [LayoutDimensionPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [LayoutDimensionPair], rhs: RelativeLayoutConstantTuple) -> [LayoutDimensionPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
 }

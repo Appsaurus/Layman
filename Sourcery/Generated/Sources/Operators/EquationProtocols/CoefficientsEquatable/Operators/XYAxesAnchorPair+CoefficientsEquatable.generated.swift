@@ -29,6 +29,19 @@ public func ≤ (lhs: XYAxesAnchorPair, rhs: LayoutCoefficientTuple) -> XYAxesAn
 public func ≥ (lhs: XYAxesAnchorPair, rhs: LayoutCoefficientTuple) -> XYAxesAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: XYAxesAnchorPair, rhs: LayoutCoefficientTuple) -> XYAxesAnchorPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: XYAxesAnchorPair, rhs: LayoutCoefficientTuple) -> XYAxesAnchorPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: XYAxesAnchorPair Array <=> LayoutCoefficientTuple
 
 // MARK: - Equal
@@ -54,6 +67,18 @@ public func ≤ (lhs: [XYAxesAnchorPair], rhs: LayoutCoefficientTuple) -> [XYAxe
 public func ≥ (lhs: [XYAxesAnchorPair], rhs: LayoutCoefficientTuple) -> [XYAxesAnchorPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [XYAxesAnchorPair], rhs: LayoutCoefficientTuple) -> [XYAxesAnchorPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: LayoutCoefficientTuple) -> [XYAxesAnchorPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 // MARK: XYAxesAnchorPair <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -76,6 +101,19 @@ public func ≤ (lhs: XYAxesAnchorPair, rhs: LayoutConstantTuple) -> XYAxesAncho
 public func ≥ (lhs: XYAxesAnchorPair, rhs: LayoutConstantTuple) -> XYAxesAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: XYAxesAnchorPair, rhs: LayoutConstantTuple) -> XYAxesAnchorPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: XYAxesAnchorPair, rhs: LayoutConstantTuple) -> XYAxesAnchorPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: XYAxesAnchorPair Array <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -101,6 +139,18 @@ public func ≤ (lhs: [XYAxesAnchorPair], rhs: LayoutConstantTuple) -> [XYAxesAn
 public func ≥ (lhs: [XYAxesAnchorPair], rhs: LayoutConstantTuple) -> [XYAxesAnchorPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [XYAxesAnchorPair], rhs: LayoutConstantTuple) -> [XYAxesAnchorPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: LayoutConstantTuple) -> [XYAxesAnchorPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 // MARK: XYAxesAnchorPair <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -123,6 +173,19 @@ public func ≤ (lhs: XYAxesAnchorPair, rhs: RelativeLayoutConstantTuple) -> XYA
 public func ≥ (lhs: XYAxesAnchorPair, rhs: RelativeLayoutConstantTuple) -> XYAxesAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: XYAxesAnchorPair, rhs: RelativeLayoutConstantTuple) -> XYAxesAnchorPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: XYAxesAnchorPair, rhs: RelativeLayoutConstantTuple) -> XYAxesAnchorPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: XYAxesAnchorPair Array <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -147,4 +210,16 @@ public func ≤ (lhs: [XYAxesAnchorPair], rhs: RelativeLayoutConstantTuple) -> [
 @discardableResult
 public func ≥ (lhs: [XYAxesAnchorPair], rhs: RelativeLayoutConstantTuple) -> [XYAxesAnchorPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [XYAxesAnchorPair], rhs: RelativeLayoutConstantTuple) -> [XYAxesAnchorPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [XYAxesAnchorPair], rhs: RelativeLayoutConstantTuple) -> [XYAxesAnchorPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
 }

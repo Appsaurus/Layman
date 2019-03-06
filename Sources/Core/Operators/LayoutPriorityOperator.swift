@@ -25,6 +25,11 @@ public func ~ (lhs: LayoutConstant, rhs: LayoutPriority) -> LayoutCoefficient {
 }
 
 @discardableResult
+public func ~ (lhs: RelativeLayoutConstant, rhs: LayoutPriority) -> LayoutCoefficient {
+    return LayoutCoefficient().with(relativeConstant: lhs).priority(rhs)
+}
+
+@discardableResult
 public func ~ (lhs: LayoutMultiplier, rhs: LayoutPriority) -> LayoutCoefficient {
     return LayoutCoefficient().times(lhs).priority(rhs)
 }
@@ -48,6 +53,11 @@ public func ~ (lhs: LayoutAspectRatio, rhs: LayoutPriority) -> LayoutAspectRatio
 
 @discardableResult
 public func ~ (lhs: LayoutPadding, rhs: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
+    return lhs.priority(rhs)
+}
+
+@discardableResult
+public func ~ (lhs: RelativeLayoutPadding, rhs: LayoutPriority) -> EdgeAnchorsGroupCoefficients {
     return lhs.priority(rhs)
 }
 

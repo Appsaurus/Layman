@@ -9,11 +9,13 @@
 //
 
 public protocol {{EquationProtocol}}: LinearEquationTyped {
-{% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"] %}
+{% set EquationProtocolDefinition argument.equationProtocols[EquationProtocol] %}
+{% set RightHandTypes EquationProtocolDefinition["RightHandTypes"] %}
+{% for RightHandType in RightHandTypes %}
     func relation(_ relation: LayoutRelation, _ rhs: {{RightHandType}}) -> LinearEquation
 {% endfor %}
 }
-{% for RightHandType in argument.equationProtocols[EquationProtocol]["RightHandTypes"]  %}
+{% for RightHandType in RightHandTypes  %}
 // MARK: Anchor <=> {{RightHandType}}
 extension {{EquationProtocol}} {
 
@@ -38,12 +40,26 @@ extension {{EquationProtocol}} {
         return relation(.greaterThanOrEqual, rhs).solution
     }
 
+    // MARK: - InsetOrEqual
+
+    @discardableResult
+    public func insetOrEqual(to rhs: {{RightHandType}}) -> Solution {
+        return relation(.insetOrEqual, rhs).solution
+    }
+
+    // MARK: - OutsetOrEqual
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: {{RightHandType}}) -> Solution {
+        return relation(.outsetOrEqual, rhs).solution
+    }
 }
 
 // MARK: Collection <=> {{RightHandType}}
 extension Collection where Element: {{EquationProtocol}} {
+
     // MARK: - Equal
-    // MARK: Collection == Expression
+
     @discardableResult
     public func equal(to rhs: {{RightHandType}}) -> [Element.Solution] {
         return map { $0.equal(to: rhs) }
@@ -51,7 +67,6 @@ extension Collection where Element: {{EquationProtocol}} {
 
     // MARK: - LessThanOrEqual
 
-    // MARK: Collection <= Expression
     @discardableResult
     public func lessThanOrEqual(to rhs: {{RightHandType}}) -> [Element.Solution] {
         return map { $0.lessThanOrEqual(to: rhs) }
@@ -59,10 +74,23 @@ extension Collection where Element: {{EquationProtocol}} {
 
     // MARK: - GreaterThanOrEqual
 
-    // MARK: Collection >= Expression
     @discardableResult
     public func greaterThanOrEqual(to rhs: {{RightHandType}}) -> [Element.Solution] {
         return map { $0.greaterThanOrEqual(to: rhs) }
+    }
+
+    // MARK: - InsetOrEqual
+
+    @discardableResult
+    public func insetOrEqual(to rhs: {{RightHandType}}) -> [Element.Solution] {
+        return map { $0.insetOrEqual(to: rhs) }
+    }
+
+    // MARK: - OutsetOrEqual
+
+    @discardableResult
+    public func outsetOrEqual(to rhs: {{RightHandType}}) -> [Element.Solution] {
+        return map { $0.outsetOrEqual(to: rhs) }
     }
 }
 {% endfor %}

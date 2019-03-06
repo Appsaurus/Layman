@@ -5,12 +5,15 @@
 {% set subtraction argument.arithmeticOperators.subtraction %}
 {% set multiplication argument.arithmeticOperators.multiplication %}
 {% set division argument.arithmeticOperators.division %}
+{% set insetOrEqual %}{{greaterThanOrEqual}}{{lessThanOrEqual}}{% endset %}
+{% set outsetOrEqual %}{{lessThanOrEqual}}{{greaterThanOrEqual}}{% endset %}
 
 {% for EquationProtocol in argument.equationProtocols %}
-{% set RelationshipType %}{{argument.equationProtocols[EquationProtocol]["RelationshipType"]}}{% endset %}
-{% set LeftHandTypeGroup argument.equationProtocols[EquationProtocol]["LeftHandTypes"] %}
-{% for LeftHandTypes in argument[LeftHandTypeGroup] %}
-{% for LeftHandType in argument[LeftHandTypes] %}
+{% set EquationProtocolDefinition argument.equationProtocols[EquationProtocol] %}
+{% set RelationshipType EquationProtocolDefinition["RelationshipType"] %}
+{% set LeftHandTypeArray EquationProtocolDefinition["LeftHandTypes"] %}
+{% for LeftHandTypeGroup in LeftHandTypeArray %}
+{% for LeftHandType in argument[LeftHandTypeGroup] %}
 //  sourcery:file:Sources/Operators/EquationProtocols/{{EquationProtocol}}/Operators/{{LeftHandType}}+{{EquationProtocol}}
 //
 //  Layman
@@ -41,6 +44,19 @@ public func {{lessThanOrEqual}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) 
 public func {{greaterThanOrEqual}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{LeftHandType}}.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func {{insetOrEqual}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{LeftHandType}}.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func {{outsetOrEqual}} (lhs: {{LeftHandType}}, rhs: {{RightHandType}}) -> {{LeftHandType}}.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: {{LeftHandType}} Array <=> {{RightHandType}}
 
 // MARK: - Equal
@@ -66,9 +82,20 @@ public func {{lessThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}
 public func {{greaterThanOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{LeftHandType}}.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func {{insetOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{LeftHandType}}.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func {{outsetOrEqual}} (lhs: [{{LeftHandType}}], rhs: {{RightHandType}}) -> [{{LeftHandType}}.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 {% endfor %}
 // sourcery:end
 {% endfor %}
 {% endfor %}
 {% endfor %}
-

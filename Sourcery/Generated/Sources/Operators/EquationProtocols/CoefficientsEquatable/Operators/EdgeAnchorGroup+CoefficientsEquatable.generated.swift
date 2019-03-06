@@ -29,6 +29,19 @@ public func ≤ (lhs: EdgeAnchorGroup, rhs: LayoutCoefficientTuple) -> EdgeAncho
 public func ≥ (lhs: EdgeAnchorGroup, rhs: LayoutCoefficientTuple) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: EdgeAnchorGroup, rhs: LayoutCoefficientTuple) -> EdgeAnchorGroup.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: EdgeAnchorGroup, rhs: LayoutCoefficientTuple) -> EdgeAnchorGroup.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: EdgeAnchorGroup Array <=> LayoutCoefficientTuple
 
 // MARK: - Equal
@@ -54,6 +67,18 @@ public func ≤ (lhs: [EdgeAnchorGroup], rhs: LayoutCoefficientTuple) -> [EdgeAn
 public func ≥ (lhs: [EdgeAnchorGroup], rhs: LayoutCoefficientTuple) -> [EdgeAnchorGroup.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [EdgeAnchorGroup], rhs: LayoutCoefficientTuple) -> [EdgeAnchorGroup.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [EdgeAnchorGroup], rhs: LayoutCoefficientTuple) -> [EdgeAnchorGroup.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 // MARK: EdgeAnchorGroup <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -76,6 +101,19 @@ public func ≤ (lhs: EdgeAnchorGroup, rhs: LayoutConstantTuple) -> EdgeAnchorGr
 public func ≥ (lhs: EdgeAnchorGroup, rhs: LayoutConstantTuple) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: EdgeAnchorGroup, rhs: LayoutConstantTuple) -> EdgeAnchorGroup.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: EdgeAnchorGroup, rhs: LayoutConstantTuple) -> EdgeAnchorGroup.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: EdgeAnchorGroup Array <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -101,6 +139,18 @@ public func ≤ (lhs: [EdgeAnchorGroup], rhs: LayoutConstantTuple) -> [EdgeAncho
 public func ≥ (lhs: [EdgeAnchorGroup], rhs: LayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [EdgeAnchorGroup], rhs: LayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [EdgeAnchorGroup], rhs: LayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 // MARK: EdgeAnchorGroup <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -123,6 +173,19 @@ public func ≤ (lhs: EdgeAnchorGroup, rhs: RelativeLayoutConstantTuple) -> Edge
 public func ≥ (lhs: EdgeAnchorGroup, rhs: RelativeLayoutConstantTuple) -> EdgeAnchorGroup.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: EdgeAnchorGroup, rhs: RelativeLayoutConstantTuple) -> EdgeAnchorGroup.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: EdgeAnchorGroup, rhs: RelativeLayoutConstantTuple) -> EdgeAnchorGroup.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: EdgeAnchorGroup Array <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -147,4 +210,16 @@ public func ≤ (lhs: [EdgeAnchorGroup], rhs: RelativeLayoutConstantTuple) -> [E
 @discardableResult
 public func ≥ (lhs: [EdgeAnchorGroup], rhs: RelativeLayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [EdgeAnchorGroup], rhs: RelativeLayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [EdgeAnchorGroup], rhs: RelativeLayoutConstantTuple) -> [EdgeAnchorGroup.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
 }

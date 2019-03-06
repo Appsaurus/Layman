@@ -183,14 +183,22 @@ internal prefix func ... (_ anchorPair: XYAxesAnchorPair) -> KeyPath<LayoutAncho
     let firstAnchorAttribute = anchorPair.first.attribute
     let secondAnchorAttribute = anchorPair.second.attribute
     switch (firstAnchorAttribute, secondAnchorAttribute) {
+    case (.leading, .top):
+        return \.topLeadingAnchors
+    case (.trailing, .top):
+        return \.topTrailingAnchors
+    case (.leading, .bottom):
+        return \.bottomLeadingAnchors
+    case (.trailing, .bottom):
+        return \.bottomTrailingAnchors
     case (.left, .top):
         return \.topLeftAnchors
     case (.right, .top):
         return \.topRightAnchors
-    case (.right, .bottom):
-        return \.bottomRightAnchors
     case (.left, .bottom):
         return \.bottomLeftAnchors
+    case (.right, .bottom):
+        return \.bottomRightAnchors
     case (.centerX, .centerY):
         return \.centerAnchors
     default:

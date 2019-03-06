@@ -29,6 +29,19 @@ public func ≤ (lhs: XAxisAnchorPair, rhs: LayoutCoefficientTuple) -> XAxisAnch
 public func ≥ (lhs: XAxisAnchorPair, rhs: LayoutCoefficientTuple) -> XAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: XAxisAnchorPair, rhs: LayoutCoefficientTuple) -> XAxisAnchorPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: XAxisAnchorPair, rhs: LayoutCoefficientTuple) -> XAxisAnchorPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: XAxisAnchorPair Array <=> LayoutCoefficientTuple
 
 // MARK: - Equal
@@ -54,6 +67,18 @@ public func ≤ (lhs: [XAxisAnchorPair], rhs: LayoutCoefficientTuple) -> [XAxisA
 public func ≥ (lhs: [XAxisAnchorPair], rhs: LayoutCoefficientTuple) -> [XAxisAnchorPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [XAxisAnchorPair], rhs: LayoutCoefficientTuple) -> [XAxisAnchorPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [XAxisAnchorPair], rhs: LayoutCoefficientTuple) -> [XAxisAnchorPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 // MARK: XAxisAnchorPair <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -76,6 +101,19 @@ public func ≤ (lhs: XAxisAnchorPair, rhs: LayoutConstantTuple) -> XAxisAnchorP
 public func ≥ (lhs: XAxisAnchorPair, rhs: LayoutConstantTuple) -> XAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: XAxisAnchorPair, rhs: LayoutConstantTuple) -> XAxisAnchorPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: XAxisAnchorPair, rhs: LayoutConstantTuple) -> XAxisAnchorPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: XAxisAnchorPair Array <=> LayoutConstantTuple
 
 // MARK: - Equal
@@ -101,6 +139,18 @@ public func ≤ (lhs: [XAxisAnchorPair], rhs: LayoutConstantTuple) -> [XAxisAnch
 public func ≥ (lhs: [XAxisAnchorPair], rhs: LayoutConstantTuple) -> [XAxisAnchorPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [XAxisAnchorPair], rhs: LayoutConstantTuple) -> [XAxisAnchorPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [XAxisAnchorPair], rhs: LayoutConstantTuple) -> [XAxisAnchorPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
+}
 // MARK: XAxisAnchorPair <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -123,6 +173,19 @@ public func ≤ (lhs: XAxisAnchorPair, rhs: RelativeLayoutConstantTuple) -> XAxi
 public func ≥ (lhs: XAxisAnchorPair, rhs: RelativeLayoutConstantTuple) -> XAxisAnchorPair.Solution {
     return lhs.greaterThanOrEqual(to: rhs)
 }
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: XAxisAnchorPair, rhs: RelativeLayoutConstantTuple) -> XAxisAnchorPair.Solution {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: XAxisAnchorPair, rhs: RelativeLayoutConstantTuple) -> XAxisAnchorPair.Solution {
+    return lhs.outsetOrEqual(to: rhs)
+}
+
 // MARK: XAxisAnchorPair Array <=> RelativeLayoutConstantTuple
 
 // MARK: - Equal
@@ -147,4 +210,16 @@ public func ≤ (lhs: [XAxisAnchorPair], rhs: RelativeLayoutConstantTuple) -> [X
 @discardableResult
 public func ≥ (lhs: [XAxisAnchorPair], rhs: RelativeLayoutConstantTuple) -> [XAxisAnchorPair.Solution] {
     return lhs.greaterThanOrEqual(to: rhs)
+}
+
+// MARK: - InsetOrEqual
+@discardableResult
+public func ≥≤ (lhs: [XAxisAnchorPair], rhs: RelativeLayoutConstantTuple) -> [XAxisAnchorPair.Solution] {
+    return lhs.insetOrEqual(to: rhs)
+}
+
+// MARK: - OutsetOrEqual
+@discardableResult
+public func ≤≥ (lhs: [XAxisAnchorPair], rhs: RelativeLayoutConstantTuple) -> [XAxisAnchorPair.Solution] {
+    return lhs.outsetOrEqual(to: rhs)
 }
