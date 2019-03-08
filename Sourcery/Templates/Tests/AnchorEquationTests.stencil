@@ -8,14 +8,14 @@
 {% set divisor 2 %}
 
 
-{% macro generateTests lhs lhsItem lhsAttribute rhsAttribute functionNamePrefix %}
-    // MARK: {{lhs}}{{lhsAttribute|upperFirstLetter}} <=> relatedView{{rhsAttribute|upperFirstLetter}}
+{% macro generateTests lhs lhsItem lhsAttribute rhsItem rhsAttribute functionNamePrefix %}
+    // MARK: {{lhs}}{{lhsAttribute|upperFirstLetter}} <=> {{rhsItem}}{{rhsAttribute|upperFirstLetter}}
 {% for operatorName in argument.operators %}
 {% set operator %}{{argument.operators[operatorName]}}{% endset %}
-{% set baseFunctionName %}test{{functionNamePrefix}}{{lhsItem|upperFirstLetter}}{{lhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}To{{rhsAttribute|upperFirstLetter}}{% endset %}
-{% set baseRhs %}relatedView.{{rhsAttribute}}Anchor{% endset %}
+{% set baseFunctionName %}test{{functionNamePrefix}}{{lhsItem|upperFirstLetter}}{{lhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}To{{rhsItem}}{{rhsAttribute|upperFirstLetter}}{% endset %}
+{% set baseRhs %}{{rhsItem}}.{{rhsAttribute}}Anchor{% endset %}
 {% set baseEquation %}{{lhs}} {{operator}} {{baseRhs}}{% endset %}
-{% set baseAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, relatedView, .{{rhsAttribute}}{% endset %}
+{% set baseAssertion %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, {{rhsItem}}, .{{rhsAttribute}}{% endset %}
     // MARK: {{operatorName|upperFirstLetter}}
 
     func {{baseFunctionName}}() {
@@ -25,7 +25,7 @@
 
 {% if lhsAttribute == rhsAttribute %}
     func {{baseFunctionName}}InversedInference() {
-        let constraints = {{lhsItem}}.{{rhsAttribute}}Anchor {{operator}} relatedView
+        let constraints = {{lhsItem}}.{{rhsAttribute}}Anchor {{operator}} {{rhsItem}}
         constraints.assert({{baseAssertion}})
     }
 {% endif %}
@@ -145,7 +145,8 @@
 {% for lhsAttribute in type.annotations.lhsAttributes %}
 {% for rhsAttribute in type.annotations.rhsAttributes %}
 {% set explicitLhs %}{{lhsItem}}.{{lhsAttribute}}{% endset %}
-{% call generateTests explicitLhs lhsItem lhsAttribute rhsAttribute "" %}
+{% call generateTests explicitLhs lhsItem lhsAttribute "relatedView" rhsAttribute "" %}
+{% call generateTests explicitLhs lhsItem lhsAttribute "relatedViewArray" rhsAttribute "" %}
 {% endfor %}
 {% endfor %}
 // sourcery:end
@@ -155,7 +156,8 @@
 // sourcery:inline:auto:{{type.name}}.InferredAnchorEquationTests
 {% for lhsItem in type.annotations.lhsItems %}
 {% for rhsAttribute in type.annotations.rhsAttributes %}
-{% call generateTests lhsItem lhsItem rhsAttribute rhsAttribute "Inferred" %}
+{% call generateTests lhsItem lhsItem rhsAttribute "relatedView" rhsAttribute "Inferred" %}
+{% call generateTests lhsItem lhsItem rhsAttribute "relatedViewArray" rhsAttribute "Inferred" %}
 {% endfor %}
 {% endfor %}
 // sourcery:end

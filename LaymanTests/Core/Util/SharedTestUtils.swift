@@ -24,6 +24,22 @@ extension Constraint {
     func assert(_ firstItem: (AnyObject & LayoutAnchorable)?,
                 _ firstAttribute: ConstraintAttribute?,
                 _ relation: Constraint.Relation,
+                _ secondItems: [(AnyObject & LayoutAnchorable)],
+                _ secondAttribute: ConstraintAttribute? = .notAnAttribute,
+                constant: LayoutConstant = 0.0,
+                multiplier: LayoutConstant = 1.0,
+                priority: LayoutPriority = .required,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        secondItems.forEach { [weak self] in
+            guard let self = self else { return }
+            self.assert(firstItem, firstAttribute, relation, $0, secondAttribute, constant: constant, multiplier: multiplier, priority: priority, file: file, line: line)
+        }
+    }
+
+    func assert(_ firstItem: (AnyObject & LayoutAnchorable)?,
+                _ firstAttribute: ConstraintAttribute?,
+                _ relation: Constraint.Relation,
                 _ secondItem: (AnyObject & LayoutAnchorable)? = nil,
                 _ secondAttribute: ConstraintAttribute? = .notAnAttribute,
                 constant: LayoutConstant = 0.0,
@@ -65,6 +81,70 @@ extension Collection where Element: Constraint {
                                         priority: priority,
                                         file: file,
                                         line: line)}
+    }
+
+    func assert(_ firstItem: (AnyObject & LayoutAnchorable)?,
+                _ firstAttribute: ConstraintAttribute?,
+                _ relation: Constraint.Relation,
+                _ secondItems: [(AnyObject & LayoutAnchorable)],
+                _ secondAttribute: ConstraintAttribute? = .notAnAttribute,
+                constant: LayoutConstant = 0.0,
+                multiplier: LayoutConstant = 1.0,
+                priority: LayoutPriority = .required,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        enumerated().forEach { indexedConstraint in
+            let secondItem = secondItems[indexedConstraint.offset]
+            indexedConstraint.element.assert(firstItem,
+                                             firstAttribute,
+                                             relation,
+                                             secondItem ,
+                                             secondAttribute,
+                                             constant: constant,
+                                             multiplier: multiplier,
+                                             priority: priority,
+                                             file: file,
+                                             line: line)
+        }
+
+    }
+
+}
+
+extension Array where Element: Collection, Element.Element == Constraint {
+    func assert(_ items: [(AnyObject & LayoutAnchorable)],
+                _ firstAttribute: ConstraintAttribute?,
+                _ relation: Constraint.Relation,
+                _ secondItems: [(AnyObject & LayoutAnchorable)],
+                _ secondAttribute: ConstraintAttribute? = .notAnAttribute,
+                constant: LayoutConstant = 0.0,
+                multiplier: LayoutConstant = 1.0,
+                priority: LayoutPriority = .required,
+                file: StaticString = #file,
+                line: UInt = #line) {
+        items.enumerated().forEach { indexedItem in
+            let matchingConstraints = self.first(where: { (array) -> Bool in
+                return array.contains(where: { (constraint) -> Bool in
+                    return constraint.firstItem === indexedItem.element
+                })
+            })
+
+            guard let constraints = matchingConstraints else {
+                XCTFail("Could not find constraints related to item \(indexedItem.element)")
+                return
+            }
+
+            constraints.assert(indexedItem.element,
+                               firstAttribute,
+                               relation,
+                               secondItems,
+                               secondAttribute,
+                               constant: constant,
+                               multiplier: multiplier,
+                               priority: priority,
+                               file: file,
+                               line: line)
+        }
     }
 }
 

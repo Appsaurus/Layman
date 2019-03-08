@@ -23,10 +23,16 @@ class LaymanTestCase: XCTestCase {
     let parentView = View()
     let view1 = View()
     let view2 = View()
+
     let relatedView = View()
+    let relatedView2 = View()
 
     var viewArray: [UIView] {
         return [view1, view2]
+    }
+
+    var relatedViewArray: [UIView] {
+        return [relatedView, relatedView2]
     }
     let window = Window()
 
@@ -38,7 +44,7 @@ class LaymanTestCase: XCTestCase {
         #else
         window.addSubview(parentView)
         #endif
-        [view1, view2, relatedView].forEach { (view) in
+        [view1, view2, relatedView, relatedView2].forEach { (view) in
             parentView.addSubview(view)
         }
 

@@ -178,154 +178,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToCenterXY() {
-        let constraints = view1.centerXY ≤ relatedView.centerXY
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToCenterXYPlusConstant() {
-        let constraints = view1.centerXY ≤ relatedView.centerXY .+ 10
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToCenterXYMinusConstant() {
-        let constraints = view1.centerXY ≤ relatedView.centerXY .- 10
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: -10)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToCenterXYMultiplyingConstant() {
-        let constraints = view1.centerXY ≤ relatedView.centerXY .* 3
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToCenterXYMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.centerXY
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToCenterXYMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.centerXY .* 75%
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 0.75)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToCenterXYMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.centerXY
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 0.75)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToCenterXYDividedByConstant() {
-        let constraints = view1.centerXY ≤ relatedView.centerXY ./ 2
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToCenterXYWithPriority() {
-        let constraints = view1.centerXY ≤ relatedView.centerXY ~ .low
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: .low)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToCenterXYWithPriorityLiteral() {
-        let constraints = view1.centerXY ≤ relatedView.centerXY ~ 300
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 300)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToCenterXYWithPriorityArithmetic() {
-        let constraints = view1.centerXY ≤ relatedView.centerXY ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 749)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.centerXY .+ 10) .* 3
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.centerXY .+ 10)
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToCenterXYMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.centerXY .+ 10
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.centerXY .+ 10) ./ 2
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.centerXY .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.centerXY .+ 10) ~ .low
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToCenterXYMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.centerXY .+ 10 ~ .low
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.centerXY .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.centerXY .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.centerXY .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToCenterXYMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.centerXY .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToCenterXYPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.centerXY .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToCenterXY() {
         let constraints = view1.centerXY ≥ relatedView.centerXY
@@ -473,6 +325,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.centerXY .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .centerY, .greaterThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToCenterXY() {
+        let constraints = view1.centerXY ≤ relatedView.centerXY
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToCenterXYPlusConstant() {
+        let constraints = view1.centerXY ≤ relatedView.centerXY .+ 10
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToCenterXYMinusConstant() {
+        let constraints = view1.centerXY ≤ relatedView.centerXY .- 10
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: -10)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToCenterXYMultiplyingConstant() {
+        let constraints = view1.centerXY ≤ relatedView.centerXY .* 3
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToCenterXYMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.centerXY
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToCenterXYMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.centerXY .* 75%
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 0.75)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToCenterXYMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.centerXY
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 0.75)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToCenterXYDividedByConstant() {
+        let constraints = view1.centerXY ≤ relatedView.centerXY ./ 2
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToCenterXYWithPriority() {
+        let constraints = view1.centerXY ≤ relatedView.centerXY ~ .low
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: .low)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToCenterXYWithPriorityLiteral() {
+        let constraints = view1.centerXY ≤ relatedView.centerXY ~ 300
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 300)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToCenterXYWithPriorityArithmetic() {
+        let constraints = view1.centerXY ≤ relatedView.centerXY ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 749)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.centerXY .+ 10) .* 3
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.centerXY .+ 10)
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToCenterXYMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.centerXY .+ 10
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.centerXY .+ 10) ./ 2
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.centerXY .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.centerXY .+ 10) ~ .low
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToCenterXYMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.centerXY .+ 10 ~ .low
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.centerXY .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.centerXY .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.centerXY .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToCenterXYMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.centerXY .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToCenterXYPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.centerXY .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.horizontalEdgesHorizontalEdges <=> relatedViewHorizontalEdges
     // MARK: Equal
@@ -623,154 +623,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToHorizontalEdges() {
-        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstant() {
-        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges .+ 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesMinusConstant() {
-        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges .- 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToHorizontalEdgesMultiplyingConstant() {
-        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges .* 3
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.horizontalEdges
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToHorizontalEdgesMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.horizontalEdges .* 75%
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.horizontalEdges
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesDividedByConstant() {
-        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges ./ 2
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToHorizontalEdgesWithPriority() {
-        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesWithPriorityLiteral() {
-        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges ~ 300
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesWithPriorityArithmetic() {
-        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) .* 3
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.horizontalEdges .+ 10)
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.horizontalEdges .+ 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) ./ 2
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.horizontalEdges .+ 10) ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.horizontalEdges .+ 10 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.horizontalEdges .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.horizontalEdges .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToHorizontalEdges() {
         let constraints = view1.horizontalEdges ≥ relatedView.horizontalEdges
@@ -918,6 +770,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToHorizontalEdges() {
+        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstant() {
+        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges .+ 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesMinusConstant() {
+        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges .- 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToHorizontalEdgesMultiplyingConstant() {
+        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges .* 3
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.horizontalEdges
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToHorizontalEdgesMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.horizontalEdges .* 75%
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.horizontalEdges
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesDividedByConstant() {
+        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges ./ 2
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToHorizontalEdgesWithPriority() {
+        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesWithPriorityLiteral() {
+        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges ~ 300
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesWithPriorityArithmetic() {
+        let constraints = view1.horizontalEdges ≤ relatedView.horizontalEdges ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) .* 3
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.horizontalEdges .+ 10)
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.horizontalEdges .+ 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) ./ 2
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.horizontalEdges .+ 10) ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.horizontalEdges .+ 10 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.horizontalEdges .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.horizontalEdges .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.verticalEdgesVerticalEdges <=> relatedViewVerticalEdges
     // MARK: Equal
@@ -1068,154 +1068,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToVerticalEdges() {
-        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstant() {
-        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges .+ 10
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesMinusConstant() {
-        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges .- 10
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToVerticalEdgesMultiplyingConstant() {
-        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges .* 3
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.verticalEdges
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToVerticalEdgesMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.verticalEdges .* 75%
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.verticalEdges
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesDividedByConstant() {
-        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges ./ 2
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToVerticalEdgesWithPriority() {
-        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges ~ .low
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesWithPriorityLiteral() {
-        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges ~ 300
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesWithPriorityArithmetic() {
-        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges ~ .high .- 1
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) .* 3
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.verticalEdges .+ 10)
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.verticalEdges .+ 10
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) ./ 2
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.verticalEdges .+ 10) ~ .low
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.verticalEdges .+ 10 ~ .low
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.verticalEdges .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.verticalEdges .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToVerticalEdgesPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToVerticalEdges() {
         let constraints = view1.verticalEdges ≥ relatedView.verticalEdges
@@ -1363,6 +1215,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.verticalEdges .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToVerticalEdges() {
+        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstant() {
+        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges .+ 10
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesMinusConstant() {
+        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges .- 10
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToVerticalEdgesMultiplyingConstant() {
+        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges .* 3
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.verticalEdges
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToVerticalEdgesMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.verticalEdges .* 75%
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.verticalEdges
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesDividedByConstant() {
+        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges ./ 2
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToVerticalEdgesWithPriority() {
+        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges ~ .low
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesWithPriorityLiteral() {
+        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges ~ 300
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesWithPriorityArithmetic() {
+        let constraints = view1.verticalEdges ≤ relatedView.verticalEdges ~ .high .- 1
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) .* 3
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.verticalEdges .+ 10)
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.verticalEdges .+ 10
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) ./ 2
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.verticalEdges .+ 10) ~ .low
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.verticalEdges .+ 10 ~ .low
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.verticalEdges .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.verticalEdges .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToVerticalEdgesPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.verticalEdges .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.sizeSize <=> relatedViewSize
     // MARK: Equal
@@ -1513,154 +1513,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToSize() {
-        let constraints = view1.size ≤ relatedView.size
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToSizePlusConstant() {
-        let constraints = view1.size ≤ relatedView.size .+ 10
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToSizeMinusConstant() {
-        let constraints = view1.size ≤ relatedView.size .- 10
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: -10)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToSizeMultiplyingConstant() {
-        let constraints = view1.size ≤ relatedView.size .* 3
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 3)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToSizeMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.size
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 3)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToSizeMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.size .* 75%
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 0.75)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToSizeMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.size
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 0.75)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToSizeDividedByConstant() {
-        let constraints = view1.size ≤ relatedView.size ./ 2
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 1 / 2)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToSizeWithPriority() {
-        let constraints = view1.size ≤ relatedView.size ~ .low
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, priority: .low)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToSizeWithPriorityLiteral() {
-        let constraints = view1.size ≤ relatedView.size ~ 300
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, priority: 300)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToSizeWithPriorityArithmetic() {
-        let constraints = view1.size ≤ relatedView.size ~ .high .- 1
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, priority: 749)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToSizePlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.size .+ 10) .* 3
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToSizePlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.size .+ 10)
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToSizeMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.size .+ 10
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToSizePlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.size .+ 10) ./ 2
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToSizePlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.size .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToSizePlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.size .+ 10) ~ .low
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToSizeMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.size .+ 10 ~ .low
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToSizePlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.size .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToSizePlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.size .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToSizePlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.size .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToSizeMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.size .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToSizePlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.size .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToSize() {
         let constraints = view1.size ≥ relatedView.size
@@ -1808,6 +1660,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.size .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .width, .greaterThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .height, .greaterThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToSize() {
+        let constraints = view1.size ≤ relatedView.size
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToSizePlusConstant() {
+        let constraints = view1.size ≤ relatedView.size .+ 10
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToSizeMinusConstant() {
+        let constraints = view1.size ≤ relatedView.size .- 10
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: -10)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToSizeMultiplyingConstant() {
+        let constraints = view1.size ≤ relatedView.size .* 3
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 3)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToSizeMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.size
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 3)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToSizeMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.size .* 75%
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 0.75)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToSizeMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.size
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 0.75)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToSizeDividedByConstant() {
+        let constraints = view1.size ≤ relatedView.size ./ 2
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, multiplier: 1 / 2)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToSizeWithPriority() {
+        let constraints = view1.size ≤ relatedView.size ~ .low
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, priority: .low)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToSizeWithPriorityLiteral() {
+        let constraints = view1.size ≤ relatedView.size ~ 300
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, priority: 300)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToSizeWithPriorityArithmetic() {
+        let constraints = view1.size ≤ relatedView.size ~ .high .- 1
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, priority: 749)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToSizePlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.size .+ 10) .* 3
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToSizePlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.size .+ 10)
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToSizeMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.size .+ 10
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToSizePlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.size .+ 10) ./ 2
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToSizePlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.size .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToSizePlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.size .+ 10) ~ .low
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToSizeMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.size .+ 10 ~ .low
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToSizePlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.size .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToSizePlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.size .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToSizePlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.size .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToSizeMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.size .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToSizePlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.size .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.topLeadingTopLeading <=> relatedViewTopLeading
     // MARK: Equal
@@ -1958,154 +1958,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToTopLeading() {
-        let constraints = view1.topLeading ≤ relatedView.topLeading
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToTopLeadingPlusConstant() {
-        let constraints = view1.topLeading ≤ relatedView.topLeading .+ 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingMinusConstant() {
-        let constraints = view1.topLeading ≤ relatedView.topLeading .- 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToTopLeadingMultiplyingConstant() {
-        let constraints = view1.topLeading ≤ relatedView.topLeading .* 3
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.topLeading
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToTopLeadingMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.topLeading .* 75%
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.topLeading
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingDividedByConstant() {
-        let constraints = view1.topLeading ≤ relatedView.topLeading ./ 2
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToTopLeadingWithPriority() {
-        let constraints = view1.topLeading ≤ relatedView.topLeading ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingWithPriorityLiteral() {
-        let constraints = view1.topLeading ≤ relatedView.topLeading ~ 300
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingWithPriorityArithmetic() {
-        let constraints = view1.topLeading ≤ relatedView.topLeading ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.topLeading .+ 10) .* 3
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.topLeading .+ 10)
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.topLeading .+ 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.topLeading .+ 10) ./ 2
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.topLeading .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.topLeading .+ 10) ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.topLeading .+ 10 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.topLeading .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.topLeading .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.topLeading .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.topLeading .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopLeadingPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.topLeading .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToTopLeading() {
         let constraints = view1.topLeading ≥ relatedView.topLeading
@@ -2253,6 +2105,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.topLeading .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToTopLeading() {
+        let constraints = view1.topLeading ≤ relatedView.topLeading
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToTopLeadingPlusConstant() {
+        let constraints = view1.topLeading ≤ relatedView.topLeading .+ 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingMinusConstant() {
+        let constraints = view1.topLeading ≤ relatedView.topLeading .- 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToTopLeadingMultiplyingConstant() {
+        let constraints = view1.topLeading ≤ relatedView.topLeading .* 3
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.topLeading
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToTopLeadingMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.topLeading .* 75%
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.topLeading
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingDividedByConstant() {
+        let constraints = view1.topLeading ≤ relatedView.topLeading ./ 2
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToTopLeadingWithPriority() {
+        let constraints = view1.topLeading ≤ relatedView.topLeading ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingWithPriorityLiteral() {
+        let constraints = view1.topLeading ≤ relatedView.topLeading ~ 300
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingWithPriorityArithmetic() {
+        let constraints = view1.topLeading ≤ relatedView.topLeading ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.topLeading .+ 10) .* 3
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.topLeading .+ 10)
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.topLeading .+ 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.topLeading .+ 10) ./ 2
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.topLeading .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.topLeading .+ 10) ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.topLeading .+ 10 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.topLeading .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.topLeading .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.topLeading .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.topLeading .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopLeadingPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.topLeading .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.topTrailingTopTrailing <=> relatedViewTopTrailing
     // MARK: Equal
@@ -2403,154 +2403,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToTopTrailing() {
-        let constraints = view1.topTrailing ≤ relatedView.topTrailing
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToTopTrailingPlusConstant() {
-        let constraints = view1.topTrailing ≤ relatedView.topTrailing .+ 10
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingMinusConstant() {
-        let constraints = view1.topTrailing ≤ relatedView.topTrailing .- 10
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToTopTrailingMultiplyingConstant() {
-        let constraints = view1.topTrailing ≤ relatedView.topTrailing .* 3
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.topTrailing
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToTopTrailingMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.topTrailing .* 75%
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.topTrailing
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingDividedByConstant() {
-        let constraints = view1.topTrailing ≤ relatedView.topTrailing ./ 2
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToTopTrailingWithPriority() {
-        let constraints = view1.topTrailing ≤ relatedView.topTrailing ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingWithPriorityLiteral() {
-        let constraints = view1.topTrailing ≤ relatedView.topTrailing ~ 300
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingWithPriorityArithmetic() {
-        let constraints = view1.topTrailing ≤ relatedView.topTrailing ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) .* 3
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.topTrailing .+ 10)
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.topTrailing .+ 10
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) ./ 2
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.topTrailing .+ 10) ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.topTrailing .+ 10 ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.topTrailing .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.topTrailing .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopTrailingPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToTopTrailing() {
         let constraints = view1.topTrailing ≥ relatedView.topTrailing
@@ -2698,6 +2550,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.topTrailing .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToTopTrailing() {
+        let constraints = view1.topTrailing ≤ relatedView.topTrailing
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToTopTrailingPlusConstant() {
+        let constraints = view1.topTrailing ≤ relatedView.topTrailing .+ 10
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingMinusConstant() {
+        let constraints = view1.topTrailing ≤ relatedView.topTrailing .- 10
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToTopTrailingMultiplyingConstant() {
+        let constraints = view1.topTrailing ≤ relatedView.topTrailing .* 3
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.topTrailing
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToTopTrailingMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.topTrailing .* 75%
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.topTrailing
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingDividedByConstant() {
+        let constraints = view1.topTrailing ≤ relatedView.topTrailing ./ 2
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToTopTrailingWithPriority() {
+        let constraints = view1.topTrailing ≤ relatedView.topTrailing ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingWithPriorityLiteral() {
+        let constraints = view1.topTrailing ≤ relatedView.topTrailing ~ 300
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingWithPriorityArithmetic() {
+        let constraints = view1.topTrailing ≤ relatedView.topTrailing ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) .* 3
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.topTrailing .+ 10)
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.topTrailing .+ 10
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) ./ 2
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.topTrailing .+ 10) ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.topTrailing .+ 10 ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.topTrailing .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.topTrailing .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopTrailingPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.topTrailing .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.bottomLeadingBottomLeading <=> relatedViewBottomLeading
     // MARK: Equal
@@ -2848,154 +2848,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToBottomLeading() {
-        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToBottomLeadingPlusConstant() {
-        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading .+ 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingMinusConstant() {
-        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading .- 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToBottomLeadingMultiplyingConstant() {
-        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading .* 3
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomLeading
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToBottomLeadingMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.bottomLeading .* 75%
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.bottomLeading
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingDividedByConstant() {
-        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading ./ 2
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToBottomLeadingWithPriority() {
-        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingWithPriorityLiteral() {
-        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading ~ 300
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingWithPriorityArithmetic() {
-        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) .* 3
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomLeading .+ 10)
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomLeading .+ 10
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) ./ 2
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomLeading .+ 10) ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomLeading .+ 10 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomLeading .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomLeading .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomLeadingPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToBottomLeading() {
         let constraints = view1.bottomLeading ≥ relatedView.bottomLeading
@@ -3143,6 +2995,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.bottomLeading .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToBottomLeading() {
+        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToBottomLeadingPlusConstant() {
+        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading .+ 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingMinusConstant() {
+        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading .- 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToBottomLeadingMultiplyingConstant() {
+        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading .* 3
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomLeading
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToBottomLeadingMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.bottomLeading .* 75%
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.bottomLeading
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingDividedByConstant() {
+        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading ./ 2
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToBottomLeadingWithPriority() {
+        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingWithPriorityLiteral() {
+        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading ~ 300
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingWithPriorityArithmetic() {
+        let constraints = view1.bottomLeading ≤ relatedView.bottomLeading ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) .* 3
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomLeading .+ 10)
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomLeading .+ 10
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) ./ 2
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomLeading .+ 10) ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomLeading .+ 10 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomLeading .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomLeading .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomLeadingPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.bottomLeading .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.bottomTrailingBottomTrailing <=> relatedViewBottomTrailing
     // MARK: Equal
@@ -3293,154 +3293,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToBottomTrailing() {
-        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToBottomTrailingPlusConstant() {
-        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing .+ 10
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingMinusConstant() {
-        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing .- 10
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToBottomTrailingMultiplyingConstant() {
-        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing .* 3
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomTrailing
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToBottomTrailingMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.bottomTrailing .* 75%
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.bottomTrailing
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingDividedByConstant() {
-        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing ./ 2
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToBottomTrailingWithPriority() {
-        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingWithPriorityLiteral() {
-        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing ~ 300
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingWithPriorityArithmetic() {
-        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) .* 3
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomTrailing .+ 10)
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomTrailing .+ 10
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) ./ 2
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomTrailing .+ 10) ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomTrailing .+ 10 ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomTrailing .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomTrailing .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomTrailingPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToBottomTrailing() {
         let constraints = view1.bottomTrailing ≥ relatedView.bottomTrailing
@@ -3588,6 +3440,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToBottomTrailing() {
+        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToBottomTrailingPlusConstant() {
+        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing .+ 10
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingMinusConstant() {
+        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing .- 10
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToBottomTrailingMultiplyingConstant() {
+        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing .* 3
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomTrailing
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToBottomTrailingMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.bottomTrailing .* 75%
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.bottomTrailing
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingDividedByConstant() {
+        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing ./ 2
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToBottomTrailingWithPriority() {
+        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingWithPriorityLiteral() {
+        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing ~ 300
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingWithPriorityArithmetic() {
+        let constraints = view1.bottomTrailing ≤ relatedView.bottomTrailing ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) .* 3
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomTrailing .+ 10)
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomTrailing .+ 10
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) ./ 2
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomTrailing .+ 10) ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomTrailing .+ 10 ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomTrailing .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomTrailing .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomTrailingPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.topLeftTopLeft <=> relatedViewTopLeft
     // MARK: Equal
@@ -3738,154 +3738,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .left, .equal, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToTopLeft() {
-        let constraints = view1.topLeft ≤ relatedView.topLeft
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToTopLeftPlusConstant() {
-        let constraints = view1.topLeft ≤ relatedView.topLeft .+ 10
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToTopLeftMinusConstant() {
-        let constraints = view1.topLeft ≤ relatedView.topLeft .- 10
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: -10)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToTopLeftMultiplyingConstant() {
-        let constraints = view1.topLeft ≤ relatedView.topLeft .* 3
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopLeftMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.topLeft
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToTopLeftMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.topLeft .* 75%
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToTopLeftMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.topLeft
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToTopLeftDividedByConstant() {
-        let constraints = view1.topLeft ≤ relatedView.topLeft ./ 2
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 1 / 2)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToTopLeftWithPriority() {
-        let constraints = view1.topLeft ≤ relatedView.topLeft ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopLeftWithPriorityLiteral() {
-        let constraints = view1.topLeft ≤ relatedView.topLeft ~ 300
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: 300)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToTopLeftWithPriorityArithmetic() {
-        let constraints = view1.topLeft ≤ relatedView.topLeft ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.topLeft .+ 10) .* 3
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.topLeft .+ 10)
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopLeftMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.topLeft .+ 10
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.topLeft .+ 10) ./ 2
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.topLeft .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.topLeft .+ 10) ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopLeftMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.topLeft .+ 10 ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.topLeft .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.topLeft .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.topLeft .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopLeftMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.topLeft .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopLeftPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.topLeft .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToTopLeft() {
         let constraints = view1.topLeft ≥ relatedView.topLeft
@@ -4033,6 +3885,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.topLeft .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .left, .greaterThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToTopLeft() {
+        let constraints = view1.topLeft ≤ relatedView.topLeft
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToTopLeftPlusConstant() {
+        let constraints = view1.topLeft ≤ relatedView.topLeft .+ 10
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToTopLeftMinusConstant() {
+        let constraints = view1.topLeft ≤ relatedView.topLeft .- 10
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: -10)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToTopLeftMultiplyingConstant() {
+        let constraints = view1.topLeft ≤ relatedView.topLeft .* 3
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopLeftMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.topLeft
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToTopLeftMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.topLeft .* 75%
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToTopLeftMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.topLeft
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToTopLeftDividedByConstant() {
+        let constraints = view1.topLeft ≤ relatedView.topLeft ./ 2
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 1 / 2)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToTopLeftWithPriority() {
+        let constraints = view1.topLeft ≤ relatedView.topLeft ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopLeftWithPriorityLiteral() {
+        let constraints = view1.topLeft ≤ relatedView.topLeft ~ 300
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: 300)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToTopLeftWithPriorityArithmetic() {
+        let constraints = view1.topLeft ≤ relatedView.topLeft ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.topLeft .+ 10) .* 3
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.topLeft .+ 10)
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopLeftMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.topLeft .+ 10
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.topLeft .+ 10) ./ 2
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.topLeft .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.topLeft .+ 10) ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopLeftMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.topLeft .+ 10 ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.topLeft .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.topLeft .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.topLeft .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopLeftMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.topLeft .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopLeftPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.topLeft .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.topRightTopRight <=> relatedViewTopRight
     // MARK: Equal
@@ -4183,154 +4183,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .right, .equal, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToTopRight() {
-        let constraints = view1.topRight ≤ relatedView.topRight
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToTopRightPlusConstant() {
-        let constraints = view1.topRight ≤ relatedView.topRight .+ 10
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToTopRightMinusConstant() {
-        let constraints = view1.topRight ≤ relatedView.topRight .- 10
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: -10)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToTopRightMultiplyingConstant() {
-        let constraints = view1.topRight ≤ relatedView.topRight .* 3
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopRightMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.topRight
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToTopRightMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.topRight .* 75%
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToTopRightMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.topRight
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToTopRightDividedByConstant() {
-        let constraints = view1.topRight ≤ relatedView.topRight ./ 2
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 1 / 2)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToTopRightWithPriority() {
-        let constraints = view1.topRight ≤ relatedView.topRight ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopRightWithPriorityLiteral() {
-        let constraints = view1.topRight ≤ relatedView.topRight ~ 300
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: 300)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToTopRightWithPriorityArithmetic() {
-        let constraints = view1.topRight ≤ relatedView.topRight ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToTopRightPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.topRight .+ 10) .* 3
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopRightPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.topRight .+ 10)
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopRightMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.topRight .+ 10
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToTopRightPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.topRight .+ 10) ./ 2
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToTopRightPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.topRight .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopRightPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.topRight .+ 10) ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopRightMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.topRight .+ 10 ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToTopRightPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.topRight .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToTopRightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.topRight .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopRightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.topRight .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopRightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.topRight .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToTopRightPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.topRight .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToTopRight() {
         let constraints = view1.topRight ≥ relatedView.topRight
@@ -4478,6 +4330,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.topRight .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .right, .greaterThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToTopRight() {
+        let constraints = view1.topRight ≤ relatedView.topRight
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToTopRightPlusConstant() {
+        let constraints = view1.topRight ≤ relatedView.topRight .+ 10
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToTopRightMinusConstant() {
+        let constraints = view1.topRight ≤ relatedView.topRight .- 10
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: -10)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToTopRightMultiplyingConstant() {
+        let constraints = view1.topRight ≤ relatedView.topRight .* 3
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopRightMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.topRight
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToTopRightMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.topRight .* 75%
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToTopRightMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.topRight
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToTopRightDividedByConstant() {
+        let constraints = view1.topRight ≤ relatedView.topRight ./ 2
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 1 / 2)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToTopRightWithPriority() {
+        let constraints = view1.topRight ≤ relatedView.topRight ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopRightWithPriorityLiteral() {
+        let constraints = view1.topRight ≤ relatedView.topRight ~ 300
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: 300)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToTopRightWithPriorityArithmetic() {
+        let constraints = view1.topRight ≤ relatedView.topRight ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToTopRightPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.topRight .+ 10) .* 3
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopRightPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.topRight .+ 10)
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopRightMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.topRight .+ 10
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToTopRightPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.topRight .+ 10) ./ 2
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToTopRightPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.topRight .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopRightPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.topRight .+ 10) ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopRightMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.topRight .+ 10 ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToTopRightPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.topRight .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToTopRightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.topRight .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopRightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.topRight .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopRightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.topRight .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToTopRightPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.topRight .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.bottomLeftBottomLeft <=> relatedViewBottomLeft
     // MARK: Equal
@@ -4628,154 +4628,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .left, .equal, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToBottomLeft() {
-        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToBottomLeftPlusConstant() {
-        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft .+ 10
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftMinusConstant() {
-        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft .- 10
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: -10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToBottomLeftMultiplyingConstant() {
-        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft .* 3
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomLeft
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToBottomLeftMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.bottomLeft .* 75%
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.bottomLeft
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftDividedByConstant() {
-        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft ./ 2
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToBottomLeftWithPriority() {
-        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftWithPriorityLiteral() {
-        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft ~ 300
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: 300)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftWithPriorityArithmetic() {
-        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) .* 3
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomLeft .+ 10)
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomLeft .+ 10
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) ./ 2
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomLeft .+ 10) ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomLeft .+ 10 ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomLeft .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomLeft .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomLeftPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToBottomLeft() {
         let constraints = view1.bottomLeft ≥ relatedView.bottomLeft
@@ -4923,6 +4775,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.bottomLeft .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .left, .greaterThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToBottomLeft() {
+        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToBottomLeftPlusConstant() {
+        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft .+ 10
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftMinusConstant() {
+        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft .- 10
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: -10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToBottomLeftMultiplyingConstant() {
+        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft .* 3
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomLeft
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToBottomLeftMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.bottomLeft .* 75%
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.bottomLeft
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftDividedByConstant() {
+        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft ./ 2
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToBottomLeftWithPriority() {
+        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftWithPriorityLiteral() {
+        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft ~ 300
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: 300)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftWithPriorityArithmetic() {
+        let constraints = view1.bottomLeft ≤ relatedView.bottomLeft ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) .* 3
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomLeft .+ 10)
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomLeft .+ 10
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) ./ 2
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomLeft .+ 10) ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomLeft .+ 10 ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomLeft .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomLeft .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomLeftPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.bottomLeft .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: view1.bottomRightBottomRight <=> relatedViewBottomRight
     // MARK: Equal
@@ -5073,154 +5073,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(view1, .right, .equal, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testView1LessThanOrEqualToBottomRight() {
-        let constraints = view1.bottomRight ≤ relatedView.bottomRight
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testView1LessThanOrEqualToBottomRightPlusConstant() {
-        let constraints = view1.bottomRight ≤ relatedView.bottomRight .+ 10
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testView1LessThanOrEqualToBottomRightMinusConstant() {
-        let constraints = view1.bottomRight ≤ relatedView.bottomRight .- 10
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: -10)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testView1LessThanOrEqualToBottomRightMultiplyingConstant() {
-        let constraints = view1.bottomRight ≤ relatedView.bottomRight .* 3
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomRightMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomRight
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testView1LessThanOrEqualToBottomRightMultiplyingPercent() {
-        let constraints = view1 ≤ relatedView.bottomRight .* 75%
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToBottomRightMultipliedByPercent() {
-        let constraints = view1 ≤ 75% .* relatedView.bottomRight
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testView1LessThanOrEqualToBottomRightDividedByConstant() {
-        let constraints = view1.bottomRight ≤ relatedView.bottomRight ./ 2
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testView1LessThanOrEqualToBottomRightWithPriority() {
-        let constraints = view1.bottomRight ≤ relatedView.bottomRight ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomRightWithPriorityLiteral() {
-        let constraints = view1.bottomRight ≤ relatedView.bottomRight ~ 300
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: 300)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testView1LessThanOrEqualToBottomRightWithPriorityArithmetic() {
-        let constraints = view1.bottomRight ≤ relatedView.bottomRight ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantMultiplyingConstant() {
-        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) .* 3
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantMultipliedByConstant() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomRight .+ 10)
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomRightMultipliedByConstantPlusConstant() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomRight .+ 10
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantDividedByConstant() {
-        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) ./ 2
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) .* 3 ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomRight .+ 10) ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomRightMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomRight .+ 10 ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantDividedByConstantWithPriority() {
-        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) ./ 2 ~ .low
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* (relatedView.bottomRight .+ 10) ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomRightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ 3 .* relatedView.bottomRight .+ 10 ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testView1LessThanOrEqualToBottomRightPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testView1GreaterThanOrEqualToBottomRight() {
         let constraints = view1.bottomRight ≥ relatedView.bottomRight
@@ -5368,6 +5220,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = view1 ≥ (relatedView.bottomRight .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(view1, .right, .greaterThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(view1, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testView1LessThanOrEqualToBottomRight() {
+        let constraints = view1.bottomRight ≤ relatedView.bottomRight
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testView1LessThanOrEqualToBottomRightPlusConstant() {
+        let constraints = view1.bottomRight ≤ relatedView.bottomRight .+ 10
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testView1LessThanOrEqualToBottomRightMinusConstant() {
+        let constraints = view1.bottomRight ≤ relatedView.bottomRight .- 10
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: -10)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testView1LessThanOrEqualToBottomRightMultiplyingConstant() {
+        let constraints = view1.bottomRight ≤ relatedView.bottomRight .* 3
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomRightMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomRight
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testView1LessThanOrEqualToBottomRightMultiplyingPercent() {
+        let constraints = view1 ≤ relatedView.bottomRight .* 75%
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToBottomRightMultipliedByPercent() {
+        let constraints = view1 ≤ 75% .* relatedView.bottomRight
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testView1LessThanOrEqualToBottomRightDividedByConstant() {
+        let constraints = view1.bottomRight ≤ relatedView.bottomRight ./ 2
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testView1LessThanOrEqualToBottomRightWithPriority() {
+        let constraints = view1.bottomRight ≤ relatedView.bottomRight ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomRightWithPriorityLiteral() {
+        let constraints = view1.bottomRight ≤ relatedView.bottomRight ~ 300
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: 300)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testView1LessThanOrEqualToBottomRightWithPriorityArithmetic() {
+        let constraints = view1.bottomRight ≤ relatedView.bottomRight ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantMultiplyingConstant() {
+        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) .* 3
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantMultipliedByConstant() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomRight .+ 10)
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomRightMultipliedByConstantPlusConstant() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomRight .+ 10
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantDividedByConstant() {
+        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) ./ 2
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) .* 3 ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomRight .+ 10) ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomRightMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomRight .+ 10 ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantDividedByConstantWithPriority() {
+        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) ./ 2 ~ .low
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* (relatedView.bottomRight .+ 10) ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomRightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ 3 .* relatedView.bottomRight .+ 10 ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testView1LessThanOrEqualToBottomRightPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = view1 ≤ (relatedView.bottomRight .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(view1, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(view1, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.centerXYCenterXY <=> relatedViewCenterXY
     // MARK: Equal
@@ -5518,154 +5518,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .centerX, .equal, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .centerY, .equal, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToCenterXY() {
-        let constraints = viewArray.centerXY ≤ relatedView.centerXY
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstant() {
-        let constraints = viewArray.centerXY ≤ relatedView.centerXY .+ 10
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYMinusConstant() {
-        let constraints = viewArray.centerXY ≤ relatedView.centerXY .- 10
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: -10)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToCenterXYMultiplyingConstant() {
-        let constraints = viewArray.centerXY ≤ relatedView.centerXY .* 3
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.centerXY
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToCenterXYMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.centerXY .* 75%
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 0.75)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.centerXY
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 0.75)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYDividedByConstant() {
-        let constraints = viewArray.centerXY ≤ relatedView.centerXY ./ 2
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToCenterXYWithPriority() {
-        let constraints = viewArray.centerXY ≤ relatedView.centerXY ~ .low
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYWithPriorityLiteral() {
-        let constraints = viewArray.centerXY ≤ relatedView.centerXY ~ 300
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 300)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYWithPriorityArithmetic() {
-        let constraints = viewArray.centerXY ≤ relatedView.centerXY ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) .* 3
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.centerXY .+ 10)
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.centerXY .+ 10
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) ./ 2
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.centerXY .+ 10) ~ .low
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.centerXY .+ 10 ~ .low
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.centerXY .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.centerXY .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToCenterXYPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToCenterXY() {
         let constraints = viewArray.centerXY ≥ relatedView.centerXY
@@ -5813,6 +5665,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.centerXY .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .centerX, .greaterThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .centerY, .greaterThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToCenterXY() {
+        let constraints = viewArray.centerXY ≤ relatedView.centerXY
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstant() {
+        let constraints = viewArray.centerXY ≤ relatedView.centerXY .+ 10
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYMinusConstant() {
+        let constraints = viewArray.centerXY ≤ relatedView.centerXY .- 10
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: -10)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToCenterXYMultiplyingConstant() {
+        let constraints = viewArray.centerXY ≤ relatedView.centerXY .* 3
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.centerXY
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToCenterXYMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.centerXY .* 75%
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 0.75)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.centerXY
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 0.75)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYDividedByConstant() {
+        let constraints = viewArray.centerXY ≤ relatedView.centerXY ./ 2
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToCenterXYWithPriority() {
+        let constraints = viewArray.centerXY ≤ relatedView.centerXY ~ .low
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYWithPriorityLiteral() {
+        let constraints = viewArray.centerXY ≤ relatedView.centerXY ~ 300
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 300)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYWithPriorityArithmetic() {
+        let constraints = viewArray.centerXY ≤ relatedView.centerXY ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) .* 3
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.centerXY .+ 10)
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.centerXY .+ 10
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) ./ 2
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.centerXY .+ 10) ~ .low
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.centerXY .+ 10 ~ .low
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.centerXY .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.centerXY .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToCenterXYPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.centerXY .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .centerX, .lessThanOrEqual, relatedView, .centerX, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .centerY, .lessThanOrEqual, relatedView, .centerY, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.horizontalEdgesHorizontalEdges <=> relatedViewHorizontalEdges
     // MARK: Equal
@@ -5963,154 +5963,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToHorizontalEdges() {
-        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstant() {
-        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges .+ 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesMinusConstant() {
-        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges .- 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToHorizontalEdgesMultiplyingConstant() {
-        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges .* 3
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.horizontalEdges
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToHorizontalEdgesMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.horizontalEdges .* 75%
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.horizontalEdges
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesDividedByConstant() {
-        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges ./ 2
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToHorizontalEdgesWithPriority() {
-        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesWithPriorityLiteral() {
-        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges ~ 300
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesWithPriorityArithmetic() {
-        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) .* 3
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.horizontalEdges .+ 10)
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.horizontalEdges .+ 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) ./ 2
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.horizontalEdges .+ 10) ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.horizontalEdges .+ 10 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.horizontalEdges .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.horizontalEdges .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToHorizontalEdges() {
         let constraints = viewArray.horizontalEdges ≥ relatedView.horizontalEdges
@@ -6258,6 +6110,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToHorizontalEdges() {
+        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstant() {
+        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges .+ 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesMinusConstant() {
+        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges .- 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToHorizontalEdgesMultiplyingConstant() {
+        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges .* 3
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.horizontalEdges
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToHorizontalEdgesMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.horizontalEdges .* 75%
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.horizontalEdges
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesDividedByConstant() {
+        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges ./ 2
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToHorizontalEdgesWithPriority() {
+        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesWithPriorityLiteral() {
+        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges ~ 300
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesWithPriorityArithmetic() {
+        let constraints = viewArray.horizontalEdges ≤ relatedView.horizontalEdges ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) .* 3
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.horizontalEdges .+ 10)
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.horizontalEdges .+ 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) ./ 2
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.horizontalEdges .+ 10) ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.horizontalEdges .+ 10 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.horizontalEdges .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.horizontalEdges .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToHorizontalEdgesPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.horizontalEdges .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.verticalEdgesVerticalEdges <=> relatedViewVerticalEdges
     // MARK: Equal
@@ -6408,154 +6408,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToVerticalEdges() {
-        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstant() {
-        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges .+ 10
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesMinusConstant() {
-        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges .- 10
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToVerticalEdgesMultiplyingConstant() {
-        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges .* 3
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.verticalEdges
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToVerticalEdgesMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.verticalEdges .* 75%
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.verticalEdges
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesDividedByConstant() {
-        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges ./ 2
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToVerticalEdgesWithPriority() {
-        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges ~ .low
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesWithPriorityLiteral() {
-        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges ~ 300
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesWithPriorityArithmetic() {
-        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) .* 3
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.verticalEdges .+ 10)
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.verticalEdges .+ 10
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) ./ 2
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.verticalEdges .+ 10) ~ .low
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.verticalEdges .+ 10 ~ .low
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.verticalEdges .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.verticalEdges .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToVerticalEdges() {
         let constraints = viewArray.verticalEdges ≥ relatedView.verticalEdges
@@ -6703,6 +6555,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.verticalEdges .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToVerticalEdges() {
+        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstant() {
+        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges .+ 10
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesMinusConstant() {
+        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges .- 10
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToVerticalEdgesMultiplyingConstant() {
+        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges .* 3
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.verticalEdges
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToVerticalEdgesMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.verticalEdges .* 75%
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.verticalEdges
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesDividedByConstant() {
+        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges ./ 2
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToVerticalEdgesWithPriority() {
+        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges ~ .low
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesWithPriorityLiteral() {
+        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges ~ 300
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesWithPriorityArithmetic() {
+        let constraints = viewArray.verticalEdges ≤ relatedView.verticalEdges ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) .* 3
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.verticalEdges .+ 10)
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.verticalEdges .+ 10
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) ./ 2
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.verticalEdges .+ 10) ~ .low
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.verticalEdges .+ 10 ~ .low
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.verticalEdges .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.verticalEdges .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToVerticalEdgesPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.verticalEdges .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.sizeSize <=> relatedViewSize
     // MARK: Equal
@@ -6853,154 +6853,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .width, .equal, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .height, .equal, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToSize() {
-        let constraints = viewArray.size ≤ relatedView.size
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToSizePlusConstant() {
-        let constraints = viewArray.size ≤ relatedView.size .+ 10
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeMinusConstant() {
-        let constraints = viewArray.size ≤ relatedView.size .- 10
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: -10)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToSizeMultiplyingConstant() {
-        let constraints = viewArray.size ≤ relatedView.size .* 3
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.size
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToSizeMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.size .* 75%
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 0.75)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.size
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 0.75)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeDividedByConstant() {
-        let constraints = viewArray.size ≤ relatedView.size ./ 2
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToSizeWithPriority() {
-        let constraints = viewArray.size ≤ relatedView.size ~ .low
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, priority: .low)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeWithPriorityLiteral() {
-        let constraints = viewArray.size ≤ relatedView.size ~ 300
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, priority: 300)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeWithPriorityArithmetic() {
-        let constraints = viewArray.size ≤ relatedView.size ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, priority: 749)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.size .+ 10) .* 3
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.size .+ 10)
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.size .+ 10
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.size .+ 10) ./ 2
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.size .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.size .+ 10) ~ .low
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.size .+ 10 ~ .low
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.size .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.size .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.size .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToSizeMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.size .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToSizePlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.size .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToSize() {
         let constraints = viewArray.size ≥ relatedView.size
@@ -7148,6 +7000,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.size .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .width, .greaterThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .height, .greaterThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToSize() {
+        let constraints = viewArray.size ≤ relatedView.size
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToSizePlusConstant() {
+        let constraints = viewArray.size ≤ relatedView.size .+ 10
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeMinusConstant() {
+        let constraints = viewArray.size ≤ relatedView.size .- 10
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: -10)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToSizeMultiplyingConstant() {
+        let constraints = viewArray.size ≤ relatedView.size .* 3
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.size
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToSizeMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.size .* 75%
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 0.75)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.size
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 0.75)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeDividedByConstant() {
+        let constraints = viewArray.size ≤ relatedView.size ./ 2
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToSizeWithPriority() {
+        let constraints = viewArray.size ≤ relatedView.size ~ .low
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, priority: .low)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeWithPriorityLiteral() {
+        let constraints = viewArray.size ≤ relatedView.size ~ 300
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, priority: 300)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeWithPriorityArithmetic() {
+        let constraints = viewArray.size ≤ relatedView.size ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, priority: 749)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.size .+ 10) .* 3
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.size .+ 10)
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.size .+ 10
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.size .+ 10) ./ 2
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.size .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.size .+ 10) ~ .low
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.size .+ 10 ~ .low
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.size .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.size .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.size .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToSizeMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.size .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToSizePlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.size .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .width, .lessThanOrEqual, relatedView, .width, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .height, .lessThanOrEqual, relatedView, .height, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.topLeadingTopLeading <=> relatedViewTopLeading
     // MARK: Equal
@@ -7298,154 +7298,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToTopLeading() {
-        let constraints = viewArray.topLeading ≤ relatedView.topLeading
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstant() {
-        let constraints = viewArray.topLeading ≤ relatedView.topLeading .+ 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingMinusConstant() {
-        let constraints = viewArray.topLeading ≤ relatedView.topLeading .- 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToTopLeadingMultiplyingConstant() {
-        let constraints = viewArray.topLeading ≤ relatedView.topLeading .* 3
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.topLeading
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToTopLeadingMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.topLeading .* 75%
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.topLeading
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingDividedByConstant() {
-        let constraints = viewArray.topLeading ≤ relatedView.topLeading ./ 2
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToTopLeadingWithPriority() {
-        let constraints = viewArray.topLeading ≤ relatedView.topLeading ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingWithPriorityLiteral() {
-        let constraints = viewArray.topLeading ≤ relatedView.topLeading ~ 300
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingWithPriorityArithmetic() {
-        let constraints = viewArray.topLeading ≤ relatedView.topLeading ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) .* 3
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topLeading .+ 10)
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.topLeading .+ 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) ./ 2
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topLeading .+ 10) ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.topLeading .+ 10 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topLeading .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.topLeading .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToTopLeading() {
         let constraints = viewArray.topLeading ≥ relatedView.topLeading
@@ -7593,6 +7445,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.topLeading .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToTopLeading() {
+        let constraints = viewArray.topLeading ≤ relatedView.topLeading
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstant() {
+        let constraints = viewArray.topLeading ≤ relatedView.topLeading .+ 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingMinusConstant() {
+        let constraints = viewArray.topLeading ≤ relatedView.topLeading .- 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToTopLeadingMultiplyingConstant() {
+        let constraints = viewArray.topLeading ≤ relatedView.topLeading .* 3
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.topLeading
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToTopLeadingMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.topLeading .* 75%
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.topLeading
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingDividedByConstant() {
+        let constraints = viewArray.topLeading ≤ relatedView.topLeading ./ 2
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToTopLeadingWithPriority() {
+        let constraints = viewArray.topLeading ≤ relatedView.topLeading ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingWithPriorityLiteral() {
+        let constraints = viewArray.topLeading ≤ relatedView.topLeading ~ 300
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingWithPriorityArithmetic() {
+        let constraints = viewArray.topLeading ≤ relatedView.topLeading ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) .* 3
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topLeading .+ 10)
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.topLeading .+ 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) ./ 2
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topLeading .+ 10) ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.topLeading .+ 10 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topLeading .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.topLeading .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeadingPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.topLeading .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.topTrailingTopTrailing <=> relatedViewTopTrailing
     // MARK: Equal
@@ -7743,154 +7743,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToTopTrailing() {
-        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstant() {
-        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing .+ 10
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingMinusConstant() {
-        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing .- 10
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToTopTrailingMultiplyingConstant() {
-        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing .* 3
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.topTrailing
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToTopTrailingMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.topTrailing .* 75%
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.topTrailing
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingDividedByConstant() {
-        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing ./ 2
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToTopTrailingWithPriority() {
-        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingWithPriorityLiteral() {
-        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing ~ 300
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingWithPriorityArithmetic() {
-        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) .* 3
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topTrailing .+ 10)
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.topTrailing .+ 10
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) ./ 2
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topTrailing .+ 10) ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.topTrailing .+ 10 ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topTrailing .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.topTrailing .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToTopTrailing() {
         let constraints = viewArray.topTrailing ≥ relatedView.topTrailing
@@ -8038,6 +7890,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.topTrailing .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToTopTrailing() {
+        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstant() {
+        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing .+ 10
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingMinusConstant() {
+        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing .- 10
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToTopTrailingMultiplyingConstant() {
+        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing .* 3
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.topTrailing
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToTopTrailingMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.topTrailing .* 75%
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.topTrailing
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingDividedByConstant() {
+        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing ./ 2
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToTopTrailingWithPriority() {
+        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingWithPriorityLiteral() {
+        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing ~ 300
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingWithPriorityArithmetic() {
+        let constraints = viewArray.topTrailing ≤ relatedView.topTrailing ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) .* 3
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topTrailing .+ 10)
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.topTrailing .+ 10
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) ./ 2
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topTrailing .+ 10) ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.topTrailing .+ 10 ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topTrailing .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.topTrailing .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopTrailingPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.topTrailing .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.bottomLeadingBottomLeading <=> relatedViewBottomLeading
     // MARK: Equal
@@ -8188,154 +8188,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .leading, .equal, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToBottomLeading() {
-        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstant() {
-        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading .+ 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingMinusConstant() {
-        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading .- 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToBottomLeadingMultiplyingConstant() {
-        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading .* 3
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomLeading
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToBottomLeadingMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.bottomLeading .* 75%
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.bottomLeading
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingDividedByConstant() {
-        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading ./ 2
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToBottomLeadingWithPriority() {
-        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingWithPriorityLiteral() {
-        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading ~ 300
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingWithPriorityArithmetic() {
-        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) .* 3
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeading .+ 10)
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomLeading .+ 10
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) ./ 2
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeading .+ 10) ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomLeading .+ 10 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeading .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomLeading .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToBottomLeading() {
         let constraints = viewArray.bottomLeading ≥ relatedView.bottomLeading
@@ -8483,6 +8335,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.bottomLeading .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .leading, .greaterThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToBottomLeading() {
+        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstant() {
+        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading .+ 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingMinusConstant() {
+        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading .- 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: -10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToBottomLeadingMultiplyingConstant() {
+        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading .* 3
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomLeading
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToBottomLeadingMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.bottomLeading .* 75%
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.bottomLeading
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingDividedByConstant() {
+        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading ./ 2
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToBottomLeadingWithPriority() {
+        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingWithPriorityLiteral() {
+        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading ~ 300
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 300)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingWithPriorityArithmetic() {
+        let constraints = viewArray.bottomLeading ≤ relatedView.bottomLeading ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) .* 3
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeading .+ 10)
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomLeading .+ 10
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) ./ 2
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeading .+ 10) ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomLeading .+ 10 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeading .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomLeading .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeadingPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.bottomLeading .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .leading, .lessThanOrEqual, relatedView, .leading, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.bottomTrailingBottomTrailing <=> relatedViewBottomTrailing
     // MARK: Equal
@@ -8633,154 +8633,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .trailing, .equal, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToBottomTrailing() {
-        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstant() {
-        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing .+ 10
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingMinusConstant() {
-        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing .- 10
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToBottomTrailingMultiplyingConstant() {
-        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing .* 3
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomTrailing
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToBottomTrailingMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.bottomTrailing .* 75%
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.bottomTrailing
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingDividedByConstant() {
-        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing ./ 2
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToBottomTrailingWithPriority() {
-        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingWithPriorityLiteral() {
-        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing ~ 300
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingWithPriorityArithmetic() {
-        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) .* 3
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomTrailing .+ 10)
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomTrailing .+ 10
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) ./ 2
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomTrailing .+ 10) ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomTrailing .+ 10 ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomTrailing .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomTrailing .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToBottomTrailing() {
         let constraints = viewArray.bottomTrailing ≥ relatedView.bottomTrailing
@@ -8928,6 +8780,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .trailing, .greaterThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToBottomTrailing() {
+        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstant() {
+        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing .+ 10
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingMinusConstant() {
+        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing .- 10
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: -10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToBottomTrailingMultiplyingConstant() {
+        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing .* 3
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomTrailing
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToBottomTrailingMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.bottomTrailing .* 75%
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.bottomTrailing
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingDividedByConstant() {
+        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing ./ 2
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToBottomTrailingWithPriority() {
+        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingWithPriorityLiteral() {
+        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing ~ 300
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 300)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingWithPriorityArithmetic() {
+        let constraints = viewArray.bottomTrailing ≤ relatedView.bottomTrailing ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) .* 3
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomTrailing .+ 10)
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomTrailing .+ 10
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) ./ 2
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomTrailing .+ 10) ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomTrailing .+ 10 ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomTrailing .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomTrailing .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomTrailingPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.bottomTrailing .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .trailing, .lessThanOrEqual, relatedView, .trailing, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.topLeftTopLeft <=> relatedViewTopLeft
     // MARK: Equal
@@ -9078,154 +9078,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .left, .equal, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToTopLeft() {
-        let constraints = viewArray.topLeft ≤ relatedView.topLeft
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstant() {
-        let constraints = viewArray.topLeft ≤ relatedView.topLeft .+ 10
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftMinusConstant() {
-        let constraints = viewArray.topLeft ≤ relatedView.topLeft .- 10
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: -10)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToTopLeftMultiplyingConstant() {
-        let constraints = viewArray.topLeft ≤ relatedView.topLeft .* 3
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.topLeft
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToTopLeftMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.topLeft .* 75%
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.topLeft
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftDividedByConstant() {
-        let constraints = viewArray.topLeft ≤ relatedView.topLeft ./ 2
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToTopLeftWithPriority() {
-        let constraints = viewArray.topLeft ≤ relatedView.topLeft ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftWithPriorityLiteral() {
-        let constraints = viewArray.topLeft ≤ relatedView.topLeft ~ 300
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: 300)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftWithPriorityArithmetic() {
-        let constraints = viewArray.topLeft ≤ relatedView.topLeft ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) .* 3
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topLeft .+ 10)
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.topLeft .+ 10
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) ./ 2
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topLeft .+ 10) ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.topLeft .+ 10 ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topLeft .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.topLeft .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopLeftPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToTopLeft() {
         let constraints = viewArray.topLeft ≥ relatedView.topLeft
@@ -9373,6 +9225,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.topLeft .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .left, .greaterThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToTopLeft() {
+        let constraints = viewArray.topLeft ≤ relatedView.topLeft
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstant() {
+        let constraints = viewArray.topLeft ≤ relatedView.topLeft .+ 10
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftMinusConstant() {
+        let constraints = viewArray.topLeft ≤ relatedView.topLeft .- 10
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: -10)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToTopLeftMultiplyingConstant() {
+        let constraints = viewArray.topLeft ≤ relatedView.topLeft .* 3
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.topLeft
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToTopLeftMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.topLeft .* 75%
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.topLeft
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftDividedByConstant() {
+        let constraints = viewArray.topLeft ≤ relatedView.topLeft ./ 2
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToTopLeftWithPriority() {
+        let constraints = viewArray.topLeft ≤ relatedView.topLeft ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftWithPriorityLiteral() {
+        let constraints = viewArray.topLeft ≤ relatedView.topLeft ~ 300
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: 300)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftWithPriorityArithmetic() {
+        let constraints = viewArray.topLeft ≤ relatedView.topLeft ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) .* 3
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topLeft .+ 10)
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.topLeft .+ 10
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) ./ 2
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topLeft .+ 10) ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.topLeft .+ 10 ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topLeft .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.topLeft .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopLeftPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.topLeft .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.topRightTopRight <=> relatedViewTopRight
     // MARK: Equal
@@ -9523,154 +9523,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .right, .equal, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .top, .equal, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToTopRight() {
-        let constraints = viewArray.topRight ≤ relatedView.topRight
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToTopRightPlusConstant() {
-        let constraints = viewArray.topRight ≤ relatedView.topRight .+ 10
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightMinusConstant() {
-        let constraints = viewArray.topRight ≤ relatedView.topRight .- 10
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: -10)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToTopRightMultiplyingConstant() {
-        let constraints = viewArray.topRight ≤ relatedView.topRight .* 3
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.topRight
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToTopRightMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.topRight .* 75%
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.topRight
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightDividedByConstant() {
-        let constraints = viewArray.topRight ≤ relatedView.topRight ./ 2
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToTopRightWithPriority() {
-        let constraints = viewArray.topRight ≤ relatedView.topRight ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightWithPriorityLiteral() {
-        let constraints = viewArray.topRight ≤ relatedView.topRight ~ 300
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: 300)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightWithPriorityArithmetic() {
-        let constraints = viewArray.topRight ≤ relatedView.topRight ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.topRight .+ 10) .* 3
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topRight .+ 10)
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.topRight .+ 10
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.topRight .+ 10) ./ 2
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.topRight .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topRight .+ 10) ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.topRight .+ 10 ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.topRight .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.topRight .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.topRight .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.topRight .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToTopRightPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.topRight .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToTopRight() {
         let constraints = viewArray.topRight ≥ relatedView.topRight
@@ -9818,6 +9670,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.topRight .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .right, .greaterThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .top, .greaterThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToTopRight() {
+        let constraints = viewArray.topRight ≤ relatedView.topRight
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToTopRightPlusConstant() {
+        let constraints = viewArray.topRight ≤ relatedView.topRight .+ 10
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightMinusConstant() {
+        let constraints = viewArray.topRight ≤ relatedView.topRight .- 10
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: -10)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToTopRightMultiplyingConstant() {
+        let constraints = viewArray.topRight ≤ relatedView.topRight .* 3
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.topRight
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToTopRightMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.topRight .* 75%
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.topRight
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightDividedByConstant() {
+        let constraints = viewArray.topRight ≤ relatedView.topRight ./ 2
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToTopRightWithPriority() {
+        let constraints = viewArray.topRight ≤ relatedView.topRight ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightWithPriorityLiteral() {
+        let constraints = viewArray.topRight ≤ relatedView.topRight ~ 300
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: 300)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightWithPriorityArithmetic() {
+        let constraints = viewArray.topRight ≤ relatedView.topRight ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.topRight .+ 10) .* 3
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topRight .+ 10)
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.topRight .+ 10
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.topRight .+ 10) ./ 2
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.topRight .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topRight .+ 10) ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.topRight .+ 10 ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.topRight .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.topRight .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.topRight .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.topRight .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToTopRightPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.topRight .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .top, .lessThanOrEqual, relatedView, .top, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.bottomLeftBottomLeft <=> relatedViewBottomLeft
     // MARK: Equal
@@ -9968,154 +9968,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .left, .equal, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToBottomLeft() {
-        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstant() {
-        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft .+ 10
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftMinusConstant() {
-        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft .- 10
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: -10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToBottomLeftMultiplyingConstant() {
-        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft .* 3
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomLeft
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToBottomLeftMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.bottomLeft .* 75%
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.bottomLeft
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftDividedByConstant() {
-        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft ./ 2
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToBottomLeftWithPriority() {
-        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftWithPriorityLiteral() {
-        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft ~ 300
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: 300)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftWithPriorityArithmetic() {
-        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) .* 3
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeft .+ 10)
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomLeft .+ 10
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) ./ 2
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeft .+ 10) ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomLeft .+ 10 ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeft .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomLeft .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToBottomLeft() {
         let constraints = viewArray.bottomLeft ≥ relatedView.bottomLeft
@@ -10263,6 +10115,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.bottomLeft .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .left, .greaterThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToBottomLeft() {
+        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstant() {
+        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft .+ 10
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftMinusConstant() {
+        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft .- 10
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: -10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToBottomLeftMultiplyingConstant() {
+        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft .* 3
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomLeft
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToBottomLeftMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.bottomLeft .* 75%
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.bottomLeft
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftDividedByConstant() {
+        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft ./ 2
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToBottomLeftWithPriority() {
+        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftWithPriorityLiteral() {
+        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft ~ 300
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: 300)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftWithPriorityArithmetic() {
+        let constraints = viewArray.bottomLeft ≤ relatedView.bottomLeft ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) .* 3
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeft .+ 10)
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomLeft .+ 10
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) ./ 2
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeft .+ 10) ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomLeft .+ 10 ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomLeft .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomLeft .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomLeftPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.bottomLeft .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .left, .lessThanOrEqual, relatedView, .left, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
     // MARK: viewArray.bottomRightBottomRight <=> relatedViewBottomRight
     // MARK: Equal
@@ -10413,154 +10413,6 @@ class AnchorPairEquationTests: LaymanTestCase {
         constraints.first.assert(viewArray, .right, .equal, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .equal, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
-    // MARK: LessThanOrEqual
-    func testViewArrayLessThanOrEqualToBottomRight() {
-        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
-    }
-
-    // MARK: LessThanOrEqual with constant
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstant() {
-        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight .+ 10
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightMinusConstant() {
-        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight .- 10
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: -10)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
-    }
-
-    // MARK: LessThanOrEqual with multiplier
-    func testViewArrayLessThanOrEqualToBottomRightMultiplyingConstant() {
-        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight .* 3
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomRight
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
-    }
-
-    // MARK: LessThanOrEqual with percentage multiplier
-    func testViewArrayLessThanOrEqualToBottomRightMultiplyingPercent() {
-        let constraints = viewArray ≤ relatedView.bottomRight .* 75%
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightMultipliedByPercent() {
-        let constraints = viewArray ≤ 75% .* relatedView.bottomRight
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightDividedByConstant() {
-        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight ./ 2
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual prioritized
-    func testViewArrayLessThanOrEqualToBottomRightWithPriority() {
-        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightWithPriorityLiteral() {
-        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight ~ 300
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: 300)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightWithPriorityArithmetic() {
-        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultiplyingConstant() {
-        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) .* 3
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultipliedByConstant() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomRight .+ 10)
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightMultipliedByConstantPlusConstant() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomRight .+ 10
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantDividedByConstant() {
-        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) ./ 2
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultiplyingConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) .* 3 ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultipliedByConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomRight .+ 10) ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightMultipliedByConstantPlusConstantWithPriority() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomRight .+ 10 ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantDividedByConstantWithPriority() {
-        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) ./ 2 ~ .low
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
-    }
-
-    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) .* 3 ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* (relatedView.bottomRight .+ 10) ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ 3 .* relatedView.bottomRight .+ 10 ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
-    }
-
-    func testViewArrayLessThanOrEqualToBottomRightPlusConstantDividedByConstantWithPriorityArithmetic() {
-        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) ./ 2 ~ .high .- 1
-        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
-    }
     // MARK: GreaterThanOrEqual
     func testViewArrayGreaterThanOrEqualToBottomRight() {
         let constraints = viewArray.bottomRight ≥ relatedView.bottomRight
@@ -10708,6 +10560,154 @@ class AnchorPairEquationTests: LaymanTestCase {
         let constraints = viewArray ≥ (relatedView.bottomRight .+ 10) ./ 2 ~ .high .- 1
         constraints.first.assert(viewArray, .right, .greaterThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
         constraints.second.assert(viewArray, .bottom, .greaterThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+    }
+    // MARK: LessThanOrEqual
+    func testViewArrayLessThanOrEqualToBottomRight() {
+        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom)
+    }
+
+    // MARK: LessThanOrEqual with constant
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstant() {
+        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight .+ 10
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightMinusConstant() {
+        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight .- 10
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: -10)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: -10)
+    }
+
+    // MARK: LessThanOrEqual with multiplier
+    func testViewArrayLessThanOrEqualToBottomRightMultiplyingConstant() {
+        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight .* 3
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomRight
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 3)
+    }
+
+    // MARK: LessThanOrEqual with percentage multiplier
+    func testViewArrayLessThanOrEqualToBottomRightMultiplyingPercent() {
+        let constraints = viewArray ≤ relatedView.bottomRight .* 75%
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightMultipliedByPercent() {
+        let constraints = viewArray ≤ 75% .* relatedView.bottomRight
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 0.75)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 0.75)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightDividedByConstant() {
+        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight ./ 2
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual prioritized
+    func testViewArrayLessThanOrEqualToBottomRightWithPriority() {
+        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightWithPriorityLiteral() {
+        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight ~ 300
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: 300)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 300)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightWithPriorityArithmetic() {
+        let constraints = viewArray.bottomRight ≤ relatedView.bottomRight ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, priority: 749)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultiplyingConstant() {
+        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) .* 3
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultipliedByConstant() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomRight .+ 10)
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightMultipliedByConstantPlusConstant() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomRight .+ 10
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantDividedByConstant() {
+        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) ./ 2
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultiplyingConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) .* 3 ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultipliedByConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomRight .+ 10) ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightMultipliedByConstantPlusConstantWithPriority() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomRight .+ 10 ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: .low)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantDividedByConstantWithPriority() {
+        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) ./ 2 ~ .low
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: .low)
+    }
+
+    // MARK: LessThanOrEqual with constant .+ multiplier and priority arithmetic
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultiplyingConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) .* 3 ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantMultipliedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* (relatedView.bottomRight .+ 10) ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 * 3, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 * 3, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightMultipliedByConstantPlusConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ 3 .* relatedView.bottomRight .+ 10 ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10, multiplier: 3, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10, multiplier: 3, priority: 749)
+    }
+
+    func testViewArrayLessThanOrEqualToBottomRightPlusConstantDividedByConstantWithPriorityArithmetic() {
+        let constraints = viewArray ≤ (relatedView.bottomRight .+ 10) ./ 2 ~ .high .- 1
+        constraints.first.assert(viewArray, .right, .lessThanOrEqual, relatedView, .right, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
+        constraints.second.assert(viewArray, .bottom, .lessThanOrEqual, relatedView, .bottom, constant: 10 / 2, multiplier: 1 / 2, priority: 749)
     }
 // sourcery:end
 }
