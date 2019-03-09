@@ -9,6 +9,11 @@
 // MARK: General Convenience Autolayout Extensions
 public extension View {
 
+    public func assertSuperview() -> View {
+        assert(superview != nil, "Attempted to create constraint between a view and its superview without a superview.")
+        return superview!
+    }
+
     public func addActiveConstraints(_ constraints: Constraints, priority: LayoutPriority? = nil) {
         constraints.forEach {$0.activated(with: priority)}
         addConstraints(constraints)
@@ -41,6 +46,16 @@ public extension View {
     public func forceAutolayoutPass() {
         setNeedsLayout()
         layoutIfNeeded()
+    }
+
+    @discardableResult
+    public func pinToSuperview() -> SideConstraints{
+        return edgeAnchors.equal(to: assertSuperview().edgeAnchors)
+    }
+
+    @discardableResult
+    public func centerInSuperview() -> ConstraintPair{
+        return centerXY.equal(to: assertSuperview().centerXY)
     }
 }
 

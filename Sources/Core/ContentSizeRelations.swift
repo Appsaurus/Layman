@@ -7,10 +7,6 @@
 //
 
 extension View {
-    fileprivate func assertSuperview() -> View {
-        assert(superview != nil, "Attempted to create constraint between a view and its superview without a superview.")
-        return superview!
-    }
 
     public func matchContentSize(of view: View, insets: LayoutPadding = .zero) {
         matchContentHeight(of: view, insets: insets)
