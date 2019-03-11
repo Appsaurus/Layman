@@ -43,6 +43,14 @@ extension EdgeAnchorGroup {
         return inset(top, leading, bottom, trailing)
     }
 
+    public func outset(_ padding: LayoutPadding) -> EdgeAnchorGroupExpression {
+        return outset(padding.top, padding.leading, padding.bottom, padding.trailing)
+    }
+
+    public func inset(_ padding: LayoutPadding) -> EdgeAnchorGroupExpression {
+        return inset(padding.top, padding.leading, padding.bottom, padding.trailing)
+    }
+
 //    public func inset(_ vertical: LayoutConstant, _ horizontal: LayoutConstant) -> EdgeAnchorGroupExpression {
 //        return inset(vertical, horizontal, vertical, horizontal)
 //    }

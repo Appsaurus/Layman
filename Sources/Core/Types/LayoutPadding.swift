@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import CoreGraphics
+
 public class LayoutPadding: SidesTuple<LayoutConstant, LayoutConstant> {
     public static var zero: LayoutPadding {
         return LayoutPadding(0)

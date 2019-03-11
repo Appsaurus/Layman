@@ -80,7 +80,7 @@ class InferredEdgeAnchorsTests: LaymanTestCase {
     }
 
     func testInferredLessThanEdgeAnchorsWithInset() {
-        let insets: RelativeLayoutPadding = .inset(top: 10, leading: 5, bottom: 15, trailing: 20)
+        let insets: RelativeLayoutPadding = .inset(top: 10, leading: 5, bottom: 15, trailing: 20)        
         let constraints = view1.edgeAnchors ≤ insets ~ .high .- 1
         constraints.top.assert(view1, .top, .lessThanOrEqual, parentView, .top, constant: 10, priority: 749)
         constraints.leading.assert(view1, .leading, .lessThanOrEqual, parentView, .leading, constant: 5, priority: 749)

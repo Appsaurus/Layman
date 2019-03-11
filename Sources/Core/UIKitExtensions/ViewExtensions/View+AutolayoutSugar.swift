@@ -7,6 +7,12 @@
 //
 
 // MARK: General Convenience Autolayout Extensions
+prefix operator ^
+
+public prefix func ^ (view: View) -> View {
+    return view.assertSuperview()
+}
+
 public extension View {
 
     public func assertSuperview() -> View {
@@ -87,49 +93,6 @@ extension View {
     }
 }
 
-public typealias ConstraintAttributeMap = [ConstraintAttribute: Constraints]
-public typealias ConstraintHeirarchy = [View: ConstraintAttributeMap]
-
-extension Collection where Element: ConstraintReferencing {
-    public var heirarchy: ConstraintHeirarchy {
-        return reduce(into: ConstraintHeirarchy()) { (result, constraints) in
-            for element in constraints.all {
-                for view in [element.firstView, element.secondView].compactMap({$0}) {
-                    var viewContraints = result[view, default: [:]]
-                    var viewConstraintMap = viewContraints[element.firstAttribute, default: []]
-                    viewConstraintMap.append(element)
-                    viewContraints[element.firstAttribute] = viewConstraintMap
-                    result[view] = viewContraints
-                }
-            }
-        }
-    }
-}
-
-internal extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
-    internal func merging(with constraintHeirarchy: ConstraintAttributeMap) -> ConstraintAttributeMap {
-        return self.merging(constraintHeirarchy) { (constraints, otherConstraints) -> Constraints in
-            return constraints + otherConstraints
-        }
-    }
-
-    internal mutating func update(with constraint: Constraint) {
-        var array = self[constraint.firstAttribute] ?? []
-        array.append(constraint)
-        self[constraint.firstAttribute] = array
-    }
-}
-
-internal extension Dictionary where Key == View, Value == ConstraintAttributeMap {
-    internal func merging(with constraintHeirarchy: ConstraintHeirarchy) -> ConstraintHeirarchy {
-        return self.merging(constraintHeirarchy) { (map, otherMap) -> ConstraintAttributeMap in
-            return map.merging(otherMap, uniquingKeysWith: { (constraints, otherConstraints) -> Constraints in
-                return [constraints, otherConstraints].flatMap {$0}
-            })
-        }
-
-    }
-}
 
 private extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
     subscript (all keys: Key...) -> [Value] {
