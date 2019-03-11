@@ -20,6 +20,26 @@ it, simply add the following line to your Podfile:
 pod 'Layman', :git => 'https://github.com/Appsaurus/Layman'
 ```
 
+Because the default subspec of Layman takes some liberties with property names that might clash with other libraries, and custom operators that might not be everyone's cup of tea, it provides a few subspecs in order to hopefully appease everyone. Choosing one or more two of the following should be able to meet your needs when the default subspec is too much.
+
+For the core, chaining based API only:
+
+```ruby
+pod 'Layman/Core', :git => 'https://github.com/Appsaurus/Layman'
+```
+
+To include operators:
+
+```ruby
+pod 'Layman/Operators', :git => 'https://github.com/Appsaurus/Layman'
+```
+
+To include shorthand properties:
+
+```ruby
+pod 'Layman/Shorthand', :git => 'https://github.com/Appsaurus/Layman'
+```
+
 **Layman** is also available through [Carthage](https://github.com/Carthage/Carthage).
 To install just write into your Cartfile:
 
@@ -30,6 +50,8 @@ github "Appsaurus/Layman"
 **Layman** can also be installed manually. Just download and drop `Sources` folders in your project.
 
 ## Usage
+
+*Note: All of the following use the shorthand properties contained in the* `Shorthand` *subspec. If you opt out of using it, you will need to append* `Anchor` *to all the properties in the following examples.*
 
 ### Size
 
@@ -176,6 +198,10 @@ view6.bottomLeading .= view1.bottomLeading .+ .inset(25)
 view7.bottomTrailing .= view1.bottomTrailing .+ .inset(25)
 ```
 
+### Inequalities
+
+Of course not all layout relationships are based purely on equality. To set up an inequality constraint. 
+
 ### Inset and Offset Relationships
 
 For inequality relationships, It is also sometimes easier to think about the *relationship* itself in terms of insets or outsets. For this, Layman introduces two new types of relationships: `insetOrEqual` and `outsetOrEqual`. These relationships adjust the underlying constraint the same way as inset and offset constants, but instead of flipping the contant's sign, they inverse the relationship of the inequality. For example, the following:
@@ -223,9 +249,49 @@ view1.size ≥ [view2, view3].size
 [view6, view7].size ≤ [view2, view3].size
 ```
 
+### Content Hugging and Compression Resistance
+
+You can easily set content size hugging or compression resistance values using the `hugContent()` and `resistCompression()` methods, or set both values at once using `enforceContentSize()`. Parameters are optional and default to a `.required` priority being set for both axes.
+
+```swift
+view1.hugContent(.high, [.vertical])
+view1.resistCompression(.low, [.horizontal])
+view2.enforceContentSize() 
+
+// Operator API equivalent:
+view1.verticalContentHuggingPriority ~ .high
+view1.horizontalCompressionResistancePriority ~ .low
+view2.contentSizePriority ~ .required
+```
+
 ### Aspect Ratio
 
-When contraining views that contain media, you will often want to restrict a views size to a certain aspect ratio. Layman introduces an aspect ratio anchor that makes it super simple to do so. Under the hood, aspect ratio contraints are simply constraining a view's height to its width times a multiplier. Because of this it is required that you horizontally constrain the view first to avoid ambiguity. Layman will warn you at runtime if you haven't done this.
+When constraining views that contain media, you will often want to restrict a view's size to a certain aspect ratio. Layman introduces an aspect ratio anchor that makes it super simple to do so. Under the hood, aspect ratio contraints are simply constraining a view's height to its width times a multiplier. Because of this it is required that you horizontally constrain the view first to avoid ambiguity. Layman will warn you at runtime if you haven't done this. Alternatively, if you want to constrain a view's *width to its height*, you can use the `aspectRatioInverse` property.
+
+```swift
+[view1, view2].width.equal(to: container.width)
+view1.aspectRatio.equal(to: .wide)
+view2.aspectRatio.equal(to: 4.0/3.0)
+
+// Operator API equivalent
+[view1, view2].width .= container.width
+view1.aspectRatio .= .wide
+view2.aspectRatio .= 4.0/3.0
+```
+
+### Supported relationships
+
+| Method                    | Operator | Operator Keyboard Shortcut     |
+| ------------------------- | -------- | ------------------------------ |
+| `equal(to:)`              | `.=`     | N/A                            |
+| `lessThanOrEqual(to:)`    | `≤`      | `Option + ,`                   |
+| `greaterThanOrEqual(to:)` | `≥`      | `Option + .`                   |
+| `insetOrEqual(to:)`       | ≥≤       | `Option + .` then `Option + ,` |
+| `outsetOrEqual(to:)`      | ≤≥       | `Option + ,` then `Option + .` |
+
+### Why so many f@#$ing custom operators?!?!?
+
+I hear you. I too, typically hate overuse of custom operators. In this case, I believe the usage is prudent, useful and conveys clear intent given the context of the API. In regards to the heavy amount of overloading, it was a neccesary evil to keep this API robust yet compiling in a performant manner (apparently the swift type checker does not like generic custom operators).  So while it might add a little to the footprint, to keep things snappy and avoid massive compile times, I opted to use Sourcery to generate each and every needed operator definition. If you truly hate the operators and want nothing to do with them, you can luckily opt out by simply using the `Core` subspec which only contains the basic chaining API.
 
 ## Contributing
 
@@ -234,4 +300,3 @@ We would love you to contribute to **Layman**, check the [CONTRIBUTING](github.c
 ## License
 
 **Layman** is available under the MIT license. See the [LICENSE](github.com/Appsaurus/Layman/blob/master/LICENSE.md) file for more info.
-
