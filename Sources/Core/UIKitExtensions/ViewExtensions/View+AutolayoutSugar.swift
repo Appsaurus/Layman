@@ -55,12 +55,12 @@ public extension View {
     }
 
     @discardableResult
-    public func pinToSuperview() -> SideConstraints{
+    public func pinToSuperview() -> SideConstraints {
         return edgeAnchors.equal(to: assertSuperview().edgeAnchors)
     }
 
     @discardableResult
-    public func centerInSuperview() -> ConstraintPair{
+    public func centerInSuperview() -> ConstraintPair {
         return centerXY.equal(to: assertSuperview().centerXY)
     }
 }
@@ -92,7 +92,6 @@ extension View {
         })
     }
 }
-
 
 private extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
     subscript (all keys: Key...) -> [Value] {

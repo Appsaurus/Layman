@@ -41,7 +41,6 @@ public protocol XYAxisAnchorable {
     var bottomLeftAnchors: XYAxesAnchorPair { get }
 
     var layoutMarginsGuide: LayoutGuide { get }
-
 }
 
 public protocol BaselineAnchorable {
@@ -55,7 +54,7 @@ public protocol SizeAnchorable {
     var sizeAnchors: LayoutDimensionPair { get }
 }
 
-public protocol LayoutAnchorable: XYAxisAnchorable, SizeAnchorable {}
+public protocol LayoutAnchorable: class, XYAxisAnchorable, SizeAnchorable {}
 
 public protocol BaselineLayoutAnchorable: LayoutAnchorable, BaselineAnchorable {}
 
@@ -123,33 +122,61 @@ public enum LayoutSideAttribute {
 extension XYAxisAnchorable {
 
     public var horizontalEdgeAnchors: XAxisAnchorPair {
-        return XAxisAnchorPair(leadingAnchor, trailingAnchor)
+        return XAxisAnchorPair(leadingAnchor.retain(keyPath: \.leadingAnchor, owningItem: self),
+                               trailingAnchor.retain(keyPath: \.trailingAnchor, owningItem: self))
     }
 
     public var verticalEdgeAnchors: YAxisAnchorPair {
-        return YAxisAnchorPair(topAnchor, bottomAnchor)
+        return YAxisAnchorPair(topAnchor.retain(keyPath: \.topAnchor, owningItem: self),
+                               bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: self))
     }
 
     public var edgeAnchors: EdgeAnchorGroup {
-        return  EdgeAnchorGroup(topAnchor,
-                                leadingAnchor,
-                                bottomAnchor,
-                                trailingAnchor)
+        return  EdgeAnchorGroup(topAnchor.retain(keyPath: \.topAnchor, owningItem: self),
+                                leadingAnchor.retain(keyPath: \.leadingAnchor, owningItem: self),
+                                bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: self),
+                                trailingAnchor.retain(keyPath: \.trailingAnchor, owningItem: self))
     }
 
     public var centerAnchors: XYAxesAnchorPair {
-        return XYAxesAnchorPair(centerXAnchor, centerYAnchor)
+        return XYAxesAnchorPair(centerXAnchor.retain(keyPath: \.centerXAnchor, owningItem: self),
+                                centerYAnchor.retain(keyPath: \.centerYAnchor, owningItem: self))
     }
 
-    public var topLeadingAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leadingAnchor, topAnchor) }
-    public var topTrailingAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(trailingAnchor, topAnchor) }
-    public var bottomTrailingAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(trailingAnchor, bottomAnchor) }
-    public var bottomLeadingAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leadingAnchor, bottomAnchor) }
+    public var topLeadingAnchors: XYAxesAnchorPair {
+        return XYAxesAnchorPair(leadingAnchor.retain(keyPath: \.leadingAnchor, owningItem: self),
+                                topAnchor.retain(keyPath: \.topAnchor, owningItem: self))
+    }
 
-    public var topLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, topAnchor) }
-    public var topRightAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, topAnchor) }
-    public var bottomRightAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(rightAnchor, bottomAnchor) }
-    public var bottomLeftAnchors: XYAxesAnchorPair { return XYAxesAnchorPair(leftAnchor, bottomAnchor) }
+    public var topTrailingAnchors: XYAxesAnchorPair {
+        return XYAxesAnchorPair(trailingAnchor.retain(keyPath: \.trailingAnchor, owningItem: self),
+                                topAnchor.retain(keyPath: \.topAnchor, owningItem: self))
+    }
+    public var bottomTrailingAnchors: XYAxesAnchorPair {
+        return XYAxesAnchorPair(trailingAnchor.retain(keyPath: \.trailingAnchor, owningItem: self),
+                                bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: self))
+    }
+    public var bottomLeadingAnchors: XYAxesAnchorPair {
+        return XYAxesAnchorPair(leadingAnchor.retain(keyPath: \.leadingAnchor, owningItem: self),
+                                bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: self))
+    }
+
+    public var topLeftAnchors: XYAxesAnchorPair {
+        return XYAxesAnchorPair(leftAnchor.retain(keyPath: \.leftAnchor, owningItem: self),
+                                topAnchor.retain(keyPath: \.topAnchor, owningItem: self))
+    }
+    public var topRightAnchors: XYAxesAnchorPair {
+        return XYAxesAnchorPair(rightAnchor.retain(keyPath: \.rightAnchor, owningItem: self),
+                                topAnchor.retain(keyPath: \.topAnchor, owningItem: self))
+    }
+    public var bottomRightAnchors: XYAxesAnchorPair {
+        return XYAxesAnchorPair(rightAnchor.retain(keyPath: \.rightAnchor, owningItem: self),
+                                bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: self))
+    }
+    public var bottomLeftAnchors: XYAxesAnchorPair {
+        return XYAxesAnchorPair(leftAnchor.retain(keyPath: \.leftAnchor, owningItem: self),
+                                bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: self))
+    }
 
     public func edgesExcluding(_ edge: LayoutSideAttribute) -> EdgeAnchorGroupExpression {
         let edgeExpression = EdgeAnchorGroupExpression(variable: edgeAnchors)
@@ -169,7 +196,10 @@ extension XYAxisAnchorable {
 
 extension SizeAnchorable {
     public var sizeAnchors: LayoutDimensionPair {
-        return LayoutDimensionPair(widthAnchor, heightAnchor)
+        return LayoutDimensionPair(widthAnchor,
+                                   heightAnchor,
+                                   item: self as? LayoutAnchorable,
+                                   keyPath: \LayoutAnchorable.sizeAnchors)
     }
 }
 
@@ -215,21 +245,21 @@ extension ViewController: BaselineLayoutAnchorable, LayoutAnchorableBacked {
 }
 
 extension Collection where Element: XYAxisAnchorable {
-    public var leadingAnchor: XAxisAnchors { return map {$0.leadingAnchor } }
-    public var trailingAnchor: XAxisAnchors { return map {$0.trailingAnchor } }
+    public var leadingAnchor: XAxisAnchors { return map { $0.leadingAnchor.retain(keyPath: \.leadingAnchor, owningItem: $0) } }
+    public var trailingAnchor: XAxisAnchors { return map { $0.trailingAnchor.retain(keyPath: \.trailingAnchor, owningItem: $0) } }
 
-    public var leftAnchor: XAxisAnchors { return map {$0.leftAnchor } }
-    public var rightAnchor: XAxisAnchors { return map {$0.rightAnchor } }
+    public var leftAnchor: XAxisAnchors { return map { $0.leftAnchor.retain(keyPath: \.leftAnchor, owningItem: $0) } }
+    public var rightAnchor: XAxisAnchors { return map { $0.rightAnchor.retain(keyPath: \.rightAnchor, owningItem: $0) } }
 
-    public var topAnchor: [YAxisAnchor] { return map {$0.topAnchor } }
-    public var bottomAnchor: [YAxisAnchor] { return map {$0.bottomAnchor } }
+    public var topAnchor: YAxisAnchors { return map { $0.topAnchor.retain(keyPath: \.topAnchor, owningItem: $0) } }
+    public var bottomAnchor: YAxisAnchors { return map { $0.bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: $0) } }
 
     public var horizontalEdgeAnchors: XAxisAnchorPairs { return map { $0.horizontalEdgeAnchors } }
     public var verticalEdgeAnchors: YAxisAnchorPairs { return map { $0.verticalEdgeAnchors } }
     public var edgeAnchors: EdgeAnchorGroups { return map { $0.edgeAnchors } }
 
-    public var centerXAnchor: XAxisAnchors { return map { $0.centerXAnchor } }
-    public var centerYAnchor: YAxisAnchors { return map { $0.centerYAnchor } }
+    public var centerXAnchor: XAxisAnchors { return map { $0.centerXAnchor.retain(keyPath: \.centerXAnchor, owningItem: $0) } }
+    public var centerYAnchor: YAxisAnchors { return map { $0.centerYAnchor.retain(keyPath: \.centerYAnchor, owningItem: $0) } }
     public var centerAnchors: XYAxesAnchorPairs { return map { $0.centerAnchors } }
 
     public var topLeadingAnchors: XYAxesAnchorPairs { return map { $0.topLeadingAnchors} }

@@ -33,11 +33,27 @@ internal protocol AnchorKeyPathExtracting: KeyPathExtracting where Value: Anchor
 extension AnchorKeyPathExtracting {
 
     internal static func keyPath(_ input: LayoutAnchor<Value>) -> K {
+        let keyPath: K? = {
+            switch input {
+            case let xAxisAnchor as XAxisAnchor:
+                return xAxisAnchor.keyPath as? K
+            case let yAxisAnchor as YAxisAnchor:
+                return yAxisAnchor.keyPath as? K
+            case let layoutDimension as LayoutDimension:
+                return layoutDimension.keyPath as? K
+            default: return nil
+            }
+        }()
+
+        if let keyPath = keyPath {
+            return keyPath
+        }
+
         let attribute = input.constraint(equalTo: input).firstAttribute
-        guard let keyPath = constraintKeyPathMap[attribute] else {
+        guard let derivedKeyPath = constraintKeyPathMap[attribute] else {
             preconditionFailure(String(describing: input) + " cannot be converted into \(attribute) constraint attribute.")
         }
-        return keyPath
+        return derivedKeyPath
     }
 }
 internal class XAxisKeyPathExctractor: AnchorKeyPathExtracting {

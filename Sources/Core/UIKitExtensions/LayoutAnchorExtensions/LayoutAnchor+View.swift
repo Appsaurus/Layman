@@ -6,11 +6,62 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-// Somewhat hacky way to resolve the owning view from an NSLayoutAnchor
+import ObjectiveC
+
+private struct AssociatedKeys {
+    static var owningObject = "LayoutAnchor_owningObject"
+    static var keyPath = "LayoutAnchor_keyPath"
+}
+
 extension LayoutAnchor where AnchorType == LayoutDimension {
 
+    public var owningItem: LayoutAnchorable? {
+        get {
+            guard let item = objc_getAssociatedObject(self, &AssociatedKeys.owningObject) as? LayoutAnchorable else {
+                let item = constraint(equalTo: self).firstItem as? LayoutAnchorable
+                self.owningItem = item
+                return item
+            }
+            return item
+        }
+
+        set {
+            if let newValue = newValue {
+                objc_setAssociatedObject(
+                    self,
+                    &AssociatedKeys.owningObject,
+                    newValue as LayoutAnchorable?,
+                    .OBJC_ASSOCIATION_ASSIGN
+                )
+            }
+        }
+    }
+
+    public var keyPath: KeyPath<LayoutAnchorable, LayoutDimension>? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.keyPath) as? KeyPath<LayoutAnchorable, LayoutDimension>
+        }
+
+        set {
+            if let newValue = newValue {
+                objc_setAssociatedObject(
+                    self,
+                    &AssociatedKeys.keyPath,
+                    newValue as KeyPath<LayoutAnchorable, LayoutDimension>?,
+                    .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+                )
+            }
+        }
+    }
+
+    public func retain(keyPath: KeyPath<LayoutAnchorable, LayoutDimension>, owningItem: Any) -> Self {
+        self.owningItem = owningItem as? LayoutAnchorable
+        self.keyPath = keyPath
+        return self
+    }
+
     public var view: View? {
-        return constraint(equalTo: self).firstView
+        return owningItem as? View
     }
 
     public var superview: View? {
@@ -24,8 +75,53 @@ extension LayoutAnchor where AnchorType == LayoutDimension {
 
 extension LayoutAnchor where AnchorType == XAxisAnchor {
 
+    public var owningItem: LayoutAnchorable? {
+        get {
+            guard let item = objc_getAssociatedObject(self, &AssociatedKeys.owningObject) as? LayoutAnchorable else {
+                let item = constraint(equalTo: self).firstItem as? LayoutAnchorable
+                self.owningItem = item
+                return item
+            }
+            return item
+        }
+
+        set {
+            if let newValue = newValue {
+                objc_setAssociatedObject(
+                    self,
+                    &AssociatedKeys.owningObject,
+                    newValue as LayoutAnchorable?,
+                    .OBJC_ASSOCIATION_ASSIGN
+                )
+            }
+        }
+    }
+
+    public var keyPath: KeyPath<LayoutAnchorable, XAxisAnchor>? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.keyPath) as? KeyPath<LayoutAnchorable, XAxisAnchor>
+        }
+
+        set {
+            if let newValue = newValue {
+                objc_setAssociatedObject(
+                    self,
+                    &AssociatedKeys.keyPath,
+                    newValue as KeyPath<LayoutAnchorable, XAxisAnchor>?,
+                    .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+                )
+            }
+        }
+    }
+
+    public func retain(keyPath: KeyPath<LayoutAnchorable, XAxisAnchor>, owningItem: Any) -> Self {
+        self.owningItem = owningItem as? LayoutAnchorable
+        self.keyPath = keyPath
+        return self
+    }
+
     public var view: View? {
-        return constraint(equalTo: self).firstView
+        return owningItem as? View
     }
 
     public var superview: View? {
@@ -39,8 +135,53 @@ extension LayoutAnchor where AnchorType == XAxisAnchor {
 
 extension LayoutAnchor where AnchorType == YAxisAnchor {
 
+    public var owningItem: LayoutAnchorable? {
+        get {
+            guard let item = objc_getAssociatedObject(self, &AssociatedKeys.owningObject) as? LayoutAnchorable else {
+                let item = constraint(equalTo: self).firstItem as? LayoutAnchorable
+                self.owningItem = item
+                return item
+            }
+            return item
+        }
+
+        set {
+            if let newValue = newValue {
+                objc_setAssociatedObject(
+                    self,
+                    &AssociatedKeys.owningObject,
+                    newValue as LayoutAnchorable?,
+                    .OBJC_ASSOCIATION_ASSIGN
+                )
+            }
+        }
+    }
+
+    public var keyPath: KeyPath<LayoutAnchorable, YAxisAnchor>? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.keyPath) as? KeyPath<LayoutAnchorable, YAxisAnchor>
+        }
+
+        set {
+            if let newValue = newValue {
+                objc_setAssociatedObject(
+                    self,
+                    &AssociatedKeys.keyPath,
+                    newValue as KeyPath<LayoutAnchorable, YAxisAnchor>?,
+                    .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+                )
+            }
+        }
+    }
+
+    public func retain(keyPath: KeyPath<LayoutAnchorable, YAxisAnchor>, owningItem: Any) -> Self {
+        self.owningItem = owningItem as? LayoutAnchorable
+        self.keyPath = keyPath
+        return self
+    }
+
     public var view: View? {
-        return constraint(equalTo: self).firstView
+        return owningItem as? View
     }
 
     public var superview: View? {

@@ -13,21 +13,37 @@ import UIKit
 #endif
 
 extension XYAxisAnchorable {
-    public var leading: XAxisAnchor { return leadingAnchor }
-    public var trailing: XAxisAnchor { return trailingAnchor }
+    public var leading: XAxisAnchor {
+        return leadingAnchor.retain(keyPath: \.leadingAnchor, owningItem: self)
+    }
+    public var trailing: XAxisAnchor {
+        return trailingAnchor.retain(keyPath: \.trailingAnchor, owningItem: self)
+    }
 
-    public var left: XAxisAnchor { return leftAnchor }
-    public var right: XAxisAnchor { return rightAnchor }
+    public var left: XAxisAnchor {
+        return leftAnchor.retain(keyPath: \.leftAnchor, owningItem: self)
+    }
+    public var right: XAxisAnchor {
+        return rightAnchor.retain(keyPath: \.rightAnchor, owningItem: self)
+    }
 
-    public var top: YAxisAnchor { return topAnchor }
-    public var bottom: YAxisAnchor { return bottomAnchor }
+    public var top: YAxisAnchor {
+        return topAnchor.retain(keyPath: \.topAnchor, owningItem: self)
+    }
+    public var bottom: YAxisAnchor {
+        return bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: self)
+    }
 
     public var horizontalEdges: XAxisAnchorPair { return horizontalEdgeAnchors }
     public var verticalEdges: YAxisAnchorPair { return verticalEdgeAnchors }
     public var edges: EdgeAnchorGroup { return edgeAnchors }
 
-    public var centerX: XAxisAnchor { return centerXAnchor }
-    public var centerY: YAxisAnchor { return centerYAnchor }
+    public var centerX: XAxisAnchor {
+        return centerXAnchor.retain(keyPath: \.centerXAnchor, owningItem: self)
+    }
+    public var centerY: YAxisAnchor {
+        return centerYAnchor.retain(keyPath: \.centerYAnchor, owningItem: self)
+    }
     public var centerXY: XYAxesAnchorPair { return centerAnchors }
 
     public var topLeading: XYAxesAnchorPair { return topLeadingAnchors }
@@ -43,8 +59,8 @@ extension XYAxisAnchorable {
 }
 
 extension SizeAnchorable {
-    public var width: LayoutDimension { return widthAnchor }
-    public var height: LayoutDimension { return heightAnchor }
+    public var width: LayoutDimension { return widthAnchor.retain(keyPath: \.widthAnchor, owningItem: self) }
+    public var height: LayoutDimension { return heightAnchor.retain(keyPath: \.heightAnchor, owningItem: self) }
     public var size: LayoutDimensionPair { return sizeAnchors }
 }
 
@@ -54,20 +70,23 @@ extension View {
 }
 
 extension Collection where Element: XYAxisAnchorable {
-    public var leading: XAxisAnchors { return leadingAnchor }
-    public var trailing: XAxisAnchors { return trailingAnchor }
-    public var left: XAxisAnchors { return leftAnchor }
-    public var right: XAxisAnchors { return rightAnchor }
+    // NOTE: Member variables defined by UIKit on Layout Anchors must be accessed by the shorthand
+    // notation in order for side effect to lazily load the KeyPath that optimizes the inferred equations.
 
-    public var top: [YAxisAnchor] { return topAnchor }
-    public var bottom: [YAxisAnchor] { return bottomAnchor }
+    public var leading: XAxisAnchors { return map { $0.leading } }
+    public var trailing: XAxisAnchors { return map { $0.trailing } }
+    public var left: XAxisAnchors { return map { $0.left } }
+    public var right: XAxisAnchors { return map { $0.right } }
+
+    public var top: [YAxisAnchor] { return map { $0.top } }
+    public var bottom: [YAxisAnchor] { return map { $0.bottom } }
 
     public var horizontalEdges: XAxisAnchorPairs { return horizontalEdgeAnchors }
     public var verticalEdges: YAxisAnchorPairs { return verticalEdgeAnchors }
     public var edges: EdgeAnchorGroups { return edgeAnchors }
 
-    public var centerX: XAxisAnchors { return centerXAnchor }
-    public var centerY: YAxisAnchors { return centerYAnchor }
+    public var centerX: XAxisAnchors { return map { $0.centerX } }
+    public var centerY: YAxisAnchors { return map { $0.centerY } }
     public var centerXY: XYAxesAnchorPairs { return centerAnchors }
 
     public var topLeading: XYAxesAnchorPairs { return topLeadingAnchors }
@@ -86,7 +105,7 @@ extension Collection where Element: XYAxisAnchorable {
 extension Collection where Element: SizeAnchorable {
     public var width: LayoutDimensions { return map { $0.width } }
     public var height: LayoutDimensions { return map { $0.height } }
-    public var size: LayoutDimensionPairs { return map { $0.size } }
+    public var size: LayoutDimensionPairs { return sizeAnchors }
 }
 
 extension Collection where Element: View {

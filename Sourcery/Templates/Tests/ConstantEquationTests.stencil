@@ -11,7 +11,7 @@
 {% for operatorName in argument.operators %}
 {% set operator %}{{argument.operators[operatorName]}}{% endset %}
 {% set baseFunctionName %}test{{lhsItem|upperFirstLetter}}{{lhsAttribute|upperFirstLetter}}{{operatorName|upperFirstLetter}}{% endset %}
-{% set baseLhs %}{{lhsItem}}.{{lhsAttribute}}Anchor{% endset %}
+{% set baseLhs %}{{lhsItem}}.{{lhsAttribute}}{% endset %}
 {% set baseRhs %}{{constant}}{% endset %}
 {% set baseEquation %}{{baseLhs}} {{operator}} {{baseRhs}}{% endset %}
 {% set baseAssertion %}{% if type.name|hasPrefix:"LayoutDimension" %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, constant: {{constant}}{% else %}{{lhsItem}}, .{{lhsAttribute}}, .{{operatorName}}, parentView, .{{lhsAttribute}}, constant: {{constant}}{% endif %}{% endset %}

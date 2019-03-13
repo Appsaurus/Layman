@@ -41,7 +41,14 @@ public final class EdgeAnchorGroupEquation {
         coefficients.leading.set(relativeConstant: relativeConstant.leading)
         coefficients.bottom.set(relativeConstant: relativeConstant.bottom)
         coefficients.trailing.set(relativeConstant: relativeConstant.trailing)
+    }
 
+    public convenience init(_ variable: EdgeAnchorGroup, _ relation: LayoutRelation, _ layoutConstant: LayoutPadding) {
+        self.init(variable, relation, nil)
+        coefficients.top.set(constant: layoutConstant.top)
+        coefficients.leading.set(constant: layoutConstant.leading)
+        coefficients.bottom.set(constant: layoutConstant.bottom)
+        coefficients.trailing.set(constant: layoutConstant.trailing)
     }
 
     public var constraint: SideConstraints {

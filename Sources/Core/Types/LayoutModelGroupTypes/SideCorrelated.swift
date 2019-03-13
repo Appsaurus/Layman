@@ -80,4 +80,10 @@ public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated {
         self.trailing = horizontal
     }
 
+    public init <S>(_ sides: S) where S: SideCorrelated, S.HorizontalSideType == HorizontalSideType, S.VerticalSideType == VerticalSideType {
+        self.top = sides.top
+        self.leading = sides.leading
+        self.bottom = sides.bottom
+        self.trailing = sides.trailing
+    }
 }

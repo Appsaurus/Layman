@@ -7,13 +7,11 @@
 //
 
 extension EdgeAnchorGroup: EdgeAnchorsGroupCoefficientsEquatable {
+    public func relation(_ relation: LayoutRelation, _ rhs: LayoutPadding) -> EdgeAnchorGroupEquation {
+        return EdgeAnchorGroupEquation(self, relation, rhs)
+    }
 
+    public func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutPadding) -> EdgeAnchorGroupEquation {
+         return EdgeAnchorGroupEquation(self, relation, rhs)
+    }
 }
-//
-//extension View: EdgeAnchorsGroupCoefficientsEquatable {
-////    public func relation(_ relation: LayoutRelation, _ rhs: EdgeAnchorsGroupCoefficients) -> LayoutDimensionPairEquation {
-////
-////    }
-//
-//
-//}
