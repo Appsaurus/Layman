@@ -148,12 +148,12 @@ You can constrain all edges at once, or exclude a single edge.
 
 ```swift
 view1.edges.equal(to: container.edges)
-view2.edges.equal(to: view1.edgesExcluding(.trailing))
-view3.edges.equal(to: view1.edgesExcluding(.leading))
+view2.edges.equal(to: view1.edges.excluding(.trailing))
+view3.edges.equal(to: view1.edges.excluding(.leading))
 // Operator API equivalent:
 view1.edges .= container.edges
-view2.edges .= view1.edgesExcluding(.trailing)
-view3.edges .= view1.edgesExcluding(.leading)
+view2.edges .= view1.edges.excluding(.trailing)
+view3.edges .= view1.edges.excluding(.leading)
 ```
 
 ### Coefficients and Constants

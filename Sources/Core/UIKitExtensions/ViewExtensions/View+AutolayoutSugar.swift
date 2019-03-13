@@ -60,6 +60,11 @@ public extension View {
     }
 
     @discardableResult
+    public func pinToSuperviewMargins() -> SideConstraints {
+        return edgeAnchors.equal(to: assertSuperview().margins.edgeAnchors)
+    }
+
+    @discardableResult
     public func centerInSuperview() -> ConstraintPair {
         return centerXY.equal(to: assertSuperview().centerXY)
     }

@@ -72,16 +72,16 @@ public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated {
         self.init(top, leading, bottom, trailing)
     }
 
-    public init(_ horizontal: HorizontalSideType,
-                _ vertical: VerticalSideType) {
-        self.top = vertical
-        self.leading = horizontal
-        self.bottom = vertical
-        self.trailing = horizontal
+    public init(_ horizontal: @autoclosure () -> HorizontalSideType,
+                _ vertical: @autoclosure () -> VerticalSideType) {
+        self.top = vertical()
+        self.leading = horizontal()
+        self.bottom = vertical()
+        self.trailing = horizontal()
     }
 
-    public convenience init(horizontal: HorizontalSideType,
-                            vertical: VerticalSideType) {
+    public convenience init(horizontal: @autoclosure () -> HorizontalSideType,
+                            vertical: @autoclosure () -> VerticalSideType) {
         self.init(horizontal, vertical)
     }
 

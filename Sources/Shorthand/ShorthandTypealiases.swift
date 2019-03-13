@@ -1,5 +1,5 @@
 //
-//  LayoutPriority+Sugar.swift
+//  ShorthandTypeAliases.swift
 //  Layman
 //
 //  Created by Brian Strobach on 1/8/19.

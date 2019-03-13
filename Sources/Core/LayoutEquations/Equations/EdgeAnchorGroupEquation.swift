@@ -59,6 +59,19 @@ public final class EdgeAnchorGroupEquation {
     }
 
     internal func constraintRelated(to relatedVariable: EdgeAnchorGroup) -> SideConstraints {
+        if let excludedEdge = variable.excludedEdge ?? relatedVariable.excludedEdge {
+            switch excludedEdge {
+            case .top:
+                coefficients.top.active = false
+            case .leading:
+                coefficients.leading.active = false
+            case .trailing:
+                coefficients.trailing.active = false
+            case .bottom:
+                coefficients.bottom.active = false
+            }
+        }
+
         return SideConstraints(
             variable.top.relation(relation, relatedVariable.top).with(coefficients: coefficients.top).constraint,
             variable.leading.relation(relation, relatedVariable.leading).with(coefficients: coefficients.leading).constraint,
@@ -94,6 +107,7 @@ extension EdgeAnchorGroupEquation: LinearEquationProtocol {
 
 extension EdgeAnchorGroupEquation: TupleVariableLinearEquation {
     public convenience init(_ variable: EdgeAnchorGroup, _ relation: LayoutRelation, _ coefficients: LayoutCoefficientPair) {
-        self.init(variable, relation, Coefficients(coefficients.first, coefficients.second))
+        let co = Coefficients(coefficients.first.copy(), coefficients.second.copy())
+        self.init(variable, relation, co)
     }
 }

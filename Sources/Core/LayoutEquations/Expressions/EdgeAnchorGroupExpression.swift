@@ -7,16 +7,19 @@
 //
 
 public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAnchor> {
-
+    public var excludedEdge: LayoutSideAttribute?
     public var variable: EdgeAnchorGroup {
         get {
-            return EdgeAnchorGroup(top, leading, bottom, trailing)
+            let group = EdgeAnchorGroup(top, leading, bottom, trailing)
+            group.excludedEdge = excludedEdge
+            return group
         }
         set {
             top = newValue.top
             leading = newValue.leading
             bottom = newValue.bottom
             trailing = newValue.trailing
+            excludedEdge = newValue.excludedEdge
         }
     }
 
@@ -29,6 +32,7 @@ public final class EdgeAnchorGroupExpression: SidesTuple<XAxisAnchor, YAxisAncho
     public convenience init(variable: EdgeAnchorGroup,
                             coefficients: EdgeAnchorsGroupCoefficients) {
         self.init(variable)
+        self.excludedEdge = variable.excludedEdge
         self.coefficients = coefficients
     }
 

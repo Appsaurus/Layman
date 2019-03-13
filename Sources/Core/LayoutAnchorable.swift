@@ -177,21 +177,6 @@ extension XYAxisAnchorable {
         return XYAxesAnchorPair(leftAnchor.retain(keyPath: \.leftAnchor, owningItem: self),
                                 bottomAnchor.retain(keyPath: \.bottomAnchor, owningItem: self))
     }
-
-    public func edgesExcluding(_ edge: LayoutSideAttribute) -> EdgeAnchorGroupExpression {
-        let edgeExpression = EdgeAnchorGroupExpression(variable: edgeAnchors)
-        switch edge {
-        case .top:
-            edgeExpression.topExpression.coefficients.active = false
-        case .leading:
-            edgeExpression.leadingExpression.coefficients.active = false
-        case .trailing:
-            edgeExpression.trailingExpression.coefficients.active = false
-        case .bottom:
-            edgeExpression.bottomExpression.coefficients.active = false
-        }
-        return edgeExpression
-    }
 }
 
 extension SizeAnchorable {

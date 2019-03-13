@@ -14,6 +14,7 @@ public protocol EdgeAnchorsGroupCoefficientsEquatable: LinearEquationTyped {
     func relation(_ relation: LayoutRelation, _ rhs: RelativeLayoutPadding) -> LinearEquation
 }
 // MARK: Anchor <=> EdgeAnchorsGroupCoefficients
+
 extension EdgeAnchorsGroupCoefficientsEquatable {
 
     // MARK: - Equal

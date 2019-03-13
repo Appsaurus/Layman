@@ -7,11 +7,22 @@
 //
 
 public final class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {
+    public var excludedEdge: LayoutSideAttribute?
     public func relation(_ relation: LayoutRelation, _ rhs: Coefficient) -> LinearEquation {
         return LinearEquation(self, relation, rhs)
     }
+
+    public func excluding(_ edge: LayoutSideAttribute) -> EdgeAnchorGroup {
+        self.excludedEdge = edge
+        return self
+    }
 }
 
+extension Collection where Element: EdgeAnchorGroup {
+    public func excluding(_ edge: LayoutSideAttribute) -> [EdgeAnchorGroup]  {
+        return map { $0.excluding(edge) }
+    }
+}
 extension EdgeAnchorGroup: LayoutVariableTuple, CoefficientsEquatable {}
 
 extension EdgeAnchorGroup {    

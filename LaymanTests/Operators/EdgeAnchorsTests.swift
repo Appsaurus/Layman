@@ -27,23 +27,6 @@ class EdgeAnchorsTests: LaymanTestCase {
         constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, parentView, .trailing, constant: 10, priority: 749)
     }
 
-    func testEdgeAnchorsWithTupleInset() {
-
-        let constraints = view1.edgeAnchors .= parentView.edgeAnchors.inset(10, 5) ~ .high .- 1
-        constraints.top.assert(view1, .top, .equal, parentView, .top, constant: 5, priority: 749)
-        constraints.leading.assert(view1, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
-        constraints.bottom.assert(view1, .bottom, .equal, parentView, .bottom, constant: -5, priority: 749)
-        constraints.trailing.assert(view1, .trailing, .equal, parentView, .trailing, constant: -10, priority: 749)
-    }
-
-    func testArrayEdgeAnchorsWithTupleInset() {
-        let constraints = viewArray.edgeAnchors .= parentView.edgeAnchors.inset(10, 5) ~ .high .- 1
-        constraints.map {$0.top}.assert(viewArray, .top, .equal, parentView, .top, constant: 5, priority: 749)
-        constraints.map {$0.leading}.assert(viewArray, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
-        constraints.map {$0.bottom}.assert(viewArray, .bottom, .equal, parentView, .bottom, constant: -5, priority: 749)
-        constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, parentView, .trailing, constant: -10, priority: 749)
-    }
-
     func testEdgeAnchorsWithInset() {
         let insets: RelativeLayoutPadding = .inset(top: 10, leading: 5, bottom: 15, trailing: 20)
         let constraints = view1.edgeAnchors .= parentView.edgeAnchors .+ insets ~ .high .- 1
@@ -286,5 +269,57 @@ class EdgeAnchorsTests: LaymanTestCase {
         constraints.map {$0.leading}.assert(viewArray, .leading, .lessThanOrEqual, parentView, .leading, constant: -5, priority: 749)
         constraints.map {$0.bottom}.assert(viewArray, .bottom, .greaterThanOrEqual, parentView, .bottom, constant: 15, priority: 749)
         constraints.map {$0.trailing}.assert(viewArray, .trailing, .greaterThanOrEqual, parentView, .trailing, constant: 20, priority: 749)
+    }
+
+
+    //MARK: Misc
+
+    func testEdgeAnchorsWithTupleInset() {
+        let constraints = view1.edgeAnchors .= parentView.edgeAnchors.inset(10, 5) ~ .high .- 1
+        constraints.top.assert(view1, .top, .equal, parentView, .top, constant: 5, priority: 749)
+        constraints.leading.assert(view1, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
+        constraints.bottom.assert(view1, .bottom, .equal, parentView, .bottom, constant: -5, priority: 749)
+        constraints.trailing.assert(view1, .trailing, .equal, parentView, .trailing, constant: -10, priority: 749)
+    }
+
+    func testArrayEdgeAnchorsWithTupleInset() {
+        let constraints = viewArray.edgeAnchors .= parentView.edgeAnchors.inset(10, 5) ~ .high .- 1
+        constraints.map {$0.top}.assert(viewArray, .top, .equal, parentView, .top, constant: 5, priority: 749)
+        constraints.map {$0.leading}.assert(viewArray, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
+        constraints.map {$0.bottom}.assert(viewArray, .bottom, .equal, parentView, .bottom, constant: -5, priority: 749)
+        constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, parentView, .trailing, constant: -10, priority: 749)
+    }
+
+    // MARK: Excluding edges
+    func testEdgeAnchorsExcludingTop() {
+        let constraints = view1.edges .= parentView.edges.excluding(.top) .+ 10 ~ .high .- 1
+        constraints.leading.assert(view1, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
+        constraints.bottom.assert(view1, .bottom, .equal, parentView, .bottom, constant: 10, priority: 749)
+        constraints.trailing.assert(view1, .trailing, .equal, parentView, .trailing, constant: 10, priority: 749)
+        XCTAssertFalse(constraints.top.isActive)
+    }
+
+    func testArrayEdgeAnchorsExcludingTop() {
+        let constraints = viewArray.edges .= parentView.edges.excluding(.top) .+ 10 ~ .high .- 1
+        constraints.map {$0.leading}.assert(viewArray, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
+        constraints.map {$0.bottom}.assert(viewArray, .bottom, .equal, parentView, .bottom, constant: 10, priority: 749)
+        constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, parentView, .trailing, constant: 10, priority: 749)
+        constraints.forEach { XCTAssertFalse($0.top.isActive) }
+    }
+
+    func testEdgeAnchorsExcludingTopInferredParentView() {
+        let constraints = view1.edges.excluding(.top) .= 10 ~ .high .- 1    
+        constraints.leading.assert(view1, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
+        constraints.bottom.assert(view1, .bottom, .equal, parentView, .bottom, constant: 10, priority: 749)
+        constraints.trailing.assert(view1, .trailing, .equal, parentView, .trailing, constant: 10, priority: 749)
+        XCTAssertFalse(constraints.top.isActive)
+    }
+
+    func testArrayEdgeAnchorsExcludingTopInferredParentView() {
+        let constraints = viewArray.edges.excluding(.top) .= 10 ~ .high .- 1
+        constraints.map {$0.leading}.assert(viewArray, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
+        constraints.map {$0.bottom}.assert(viewArray, .bottom, .equal, parentView, .bottom, constant: 10, priority: 749)
+        constraints.map {$0.trailing}.assert(viewArray, .trailing, .equal, parentView, .trailing, constant: 10, priority: 749)
+        constraints.forEach { XCTAssertFalse($0.top.isActive) }
     }
 }
