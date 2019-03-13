@@ -12,14 +12,17 @@ public final class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {
         return LinearEquation(self, relation, rhs)
     }
 
-    public func excluding(_ edge: LayoutSideAttribute) -> EdgeAnchorGroup {
-        self.excludedEdge = edge
+    public func excluding(_ edge: LayoutSideAttribute?) -> EdgeAnchorGroup {
+        if let edge = edge { self.excludedEdge = edge }
         return self
     }
 }
 
 extension Collection where Element: EdgeAnchorGroup {
-    public func excluding(_ edge: LayoutSideAttribute) -> [EdgeAnchorGroup]  {
+    public func excluding(_ edge: LayoutSideAttribute?) -> [EdgeAnchorGroup]  {
+        guard let edge = edge else {
+            return Array(self)
+        }
         return map { $0.excluding(edge) }
     }
 }

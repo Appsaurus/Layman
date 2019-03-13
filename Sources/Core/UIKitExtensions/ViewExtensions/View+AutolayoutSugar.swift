@@ -55,13 +55,13 @@ public extension View {
     }
 
     @discardableResult
-    public func pinToSuperview() -> SideConstraints {
-        return edgeAnchors.equal(to: assertSuperview().edgeAnchors)
+    public func pinToSuperview(excluding edge: LayoutSideAttribute? = nil) -> SideConstraints {
+        return edgeAnchors.equal(to: assertSuperview().edgeAnchors.excluding(edge))
     }
 
     @discardableResult
-    public func pinToSuperviewMargins() -> SideConstraints {
-        return edgeAnchors.equal(to: assertSuperview().margins.edgeAnchors)
+    public func pinToSuperviewMargins(excluding edge: LayoutSideAttribute? = nil) -> SideConstraints {
+        return edgeAnchors.equal(to: assertSuperview().margins.edgeAnchors.excluding(edge))
     }
 
     @discardableResult
