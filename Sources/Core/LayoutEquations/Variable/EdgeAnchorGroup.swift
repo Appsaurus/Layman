@@ -19,7 +19,7 @@ public final class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {
 }
 
 extension Collection where Element: EdgeAnchorGroup {
-    public func excluding(_ edge: LayoutSideAttribute?) -> [EdgeAnchorGroup]  {
+    public func excluding(_ edge: LayoutSideAttribute?) -> [EdgeAnchorGroup] {
         guard let edge = edge else {
             return Array(self)
         }

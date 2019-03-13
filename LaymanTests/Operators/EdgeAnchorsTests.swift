@@ -8,7 +8,7 @@
 
 @testable import Layman
 import XCTest
-
+//swiftlint:disable:next type_body_length
 class EdgeAnchorsTests: LaymanTestCase {
 
     func testEdgeAnchors() {        
@@ -271,8 +271,7 @@ class EdgeAnchorsTests: LaymanTestCase {
         constraints.map {$0.trailing}.assert(viewArray, .trailing, .greaterThanOrEqual, parentView, .trailing, constant: 20, priority: 749)
     }
 
-
-    //MARK: Misc
+    // MARK: Tuple Inset
 
     func testEdgeAnchorsWithTupleInset() {
         let constraints = view1.edgeAnchors .= parentView.edgeAnchors.inset(10, 5) ~ .high .- 1
