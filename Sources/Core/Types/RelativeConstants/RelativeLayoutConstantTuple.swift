@@ -18,26 +18,26 @@ extension Relative where LC == LayoutConstantTuple {
         return RelativeLayoutConstant(relativity: relativity, constant: constant.second)
     }
 
-    public static func outset(_ vertical: LayoutConstant,
-                              _ horizontal: LayoutConstant) -> RelativeLayoutConstantTuple {
+    public static func outset(_ horizontal: LayoutConstant,
+                              _ vertical: LayoutConstant) -> RelativeLayoutConstantTuple {
 
-        return RelativeLayoutConstantTuple(relativity: .outset, constant: (first: vertical, second: horizontal))
+        return RelativeLayoutConstantTuple(relativity: .outset, constant: (first: horizontal, second: vertical))
     }
 
-    public static func inset(_ vertical: LayoutConstant,
-                             _ horizontal: LayoutConstant) -> RelativeLayoutConstantTuple {
-        return RelativeLayoutConstantTuple(relativity: .inset, constant: (first: vertical, second: horizontal))
+    public static func inset(_ horizontal: LayoutConstant,
+                             _ vertical: LayoutConstant) -> RelativeLayoutConstantTuple {
+        return RelativeLayoutConstantTuple(relativity: .inset, constant: (first: horizontal, second: vertical))
     }
 
-    public static func outset(vertical: LayoutConstant,
-                              horizontal: LayoutConstant) -> RelativeLayoutConstantTuple {
+    public static func outset(horizontal: LayoutConstant,
+                              vertical: LayoutConstant) -> RelativeLayoutConstantTuple {
 
-        return outset(vertical, horizontal)
+        return outset(horizontal, vertical)
     }
 
-    public static func inset(vertical: LayoutConstant,
-                             horizontal: LayoutConstant) -> RelativeLayoutConstantTuple {
-        return inset(vertical, horizontal)
+    public static func inset(horizontal: LayoutConstant,
+                             vertical: LayoutConstant) -> RelativeLayoutConstantTuple {
+        return inset(horizontal, vertical)
     }
 
     public init(_ relativeConstant: RelativeLayoutConstant) {

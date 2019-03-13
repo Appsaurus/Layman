@@ -157,3 +157,56 @@ internal extension Set {
     }
 
 }
+
+// Useful when you have a view that you want to calculate its content based height using autolayout
+// but ultimately, it will not be able to use autolayout at time of layout to enforce its height (tableview headers/footers/etc)
+extension View {
+    public func layoutDynamicHeight(forWidth width: LayoutConstant) {
+        translatesAutoresizingMaskIntoConstraints = false
+        let widthConstraint = self.width.equal(to: width)
+        addConstraint(widthConstraint)
+        forceAutolayoutPass()
+        let height = systemLayoutSizeFitting(View.layoutFittingExpandedSize).height
+        removeConstraint(widthConstraint)
+        frame = LayoutFrame(x: 0, y: 0, width: width, height: height)
+        translatesAutoresizingMaskIntoConstraints = true
+    }
+
+    public class func parentViewFittingContent(of view: View, insetBy insets: LayoutPadding = LayoutPadding(20)) -> UIView {
+        let layoutView: View = View()
+        layoutView.addSubview(view)
+        view.forceSuperviewToMatchContentSize(insetBy: insets)
+        return layoutView
+    }
+}
+#if canImport(UIKit)
+import UIKit
+//Dynamic Height TableView Header
+extension UITableView {
+    public func layoutDynamicHeightHeaderView(width: LayoutConstant) {
+        guard let headerView = tableHeaderView else { return }
+        headerView.layoutDynamicHeight(forWidth: width)
+        self.tableHeaderView = headerView
+    }
+
+    /// Dynamically Size TableView headers with AutoLayout
+    //  NOTE: Requires following override in UITableViewController
+    //    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    //        super.viewWillTransition(to: size, with: coordinator)
+    //        self.tableView.layoutDynamicHeightHeaderView(width: size.width)
+    //    }
+    //
+    //    override open func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(animated)
+    //        self.tableView.layoutDynamicHeightHeaderView(width: self.tableView.bounds.width)
+    //    }
+    /// - Parameters:
+    ///   - view: Base view for header
+    ///   - insets: Insets for base view
+
+    public func setupDynamicHeightTableHeaderView(fittingContentView view: View, insets: LayoutPadding = LayoutPadding(20)) {
+        tableHeaderView = View.parentViewFittingContent(of: view, insetBy: insets)
+    }
+
+}
+#endif

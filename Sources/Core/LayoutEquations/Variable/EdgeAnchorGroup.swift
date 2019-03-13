@@ -14,7 +14,7 @@ public final class EdgeAnchorGroup: SidesTuple<XAxisAnchor, YAxisAnchor> {
 
 extension EdgeAnchorGroup: LayoutVariableTuple, CoefficientsEquatable {}
 
-extension EdgeAnchorGroup {
+extension EdgeAnchorGroup {    
     public func outset(_ top: LayoutConstant,
                        _ leading: LayoutConstant,
                        _ bottom: LayoutConstant,
@@ -51,19 +51,11 @@ extension EdgeAnchorGroup {
         return inset(padding.top, padding.leading, padding.bottom, padding.trailing)
     }
 
-//    public func inset(_ vertical: LayoutConstant, _ horizontal: LayoutConstant) -> EdgeAnchorGroupExpression {
-//        return inset(vertical, horizontal, vertical, horizontal)
-//    }
-//
-//    public func outset(_ vertical: LayoutConstant, _ horizontal: LayoutConstant) -> EdgeAnchorGroupExpression {
-//        return outset(vertical, horizontal, vertical, horizontal)
-//    }
-//
-    public func inset(vertical: LayoutConstant, horizontal: LayoutConstant) -> EdgeAnchorGroupExpression {
-        return inset(vertical, horizontal)
+    public func inset(horizontal: LayoutConstant, vertical: LayoutConstant) -> EdgeAnchorGroupExpression {
+        return inset(horizontal, vertical)
     }
 
-    public func outset(vertical: LayoutConstant, horizontal: LayoutConstant) -> EdgeAnchorGroupExpression {
-        return outset(vertical, horizontal)
+    public func outset(horizontal: LayoutConstant, vertical: LayoutConstant) -> EdgeAnchorGroupExpression {
+        return outset(horizontal, vertical)
     }
 }

@@ -72,12 +72,17 @@ public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated {
         self.init(top, leading, bottom, trailing)
     }
 
-    public init(_ vertical: VerticalSideType,
-                _ horizontal: HorizontalSideType) {
+    public init(_ horizontal: HorizontalSideType,
+                _ vertical: VerticalSideType) {
         self.top = vertical
         self.leading = horizontal
         self.bottom = vertical
         self.trailing = horizontal
+    }
+
+    public convenience init(horizontal: HorizontalSideType,
+                            vertical: VerticalSideType) {
+        self.init(horizontal, vertical)
     }
 
     public init <S>(_ sides: S) where S: SideCorrelated, S.HorizontalSideType == HorizontalSideType, S.VerticalSideType == VerticalSideType {

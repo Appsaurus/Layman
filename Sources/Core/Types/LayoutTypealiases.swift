@@ -39,9 +39,10 @@ public typealias AnchorType = AnyObject
 public typealias AnchorVariable = AnchorType & LayoutVariable
 public typealias AnyLayoutAnchor = LayoutAnchor<AnchorType>
 
+public typealias LayoutFrame = CGRect
+
 // MARK: Layout Configuration
 public typealias LayoutConstant = CGFloat
-
 public typealias LayoutConstantTuple = (first: LayoutConstant, second: LayoutConstant)
 
 public typealias LayoutMultiplier = LayoutConstantWrapper
