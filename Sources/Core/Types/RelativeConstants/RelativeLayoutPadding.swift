@@ -53,23 +53,6 @@ extension Relative where LC == LayoutPadding {
                              trailing: LayoutConstant) -> RelativeLayoutPadding {
         return RelativeLayoutPadding(relativity: .inset, constant: .init(top, leading, bottom, trailing))
     }
-
-    public static func inset(_ vertical: LayoutConstant, _ horizontal: LayoutConstant) -> RelativeLayoutPadding {
-        return inset(vertical, horizontal, vertical, horizontal)
-    }
-
-    public static func outset(_ vertical: LayoutConstant, _ horizontal: LayoutConstant) -> RelativeLayoutPadding {
-        return outset(vertical, horizontal, vertical, horizontal)
-    }
-
-    public static func inset(vertical: LayoutConstant, horizontal: LayoutConstant) -> RelativeLayoutPadding {
-        return inset(vertical, horizontal)
-    }
-
-    public static func outset(vertical: LayoutConstant, horizontal: LayoutConstant) -> RelativeLayoutPadding {
-        return outset(vertical, horizontal)
-    }
-
 }
 
 extension LayoutPadding {

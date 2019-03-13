@@ -18,23 +18,26 @@ extension Relative where LC == LayoutConstantTuple {
         return RelativeLayoutConstant(relativity: relativity, constant: constant.second)
     }
 
-    public static func inset(_ padding: LayoutConstant) -> RelativeLayoutConstantTuple {
-        return inset(padding, padding)
+    public static func outset(_ vertical: LayoutConstant,
+                              _ horizontal: LayoutConstant) -> RelativeLayoutConstantTuple {
+
+        return RelativeLayoutConstantTuple(relativity: .outset, constant: (first: vertical, second: horizontal))
     }
 
-    public static func outset(_ padding: LayoutConstant) -> RelativeLayoutConstantTuple {
-        return outset(padding, padding)
+    public static func inset(_ vertical: LayoutConstant,
+                             _ horizontal: LayoutConstant) -> RelativeLayoutConstantTuple {
+        return RelativeLayoutConstantTuple(relativity: .inset, constant: (first: vertical, second: horizontal))
     }
 
-    public static func outset(_ first: LayoutConstant,
-                              _ second: LayoutConstant) -> RelativeLayoutConstantTuple {
+    public static func outset(vertical: LayoutConstant,
+                              horizontal: LayoutConstant) -> RelativeLayoutConstantTuple {
 
-        return RelativeLayoutConstantTuple(relativity: .outset, constant: (first: first, second: second))
+        return outset(vertical, horizontal)
     }
 
-    public static func inset(_ first: LayoutConstant,
-                             _ second: LayoutConstant) -> RelativeLayoutConstantTuple {
-        return RelativeLayoutConstantTuple(relativity: .inset, constant: (first: first, second: second))
+    public static func inset(vertical: LayoutConstant,
+                             horizontal: LayoutConstant) -> RelativeLayoutConstantTuple {
+        return inset(vertical, horizontal)
     }
 
     public init(_ relativeConstant: RelativeLayoutConstant) {

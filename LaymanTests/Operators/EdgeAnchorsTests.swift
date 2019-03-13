@@ -11,7 +11,7 @@ import XCTest
 
 class EdgeAnchorsTests: LaymanTestCase {
 
-    func testEdgeAnchors() {
+    func testEdgeAnchors() {        
         let constraints = view1.edgeAnchors .= parentView.edgeAnchors .+ 10 ~ .high .- 1
         constraints.top.assert(view1, .top, .equal, parentView, .top, constant: 10, priority: 749)
         constraints.leading.assert(view1, .leading, .equal, parentView, .leading, constant: 10, priority: 749)
