@@ -71,6 +71,18 @@ extension LayoutAnchor where AnchorType == LayoutDimension {
     public var matchingParentAnchor: LayoutDimension? {
         return superview?[keyPath: ...self]
     }
+
+    public var assertSuperview: View {
+        guard let superview = superview else {
+            assertionFailure("Attempted to infer matching superview anchor with on view with no superview.")
+            return View()
+        }
+        return superview
+    }
+
+    public var assertMatchingParentAnchor: LayoutDimension {
+        return assertSuperview[keyPath: ...self]
+    }
 }
 
 extension LayoutAnchor where AnchorType == XAxisAnchor {
@@ -130,6 +142,18 @@ extension LayoutAnchor where AnchorType == XAxisAnchor {
 
     public var matchingParentAnchor: XAxisAnchor? {        
         return superview?[keyPath: ...self]
+    }
+
+    public var assertSuperview: View {
+        guard let superview = superview else {
+            assertionFailure("Attempted to infer matching superview anchor with on view with no superview.")
+            return View()
+        }
+        return superview
+    }
+
+    public var assertMatchingParentAnchor: XAxisAnchor {
+        return assertSuperview[keyPath: ...self]
     }
 }
 
@@ -191,8 +215,29 @@ extension LayoutAnchor where AnchorType == YAxisAnchor {
     public var matchingParentAnchor: YAxisAnchor? {
         return superview?[keyPath: ...self]
     }
+
+    public var assertSuperview: View {
+        guard let superview = superview else {
+            assertionFailure("Attempted to infer matching superview anchor with on view with no superview.")
+            return View()
+        }
+        return superview
+    }
+
+    public var assertMatchingParentAnchor: YAxisAnchor {
+        return assertSuperview[keyPath: ...self]
+    }
 }
 
+extension LayoutAnchorPair {
+    public var assertSuperview: View {
+        guard let superview = owningItem as? View else {
+            assertionFailure("Attempted to infer matching superview anchor with on view with no superview.")
+            return View()
+        }
+        return superview
+    }
+}
 extension EdgeAnchorGroup {
 
     public var views: [View] {
@@ -201,5 +246,13 @@ extension EdgeAnchorGroup {
 
     public var superviews: [View] {
         return views.map { $0.superview }.compactMap {$0}
+    }
+
+    public var assertSuperview: View {
+        guard let superview = superviews.first else {
+            assertionFailure("Attempted to infer matching superview anchor with on view with no superview.")
+            return View()
+        }
+        return superview
     }
 }

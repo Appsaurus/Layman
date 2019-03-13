@@ -10,12 +10,12 @@
 prefix operator ^
 
 public prefix func ^ (view: View) -> View {
-    return view.assertSuperview()
+    return view.assertSuperview
 }
 
 public extension View {
 
-    public func assertSuperview() -> View {
+    public var assertSuperview: View {
         assert(superview != nil, "Attempted to create constraint between a view and its superview without a superview.")
         return superview!
     }
@@ -52,21 +52,6 @@ public extension View {
     public func forceAutolayoutPass() {
         setNeedsLayout()
         layoutIfNeeded()
-    }
-
-    @discardableResult
-    public func pinToSuperview(excluding edge: LayoutSideAttribute? = nil) -> SideConstraints {
-        return edgeAnchors.equal(to: assertSuperview().edgeAnchors.excluding(edge))
-    }
-
-    @discardableResult
-    public func pinToSuperviewMargins(excluding edge: LayoutSideAttribute? = nil) -> SideConstraints {
-        return edgeAnchors.equal(to: assertSuperview().margins.edgeAnchors.excluding(edge))
-    }
-
-    @discardableResult
-    public func centerInSuperview() -> ConstraintPair {
-        return centerXY.equal(to: assertSuperview().centerXY)
     }
 }
 

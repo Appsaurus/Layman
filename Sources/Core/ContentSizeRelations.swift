@@ -38,14 +38,14 @@ extension View {
     }
 
     public func forceSuperviewToMatchContentSize(insetBy insets: LayoutPadding = .zero) {
-        assertSuperview().matchContentSize(of: self, padding: insets)
+        assertSuperview.matchContentSize(of: self, padding: insets)
     }
 
     public func forceSuperviewToMatchContentWidth(insetBy insets: (LayoutConstant, LayoutConstant) = (0, 0)) {
-        assertSuperview().matchContentWidth(of: self, padding: insets)
+        assertSuperview.matchContentWidth(of: self, padding: insets)
     }
 
     public func forceSuperviewToMatchContentHeight(insetBy insets: (LayoutConstant, LayoutConstant) = (0, 0)) {
-        assertSuperview().matchContentHeight(of: self, padding: insets)
+        assertSuperview.matchContentHeight(of: self, padding: insets)
     }
 }

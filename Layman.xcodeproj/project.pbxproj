@@ -320,6 +320,9 @@
 		E423931722384028003A5624 /* EdgeAnchorGroup+CoefficientEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423920522384028003A5624 /* EdgeAnchorGroup+CoefficientEquatable.generated.swift */; };
 		E423931822384028003A5624 /* EdgeAnchorGroup+CoefficientEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423920522384028003A5624 /* EdgeAnchorGroup+CoefficientEquatable.generated.swift */; };
 		E423931922384028003A5624 /* EdgeAnchorGroup+CoefficientEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423920522384028003A5624 /* EdgeAnchorGroup+CoefficientEquatable.generated.swift */; };
+		E423931B22399340003A5624 /* InferredSuperviewEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423931A22399340003A5624 /* InferredSuperviewEquatable.swift */; };
+		E423931C22399340003A5624 /* InferredSuperviewEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423931A22399340003A5624 /* InferredSuperviewEquatable.swift */; };
+		E423931D22399340003A5624 /* InferredSuperviewEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423931A22399340003A5624 /* InferredSuperviewEquatable.swift */; };
 		E44E732621F8174A0026EEE6 /* LayoutCoefficientPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutCoefficientPair.swift */; };
 		E44E732721F8174A0026EEE6 /* LayoutCoefficientPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutCoefficientPair.swift */; };
 		E44E732821F8174A0026EEE6 /* LayoutCoefficientPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E72EE21F8174A0026EEE6 /* LayoutCoefficientPair.swift */; };
@@ -755,6 +758,7 @@
 		E423920322384028003A5624 /* XAxisAnchor+CoefficientEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XAxisAnchor+CoefficientEquatable.generated.swift"; sourceTree = "<group>"; };
 		E423920422384028003A5624 /* XYAxesAnchorPair+CoefficientEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XYAxesAnchorPair+CoefficientEquatable.generated.swift"; sourceTree = "<group>"; };
 		E423920522384028003A5624 /* EdgeAnchorGroup+CoefficientEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EdgeAnchorGroup+CoefficientEquatable.generated.swift"; sourceTree = "<group>"; };
+		E423931A22399340003A5624 /* InferredSuperviewEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferredSuperviewEquatable.swift; sourceTree = "<group>"; };
 		E44E70C821F77FCE0026EEE6 /* EquationProtocol.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = EquationProtocol.stencil; sourceTree = "<group>"; };
 		E44E70D621F7BECC0026EEE6 /* EquationOperators.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = EquationOperators.stencil; sourceTree = "<group>"; };
 		E44E72EE21F8174A0026EEE6 /* LayoutCoefficientPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutCoefficientPair.swift; sourceTree = "<group>"; };
@@ -1031,6 +1035,7 @@
 				E4980E1222205CF9001EECEE /* ContentSizeRelations.swift */,
 				E4100281222F657D0090FDC0 /* EdgeAnchorsGroupCoefficentsEquatable.swift */,
 				E41005C32234AECD0090FDC0 /* GroupedConstraintReferences.swift */,
+				E423931A22399340003A5624 /* InferredSuperviewEquatable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -2404,6 +2409,7 @@
 				E423927422384028003A5624 /* View+YAxisAnchorPairRelationOperators.generated.swift in Sources */,
 				E494895E221B471400A7EABB /* LayoutAnchorPair.swift in Sources */,
 				E42392DD22384028003A5624 /* LayoutPriority+ArithmeticOperators.generated.swift in Sources */,
+				E423931D22399340003A5624 /* InferredSuperviewEquatable.swift in Sources */,
 				E4A436AF220DEF4300F37C17 /* LayoutStackable.swift in Sources */,
 				E423926522384028003A5624 /* View+ViewRelationOperators.generated.swift in Sources */,
 				E458225D21E54FE900B6054C /* ShorthandTypealiases.swift in Sources */,
@@ -2519,6 +2525,7 @@
 				E44E732921F8174A0026EEE6 /* LayoutCoefficient.swift in Sources */,
 				E4A4306C220B972C00F37C17 /* LayoutPriority+ExpressibleByIntegerLiteral.swift in Sources */,
 				E42392AB22384028003A5624 /* YAxisAnchorPair+PriorityOperators.generated.swift in Sources */,
+				E423931B22399340003A5624 /* InferredSuperviewEquatable.swift in Sources */,
 				E48AE220221CB72500B16713 /* ViewExpression.swift in Sources */,
 				E423929322384028003A5624 /* XAxisAnchor+ConstantArithmeticOperators.generated.swift in Sources */,
 				E423930B22384028003A5624 /* LayoutDimensionPair+CoefficientEquatable.generated.swift in Sources */,
@@ -2807,6 +2814,7 @@
 				E423927322384028003A5624 /* View+YAxisAnchorPairRelationOperators.generated.swift in Sources */,
 				E494895D221B471400A7EABB /* LayoutAnchorPair.swift in Sources */,
 				E42392DC22384028003A5624 /* LayoutPriority+ArithmeticOperators.generated.swift in Sources */,
+				E423931C22399340003A5624 /* InferredSuperviewEquatable.swift in Sources */,
 				E4A436AE220DEF4300F37C17 /* LayoutStackable.swift in Sources */,
 				E423926422384028003A5624 /* View+ViewRelationOperators.generated.swift in Sources */,
 				E44E732A21F8174A0026EEE6 /* LayoutCoefficient.swift in Sources */,

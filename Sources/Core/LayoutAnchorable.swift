@@ -183,7 +183,7 @@ extension SizeAnchorable {
     public var sizeAnchors: LayoutDimensionPair {
         return LayoutDimensionPair(widthAnchor,
                                    heightAnchor,
-                                   item: self as? LayoutAnchorable,
+                                   owningItem: self as? LayoutAnchorable,
                                    keyPath: \LayoutAnchorable.sizeAnchors)
     }
 }
