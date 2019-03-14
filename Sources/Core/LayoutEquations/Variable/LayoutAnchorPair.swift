@@ -24,6 +24,31 @@ public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayo
     public required init(_ first: F, _ second: S) {
         super.init(first, second)
     }
+
 }
 
 extension LayoutAnchorPair: LayoutVariableTuple, CoefficientsEquatable {}
+
+extension LayoutAnchorPair {
+
+    public func outset(_ horizontal: LayoutConstant,
+                       _ vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+        return self.plus(.outset(horizontal, vertical))
+    }
+
+    public func inset(_ horizontal: LayoutConstant,
+                      _ vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+        return self.plus(.inset(horizontal, vertical))
+    }
+
+    public func outset(horizontal: LayoutConstant,
+                       vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+
+        return outset(horizontal, vertical)
+    }
+
+    public func inset(horizontal: LayoutConstant,
+                      vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+        return inset(horizontal, vertical)
+    }
+}
