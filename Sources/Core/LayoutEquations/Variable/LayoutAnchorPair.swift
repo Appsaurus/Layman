@@ -31,24 +31,40 @@ extension LayoutAnchorPair: LayoutVariableTuple, CoefficientsEquatable {}
 
 extension LayoutAnchorPair {
 
-    public func outset(_ horizontal: LayoutConstant,
-                       _ vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
-        return self.plus(.outset(horizontal, vertical))
+    public func outset(_ first: LayoutConstant,
+                       _ second: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+        return self.plus(.outset(first, second))
     }
 
-    public func inset(_ horizontal: LayoutConstant,
-                      _ vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
-        return self.plus(.inset(horizontal, vertical))
+    public func inset(_ first: LayoutConstant,
+                      _ second: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+        return self.plus(.inset(first, second))
     }
 
-    public func outset(horizontal: LayoutConstant,
-                       vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+    public func outset(first: LayoutConstant,
+                       second: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
 
-        return outset(horizontal, vertical)
+        return outset(first, second)
     }
 
-    public func inset(horizontal: LayoutConstant,
-                      vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
-        return inset(horizontal, vertical)
+    public func inset(first: LayoutConstant,
+                      second: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+        return inset(first, second)
+    }
+
+    public func outset(_ padding: LayoutConstantTuple) -> LayoutAnchorPairExpression<FA, SA> {
+        return outset(padding.first, padding.second)
+    }
+
+    public func inset(_ padding: LayoutConstantTuple) -> LayoutAnchorPairExpression<FA, SA> {
+        return inset(padding.first, padding.second)
+    }
+
+    public func inset(padding: LayoutConstantTuple, vertical: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
+        return inset(padding)
+    }
+
+    public func outset(padding: LayoutConstantTuple) -> LayoutAnchorPairExpression<FA, SA> {
+        return outset(padding)
     }
 }
