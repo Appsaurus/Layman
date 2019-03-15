@@ -12,7 +12,9 @@ extension EdgeAnchorGroup {
     // MARK: UIEdgeInset Constant
     @discardableResult
     public func plus(_ relativeLayoutPadding: RelativeLayoutPadding) -> EdgeAnchorGroupExpression {
-        return EdgeAnchorGroupExpression(self).plus(relativeLayoutPadding)
+        let expression = EdgeAnchorGroupExpression(self).plus(relativeLayoutPadding)
+        expression.excludedEdge = self.excludedEdge
+        return expression
     }
 
 }

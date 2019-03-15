@@ -44,7 +44,10 @@ public enum ExpandingHeightAttribute {
 }
 extension View {
     //For dynamic sized cells, apply to contentView
-    public func autoExpandHeightToFit(views: [View], padding: LayoutConstantTuple, expandingAttribute: ExpandingHeightAttribute = .bottom, relativeToMargins: Bool = true) {
+    public func autoExpandHeightToFit(views: [View],
+                                      padding: LayoutConstantTuple = (0, 0),
+                                      expandingAttribute: ExpandingHeightAttribute = .bottom,
+                                      relativeToMargins: Bool = true) {
         let anchorable: XYAxisAnchorable = relativeToMargins ? margins : self
         switch expandingAttribute {
         case .top:
