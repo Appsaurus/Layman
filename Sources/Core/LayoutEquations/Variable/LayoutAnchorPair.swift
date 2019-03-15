@@ -67,4 +67,12 @@ extension LayoutAnchorPair {
     public func inset(padding: LayoutConstantTuple) -> LayoutAnchorPairExpression<FA, SA> {
         return inset(padding)
     }
+
+    public func outset(padding: (LayoutConstant, LayoutConstant)) -> LayoutAnchorPairExpression<FA, SA> {
+        return outset(padding.0, padding.1)
+    }
+
+    public func inset(padding: (LayoutConstant, LayoutConstant)) -> LayoutAnchorPairExpression<FA, SA> {
+        return inset(padding.0, padding.1)
+    }
 }
