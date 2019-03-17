@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-public class LayoutPadding: SidesTuple<LayoutConstant, LayoutConstant> {
+public final class LayoutPadding: SidesTuple<LayoutConstant, LayoutConstant> {
     public static var zero: LayoutPadding {
         return LayoutPadding(0)
     }

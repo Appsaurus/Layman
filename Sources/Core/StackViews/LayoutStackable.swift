@@ -142,6 +142,35 @@ extension Array {
         }
         return constraints
     }
+
+    @discardableResult
+    public func stack(_ direction: LayoutDirection, in anchorable: LayoutAnchorable, inset: LayoutPadding = .init(0)) -> ConstraintHeirarchy {
+        guard let view = anchorable as? View ?? (anchorable as? LayoutGuide)?.owningView,
+            let first = first(where: { return $0 is View }) as? View,
+            let last = last(where: { return $0 is View }) as? View else {
+            return [:]
+        }
+        var constraints = stack(direction)
+        let subviews: [View] = self.compactMap { $0 as? View }
+        subviews.forEach { if $0.superview !== view { view.addSubview(view) }}
+        switch direction {
+        case .topToBottom:
+            constraints.update(with: subviews.equal(to: anchorable.horizontalEdges.inset(inset.leading, inset.trailing)))
+            constraints.update(with: first.top.equal(to: inset.top))
+            constraints.update(with: last.bottom.equal(to: inset.bottom))
+        case .leadingToTrailing:
+            constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.top, inset.bottom)))
+            constraints.update(with: first.left.equal(to: inset.leading))
+            constraints.update(with: last.right.equal(to: inset.trailing))
+        case .leftToRight:
+            constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.top, inset.bottom)))
+            constraints.update(with: first.leading.equal(to: inset.leading))
+            constraints.update(with: last.trailing.equal(to: inset.trailing))
+        }
+
+        return constraints
+
+    }
 }
 
 public enum LayoutDirection {

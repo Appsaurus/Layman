@@ -33,6 +33,9 @@ extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
     }
 
     public mutating func update(with constraints: Constraint...) {
+        update(with: constraints)
+    }
+    public mutating func update(with constraints: [Constraint]) {
         for constraint in constraints {
             var array = self[constraint.firstAttribute] ?? []
             array.append(constraint)
@@ -41,6 +44,10 @@ extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
     }
 
     public mutating func update(with constraints: ConstraintPair...) {
+        update(with: constraints)
+    }
+
+    public mutating func update(with constraints: [ConstraintPair]) {
         for constraintPair in constraints {
             update(with: constraintPair.first)
             update(with: constraintPair.second)
@@ -48,6 +55,9 @@ extension Dictionary where Key == ConstraintAttribute, Value == Constraints {
     }
 
     public mutating func update(with constraints: SideConstraints...) {
+        update(with: constraints)
+    }
+    public mutating func update(with constraints: [SideConstraints]) {
         for sideConstraints in constraints {
             update(with: sideConstraints.top)
             update(with: sideConstraints.leading)
@@ -67,6 +77,37 @@ public extension Dictionary where Key == View, Value == ConstraintAttributeMap {
                 return [constraints, otherConstraints].flatMap {$0}
             })
         }
+    }
 
+    public mutating func update(with constraints: Constraint...) {
+        update(with: constraints)
+    }
+    public mutating func update(with constraints: [Constraint]) {
+        for constraint in constraints {
+            self[constraint.view, default: [:]].update(with: constraint)
+        }
+    }
+
+    public mutating func update(with constraints: ConstraintPair...) {
+        update(with: constraints)
+    }
+
+    public mutating func update(with constraints: [ConstraintPair]) {
+        for constraintPair in constraints {
+            update(with: constraintPair.first)
+            update(with: constraintPair.second)
+        }
+    }
+
+    public mutating func update(with constraints: SideConstraints...) {
+        update(with: constraints)
+    }
+    public mutating func update(with constraints: [SideConstraints]) {
+        for sideConstraints in constraints {
+            update(with: sideConstraints.top)
+            update(with: sideConstraints.leading)
+            update(with: sideConstraints.bottom)
+            update(with: sideConstraints.trailing)
+        }
     }
 }

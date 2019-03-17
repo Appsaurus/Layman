@@ -55,6 +55,33 @@ public extension View {
     }
 }
 
+extension Collection where Element: View {
+    @discardableResult
+    public func enforceContentSize(_ priority: LayoutPriority = .required,
+                                   forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> Self {
+        hugContent(priority, forAxes: axes)
+        resistCompression(priority, forAxes: axes)
+        return self
+    }
+
+    @discardableResult
+    public func hugContent(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> Self {
+        forEach {
+            $0.hugContent(priority, forAxes: axes)
+        }
+        return self
+    }
+    
+    @discardableResult
+    public func resistCompression(_ priority: LayoutPriority = .required,
+                                  forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> Self {
+        forEach {
+            $0.resistCompression(priority, forAxes: axes)
+        }
+        return self
+    }
+}
+
 // Constraint lookup
 extension View {
     public func constraints(relatedTo item: AnyObject? = nil, for attributes: ConstraintAttribute...) -> Constraints {
