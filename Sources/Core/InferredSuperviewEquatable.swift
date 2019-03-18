@@ -84,3 +84,20 @@ extension View {
         return centerXY.equal(to: assertSuperview.centerXY)
     }
 }
+
+extension Collection where Element: View {
+    @discardableResult
+    public func pinToSuperview(excluding edge: LayoutSideAttribute? = nil) -> [SideConstraints] {
+        return map { $0.equal(to: $0.assertSuperview.edgeAnchors.excluding(edge)) }
+    }
+
+    @discardableResult
+    public func pinToSuperviewMargins(excluding edge: LayoutSideAttribute? = nil) -> [SideConstraints] {
+        return  map { $0.equal(to: $0.assertSuperview.margins.edgeAnchors.excluding(edge)) }
+    }
+
+    @discardableResult
+    public func centerInSuperview() -> [ConstraintPair] {
+        return  map { $0.centerXY.equal(to: $0.assertSuperview) }
+    }
+}
