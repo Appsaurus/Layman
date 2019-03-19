@@ -28,14 +28,14 @@ public enum AspectRatioAnchor {
                 let ambiguityMessage = "You must horizontally constrain (width or leading/left + trailing/right) a view before you set an aspect ratio constraint."
                 precondition(!view.hasAmbiguousWidth, ambiguityMessage)
             }
-            return view.heightAnchor.equal(to: view.widthAnchor.times(rhs.aspectRatio.ratio) ~ rhs.priority)
+            return view.heightAnchor.equal(to: view.widthAnchor.divided(by: rhs.aspectRatio.ratio) ~ rhs.priority)
         case .inverse(let view):
             if isTestOrDebug {
                 let ambiguityMessage = "You must vertically constrain (height or top+bottom) a view before you set an inverse aspect ratio constraint."
                 precondition(!view.hasAmbiguousHeight, ambiguityMessage)
             }
             let inverseRatio = 1 / rhs.aspectRatio.ratio
-            return view.widthAnchor.equal(to: view.heightAnchor.times(inverseRatio) ~ rhs.priority)
+            return view.widthAnchor.equal(to: view.heightAnchor.divided(by: inverseRatio) ~ rhs.priority)
         }
     }
 }

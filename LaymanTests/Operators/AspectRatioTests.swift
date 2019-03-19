@@ -65,25 +65,25 @@ func testAmbiguityCheckValidSize() {
     func testAspectRatio() {
         view1.widthAnchor .= 160
         let aspectRatioConstraint = view1.aspectRatioAnchor .= .wide
-        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 16.0/9.0)
+        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 9.0/16.0)
     }
 
     func testInverseAspectRatio() {
         view1.heightAnchor .= 90
         let aspectRatioConstraint = view1.aspectRatioInverseAnchor .= .wide
-        aspectRatioConstraint.assert(view1, .width, .equal, view1, .height, multiplier: 9.0/16.0)
+        aspectRatioConstraint.assert(view1, .width, .equal, view1, .height, multiplier: 16.0/9.0)
     }
 
     func testInferredAspectRatio() {
         view1.widthAnchor .= 160
         let aspectRatioConstraint = view1 .= .wide
-        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 16.0/9.0)
+        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 9.0/16.0)
     }
 
     func testInferredAspectRatioConfiguration() {
         view1.widthAnchor .= 160
         let aspectRatioConstraint = view1 .= .wide ~ .low
-        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 16.0/9.0, priority: .low)
+        aspectRatioConstraint.assert(view1, .height, .equal, view1, .width, multiplier: 9.0/16.0, priority: .low)
     }
 
 // sourcery:end
