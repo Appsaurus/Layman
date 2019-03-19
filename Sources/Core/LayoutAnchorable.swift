@@ -194,17 +194,9 @@ extension SizeAnchorable {
     }
 }
 
-extension View: BaselineLayoutAnchorable {
-    public var view: View {
-        return self
-    }
-}
+extension View: BaselineLayoutAnchorable {}
 
 extension LayoutGuide: LayoutAnchorable {
-
-    public var view: View {
-        return self.owningView!
-    }
 
     public var layoutMarginsGuide: LayoutGuide {
         return self
