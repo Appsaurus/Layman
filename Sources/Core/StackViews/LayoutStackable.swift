@@ -145,7 +145,7 @@ extension Array {
 
     @discardableResult
     public func stack(_ direction: LayoutDirection, in anchorable: LayoutAnchorable, inset: LayoutPadding = .init(0)) -> ConstraintHeirarchy {
-        guard let view = anchorable as? View ?? (anchorable as? LayoutGuide)?.owningView,
+        guard let view = anchorable.backingView,
             let first = first(where: { return $0 is View }) as? View,
             let last = last(where: { return $0 is View }) as? View else {
             return [:]
@@ -155,15 +155,15 @@ extension Array {
         subviews.forEach { if $0.superview !== view { view.addSubview(view) }}
         switch direction {
         case .topToBottom:
-            constraints.update(with: subviews.equal(to: anchorable.horizontalEdges.inset(inset.leading, inset.trailing)))
+            constraints.update(with: subviews.equal(to: anchorable.horizontalEdges.inset(inset.horizontal)))
             constraints.update(with: first.top.equal(to: inset.top))
             constraints.update(with: last.bottom.equal(to: inset.bottom))
         case .leadingToTrailing:
-            constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.top, inset.bottom)))
+            constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.vertical)))
             constraints.update(with: first.left.equal(to: inset.leading))
             constraints.update(with: last.right.equal(to: inset.trailing))
         case .leftToRight:
-            constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.top, inset.bottom)))
+            constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.vertical)))
             constraints.update(with: first.leading.equal(to: inset.leading))
             constraints.update(with: last.trailing.equal(to: inset.trailing))
         }

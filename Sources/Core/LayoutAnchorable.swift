@@ -13,6 +13,7 @@ import UIKit
 #endif
 
 public protocol XYAxisAnchorable {
+
     var leadingAnchor: XAxisAnchor { get }
     var trailingAnchor: XAxisAnchor { get }
 
@@ -67,6 +68,11 @@ extension Constraint: LayoutAnchorable {}
 extension ConstraintPair: LayoutAnchorable {}
 extension SideConstraints: LayoutAnchorable {}
 
+extension LayoutAnchorable {
+    public var backingView: View? {
+        return self as? View ?? (self as? LayoutGuide)?.owningView ?? (self as? ViewController)?.view
+    }
+}
 extension LayoutAnchorableBacked {
     public var leadingAnchor: XAxisAnchor {
         return backingLayoutAnchorable.leadingAnchor
@@ -188,10 +194,18 @@ extension SizeAnchorable {
     }
 }
 
-extension View: BaselineLayoutAnchorable {}
+extension View: BaselineLayoutAnchorable {
+    public var view: View {
+        return self
+    }
+}
 
 extension LayoutGuide: LayoutAnchorable {
-    
+
+    public var view: View {
+        return self.owningView!
+    }
+
     public var layoutMarginsGuide: LayoutGuide {
         return self
     }
