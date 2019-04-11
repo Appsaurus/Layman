@@ -82,6 +82,7 @@ private func descriptionForRelation(_ relation: Constraint.Relation) -> String {
     case .equal:                return "="
     case .greaterThanOrEqual:   return "≥"
     case .lessThanOrEqual:      return "≤"
+    @unknown default:           return "="        
     }
 }
 

@@ -43,7 +43,7 @@ extension Constraint: LayoutStackableBacked {
         }
         return view
     }
-    
+
 }
 extension ConstraintPair: LayoutStackableBacked {
     public var backingLayoutAnchorable: LayoutAnchorable {
@@ -148,7 +148,7 @@ extension Array {
         guard let view = anchorable.backingView,
             let first = first(where: { return $0 is View }) as? View,
             let last = last(where: { return $0 is View }) as? View else {
-            return [:]
+                return [:]
         }
         var constraints = stack(direction)
         let subviews: [View] = self.compactMap { $0 as? View }
@@ -160,12 +160,12 @@ extension Array {
             constraints.update(with: last.bottom.equal(to: inset.bottom))
         case .leadingToTrailing:
             constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.vertical)))
-            constraints.update(with: first.left.equal(to: inset.leading))
-            constraints.update(with: last.right.equal(to: inset.trailing))
-        case .leftToRight:
-            constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.vertical)))
             constraints.update(with: first.leading.equal(to: inset.leading))
             constraints.update(with: last.trailing.equal(to: inset.trailing))
+        case .leftToRight:
+            constraints.update(with: subviews.equal(to: anchorable.verticalEdges.inset(inset.vertical)))
+            constraints.update(with: first.left.equal(to: inset.leading))
+            constraints.update(with: last.right.equal(to: inset.trailing))
         }
 
         return constraints

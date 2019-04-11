@@ -82,7 +82,7 @@ public class SidesTuple<HorizontalSideType, VerticalSideType>: SideCorrelated {
 
     public convenience init(horizontal: @autoclosure () -> HorizontalSideType,
                             vertical: @autoclosure () -> VerticalSideType) {
-        self.init(horizontal, vertical)
+        self.init(horizontal(), vertical())
     }
 
     public init <S>(_ sides: S) where S: SideCorrelated, S.HorizontalSideType == HorizontalSideType, S.VerticalSideType == VerticalSideType {

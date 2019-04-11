@@ -15,41 +15,41 @@ public prefix func ^ (view: View) -> View {
 
 public extension View {
 
-    public var assertSuperview: View {
+    var assertSuperview: View {
         assert(superview != nil, "Attempted to create constraint between a view and its superview without a superview.")
         return superview!
     }
 
-    public func addActiveConstraints(_ constraints: Constraints, priority: LayoutPriority? = nil) {
+    func addActiveConstraints(_ constraints: Constraints, priority: LayoutPriority? = nil) {
         constraints.forEach {$0.activated(with: priority)}
         addConstraints(constraints)
     }
     @discardableResult
-    public func enforceContentSize(_ priority: LayoutPriority = .required,
-                                   forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
+    func enforceContentSize(_ priority: LayoutPriority = .required,
+                            forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
         hugContent(priority, forAxes: axes)
         resistCompression(priority, forAxes: axes)
         return self
     }
 
     @discardableResult
-    public func hugContent(_ priority: LayoutPriority = .required,
-                           forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
+    func hugContent(_ priority: LayoutPriority = .required,
+                    forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
         axes.forEach { (axis) in
             setContentHuggingPriority(priority, for: axis)
         }
         return self
     }
     @discardableResult
-    public func resistCompression(_ priority: LayoutPriority = .required,
-                                  forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
+    func resistCompression(_ priority: LayoutPriority = .required,
+                           forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
         axes.forEach { (axis) in
             setContentCompressionResistancePriority(priority, for: axis)
         }
         return self
     }
 
-    public func forceAutolayoutPass() {
+    func forceAutolayoutPass() {
         setNeedsLayout()
         layoutIfNeeded()
     }

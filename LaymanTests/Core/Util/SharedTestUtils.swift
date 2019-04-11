@@ -149,11 +149,11 @@ extension Array where Element: Collection, Element.Element == Constraint {
 }
 
 internal extension Collection where Element == ConstraintPair {
-    internal var first: [Constraint] {
+    var first: [Constraint] {
         return self.map { $0.first }
     }
 
-    internal var second: [Constraint] {
+    var second: [Constraint] {
         return self.map { $0.second }
     }
 }
@@ -200,6 +200,8 @@ extension ConstraintAttribute: CustomDebugStringConvertible {
         case .centerXWithinMargins: return "centerXWithinMargins"
         case .centerYWithinMargins: return "centerYWithinMargins"
         case .notAnAttribute: return "notAnAttribute"
+        @unknown default:
+            fatalError()
         }
         #endif
     }

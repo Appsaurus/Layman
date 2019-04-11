@@ -45,7 +45,6 @@ extension LayoutAnchorPair {
         return inset(tuple.0, tuple.1)
     }
 
-
     public func outset(_ first: LayoutConstant,
                        _ second: LayoutConstant) -> LayoutAnchorPairExpression<FA, SA> {
         return self.plus(.outset(first, second))

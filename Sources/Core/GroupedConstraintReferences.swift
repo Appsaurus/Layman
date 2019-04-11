@@ -71,7 +71,7 @@ public typealias ConstraintHeirarchy = [View: ConstraintAttributeMap]
 
 // ConstraintHeirarchy Extensions
 public extension Dictionary where Key == View, Value == ConstraintAttributeMap {
-    public func merging(with constraintHeirarchy: ConstraintHeirarchy) -> ConstraintHeirarchy {
+    func merging(with constraintHeirarchy: ConstraintHeirarchy) -> ConstraintHeirarchy {
         return self.merging(constraintHeirarchy) { (map, otherMap) -> ConstraintAttributeMap in
             return map.merging(otherMap, uniquingKeysWith: { (constraints, otherConstraints) -> Constraints in
                 return [constraints, otherConstraints].flatMap {$0}
@@ -79,30 +79,30 @@ public extension Dictionary where Key == View, Value == ConstraintAttributeMap {
         }
     }
 
-    public mutating func update(with constraints: Constraint...) {
+    mutating func update(with constraints: Constraint...) {
         update(with: constraints)
     }
-    public mutating func update(with constraints: [Constraint]) {
+    mutating func update(with constraints: [Constraint]) {
         for constraint in constraints {
             self[constraint.view, default: [:]].update(with: constraint)
         }
     }
 
-    public mutating func update(with constraints: ConstraintPair...) {
+    mutating func update(with constraints: ConstraintPair...) {
         update(with: constraints)
     }
 
-    public mutating func update(with constraints: [ConstraintPair]) {
+    mutating func update(with constraints: [ConstraintPair]) {
         for constraintPair in constraints {
             update(with: constraintPair.first)
             update(with: constraintPair.second)
         }
     }
 
-    public mutating func update(with constraints: SideConstraints...) {
+    mutating func update(with constraints: SideConstraints...) {
         update(with: constraints)
     }
-    public mutating func update(with constraints: [SideConstraints]) {
+    mutating func update(with constraints: [SideConstraints]) {
         for sideConstraints in constraints {
             update(with: sideConstraints.top)
             update(with: sideConstraints.leading)

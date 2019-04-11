@@ -9,12 +9,12 @@
 extension LeftHandLayoutExpression where Self == LayoutDimension {
     @discardableResult
     public func equalToSuperview() -> Constraint {
-        return self.equal(to: assertMatchingParentAnchor)
+        return self.equal(to: self.assertMatchingParentAnchor)
     }
 
     @discardableResult
     public func equalToSuperviewMargin() -> Constraint {
-        return self.equal(to: assertSuperview.margins[keyPath: ...self])
+        return self.equal(to: self.assertSuperview.margins[keyPath: ...self])
     }
 }
 
@@ -22,12 +22,12 @@ extension LeftHandLayoutExpression where Self == XAxisAnchor {
 
     @discardableResult
     public func equalToSuperview() -> Constraint {
-        return self.equal(to: assertMatchingParentAnchor)
+        return self.equal(to: self.assertMatchingParentAnchor)
     }
 
     @discardableResult
     public func equalToSuperviewMargin() -> Constraint {
-        return self.equal(to: assertSuperview.margins[keyPath: ...self])
+        return self.equal(to: self.assertSuperview.margins[keyPath: ...self])
     }
 }
 
@@ -35,12 +35,12 @@ extension LeftHandLayoutExpression where Self == YAxisAnchor {
 
     @discardableResult
     public func equalToSuperview() -> Constraint {
-        return self.equal(to: assertMatchingParentAnchor)
+        return self.equal(to: self.assertMatchingParentAnchor)
     }
 
     @discardableResult
     public func equalToSuperviewMargin() -> Constraint {
-        return self.equal(to: assertSuperview.margins[keyPath: ...self])
+        return self.equal(to: self.assertSuperview.margins[keyPath: ...self])
     }
 }
 
