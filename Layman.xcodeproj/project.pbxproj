@@ -2037,7 +2037,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Layman-iOS-Tests/Pods-Layman-iOS-Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Layman-iOS-Tests/Pods-Layman-iOS-Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CwlCatchException-iOS/CwlCatchException.framework",
 				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting-iOS/CwlPreconditionTesting.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTestUtils-iOS/SwiftTestUtils.framework",
@@ -2054,7 +2054,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Layman-iOS-Tests/Pods-Layman-iOS-Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Layman-iOS-Tests/Pods-Layman-iOS-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		248BFDC36F261664B753D6F7 /* [CP] Check Pods Manifest.lock */ = {
@@ -2153,7 +2153,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Layman-tvOS-Tests/Pods-Layman-tvOS-Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Layman-tvOS-Tests/Pods-Layman-tvOS-Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftTestUtils-tvOS/SwiftTestUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/Swiftest-tvOS/Swiftest.framework",
 			);
@@ -2166,7 +2166,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Layman-tvOS-Tests/Pods-Layman-tvOS-Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Layman-tvOS-Tests/Pods-Layman-tvOS-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD50BBD6725E0A580763E813 /* [CP] Check Pods Manifest.lock */ = {
@@ -2239,7 +2239,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Layman-macOS-Tests/Pods-Layman-macOS-Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Layman-macOS-Tests/Pods-Layman-macOS-Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CwlCatchException-macOS/CwlCatchException.framework",
 				"${BUILT_PRODUCTS_DIR}/CwlPreconditionTesting-macOS/CwlPreconditionTesting.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTestUtils-macOS/SwiftTestUtils.framework",
@@ -2256,7 +2256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Layman-macOS-Tests/Pods-Layman-macOS-Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Layman-macOS-Tests/Pods-Layman-macOS-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
