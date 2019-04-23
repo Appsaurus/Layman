@@ -44,6 +44,9 @@
 		E41872D4222873EE0080FEC1 /* LayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41872D3222873EE0080FEC1 /* LayoutConstraints.swift */; };
 		E41872D5222873EE0080FEC1 /* LayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41872D3222873EE0080FEC1 /* LayoutConstraints.swift */; };
 		E41872D6222873EE0080FEC1 /* LayoutConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41872D3222873EE0080FEC1 /* LayoutConstraints.swift */; };
+		E4207690226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420768F226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift */; };
+		E4207691226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420768F226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift */; };
+		E4207692226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420768F226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift */; };
 		E423920622384028003A5624 /* View+XAxisAnchorRelatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423919022384028003A5624 /* View+XAxisAnchorRelatable.generated.swift */; };
 		E423920722384028003A5624 /* View+XAxisAnchorRelatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423919022384028003A5624 /* View+XAxisAnchorRelatable.generated.swift */; };
 		E423920822384028003A5624 /* View+XAxisAnchorRelatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423919022384028003A5624 /* View+XAxisAnchorRelatable.generated.swift */; };
@@ -666,6 +669,7 @@
 		E414348F2200E02D007626D0 /* InferredAnchorEquationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InferredAnchorEquationTests.swift; sourceTree = "<group>"; };
 		E41434932200E931007626D0 /* AnchorPairEquationTests.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = AnchorPairEquationTests.stencil; sourceTree = "<group>"; };
 		E41872D3222873EE0080FEC1 /* LayoutConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraints.swift; sourceTree = "<group>"; };
+		E420768F226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+RemoveLayoutMarginInset.swift"; sourceTree = "<group>"; };
 		E423919022384028003A5624 /* View+XAxisAnchorRelatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+XAxisAnchorRelatable.generated.swift"; sourceTree = "<group>"; };
 		E423919122384028003A5624 /* View+EdgeAnchorGroupRelatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+EdgeAnchorGroupRelatable.generated.swift"; sourceTree = "<group>"; };
 		E423919222384028003A5624 /* View+LayoutDimensionPairRelatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+LayoutDimensionPairRelatable.generated.swift"; sourceTree = "<group>"; };
@@ -1660,6 +1664,7 @@
 				E4A436A1220CA1FE00F37C17 /* ViewAnchorExtensions */,
 				E4947EA3221368C700A7EABB /* View+LayoutVariable.swift */,
 				E49484C022161D7900A7EABB /* View+RelativeLayoutPadding.swift */,
+				E420768F226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift */,
 			);
 			path = ViewExtensions;
 			sourceTree = "<group>";
@@ -2283,6 +2288,7 @@
 				E423930122384028003A5624 /* XYAxesAnchorPair+CoefficientsEquatable.generated.swift in Sources */,
 				E4DDE0B322092C0E001922FE /* PercentOperator.swift in Sources */,
 				E41872D6222873EE0080FEC1 /* LayoutConstraints.swift in Sources */,
+				E4207692226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift in Sources */,
 				E4DDED7E220B6802001922FE /* Utils.swift in Sources */,
 				E423927722384028003A5624 /* OperatorDefinitions.generated.swift in Sources */,
 				E42392AA22384028003A5624 /* XYAxesAnchorPair+PriorityOperators.generated.swift in Sources */,
@@ -2610,6 +2616,7 @@
 				E44E73B921F8F1E30026EEE6 /* LayoutAnchor+Attribute.swift in Sources */,
 				E42392C322384028003A5624 /* LayoutDimension+RelationOperators.generated.swift in Sources */,
 				E423925A22384028003A5624 /* View+XAxisAnchorPairRelationOperators.generated.swift in Sources */,
+				E4207690226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift in Sources */,
 				E49484B52216159D00A7EABB /* RelativeLayoutPadding.swift in Sources */,
 				E44E733221F8174A0026EEE6 /* LayoutAnchorable.swift in Sources */,
 				E49484C122161D7900A7EABB /* View+RelativeLayoutPadding.swift in Sources */,
@@ -2688,6 +2695,7 @@
 				E423930022384028003A5624 /* XYAxesAnchorPair+CoefficientsEquatable.generated.swift in Sources */,
 				E4A436A4220CA21600F37C17 /* View+ContentSizePriorityAnchors.swift in Sources */,
 				E4DDED7D220B6802001922FE /* Utils.swift in Sources */,
+				E4207691226EA748007B74D4 /* View+RemoveLayoutMarginInset.swift in Sources */,
 				E41872D5222873EE0080FEC1 /* LayoutConstraints.swift in Sources */,
 				E423927622384028003A5624 /* OperatorDefinitions.generated.swift in Sources */,
 				E42392A922384028003A5624 /* XYAxesAnchorPair+PriorityOperators.generated.swift in Sources */,
