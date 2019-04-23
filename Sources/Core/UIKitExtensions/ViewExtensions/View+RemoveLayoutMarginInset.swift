@@ -9,10 +9,10 @@
 import UIKit
 
 public extension View {
-    func removeLayoutMarginsInset(includingSafeAreaInset: Bool = false) {
+    func removeLayoutMarginsInset(removingSafeAreaInset: Bool = false) {
         layoutMarginsInset = .zero
         if #available(iOS 11.0, *) {
-            if includingSafeAreaInset { insetsLayoutMarginsFromSafeArea = false }
+            if removingSafeAreaInset { insetsLayoutMarginsFromSafeArea = false }
         }
     }
 
@@ -71,8 +71,8 @@ extension UIView {
 }
 
 public extension ViewController {
-    func removeLayoutMarginsInset(includingSafeAreaInset: Bool = false, respectSystemMinimum: Bool = false ) {
-        view.removeLayoutMarginsInset(includingSafeAreaInset: includingSafeAreaInset)
+    func removeLayoutMarginsInset(removingSafeAreaInset: Bool = false, respectSystemMinimum: Bool = false ) {
+        view.removeLayoutMarginsInset(removingSafeAreaInset: removingSafeAreaInset)
         guard #available(iOS 11.0, *), !respectSystemMinimum  else {
             return
         }
