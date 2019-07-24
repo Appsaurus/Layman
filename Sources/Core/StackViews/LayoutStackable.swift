@@ -73,6 +73,13 @@ extension StackView {
 
     @discardableResult
     public func stack(_ items: [LayoutStackable]) -> StackView {
+        var items = items
+
+        //Edge case where array of UIView's would be nested in another stack unexpectedly
+        if items.count == 1, let array = items.first as? [LayoutStackable] {
+            items = array
+        }
+        
         for item in items {
             switch item {
             case let stackableArray as [LayoutStackable]:
