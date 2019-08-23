@@ -99,6 +99,10 @@ public class StackLayout {
         return StackLayout.on(.horizontal).distribute(.equalSpacing).align(.center)
     }
 
+    static public var equalSpacingHorizontalFill: StackLayout {
+        return StackLayout.on(.horizontal).distribute(.equalSpacing).align(.fill)
+    }
+
     //Vertical
     static public var fillVertical: StackLayout {
         return StackLayout.on(.vertical).distribute(.fill).align(.fill)
@@ -113,6 +117,10 @@ public class StackLayout {
 
     static public var equalSpacingVertical: StackLayout {
         return StackLayout.on(.vertical).distribute(.equalSpacing).align(.leading)
+    }
+
+    static public var equalSpacingVerticalFill: StackLayout {
+        return StackLayout.on(.vertical).distribute(.equalSpacing).align(.fill)
     }
 
     static public var fillVerticalCenter: StackLayout {

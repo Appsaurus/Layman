@@ -185,7 +185,10 @@ extension View {
         forceAutolayoutPass()
         let height = systemLayoutSizeFitting(View.layoutFittingExpandedSize).height
         removeConstraint(widthConstraint)
-        frame = LayoutFrame(x: 0, y: 0, width: width, height: height)
+        let newFrame = LayoutFrame(x: 0, y: 0, width: width, height: height)
+        if frame != newFrame {
+            frame = LayoutFrame(x: 0, y: 0, width: width, height: height)
+        }
         translatesAutoresizingMaskIntoConstraints = true
     }
 
