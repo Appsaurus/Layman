@@ -67,17 +67,17 @@ extension SideConstraints: LayoutStackableBacked {
 extension View {
 
     @discardableResult
-    public func stack(_ axis: Constraint.Axis? = nil, _ items: LayoutStackable...) -> StackView {
-        return stack(axis, items)
+    public func stack(on axis: Constraint.Axis? = nil, _ items: LayoutStackable...) -> StackView {
+        return stack(on: axis, items)
     }
 
     @discardableResult
-    public func stack(_ axis: Constraint.Axis? = nil, _ items: [LayoutStackable]) -> StackView {
+    public func stack(on axis: Constraint.Axis? = nil, _ items: [LayoutStackable]) -> StackView {
 
         guard let stackView = self as? StackView else {
             let stackView = StackView()
             addSubview(stackView)
-            stackView.stack(axis, items)
+            stackView.stack(on: axis, items)
             stackView.pinToSuperviewMargins()
             return stackView
         }
@@ -92,13 +92,13 @@ extension View {
         if items.count == 1, let array = items.first as? [LayoutStackable] {
             items = array
         }
-        
+
         for item in items {
             switch item {
             case let stackableArray as [LayoutStackable]:
                 let nestedAxis: Constraint.Axis = stackView.axis == .vertical ? .horizontal : .vertical
                 let nestedStackView = StackView()
-                nestedStackView.stack(nestedAxis, stackableArray)
+                nestedStackView.stack(on: nestedAxis, stackableArray)
                 nestedStackView.enforceContentSize()
                 stackView.addArrangedSubview(nestedStackView)
             case let constant as LayoutConstantConvertible:
@@ -122,7 +122,7 @@ extension Array {
         let stackView = StackView()
         if let layout = layout { stackView.layout = layout }
         guard let items = self as? [LayoutStackable] else { return stackView }
-        stackView.stack(nil, items)
+        stackView.stack(items)
         return stackView
     }
 
