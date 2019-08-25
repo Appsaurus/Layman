@@ -64,15 +64,28 @@ extension SideConstraints: LayoutStackableBacked {
     }
 }
 
-extension StackView {
+extension View {
 
     @discardableResult
-    public func stack(_ items: LayoutStackable...) -> StackView {
-        return stack(items)
+    public func stack(_ axis: Constraint.Axis? = nil, _ items: LayoutStackable...) -> StackView {
+        return stack(axis, items)
     }
 
     @discardableResult
-    public func stack(_ items: [LayoutStackable]) -> StackView {
+    public func stack(_ axis: Constraint.Axis? = nil, _ items: [LayoutStackable]) -> StackView {
+
+        guard let stackView = self as? StackView else {
+            let stackView = StackView()
+            addSubview(stackView)
+            stackView.stack(axis, items)
+            stackView.pinToSuperviewMargins()
+            return stackView
+        }
+
+        if let axis = axis {
+            stackView.axis = axis
+        }
+
         var items = items
 
         //Edge case where array of UIView's would be nested in another stack unexpectedly
@@ -83,20 +96,22 @@ extension StackView {
         for item in items {
             switch item {
             case let stackableArray as [LayoutStackable]:
-                let nestedStackView = stackableArray.stack(self.layout.on(axis == .vertical ? .horizontal : .vertical))
+                let nestedAxis: Constraint.Axis = stackView.axis == .vertical ? .horizontal : .vertical
+                let nestedStackView = StackView()
+                nestedStackView.stack(nestedAxis, stackableArray)
                 nestedStackView.enforceContentSize()
-                addArrangedSubview(nestedStackView)
+                stackView.addArrangedSubview(nestedStackView)
             case let constant as LayoutConstantConvertible:
-                guard #available(iOS 11.0, *), let lastView = arrangedSubviews.last else { continue }
-                setCustomSpacing(constant.layoutConstant, after: lastView)
+                guard #available(iOS 11.0, *), let lastView = stackView.arrangedSubviews.last else { continue }
+                stackView.setCustomSpacing(constant.layoutConstant, after: lastView)
             case let viewProvider as LayoutStackableBacked:
-                addArrangedSubview(viewProvider.view)
+                stackView.addArrangedSubview(viewProvider.view)
             case let view as View:
-                addArrangedSubview(view)
+                stackView.addArrangedSubview(view)
             default: break
             }
         }
-        return self
+        return stackView
     }
 
 }
@@ -107,7 +122,7 @@ extension Array {
         let stackView = StackView()
         if let layout = layout { stackView.layout = layout }
         guard let items = self as? [LayoutStackable] else { return stackView }
-        stackView.stack(items)
+        stackView.stack(nil, items)
         return stackView
     }
 
