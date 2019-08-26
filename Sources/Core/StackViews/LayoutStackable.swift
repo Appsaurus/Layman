@@ -130,12 +130,12 @@ extension Array {
 
 extension Array {
     @discardableResult
-    public func stack(_ direction: LayoutDirection) -> ConstraintHeirarchy {
-        var spacing: LayoutConstant = 0
+    public func stack(_ direction: LayoutDirection, spacing: LayoutConstant = 0) -> ConstraintHeirarchy {
         var previousView: View?
         var currentView: View?
         var constraints: ConstraintHeirarchy = [:]
         for item in self {
+            var spacing = spacing
             switch item {
             case let constant as LayoutConstantConvertible:
                 spacing = constant.layoutConstant
@@ -166,13 +166,16 @@ extension Array {
     }
 
     @discardableResult
-    public func stack(_ direction: LayoutDirection, in anchorable: LayoutAnchorable, inset: LayoutPadding = .init(0)) -> ConstraintHeirarchy {
+    public func stack(_ direction: LayoutDirection,
+                      spacing: LayoutConstant = 0,
+                      in anchorable: LayoutAnchorable,
+                      inset: LayoutPadding = .init(0)) -> ConstraintHeirarchy {
         guard let view = anchorable.backingView,
             let first = first(where: { return $0 is View }) as? View,
             let last = last(where: { return $0 is View }) as? View else {
                 return [:]
         }
-        var constraints = stack(direction)
+        var constraints = stack(direction, spacing: spacing)
         let subviews: [View] = self.compactMap { $0 as? View }
         subviews.forEach { if $0.superview !== view { view.addSubview(view) }}
         switch direction {
