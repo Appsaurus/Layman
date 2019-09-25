@@ -8,33 +8,35 @@
 
 extension View {
 
-    public func matchContentSize(of view: View, padding: LayoutPadding = .zero, usingMargins: Bool = true) {
-        matchContentHeight(of: view, padding: padding.vertical)
-        matchContentWidth(of: view, padding: padding.horizontal)
+    public func matchContentSize(of view: View, padding: LayoutPadding = .zero, usingMargins: Bool = false) {
+        matchContentHeight(of: view, padding: padding.vertical, usingMargins: usingMargins)
+        matchContentWidth(of: view, padding: padding.horizontal, usingMargins: usingMargins)
     }
 
-    public func matchContentWidth(of view: View, padding: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = true) {
+    public func matchContentWidth(of view: View, padding: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = false) {
         view.widthAnchor.greaterThanOrEqual(to: 0.0)
-        view.horizontalEdges.equal(to: horizontalEdges.inset(padding))
+        var edgesToConstrain = usingMargins ? margins.horizontalEdges : horizontalEdges
+        view.horizontalEdges.equal(to: edgesToConstrain.inset(padding))
         view.enforceContentSize()
     }
 
-    public func matchContentHeight(of view: View, padding: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = true) {
+    public func matchContentHeight(of view: View, padding: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = false) {
         view.heightAnchor.greaterThanOrEqual(to: 0.0)
-        view.verticalEdges.equal(to: verticalEdges.inset(padding))
+        var edgesToConstrain = usingMargins ? margins.verticalEdges : verticalEdges
+        view.verticalEdges.equal(to: edgesToConstrain.inset(padding))
         view.enforceContentSize()
     }
 
-    public func forceSuperviewToMatchContentSize(insetBy insets: LayoutPadding = .zero, usingMargins: Bool = true) {
-        assertSuperview.matchContentSize(of: self, padding: insets)
+    public func forceSuperviewToMatchContentSize(insetBy insets: LayoutPadding = .zero, usingMargins: Bool = false) {
+        assertSuperview.matchContentSize(of: self, padding: insets, usingMargins: usingMargins)
     }
 
-    public func forceSuperviewToMatchContentWidth(insetBy insets: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = true) {
-        assertSuperview.matchContentWidth(of: self, padding: insets)
+    public func forceSuperviewToMatchContentWidth(insetBy insets: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = false) {
+        assertSuperview.matchContentWidth(of: self, padding: insets, usingMargins: usingMargins)
     }
 
-    public func forceSuperviewToMatchContentHeight(insetBy insets: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = true) {
-        assertSuperview.matchContentHeight(of: self, padding: insets)
+    public func forceSuperviewToMatchContentHeight(insetBy insets: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = false) {
+        assertSuperview.matchContentHeight(of: self, padding: insets, usingMargins: usingMargins)
     }
 }
 
@@ -47,7 +49,7 @@ extension View {
     public func autoExpandHeightToFit(views: [View],
                                       padding: LayoutConstantTuple = (0, 0),
                                       expandingAttribute: ExpandingHeightAttribute = .bottom,
-                                      relativeToMargins: Bool = true) {
+                                      relativeToMargins: Bool = false) {
         let anchorable: XYAxisAnchorable = relativeToMargins ? margins : self
         switch expandingAttribute {
         case .top:
