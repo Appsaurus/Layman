@@ -192,8 +192,8 @@ extension View {
         translatesAutoresizingMaskIntoConstraints = true
     }
 
-    public class func parentViewFittingContent(of view: View, insetBy insets: LayoutPadding = LayoutPadding(20)) -> UIView {
-        let layoutView: View = View()
+    public class func parentViewFittingContent<Parent: UIView>(of view: View, insetBy insets: LayoutPadding = LayoutPadding(20)) -> Parent {
+        let layoutView: Parent = .init()
         layoutView.addSubview(view)
         view.forceSuperviewToMatchContentSize(insetBy: insets)
         return layoutView
