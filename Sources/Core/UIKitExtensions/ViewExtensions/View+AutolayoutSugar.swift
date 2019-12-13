@@ -26,57 +26,79 @@ public extension View {
     }
     @discardableResult
     func enforceContentSize(_ priority: LayoutPriority = .required,
-                            forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
-        hugContent(priority, forAxes: axes)
-        resistCompression(priority, forAxes: axes)
+                            forAxes axes: [Constraint.Axis] = [.vertical, .horizontal],
+                            recursively: Bool = false) -> View {
+        hugContent(priority, forAxes: axes, recursively: recursively)
+        resistCompression(priority, forAxes: axes, recursively: recursively)
         return self
     }
 
     @discardableResult
     func hugContent(_ priority: LayoutPriority = .required,
-                    forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
+                    forAxes axes: [Constraint.Axis] = [.vertical, .horizontal],
+                    recursively: Bool = false) -> View {
         axes.forEach { (axis) in
             setContentHuggingPriority(priority, for: axis)
+        }
+
+        if recursively {
+            subviews.hugContent(priority,
+                                forAxes: axes,
+                                recursively: recursively)
         }
         return self
     }
     @discardableResult
     func resistCompression(_ priority: LayoutPriority = .required,
-                           forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> View {
+                           forAxes axes: [Constraint.Axis] = [.vertical, .horizontal],
+                           recursively: Bool = false) -> View {
         axes.forEach { (axis) in
             setContentCompressionResistancePriority(priority, for: axis)
         }
+
+        if recursively {
+            subviews.resistCompression(priority,
+                                       forAxes: axes,
+                                       recursively: recursively)
+        }
+
         return self
     }
 
     func forceAutolayoutPass() {
-        setNeedsLayout()
-        layoutIfNeeded()
+//        DispatchQueue.main.async {
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+//        }
     }
 }
 
 extension Collection where Element: View {
     @discardableResult
     public func enforceContentSize(_ priority: LayoutPriority = .required,
-                                   forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> Self {
-        hugContent(priority, forAxes: axes)
-        resistCompression(priority, forAxes: axes)
+                                   forAxes axes: [Constraint.Axis] = [.vertical, .horizontal],
+                                   recursively: Bool = false) -> Self {
+        hugContent(priority, forAxes: axes, recursively: recursively)
+        resistCompression(priority, forAxes: axes, recursively: recursively)
         return self
     }
 
     @discardableResult
-    public func hugContent(_ priority: LayoutPriority = .required, forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> Self {
+    public func hugContent(_ priority: LayoutPriority = .required,
+                           forAxes axes: [Constraint.Axis] = [.vertical, .horizontal],
+                           recursively: Bool = false) -> Self {
         forEach {
-            $0.hugContent(priority, forAxes: axes)
+            $0.hugContent(priority, forAxes: axes, recursively: recursively)
         }
         return self
     }
     
     @discardableResult
     public func resistCompression(_ priority: LayoutPriority = .required,
-                                  forAxes axes: [Constraint.Axis] = [.vertical, .horizontal]) -> Self {
+                                  forAxes axes: [Constraint.Axis] = [.vertical, .horizontal],
+                                  recursively: Bool = false) -> Self {
         forEach {
-            $0.resistCompression(priority, forAxes: axes)
+            $0.resistCompression(priority, forAxes: axes, recursively: recursively)
         }
         return self
     }
