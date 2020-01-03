@@ -519,6 +519,15 @@
 		E4980C91221E5926001EECEE /* StackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4980C8F221E5926001EECEE /* StackViewTests.swift */; };
 		E4980C92221E5926001EECEE /* StackViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4980C8F221E5926001EECEE /* StackViewTests.swift */; };
 		E4980E1322205CF9001EECEE /* ContentSizeRelations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4980E1222205CF9001EECEE /* ContentSizeRelations.swift */; };
+		E49C4EBF23BFBA5A002A87A9 /* StackViewSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EBE23BFBA5A002A87A9 /* StackViewSpacer.swift */; };
+		E49C4EC023BFBA5A002A87A9 /* StackViewSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EBE23BFBA5A002A87A9 /* StackViewSpacer.swift */; };
+		E49C4EC123BFBA5A002A87A9 /* StackViewSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EBE23BFBA5A002A87A9 /* StackViewSpacer.swift */; };
+		E49C4EC323BFBAA8002A87A9 /* StackViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EC223BFBAA8002A87A9 /* StackViewConfiguration.swift */; };
+		E49C4EC423BFBAA8002A87A9 /* StackViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EC223BFBAA8002A87A9 /* StackViewConfiguration.swift */; };
+		E49C4EC523BFBAA8002A87A9 /* StackViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EC223BFBAA8002A87A9 /* StackViewConfiguration.swift */; };
+		E49C4EC723BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EC623BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift */; };
+		E49C4EC823BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EC623BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift */; };
+		E49C4EC923BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49C4EC623BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift */; };
 		E4A43061220B8D7700F37C17 /* LayoutDebugLabelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A43060220B8D7700F37C17 /* LayoutDebugLabelable.swift */; };
 		E4A43062220B8D7700F37C17 /* LayoutDebugLabelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A43060220B8D7700F37C17 /* LayoutDebugLabelable.swift */; };
 		E4A43063220B8D7700F37C17 /* LayoutDebugLabelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A43060220B8D7700F37C17 /* LayoutDebugLabelable.swift */; };
@@ -841,6 +850,9 @@
 		E494895B221B471400A7EABB /* LayoutAnchorPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAnchorPair.swift; sourceTree = "<group>"; };
 		E4980C8F221E5926001EECEE /* StackViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewTests.swift; sourceTree = "<group>"; };
 		E4980E1222205CF9001EECEE /* ContentSizeRelations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizeRelations.swift; sourceTree = "<group>"; };
+		E49C4EBE23BFBA5A002A87A9 /* StackViewSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewSpacer.swift; sourceTree = "<group>"; };
+		E49C4EC223BFBAA8002A87A9 /* StackViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewConfiguration.swift; sourceTree = "<group>"; };
+		E49C4EC623BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StackView+ArrangedSubviewsSugar.swift"; sourceTree = "<group>"; };
 		E4A43060220B8D7700F37C17 /* LayoutDebugLabelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDebugLabelable.swift; sourceTree = "<group>"; };
 		E4A43065220B943D00F37C17 /* LayoutConstantWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstantWrapper.swift; sourceTree = "<group>"; };
 		E4A4306B220B972C00F37C17 /* LayoutPriority+ExpressibleByIntegerLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutPriority+ExpressibleByIntegerLiteral.swift"; sourceTree = "<group>"; };
@@ -1571,6 +1583,9 @@
 			children = (
 				E4A436AC220DEF4300F37C17 /* LayoutStackable.swift */,
 				E4947B952211FC1900A7EABB /* StackViewLayout.swift */,
+				E49C4EBE23BFBA5A002A87A9 /* StackViewSpacer.swift */,
+				E49C4EC223BFBAA8002A87A9 /* StackViewConfiguration.swift */,
+				E49C4EC623BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift */,
 			);
 			path = StackViews;
 			sourceTree = "<group>";
@@ -2348,6 +2363,7 @@
 				E423928622384028003A5624 /* View+ConstantArithmeticOperators.generated.swift in Sources */,
 				E423925322384028003A5624 /* EdgeAnchorsGroupCoefficientsEquatable.generated.swift in Sources */,
 				E44E739721F8174A0026EEE6 /* EdgeAnchorGroupExpression.swift in Sources */,
+				E49C4EC523BFBAA8002A87A9 /* StackViewConfiguration.swift in Sources */,
 				E423929E22384028003A5624 /* XAxisAnchorPair+ConstantArithmeticOperators.generated.swift in Sources */,
 				E423925922384028003A5624 /* CoefficientEquatable.generated.swift in Sources */,
 				E44E737F21F8174A0026EEE6 /* LayoutPriorityOperator.swift in Sources */,
@@ -2358,11 +2374,13 @@
 				E423922F22384028003A5624 /* YAxisAnchor+ViewRelatable.generated.swift in Sources */,
 				E42392C222384028003A5624 /* YAxisAnchor+RelationOperators.generated.swift in Sources */,
 				E44E732821F8174A0026EEE6 /* LayoutCoefficientPair.swift in Sources */,
+				E49C4EC123BFBA5A002A87A9 /* StackViewSpacer.swift in Sources */,
 				E4DA5C6121EF099900A25746 /* SideCorrelated.swift in Sources */,
 				E42392B022384028003A5624 /* XAxisAnchorPair+PriorityOperators.generated.swift in Sources */,
 				E42392E922384028003A5624 /* XAxisAnchor+PriorityOperators.generated.swift in Sources */,
 				E423924D22384028003A5624 /* LayoutDimension+LayoutVariable.generated.swift in Sources */,
 				E423923522384028003A5624 /* XAxisAnchor+ViewRelatable.generated.swift in Sources */,
+				E49C4EC923BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift in Sources */,
 				E4948956221B40BA00A7EABB /* CoefficientsReferencing.swift in Sources */,
 				E44E73CC21F906C40026EEE6 /* LayoutAnchorPair+LayoutVariable.swift in Sources */,
 				E42392F822384028003A5624 /* View+CoefficientsEquatable.generated.swift in Sources */,
@@ -2482,6 +2500,7 @@
 				E423928422384028003A5624 /* View+ConstantArithmeticOperators.generated.swift in Sources */,
 				E4DDED74220B66FA001922FE /* ConstraintAttribute+Categories.swift in Sources */,
 				E41005C42234AECD0090FDC0 /* GroupedConstraintReferences.swift in Sources */,
+				E49C4EBF23BFBA5A002A87A9 /* StackViewSpacer.swift in Sources */,
 				E49480352214BE8600A7EABB /* LayoutRelation.swift in Sources */,
 				E42392E722384028003A5624 /* XAxisAnchor+PriorityOperators.generated.swift in Sources */,
 				E49484B92216190600A7EABB /* RelativeLayoutConstantTuple.swift in Sources */,
@@ -2584,11 +2603,13 @@
 				E423930222384028003A5624 /* XAxisAnchorPair+CoefficientEquatable.generated.swift in Sources */,
 				E42392B422384028003A5624 /* InferredAspectRatioOperators.generated.swift in Sources */,
 				E423925122384028003A5624 /* EdgeAnchorsGroupCoefficientsEquatable.generated.swift in Sources */,
+				E49C4EC723BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift in Sources */,
 				E42392BD22384028003A5624 /* XYAxesAnchorPair+RelationOperators.generated.swift in Sources */,
 				E42392CF22384028003A5624 /* YAxisAnchor+ArrayPriorityOperators.generated.swift in Sources */,
 				E4100282222F657D0090FDC0 /* EdgeAnchorsGroupCoefficentsEquatable.swift in Sources */,
 				E423923C22384028003A5624 /* LayoutDimension+ViewRelatable.generated.swift in Sources */,
 				E44E738F21F8174A0026EEE6 /* LayoutAnchorExpression.swift in Sources */,
+				E49C4EC323BFBAA8002A87A9 /* StackViewConfiguration.swift in Sources */,
 				E423923622384028003A5624 /* YAxisAnchorPair+ViewRelatable.generated.swift in Sources */,
 				E42392A822384028003A5624 /* XYAxesAnchorPair+PriorityOperators.generated.swift in Sources */,
 				E44E73D121F90AB70026EEE6 /* Array+LayoutVariable.swift in Sources */,
@@ -2755,6 +2776,7 @@
 				E423928522384028003A5624 /* View+ConstantArithmeticOperators.generated.swift in Sources */,
 				E423925222384028003A5624 /* EdgeAnchorsGroupCoefficientsEquatable.generated.swift in Sources */,
 				E4A4306D220B972C00F37C17 /* LayoutPriority+ExpressibleByIntegerLiteral.swift in Sources */,
+				E49C4EC423BFBAA8002A87A9 /* StackViewConfiguration.swift in Sources */,
 				E423929D22384028003A5624 /* XAxisAnchorPair+ConstantArithmeticOperators.generated.swift in Sources */,
 				E423925822384028003A5624 /* CoefficientEquatable.generated.swift in Sources */,
 				E4A43067220B943D00F37C17 /* LayoutConstantWrapper.swift in Sources */,
@@ -2765,11 +2787,13 @@
 				E423922E22384028003A5624 /* YAxisAnchor+ViewRelatable.generated.swift in Sources */,
 				E42392C122384028003A5624 /* YAxisAnchor+RelationOperators.generated.swift in Sources */,
 				E44E73CB21F906C40026EEE6 /* LayoutAnchorPair+LayoutVariable.swift in Sources */,
+				E49C4EC023BFBA5A002A87A9 /* StackViewSpacer.swift in Sources */,
 				E44E738421F8174A0026EEE6 /* LeftHandExpression.swift in Sources */,
 				E42392AF22384028003A5624 /* XAxisAnchorPair+PriorityOperators.generated.swift in Sources */,
 				E42392E822384028003A5624 /* XAxisAnchor+PriorityOperators.generated.swift in Sources */,
 				E423924C22384028003A5624 /* LayoutDimension+LayoutVariable.generated.swift in Sources */,
 				E423923422384028003A5624 /* XAxisAnchor+ViewRelatable.generated.swift in Sources */,
+				E49C4EC823BFBAD9002A87A9 /* StackView+ArrangedSubviewsSugar.swift in Sources */,
 				E4948955221B40BA00A7EABB /* CoefficientsReferencing.swift in Sources */,
 				E44E73A821F8174A0026EEE6 /* LayoutTypealiases.swift in Sources */,
 				E42392F722384028003A5624 /* View+CoefficientsEquatable.generated.swift in Sources */,

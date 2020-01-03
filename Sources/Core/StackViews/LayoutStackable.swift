@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 public protocol LayoutStackable {}
 
 extension View: LayoutStackable {}
@@ -82,6 +84,7 @@ extension View {
             return stackView
         }
 
+        stackView.clearArrangedSubviews(removeFromSuperView: true)
         if let axis = axis {
             stackView.axis = axis
         }
@@ -108,6 +111,8 @@ extension View {
                 stackView.addArrangedSubview(viewProvider.view)
             case let view as View:
                 stackView.addArrangedSubview(view)
+            case let spacer as StackView.Spacer:
+                stackView.add(spacer: spacer)
             default: break
             }
         }
@@ -143,6 +148,8 @@ extension Array {
                 currentView = viewProvider.view
             case let view as View:
                 currentView = view
+//            case let spacer as StackView.Spacer:
+//                currentView = StackView.spacerView(spacer: spacer, axis: direction == .topToBottom ? .vertical : .horizontal)
             default: break
             }
             defer {
@@ -203,6 +210,8 @@ public enum LayoutDirection {
     case leadingToTrailing
     case topToBottom
 }
+
+
 
 public enum LayoutInequalityDirection {
     case lessThanOrEqual
