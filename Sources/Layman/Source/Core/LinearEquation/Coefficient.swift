@@ -69,6 +69,7 @@ extension CoefficientModel {
     }
 
     public func set(divisor: LayoutDivisor) {
-        set(multiplier: LayoutMultiplier(multiplier?.value ?? 1.0 / divisor))
+        let multiplier = self.multiplier?.value ?? 1.0
+        set(multiplier: LayoutMultiplier(multiplier / divisor))
     }
 }
