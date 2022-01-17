@@ -6,6 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public protocol LayoutStackable {}
@@ -234,3 +235,4 @@ prefix operator ≥
 public prefix func ≥ (rhs: LayoutConstant) -> LayoutInequalityConstant {
     return LayoutInequalityConstant(constant: rhs, direction: .greaterThanOrEqual)
 }
+#endif

@@ -8,15 +8,15 @@
 import SwiftUI
 import Layman
 
-struct ContentView: View {
-    var body: some View {
+struct ContentView: SwiftUI.View {
+    var body: some SwiftUI.View {
         Text(SwiftPackageClass().text)
             .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
+    static var previews: some SwiftUI.View {
         ContentView()
     }
 }

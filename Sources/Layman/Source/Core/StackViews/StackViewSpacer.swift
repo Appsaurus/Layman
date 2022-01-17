@@ -6,6 +6,7 @@
 //  Copyright © 2020 Brian Strobach. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension StackView {
@@ -63,3 +64,4 @@ public extension StackView {
         case between(CGFloat, CGFloat)
     }
 }
+#endif

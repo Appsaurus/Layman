@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SwiftPackageName"
-               BuildableName = "SwiftPackageName"
-               BlueprintName = "SwiftPackageName"
+               BlueprintIdentifier = "Layman"
+               BuildableName = "Layman"
+               BlueprintName = "Layman"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SwiftPackageNameTests"
-               BuildableName = "SwiftPackageNameTests"
-               BlueprintName = "SwiftPackageNameTests"
+               BlueprintIdentifier = "LaymanTests"
+               BuildableName = "LaymanTests"
+               BlueprintName = "LaymanTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "SwiftPackageName"
-            BuildableName = "SwiftPackageName"
-            BlueprintName = "SwiftPackageName"
+            BlueprintIdentifier = "Layman"
+            BuildableName = "Layman"
+            BlueprintName = "Layman"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

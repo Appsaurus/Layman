@@ -6,6 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension View {
@@ -79,3 +80,4 @@ public extension ViewController {
         viewRespectsSystemMinimumLayoutMargins = false
     }
 }
+#endif

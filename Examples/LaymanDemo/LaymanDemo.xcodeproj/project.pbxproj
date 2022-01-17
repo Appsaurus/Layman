@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4038B632795231200F4FEEE /* Layman in Frameworks */ = {isa = PBXBuildFile; productRef = E4038B622795231200F4FEEE /* Layman */; };
+		E4038B652795231B00F4FEEE /* Layman in Frameworks */ = {isa = PBXBuildFile; productRef = E4038B642795231B00F4FEEE /* Layman */; };
+		E4038B682795234000F4FEEE /* Layman in Frameworks */ = {isa = PBXBuildFile; productRef = E4038B672795234000F4FEEE /* Layman */; };
+		E4038B6A2795235000F4FEEE /* Layman in Frameworks */ = {isa = PBXBuildFile; productRef = E4038B692795235000F4FEEE /* Layman */; };
 		E47ABC1D2791EFA00065ECF4 /* LaymanDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC0D2791EF9E0065ECF4 /* LaymanDemoApp.swift */; };
 		E47ABC1E2791EFA00065ECF4 /* LaymanDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC0D2791EF9E0065ECF4 /* LaymanDemoApp.swift */; };
 		E47ABC1F2791EFA00065ECF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC0E2791EF9E0065ECF4 /* ContentView.swift */; };
@@ -14,7 +18,6 @@
 		E47ABC212791EFA00065ECF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47ABC0F2791EFA00065ECF4 /* Assets.xcassets */; };
 		E47ABC222791EFA00065ECF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47ABC0F2791EFA00065ECF4 /* Assets.xcassets */; };
 		E47ABC612791F0D30065ECF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47ABC602791F0D30065ECF4 /* Assets.xcassets */; };
-		E47ABC672791F0D30065ECF4 /* LaymanDemo (WatchOS) WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E47ABC662791F0D30065ECF4 /* LaymanDemo (WatchOS) WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E47ABC6C2791F0D30065ECF4 /* LaymanDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC6B2791F0D30065ECF4 /* LaymanDemoApp.swift */; };
 		E47ABC6E2791F0D30065ECF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC6D2791F0D30065ECF4 /* ContentView.swift */; };
 		E47ABC702791F0D30065ECF4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC6F2791F0D30065ECF4 /* NotificationController.swift */; };
@@ -22,60 +25,15 @@
 		E47ABC742791F0D30065ECF4 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC732791F0D30065ECF4 /* ComplicationController.swift */; };
 		E47ABC762791F0D40065ECF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47ABC752791F0D40065ECF4 /* Assets.xcassets */; };
 		E47ABC792791F0D40065ECF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47ABC782791F0D40065ECF4 /* Preview Assets.xcassets */; };
-		E47ABC7E2791F0D40065ECF4 /* LaymanDemo (WatchOS).app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E47ABC5E2791F0D10065ECF4 /* LaymanDemo (WatchOS).app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E47ABC902791F0F10065ECF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC8F2791F0F10065ECF4 /* ContentView.swift */; };
 		E47ABC922791F0F40065ECF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47ABC912791F0F40065ECF4 /* Assets.xcassets */; };
 		E47ABC952791F0F40065ECF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47ABC942791F0F40065ECF4 /* Preview Assets.xcassets */; };
 		E47ABC9A2791F1850065ECF4 /* LaymanDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47ABC0D2791EF9E0065ECF4 /* LaymanDemoApp.swift */; };
-		E47ABC9F2791F2090065ECF4 /* Layman in Frameworks */ = {isa = PBXBuildFile; productRef = E47ABC9E2791F2090065ECF4 /* Layman */; };
-		E47ABCA12791F20E0065ECF4 /* Layman in Frameworks */ = {isa = PBXBuildFile; productRef = E47ABCA02791F20E0065ECF4 /* Layman */; };
-		E47ABCA32791F21A0065ECF4 /* Layman in Frameworks */ = {isa = PBXBuildFile; productRef = E47ABCA22791F21A0065ECF4 /* Layman */; };
-		E47ABCA52791F21E0065ECF4 /* Layman in Frameworks */ = {isa = PBXBuildFile; productRef = E47ABCA42791F21E0065ECF4 /* Layman */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E47ABC682791F0D30065ECF4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E47ABC082791EF9E0065ECF4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E47ABC652791F0D30065ECF4;
-			remoteInfo = "LaymanDemo (WatchOS) WatchKit Extension";
-		};
-		E47ABC7C2791F0D40065ECF4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E47ABC082791EF9E0065ECF4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E47ABC5D2791F0D10065ECF4;
-			remoteInfo = "LaymanDemo (WatchOS)";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E47ABC822791F0D40065ECF4 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				E47ABC672791F0D30065ECF4 /* LaymanDemo (WatchOS) WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E47ABC862791F0D40065ECF4 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				E47ABC7E2791F0D40065ECF4 /* LaymanDemo (WatchOS).app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		E4038B612795228400F4FEEE /* Layman */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Layman; path = ../..; sourceTree = "<group>"; };
+		E4038B662795232E00F4FEEE /* LaymanDemo--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LaymanDemo--macOS--Info.plist"; sourceTree = "<group>"; };
 		E47ABC0D2791EF9E0065ECF4 /* LaymanDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaymanDemoApp.swift; sourceTree = "<group>"; };
 		E47ABC0E2791EF9E0065ECF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E47ABC0F2791EFA00065ECF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,7 +56,6 @@
 		E47ABC8F2791F0F10065ECF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E47ABC912791F0F40065ECF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47ABC942791F0F40065ECF4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E4DB4D23279207AC002D7380 /* SwiftPackageTemplate */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SwiftPackageTemplate; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E47ABC9F2791F2090065ECF4 /* Layman in Frameworks */,
+				E4038B6A2795235000F4FEEE /* Layman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E47ABCA12791F20E0065ECF4 /* Layman in Frameworks */,
+				E4038B682795234000F4FEEE /* Layman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E47ABCA32791F21A0065ECF4 /* Layman in Frameworks */,
+				E4038B652795231B00F4FEEE /* Layman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E47ABCA52791F21E0065ECF4 /* Layman in Frameworks */,
+				E4038B632795231200F4FEEE /* Layman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +97,7 @@
 		E47ABC072791EF9E0065ECF4 = {
 			isa = PBXGroup;
 			children = (
+				E4038B662795232E00F4FEEE /* LaymanDemo--macOS--Info.plist */,
 				E4DB4D22279207AC002D7380 /* Packages */,
 				E47ABC0C2791EF9E0065ECF4 /* Shared */,
 				E47ABC1B2791EFA00065ECF4 /* macOS */,
@@ -241,7 +199,7 @@
 		E4DB4D22279207AC002D7380 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				E4DB4D23279207AC002D7380 /* SwiftPackageTemplate */,
+				E4038B612795228400F4FEEE /* Layman */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -256,16 +214,14 @@
 				E47ABC102791EFA00065ECF4 /* Sources */,
 				E47ABC112791EFA00065ECF4 /* Frameworks */,
 				E47ABC122791EFA00065ECF4 /* Resources */,
-				E47ABC862791F0D40065ECF4 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E47ABC7D2791F0D40065ECF4 /* PBXTargetDependency */,
 			);
 			name = "LaymanDemo (iOS)";
 			packageProductDependencies = (
-				E47ABC9E2791F2090065ECF4 /* Layman */,
+				E4038B692795235000F4FEEE /* Layman */,
 			);
 			productName = "LaymanDemo (iOS)";
 			productReference = E47ABC142791EFA00065ECF4 /* LaymanDemo.app */;
@@ -285,7 +241,7 @@
 			);
 			name = "LaymanDemo (macOS)";
 			packageProductDependencies = (
-				E47ABCA02791F20E0065ECF4 /* Layman */,
+				E4038B672795234000F4FEEE /* Layman */,
 			);
 			productName = "LaymanDemo (macOS)";
 			productReference = E47ABC1A2791EFA00065ECF4 /* LaymanDemo.app */;
@@ -296,12 +252,10 @@
 			buildConfigurationList = E47ABC832791F0D40065ECF4 /* Build configuration list for PBXNativeTarget "LaymanDemo (WatchOS)" */;
 			buildPhases = (
 				E47ABC5C2791F0D10065ECF4 /* Resources */,
-				E47ABC822791F0D40065ECF4 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E47ABC692791F0D30065ECF4 /* PBXTargetDependency */,
 			);
 			name = "LaymanDemo (WatchOS)";
 			productName = "LaymanDemo (WatchOS)";
@@ -322,7 +276,7 @@
 			);
 			name = "LaymanDemo (WatchOS) WatchKit Extension";
 			packageProductDependencies = (
-				E47ABCA22791F21A0065ECF4 /* Layman */,
+				E4038B642795231B00F4FEEE /* Layman */,
 			);
 			productName = "LaymanDemo (WatchOS) WatchKit Extension";
 			productReference = E47ABC662791F0D30065ECF4 /* LaymanDemo (WatchOS) WatchKit Extension.appex */;
@@ -342,7 +296,7 @@
 			);
 			name = "LaymanDemo (tvOS)";
 			packageProductDependencies = (
-				E47ABCA42791F21E0065ECF4 /* Layman */,
+				E4038B622795231200F4FEEE /* Layman */,
 			);
 			productName = "LaymanDemo (tvOS)";
 			productReference = E47ABC8B2791F0F10065ECF4 /* LaymanDemo (tvOS).app */;
@@ -483,19 +437,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E47ABC692791F0D30065ECF4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E47ABC652791F0D30065ECF4 /* LaymanDemo (WatchOS) WatchKit Extension */;
-			targetProxy = E47ABC682791F0D30065ECF4 /* PBXContainerItemProxy */;
-		};
-		E47ABC7D2791F0D40065ECF4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E47ABC5D2791F0D10065ECF4 /* LaymanDemo (WatchOS) */;
-			targetProxy = E47ABC7C2791F0D40065ECF4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E47ABC232791EFA00065ECF4 /* Debug */ = {
@@ -679,6 +620,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LaymanDemo--macOS--Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -705,6 +647,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "LaymanDemo--macOS--Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -784,7 +727,6 @@
 		E47ABC842791F0D40065ECF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -809,7 +751,6 @@
 		E47ABC852791F0D40065ECF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -947,19 +888,19 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E47ABC9E2791F2090065ECF4 /* Layman */ = {
+		E4038B622795231200F4FEEE /* Layman */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Layman;
 		};
-		E47ABCA02791F20E0065ECF4 /* Layman */ = {
+		E4038B642795231B00F4FEEE /* Layman */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Layman;
 		};
-		E47ABCA22791F21A0065ECF4 /* Layman */ = {
+		E4038B672795234000F4FEEE /* Layman */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Layman;
 		};
-		E47ABCA42791F21E0065ECF4 /* Layman */ = {
+		E4038B692795235000F4FEEE /* Layman */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Layman;
 		};
