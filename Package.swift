@@ -23,7 +23,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Appsaurus/SwiftTestUtils", from: "0.1.7"),
         .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting", from: "2.1.0"),
-        .package(url: "https://github.com/mattgallagher/CwlCatchException", from: "2.1.1")
+        .package(url: "https://github.com/mattgallagher/CwlCatchException", from: "2.1.1"),
+        .package(url: "https://github.com/krzysztofzablocki/Sourcery.git", from: "2.2.6")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

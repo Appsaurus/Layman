@@ -9,6 +9,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 extension YAxisAnchor: LeftHandLayoutExpression, CoefficientEquatable {
     public typealias LinearEquation = YAxisAnchorEquation
 

@@ -9,6 +9,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 extension LayoutDimension: LayoutVariable {
 
     public typealias RightHandExpression = LayoutDimensionExpression
