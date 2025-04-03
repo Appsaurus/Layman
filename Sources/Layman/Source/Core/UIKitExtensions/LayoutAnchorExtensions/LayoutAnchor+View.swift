@@ -10,15 +10,15 @@ import ObjectiveC
 import UIKit
 
 private struct AssociatedKeys {
-    static var owningObject = "LayoutAnchor_owningObject"
-    static var keyPath = "LayoutAnchor_keyPath"
+    static let owningObject = NSObject()
+    static let keyPath = NSObject()
 }
 
 extension LayoutAnchor where AnchorType == LayoutDimension {
 
     public var owningItem: LayoutAnchorable? {
         get {
-            guard let item = objc_getAssociatedObject(self, &AssociatedKeys.owningObject) as? LayoutAnchorable else {
+            guard let item = objc_getAssociatedObject(self, Unmanaged.passUnretained(AssociatedKeys.owningObject).toOpaque()) as? LayoutAnchorable else {
                 let item = constraint(equalTo: self).firstItem as? LayoutAnchorable
                 self.owningItem = item
                 return item
@@ -30,7 +30,7 @@ extension LayoutAnchor where AnchorType == LayoutDimension {
             if let newValue = newValue {
                 objc_setAssociatedObject(
                     self,
-                    &AssociatedKeys.owningObject,
+                    Unmanaged.passUnretained(AssociatedKeys.owningObject).toOpaque(),
                     newValue as LayoutAnchorable?,
                     .OBJC_ASSOCIATION_ASSIGN
                 )
@@ -40,14 +40,14 @@ extension LayoutAnchor where AnchorType == LayoutDimension {
 
     public var keyPath: KeyPath<LayoutAnchorable, LayoutDimension>? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.keyPath) as? KeyPath<LayoutAnchorable, LayoutDimension>
+            return objc_getAssociatedObject(self, Unmanaged.passUnretained(AssociatedKeys.keyPath).toOpaque()) as? KeyPath<LayoutAnchorable, LayoutDimension>
         }
 
         set {
             if let newValue = newValue {
                 objc_setAssociatedObject(
                     self,
-                    &AssociatedKeys.keyPath,
+                    Unmanaged.passUnretained(AssociatedKeys.keyPath).toOpaque(),
                     newValue as KeyPath<LayoutAnchorable, LayoutDimension>?,
                     .OBJC_ASSOCIATION_RETAIN_NONATOMIC
                 )
@@ -90,7 +90,7 @@ extension LayoutAnchor where AnchorType == XAxisAnchor {
 
     public var owningItem: LayoutAnchorable? {
         get {
-            guard let item = objc_getAssociatedObject(self, &AssociatedKeys.owningObject) as? LayoutAnchorable else {
+            guard let item = objc_getAssociatedObject(self, Unmanaged.passUnretained(AssociatedKeys.owningObject).toOpaque()) as? LayoutAnchorable else {
                 let item = constraint(equalTo: self).firstItem as? LayoutAnchorable
                 self.owningItem = item
                 return item
@@ -102,7 +102,7 @@ extension LayoutAnchor where AnchorType == XAxisAnchor {
             if let newValue = newValue {
                 objc_setAssociatedObject(
                     self,
-                    &AssociatedKeys.owningObject,
+                    Unmanaged.passUnretained(AssociatedKeys.owningObject).toOpaque(),
                     newValue as LayoutAnchorable?,
                     .OBJC_ASSOCIATION_ASSIGN
                 )
@@ -112,14 +112,14 @@ extension LayoutAnchor where AnchorType == XAxisAnchor {
 
     public var keyPath: KeyPath<LayoutAnchorable, XAxisAnchor>? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.keyPath) as? KeyPath<LayoutAnchorable, XAxisAnchor>
+            return objc_getAssociatedObject(self, Unmanaged.passUnretained(AssociatedKeys.keyPath).toOpaque()) as? KeyPath<LayoutAnchorable, XAxisAnchor>
         }
 
         set {
             if let newValue = newValue {
                 objc_setAssociatedObject(
                     self,
-                    &AssociatedKeys.keyPath,
+                    Unmanaged.passUnretained(AssociatedKeys.keyPath).toOpaque(),
                     newValue as KeyPath<LayoutAnchorable, XAxisAnchor>?,
                     .OBJC_ASSOCIATION_RETAIN_NONATOMIC
                 )
@@ -141,7 +141,7 @@ extension LayoutAnchor where AnchorType == XAxisAnchor {
         return view?.superview
     }
 
-    public var matchingParentAnchor: XAxisAnchor? {        
+    public var matchingParentAnchor: XAxisAnchor? {
         return superview?[keyPath: ...self]
     }
 
@@ -162,7 +162,7 @@ extension LayoutAnchor where AnchorType == YAxisAnchor {
 
     public var owningItem: LayoutAnchorable? {
         get {
-            guard let item = objc_getAssociatedObject(self, &AssociatedKeys.owningObject) as? LayoutAnchorable else {
+            guard let item = objc_getAssociatedObject(self, Unmanaged.passUnretained(AssociatedKeys.owningObject).toOpaque()) as? LayoutAnchorable else {
                 let item = constraint(equalTo: self).firstItem as? LayoutAnchorable
                 self.owningItem = item
                 return item
@@ -174,7 +174,7 @@ extension LayoutAnchor where AnchorType == YAxisAnchor {
             if let newValue = newValue {
                 objc_setAssociatedObject(
                     self,
-                    &AssociatedKeys.owningObject,
+                    Unmanaged.passUnretained(AssociatedKeys.owningObject).toOpaque(),
                     newValue as LayoutAnchorable?,
                     .OBJC_ASSOCIATION_ASSIGN
                 )
@@ -184,14 +184,14 @@ extension LayoutAnchor where AnchorType == YAxisAnchor {
 
     public var keyPath: KeyPath<LayoutAnchorable, YAxisAnchor>? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.keyPath) as? KeyPath<LayoutAnchorable, YAxisAnchor>
+            return objc_getAssociatedObject(self, Unmanaged.passUnretained(AssociatedKeys.keyPath).toOpaque()) as? KeyPath<LayoutAnchorable, YAxisAnchor>
         }
 
         set {
             if let newValue = newValue {
                 objc_setAssociatedObject(
                     self,
-                    &AssociatedKeys.keyPath,
+                    Unmanaged.passUnretained(AssociatedKeys.keyPath).toOpaque(),
                     newValue as KeyPath<LayoutAnchorable, YAxisAnchor>?,
                     .OBJC_ASSOCIATION_RETAIN_NONATOMIC
                 )
@@ -239,6 +239,7 @@ extension LayoutAnchorPair {
         return superview
     }
 }
+
 extension EdgeAnchorGroup {
 
     public var views: [View] {

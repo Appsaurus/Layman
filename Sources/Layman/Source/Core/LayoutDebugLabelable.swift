@@ -28,7 +28,7 @@ public protocol LayoutDebugLabeled: AnyObject, LayoutDebugLabelable {
 }
 
 private struct AssociatedKeys {
-    static var layoutDebugInfo = "Layman_layoutDebugInfo"
+    static let layoutDebugInfo = NSObject()
 }
 
 public struct LayoutDebugInfo {
@@ -46,12 +46,12 @@ extension LayoutDebugLabeled {
 
     public var layoutDebugInfo: LayoutDebugInfo? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.layoutDebugInfo) as? LayoutDebugInfo
+            return objc_getAssociatedObject(self, Unmanaged.passUnretained(AssociatedKeys.layoutDebugInfo).toOpaque()) as? LayoutDebugInfo
         }
         set {
             objc_setAssociatedObject(
                 self,
-                &AssociatedKeys.layoutDebugInfo,
+                Unmanaged.passUnretained(AssociatedKeys.layoutDebugInfo).toOpaque(),
                 newValue,
                 .OBJC_ASSOCIATION_RETAIN_NONATOMIC
             )
@@ -61,7 +61,6 @@ extension LayoutDebugLabeled {
     public func label(_ name: String, _ file: String? = #file, _ line: UInt? = #line) {
         self.layoutDebugInfo = LayoutDebugInfo(name: name, file: file, line: line)
     }
-
 }
 
 extension View: LayoutDebugLabeled {}
