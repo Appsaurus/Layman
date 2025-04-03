@@ -7,6 +7,7 @@
 //
 
 import ObjectiveC
+import UIKit
 
 private struct AssociatedKeys {
     static var owningObject = "LayoutAnchor_owningObject"
