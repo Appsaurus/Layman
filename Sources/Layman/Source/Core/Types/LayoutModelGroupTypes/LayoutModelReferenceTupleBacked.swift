@@ -9,35 +9,19 @@
 public protocol LayoutModelReferenceTupleBacked {
     associatedtype F
     associatedtype S
-    var values: (F, S) { get set }
+    var first: F { get set }
+    var second: S { get set }
     init(_ first: F, _ second: S)
 }
 
-extension LayoutModelReferenceTupleBacked {
-    public var first: F {
-        get {
-            return values.0
-        }
-        set {
-            values.0 = newValue
-        }
-    }
-    public var second: S {
-        get {
-            return values.1
-        }
-        set {
-            values.1 = newValue
-        }
-    }
-
-}
 
 public class MixedLayoutModelReferencePair<F, S>: LayoutModelReferenceTupleBacked {
-    public var values: (F, S)
+    public var first: F
+    public var second: S
 
     public required init(_ first: F, _ second: S) {
-        self.values = (first, second)
+        self.first = first
+        self.second = second
     }
 }
 
