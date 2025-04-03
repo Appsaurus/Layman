@@ -5,6 +5,7 @@
 //  Created by Brian Strobach on 3/9/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
+import ObjectiveC
 
 extension Collection where Element: ConstraintReferencing {
     public var heirarchy: ConstraintHeirarchy {

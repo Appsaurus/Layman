@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 // MARK: LayoutAnchorPair
 
 extension CoefficientsEquatable where LinearEquation: TupleVariableLinearEquation, LinearEquation.Variable == Self {

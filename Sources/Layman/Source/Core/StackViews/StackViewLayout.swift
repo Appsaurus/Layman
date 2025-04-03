@@ -6,6 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
 public protocol StackLayoutBuilder {
     func on(_ axis: Constraint.Axis) -> Self
     func distribute(_ distribution: StackView.Distribution) -> Self

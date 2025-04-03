@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 public final class LayoutAnchorExpression<A: AnchorType> {
 
     public var variable: LayoutAnchor<A>

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 public struct LayoutConstantWrapper {
     var value: LayoutConstant
 

@@ -23,7 +23,7 @@ extension LayoutDebugLabelable {
     }
 }
 
-public protocol LayoutDebugLabeled: class, LayoutDebugLabelable {
+public protocol LayoutDebugLabeled: AnyObject, LayoutDebugLabelable {
     var layoutDebugInfo: LayoutDebugInfo? { get set }
 }
 

@@ -5,6 +5,7 @@
 //  Created by Brian Strobach on 1/23/19.
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
+import UIKit
 
 public enum LayoutAspectRatio {
     case wide // 16:9
@@ -22,8 +23,8 @@ public enum LayoutAspectRatio {
             return 4.0/3.0
         case .square:
             return 1.0
-        case .custom(let ratio):
-            return ratio.width/ratio.height
+        case .custom(let width, let height):
+            return width / height
         case .customSize(let size):
             return size.width / size.height
         case .customRatio(let ratio):

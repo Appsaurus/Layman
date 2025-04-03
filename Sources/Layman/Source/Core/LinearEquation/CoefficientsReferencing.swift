@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
-public protocol CoefficientsReferencing: class {
+public protocol CoefficientsReferencing: AnyObject {
     associatedtype Coefficients: CoefficientMutating
     var coefficients: Coefficients { get set }
     func with(coefficients: Coefficients) -> Self

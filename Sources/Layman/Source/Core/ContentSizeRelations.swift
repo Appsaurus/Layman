@@ -6,6 +6,9 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import CoreFoundation
+import UIKit
+
 extension View {
 
     public func matchContentSize(of view: View, padding: LayoutPadding = .zero, usingMargins: Bool = false) {
@@ -15,14 +18,14 @@ extension View {
 
     public func matchContentWidth(of view: View, padding: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = false) {
         view.widthAnchor.greaterThanOrEqual(to: 0.0)
-        var edgesToConstrain = usingMargins ? margins.horizontalEdges : horizontalEdges
+        let edgesToConstrain = usingMargins ? margins.horizontalEdges : horizontalEdges
         view.horizontalEdges.equal(to: edgesToConstrain.inset(padding))
         view.enforceContentSize()
     }
 
     public func matchContentHeight(of view: View, padding: (LayoutConstant, LayoutConstant) = (0, 0), usingMargins: Bool = false) {
         view.heightAnchor.greaterThanOrEqual(to: 0.0)
-        var edgesToConstrain = usingMargins ? margins.verticalEdges : verticalEdges
+        let edgesToConstrain = usingMargins ? margins.verticalEdges : verticalEdges
         view.verticalEdges.equal(to: edgesToConstrain.inset(padding))
         view.enforceContentSize()
     }

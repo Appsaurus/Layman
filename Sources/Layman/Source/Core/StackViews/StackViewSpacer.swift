@@ -56,7 +56,7 @@ public extension StackView {
         insert(spacer: spacer, axis: axis, at: index)
     }
 
-    public enum Spacer: LayoutStackable {
+    enum Spacer: LayoutStackable {
         case flexible
         case fixed(CGFloat)
         case upTo(CGFloat)

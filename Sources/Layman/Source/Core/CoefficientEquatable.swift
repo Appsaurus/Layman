@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 extension CoefficientEquatable where LinearEquation.Variable == Self {
 
     public func relation(_ relation: LayoutRelation, _ rhs: LayoutConstant) -> LinearEquation {

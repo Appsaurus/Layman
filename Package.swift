@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Layman",
     platforms: [
-        .iOS(.v9),
+        .iOS(.v12),
         .macOS(.v12),
         .tvOS(.v15),
         .watchOS(.v8),
@@ -21,9 +21,9 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(name: "SwiftTestUtils", url: "https://github.com/Appsaurus/SwiftTestUtils", from: "0.1.7"),
-        .package(name: "CwlPreconditionTesting", url: "https://github.com/mattgallagher/CwlPreconditionTesting", from: "2.1.0"),
-        .package(name: "CwlCatchException", url: "https://github.com/mattgallagher/CwlCatchException", from: "2.1.1")
+        .package(url: "https://github.com/Appsaurus/SwiftTestUtils", from: "0.1.7"),
+        .package(url: "https://github.com/mattgallagher/CwlPreconditionTesting", from: "2.1.0"),
+        .package(url: "https://github.com/mattgallagher/CwlCatchException", from: "2.1.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

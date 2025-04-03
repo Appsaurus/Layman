@@ -6,6 +6,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 // Somewhat hacky way to resolve an attribute from an NSLayoutAnchor
 
 extension LayoutAnchor where AnchorType == LayoutDimension {

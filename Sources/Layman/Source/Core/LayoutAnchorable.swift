@@ -55,7 +55,7 @@ public protocol SizeAnchorable {
     var sizeAnchors: LayoutDimensionPair { get }
 }
 
-public protocol LayoutAnchorable: class, XYAxisAnchorable, SizeAnchorable {}
+public protocol LayoutAnchorable: AnyObject, XYAxisAnchorable, SizeAnchorable {}
 
 public protocol BaselineLayoutAnchorable: LayoutAnchorable, BaselineAnchorable {}
 
