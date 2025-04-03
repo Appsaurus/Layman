@@ -8,6 +8,8 @@
 //  Copyright © 2019 Brian Strobach. All rights reserved.
 //
 
+import UIKit
+
 extension {{AnchorType}}: LeftHandLayoutExpression, CoefficientEquatable {
     public typealias LinearEquation = {{AnchorType}}Equation
 
