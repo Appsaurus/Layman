@@ -158,7 +158,7 @@ internal extension Collection where Element == ConstraintPair {
     }
 }
 
-extension ConstraintAttribute: CustomDebugStringConvertible {
+extension ConstraintAttribute: @retroactive CustomDebugStringConvertible {
 
     public var debugDescription: String {
         #if os(macOS)
