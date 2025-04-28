@@ -17,13 +17,13 @@ public class LayoutAnchorPair<FA: AnchorVariable, SA: AnchorVariable>: MixedLayo
         return LinearEquation(self, relation, rhs)
     }
 
-    public convenience init(_ first: F, _ second: S, owningItem: LayoutAnchorable? = nil, keyPath: KeyPath<LayoutAnchorable, LayoutAnchorPair<FA, SA>>) {
+    public convenience init(_ first: LayoutAnchor<FA>, _ second: LayoutAnchor<SA>, owningItem: LayoutAnchorable? = nil, keyPath: KeyPath<LayoutAnchorable, LayoutAnchorPair<FA, SA>>) {
         self.init(first, second)
         self.owningItem = owningItem
         self.keyPath = keyPath
     }
 
-    public required init(_ first: F, _ second: S) {
+    public required init(_ first: LayoutAnchor<FA>, _ second: LayoutAnchor<SA>) {
         super.init(first, second)
     }
 
